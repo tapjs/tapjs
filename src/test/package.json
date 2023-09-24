@@ -57,9 +57,9 @@
   "scripts": {
     "snap": "tap",
     "test": "tap",
-    "build": "tshy",
-    "pretest": "npm run build",
-    "presnap": "npm run build",
+    "prepare": "tshy",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
@@ -80,7 +80,22 @@
     "tap-parser": "15.1.0",
     "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1",
     "tshy": "^1.1.1",
-    "typescript": "5.2"
+    "typescript": "5.2",
+    "@tapjs/after": "1.0.4",
+    "@tapjs/after-each": "1.0.4",
+    "@tapjs/asserts": "1.0.4",
+    "@tapjs/before": "1.0.4",
+    "@tapjs/before-each": "1.0.4",
+    "@tapjs/filter": "1.1.0",
+    "@tapjs/fixture": "1.0.4",
+    "@tapjs/intercept": "1.1.1",
+    "@tapjs/mock": "1.0.5",
+    "@tapjs/node-serialize": "1.0.0",
+    "@tapjs/snapshot": "1.0.4",
+    "@tapjs/spawn": "1.0.4",
+    "@tapjs/stdin": "1.0.4",
+    "@tapjs/typescript": "1.1.0",
+    "@tapjs/worker": "1.0.4"
   },
   "license": "BlueOak-1.0.0",
   "repository": {
@@ -89,5 +104,25 @@
   },
   "engines": {
     "node": ">=16"
+  },
+  "nx": {
+    "implicitDependencies": [
+      "!@tapjs/core",
+      "!@tapjs/after",
+      "!@tapjs/after-each",
+      "!@tapjs/asserts",
+      "!@tapjs/before",
+      "!@tapjs/before-each",
+      "!@tapjs/filter",
+      "!@tapjs/fixture",
+      "!@tapjs/intercept",
+      "!@tapjs/mock",
+      "!@tapjs/node-serialize",
+      "!@tapjs/snapshot",
+      "!@tapjs/spawn",
+      "!@tapjs/stdin",
+      "!@tapjs/typescript",
+      "!@tapjs/worker"
+    ]
   }
 }

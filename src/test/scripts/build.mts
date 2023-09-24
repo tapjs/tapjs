@@ -127,12 +127,14 @@ const pluginNames = await Promise.all(
       process.exit(1)
     }
     if (!validPlugin(req)) {
+      const k = String(Object.keys(req))
+      const keys = k.length < 50 ? k : k.substring(0, 40) + '...'
       console.error(
         `'${p}' does not appear to be a tap plugin. When ` +
           `loaded with require(), must export at least one of: ` +
           'a plugin function, config object, loader module identifier, ' +
           'or importLoader module identifier. Got: ' +
-          Object.keys(req)
+          keys
       )
       process.exit(1)
     }
@@ -150,12 +152,14 @@ const pluginNames = await Promise.all(
       process.exit(1)
     }
     if (!validPlugin(imp)) {
+      const k = String(Object.keys(req))
+      const keys = k.length < 50 ? k : k.substring(0, 40) + '...'
       console.error(
         `'${p}' does not appear to be a tap plugin. When ` +
           `loaded with import(), must export at least one of: ` +
           'a plugin function, config object, loader module identifier, ' +
           'or importLoader module identifier. Got: ' +
-          Object.keys(req)
+          keys
       )
       process.exit(1)
     }
@@ -262,8 +266,11 @@ const pluginsConfig = (() => {
       if (typeof cfg.nodeArgs === 'function') {
         const cv = `${cn}_value`
         nodeArgsDefs += def
-        nodeArgsDefs += `  const ${cv} = values[${JSON.stringify(field)}]\n`
-        nodeArgsBody += `  if (${cv} !== undefined) {\n` +
+        nodeArgsDefs += `  const ${cv} = values[${JSON.stringify(
+          field
+        )}]\n`
+        nodeArgsBody +=
+          `  if (${cv} !== undefined) {\n` +
           `    argv.push(...${cn}.nodeArgs(${cv}))\n` +
           `  }\n`
       }
@@ -292,9 +299,9 @@ const pluginsConfig = (() => {
 
   code += '}\n'
 
-  const nodeArgs = !nodeArgsDefs ? '' : (
-    nodeArgsHead + nodeArgsDefs + nodeArgsBody + nodeArgsTail
-  )
+  const nodeArgs = !nodeArgsDefs
+    ? ''
+    : nodeArgsHead + nodeArgsDefs + nodeArgsBody + nodeArgsTail
   return nodeArgs + code
 })()
 

@@ -1,25 +1,47 @@
 // the arguments when running test files, abstracted from run.ts for testing
 import type { LoadedConfig } from '@tapjs/config'
-import { execArgv, importLoaders, loaderFallbacks, loaders } from '@tapjs/test'
+import {
+  execArgv,
+  importLoaders,
+  loaderFallbacks,
+  loaders,
+} from '@tapjs/test'
 import module from 'node:module'
+import { resolveImport } from 'resolve-import'
 
 // if we have Module.register(), then use --import wherever possible
 const useImport = !!(module as { register?: (...a: any) => any })
   .register
 
-const importScripts = useImport ? importLoaders : []
-const loaderScripts = useImport ? loaders : loaderFallbacks
+const testModule = String(await resolveImport('@tapjs/test'))
+
+const resolveLoaders = (loaders: string[]) =>
+  Promise.all(
+    loaders.map(async loader =>
+      String(await resolveImport(loader, testModule))
+    )
+  )
+const importScripts = await resolveLoaders(
+  useImport ? importLoaders : []
+)
+const loaderScripts = await resolveLoaders(
+  useImport ? loaders : loaderFallbacks
+)
 
 const pi = useImport
-  ? '--import=@tapjs/processinfo/import'
-  : '--loader=@tapjs/processinfo/loader'
+  ? `--import=${await resolveImport(
+      '@tapjs/processinfo/import',
+      import.meta.url
+    )}`
+  : `--loader=${await resolveImport(
+      '@tapjs/processinfo/loader',
+      import.meta.url
+    )}`
 
 const always = [
   ...importScripts.map(l => `--import=${l}`),
   ...loaderScripts.map(l => `--loader=${l}`),
-  ...(useImport && !loaderScripts.length
-    ? []
-    : ['--no-warnings']),
+  ...(useImport && !loaderScripts.length ? [] : ['--no-warnings']),
   '--enable-source-maps',
   // ensure this always comes last in the list
   pi,
