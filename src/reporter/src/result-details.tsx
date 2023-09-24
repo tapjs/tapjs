@@ -61,24 +61,23 @@ export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
         errorOrigin={errorOrigin}
       />
       <Diff diff={diff} />
-      {error && typeof error === 'string' ? (
-        <Box flexDirection="row">
-          <Text>
-            {stringify({ error })
-              .trimEnd()
-              .replace(/^error:([^\n]*\n)?/, chalk.dim('error:$1'))}
-          </Text>
-        </Box>
+      {error ? (
+        <Text>
+          {stringify({ error })
+            .trimEnd()
+            .replace(/^error:([^\n]*\n)?/, chalk.dim('error:$1'))}
+        </Text>
       ) : (
-        <Text dimColor>{stringify({ error }).trimEnd()}</Text>
+        <></>
       )}
-      {code && typeof code === 'string' ? (
-        <Box flexDirection="row" gap={1}>
-          <Text dimColor>code:</Text>
-          <Text>{stringify(code).trimEnd()}</Text>
-        </Box>
+      {code ? (
+        <Text>
+          {stringify({ code })
+            .trimEnd()
+            .replace(/^code:([^\n]*\n)?/, chalk.dim('code:$1'))}
+        </Text>
       ) : (
-        <Text dimColor>{stringify({ error }).trimEnd()}</Text>
+        <></>
       )}
       {!!Object.keys(otherDiags).length && (
         <Text dimColor>{stringify(otherDiags).trimEnd()}</Text>

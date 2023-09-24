@@ -33,8 +33,6 @@ exports[`test/result-tag.tsx > TAP > fail, with diag and details > must match sn
     [48;2;58;117;0m[38;2;242;255;229m+  "x": 2,                                                         [39m[49m
     [48;2;58;117;0m[38;2;242;255;229m+  "y": 1                                                          [39m[49m
     [48;2;51;51;51m[38;2;204;204;204m }                                                                 [39m[49m
-    [2m{}[22m
-    [2m{}[22m
 `
 
 exports[`test/result-tag.tsx > TAP > fail, with diag, no line/column numbers > must match snapshot 1`] = `

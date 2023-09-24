@@ -113,6 +113,37 @@ t.test('error without code', t => {
   t.end()
 })
 
+t.test('error that is not a string', t => {
+  const res = {
+    ok: true,
+    name: 'fake result',
+    id: 1,
+    buffered: false,
+    skip: false,
+    previous: null,
+    plan: null,
+    diag: {
+      at: {
+        mock: 'callsite',
+      },
+      stack: 'mock stack',
+      source: 'mock source',
+      diff: 'mock diff',
+      error: {
+        number: 42069,
+        msg: 'lolz',
+      },
+    },
+    time: null,
+    fullname: 'test name > fake result',
+  } as Result
+  t.matchSnapshot(
+    render(<ResultDetails result={res} />).lastFrame(),
+    'diags and details'
+  )
+  t.end()
+})
+
 t.test('diff', t => {
   const res = {
     ok: true,
