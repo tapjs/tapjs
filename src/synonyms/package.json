@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/synonyms",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "extend the @tapjs/asserts methods with various aliases",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -37,7 +37,7 @@
     "typecheck": false
   },
   "peerDependencies": {
-    "@tapjs/core": "1.1.0"
+    "@tapjs/core": "1.1.1"
   },
   "dependencies": {
     "is-actual-promise": "^1.0.0",

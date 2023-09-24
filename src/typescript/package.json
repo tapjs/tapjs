@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/typescript",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a built-in tap extension that adds typescript support",
   "type": "module",
   "exports": {
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "1.1.0"
+    "@tapjs/core": "1.1.1"
   },
   "dependencies": {
     "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1"

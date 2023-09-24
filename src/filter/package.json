@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/filter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "tap plugin providing t.only() and grep option",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -37,7 +37,7 @@
     "typecheck": false
   },
   "peerDependencies": {
-    "@tapjs/core": "1.1.0"
+    "@tapjs/core": "1.1.1"
   },
   "dependencies": {
     "tcompare": "6.1.0",
