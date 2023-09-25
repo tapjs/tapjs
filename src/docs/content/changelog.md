@@ -184,11 +184,11 @@ options are removed, along with `--lines`, `--branches`,
 generated, and less than full coverage (or no coverage) is
 considered a test failure.
 
-Options related to `nyc` is removed, as nyc is no longer
+Options related to `nyc` are removed, as nyc is no longer
 used.
 
 The options `--expose-gc`, `--harmony`, `--debug`, and
-`--debug-brk` are remoed, as they are extraneous with
+`--debug-brk` are removed, as they are extraneous with
 `--node-arg`.
 
 The `--libtap-settings` option is removed, as libtap is no longer
