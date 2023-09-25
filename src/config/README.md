@@ -6,11 +6,15 @@ files.
 
 ## Configuring Node Tap
 
-Tap will look for configuration data first in a .taprc file in
-the project root, and then in the "tap" object in the project
-package.json file. ('Project root' means the nearest folder at or
-above the current working directory containing package.json,
-.taprc, or .git.)
+If a `TAP_RCFILE` value is set in the process environment, then
+that will be the initial location that tap looks for
+configuration values.
+
+If that's not set, then tap will look for configuration data
+first in a .taprc file in the project root, and then in the "tap"
+object in the project package.json file. ('Project root' means
+the nearest folder at or above the current working directory
+containing package.json, .taprc, or .git.)
 
 The config object may set any of the following fields, as well as
 the special "extends" field, which may specify either a package

@@ -838,3 +838,62 @@ t.test('expandInclude', async t => {
     /^xyz\.@\((?:([a-z]+)\|)*[a-z]+\)$/
   )
 })
+
+t.test('load file from env.TAP_RCFILE', async t => {
+  const dir = t.testdir({
+    'config.yml': `reporter-arg:
+  - config
+  - yml
+`,
+    'package.json': JSON.stringify({
+      tap: {
+        'reporter-arg': ['package', 'json'],
+      },
+    }),
+    'config.json': JSON.stringify({
+      'reporter-arg': ['config', 'json'],
+    }),
+    cwds: {
+      git: {
+        '.git': {},
+      },
+      taprc: {
+        '.taprc': '',
+      },
+      pj: {
+        'package.json': '{}',
+      },
+    },
+  })
+
+  const cwd = process.cwd()
+  t.afterEach(() => process.chdir(cwd))
+  for (const rcfile of [
+    'config.yml',
+    'package.json',
+    'config.json',
+  ]) {
+    for (const cwd of ['git', 'taprc', 'pj']) {
+      process.chdir(dir + '/cwds/' + cwd)
+      t.test(`rcfile=${rcfile} cwd=${cwd}`, async t => {
+        const { TapConfig } = (await t.mockImport(
+          '../dist/esm/index.js',
+          {
+            '@tapjs/core': t.createMock(core, {
+              cwd: resolve(dir, 'cwds', cwd),
+              env: {
+                TAP: undefined,
+                TAP_REPORTER: undefined,
+                NO_COLOR: undefined,
+                TAP_COLOR: '1',
+                TAP_RCFILE: resolve(dir, rcfile),
+              },
+            }),
+          }
+        )) as typeof import('../dist/esm/index.js')
+        const c = await TapConfig.load()
+        t.strictSame(c.get('reporter-arg'), rcfile.split('.'))
+      })
+    }
+  }
+})

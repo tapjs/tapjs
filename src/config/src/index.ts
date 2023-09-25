@@ -376,12 +376,16 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     // start from cwd, walk up until we find a .git
     // or package.json, or env.HOME
     const home = env.HOME || cwd
+    const envRC = env.TAP_RCFILE
+    const isPJ = envRC && basename(envRC) === 'package.json'
+
     for (const p of walkUp(cwd)) {
       const entries = await readdir(p).catch(() => null)
       if (!entries) break
       if (entries.includes('.taprc')) {
         this.globCwd = p
         env.TAP_CWD = p
+        if (envRC) break
         const file = resolve(p, '.taprc')
         return this.loadConfigData(
           await this.readYAMLConfig(file),
@@ -390,6 +394,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       } else if (entries.includes('package.json')) {
         this.globCwd = p
         env.TAP_CWD = p
+        if (envRC) break
         const file = resolve(p, 'package.json')
         return this.loadConfigData(
           await this.readPackageJsonConfig(file),
@@ -400,22 +405,31 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         // get anything from it, so `tap plugin <add|rm>` knows where to
         // write the resulting config to.
         env.TAP_CWD = p
+        this.globCwd = p
+        if (envRC) break
         return Object.assign(this, {
-          globCwd: p,
           configFile: resolve(p, '.taprc'),
           valuesFromConfigFile: {},
         })
       } else if (relative(home, p) === '') {
+        env.TAP_CWD = cwd
+        this.globCwd = cwd
         // got to ~, just use cwd
         break
       }
     }
-    env.TAP_CWD = cwd
-    return Object.assign(this, {
-      globCwd: cwd,
-      configFile: resolve(cwd, '.taprc'),
-      valuesFromConfigFile: {},
-    })
+
+    return envRC
+      ? this.loadConfigData(
+          await (isPJ
+            ? this.readPackageJsonConfig(envRC)
+            : this.readYAMLConfig(envRC)),
+          envRC
+        )
+      : Object.assign(this, {
+          configFile: resolve(cwd, '.taprc'),
+          valuesFromConfigFile: {},
+        })
   }
 
   /**
