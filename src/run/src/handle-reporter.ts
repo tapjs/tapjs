@@ -49,6 +49,18 @@ export const handleReporter = async (
     return true
   }
 
+  // Check to see if it's an executable program. If so, run it
+  // and pipe the TAP data into its stdin.
+  try {
+    const exe = await which(reporter)
+    const rargs = config.get('reporter-arg') || []
+    const proc = spawn(exe, rargs, {
+      shell: true,
+      stdio: ['pipe', 'inherit', 'inherit'],
+    })
+    return pipe(t, proc.stdin)
+  } catch {}
+
   // ok, not one of those, check to see if we can import it
   // load it relative to the cwd, so relative paths work.
   const from = pathToFileURL(resolve('x'))
@@ -78,18 +90,6 @@ export const handleReporter = async (
       }
     }
   }
-
-  // TODO: see if it's an executable, waiting on updating the `which`
-  // module to typescript and hybrid exports.
-  try {
-    const exe = await which(reporter)
-    const rargs = config.get('reporter-arg') || []
-    const proc = spawn(exe, rargs, {
-      shell: true,
-      stdio: ['pipe', 'inherit', 'inherit'],
-    })
-    return pipe(t, proc.stdin)
-  } catch {}
 
   console.error(
     `Could not load ${JSON.stringify(
