@@ -181,7 +181,10 @@ export class SnapshotPlugin {
   get formatSnapshot(): SnapshotOptions['formatSnapshot'] {
     return this.#formatSnapshot
   }
-  set formatSnapshot(format: SnapshotOptions['formatSnapshot']) {
+  set formatSnapshot(
+    format: SnapshotOptions['formatSnapshot'] | undefined
+  ) {
+    format ??= defaultFormatSnapshot(this.#compareOptions)
     this.#formatSnapshot = format
     this.#t.options.formatSnapshot = format
   }
@@ -229,6 +232,7 @@ export class SnapshotPlugin {
           const fs = p.t.formatSnapshot
           if (fs) {
             this.#formatSnapshot = fs
+            break
           }
         }
       }

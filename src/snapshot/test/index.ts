@@ -6,6 +6,7 @@ import {
 } from '../dist/esm/index.js'
 
 import { Test } from '@tapjs/test'
+import { readFileSync } from 'fs'
 import { basename, resolve } from 'path'
 import { pathToFileURL } from 'url'
 
@@ -381,4 +382,32 @@ t.test('curl f', t => {
     'do not get confused by the escape'
   )
   t.end()
+})
+
+t.test('format snapshots inheriting and overriding', async t => {
+  const d = t.testdir({ snapshot: '' })
+  const tt = new Test({
+    name: 'root',
+    snapshotFile: resolve(d, 'snapshot'),
+    writeSnapshot: true,
+    formatSnapshot: (_: any) => 'root',
+  })
+  tt.test('parent test', t => {
+    t.formatSnapshot = undefined
+    t.test('child test', t => {
+      t.matchSnapshot({ a: 1 })
+      t.end()
+    })
+    t.end()
+  })
+  tt.end()
+  await tt.concat()
+  t.match(
+    readFileSync(d + '/snapshot', 'utf8'),
+    `
+Object {
+  "a": 1,
+}
+`
+  )
 })
