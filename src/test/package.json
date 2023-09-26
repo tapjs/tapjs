@@ -71,11 +71,11 @@
     "@tapjs/core": "1.1.2"
   },
   "dependencies": {
-    "glob": "^10.3.6",
-    "jackspeak": "^2.3.3",
+    "glob": "^10.3.7",
+    "jackspeak": "^2.3.4",
     "mkdirp": "^3.0.0",
     "resolve-import": "^1.4.1",
-    "rimraf": "^5.0.1",
+    "rimraf": "^5.0.4",
     "sync-content": "^1.0.1",
     "tap-parser": "15.1.0",
     "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1",
