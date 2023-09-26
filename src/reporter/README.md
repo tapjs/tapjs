@@ -7,8 +7,10 @@ The modern reincarnation of [treport](http://npm.im/treport).
 
 ## Reporters in Node-Tap
 
-The `base` and `terse` reporters are built into this module, and
-always available in node-tap.
+The following reporters are built into this module, and always
+available in node-tap.
+
+### base
 
 `--reporter=base` is the default. It provides a reasonable amount
 of information about what's going on, without too much noise. If
@@ -16,16 +18,65 @@ you run tap with `--passes`, then it'll show all the passing
 assertions, though that's often excessive, so it's off by
 default.
 
+### terse
+
 As the name suggests, the `terse` report shows much less
 information than `base`. But otherwise, they are very similar. If
 tests pass, it shows a very brief summary. When tests fail, it
 shows the same diffs, traces, and so on.
 
+### min
+
+More terse than `terse`. Shows information about failures and
+`todo` items, but no summaries, counts, etc. For successful test
+runs, this is equivalent to `silent`.
+
+### silent
+
 The `silent` report prints nothing at all to the terminal, but
 still exits with an error status code if the tests did not pass.
 
+### tap
+
 The `--reporter=tap` option will output raw the `TAP` content,
 similar to just running the test programs directly.
+
+### junit
+
+XML output format used by JUnit. The [testmoapp/junitxml
+repo](https://github.com/testmoapp/junitxml) has a good
+description of the format.
+
+### json
+
+A single JSON object, somewhat similar in shape to the XML produced by the
+`junit` reporter.
+
+`Suite` objects contain metadata about a test, and a list of
+`suites` and `cases` (ie, test point assertions). Suites can
+contain other suites.
+
+### jsonstream
+
+The same data as the `json` format, but streamed as
+newline-delimited JSON.
+
+Each line is an array with two members. The first is a string,
+one of `'start'`, `'end'`, `'pass'`, `'fail'`, `'skip'` or
+`'todo'`. The second is a data object, as follows:
+
+- `start` Initial metadata about a suite, before it has loaded
+  any sub-suites or test cases.
+- `end` Final data about a suite, with counts and summary data.
+- `pass`, `fail`, `skip`, `todo` A test point of the specified
+  type.
+
+### markdown
+
+Similar data as shown by the `jsonstream` report, but formatted in
+Markdown.
+
+## Other Reporters
 
 The `reporter` config option can also be set to:
 

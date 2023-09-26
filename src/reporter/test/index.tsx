@@ -2,6 +2,7 @@ import { LoadedConfig } from '@tapjs/config'
 import type { TAP } from '@tapjs/core'
 import * as INK from 'ink'
 import { render } from 'ink-testing-library'
+import { Minipass } from 'minipass'
 import React, { FC } from 'react'
 import t from 'tap'
 import { TapReportOpts } from '../dist/esm/index.js'
@@ -60,7 +61,7 @@ t.test('render with a custom tag', async t => {
   t.equal(registered, true)
 })
 
-t.test('render with known type', async t => {
+t.test('render with known ink report type', async t => {
   let rendered: TapReportOpts | undefined = undefined
   const Tag: FC<TapReportOpts> = (opts: TapReportOpts) => {
     rendered = opts
@@ -90,4 +91,44 @@ t.test('render with known type', async t => {
     config: mockConfig,
   })
   t.equal(registered, true)
+})
+
+t.test('render with known stream report type', async t => {
+  class JUnit {
+    pipe(dest: any) {
+      t.equal(dest, process.stdout)
+      reportPiped = true
+      return dest
+    }
+  }
+  const { report } = (await t.mockImport('../dist/esm/index.js', {
+    ink: t.createMock(INK, {
+      render,
+    }),
+    '../dist/esm/junit.js': {
+      JUnit,
+    },
+    minipass: { Minipass, isStream: () => true },
+  })) as typeof import('../dist/esm/index.js')
+  let registered = false
+  let tapPiped = false
+  let reportPiped = false
+  const mockTap = {
+    register: () => (registered = true),
+    on: () => {},
+    pipe: (dest: any) => {
+      tapPiped = true
+      t.type(dest, JUnit)
+      return dest
+    },
+  }
+  const mockConfig = {}
+  await report(
+    'junit',
+    mockTap as unknown as TAP,
+    mockConfig as unknown as LoadedConfig
+  )
+  t.equal(registered, true)
+  t.equal(tapPiped, true)
+  t.equal(reportPiped, true)
 })

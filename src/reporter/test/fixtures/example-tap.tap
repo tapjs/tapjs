@@ -1,0 +1,227 @@
+TAP version 14
+1..1
+# Subtest: test/fixtures/example-tap.ts
+    # Subtest: passing suite
+        ok 1 - test point before subtest
+        # Subtest: subtest
+            ok 1 - test point in subtest
+            ok 2 - second test point in subtest
+            1..2
+        ok 2 - subtest # time=0.822ms
+        
+        ok 3 - test point after subtest
+        1..3
+    ok 1 - passing suite # time=5.817ms
+    
+    # Subtest: failing suite
+        not ok 1 - this fails
+          ---
+          at:
+            fileName: test/fixtures/example-tap.ts
+            lineNumber: 15
+            columnNumber: 5
+            typeName: Test
+          stack: >
+            Test.<anonymous> (test/fixtures/example-tap.ts:15:5)
+          
+            Test.cb (../core/dist/esm/test-base.js:170:42) (../core/src/test-base.ts:341:17)
+          
+            ../core/dist/esm/test-base.js:858:29 (../core/src/test-base.ts:1116:21)
+          
+            Test.main (../core/dist/esm/test-base.js:867:11) (../core/src/test-base.ts:1124:7)
+          
+            Test.runMain (../core/dist/esm/base.js:392:19) (../core/src/base.ts:584:15)
+          
+            TAP.#processSubtest (../core/dist/esm/test-base.js:906:15) (../core/src/test-base.ts:1169:9)
+          
+            TAP.#process (../core/dist/esm/test-base.js:614:37) (../core/src/test-base.ts:859:29)
+          
+            TAP.sub (../core/dist/esm/test-base.js:1038:22) (../core/src/test-base.ts:1319:18)
+          
+            test/fixtures/example-tap.ts:14:3
+          source: |
+          
+            t.test('failing suite', t => {
+              t.fail('this fails')
+            ----^
+              t.strictSame(
+                {
+          ...
+        
+        not ok 2 - has a diff
+          ---
+          extra: diags
+          diff: |
+            --- expected
+            +++ actual
+            @@ -1,5 +1,5 @@
+             Object {
+            -  "b": Object {
+            -    "a": 1,
+            +  "a": Object {
+            +    "b": "1",
+               },
+             }
+          at:
+            fileName: test/fixtures/example-tap.ts
+            lineNumber: 16
+            columnNumber: 5
+            typeName: Test
+          stack: >
+            Test.<anonymous> (test/fixtures/example-tap.ts:16:5)
+          
+            Test.cb (../core/dist/esm/test-base.js:170:42) (../core/src/test-base.ts:341:17)
+          
+            ../core/dist/esm/test-base.js:858:29 (../core/src/test-base.ts:1116:21)
+          
+            Test.main (../core/dist/esm/test-base.js:867:11) (../core/src/test-base.ts:1124:7)
+          
+            Test.runMain (../core/dist/esm/base.js:392:19) (../core/src/base.ts:584:15)
+          
+            TAP.#processSubtest (../core/dist/esm/test-base.js:906:15) (../core/src/test-base.ts:1169:9)
+          
+            TAP.#process (../core/dist/esm/test-base.js:614:37) (../core/src/test-base.ts:859:29)
+          
+            TAP.sub (../core/dist/esm/test-base.js:1038:22) (../core/src/test-base.ts:1319:18)
+          
+            test/fixtures/example-tap.ts:14:3
+          source: |
+            t.test('failing suite', t => {
+              t.fail('this fails')
+              t.strictSame(
+            ----^
+                {
+                  a: {
+          ...
+        
+        1..2
+    not ok 2 - failing suite # time=11.27ms
+      ---
+      at:
+        fileName: test/fixtures/example-tap.ts
+        lineNumber: 14
+        columnNumber: 3
+        isToplevel: true
+      source: |
+        })
+      
+        t.test('failing suite', t => {
+        --^
+          t.fail('this fails')
+          t.strictSame(
+      ...
+    
+    ok 3 - suite with todo: true # TODO
+    ok 4 - suite with skip: true # SKIP
+    ok 5 - suite with todo message # TODO msg
+    ok 6 - suite with skip message # SKIP msg
+    # Subtest: suite with skipAll
+        1..0 # no tests found
+    ok 7 - suite with skipAll # SKIP no tests found
+    
+    # Subtest: suite with skipAll, no msg
+        1..0
+    ok 8 - suite with skipAll, no msg # time=0.067ms
+    
+    # Subtest: suite with no points
+        1..0
+    ok 9 - suite with no points # time=0.07ms
+    
+    # Subtest: suite with todo/skip test points
+        ok 1 - pass with todo: true # TODO
+        ok 2 - pass with skip: true # SKIP
+        ok 3 - pass with todo message # TODO msg
+        ok 4 - pass with skip message # SKIP msg
+        not ok 5 - fail with todo: true # TODO
+        not ok 6 - fail with skip: true # SKIP
+        not ok 7 - fail with todo message # TODO msg
+        not ok 8 - fail with skip message # SKIP msg
+        1..8
+    ok 10 - suite with todo/skip test points # time=0.397ms
+    
+    # Subtest: excessive test
+        1..1
+        ok 1 - this is fine
+    not ok 11 - excessive test # time=0.109ms
+      ---
+      at:
+        fileName: test/fixtures/example-tap.ts
+        lineNumber: 56
+        columnNumber: 3
+        isToplevel: true
+      source: |
+        })
+      
+        t.test('excessive test', t => {
+        --^
+          t.plan(1)
+          t.pass('this is fine')
+      ...
+    
+    not ok 12 - test assertion count exceeds plan
+      ---
+      stack: |
+        Test.<anonymous> (test/fixtures/example-tap.ts:59:5)
+        Test.cb (../core/src/test-base.ts:341:17)
+        <anonymous> (../core/src/test-base.ts:1116:21)
+        Test.main (../core/src/test-base.ts:1124:7)
+        Test.runMain (../core/src/base.ts:584:15)
+        TAP.#processSubtest (../core/src/test-base.ts:1169:9)
+      at:
+        fileName: test/fixtures/example-tap.ts
+        lineNumber: 59
+        columnNumber: 5
+        typeName: Test
+        methodName: <anonymous>
+        functionName: Test.<anonymous>
+      test: excessive test
+      source: |2
+          t.plan(1)
+          t.pass('this is fine')
+          t.pass('this is not')
+        ----^
+        })
+      ...
+    
+    # Subtest: unfinished test
+        1..3
+        ok 1 - going to fail
+        # test count(1) != plan(3)
+    not ok 13 - unfinished test # time=0.197ms
+      ---
+      at:
+        fileName: test/fixtures/example-tap.ts
+        lineNumber: 62
+        columnNumber: 3
+        isToplevel: true
+      source: |
+        })
+      
+        t.test('unfinished test', t => {
+        --^
+          t.plan(3)
+          t.pass('going to fail')
+      ...
+    
+    1..13
+not ok 1 - test/fixtures/example-tap.ts # time=484.581ms
+  ---
+  stdio: inherit
+  cwd: /cwd/src/reporter
+  externalID: test/fixtures/example-tap.ts
+  command: /usr/local/bin/node
+  args:
+    - --import=file:///cwd/node_modules/@tapjs/mock/dist/esm/import.mjs
+    - --loader=file:///cwd/node_modules/ts-node/esm.mjs
+    - --no-warnings
+    - --enable-source-maps
+    - --import=file:///cwd/node_modules/@tapjs/processinfo/dist/mjs/import.mjs
+    - /cwd/src/reporter/test/fixtures/example-tap.ts
+  context: !symbol/shared tap.isRunner
+  exitCode: 1
+  signal: null
+  ...
+
+# No coverage generated
+# { total: 25, pass: 8, fail: 4, todo: 6, skip: 7 }
+# time=507.733ms

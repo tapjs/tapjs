@@ -39,7 +39,7 @@ exports[`test/result-tag.tsx > TAP > fail, with diag, no line/column numbers > m
  [1m[31m✖[39m[22m fake result [2mtest/result-tag.tsx[22m
 `
 
-exports[`test/result-tag.tsx > TAP > pass, > must match snapshot 1`] = `
+exports[`test/result-tag.tsx > TAP > pass > must match snapshot 1`] = `
  [1m[32m✓[39m[22m fake result
 `
 

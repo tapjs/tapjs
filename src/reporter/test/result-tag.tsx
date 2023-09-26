@@ -27,7 +27,7 @@ const getRes = (opts: { [k: string]: any } = {}) =>
     opts
   ) as unknown as Result
 
-t.test('pass, ', t => {
+t.test('pass', t => {
   t.matchSnapshot(
     render(
       <ResultTag
