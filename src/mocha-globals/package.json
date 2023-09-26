@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/mocha-globals",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -37,7 +37,7 @@
     "typecheck": false
   },
   "peerDependencies": {
-    "@tapjs/core": "1.1.2"
+    "@tapjs/core": "1.2.0"
   },
   "dependencies": {
     "is-actual-promise": "^1.0.0",
