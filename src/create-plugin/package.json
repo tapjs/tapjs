@@ -4,7 +4,7 @@
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
-    "tapjs-create-plugin": "./dist/esm/bin.js"
+    "tapjs-create-plugin": "dist/esm/bin.js"
   },
   "type": "module",
   "files": [
