@@ -5,6 +5,10 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.2
+
+Add `TAP_RCFILE` environment variable handling.
+
 ## 18.1
 
 This release adds much better support for interoperating with
