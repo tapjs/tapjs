@@ -395,6 +395,8 @@ export class Base<
 
   #printedOutput: boolean = false
 
+  #writable: boolean = true
+
   constructor(options: BaseOpts = {}) {
     super({ encoding: 'utf8' })
     // always use the constructor name as toStringTag, so we get
@@ -603,6 +605,12 @@ export class Base<
   }
 
   /**
+   * Boolean indicating whether the underlying stream can be written to,
+   * or if it has been ended.
+   */
+  get streamWritable() { return this.#writable }
+
+  /**
    * The main test function. For this Base class, this is a no-op. Subclasses
    * implement this in their specific ways.
    *
@@ -635,6 +643,10 @@ export class Base<
       // need the silent output if it fails
       this.output += c
       return true
+    }
+
+    if (!this.#writable) {
+      return false
     }
 
     return super.write(c)
@@ -702,6 +714,7 @@ export class Base<
       this.errors = errors
     }
 
+    this.#writable = false
     super.end()
   }
 

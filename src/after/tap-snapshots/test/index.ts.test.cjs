@@ -42,6 +42,7 @@ ok 1 - this is fine
 # Subtest: rejected child
     1..1
     ok 1 - child is fine
+# error thrown in teardown
 not ok 2 - rejected child # time={TIME}
 
 not ok 3 - broken promise

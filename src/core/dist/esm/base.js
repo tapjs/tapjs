@@ -213,6 +213,7 @@ export class Base extends Minipass {
      */
     deferred;
     #printedOutput = false;
+    #writable = true;
     constructor(options = {}) {
         super({ encoding: 'utf8' });
         // always use the constructor name as toStringTag, so we get
@@ -408,6 +409,11 @@ export class Base extends Minipass {
         return this.#printedOutput;
     }
     /**
+     * Boolean indicating whether the underlying stream can be written to,
+     * or if it has been ended.
+     */
+    get streamWritable() { return this.#writable; }
+    /**
      * The main test function. For this Base class, this is a no-op. Subclasses
      * implement this in their specific ways.
      *
@@ -439,6 +445,9 @@ export class Base extends Minipass {
             // need the silent output if it fails
             this.output += c;
             return true;
+        }
+        if (!this.#writable) {
+            return false;
         }
         return super.write(c);
     }
@@ -497,6 +506,7 @@ export class Base extends Minipass {
         if (errors.length) {
             this.errors = errors;
         }
+        this.#writable = false;
         super.end();
     }
     /**

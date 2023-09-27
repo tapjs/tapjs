@@ -258,7 +258,30 @@ Object {
   "stdout": String(
     TAP version 14
     1..99
-    # test count(0) != plan(99)
+    not ok 1 - test count(0) != plan(99)
+      ---
+      at:
+        fileName: test/tap.ts
+        lineNumber: ##
+        columnNumber: ##
+        functionName: planUnsatisfied
+        isToplevel: true
+      source: |2
+          },
+      
+          planUnsatisfied: () => tap().plan(99),
+        -------------------------------^
+          planExceeded: () => {
+            const t = tap()
+      diff: |
+        --- expected
+        +++ actual
+        @@ -1,1 +1,1 @@
+        -99
+        +0
+      ...
+    
+    # test count(1) != plan(99)
     
   ),
 }

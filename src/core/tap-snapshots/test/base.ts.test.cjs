@@ -333,6 +333,16 @@ exports[`test/base.ts > TAP > basic instantiation > must match snapshot 4`] = `
 null
 `
 
+exports[`test/base.ts > TAP > prevent write after end > must match snapshot 1`] = `
+TAP version 14
+# Subtest: ok
+    1..0
+ok 1 - ok # time={TIME}
+
+1..1
+
+`
+
 exports[`test/base.ts > TAP > track passes in lists if passes:true in options > must match snapshot 1`] = `
 FinalResults {
   "bailout": false,

@@ -110,9 +110,9 @@ TAP version 14
     ok 1 - fast # time={TIME}
     
     1..1
+# oncomplete { world: true }
 ok 1 - child # time={TIME}
 
-# oncomplete { world: true }
 1..1
 
 `
@@ -539,6 +539,170 @@ not ok 1 - timeout!
   ---
   expired: timeout
   test: timeout
+  ...
+
+1..1
+
+`
+
+exports[`test/test-base.ts > TAP > unmet plan plus async and sync children > must match snapshot 1`] = `
+TAP version 14
+# Subtest: parent
+    1..6
+    # Subtest: asdfasdf child
+        ok 1 - this is fine
+        not ok 2 - test unfinished
+          ---
+          jobId: 1
+          test: asdfasdf child
+          ...
+        
+        1..2
+    not ok 1 - asdfasdf child # time={TIME}
+      ---
+      jobId: 1
+      ...
+    
+    # Subtest: buffered child
+        ok 1 - this is fine
+        1..1
+    ok 2 - buffered child # time={TIME}
+    
+    # Subtest: sync child
+        ok 1 - this is fine
+        1..1
+    ok 3 - sync child # time={TIME}
+    
+    not ok 4 - test count(2) != plan(6)
+      ---
+      at:
+        fileName: test/test-base.ts
+        lineNumber: ##
+        columnNumber: ##
+        typeName: Minimal
+      source: |2
+          // the root TAP object calling endAll on process exit.
+          tb.test('parent', async t => {
+            t.plan(6)
+        ------^
+            t.jobs = 2
+            // suppress the stack trace for this test
+      diff: |
+        --- expected
+        +++ actual
+        @@ -1,1 +1,1 @@
+        -6
+        +2
+      ...
+    
+    # test count(4) != plan(6)
+not ok 1 - parent # time={TIME}
+  ---
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Test
+  source: |2
+      // simulate an async action that keeps the process open, then
+      // the root TAP object calling endAll on process exit.
+      tb.test('parent', async t => {
+    -----^
+        t.plan(6)
+        t.jobs = 2
+  ...
+
+1..1
+
+`
+
+exports[`test/test-base.ts > TAP > unmet plan plus async children with delay > must match snapshot 1`] = `
+TAP version 14
+# Subtest: parent
+    1..6
+    # Subtest: unfinished child
+        1..3
+        ok 1 - this is fine
+        not ok 2 - test unfinished
+          ---
+          jobId: 1
+          test: unfinished child
+          ...
+        
+        not ok 3 - test count(1) != plan(3)
+          ---
+          at:
+            fileName: test/test-base.ts
+            lineNumber: ##
+            columnNumber: ##
+            typeName: Minimal
+          source: |2
+                // suppress the stack trace for this test
+                t.test('unfinished child', { at: null }, async t => {
+                  t.plan(3)
+            --------^
+                  t.pass('this is fine')
+                })
+          diff: |
+            --- expected
+            +++ actual
+            @@ -1,1 +1,1 @@
+            -3
+            +1
+          ...
+        
+    not ok 1 - unfinished child # time={TIME}
+      ---
+      jobId: 1
+      ...
+    
+    # Subtest: buffered child
+        ok 1 - this is fine
+        1..1
+    ok 2 - buffered child # time={TIME}
+    
+    # Subtest: sync child
+        ok 1 - this is fine
+        1..1
+    ok 3 - sync child # time={TIME}
+    
+    not ok 4 - test count(2) != plan(6)
+      ---
+      at:
+        fileName: test/test-base.ts
+        lineNumber: ##
+        columnNumber: ##
+        typeName: Minimal
+      source: |2
+          // the root TAP object calling endAll on process exit.
+          tb.test('parent', async t => {
+            t.plan(6)
+        ------^
+            t.jobs = 2
+            // suppress the stack trace for this test
+      diff: |
+        --- expected
+        +++ actual
+        @@ -1,1 +1,1 @@
+        -6
+        +2
+      ...
+    
+    # test count(4) != plan(6)
+not ok 1 - parent # time={TIME}
+  ---
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Test
+  source: |2
+      // simulate an async action that keeps the process open, then
+      // the root TAP object calling endAll on process exit.
+      tb.test('parent', async t => {
+    -----^
+        t.plan(6)
+        t.jobs = 2
   ...
 
 1..1

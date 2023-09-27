@@ -2,6 +2,7 @@ import { Minipass } from 'minipass'
 import t from 'tap'
 import { FinalResults } from 'tap-parser'
 import { Counts } from '../dist/esm/counts.js'
+import { IMPLICIT } from '../dist/esm/implicit-end-sigil.js'
 import { Minimal as T } from '../dist/esm/minimal.js'
 import { TestBase, TestBaseOpts } from '../dist/esm/test-base.js'
 
@@ -1569,4 +1570,60 @@ t.test('plan plus promise', async t => {
   tb.end()
   t.matchSnapshot(await tb.concat())
   t.ok(tb.passing())
+})
+
+t.test('unmet plan plus async and sync children', async t => {
+  const tb = new T({ name: 'root' })
+  // tb.pipe(process.stderr)
+  // simulate an async action that keeps the process open, then
+  // the root TAP object calling endAll on process exit.
+  tb.test('parent', async t => {
+    t.plan(6)
+    t.jobs = 2
+    // suppress the stack trace for this test
+    t.test('asdfasdf child', { at: null }, async t => {
+      t.pass('this is fine')
+    })
+    t.test('buffered child', { buffered: true }, t => {
+      t.pass('this is fine')
+      t.end()
+    })
+    t.test('sync child', t => {
+      t.pass('this is fine')
+      t.end()
+    })
+  })
+  tb.end(IMPLICIT)
+  if (!tb.results) tb.endAll()
+  t.matchSnapshot(await tb.concat())
+  t.equal(tb.passing(), false)
+})
+
+t.test('unmet plan plus async children with delay', async t => {
+  const tb = new T({ name: 'root' })
+  // simulate an async action that keeps the process open, then
+  // the root TAP object calling endAll on process exit.
+  tb.test('parent', async t => {
+    t.plan(6)
+    t.jobs = 2
+    // suppress the stack trace for this test
+    t.test('unfinished child', { at: null }, async t => {
+      t.plan(3)
+      t.pass('this is fine')
+    })
+    t.test('buffered child', { buffered: true }, t => {
+      t.pass('this is fine')
+      t.end()
+    })
+    t.test('sync child', t => {
+      t.pass('this is fine')
+      t.end()
+    })
+  })
+  tb.end(IMPLICIT)
+  await new Promise<void>(r => setTimeout(r))
+  if (!tb.results) tb.endAll()
+  const res = await tb.concat()
+  t.matchSnapshot(res)
+  t.equal(tb.passing(), false)
 })

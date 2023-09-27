@@ -14,7 +14,7 @@ t.cleanSnapshot = s =>
     .replace(/"duration_ms": [0-9.]+,$/gm, '"duration_ms": ##,')
 
 const { subtest: zro } = tap.test('zro', t => {
-  t.plan(1)
+  t.plan(99)
   t.end()
 })
 const { subtest: one } = tap.test('one', async t => {

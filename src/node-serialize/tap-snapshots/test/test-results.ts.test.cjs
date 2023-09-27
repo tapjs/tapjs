@@ -367,11 +367,33 @@ Object {
   "column": ##,
   "details": Object {
     "duration_ms": ##,
-    "error": Error: incorrect number of tests {
-      "cause": Error: incorrect number of tests,
+    "error": Error: test count(0) != plan(99)
+[48;2;172;62;163m[38;2;255;229;241m--- expected                                                               [39m[49m[m
+[48;2;58;117;0m[38;2;242;255;229m+++ actual                                                                 [39m[49m[m
+[48;2;34;34;34m[38;2;117;158;239m@@ -1,1 +1,1 @@                                                            [39m[49m[m
+[48;2;172;62;163m[38;2;255;229;241m-99                                                                        [39m[49m[m
+[48;2;58;117;0m[38;2;242;255;229m+0                                                                         [39m[49m[m
+| 
+| const { subtest: zro } = tap.test('zro', t => {
+|   t.plan(99)
+| ----^
+|   t.end()
+| }) {
+      "cause": Error: test count(0) != plan(99)
+[48;2;172;62;163m[38;2;255;229;241m--- expected                                                               [39m[49m[m
+[48;2;58;117;0m[38;2;242;255;229m+++ actual                                                                 [39m[49m[m
+[48;2;34;34;34m[38;2;117;158;239m@@ -1,1 +1,1 @@                                                            [39m[49m[m
+[48;2;172;62;163m[38;2;255;229;241m-99                                                                        [39m[49m[m
+[48;2;58;117;0m[38;2;242;255;229m+0                                                                         [39m[49m[m
+| 
+| const { subtest: zro } = tap.test('zro', t => {
+|   t.plan(99)
+| ----^
+|   t.end()
+| }),
       "code": "ERR_TEST_FAILURE",
       "failures": Array [
-        "incorrect number of tests",
+        "test count(0) != plan(99)",
       ],
       "failureType": "testCodeFailure",
     },

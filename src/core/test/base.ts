@@ -3,6 +3,9 @@ import t from 'tap'
 import { Base } from '../dist/esm/base.js'
 import { Minimal } from '../dist/esm/minimal.js'
 
+t.cleanSnapshot = s =>
+  s.replace(/# time=[0-9\.]+m?s/, '# time={TIME}')
+
 t.test('basic instantiation', t => {
   const b = new Base({})
   b.parser.end(`TAP version 14
@@ -376,4 +379,13 @@ t.test('silent test is silent, unless it fails', async t => {
   t.match(res, '\n# Subtest: not so silent\n    not ok 1 - ohno\n')
   t.notMatch(res, '\n# Subtest: silent\n')
   t.notMatch(res, /ok [0-9]+ - silent\n/)
+})
+
+t.test('prevent write after end', async t => {
+  const tb = new Minimal({ name: 'ender' })
+  tb.test('ok', t => t.end())
+  tb.end()
+  t.matchSnapshot(await tb.concat())
+  t.equal(tb.streamWritable, false)
+  tb.write('no op')
 })

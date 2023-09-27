@@ -77,8 +77,8 @@ export const testResults = (
 
   // just report the first failure
   const fe = resultToError(
-    t.lists.fail[0] ||
-      results.failures[0] /* c8 ignore start */ || {
+    t.lists.fail[0] /* c8 ignore start */ ||
+      results.failures[0] || {
         ok: false,
         name: 'Unknown test failure',
         diag: {},
@@ -95,7 +95,9 @@ export const testResults = (
         cause: fe,
         code: 'ERR_TEST_FAILURE',
         failureType: 'testCodeFailure',
+        /* c8 ignore start */
         failures: results.failures.map(f => f.name || f.tapError),
+        /* c8 ignore stop */
         stack: expandStack(t.options.stack).trimEnd(),
       }),
     },

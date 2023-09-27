@@ -99,7 +99,10 @@ export class TestBase extends Base {
      */
     diagnostic = null;
     #planEnd = -1;
+    #planAt;
     #printedResult = false;
+    #endingAll = false;
+    #endingAllSub = false;
     #explicitEnded = false;
     #explicitPlan = false;
     #promiseEnded = false;
@@ -204,12 +207,12 @@ export class TestBase extends Base {
         if (this.results || this.ended || this.#awaitingEnd) {
             // the fallback to console.log is a bit weird,
             // but the only alternative seems to be to just lose it.
-            if (this.parent) {
-                this.parent.comment(...args);
-            }
-            else if (this.writable && !this.#awaitingEnd) {
+            if (this.streamWritable) {
                 super.write(message);
                 this.parser.emit('comment', message.trim());
+            }
+            else if (this.parent) {
+                this.parent.comment(...args);
             }
             else {
                 console.log(message.trimEnd());
@@ -258,6 +261,9 @@ export class TestBase extends Base {
             throw new Error('Cannot set plan more than once');
         }
         this.#explicitPlan = implicit !== IMPLICIT;
+        if (this.#explicitPlan) {
+            this.#planAt = stack.at(this.plan);
+        }
         if (this.#planEnd !== -1) {
             throw new Error('Cannot set plan after test has ended');
         }
@@ -545,7 +551,9 @@ export class TestBase extends Base {
         // the semantic checks on counts and such will be off.
         if (!queueEmpty(this) || this.#occupied) {
             this.debug('#end: queue not empty, or occupied');
-            this.#awaitingEnd = implicit === IMPLICIT ? IMPLICIT : true;
+            if (!this.#awaitingEnd) {
+                this.#awaitingEnd = implicit === IMPLICIT ? IMPLICIT : true;
+            }
             return this.#process();
         }
         if (implicit !== IMPLICIT) {
@@ -564,13 +572,24 @@ export class TestBase extends Base {
             this.debug('set #explicitEnded=true');
             this.#explicitEnded = true;
         }
-        this.debug('set ended=true');
-        this.ended = true;
         if (this.#planEnd === -1 && !this.#doingStdinOnly) {
             this.debug('END(%s) implicit plan', this.name, this.count);
             const c = this.count === 0 && !this.parent ? 'no tests found' : '';
             this.plan(this.count, c, IMPLICIT);
         }
+        else if (!this.ended && this.#planEnd !== -1) {
+            const count = this.#endingAllSub ? this.count - 1 : this.count;
+            if (this.#planEnd > count) {
+                this.fail(`test count(${count}) != plan(${this.#planEnd})`, {
+                    found: count,
+                    wanted: this.#planEnd,
+                    at: this.#planAt,
+                    stack: '',
+                });
+            }
+        }
+        this.debug('set ended=true');
+        this.ended = true;
         this.queue.push(EOF);
         this.#process();
     }
@@ -760,6 +779,9 @@ export class TestBase extends Base {
             this.#planEnd === -1);
     }
     #onBufferedEnd(p) {
+        // ignore ends that come in after we've already aborted
+        if (this.ended && this.#endingAll)
+            return;
         this.#jobIds.delete(p.options.jobId || 0);
         p.results = p.results || new FinalResults(true, p.parser);
         p.readyToProcess = true;
@@ -787,6 +809,9 @@ export class TestBase extends Base {
         this.#process();
     }
     #onIndentedEnd(p) {
+        // ignore ends that come in after we've already aborted
+        if (this.ended && this.#endingAll)
+            return;
         this.debug('onIndentedEnd', p.name);
         this.emit('subtestProcess', p);
         // we'll generally already have a results by now, but just to be sure
@@ -1175,6 +1200,8 @@ export class TestBase extends Base {
     endAll(sub = false) {
         if (this.bailedOut)
             return;
+        this.#endingAll = true;
+        this.#endingAllSub = sub;
         // in the case of the root TAP test object, we might sometimes
         // call endAll on a bailing-out test, as the process is ending
         // In that case, we WILL have a this.occupied and a full queue
@@ -1184,8 +1211,11 @@ export class TestBase extends Base {
             const p = this.#occupied;
             if (p instanceof Waiter)
                 p.abort(new Error('test unfinished'));
-            else if (typeof p.endAll === 'function')
-                p.endAll(true);
+            else if (typeof p.endAll === 'function') {
+                // first try to end explicitly, then endAll if that didn't work
+                const pt = p;
+                pt.endAll(true);
+            }
             else
                 p.parser.abort('test unfinished');
             this.#occupied = null;
@@ -1210,7 +1240,9 @@ export class TestBase extends Base {
             }
         }
         this.#processing = false;
-        this.#end(IMPLICIT);
+        this.#process();
+        this.end(IMPLICIT);
+        this.#process();
     }
     /**
      * Return true if the child test represented by the options object

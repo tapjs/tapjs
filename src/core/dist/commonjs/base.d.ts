@@ -393,6 +393,11 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      */
     get printedOutput(): boolean;
     /**
+     * Boolean indicating whether the underlying stream can be written to,
+     * or if it has been ended.
+     */
+    get streamWritable(): boolean;
+    /**
      * The main test function. For this Base class, this is a no-op. Subclasses
      * implement this in their specific ways.
      *
