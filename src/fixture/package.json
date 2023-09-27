@@ -41,7 +41,7 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "mkdirp": "^3.0.0",
-    "rimraf": "^5.0.4"
+    "rimraf": "^5.0.5"
   },
   "peerDependencies": {
     "@tapjs/core": "1.2.0"

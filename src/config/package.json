@@ -41,7 +41,7 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "chalk": "^5.2.0",
-    "jackspeak": "^2.3.4",
+    "jackspeak": "^2.3.6",
     "polite-json": "^4.0.1",
     "walk-up-path": "^3.0.1"
   },
