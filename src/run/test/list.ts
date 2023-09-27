@@ -85,7 +85,7 @@ t.test('list some test files', async t => {
 
   const sortedLog = () =>
     logs
-      .args()[0][0]
+      .args()[0]?.[0]
       .trim()
       .split('\n')
       .sort((a: string, b: string) => a.localeCompare(b, 'en'))
@@ -107,6 +107,25 @@ t.test('list some test files', async t => {
 
   t.test('expand glob for specific files', async t => {
     await list(['src/*.spec.js', 'test/*.*js'], mainConfig.config)
+    t.strictSame(sortedLog(), [
+      'src/index.spec.js',
+      'src/test.spec.js',
+      'test/foo.cjs',
+      'test/foo.mjs',
+    ])
+  })
+
+  t.test('config files', async t => {
+    const orig = mainConfig.config.get
+    t.capture(
+      mainConfig.config,
+      'get',
+      (k: Parameters<typeof mainConfig.config.get>[0]) => {
+        if (k === 'files') return ['src/*.spec.js', 'test/*.*js']
+        return orig.call(mainConfig.config, k)
+      }
+    )
+    await list([], mainConfig.config)
     t.strictSame(sortedLog(), [
       'src/index.spec.js',
       'src/test.spec.js',

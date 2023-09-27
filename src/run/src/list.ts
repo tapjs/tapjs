@@ -43,6 +43,8 @@ export const list = async (
 ) => {
   const saveList: Set<string> = new Set(await readSave(config))
 
+  if (args.length === 0) args = config.get('files') || []
+
   const ignore = [alwaysExcludePattern]
   if (values.exclude) ignore.push(...values.exclude)
 
