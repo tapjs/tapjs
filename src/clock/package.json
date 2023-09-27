@@ -2,7 +2,16 @@
   "name": "@tapjs/clock",
   "version": "1.0.7",
   "description": "a make believe clock for tests involving time",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -19,10 +28,6 @@
   "files": [
     "dist"
   ],
-  "keywords": [
-    "tapjs plugin"
-  ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -32,9 +37,20 @@
     "format": "prettier --write . --loglevel warn",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "clock-mock": "^2.0.2",
+    "mock-clock": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
   "tap": {
     "typecheck": false
   },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "prettier": {
     "semi": false,
     "printWidth": 75,
@@ -46,20 +62,7 @@
     "arrowParens": "avoid",
     "endOfLine": "lf"
   },
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
   "engines": {
     "node": ">=16"
-  },
-  "dependencies": {
-    "clock-mock": "^2.0.2",
-    "mock-clock": "^0.7.1"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

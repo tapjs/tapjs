@@ -2,19 +2,6 @@
   "name": "@tapjs/run",
   "version": "1.2.0",
   "description": "Command-line interface for the node-tap runner",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "type": "module",
-  "keywords": [
-    "tapjs",
-    "runner",
-    "cli"
-  ],
-  "bin": {
-    "tap-run": "dist/esm/index.js"
-  },
-  "files": [
-    "dist"
-  ],
   "tshy": {
     "dialects": [
       "esm"
@@ -23,6 +10,10 @@
       "./package.json": "./package.json",
       ".": "./src/index.ts"
     }
+  },
+  "type": "module",
+  "bin": {
+    "tap-run": "dist/esm/index.js"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -33,7 +24,9 @@
       }
     }
   },
-  "license": "BlueOak-1.0.0",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -43,9 +36,8 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/after": "1.0.7",
     "@tapjs/before": "1.0.7",
@@ -74,10 +66,18 @@
     "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1",
     "which": "^4.0.0"
   },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
   "tap": {
     "typecheck": false,
     "coverage-map": "map.js"
   },
+  "keywords": [
+    "tapjs",
+    "runner",
+    "cli"
+  ],
   "engines": {
     "node": ">=16"
   },

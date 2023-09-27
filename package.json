@@ -82,7 +82,7 @@
     "tap": "^18.0.0-0",
     "trivial-deferred": "^2.0.0",
     "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1",
-    "tshy": "^1.1.1",
+    "tshy": "^1.2.2",
     "typedoc": "^0.25.1",
     "typescript": "5.2",
     "walk-up-path": "^3.0.1",
@@ -108,7 +108,8 @@
     "p": "bash ./scripts/bump-changed.sh",
     "pub": "npm run v -- pub",
     "deploy:docs": "npm run deploy:prod -w src/docs",
-    "postv": "npm run deploy:docs"
+    "postv": "npm run deploy:docs",
+    "pj": "node scripts/normalize-package-json.js src/*/package.json"
   },
   "repository": "https://github.com/tapjs/tapjs",
   "license": "BlueOak-1.0.0",

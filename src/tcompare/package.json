@@ -2,17 +2,16 @@
   "name": "tcompare",
   "version": "6.1.0",
   "description": "A comprehensive comparison library, for use in test frameworks",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
-  "license": "BlueOak-1.0.0",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
-  "keywords": [
-    "deepEqual",
-    "match",
-    "compare",
-    "object",
-    "comparison",
-    "diff"
-  ],
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -29,9 +28,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "diff": "^5.1.0"
-  },
   "scripts": {
     "snap": "tap",
     "test": "tap",
@@ -41,21 +37,28 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "diff": "^5.1.0"
+  },
   "tap": {
     "typecheck": false,
     "coverage-map": "map.js"
   },
+  "keywords": [
+    "deepEqual",
+    "match",
+    "compare",
+    "object",
+    "comparison",
+    "diff"
+  ],
   "engines": {
     "node": ">=16"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

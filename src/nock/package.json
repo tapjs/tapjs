@@ -2,52 +2,16 @@
   "name": "@tapjs/nock",
   "version": "3.0.7",
   "description": "a nock extension for tap",
-  "type": "module",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "prepare": "tshy",
-    "pretest": "npm run prepare",
-    "presnap": "npm run prepare",
-    "test": "tap",
-    "snap": "tap",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
-    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
-  },
-  "tap": {
-    "typecheck": false
-  },
-  "keywords": [
-    "tapjs plugin",
-    "nock"
-  ],
-  "license": "BlueOak-1.0.0",
-  "bugs": {
-    "url": "https://github.com/tapjs/tapjs/issues"
-  },
-  "homepage": "https://github.com/tapjs/tapjs/src/nock#readme",
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
-  "dependencies": {
-    "@tapjs/snapshot": "1.1.0",
-    "@tapjs/stack": "1.1.0",
-    "nock": "^13.3.2"
-  },
-  "engines": {
-    "node": ">=16"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
   "tshy": {
+    "main": true,
     "exports": {
       "./package.json": "./package.json",
       ".": "./src/index.ts"
     }
   },
+  "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -60,5 +24,44 @@
         "default": "./dist/commonjs/index.js"
       }
     }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "tshy",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "@tapjs/snapshot": "1.1.0",
+    "@tapjs/stack": "1.1.0",
+    "nock": "^13.3.2"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
+  "tap": {
+    "typecheck": false
+  },
+  "keywords": [
+    "tapjs plugin",
+    "nock"
+  ],
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/nock#readme",
+  "engines": {
+    "node": ">=16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
   }
 }

@@ -2,9 +2,8 @@
   "name": "@tapjs/error-serdes",
   "version": "1.0.0",
   "description": "Port of node's error_serdes.js to userland, plus test message streaming",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "type": "module",
   "tshy": {
+    "main": true,
     "exports": {
       ".": "./src/index.ts",
       "./ser": "./src/serialize.ts",
@@ -14,43 +13,9 @@
       "./package.json": "./package.json"
     }
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "v8",
-    "error",
-    "serialization",
-    "deserialization",
-    "serialize",
-    "deserialize"
-  ],
-  "license": "BlueOak-1.0.0",
-  "scripts": {
-    "prepare": "tshy",
-    "pretest": "npm run prepare",
-    "presnap": "npm run prepare",
-    "test": "tap",
-    "snap": "tap",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
-    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"
-  },
-  "tap": {
-    "fail-skip": true,
-    "fail-todo": true,
-    "typecheck": false,
-    "coverage-map": "map.js"
-  },
-  "engines": {
-    "node": ">=16"
-  },
-  "funding": {
-    "url": "https://github.com/sponsors/isaacs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
+  "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -104,7 +69,45 @@
     },
     "./package.json": "./package.json"
   },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "tshy",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"
+  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "minipass": "^7.0.3"
+  },
+  "tap": {
+    "fail-skip": true,
+    "fail-todo": true,
+    "typecheck": false,
+    "coverage-map": "map.js"
+  },
+  "keywords": [
+    "v8",
+    "error",
+    "serialization",
+    "deserialization",
+    "serialize",
+    "deserialize"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
   }
 }

@@ -2,8 +2,16 @@
   "name": "npm-init-template",
   "version": "1.0.3",
   "description": "Create 'npm init' packages easily with templates and prompts",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -20,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -29,6 +36,15 @@
     "snap": "tap",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "foreground-child": "^3.1.1",
+    "minimatch": "^9.0.1",
+    "mkdirp": "^3.0.1",
+    "mustache": "^4.2.0",
+    "read": "^2.1.0"
   },
   "tap": {
     "typecheck": false
@@ -42,18 +58,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "dependencies": {
-    "foreground-child": "^3.1.1",
-    "minimatch": "^9.0.1",
-    "mkdirp": "^3.0.1",
-    "mustache": "^4.2.0",
-    "read": "^2.1.0"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

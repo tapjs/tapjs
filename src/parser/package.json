@@ -2,7 +2,19 @@
   "name": "tap-parser",
   "version": "15.1.0",
   "description": "parse the test anything protocol",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "bin": {
+    "tap-parser": "bin/cmd.cjs"
+  },
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -16,13 +28,10 @@
       }
     }
   },
-  "bin": {
-    "tap-parser": "bin/cmd.cjs"
-  },
-  "dependencies": {
-    "events-to-array": "^2.0.3",
-    "tap-yaml": "2.1.1"
-  },
+  "files": [
+    "dist",
+    "bin"
+  ],
   "scripts": {
     "snap": "tap",
     "test": "tap",
@@ -32,16 +41,11 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
-  "keywords": [
-    "tap",
-    "test",
-    "parser"
-  ],
   "license": "BlueOak-1.0.0",
-  "files": [
-    "dist",
-    "bin"
-  ],
+  "dependencies": {
+    "events-to-array": "^2.0.3",
+    "tap-yaml": "2.1.1"
+  },
   "tap": {
     "include": [
       "test/*.ts"
@@ -49,17 +53,16 @@
     "coverage-map": "map.js",
     "typecheck": false
   },
+  "keywords": [
+    "tap",
+    "test",
+    "parser"
+  ],
   "engines": {
     "node": ">=16"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

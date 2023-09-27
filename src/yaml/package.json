@@ -2,7 +2,16 @@
   "name": "tap-yaml",
   "version": "2.1.1",
   "description": "Yaml handling for TAP parsers and generators",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -16,6 +25,9 @@
       }
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "snap": "tap",
     "test": "tap",
@@ -24,6 +36,16 @@
     "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "author": "Isaac Z. Schlueter <i@izs.me>",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "yaml": "^2.3.0",
+    "yaml-types": "^0.3.0"
+  },
+  "tap": {
+    "typecheck": false,
+    "coverage-map": "map.js"
   },
   "repository": {
     "type": "git",
@@ -35,26 +57,7 @@
     "test",
     "testanything"
   ],
-  "author": "Isaac Z. Schlueter <i@izs.me>",
-  "license": "BlueOak-1.0.0",
-  "dependencies": {
-    "yaml": "^2.3.0",
-    "yaml-types": "^0.3.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "tap": {
-    "typecheck": false,
-    "coverage-map": "map.js"
-  },
   "engines": {
     "node": ">=16"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

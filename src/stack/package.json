@@ -2,8 +2,16 @@
   "name": "@tapjs/stack",
   "version": "1.1.0",
   "description": "Utility for working with stack traces",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -20,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -30,13 +37,15 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
-  "tap": {
-    "typecheck": false,
-    "coverage-map": "map.js"
-  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "tcompare": "6.1.0",
     "trivial-deferred": "^2.0.0"
+  },
+  "tap": {
+    "typecheck": false,
+    "coverage-map": "map.js"
   },
   "engines": {
     "node": ">=16"
@@ -47,11 +56,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

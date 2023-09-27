@@ -2,11 +2,16 @@
   "name": "@tapjs/fixture",
   "version": "1.1.0",
   "description": "Tap plugin to provide t.testdir() and t.fixture()",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
-  "keywords": [
-    "tapjs plugin"
-  ],
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -23,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -33,17 +37,22 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
-  "tap": {
-    "typecheck": false,
-    "coverage-map": "map.js"
-  },
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "mkdirp": "^3.0.0",
     "rimraf": "^5.0.4"
   },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
+  "tap": {
+    "typecheck": false,
+    "coverage-map": "map.js"
+  },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "engines": {
     "node": ">=16"
   },
@@ -53,11 +62,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

@@ -2,10 +2,16 @@
   "name": "@tapjs/esbuild-kit",
   "version": "1.0.7",
   "description": "Alternative to @tapjs/typescript. Load typescript using @esbuild-kit/cjs-loader and @esbuild-kit/esm-loader instead of ts-node.",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
-  "keywords": [
-    "tapjs plugin"
-  ],
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -22,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -32,23 +37,21 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
-  "tap": {
-    "typecheck": false
-  },
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "@esbuild-kit/cjs-loader": "^2.4.4",
     "@esbuild-kit/esm-loader": "^2.6.5"
   },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
+  "tap": {
+    "typecheck": false
+  },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "engines": {
     "node": ">=16"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

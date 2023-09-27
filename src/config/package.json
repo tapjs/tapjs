@@ -2,8 +2,16 @@
   "name": "@tapjs/config",
   "version": "2.2.0",
   "description": "Utility loading and managing tap configuration",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -20,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -30,15 +37,17 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0",
-    "@tapjs/test": "1.2.0"
-  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "chalk": "^5.2.0",
     "jackspeak": "^2.3.4",
     "polite-json": "^4.0.1",
     "walk-up-path": "^3.0.1"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0",
+    "@tapjs/test": "1.2.0"
   },
   "tap": {
     "typecheck": false,
@@ -53,11 +62,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

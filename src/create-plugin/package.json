@@ -2,15 +2,6 @@
   "name": "@tapjs/create-plugin",
   "version": "1.0.10",
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "bin": {
-    "tapjs-create-plugin": "dist/esm/bin.js"
-  },
-  "type": "module",
-  "files": [
-    "dist",
-    "templates"
-  ],
   "tshy": {
     "dialects": [
       "esm"
@@ -19,13 +10,17 @@
       "./package.json": "./package.json"
     }
   },
+  "type": "module",
+  "bin": {
+    "tapjs-create-plugin": "dist/esm/bin.js"
+  },
   "exports": {
     "./package.json": "./package.json"
   },
-  "keywords": [
-    "tapjs plugin"
+  "files": [
+    "dist",
+    "templates"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -35,14 +30,19 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc ./index.ts"
   },
-  "tap": {
-    "typecheck": false
-  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/core": "1.2.0",
     "npm-init-template": "1.0.3",
     "resolve-import": "^1.4.1"
   },
+  "tap": {
+    "typecheck": false
+  },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "engines": {
     "node": ">=16"
   },

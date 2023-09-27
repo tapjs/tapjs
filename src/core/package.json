@@ -2,15 +2,17 @@
   "name": "@tapjs/core",
   "version": "1.2.0",
   "description": "pluggable core of node-tap",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "type": "module",
   "tshy": {
+    "main": true,
     "exports": {
       "./package.json": "./package.json",
       ".": "./src/index.ts",
       "./proc": "./src/proc.ts"
     }
   },
+  "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -46,9 +48,8 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc"
   },
-  "tap": {
-    "coverage-map": "map.js"
-  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/processinfo": "^3.1.1",
     "@tapjs/stack": "1.1.0",
@@ -62,7 +63,9 @@
     "tcompare": "6.1.0",
     "trivial-deferred": "^2.0.0"
   },
-  "license": "BlueOak-1.0.0",
+  "tap": {
+    "coverage-map": "map.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"

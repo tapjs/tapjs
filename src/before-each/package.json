@@ -2,7 +2,16 @@
   "name": "@tapjs/before-each",
   "version": "1.0.7",
   "description": "a built-in tap extension for t.beforeEach()",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -28,35 +37,29 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "author": "Isaac Z. Schlueter",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "function-loop": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
   "tap": {
     "typecheck": false
   },
   "keywords": [
     "tapjs plugin"
   ],
-  "author": "Isaac Z. Schlueter",
-  "license": "BlueOak-1.0.0",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
-  "dependencies": {
-    "function-loop": "^4.0.0"
-  },
   "engines": {
     "node": ">=16"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "tshy": {
-    "exports": {
-      "./package.json": "./package.json",
-      ".": "./src/index.ts"
-    }
   }
 }

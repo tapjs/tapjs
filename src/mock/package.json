@@ -2,12 +2,8 @@
   "name": "@tapjs/mock",
   "version": "1.0.8",
   "description": "tap plugin adding t.mockRequire() and t.mockImport()",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "type": "module",
-  "keywords": [
-    "tapjs plugin"
-  ],
   "tshy": {
+    "main": true,
     "exports": {
       ".": "./src/index.ts",
       "./package.json": "./package.json",
@@ -15,6 +11,9 @@
       "./import": "./src/import.mts"
     }
   },
+  "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -43,7 +42,6 @@
   "files": [
     "dist"
   ],
-  "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tshy",
     "pretest": "npm run prepare",
@@ -53,10 +51,24 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "@tapjs/after": "1.0.7",
+    "@tapjs/stack": "1.1.0",
+    "resolve-import": "^1.4.1",
+    "walk-up-path": "^3.0.1"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "1.2.0"
+  },
   "tap": {
     "typecheck": false,
     "coverage-map": "map.js"
   },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "engines": {
     "node": ">=16"
   },
@@ -66,14 +78,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "peerDependencies": {
-    "@tapjs/core": "1.2.0"
-  },
-  "dependencies": {
-    "@tapjs/after": "1.0.7",
-    "@tapjs/stack": "1.1.0",
-    "resolve-import": "^1.4.1",
-    "walk-up-path": "^3.0.1"
   }
 }
