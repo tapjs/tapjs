@@ -50,8 +50,13 @@ const builtinDeps: Record<string, string> = Object.fromEntries(
     return [d, version]
   })
 )
-// now write the @tapjs/test package with all the builtins as deps
-Object.assign(testPkg.dependencies, builtinDeps)
+// now write the @tapjs/test package with all the builtins as deps,
+// and keep them sorted.
+testPkg.dependencies = Object.fromEntries(
+  Object.entries(
+    Object.assign(testPkg.dependencies, builtinDeps)
+  ).sort(([a], [b]) => a.localeCompare(b, 'en'))
+)
 // tell nx not to freak out
 testPkg.nx = {
   implicitDependencies: [

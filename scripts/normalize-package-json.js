@@ -1,6 +1,11 @@
 import { readFileSync, writeFileSync } from 'fs'
 const files = process.argv.slice(2)
 
+const sortObj = o =>
+  o && Object.fromEntries(
+    Object.entries(o).sort(([a], [b]) => a.localeCompare(b, 'en'))
+  )
+
 for (const f of files) {
   const pkg = JSON.parse(readFileSync(f, 'utf8'))
   const {
@@ -23,24 +28,31 @@ for (const f of files) {
     tap,
     ...rest
   } = pkg
-  writeFileSync(f, JSON.stringify({
-    name,
-    version,
-    description,
-    tshy,
-    type,
-    bin,
-    main,
-    types,
-    exports,
-    files,
-    scripts,
-    author,
-    license,
-    dependencies,
-    devDependencies,
-    peerDependencies,
-    tap,
-    ...rest,
-  }, null, 2) + '\n')
+  writeFileSync(
+    f,
+    JSON.stringify(
+      {
+        name,
+        version,
+        description,
+        tshy,
+        type,
+        bin,
+        main,
+        types,
+        exports,
+        files,
+        scripts,
+        author,
+        license,
+        dependencies: sortObj(dependencies),
+        devDependencies: sortObj(devDependencies),
+        peerDependencies: sortObj(peerDependencies),
+        tap,
+        ...rest,
+      },
+      null,
+      2
+    ) + '\n'
+  )
 }
