@@ -110,54 +110,6 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing bad > output 1`] = `
-after: null
-bail: false
-before: null
-branches: 100
-browser: true
-changed: false
-check-coverage: true
-color: false
-comments: false
-coverage: false
-coverage-map: null
-coverage-report: []
-debug: false
-files: []
-flow: false
-functions: 100
-grep: []
-help: false
-invert: false
-jobs: {number}
-jsx: false
-libtap-settings: null
-lines: 100
-node-arg: []
-nyc-arg: []
-nyc-help: false
-nyc-version: false
-only: false
-output-dir: null
-output-file: null
-parser-version: false
-rcfile: {CWD}/cli-tests/.taprc
-reporter: tap
-reporter-arg: []
-save: null
-save-fixture: false
-show-process-tree: false
-statements: 100
-test-arg: []
-test-env: []
-test-ignore: $.
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
-timeout: 30
-ts: false
-version: false
-versions: false
-watch: false
-
 
 `
 

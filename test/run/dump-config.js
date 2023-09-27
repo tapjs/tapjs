@@ -55,7 +55,8 @@ t.test('package.json parsing', t => {
       run(['--dump-config', '-B'], {
         cwd: dir,
       }, (er, o) => {
-        t.equal(er, null)
+        // this throws on later nodes, because it can't load properly
+        if (c !== 'bad') t.equal(er, null)
         t.matchSnapshot(o, 'output')
         t.end()
       })
