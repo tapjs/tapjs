@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "16.3.8",
+  "version": "16.3.9",
   "publishConfig": {
     "tag": "legacy-v16"
   },
