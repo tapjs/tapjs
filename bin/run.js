@@ -680,7 +680,7 @@ const runAllFiles = (options, env, tap, processDB) => {
       if (options.flow && flowNode)
         options['node-arg'].push('-r', flowNode)
 
-      if (options.ts && tsNode && /\.tsx?$/.test(file)) {
+      if (options.ts && tsNode && /\.([mc]?ts|tsx?)$/.test(file)) {
         debug('typescript file', file)
         const compilerOpts = JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}')
         if (options.jsx)
@@ -706,7 +706,7 @@ const runAllFiles = (options, env, tap, processDB) => {
           ...(options['test-arg']),
         ]
         tap.spawn(node, args, opt, file)
-      } else if (/\.jsx$|\.tsx?$|\.[mc]?js$/.test(file)) {
+      } else if (/\.jsx$|\.tsx?$|\.[mc]?[jt]s$/.test(file)) {
         debug('js file', file)
         /* istanbul ignore next - version specific behavior */
         const experimental = /^v10\./.test(process.version) && /\.mjs$/.test(file)
