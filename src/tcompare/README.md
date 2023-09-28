@@ -181,6 +181,23 @@ Every method and class can take the following options.
 
   Note that `tight` is not suitable for comparisons, only formatting.
 
+- `reactString` - Represent and compare React elements as JSX
+  strings. Only supported in the `pretty` formatting style.
+  Enabled by default, set `{ reactString: false }` in the options
+  to disable it.
+
+  When enabled, react elements are _first_ compared as react JSX
+  strings, and if the strings match, treated as equivalent, even
+  if they would not otherwise be treated as a match as plain
+  objects (for example, if `children` is set to `'hello'` vs
+  `['hello']`, these are considered identical, because they result in the same JSX).
+
+  If they do not match, then they are still considered a
+  match if their plain object represenatations would be
+  considered a match. So for example, `<x a="b" />` would match
+  `<x a={/b|c/} />` for functions where strings can match against
+  regular expressions.
+
 - `bufferChunkSize` - The number of bytes to show per line when
   printing long `Buffer` objects. Defaults to 32.
 

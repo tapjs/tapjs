@@ -1,3 +1,4 @@
+import React from 'react'
 import t, { Test } from 'tap'
 import type { FormatOptions } from '../dist/esm/index.js'
 import * as compare from '../dist/esm/index.js'
@@ -9,6 +10,17 @@ const same = (
   options: FormatOptions & { diffContext?: number } = {}
 ) => {
   const s = compare.same(a, b, options)
+  t.matchSnapshot(s.diff)
+  return s.match
+}
+
+const match = (
+  t: Test,
+  a: any,
+  b: any,
+  options: FormatOptions & { diffContext?: number } = {}
+) => {
+  const s = compare.match(a, b, options)
   t.matchSnapshot(s.diff)
   return s.match
 }
@@ -694,5 +706,73 @@ t.test('regexp recognizes all flags', t => {
       }
     }
   }
+  t.end()
+})
+
+t.test('react', t => {
+  const el = {
+    $$typeof: Symbol.for('react.element'),
+    type: 'div',
+    key: null,
+    ref: null,
+    props: {
+      children: {
+        $$typeof: Symbol.for('react.element'),
+        type: 'img',
+        key: null,
+        ref: null,
+        props: {
+          src: 'foo',
+        },
+        _owner: null,
+        _store: {},
+      },
+    },
+    _owner: null,
+    _store: {},
+  }
+  t.ok(
+    same(
+      t,
+      <div>
+        <img src="foo" />
+      </div>,
+      el
+    )
+  )
+  t.notOk(
+    same(
+      t,
+      <div className="divvy">
+        <img src="foo" />
+      </div>,
+      el
+    )
+  )
+  t.ok(
+    match(
+      t,
+      <div className="divvy">
+        <img src="foo" />
+      </div>,
+      el
+    )
+  )
+  t.ok(
+    same(t, el, {
+      ...el,
+      props: { ...el.props, children: [[[[el.props.children]]]] },
+    }),
+    'array nesting ignored with jsx'
+  )
+  t.test('array nesting relevant when not using react strings', t => {
+    const other = {
+      ...el,
+      props: { ...el.props, children: [[[[el.props.children]]]] },
+    }
+    t.notOk(same(t, el, other, { style: 'js' }), 'style not pretty')
+    t.notOk(same(t, el, other, { reactString: false }), 'disabled')
+    t.end()
+  })
   t.end()
 })

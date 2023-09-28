@@ -287,6 +287,7 @@ Object {
     "pojoHead": Function pojoHead(cls),
     "pojoKeyValSep": Function pojoKeyValSep(),
     "pojoTail": Function pojoTail(indent),
+    "reactElement": Function reactElement(el),
     "setEmpty": Function setEmpty(cls),
     "setEntrySep": Function setEntrySep(),
     "setHead": Function setHead(cls),

@@ -40,7 +40,8 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "diff": "^5.1.0"
+    "diff": "^5.1.0",
+    "react-element-to-jsx-string": "^15.0.0"
   },
   "tap": {
     "typecheck": false,

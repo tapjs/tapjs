@@ -1,6 +1,7 @@
-import t from 'tap'
 import { Minipass } from 'minipass'
 import assert from 'node:assert'
+import React, { FC, ReactNode } from 'react'
+import t from 'tap'
 import { format, Format } from '../dist/esm/index.js'
 import { StyleType } from '../dist/esm/styles.js'
 
@@ -389,5 +390,72 @@ t.test('do not fail on throwing getter', t => {
   "e": 3,
 }`
   )
+  t.end()
+})
+
+t.test('formatting jsx', t => {
+  const Blah: FC<{ children: ReactNode }> = ({ children }) => (
+    <span>{children}</span>
+  )
+  const div = (
+    <div>
+      <Blah>inner</Blah>
+    </div>
+  )
+  t.matchSnapshot(format(div), 'element just on its own')
+  t.matchSnapshot(
+    format({
+      a: { b: { c: div } },
+    }),
+    'element nested in object'
+  )
+  t.matchSnapshot(
+    format({
+      a: { b: { c: new Map([[div, true]]) } },
+    }),
+    'element as Map key'
+  )
+  const childrens = [
+    undefined,
+    'hello',
+    ['hello', <div>hello</div>],
+    [['hello'], [[[<div>hello</div>]]]],
+    new Set(['hello', <div>hello</div>]),
+    [new Set(['hello', <div>hello</div>])],
+    { invalid: 'not a react node' },
+    [{ invalid: 'not a react node' }],
+    [<span>number is not a react node</span>, 7],
+  ] as const
+  for (const children of childrens) {
+    const lookAlike = {
+      $$typeof: Symbol.for('react.element'),
+      type: 'div',
+      key: null,
+      ref: null,
+      props: {
+        children: [
+          {
+            $$typeof: Symbol.for('react.element'),
+            type: 'image',
+            key: null,
+            ref: null,
+            props: {
+              src: 'foo',
+              children,
+            },
+            _owner: null,
+            _store: {},
+          },
+        ],
+      },
+      _owner: null,
+      _store: {},
+    }
+    t.matchSnapshot(
+      format(lookAlike),
+      `children=${format(children).replace(/\n/g, ' ').replace(/ +/g, ' ').replace(/, ([}\]])/g, '$1').replace(/([\[{]) /g, '$1')}`
+    )
+  }
+
   t.end()
 })

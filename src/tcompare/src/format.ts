@@ -32,6 +32,12 @@ export interface FormatOptions {
    * Include getter properties
    */
   includeGetters?: boolean
+  /**
+   * Represent and compare react elements as JSX strings.
+   *
+   * Only supported in the 'pretty' formatting style.
+   */
+  reactString?: boolean
 
   /**
    * set when formatting keys and values of collections
@@ -112,6 +118,7 @@ export class Format {
 
   constructor(obj: any, options: FormatOptions = {}) {
     this.options = options
+    options.reactString = options.reactString !== false
     this.parent = options.parent || null
     this.memo = null
     this.sort = !!options.sort
@@ -212,6 +219,27 @@ export class Format {
       this.isArguments() ||
       this.isIterable()
     )
+  }
+
+  isReactElement(element: any = this.object): boolean {
+    return (
+      !!this.options.reactString &&
+      !!this.style.reactElement &&
+      !!element &&
+      typeof element === 'object' &&
+      typeof element.$$typeof === 'symbol' &&
+      !!Symbol.keyFor(element.$$typeof)?.startsWith('react.') &&
+      this.isReactElementChildren(element.props?.children)
+    )
+  }
+  isReactElementChildren(children: any): boolean {
+    return !children || typeof children === 'string'
+      ? true
+      : typeof children === 'object'
+      ? children instanceof Set || Array.isArray(children)
+        ? ![...children].some(c => !this.isReactElementChildren(c))
+        : Format.prototype.isReactElement.call(this, children)
+      : false
   }
 
   // technically this means "is an iterable we don't have another fit for"
@@ -370,6 +398,19 @@ export class Format {
     }
   }
 
+  printReactElement(): void {
+    // already verified in isReactElement before getting here.
+    /* c8 ignore start */
+    if (!this.style.reactElement) return this.printPojo()
+    /* c8 ignore stop */
+    const indent = this.indentLevel()
+    this.memo += this.style
+      .reactElement(this.object)
+      .trim()
+      .split('\n')
+      .join('\n' + indent)
+  }
+
   printDate(): void {
     this.memo += this.object.toISOString()
   }
@@ -464,6 +505,8 @@ export class Format {
       ? this.printBuffer()
       : this.isArray() && this.objectAsArray
       ? this.printArray()
+      : this.isReactElement()
+      ? this.printReactElement()
       : // TODO streams, JSX
         this.printPojo()
   }

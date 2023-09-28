@@ -1,4 +1,6 @@
+import { ReactNode } from 'react'
 import type { Format } from './format.js'
+import reactElementToJsxString from './react-element-to-jsx-string.js'
 
 // can't use buf.toString('ascii') because that unmasks high bytes
 const bufToAscii = (buf: Buffer) =>
@@ -99,6 +101,9 @@ export interface Style {
   bufferTail: (indent: string) => string
   /** separator between line number and contents of a long `Buffer` */
   bufferKeySep: () => string
+
+  /** a react element */
+  reactElement?: (node: ReactNode) => string
 
   /** an empty string */
   stringEmpty: () => string
@@ -206,6 +211,15 @@ const pretty: Style = {
   bufferLineSep: () => '\n',
   bufferTail: indent => `\n${indent}>`,
   bufferKeySep: () => ': ',
+
+  reactElement: (el: ReactNode) =>
+    reactElementToJsxString(el, {
+      showDefaultProps: true,
+      showFunctions: true,
+      useBooleanShorthandSyntax: true,
+      sortProps: true,
+      useFragmentShortSyntax: true,
+    }),
 
   stringEmpty: () => '""',
   stringOneLine: str => JSON.stringify(str),

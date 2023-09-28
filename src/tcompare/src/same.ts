@@ -336,7 +336,45 @@ export class Same extends Format {
     this.memoExpect += end
   }
 
+  isReactElement() {
+    return (
+      super.isReactElement(this.object) &&
+      super.isReactElement(this.expect)
+    )
+  }
+  printReactElement() {
+    const obj = this.simplePrint(this.object)
+    const exp = this.simplePrintExpect()
+    this.memo += obj
+    this.memoExpect += exp
+
+    if (obj === exp) {
+      return
+    }
+
+    // they don't match as JSX strings, but if we would consider the objects
+    // to be equivalent, then still treat it as a match.
+    const subDiff = new (this.constructor as typeof Same)(
+      this.object,
+      {
+        ...this.options,
+        expect: this.expect,
+        parent: this.parent || undefined,
+        reactString: false,
+      }
+    )
+    subDiff.print()
+    if (!subDiff.match) {
+      this.unmatch()
+    } else {
+      this.memo += obj
+      this.memoExpect += obj
+    }
+  }
+
   printPojo() {
+    if (!this.memo) this.memo = ''
+    if (!this.memoExpect) this.memoExpect = ''
     // even though it's not a simple mismatch, it's possible that
     // a child entry will cause a mismatch, so we have to print
     // the body *before* doing the head.  If we still aren't unmatched
