@@ -135,10 +135,8 @@ export class Same extends Format {
   regexpSame(a: RegExp, b: RegExp) {
     return (
       a.source === b.source &&
-      a.global === b.global &&
-      a.multiline === b.multiline &&
-      a.lastIndex === b.lastIndex &&
-      a.ignoreCase === b.ignoreCase
+      a.flags === b.flags &&
+      a.lastIndex === b.lastIndex
     )
   }
 

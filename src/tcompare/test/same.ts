@@ -670,3 +670,29 @@ t.test('inherited fields will satisfy ownprop expects', t => {
   t.ok(same(t, a, b))
   t.end()
 })
+
+t.test('regexp recognizes all flags', t => {
+  const patterns: RegExp[] = []
+  for (const g of ['g', '']) {
+    for (const i of ['i', '']) {
+      for (const m of ['m', '']) {
+        for (const u of ['u', '']) {
+          for (const y of ['y', '']) {
+            patterns.push(new RegExp('.', g + i + m + u + y))
+          }
+        }
+      }
+    }
+  }
+  for (const p of patterns) {
+    for (const q of patterns) {
+      if (p === q) continue
+      // don't blow up the log and snapshot
+      const s = compare.same(p, q)
+      if (s.match) {
+        t.fail('should not match', { pattern: p, doNotWant: q })
+      }
+    }
+  }
+  t.end()
+})
