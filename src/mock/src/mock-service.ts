@@ -14,6 +14,11 @@
 //
 // There should be at most 1 MockService instance for a given tap test,
 // with its own unique key that's used for loading.
+//
+// There are some weird lines ignored for coverage in this file, owing to the
+// fact that it is loaded as part of tap's initial startup, prior to
+// instrumenting coverage, and loaded very differently in node 20 vs prior
+// versions that ran loaders on the main thread..
 
 import type { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack'
 import * as stack from '@tapjs/stack'
@@ -128,8 +133,10 @@ export class MockService {
 
   // pass in the main-thread end of the loader port set, and respond
   // appropriately to messages we can handle
+  /* c8 ignore start */
   static async listen(port: MessagePort) {
     port.on('message', async msg => {
+      /* c8 ignore stop */
       /* c8 ignore start */
       if (!isMockServiceRequest(msg)) return
       /* c8 ignore stop */
@@ -138,9 +145,11 @@ export class MockService {
       const response = r === undefined ? undefined : r
       const msr: MockServiceResponse = { ...msg, response }
       port.postMessage(msr)
+      /* c8 ignore start */
     })
     port.unref()
   }
+  /* c8 ignore stop */
 
   static async handle(msg: any) {
     if (!isMockServiceRequest(msg)) return
@@ -196,7 +205,9 @@ export class MockService {
   static async load(req: MockServiceLoadRequest) {
     const { url } = req
     if (!url.startsWith(`tapmock://${serviceKey}.`)) return
+    /* c8 ignore start */
     const u = new URL(url)
+    /* c8 ignore stop */
     const [_, key] = u.host.split('.')
     /* c8 ignore start */
     if (!key) return
