@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/stdin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a built-in tap extension for t.stdin()",
   "tshy": {
     "main": true,
@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "peerDependencies": {
-    "@tapjs/core": "1.3.0"
+    "@tapjs/core": "1.3.1"
   },
   "tap": {
     "typecheck": false
