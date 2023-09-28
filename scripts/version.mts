@@ -122,6 +122,11 @@ const git = (...args: string[]) => {
   return run('git', args, { stdio: [null, 'pipe', 'inherit'] })
 }
 
+const gh = (...args: string[]) => {
+  console.log(`gh ${args.map(a => JSON.stringify(a)).join(' ')}`)
+  return run('gh', args, { stdio: [null, 'inherit', 'inherit'] })
+}
+
 // don't proceed if there are changes in the project
 const assertNoChanges = () => {
   const changes = git('status', '-s', '-uno', 'src')
@@ -419,6 +424,10 @@ const publish = (names: string[], pre: boolean = false) => {
       `--tag=${pre ? 'pre' : 'latest'}`,
       '-w=tap'
     )
+    const tapVersion = manifests.tap.version
+    if (tapVersion) {
+      gh('release', 'create', `tap@${tapVersion}`, '--generate-notes')
+    }
   }
 }
 
