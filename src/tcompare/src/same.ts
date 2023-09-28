@@ -342,8 +342,7 @@ export class Same extends Format {
     // the body *before* doing the head.  If we still aren't unmatched
     // after walking the graph, then nothing to do.
     if (this.pojoIsEmpty()) {
-      this.memo = this.memo || ''
-      this.memo += this.printPojoEmpty()
+      this.printPojoEmpty()
     } else {
       this.printPojoBody()
       if (!this.match) {
