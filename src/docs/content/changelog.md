@@ -7,7 +7,9 @@ eleventyNavigation:
 
 ## 18.2
 
-Add `TAP_RCFILE` environment variable handling.
+- Add reporters: min, dot, json, jsonstream, markdown, junit
+- Emit failing test point when an explicit `plan` is not satisfied
+- Restore support for the `--files` config option
 
 ## 18.1
 
@@ -44,6 +46,7 @@ rather than `TAP` output.
 - Add `expandStack` method to the `@tapjs/stack` utility, to turn
   a tap-style terse stack back into a standard JavaScript style
   stack trace.
+- (18.1.5) Add `TAP_RCFILE` environment variable handling.
 
 ## Fixes
 
