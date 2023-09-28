@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/core",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "pluggable core of node-tap",
   "tshy": {
     "main": true,
@@ -52,15 +52,15 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/processinfo": "^3.1.2",
-    "@tapjs/stack": "1.2.1",
-    "@tapjs/test": "1.3.1",
+    "@tapjs/stack": "1.2.2",
+    "@tapjs/test": "1.3.2",
     "async-hook-domain": "^4.0.1",
     "is-actual-promise": "^1.0.0",
     "jackspeak": "^2.3.6",
     "minipass": "^7.0.3",
     "signal-exit": "4.1",
     "tap-parser": "15.2.0",
-    "tcompare": "6.2.1",
+    "tcompare": "6.3.0",
     "trivial-deferred": "^2.0.0"
   },
   "tap": {
