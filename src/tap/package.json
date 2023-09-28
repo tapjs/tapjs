@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "18.2.2",
+  "version": "18.3.0",
   "description": "A Test-Anything-Protocol library for JavaScript",
   "tshy": {
     "main": true,
