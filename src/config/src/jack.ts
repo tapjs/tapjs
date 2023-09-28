@@ -566,7 +566,7 @@ export default jack({
       hint: 'n',
       short: 'j',
       default: jobs,
-      description: `Run up to <n> test files in parallel.
+      description: `Run up to \`n\` test files in parallel.
 
                     By default, this will be set based on the number of CPUs
                     on the system.

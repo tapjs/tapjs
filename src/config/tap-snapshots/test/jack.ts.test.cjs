@@ -211,7 +211,7 @@ Object {
   "jobs": Object {
     "default": 16,
     "description": String(
-      Run up to <n> test files in parallel.
+      Run up to \`n\` test files in parallel.
       
       By default, this will be set based on the number of CPUs on the system.
       
