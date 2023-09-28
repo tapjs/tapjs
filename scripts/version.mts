@@ -409,13 +409,15 @@ const publish = (names: string[], pre: boolean = false) => {
   const pn = names.filter(n => !manifests[n].private)
   // always publish tap last
   const noTap = pn.filter(n => n !== 'tap')
-  npm(
-    { stdio: 'inherit' },
-    'publish',
-    '--access=public',
-    `--tag=${pre ? 'pre' : 'latest'}`,
-    ...noTap.map(n => `-w=${n}`)
-  )
+  if (noTap.length) {
+    npm(
+      { stdio: 'inherit' },
+      'publish',
+      '--access=public',
+      `--tag=${pre ? 'pre' : 'latest'}`,
+      ...noTap.map(n => `-w=${n}`)
+    )
+  }
   if (pn.includes('tap')) {
     npm(
       { stdio: 'inherit' },
@@ -425,12 +427,7 @@ const publish = (names: string[], pre: boolean = false) => {
       '-w=tap'
     )
     const tag = `tap@${manifests.tap.version}`
-    const args = [
-      'release',
-      'create',
-      tag,
-      '--verify-tag',
-    ]
+    const args = ['release', 'create', tag, '--verify-tag']
     if (pre) args.push('-p')
     gh(...args)
   }
