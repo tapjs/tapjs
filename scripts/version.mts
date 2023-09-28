@@ -429,7 +429,6 @@ const publish = (names: string[], pre: boolean = false) => {
       'release',
       'create',
       tag,
-      '--generate-notes',
       '--verify-tag',
     ]
     if (pre) args.push('-p')
