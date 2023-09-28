@@ -5,6 +5,10 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.3
+
+- Format React elements as JSX
+
 ## 18.2
 
 - Add reporters: min, dot, json, jsonstream, markdown, junit
