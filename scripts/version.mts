@@ -424,10 +424,16 @@ const publish = (names: string[], pre: boolean = false) => {
       `--tag=${pre ? 'pre' : 'latest'}`,
       '-w=tap'
     )
-    const tapVersion = manifests.tap.version
-    if (tapVersion) {
-      gh('release', 'create', `tap@${tapVersion}`, '--generate-notes')
-    }
+    const tag = `tap@${manifests.tap.version}`
+    const args = [
+      'release',
+      'create',
+      tag,
+      '--generate-notes',
+      '--verify-tag',
+    ]
+    if (pre) args.push('-p')
+    gh(...args)
   }
 }
 
