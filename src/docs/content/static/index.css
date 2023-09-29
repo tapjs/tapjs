@@ -87,6 +87,8 @@ a:hover {
   -webkit-box-align: center;
   align-items: center;
   padding: 0 10px;
+  background: url(/static/small-logo.png) left center no-repeat;
+  background-size: 78px 72px;
 }
 #top h1 a {
   display: flex;
@@ -103,7 +105,7 @@ a:hover {
   margin: 0;
   font-weight: 700;
   font-size: 26px;
-  padding: 0 10px;
+  padding: 0 10px 0 70px;
   letter-spacing: 1px;
   text-shadow: rgba(136, 136, 136, 0.32) 1px -2px 1px;
   text-decoration: none;
