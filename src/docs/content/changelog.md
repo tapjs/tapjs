@@ -7,6 +7,13 @@ eleventyNavigation:
 
 ## 18.4
 
+Note: The formatting of `Symbol` objects and enumerable `Symbol`
+properties has changed in snapshots and object diffs.
+
+You may need to run `tap --snapshot` after updating to this
+release, and/or update some tests that were relying on symbol
+property keys being ignored.
+
 - Include `Symbol` keys in formatting/comparison.
 - Print symbols in formatted objects as `Symbol.for(...)` if
   appropriate.

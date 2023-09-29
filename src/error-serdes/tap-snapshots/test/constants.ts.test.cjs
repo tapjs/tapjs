@@ -25,7 +25,7 @@ Null Object {
     "TypeError": Function TypeError(),
     "URIError": Function URIError(),
   },
-  "kCustomInspect": Symbol(nodejs.util.inspect.custom),
+  "kCustomInspect": Symbol.for(nodejs.util.inspect.custom),
   "kCustomInspectedObject": 4,
   "kInspectedError": 2,
   "kInspectedSymbol": 3,

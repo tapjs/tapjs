@@ -16,8 +16,10 @@ Object {
       "columnNumber": 5,
       "fileName": "test/fixtures/eval-error.js",
       "lineNumber": 9,
+      [Symbol(compiled call site line)]: true,
     },
     "lineNumber": 7,
+    [Symbol(compiled call site line)]: true,
   },
   "fileName": "<anonymous>",
   "fname": "[(funky:433:42)]",
@@ -25,9 +27,11 @@ Object {
     "columnNumber": 22,
     "fileName": "<anonymous>",
     "lineNumber": 99,
+    [Symbol(compiled call site line)]: true,
   },
   "isEval": true,
   "lineNumber": 2,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -38,6 +42,7 @@ Object {
   "fname": "[some (weird) [<symbolism>]]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -46,6 +51,7 @@ Object {
   "columnNumber": 1,
   "fileName": "a file with eval .js",
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -54,6 +60,7 @@ Object {
   "columnNumber": 41,
   "fileName": "a file with eval .js",
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -64,6 +71,7 @@ Object {
   "fname": "arr.map.n",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -72,6 +80,7 @@ Object {
   "fname": "Array.map",
   "generated": undefined,
   "isNative": true,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -84,8 +93,10 @@ Object {
     "columnNumber": 200,
     "fileName": "dist/file.js",
     "lineNumber": 100,
+    [Symbol(compiled call site line)]: true,
   },
   "lineNumber": 50,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -96,6 +107,7 @@ Object {
   "fname": "blorp",
   "generated": undefined,
   "lineNumber": 50,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -106,6 +118,7 @@ Object {
   "fname": "Classy.[Symbol.iterator]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -116,6 +129,7 @@ Object {
   "fname": "Cls.[foo (paren) weird]",
   "generated": undefined,
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -126,6 +140,7 @@ Object {
   "fname": "ContextifyScript.Script.runInContext",
   "generated": undefined,
   "lineNumber": 32,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -136,6 +151,7 @@ Object {
   "fname": "ContextifyScript.Script.runInNewContext",
   "generated": undefined,
   "lineNumber": 38,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -148,8 +164,10 @@ Object {
     "columnNumber": 200,
     "fileName": "dist/file.js",
     "lineNumber": 100,
+    [Symbol(compiled call site line)]: true,
   },
   "lineNumber": 50,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -162,11 +180,13 @@ Object {
     "fname": " <anonymous>",
     "generated": undefined,
     "lineNumber": 420,
+    [Symbol(compiled call site line)]: true,
   },
   "fileName": "<anonymous>",
   "fname": "eval",
   "isEval": true,
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -179,11 +199,13 @@ Object {
     "fname": " <anonymous>",
     "generated": undefined,
     "lineNumber": 420,
+    [Symbol(compiled call site line)]: true,
   },
   "fileName": "<anonymous>",
   "fname": "eval",
   "isEval": true,
   "lineNumber": 3,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -196,11 +218,13 @@ Object {
     "fname": " <anonymous>",
     "generated": undefined,
     "lineNumber": 1,
+    [Symbol(compiled call site line)]: true,
   },
   "fileName": "<anonymous>",
   "fname": "eval",
   "isEval": true,
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -213,11 +237,13 @@ Object {
     "fname": " fooeval",
     "generated": undefined,
     "lineNumber": 1,
+    [Symbol(compiled call site line)]: true,
   },
   "fileName": "<anonymous>",
   "fname": "eval",
   "isEval": true,
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -226,6 +252,7 @@ Object {
   "columnNumber": 17,
   "fileName": "evalmachine.<anonymous>",
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -235,6 +262,7 @@ Object {
   "fileName": "     f[i](l<e>:.js:1:2)    ",
   "fname": undefined,
   "lineNumber": 2,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -245,6 +273,7 @@ Object {
   "fname": "Foo.get stringStack",
   "generated": undefined,
   "lineNumber": 17,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -255,6 +284,7 @@ Object {
   "fname": "fooeval",
   "generated": undefined,
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -265,6 +295,7 @@ Object {
   "fname": "Function.Module._load",
   "generated": undefined,
   "lineNumber": 439,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -275,6 +306,7 @@ Object {
   "fname": "Module._compile",
   "generated": undefined,
   "lineNumber": 571,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -285,6 +317,7 @@ Object {
   "fname": "Module.load",
   "generated": undefined,
   "lineNumber": 488,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -295,12 +328,14 @@ Object {
   "fname": "Module.runMain",
   "generated": undefined,
   "lineNumber": 605,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
 exports[`test/parse.ts > TAP > native > must match snapshot 1`] = `
 Object {
   "fileName": "native",
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -311,6 +346,7 @@ Object {
   "fname": "new Foo",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -321,6 +357,7 @@ Object {
   "fname": "Object.[foo]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -331,6 +368,7 @@ Object {
   "fname": "Object.[some (weird) [<symbolism>]] [as foo]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -341,6 +379,7 @@ Object {
   "fname": "Object.[some (weird) [<symbolism>]] [as foo]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -351,6 +390,7 @@ Object {
   "fname": "Object.[Symbol.iterator]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -361,6 +401,7 @@ Object {
   "fname": "Object.<anonymous>",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -371,6 +412,7 @@ Object {
   "fname": "Object.a (s) d [f]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -381,6 +423,7 @@ Object {
   "fname": "Object.a (s) d [f]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -391,6 +434,7 @@ Object {
   "fname": "Object.a (w) [<s>]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -403,8 +447,10 @@ Object {
     "columnNumber": 69,
     "fileName": "__dirname/generate-parse-fixture.js",
     "lineNumber": 420,
+    [Symbol(compiled call site line)]: true,
   },
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -415,6 +461,7 @@ Object {
   "fname": "Object.asdf ][)( \\u0000\\u0001\\u0002\\u0003\\u001b[44;37m foo",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -425,6 +472,7 @@ Object {
   "fname": "Object.eval",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -435,6 +483,7 @@ Object {
   "fname": "Object.exports.runInNewContext",
   "generated": undefined,
   "lineNumber": 69,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -445,6 +494,7 @@ Object {
   "fname": "Object.function ctor (file.js:1:2)     <anonymous>",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -455,6 +505,7 @@ Object {
   "fname": "Object.Module._extensions..js",
   "generated": undefined,
   "lineNumber": 580,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -465,6 +516,7 @@ Object {
   "fname": "OtherClass.[some (weird) [<symbolism>]] [as foo]",
   "generated": undefined,
   "lineNumber": 420,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -475,6 +527,7 @@ Object {
   "fname": "run",
   "generated": undefined,
   "lineNumber": 418,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -483,6 +536,7 @@ Object {
   "columnNumber": 2,
   "fileName": "some/file.js",
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -495,8 +549,10 @@ Object {
     "columnNumber": 200,
     "fileName": "dist/file.js",
     "lineNumber": 100,
+    [Symbol(compiled call site line)]: true,
   },
   "lineNumber": 50,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -507,6 +563,7 @@ Object {
   "fname": "startup",
   "generated": undefined,
   "lineNumber": 139,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -517,6 +574,7 @@ Object {
   "fname": "tryModuleLoad",
   "generated": undefined,
   "lineNumber": 447,
+  [Symbol(compiled call site line)]: true,
 }
 `
 
@@ -526,5 +584,6 @@ Object {
   "fileName": "     f[i](l<e>:.js:1:2)    ",
   "fname": "x",
   "lineNumber": 1,
+  [Symbol(compiled call site line)]: true,
 }
 `
