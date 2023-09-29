@@ -328,8 +328,14 @@ Object {
       
       - base
       - terse
-      - tap
+      - min
+      - dot
       - silent
+      - json
+      - jsonstream
+      - markdown
+      - junit
+      - tap
     ),
     "short": "R",
     "type": "string",

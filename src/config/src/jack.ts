@@ -26,7 +26,18 @@ const coverageReporters = [
 
 // Can't pull this directly out of @tapjs/reporter because
 // reporter is ESM only because ink is ESM only.
-const testReporters = ['base', 'terse', 'tap', 'silent']
+const testReporters = [
+  'base',
+  'terse',
+  'min',
+  'dot',
+  'silent',
+  'json',
+  'jsonstream',
+  'markdown',
+  'junit',
+  'tap',
+]
 
 /**
  * Configuration options for TAP core.
