@@ -8,6 +8,7 @@ eleventyNavigation:
 ## 18.3
 
 - Format React elements as JSX
+- Actually default the `typecheck` option to `false` as intended.
 
 ## 18.2
 

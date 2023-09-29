@@ -5,7 +5,7 @@ import { config, loader } from '../dist/esm/index.js'
 t.equal(loader, 'ts-node/esm')
 t.matchSnapshot(config)
 
-t.test('no typecheck setting, no effect', async t => {
+t.test('typecheck defaults to false', async t => {
   const mock = {
     '@tapjs/core': t.createMock(core, {
       env: {
@@ -23,7 +23,7 @@ t.test('no typecheck setting, no effect', async t => {
   )) as typeof import('../dist/esm/index.js')
   plugin(t)
   plugin(t)
-  t.equal(env.TS_NODE_TRANSPILE_ONLY, undefined)
+  t.equal(env.TS_NODE_TRANSPILE_ONLY, '1')
   t.end()
 })
 
@@ -46,28 +46,6 @@ t.test('typecheck true => transpile only false', async t => {
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_TRANSPILE_ONLY, '0')
-  t.end()
-})
-
-t.test('typecheck false => transpile only true', async t => {
-  const mock = {
-    '@tapjs/core': t.createMock(core, {
-      env: {
-        TS_NODE_TRANSPILE_ONLY: undefined,
-        TAP_TYPECHECK: '0',
-      },
-    }),
-  }
-  const {
-    '@tapjs/core': { env },
-  } = mock
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/index.js',
-    mock
-  )) as typeof import('../dist/esm/index.js')
-  plugin(t)
-  plugin(t)
-  t.equal(env.TS_NODE_TRANSPILE_ONLY, '1')
   t.end()
 })
 

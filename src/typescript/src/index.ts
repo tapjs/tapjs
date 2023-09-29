@@ -14,10 +14,10 @@ export const preload = true
 let didSet = false
 export const plugin: TapPlugin<{}> = () => {
   if (!didSet) {
-    if (env.TAP_TYPECHECK === '0') {
-      env.TS_NODE_TRANSPILE_ONLY = '1'
-    } else if (env.TAP_TYPECHECK === '1') {
+    if (env.TAP_TYPECHECK === '1') {
       env.TS_NODE_TRANSPILE_ONLY = '0'
+    } else {
+      env.TS_NODE_TRANSPILE_ONLY = '1'
     }
     if (env.TAP_TSCONFIG && env.TAP_CWD) {
       env.TS_NODE_PROJECT = resolve(env.TAP_CWD, env.TAP_TSCONFIG)
