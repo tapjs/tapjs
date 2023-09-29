@@ -47,8 +47,47 @@ amenable to any level of color sensitivity.
 <span style="color:#999"># { total: 2, pass: 2 }
 # time=1091.538ms</span></pre>
 
+The other included reporters are:
+
+- `min` - Even more terse than terse. Nothing at all is printed
+  unless a failure occurs.
+- `silent` - Literally as terse as it is possible to be. No test
+  results are printed anywhere.
+- `dot` - Similar to `min`, but prints a dot for each assertion,
+  colored appropriately for its pass/fail/skip/todo status.
+  (Or, if colors are disabled, just a regular dot.)
+- `junit` - JUnit style XML results.
+- `json` - Output the results of the test run as a single JSON
+  object.
+- `jsonstream` - Line-delmited JSON, printing an array message
+  for each suite and assertion.
+- `markdown` - Similar to `jsonstream`, but markdown instead of
+  JSON.
+- `tap` - Just the raw TAP stream.
+
 Those are just the built-in reports. You can [write your own
 using the `@tapjs/reporter` library](./writing-custom-reporters.md).
+
+## Reporting to a File
+
+Particularly for the JSON, XML, or Markdown reporters, it can be
+useful to pipe to a file.
+
+To do this, you can set the `--reporter-file` option (shorthand:
+`-f`) to a path on disk.  For example:
+
+```bash
+$ # write the xml to rspec.xml
+$ tap -R junit --reporter-file rspec.xml
+```
+
+You can also use the `replay` command in this case to output a
+human-friendly report only on test failure:
+
+```bash
+$ # will create xml file, only print verbose report on failure
+$ tap -R junit --reporter-file rspec.xml || tap replay
+```
 
 ## Ink-Based Reporters
 

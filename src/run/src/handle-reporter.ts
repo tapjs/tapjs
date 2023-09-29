@@ -5,13 +5,15 @@ import {
   types as reportTypes,
 } from '@tapjs/reporter'
 import { spawn } from 'node:child_process'
+import { createWriteStream } from 'node:fs'
+import { WriteStream } from 'node:tty'
 import { resolve } from 'node:path'
 import type { Writable } from 'node:stream'
 import { pathToFileURL } from 'node:url'
 import { resolveImport } from 'resolve-import'
 import which from 'which'
 
-const rawTap = (t: TAP) => pipe(t, process.stdout)
+const rawTap = (t: TAP, out: Writable) => pipe(t, out)
 const pipe = (t: TAP, dest: Writable): false => {
   t.pipe(dest)
   return false
@@ -31,9 +33,21 @@ export const handleReporter = async (
   config: LoadedConfig
 ) => {
   // figure out if we MUST use the 'tap' reporter
-  const reporter = config.get('reporter') as string
-  if (reporter === 'tap' || process.env.TAP === '1') {
-    return rawTap(t)
+  const rf = config.get('reporter-file')
+  const reporter =
+    rf === '/dev/null' ? 'silent' : (config.get('reporter') as string)
+  const isRawTap = process.env.TAP === '1'
+  const out =
+    !rf ||
+    rf === '-' ||
+    rf === '/dev/stdout' ||
+    isRawTap ||
+    reporter === 'silent'
+      ? process.stdout
+      : createWriteStream(rf)
+
+  if (reporter === 'tap' || isRawTap) {
+    return rawTap(t, out)
   }
 
   if (reporter === 'silent') {
@@ -45,20 +59,26 @@ export const handleReporter = async (
   // if it's one of the keys we know, then use that
   if (reportTypes[reporter]) {
     const Type = reporter as keyof typeof reportTypes
-    testReport(Type, t, config)
+    testReport(Type, t, config, out)
     return true
   }
 
   // Check to see if it's an executable program. If so, run it
   // and pipe the TAP data into its stdin.
   try {
+    const stdio: ['pipe', 'inherit' | 'pipe', 'inherit'] = [
+      'pipe',
+      out === process.stdout ? 'inherit' : 'pipe',
+      'inherit',
+    ]
     const exe = await which(reporter)
     const rargs = config.get('reporter-arg') || []
     const proc = spawn(exe, rargs, {
       shell: true,
-      stdio: ['pipe', 'inherit', 'inherit'],
+      stdio,
     })
-    return pipe(t, proc.stdin)
+    if (proc.stdout) proc.stdout.pipe(out)
+    return pipe(t, proc.stdin as WriteStream)
   } catch {}
 
   // ok, not one of those, check to see if we can import it
@@ -81,11 +101,11 @@ export const handleReporter = async (
       ) {
         const Cls = imported as typeof Writable
         const dest = new Cls()
-        dest.pipe(process.stdout)
+        dest.pipe(out)
         return pipe(t, dest)
       } else {
         // React function component
-        testReport(imported, t, config)
+        testReport(imported, t, config, out)
         return true
       }
     }
@@ -96,5 +116,5 @@ export const handleReporter = async (
       reporter
     )} reporter. Displaying raw TAP.`
   )
-  return rawTap(t)
+  return rawTap(t, out)
 }

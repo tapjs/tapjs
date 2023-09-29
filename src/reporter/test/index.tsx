@@ -4,6 +4,7 @@ import * as INK from 'ink'
 import { render } from 'ink-testing-library'
 import { Minipass } from 'minipass'
 import React, { FC } from 'react'
+import { Writable } from 'stream'
 import t from 'tap'
 import { TapReportOpts } from '../dist/esm/index.js'
 
@@ -132,3 +133,82 @@ t.test('render with known stream report type', async t => {
   t.equal(tapPiped, true)
   t.equal(reportPiped, true)
 })
+
+t.test('render with Ink piped to a stream', async t => {
+  const output = new Minipass<any>({ objectMode: true })
+  let rendered: TapReportOpts | undefined = undefined
+  const Tag: FC<TapReportOpts> = (opts: TapReportOpts) => {
+    rendered = opts
+    return <></>
+  }
+  const { report } = (await t.mockImport('../dist/esm/index.js', {
+    ink: t.createMock(INK, {
+      render: (node: any, stdout: any) => {
+        t.equal(stdout, output)
+        return render(node)
+      },
+    }),
+  })) as typeof import('../dist/esm/index.js')
+  let registered = false
+  const mockTap = {
+    register: () => (registered = true),
+    on: () => {},
+  }
+  const mockConfig = {}
+  await report(
+    Tag,
+    mockTap as unknown as TAP,
+    mockConfig as unknown as LoadedConfig,
+    output as unknown as Writable
+  )
+  t.strictSame(rendered, {
+    test: mockTap,
+    config: mockConfig,
+  })
+  t.equal(registered, true)
+})
+
+t.test(
+  'render with known stream report type to a stream',
+  async t => {
+    const output = new Minipass<any>({ objectMode: true })
+    class JUnit {
+      pipe(dest: any) {
+        t.equal(dest, output)
+        reportPiped = true
+        return dest
+      }
+    }
+    const { report } = (await t.mockImport('../dist/esm/index.js', {
+      ink: t.createMock(INK, {
+        render,
+      }),
+      '../dist/esm/junit.js': {
+        JUnit,
+      },
+      minipass: { Minipass, isStream: () => true },
+    })) as typeof import('../dist/esm/index.js')
+    let registered = false
+    let tapPiped = false
+    let reportPiped = false
+    const mockTap = {
+      register: () => (registered = true),
+      on: () => {},
+      pipe: (dest: any) => {
+        tapPiped = true
+        t.type(dest, JUnit)
+        return dest
+      },
+    }
+    const mockConfig = {}
+    await report(
+      'junit',
+      mockTap as unknown as TAP,
+      mockConfig as unknown as LoadedConfig,
+      output as unknown as Writable
+    )
+    t.equal(registered, true)
+    t.equal(tapPiped, true)
+    t.equal(reportPiped, true)
+  }
+)

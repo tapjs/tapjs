@@ -346,6 +346,17 @@ Object {
     "short": "r",
     "type": "string",
   },
+  "reporter-file": Object {
+    "description": String(
+      Write the test report to the specified file, instead of stdout. Useful for reports such as junit, json, etc.
+      
+      To save the raw TAP data to a file, the \`--output-file\` or \`--output-dir\` options are usually more appropriate.
+      
+      If \`TAP=1\` is set in the environment, then raw TAP output is always written to stdout, because this is how test files communicate with the runner.
+    ),
+    "short": "f",
+    "type": "string",
+  },
   "save": Object {
     "description": String(
       If <file> exists, then it should be a line- delimited list of test files to run. If <file> is not present, then all command-line positional arguments are run.

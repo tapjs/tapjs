@@ -1,7 +1,11 @@
 import { Minipass } from 'minipass';
 import { Parser } from 'tap-parser';
 const instances_ = [];
-export const instances = () => instances_;
+export const instances = () => {
+    const r = instances_.slice(0);
+    instances_.length = 0;
+    return r;
+};
 export default class Reporter extends Minipass {
     parser;
     constructor() {

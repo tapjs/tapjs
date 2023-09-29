@@ -321,6 +321,21 @@ export default jack({
 
                     ${testReporters.map(r => `- ${r}`).join('\n')}`,
     },
+
+    'reporter-file': {
+      short: 'f',
+      hint: 'file',
+      description: `Write the test report to the specified file, instead of
+                    stdout. Useful for reports such as junit, json, etc.
+
+                    To save the raw TAP data to a file, the
+                    \`--output-file\` or \`--output-dir\` options are usually
+                    more appropriate.
+
+                    If \`TAP=1\` is set in the environment, then raw TAP
+                    output is always written to stdout, because this is how
+                    test files communicate with the runner.`,
+    },
   })
 
   .optList({

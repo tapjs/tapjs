@@ -3,6 +3,8 @@ import { TAP, TestBase } from '@tapjs/core'
 import { render } from 'ink'
 import { isStream, Minipass } from 'minipass'
 import React, { FC } from 'react'
+import { Writable } from 'stream'
+import { WriteStream } from 'tty'
 import { Base } from './base.js'
 import * as components from './components.js'
 import { Dot } from './dot.js'
@@ -56,7 +58,8 @@ addType('markdown', MarkdownStream)
 export const report = async (
   Type: string | Reporter | typeof Minipass<string>,
   tap: TAP,
-  config: LoadedConfig
+  config: LoadedConfig,
+  stdout: Writable = process.stdout
 ) => {
   if (typeof Type === 'string') {
     if (types.hasOwnProperty(Type)) {
@@ -68,14 +71,16 @@ export const report = async (
   tap.register()
   if (isStream(Type.prototype)) {
     const reporter = new (Type as typeof Minipass)()
-    tap.pipe(reporter).pipe(process.stdout)
+    tap.pipe(reporter).pipe(stdout)
   } else {
     // always show the cursor when we finish
     tap.on('complete', () => process.stdout.write('\x1b[?25h'))
     const T = Type as Reporter
-    render(<T test={tap} config={config}></T>, {
-      patchConsole: false,
-    })
+    const opts =
+      stdout === process.stdout
+        ? { patchConsole: false }
+        : (stdout as WriteStream)
+    render(<T test={tap} config={config}></T>, opts)
   }
   return true
 }
