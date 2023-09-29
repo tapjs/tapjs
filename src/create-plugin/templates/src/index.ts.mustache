@@ -89,11 +89,19 @@ export const plugin: TapPlugin<<%&className%>, <%&className%>Options> = (
 // export const config = {
 //   'my-config-flag': {
 //     type: 'boolean', // or 'string' or 'number'.  Required
-//     // optional, must be single char if specified
-//     // short: 'F',
+//
+//     // optional, must be single char if specified,
+//     // and cannot conflict with any other config short names
+//     // short: 'X',
 //
 //     // optional, set to true if the option can be set multiple times
+//     // this also means it'll be an array in config files
 //     // multiple: true,
+//
+//     // optional, only relevant for 'multiple: true'
+//     // specify the delimiter used in the environment variable to separate
+//     // multiple values. Defaults to '\n'
+//     // delim: '\n',
 //
 //     // optionally set a default value. Must match the type, and if it's
 //     // multiple:true, then it must be an array of that type.
