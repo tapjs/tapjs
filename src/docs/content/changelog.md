@@ -5,10 +5,20 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.4
+
+- Include `Symbol` keys in formatting/comparison.
+- Print symbols in formatted objects as `Symbol.for(...)` if
+  appropriate.
+- Print known symbols from the `Symbol` constructor as
+  `Symbol.<key>`, eg `Symbol.iterator` instead of
+  `Symbol(Symbol.iterator)`.
+- Add `--reporter-file` option to pipe test report to a file.
+
 ## 18.3
 
 - Format React elements as JSX
-- Actually default the `typecheck` option to `false` as intended.
+- (18.3.1) Actually default the `typecheck` option to `false` as intended.
 
 ## 18.2
 
