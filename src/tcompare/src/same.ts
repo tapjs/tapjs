@@ -400,7 +400,7 @@ export class Same extends Format {
   printPojoEmpty() {
     // both are empty and not a simple mismatch, nothing to do
   }
-  getPojoKeys(obj: any = this.object): string[] {
+  getPojoKeys(obj: any = this.object): PropertyKey[] {
     const fromSuper = super.getPojoKeys(obj)
     if (obj === this.expect) {
       return fromSuper

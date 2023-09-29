@@ -427,8 +427,27 @@ export class Format {
     this.memo += 'null'
   }
 
+  #printSymbol(sym: symbol): string {
+    const keyFor = Symbol.keyFor(sym)
+    const s = String(sym)
+    if (s.startsWith('Symbol(Symbol.')) {
+      // check to see if it's a key on the Symbol global.
+      // return Symbol.iterator, not Symbol(Symbol.iterator)
+      const symKey = s.substring(
+        'Symbol(Symbol.'.length,
+        s.length - 1
+      )
+      if (
+        symKey &&
+        Symbol[symKey as keyof SymbolConstructor] === sym
+      ) {
+        return `Symbol.${symKey}`
+      }
+    }
+    return keyFor ? 'Symbol.for' + s.substring('Symbol'.length) : s
+  }
   printSymbol(): void {
-    this.memo += this.object.toString()
+    this.memo += this.#printSymbol(this.object)
   }
 
   printBigInt(): void {
@@ -483,7 +502,9 @@ export class Format {
     return this.parent && this.parent.isMap()
       ? this.style.mapKeyStart() +
           this.parent.child(this.key, { isKey: true }, Format).print()
-      : JSON.stringify(this.key)
+      : typeof this.key === 'string'
+      ? JSON.stringify(this.key)
+      : `[${this.#printSymbol(this.key)}]`
   }
 
   printCircular(seen: Format): void {
@@ -787,29 +808,51 @@ export class Format {
     this.printPojoBody()
   }
 
-  getPojoKeys(obj: any = this.object): string[] {
+  #getPojoKeys(obj: any, symbols = false): PropertyKey[] {
+    // fast path, own string props only
+    if (!symbols) {
+      return Object.keys(obj)
+    }
+    // get all enumerable symbols
+    const keys: symbol[] = Object.getOwnPropertySymbols(obj)
+    return keys.filter(
+      k => Object.getOwnPropertyDescriptor(obj, k)?.enumerable
+    )
+  }
+
+  getPojoKeys(obj: any = this.object): PropertyKey[] {
     if (this.options.includeEnumerable) {
-      const keys = []
+      const keys: PropertyKey[] = []
+      // optimized fast path, for/in over enumerable string keys only
       for (const i in obj) {
         keys.push(i)
       }
+      // walk up proto chain collecting all strings and symbols
+      for (let p = obj; p; p = Object.getPrototypeOf(p)) {
+        keys.push(...this.#getPojoKeys(p, true))
+      }
       return keys
-    } else if (this.options.includeGetters) {
-      const own = new Set(Object.keys(obj))
-      const proto = Object.getPrototypeOf(obj)
-      if (proto) {
-        const desc = Object.getOwnPropertyDescriptors(proto)
-        for (const [name, prop] of Object.entries(desc)) {
-          if (prop.enumerable && typeof prop.get === 'function') {
-            // public wrappers around internal things are worth showing
-            own.add(name)
-          }
+    }
+
+    const keys: PropertyKey[] = this.#getPojoKeys(obj).concat(
+      this.#getPojoKeys(obj, true)
+    )
+    if (!this.options.includeGetters) {
+      return keys
+    }
+
+    const own = new Set(keys)
+    const proto = Object.getPrototypeOf(obj)
+    if (proto) {
+      const desc = Object.getOwnPropertyDescriptors(proto)
+      for (const [name, prop] of Object.entries(desc)) {
+        if (prop.enumerable && typeof prop.get === 'function') {
+          // public wrappers around internal things are worth showing
+          own.add(name)
         }
       }
-      return Array.from(own)
-    } else {
-      return Object.keys(obj)
     }
+    return Array.from(own)
   }
 
   printPojo(): void {
@@ -847,8 +890,8 @@ export class Format {
     }
   }
 
-  getPojoEntries(obj: any): [string, any][] {
-    const ent: [string, any][] = this.getPojoKeys(obj).map(k => {
+  getPojoEntries(obj: any): [PropertyKey, any][] {
+    const ent: [PropertyKey, any][] = this.getPojoKeys(obj).map(k => {
       try {
         return [k, obj[k]]
       } catch {
@@ -856,7 +899,9 @@ export class Format {
       }
     })
     return this.sort
-      ? ent.sort((a, b) => a[0].localeCompare(b[0], 'en'))
+      ? ent.sort((a, b) =>
+          String(a[0]).localeCompare(String(b[0]), 'en')
+        )
       : ent
   }
 

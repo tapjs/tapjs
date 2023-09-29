@@ -67,14 +67,14 @@ exports[`test/format.tsx > TAP > formatting jsx > children=Array ["hello", <div>
 
 exports[`test/format.tsx > TAP > formatting jsx > children=Array [<span> number is not a react node </span>, 7] 1`] = `
 Object {
-  "$$typeof": Symbol(react.element),
+  "$$typeof": Symbol.for(react.element),
   "type": "div",
   "key": null,
   "ref": null,
   "props": Object {
     "children": Array [
       Object {
-        "$$typeof": Symbol(react.element),
+        "$$typeof": Symbol.for(react.element),
         "type": "image",
         "key": null,
         "ref": null,
@@ -110,14 +110,14 @@ exports[`test/format.tsx > TAP > formatting jsx > children=Array [Array ["hello"
 
 exports[`test/format.tsx > TAP > formatting jsx > children=Array [Object {"invalid": "not a react node"}] 1`] = `
 Object {
-  "$$typeof": Symbol(react.element),
+  "$$typeof": Symbol.for(react.element),
   "type": "div",
   "key": null,
   "ref": null,
   "props": Object {
     "children": Array [
       Object {
-        "$$typeof": Symbol(react.element),
+        "$$typeof": Symbol.for(react.element),
         "type": "image",
         "key": null,
         "ref": null,
@@ -152,14 +152,14 @@ exports[`test/format.tsx > TAP > formatting jsx > children=Array [Set {"hello", 
 
 exports[`test/format.tsx > TAP > formatting jsx > children=Object {"invalid": "not a react node"} 1`] = `
 Object {
-  "$$typeof": Symbol(react.element),
+  "$$typeof": Symbol.for(react.element),
   "type": "div",
   "key": null,
   "ref": null,
   "props": Object {
     "children": Array [
       Object {
-        "$$typeof": Symbol(react.element),
+        "$$typeof": Symbol.for(react.element),
         "type": "image",
         "key": null,
         "ref": null,
@@ -4076,6 +4076,8 @@ Hidden {
   "raw": 1,
   "value": 1,
   "baseValue": 0,
+  [Symbol(_value)]: 1,
+  [Symbol(_baseValue)]: 0,
 }
 `
 
@@ -4088,6 +4090,8 @@ Null Object {
 exports[`test/format.tsx > TAP > hidden props and getters > enumerable inherited getters shown 1`] = `
 Hidden {
   "raw": 1,
+  [Symbol(_value)]: 1,
+  [Symbol(_baseValue)]: 0,
   "value": 1,
 }
 `
@@ -4101,6 +4105,8 @@ Null Object {
 exports[`test/format.tsx > TAP > hidden props and getters > own props only 1`] = `
 Hidden {
   "raw": 1,
+  [Symbol(_value)]: 1,
+  [Symbol(_baseValue)]: 0,
 }
 `
 
@@ -4111,7 +4117,9 @@ Null Object {
 `
 
 exports[`test/format.tsx > TAP > invalid iterator > must match snapshot 1`] = `
-Object {}
+Object {
+  [Symbol.iterator]: Function [Symbol.iterator](),
+}
 `
 
 exports[`test/format.tsx > TAP > locale sorting > must match snapshot 1`] = `
@@ -4148,6 +4156,28 @@ Minipass {
   "_maxListeners": undefined,
   "writable": false,
   "readable": true,
+  [Symbol(kCapture)]: false,
+  [Symbol(flowing)]: false,
+  [Symbol(paused)]: false,
+  [Symbol(pipes)]: Array [],
+  [Symbol(buffer)]: Array [
+    Buffer <6865 6c6c 6f  hello>,
+  ],
+  [Symbol(objectMode)]: false,
+  [Symbol(encoding)]: null,
+  [Symbol(async)]: false,
+  [Symbol(decoder)]: null,
+  [Symbol(EOF)]: true,
+  [Symbol(emittedEnd)]: false,
+  [Symbol(emittingEnd)]: false,
+  [Symbol(closed)]: false,
+  [Symbol(emittedError)]: null,
+  [Symbol(bufferLength)]: 5,
+  [Symbol(destroyed)]: false,
+  [Symbol(signal)]: undefined,
+  [Symbol(aborted)]: false,
+  [Symbol(dataListeners)]: 0,
+  [Symbol(discarded)]: false,
 }
 `
 
@@ -4159,5 +4189,25 @@ Minipass {
   "writable": true,
   "readable": true,
   "pipe": null,
+  [Symbol(kCapture)]: false,
+  [Symbol(flowing)]: false,
+  [Symbol(paused)]: false,
+  [Symbol(pipes)]: Array [],
+  [Symbol(buffer)]: Array [],
+  [Symbol(objectMode)]: false,
+  [Symbol(encoding)]: null,
+  [Symbol(async)]: false,
+  [Symbol(decoder)]: null,
+  [Symbol(EOF)]: false,
+  [Symbol(emittedEnd)]: false,
+  [Symbol(emittingEnd)]: false,
+  [Symbol(closed)]: false,
+  [Symbol(emittedError)]: null,
+  [Symbol(bufferLength)]: 0,
+  [Symbol(destroyed)]: false,
+  [Symbol(signal)]: undefined,
+  [Symbol(aborted)]: false,
+  [Symbol(dataListeners)]: 0,
+  [Symbol(discarded)]: false,
 }
 `

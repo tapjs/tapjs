@@ -595,18 +595,36 @@ t.test('hidden props and getters', t => {
   const _baseVal = Symbol('_baseValue')
   let i = 0
   class Base {
-    raw: any;
-    [_val]: any;
-    [_baseVal]: number
+    raw: any
+    #_val: any
+    #_baseVal: number
+    get [_val]() {
+      return this.#_val
+    }
+    set [_val](v: any) {
+      this.#_val = v
+    }
+    get [_baseVal]() {
+      return this.#_baseVal
+    }
+    set [_baseVal](v: any) {
+      this.#_baseVal = v
+    }
     constructor(val: any) {
       this.raw = val
-      this[_val] = val
-      this[_baseVal] = i++
+      this.#_val = val
+      this.#_baseVal = i++
     }
     get baseValue() {
       return this[_baseVal]
     }
   }
+  Object.defineProperty(Base.prototype, _val, {
+    enumerable: false,
+  })
+  Object.defineProperty(Base.prototype, _baseVal, {
+    enumerable: false,
+  })
   class Hidden extends Base {
     get value() {
       return this[_val]

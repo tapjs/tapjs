@@ -469,8 +469,10 @@ exports[`test/same.tsx > TAP > iterables match one another > must match snapshot
 exports[`test/same.tsx > TAP > iterator that doesnt play nice > must match snapshot 1`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,5 @@
--Object {}
+@@ -1,3 +1,5 @@
+-Object {
+-  [Symbol.iterator]: GeneratorFunction [Symbol.iterator](),
+-}
 +Array [
 +  1,
 +  2,
@@ -711,7 +713,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -        [
 -          [
 -            {
--              "$$typeof": Symbol(react.element),
+-              "$$typeof": Symbol.for(react.element),
 -              "type": "img",
 -              "key": null,
 -              "ref": null,
@@ -724,7 +726,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -          ],
 -        ],
 -      ],
-+      "$$typeof": Symbol(react.element),
++      "$$typeof": Symbol.for(react.element),
 +      "type": "img",
 +      "props": {
 +        "src": "foo",
@@ -747,7 +749,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -        Array [
 -          Array [
 -            Object {
--              "$$typeof": Symbol(react.element),
+-              "$$typeof": Symbol.for(react.element),
 -              "type": "img",
 -              "key": null,
 -              "ref": null,
@@ -760,7 +762,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -          ],
 -        ],
 -      ],
-+      "$$typeof": Symbol(react.element),
++      "$$typeof": Symbol.for(react.element),
 +      "type": "img",
 +      "props": Object {
 +        "src": "foo",
@@ -1131,7 +1133,7 @@ exports[`test/same.tsx > TAP > symbology > must match snapshot 6`] = `
 +++ actual
 @@ -1,3 +1,3 @@
  Object {
--  "a": Symbol(a),
+-  "a": Symbol.for(a),
 +  "a": "Symbol(a)",
  }
 

@@ -32,12 +32,14 @@ export class Has extends Same {
         objKeys.push(k)
       }
     }
-    const ent: [string, any][] = objKeys
+    const ent: [PropertyKey, any][] = objKeys
       .filter(k => expSet.has(k))
       .map(k => [k, obj[k]])
 
     return this.sort
-      ? ent.sort((a, b) => a[0].localeCompare(b[0], 'en'))
+      ? ent.sort((a, b) =>
+          String(a[0]).localeCompare(String(b[0]), 'en')
+        )
       : ent
   }
 

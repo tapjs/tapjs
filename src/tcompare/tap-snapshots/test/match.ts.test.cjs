@@ -592,7 +592,7 @@ exports[`test/match.ts > TAP > symbology > must match snapshot 6`] = `
 +++ actual
 @@ -1,3 +1,3 @@
  Object {
--  "a": Symbol(a),
+-  "a": Symbol.for(a),
 +  "a": "Symbol(a)",
  }
 

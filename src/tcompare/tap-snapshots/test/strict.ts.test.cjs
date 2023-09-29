@@ -560,6 +560,13 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 3`] = `
 `
 
 exports[`test/strict.ts > TAP > symbology > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": Symbol.for(a),
++  "a": Symbol(a),
+ }
 
 `
 
@@ -601,7 +608,7 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 8`] = `
 +++ actual
 @@ -1,3 +1,3 @@
  Object {
--  "a": Symbol(a),
+-  "a": Symbol.for(a),
 +  "a": "Symbol(a)",
  }
 

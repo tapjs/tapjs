@@ -318,7 +318,9 @@ t.test('invalid iterator', t => {
   // looks like an array
   t.equal(f.isArray(), true)
   // until you try to format it
-  t.equal(f.print(), 'Object {}')
+  t.equal(f.print(), `Object {
+  [Symbol.iterator]: Function [Symbol.iterator](),
+}`)
   // then it realizes it's actually not
   t.equal(f.isArray(), false)
   t.end()
