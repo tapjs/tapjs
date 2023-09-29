@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/mock",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "tap plugin adding t.mockRequire() and t.mockImport()",
   "tshy": {
     "main": true,
@@ -54,13 +54,13 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "1.1.3",
-    "@tapjs/stack": "1.2.2",
+    "@tapjs/after": "1.1.4",
+    "@tapjs/stack": "1.2.3",
     "resolve-import": "^1.4.2",
     "walk-up-path": "^3.0.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.3.3"
+    "@tapjs/core": "1.3.4"
   },
   "tap": {
     "typecheck": false,
