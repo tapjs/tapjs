@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/clock",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "a make believe clock for tests involving time",
   "tshy": {
     "main": true,
@@ -43,7 +43,7 @@
     "mock-clock": "^0.7.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.3.2"
+    "@tapjs/core": "1.3.3"
   },
   "tap": {
     "typecheck": false
