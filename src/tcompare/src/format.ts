@@ -430,11 +430,12 @@ export class Format {
   #printSymbol(sym: symbol): string {
     const keyFor = Symbol.keyFor(sym)
     const s = String(sym)
+    const key = s.substring('Symbol('.length, s.length - 1)
     if (s.startsWith('Symbol(Symbol.')) {
       // check to see if it's a key on the Symbol global.
       // return Symbol.iterator, not Symbol(Symbol.iterator)
-      const symKey = s.substring(
-        'Symbol(Symbol.'.length,
+      const symKey = key.substring(
+        'Symbol.'.length,
         s.length - 1
       )
       if (
@@ -444,7 +445,7 @@ export class Format {
         return `Symbol.${symKey}`
       }
     }
-    return keyFor ? 'Symbol.for' + s.substring('Symbol'.length) : s
+    return this.style.symbol(keyFor ? 'Symbol.for' : 'Symbol', key)
   }
   printSymbol(): void {
     this.memo += this.#printSymbol(this.object)

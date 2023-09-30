@@ -252,6 +252,7 @@ Object {
     "stringLineSep": Function stringLineSep(),
     "stringOneLine": Function stringOneLine(str),
     "stringTail": Function stringTail(indent),
+    "symbol": Function symbol(method, key),
   },
   "pretty": Object {
     "arrayEmpty": Function arrayEmpty(cls),
@@ -299,6 +300,7 @@ Object {
     "stringLineSep": Function stringLineSep(),
     "stringOneLine": Function stringOneLine(str),
     "stringTail": Function stringTail(indent),
+    "symbol": Function symbol(method, key),
   },
   "tight": Object {
     "arrayEmpty": Function arrayEmpty(_),
@@ -345,6 +347,7 @@ Object {
     "stringLineSep": Function stringLineSep(),
     "stringOneLine": Function stringOneLine(str),
     "stringTail": Function stringTail(_),
+    "symbol": Function symbol(method, key),
   },
 }
 `

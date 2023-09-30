@@ -713,7 +713,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -        [
 -          [
 -            {
--              "$$typeof": Symbol.for(react.element),
+-              "$$typeof": Symbol.for("react.element"),
 -              "type": "img",
 -              "key": null,
 -              "ref": null,
@@ -726,7 +726,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -          ],
 -        ],
 -      ],
-+      "$$typeof": Symbol.for(react.element),
++      "$$typeof": Symbol.for("react.element"),
 +      "type": "img",
 +      "props": {
 +        "src": "foo",

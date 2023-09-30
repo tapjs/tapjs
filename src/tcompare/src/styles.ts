@@ -118,6 +118,9 @@ export interface Style {
   /** end of a long string */
   stringTail: (indent: string) => string
 
+  /** printing symbols */
+  symbol: (method: string, key: string) => string
+
   /** indicator as to whether this style is suitable for use in diffs */
   diffable: boolean
   /** beginning of a thing being printed */
@@ -230,6 +233,9 @@ const pretty: Style = {
       .slice(1, -1)
       .replace(/\\"/g, '"'),
   stringTail: indent => `\n${indent})`,
+
+  symbol: (method, key) => `${method}(${key})`,
+
   diffable: true,
   start: (indent, key, sep) => `${indent}${key}${sep}`,
 }
@@ -297,6 +303,7 @@ const js: Style = {
   stringOneLine: str => JSON.stringify(str),
   stringHead: () => 'String(\n',
   stringTail: indent => `\n${indent})`,
+  symbol: (method, key) => `${method}(${JSON.stringify(key)})`,
   diffable: true,
   start: (indent, key, sep) => `${indent}${key}${sep}`,
 }
@@ -351,6 +358,7 @@ const tight: Style = {
   stringOneLine: str => JSON.stringify(str),
   stringHead: () => '',
   stringTail: _ => '',
+  symbol: (method, key) => `${method}(${JSON.stringify(key)})`,
   bufferHead: js.bufferHead,
   bufferKey: js.bufferKey,
   bufferLine: js.bufferLine,
