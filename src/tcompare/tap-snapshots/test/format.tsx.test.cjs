@@ -33,6 +33,24 @@ exports[`test/format.tsx > TAP > error without name/message > {} > tight > must 
 new Object(undefined)
 `
 
+exports[`test/format.tsx > TAP > format aggregate errors and causes > must match snapshot 1`] = `
+AggregateError: aggregated errors {
+  "errors": Array [
+    Error: xyz {
+      "cause": "something",
+      [Symbol.for(hsmusic.sugar.index)]: 1,
+    },
+    AggregateError: agg agg {
+      "errors": Array [
+        TypeError: blzhr {
+          [Symbol.for(hsmusic.sugar.index)]: "something",
+        },
+      ],
+    },
+  ],
+}
+`
+
 exports[`test/format.tsx > TAP > format iterable > must match snapshot 1`] = `
 And [
   And [

@@ -822,8 +822,16 @@ export class Format {
   }
 
   getPojoKeys(obj: any = this.object): PropertyKey[] {
+    const keys: PropertyKey[] = []
+    // always include known non-enumerable properties of Error objects
+    if (obj instanceof Error) {
+      const known = ['errors', 'cause']
+      for (const prop of known) {
+        const desc = Object.getOwnPropertyDescriptor(obj, prop)
+        if (desc && !desc.enumerable) keys.push(prop)
+      }
+    }
     if (this.options.includeEnumerable) {
-      const keys: PropertyKey[] = []
       // optimized fast path, for/in over enumerable string keys only
       for (const i in obj) {
         keys.push(i)
@@ -835,9 +843,9 @@ export class Format {
       return keys
     }
 
-    const keys: PropertyKey[] = this.#getPojoKeys(obj).concat(
+    keys.push(...this.#getPojoKeys(obj).concat(
       this.#getPojoKeys(obj, true)
-    )
+    ))
     if (!this.options.includeGetters) {
       return keys
     }

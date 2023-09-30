@@ -318,9 +318,12 @@ t.test('invalid iterator', t => {
   // looks like an array
   t.equal(f.isArray(), true)
   // until you try to format it
-  t.equal(f.print(), `Object {
+  t.equal(
+    f.print(),
+    `Object {
   [Symbol.iterator]: Function [Symbol.iterator](),
-}`)
+}`
+  )
   // then it realizes it's actually not
   t.equal(f.isArray(), false)
   t.end()
@@ -455,9 +458,33 @@ t.test('formatting jsx', t => {
     }
     t.matchSnapshot(
       format(lookAlike),
-      `children=${format(children).replace(/\n/g, ' ').replace(/ +/g, ' ').replace(/, ([}\]])/g, '$1').replace(/([\[{]) /g, '$1')}`
+      `children=${format(children)
+        .replace(/\n/g, ' ')
+        .replace(/ +/g, ' ')
+        .replace(/, ([}\]])/g, '$1')
+        .replace(/([\[{]) /g, '$1')}`
     )
   }
 
+  t.end()
+})
+
+t.test('format aggregate errors and causes', t => {
+  const sym = Symbol.for('hsmusic.sugar.index')
+  const errors = [
+    Object.assign(new Error('xyz', { cause: 'something' }), {
+      [sym]: 1,
+    }),
+    new AggregateError(
+      [
+        Object.assign(new TypeError('blzhr'), {
+          [sym]: 'something',
+        }),
+      ],
+      'agg agg'
+    ),
+  ]
+  const er = new AggregateError(errors, 'aggregated errors')
+  t.matchSnapshot(format(er))
   t.end()
 })
