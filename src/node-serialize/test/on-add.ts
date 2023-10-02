@@ -1,6 +1,6 @@
 import { at } from '@tapjs/stack'
 import t, { Base, Minimal } from 'tap'
-import {setTimeout} from 'timers/promises'
+import { setTimeout } from 'timers/promises'
 import { onAddFn } from '../src/on-add.js'
 import { TestMap } from '../src/test-map.js'
 
@@ -46,11 +46,10 @@ t.test('track the things', async t => {
   t.matchOnly(
     {
       diags,
-      subsMap: [...subsMap].map(([p, subs]) => [
-        p.name,
-        subs.map(s => s.name),
-      ]),
-      diagsMap: [...diagsMap].map(([p, diags]) => [p.name, diags]),
+      subsMap: [...subsMap.values()].map(subs =>
+        subs.map(s => s.name)
+      ),
+      diagsMap: [...diagsMap.values()],
     },
     {
       diags: [
@@ -58,33 +57,30 @@ t.test('track the things', async t => {
         ['comment via commentMethod', ['suite a comment']],
       ],
       subsMap: [
-        ['TAP', ['suite 1', 'suite a']],
-        ['suite 1', ['test 1', 'test 2']],
-        ['test 1', []],
-        ['test 2', []],
-        ['suite a', ['test b', 'test c']],
-        ['test b', []],
-        ['test c', []],
+        ['suite 1', 'suite a'],
+        ['test 1', 'test 2'],
+        [],
+        [],
+        ['test b', 'test c'],
+        [],
+        [],
       ],
       diagsMap: [
         [
-          'TAP',
-          [
-            {
-              file: String,
-              line: Number,
-              column: Number,
-              nesting: 0,
-              message: 'hello { world: true }',
-            },
-          ],
+          {
+            file: String,
+            line: Number,
+            column: Number,
+            nesting: 0,
+            message: 'hello { world: true }',
+          },
         ],
-        ['suite 1', []],
-        ['test 1', []],
-        ['test 2', []],
-        ['suite a', []],
-        ['test b', []],
-        ['test c', []],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
       ],
     }
   )

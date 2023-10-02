@@ -1,37 +1,40 @@
 // A map of test objects, but make sure that we don't get confused
 // if we get the Test proxy or the underlying TestBase.
 
-import type { Base, TestBase } from '@tapjs/core'
+import { Base } from '@tapjs/core'
+
+const kSerializationKey = Symbol.for('@tapjs/node-serialize.key')
+const getKey = (
+  t: Base & { [kSerializationKey]?: string }
+): string => {
+  const k = t[kSerializationKey]
+  if (k) return k
+  const n = String(Math.random())
+  Object.defineProperty(t, kSerializationKey, {
+    value: n,
+    writable: false,
+    configurable: true,
+    enumerable: false,
+  })
+  return n
+}
 
 export class TestMap<T extends {}> extends Map<Base, T> {
-  get(t: Base): T | undefined {
-    const tt = (t as TestBase).t
-    if (tt !== undefined && tt !== t) {
-      let vt = super.get((t as TestBase).t)
-      if (vt === undefined) {
-        const v = super.get(t)
-        if (v !== undefined) {
-          super.set(tt, v)
-          super.delete(t)
-          return v
-        }
+  constructor(items?: [Base, T][]) {
+    super()
+    if (items) {
+      for (const [t, v] of items) {
+        this.set(t, v)
       }
-      return vt
     }
-    return super.get(t)
+  }
+  get(t: Base): T | undefined {
+    return super.get(getKey(t) as unknown as Base)
   }
   has(t: Base) {
-    const tt = (t as TestBase).t
-    return super.has(t) || super.has(tt)
+    return super.has(getKey(t) as unknown as Base)
   }
   set(t: Base, v: T) {
-    const tt = (t as TestBase).t
-    if (tt !== undefined && tt !== t) {
-      super.delete(t)
-      super.set(tt, v)
-    } else {
-      super.set(t, v)
-    }
-    return this
+    return super.set(getKey(t) as unknown as Base, v)
   }
 }
