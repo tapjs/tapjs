@@ -463,11 +463,12 @@ const pubAll = () => {
   if (!pubs.length) {
     console.log('all packages published')
   }
+  console.error('PUBS', pubs.map(p => [p.name, p.version]))
   for (const p of pubs) {
     const tag = parse(p.version)?.prerelease?.length
       ? 'pre'
       : 'latest'
-    npm({ stdio: 'inherit' }, 'publish', '-ws', p.name, '--tag', tag)
+    npm({ stdio: 'inherit' }, 'publish', '-w', p.name, '--tag', tag)
   }
   if (!tags.size) {
     console.log('all dist-tags set')
