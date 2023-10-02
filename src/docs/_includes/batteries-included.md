@@ -1,8 +1,8 @@
 ### Batteries Included
 
 An easily extensible [<abbr title="Test Anything
-Protocol">TAP</abbr>](https://testanything.org) test framework,
-with outstanding [TypeScript](./plugins/typescript.md) support, a
+Protocol">TAP</abbr>](/tap-format) test framework, with
+outstanding [TypeScript](./plugins/typescript.md) support, a
 [CLI](/cli.11ty.js), [plenty of assertion
 methods](./plugins/asserts.md),
 [snapshots](./plugins/snapshot.md), [object/method
