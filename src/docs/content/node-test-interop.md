@@ -13,7 +13,7 @@ eleventyNavigation:
 
 The best way to appreciate how these two things work together is
 with an example. The [`tapjs/node-test-example`
-repo](https://github.com:tapjs/node-test-example) is a module
+repo](https://github.com/tapjs/node-test-example) is a module
 with a shocking number of bugs for how little code it is, with a
 test written using `node:test` and effectively the same test
 written using `tap`.
