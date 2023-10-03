@@ -88,20 +88,20 @@ runner that knows which loaders to apply.
 
 Running with `tap`:
 
-<pre style="color:#eeeeee;background:#222222"><span style="font-weight:bold;color:#ffffff;background:#f00"> FAIL </span> test/node.test.js <span style="color:#f00;background:#222222">2 failed</span> of <span style="font-weight:bold;color:#eeeeee;background:#222222">4</span> <span style="color:#b2b2b2;background:#222222">6.834ms</span>
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; uhoh, this one throws
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; failer
+<pre style="position:relative;color:#eeeeee;background:#222222"><span style="font-weight:bold;color:#ffffff;background:#f00"> FAIL </span> test/node.test.js <span style="color:#f00;background:#222222">2 failed</span> of <span style="font-weight:bold;color:#eeeeee;background:#222222">4</span> <span style="color:#b2b2b2;background:#222222">6.834ms</span>
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; uhoh, this one throws
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; failer
 <span style="font-weight:bold;color:#ffffff;background:#f00"> FAIL </span> test/tap.test.js <span style="color:#f00;background:#222222">3 failed</span> of <span style="font-weight:bold;color:#eeeeee;background:#222222">18</span> <span style="color:#b2b2b2;background:#222222">340ms</span>
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; uhoh, this one throws &gt; Invalid time value <span style="color:#b2b2b2;background:#222222">lib/index.mjs:11:43</span>
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; failer &gt; should be equal <span style="color:#b2b2b2;background:#222222">test/tap.test.js:35:7</span>
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; failer &gt; should be equal <span style="color:#b2b2b2;background:#222222">test/tap.test.js:37:7</span>
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; uhoh, this one throws &gt; Invalid time value <span style="color:#b2b2b2;background:#222222">lib/index.mjs:11:43</span>
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; failer &gt; should be equal <span style="color:#b2b2b2;background:#222222">test/tap.test.js:35:7</span>
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; failer &gt; should be equal <span style="color:#b2b2b2;background:#222222">test/tap.test.js:37:7</span>
                                     
 <span style="color:#eeeeee;background:#ffffff">                       </span>                     
-<span style="font-weight:bold;color:#000;background:#ffffff">  <span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">🌈</span></span> TEST COMPLETE <span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">🌈</span></span>  </span>                                                                     
+<span style="font-weight:bold;color:#000;background:#ffffff">  <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>   TEST COMPLETE <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>    </span>                                                                     
 <span style="color:#eeeeee;background:#ffffff">                       </span>                                                     
                                                                              
 <span style="font-weight:bold;color:#ffffff;background:#f00"> FAIL </span> test/node.test.js <span style="color:#f00;background:#222222">2 failed</span> of <span style="font-weight:bold;color:#eeeeee;background:#222222">4</span> <span style="color:#b2b2b2;background:#222222">6.834ms</span>
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; uhoh, this one throws
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; uhoh, this one throws
     <span style="color:#b2b2b2;background:#1c1c1c">test/node.test.js                                                       </span>
     <span style="color:#8fa5d1;background:#1c1c1c">20 </span><span style="color:#93cdff;background:#1c1c1c">})</span><span style="color:#d0d0d0;background:#1c1c1c">                                                                   </span>
     <span style="color:#8fa5d1;background:#1c1c1c">21 </span><span style="color:#d0d0d0;background:#1c1c1c">                                                                     </span>
@@ -130,7 +130,7 @@ Running with `tap`:
     <span style="color:#b2b2b2;background:#222222">TestContext.&lt;anonymous&gt; (</span><span style="color:#ff6;background:#222222">test/node.test.js</span><span style="color:#b2b2b2;background:#222222">:26:18)</span>
     <span style="color:#b2b2b2;background:#222222">TestContext.&lt;anonymous&gt; (</span><span style="color:#ff6;background:#222222">test/node.test.js</span><span style="color:#b2b2b2;background:#222222">:23:11)</span>
 
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; failer
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; failer
     <span style="color:#b2b2b2;background:#1c1c1c">test/node.test.js                                                       </span>
     <span style="color:#8fa5d1;background:#1c1c1c">26 </span><span style="color:#d0d0d0;background:#1c1c1c">    assert</span><span style="color:#93cdff;background:#1c1c1c">.</span><span style="color:#d0d0d0;background:#1c1c1c">equal</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">thrower</span><span style="color:#93cdff;background:#1c1c1c">({}),</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#87d75f;background:#1c1c1c">'Invalid Date'</span><span style="color:#93cdff;background:#1c1c1c">)</span><span style="color:#d0d0d0;background:#1c1c1c">                        </span>
     <span style="color:#8fa5d1;background:#1c1c1c">27 </span><span style="color:#d0d0d0;background:#1c1c1c">  </span><span style="color:#93cdff;background:#1c1c1c">})</span><span style="color:#d0d0d0;background:#1c1c1c">                                                                 </span>
@@ -165,7 +165,7 @@ Running with `tap`:
     <span style="color:#b2b2b2;background:#222222">TestContext.&lt;anonymous&gt; (</span><span style="color:#ff6;background:#222222">test/node.test.js</span><span style="color:#b2b2b2;background:#222222">:29:11)</span>
 
 <span style="font-weight:bold;color:#ffffff;background:#f00"> FAIL </span> test/tap.test.js <span style="color:#f00;background:#222222">3 failed</span> of <span style="font-weight:bold;color:#eeeeee;background:#222222">18</span> <span style="color:#b2b2b2;background:#222222">340ms</span>
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; uhoh, this one throws &gt; Invalid time value
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; uhoh, this one throws &gt; Invalid time value
     <span style="color:#b2b2b2;background:#1c1c1c">lib/index.mjs                                                </span>
     <span style="color:#8fa5d1;background:#1c1c1c"> 8 </span><span style="color:#d0d0d0;background:#1c1c1c">                                                          </span>
     <span style="color:#8fa5d1;background:#1c1c1c"> 9 </span><span style="font-style:italic;color:#d75fff;background:#1c1c1c">// This is a function that throws, to show how both</span><span style="color:#d0d0d0;background:#1c1c1c">       </span>
@@ -181,7 +181,7 @@ Running with `tap`:
     <span style="color:#b2b2b2;background:#222222">thrower (</span><span style="color:#ff6;background:#222222">lib/index.mjs</span><span style="color:#b2b2b2;background:#222222">:11:43)</span>
     <span style="color:#b2b2b2;background:#222222">Test.&lt;anonymous&gt; (</span><span style="color:#ff6;background:#222222">test/tap.test.js</span><span style="color:#b2b2b2;background:#222222">:27:13)</span>
 
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; failer &gt; should be equal
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; failer &gt; should be equal
     <span style="color:#b2b2b2;background:#1c1c1c">test/tap.test.js                                                        </span>
     <span style="color:#8fa5d1;background:#1c1c1c">32 </span><span style="color:#d0d0d0;background:#1c1c1c">    t</span><span style="color:#93cdff;background:#1c1c1c">.</span><span style="color:#d0d0d0;background:#1c1c1c">equal</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">failer</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#87d75f;background:#1c1c1c">1</span><span style="color:#93cdff;background:#1c1c1c">),</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#87d75f;background:#1c1c1c">'2'</span><span style="color:#93cdff;background:#1c1c1c">)</span><span style="color:#d0d0d0;background:#1c1c1c">                                          </span>
     <span style="color:#8fa5d1;background:#1c1c1c">33 </span><span style="color:#d0d0d0;background:#1c1c1c">    t</span><span style="color:#93cdff;background:#1c1c1c">.</span><span style="color:#d0d0d0;background:#1c1c1c">equal</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">failer</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">-</span><span style="color:#87d75f;background:#1c1c1c">1</span><span style="color:#93cdff;background:#1c1c1c">),</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#87d75f;background:#1c1c1c">'0'</span><span style="color:#93cdff;background:#1c1c1c">)</span><span style="color:#d0d0d0;background:#1c1c1c">                                         </span>
@@ -202,7 +202,7 @@ Running with `tap`:
     <span style="color:#b2b2b2;background:#222222">Test.&lt;anonymous&gt; (</span><span style="color:#ff6;background:#222222">test/tap.test.js</span><span style="color:#b2b2b2;background:#222222">:31:5)</span>
     <span style="color:#ff6;background:#222222">test/tap.test.js</span><span style="color:#b2b2b2;background:#222222">:23:3</span>
 
- <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span> suite of tests that fail &gt; failer &gt; should be equal
+ <span style="font-weight:bold;color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> suite of tests that fail &gt; failer &gt; should be equal
     <span style="color:#b2b2b2;background:#1c1c1c">test/tap.test.js                                                        </span>
     <span style="color:#8fa5d1;background:#1c1c1c">34 </span><span style="color:#d0d0d0;background:#1c1c1c">    </span><span style="font-style:italic;color:#d75fff;background:#1c1c1c">// expect to convert string numbers to Number, but doesn't</span><span style="color:#d0d0d0;background:#1c1c1c">       </span>
     <span style="color:#8fa5d1;background:#1c1c1c">35 </span><span style="color:#d0d0d0;background:#1c1c1c">    t</span><span style="color:#93cdff;background:#1c1c1c">.</span><span style="color:#d0d0d0;background:#1c1c1c">equal</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">failer</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#87d75f;background:#1c1c1c">'1'</span><span style="color:#93cdff;background:#1c1c1c">),</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#87d75f;background:#1c1c1c">'2'</span><span style="color:#93cdff;background:#1c1c1c">)</span><span style="color:#d0d0d0;background:#1c1c1c">                                        </span>
@@ -229,12 +229,14 @@ Running with `tap`:
 <span style="color:#b2b2b2;background:#222222"># { total: 22, pass: 17, fail: 5 }</span>
 <span style="color:#b2b2b2;background:#222222"># time=459.924ms</span></pre>
 
+
 Running with `node --test`:
 
-<pre style="color:#eeeeee;background:#222222"><span style="color:#090;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✔</span></span></span></span> add </span><span style="color:#666;background:#222222">(0.569917ms)</span>
-<span style="color:#090;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✔</span></span></span></span> stringOrNull </span><span style="color:#666;background:#222222">(0.063833ms)</span>
-<span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">▶</span></span> suite of tests that fail
-  <span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> uhoh, this one throws </span><span style="color:#666;background:#222222">(0.910959ms)</span>
+<pre style="position:relative;color:#eeeeee;background:#222222">$ node --test
+<span style="color:#090;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✔</span>   add </span><span style="color:#666;background:#222222">(0.569917ms)</span>
+<span style="color:#090;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✔</span>   stringOrNull </span><span style="color:#666;background:#222222">(0.063833ms)</span>
+<span style="position:absolute;line-height:1;margin-top:0.3ex">▶</span>   suite of tests that fail
+  <span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   uhoh, this one throws </span><span style="color:#666;background:#222222">(0.910959ms)</span>
     RangeError [Error]: Invalid time value
         at Date.toISOString (&lt;anonymous&gt;)
         at thrower <span style="color:#666;background:#222222">(file:///Users/isaacs/dev/tapjs/node-test-example/</span>lib/index.mjs:11:43<span style="color:#666;background:#222222">)</span>
@@ -247,7 +249,7 @@ Running with `node --test`:
     <span style="color:#666;background:#222222">    at Test.runInAsyncScope (node:async_hooks:206:9)</span>
     <span style="color:#666;background:#222222">    at Test.run (node:internal/test_runner/test:631:25)</span>
 
-  <span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> failer </span><span style="color:#666;background:#222222">(0.532708ms)</span>
+  <span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   failer </span><span style="color:#666;background:#222222">(0.532708ms)</span>
     AssertionError [ERR_ASSERTION]: '11' == '2'
         at TestContext.&lt;anonymous&gt; <span style="color:#666;background:#222222">(file:///Users/isaacs/dev/tapjs/node-test-example/</span>test/node.test.js:33:12<span style="color:#666;background:#222222">)</span>
     <span style="color:#666;background:#222222">    at Test.runInAsyncScope (node:async_hooks:206:9)</span>
@@ -264,12 +266,12 @@ Running with `node --test`:
       operator: <span style="color:#090;background:#222222">'=='</span>
     }
 
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">▶</span></span></span></span> </span>suite of tests that fail <span style="color:#666;background:#222222">(1.684292ms)</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">▶</span>   </span>suite of tests that fail <span style="color:#666;background:#222222">(1.684292ms)</span>
 
-<span style="color:#090;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✔</span></span></span></span> add </span><span style="color:#666;background:#222222">(1.774ms)</span>
-<span style="color:#090;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✔</span></span></span></span> stringOrNull </span><span style="color:#666;background:#222222">(1.091ms)</span>
-<span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">▶</span></span> suite of tests that fail
-  <span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> uhoh, this one throws </span><span style="color:#666;background:#222222">(10.016ms)</span>
+<span style="color:#090;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✔</span>   add </span><span style="color:#666;background:#222222">(1.774ms)</span>
+<span style="color:#090;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✔</span>   stringOrNull </span><span style="color:#666;background:#222222">(1.091ms)</span>
+<span style="position:absolute;line-height:1;margin-top:0.3ex">▶</span>   suite of tests that fail
+  <span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   uhoh, this one throws </span><span style="color:#666;background:#222222">(10.016ms)</span>
     Error: Invalid time value
     | // This is a function that throws, to show how both
     | // handle errors.
@@ -284,7 +286,7 @@ Running with `node --test`:
       tapCaught: <span style="color:#090;background:#222222">'testFunctionThrow'</span>
     }
 
-  <span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> failer </span><span style="color:#666;background:#222222">(3.676ms)</span>
+  <span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   failer </span><span style="color:#666;background:#222222">(3.676ms)</span>
     Error: should be equal
     <span style="color:#ffe5f1;background:#ac3ea3">--- expected                                                               </span>
     <span style="color:#f2ffe5;background:#3a7500">+++ actual                                                                 </span>
@@ -303,21 +305,21 @@ Running with `node --test`:
       compare: <span style="color:#090;background:#222222">'==='</span>
     }
 
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">▶</span></span></span></span> </span>suite of tests that fail <span style="color:#666;background:#222222">(17.681ms)</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">▶</span>   </span>suite of tests that fail <span style="color:#666;background:#222222">(17.681ms)</span>
 
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> tests 9</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> suites 1</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> pass 4</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> fail 5</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> cancelled 0</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> skipped 0</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> todo 0</span>
-<span style="color:#06f;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">ℹ</span></span></span></span> duration_ms 160.809375</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   tests 9</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   suites 1</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   pass 4</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   fail 5</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   cancelled 0</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   skipped 0</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   todo 0</span>
+<span style="color:#06f;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">ℹ</span>   duration_ms 160.809375</span>
 
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> failing tests:</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   failing tests:</span>
 
 test at file:/Users/isaacs/dev/tapjs/node-test-example/test/node.test.js:23:11
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> uhoh, this one throws </span><span style="color:#666;background:#222222">(0.910959ms)</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   uhoh, this one throws </span><span style="color:#666;background:#222222">(0.910959ms)</span>
   RangeError [Error]: Invalid time value
       at Date.toISOString (&lt;anonymous&gt;)
       at thrower <span style="color:#666;background:#222222">(file:///Users/isaacs/dev/tapjs/node-test-example/</span>lib/index.mjs:11:43<span style="color:#666;background:#222222">)</span>
@@ -331,7 +333,7 @@ test at file:/Users/isaacs/dev/tapjs/node-test-example/test/node.test.js:23:11
   <span style="color:#666;background:#222222">    at Test.run (node:internal/test_runner/test:631:25)</span>
 
 test at file:/Users/isaacs/dev/tapjs/node-test-example/test/node.test.js:29:11
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> failer </span><span style="color:#666;background:#222222">(0.532708ms)</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   failer </span><span style="color:#666;background:#222222">(0.532708ms)</span>
   AssertionError [ERR_ASSERTION]: '11' == '2'
       at TestContext.&lt;anonymous&gt; <span style="color:#666;background:#222222">(file:///Users/isaacs/dev/tapjs/node-test-example/</span>test/node.test.js:33:12<span style="color:#666;background:#222222">)</span>
   <span style="color:#666;background:#222222">    at Test.runInAsyncScope (node:async_hooks:206:9)</span>
@@ -349,7 +351,7 @@ test at file:/Users/isaacs/dev/tapjs/node-test-example/test/node.test.js:29:11
   }
 
 test at test/tap.test.js:24:5
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> uhoh, this one throws </span><span style="color:#666;background:#222222">(10.016ms)</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   uhoh, this one throws </span><span style="color:#666;background:#222222">(10.016ms)</span>
   Error: Invalid time value
   | // This is a function that throws, to show how both
   | // handle errors.
@@ -365,7 +367,7 @@ test at test/tap.test.js:24:5
   }
 
 test at test/tap.test.js:31:5
-<span style="color:#f00;background:#222222"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;"><span style="position:relaive;padding:0 2.25ex 0 0"><span style="position:absolute;height:2.25ex;width:2.25ex;overflow:hidden;">✖</span></span></span></span> failer </span><span style="color:#666;background:#222222">(3.676ms)</span>
+<span style="color:#f00;background:#222222"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>   failer </span><span style="color:#666;background:#222222">(3.676ms)</span>
   Error: should be equal
   <span style="color:#ffe5f1;background:#ac3ea3">--- expected                                                               </span>
   <span style="color:#f2ffe5;background:#3a7500">+++ actual                                                                 </span>
