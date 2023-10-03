@@ -118,7 +118,7 @@ export const Source: FC<SourceOpts> = ({
                 ' '.repeat(excess) +
                   '━'.repeat(numLen + at.columnNumber) +
                   chalk.bold('┛') +
-                  ' '.repeat(len - (numLen + at.columnNumber))
+                  ' '.repeat(len - (numLen + at.columnNumber) - 1)
               )
             )
           : ''
