@@ -124,7 +124,8 @@ Object {
     TAP {PID} TAP: LINE "1..0\\\\n" [ 'TAP', '' ]
     TAP {PID} TAP: > FUNCTION
     TAP {PID} TAP: > end of queue
-    TAP {PID} TAP: done processing [] null
+    TAP {PID} TAP: done processing [] null false
+    TAP {PID} TAP: idle after #process false null
     TAP {PID} TAP: set ended=true
     TAP {PID} TAP: PROCESSING(TAP) 1
     TAP {PID} TAP: > EOF TAP
@@ -132,7 +133,8 @@ Object {
     TAP {PID} TAP: eof end parser TAP
     TAP {PID} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"failures":[],"time":null,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"skips":[],"todos":[]}
     TAP {PID} TAP: > end of queue
-    TAP {PID} TAP: done processing [] null
+    TAP {PID} TAP: done processing [] null false
+    TAP {PID} TAP: idle after #process false null
     TAP {PID} TAP: END TAP implicit=true
     TAP {PID} TAP: already ended, ignore implicit end
     
@@ -394,7 +396,8 @@ Object {
     TAP {PID} TAP: LINE "1..0\\\\n" [ 'TAP', '' ]
     TAP {PID} TAP: > FUNCTION
     TAP {PID} TAP: > end of queue
-    TAP {PID} TAP: done processing [] null
+    TAP {PID} TAP: done processing [] null false
+    TAP {PID} TAP: idle after #process false null
     TAP {PID} TAP: set ended=true
     TAP {PID} TAP: PROCESSING(TAP) 1
     TAP {PID} TAP: > EOF TAP
@@ -402,7 +405,8 @@ Object {
     TAP {PID} TAP: eof end parser TAP
     TAP {PID} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"failures":[],"time":null,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"skips":[],"todos":[]}
     TAP {PID} TAP: > end of queue
-    TAP {PID} TAP: done processing [] null
+    TAP {PID} TAP: done processing [] null false
+    TAP {PID} TAP: idle after #process false null
     TAP {PID} TAP: END TAP implicit=true
     TAP {PID} TAP: already ended, ignore implicit end
     
@@ -445,8 +449,11 @@ Object {
         TAP.#t.onEOF (...)
         TAP.#process (src/test-base.ts:##:##)
         TAP.#end (src/test-base.ts:##:##)
+        TAP.#process (src/test-base.ts:##:##)
+        TAP.#end (src/test-base.ts:##:##)
+        TAP.plan (src/test-base.ts:##:##)
+        TAP.#end (src/test-base.ts:##:##)
         TAP.end (src/test-base.ts:##:##)
-        Timeout.<anonymous> (src/tap.ts:##:##)
       at:
         fileName: test/tap.ts
         lineNumber: ##
@@ -505,8 +512,11 @@ Object {
         TAP.#t.onEOF (...)
         TAP.#process (src/test-base.ts:##:##)
         TAP.#end (src/test-base.ts:##:##)
+        TAP.#process (src/test-base.ts:##:##)
+        TAP.#end (src/test-base.ts:##:##)
+        TAP.plan (src/test-base.ts:##:##)
+        TAP.#end (src/test-base.ts:##:##)
         TAP.end (src/test-base.ts:##:##)
-        Timeout.<anonymous> (src/tap.ts:##:##)
       at:
         fileName: test/tap.ts
         lineNumber: ##

@@ -567,10 +567,10 @@ export class TestBase extends Base<TestBaseEvents> {
       // and even then, pretty hard to trigger, since it would mean
       // going several turns of the event loop and hitting it at just
       // the right time before the process quits.
-      const failMessage = this.#explicitEnded
-        ? 'test assertion after end() was called'
-        : this.#promiseEnded
+      const failMessage = this.#promiseEnded
         ? 'test assertion after Promise resolution'
+        : this.#explicitEnded
+        ? 'test assertion after end() was called'
         : this.#explicitPlan
         ? 'test assertion count exceeds plan'
         : /* c8 ignore start */
@@ -674,10 +674,11 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
+    this.#process()
     if (this.#planEnd === this.count) {
-      this.#end(IMPLICIT)
+      if (!this.#awaitingEnd && !this.#occupied) this.#end(IMPLICIT)
+      else this.#awaitingEnd ||= IMPLICIT
     }
-
     this.#process()
   }
 
@@ -783,7 +784,12 @@ export class TestBase extends Base<TestBaseEvents> {
     // beyond here we have to be actually done with things, or else
     // the semantic checks on counts and such will be off.
     if (!queueEmpty(this) || this.#occupied) {
-      this.debug('#end: queue not empty, or occupied')
+      this.debug(
+        '#end: queue not empty, or occupied',
+        this.#awaitingEnd,
+        this.#occupied,
+        this.queue
+      )
       if (!this.#awaitingEnd) {
         this.#awaitingEnd = implicit === IMPLICIT ? IMPLICIT : true
       }
@@ -791,7 +797,8 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     if (implicit !== IMPLICIT) {
-      if (this.#explicitEnded) {
+      if (this.#explicitEnded && this.#awaitingEnd !== true) {
+        this.debug('multi-end')
         if (!this.#multiEndThrew) {
           this.#multiEndThrew = true
           const er = new Error(
@@ -806,7 +813,9 @@ export class TestBase extends Base<TestBaseEvents> {
         return
       }
       this.debug('set #explicitEnded=true')
+      // switch from awaiting to processing the explicit end() call.
       this.#explicitEnded = true
+      this.#awaitingEnd = false
     }
 
     if (this.#planEnd === -1 && !this.#doingStdinOnly) {
@@ -981,7 +990,12 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
-    this.debug('done processing', this.queue, this.#occupied)
+    this.debug(
+      'done processing',
+      this.queue,
+      this.#occupied,
+      this.#awaitingEnd
+    )
     this.#processing = false
 
     // just in case any tests ended, and we have sync stuff still
@@ -989,7 +1003,13 @@ export class TestBase extends Base<TestBaseEvents> {
     if (!this.#occupied && this.queue.length) {
       this.#process()
     } else if (this.idle) {
+      this.debug(
+        'idle after #process',
+        this.#awaitingEnd,
+        this.#occupied
+      )
       if (this.#awaitingEnd) {
+        this.debug('awaited end in process', this.#awaitingEnd)
         this.#end(
           this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined
         )
@@ -1026,7 +1046,7 @@ export class TestBase extends Base<TestBaseEvents> {
       !this.subtests.length &&
       !this.#occupied &&
       // if we have a plan, don't autoend until the plan is complete.
-      this.#planEnd === -1
+      (this.#planEnd === -1 || this.count === this.#planEnd)
     )
   }
 
@@ -1150,14 +1170,38 @@ export class TestBase extends Base<TestBaseEvents> {
       })
       ret.then(
         () => {
-          this.debug(' > implicit end for promise')
+          this.debug(
+            ' > implicit end for promise?',
+            this.#occupied,
+            this.queue,
+            this.#explicitPlan,
+            this.#awaitingEnd
+          )
+          // the promise has ended
+          // If we had an explicit plan that is now satisfied but was waiting
+          // for the promise to resolve, or if there was no explicit plan, end
+          // the test.
           this.#promiseEnded = true
           if (
+            // not already ended
             !this.ended &&
-            !this.#awaitingEnd &&
-            !this.#explicitPlan
+            ((!this.#explicitPlan && !this.#awaitingEnd) ||
+              (this.#explicitPlan &&
+                this.#awaitingEnd &&
+                this.count === this.#planEnd)) &&
+            !this.#occupied
           ) {
-            this.#end(IMPLICIT)
+            // this should only be possible if an explicit end()
+            // has been called, because the only other source of an
+            // implicit end is this function right here.
+            this.#end(
+              /* c8 ignore start */
+              this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined
+              /* c8 ignore stop */
+            )
+          } else {
+            this.debug('await implicit end')
+            this.#awaitingEnd = IMPLICIT
           }
           done()
         },
@@ -1284,12 +1328,12 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     if (this.results || this.ended) {
-      const msg = this.#explicitEnded
+      const msg = this.#promiseEnded
+        ? 'cannot create subtest after parent promise resolves'
+        : this.#explicitEnded
         ? 'subtest after parent test end()'
         : this.#explicitPlan
         ? 'test count exceeds plan'
-        : this.#promiseEnded
-        ? 'cannot create subtest after parent promise resolves'
         : /* c8 ignore start */
           'cannot create subtest after parent test ends'
       /* c8 ignore stop */
@@ -1386,7 +1430,7 @@ export class TestBase extends Base<TestBaseEvents> {
     if (!proxy) {
       extra = extraFromError(er, extra)
     }
-    this.debug('T.t call Base.threw', this.name, extra)
+    this.debug('T.t call Base.threw', this.name, er, extra)
     const ended =
       !!this.results ||
       // should be impossible, when we hit the plan end, we end
@@ -1514,7 +1558,10 @@ export class TestBase extends Base<TestBaseEvents> {
       this.#occupied = null
     } else if (sub) {
       this.#process()
-      if (queueEmpty(this)) {
+      if (
+        queueEmpty(this) &&
+        (this.#planEnd === -1 || this.count < this.#planEnd)
+      ) {
         const options = Object.assign({}, this.options)
         options.test = this.name
         this.fail('test unfinished', options)

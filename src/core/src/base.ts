@@ -870,6 +870,6 @@ export class Base<
    * @group Test Reflection
    */
   passing() {
-    return this.parser.ok
+    return this.parser.ok && (this.results?.ok !== false)
   }
 }

@@ -5,32 +5,6 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/test-base.ts > TAP > asserts while occupied and ended > must match snapshot 1`] = `
-TAP version 14
-# Subtest: parent
-    # Subtest: child
-        ok 1 - this is fine
-        ok 2 - this is fine
-        1..2
-    ok 1 - child # time={TIME}
-    
-    # Subtest: child 2
-        ok 1 - this is fine
-        ok 2 - this is fine
-        1..2
-    ok 2 - child 2 # time={TIME}
-    
-    1..2
-ok 1 - parent # time={TIME}
-
-ok 2 - should be equal
-ok 3 - should be equal
-ok 4 - should be equal
-ok 5 - should be equal
-1..5
-
-`
-
 exports[`test/test-base.ts > TAP > bailout > bail no message > bailout no message 1`] = `
 TAP version 14
 Bail out!
@@ -66,6 +40,41 @@ Bail out!
 exports[`test/test-base.ts > TAP > bailout > bail with message > bailout with message 1`] = `
 TAP version 14
 Bail out! bail message
+
+`
+
+exports[`test/test-base.ts > TAP > cannot create subtest after promise resolves > must match snapshot 1`] = `
+TAP version 14
+# Subtest: parent
+    # Subtest: child
+        1..0
+    ok 1 - child # time={TIME}
+    
+    not ok 2 - cannot create subtest after parent promise resolves
+      ---
+      stack: |
+        Minimal.<anonymous> (test/test-base.ts:1663:13)
+      at:
+        fileName: test/test-base.ts
+        lineNumber: ##
+        columnNumber: ##
+        typeName: Minimal
+        methodName: <anonymous>
+        functionName: Minimal.<anonymous>
+      test: child
+      source: |2
+            if (!subtest) throw new Error('did not get subtest')
+            await p
+            subtest.test('this should not work', async () => {})
+        ------------^
+          })
+          tb.end()
+      ...
+    
+    1..2
+not ok 1 - parent # time={TIME}
+
+1..1
 
 `
 

@@ -389,10 +389,10 @@ class TestBase extends base_js_1.Base {
             // and even then, pretty hard to trigger, since it would mean
             // going several turns of the event loop and hitting it at just
             // the right time before the process quits.
-            const failMessage = this.#explicitEnded
-                ? 'test assertion after end() was called'
-                : this.#promiseEnded
-                    ? 'test assertion after Promise resolution'
+            const failMessage = this.#promiseEnded
+                ? 'test assertion after Promise resolution'
+                : this.#explicitEnded
+                    ? 'test assertion after end() was called'
                     : this.#explicitPlan
                         ? 'test assertion count exceeds plan'
                         : /* c8 ignore start */
@@ -483,8 +483,12 @@ class TestBase extends base_js_1.Base {
                 this.queue.push('Bail out! ' + message + '\n');
             }
         }
+        this.#process();
         if (this.#planEnd === this.count) {
-            this.#end(implicit_end_sigil_js_1.IMPLICIT);
+            if (!this.#awaitingEnd && !this.#occupied)
+                this.#end(implicit_end_sigil_js_1.IMPLICIT);
+            else
+                this.#awaitingEnd ||= implicit_end_sigil_js_1.IMPLICIT;
         }
         this.#process();
     }
@@ -579,14 +583,15 @@ class TestBase extends base_js_1.Base {
         // beyond here we have to be actually done with things, or else
         // the semantic checks on counts and such will be off.
         if (!queueEmpty(this) || this.#occupied) {
-            this.debug('#end: queue not empty, or occupied');
+            this.debug('#end: queue not empty, or occupied', this.#awaitingEnd, this.#occupied, this.queue);
             if (!this.#awaitingEnd) {
                 this.#awaitingEnd = implicit === implicit_end_sigil_js_1.IMPLICIT ? implicit_end_sigil_js_1.IMPLICIT : true;
             }
             return this.#process();
         }
         if (implicit !== implicit_end_sigil_js_1.IMPLICIT) {
-            if (this.#explicitEnded) {
+            if (this.#explicitEnded && this.#awaitingEnd !== true) {
+                this.debug('multi-end');
                 if (!this.#multiEndThrew) {
                     this.#multiEndThrew = true;
                     const er = new Error('test end() method called more than once');
@@ -599,7 +604,9 @@ class TestBase extends base_js_1.Base {
                 return;
             }
             this.debug('set #explicitEnded=true');
+            // switch from awaiting to processing the explicit end() call.
             this.#explicitEnded = true;
+            this.#awaitingEnd = false;
         }
         if (this.#planEnd === -1 && !this.#doingStdinOnly) {
             this.debug('END(%s) implicit plan', this.name, this.count);
@@ -764,7 +771,7 @@ class TestBase extends base_js_1.Base {
                 p.runMain(() => this.#onBufferedEnd(p));
             }
         }
-        this.debug('done processing', this.queue, this.#occupied);
+        this.debug('done processing', this.queue, this.#occupied, this.#awaitingEnd);
         this.#processing = false;
         // just in case any tests ended, and we have sync stuff still
         // waiting around in the queue to be processed
@@ -772,7 +779,9 @@ class TestBase extends base_js_1.Base {
             this.#process();
         }
         else if (this.idle) {
+            this.debug('idle after #process', this.#awaitingEnd, this.#occupied);
             if (this.#awaitingEnd) {
+                this.debug('awaited end in process', this.#awaitingEnd);
                 this.#end(this.#awaitingEnd === implicit_end_sigil_js_1.IMPLICIT ? implicit_end_sigil_js_1.IMPLICIT : undefined);
             }
             // the root tap runner uses this event to know when it is safe to
@@ -805,7 +814,7 @@ class TestBase extends base_js_1.Base {
             !this.subtests.length &&
             !this.#occupied &&
             // if we have a plan, don't autoend until the plan is complete.
-            this.#planEnd === -1);
+            (this.#planEnd === -1 || this.count === this.#planEnd));
     }
     #onBufferedEnd(p) {
         // ignore ends that come in after we've already aborted
@@ -924,12 +933,32 @@ class TestBase extends base_js_1.Base {
                 tapAbortPromise: done,
             });
             ret.then(() => {
-                this.debug(' > implicit end for promise');
+                this.debug(' > implicit end for promise?', this.#occupied, this.queue, this.#explicitPlan, this.#awaitingEnd);
+                // the promise has ended
+                // If we had an explicit plan that is now satisfied but was waiting
+                // for the promise to resolve, or if there was no explicit plan, end
+                // the test.
                 this.#promiseEnded = true;
-                if (!this.ended &&
-                    !this.#awaitingEnd &&
-                    !this.#explicitPlan) {
-                    this.#end(implicit_end_sigil_js_1.IMPLICIT);
+                if (
+                // not already ended
+                !this.ended &&
+                    ((!this.#explicitPlan && !this.#awaitingEnd) ||
+                        (this.#explicitPlan &&
+                            this.#awaitingEnd &&
+                            this.count === this.#planEnd)) &&
+                    !this.#occupied) {
+                    // this should only be possible if an explicit end()
+                    // has been called, because the only other source of an
+                    // implicit end is this function right here.
+                    this.#end(
+                    /* c8 ignore start */
+                    this.#awaitingEnd === implicit_end_sigil_js_1.IMPLICIT ? implicit_end_sigil_js_1.IMPLICIT : undefined
+                    /* c8 ignore stop */
+                    );
+                }
+                else {
+                    this.debug('await implicit end');
+                    this.#awaitingEnd = implicit_end_sigil_js_1.IMPLICIT;
                 }
                 done();
             }, (er) => {
@@ -1043,12 +1072,12 @@ class TestBase extends base_js_1.Base {
             });
         }
         if (this.results || this.ended) {
-            const msg = this.#explicitEnded
-                ? 'subtest after parent test end()'
-                : this.#explicitPlan
-                    ? 'test count exceeds plan'
-                    : this.#promiseEnded
-                        ? 'cannot create subtest after parent promise resolves'
+            const msg = this.#promiseEnded
+                ? 'cannot create subtest after parent promise resolves'
+                : this.#explicitEnded
+                    ? 'subtest after parent test end()'
+                    : this.#explicitPlan
+                        ? 'test count exceeds plan'
                         : /* c8 ignore start */
                             'cannot create subtest after parent test ends';
             /* c8 ignore stop */
@@ -1128,7 +1157,7 @@ class TestBase extends base_js_1.Base {
         if (!proxy) {
             extra = (0, extra_from_error_js_1.extraFromError)(er, extra);
         }
-        this.debug('T.t call Base.threw', this.name, extra);
+        this.debug('T.t call Base.threw', this.name, er, extra);
         const ended = !!this.results ||
             // should be impossible, when we hit the plan end, we end
             /* c8 ignore start */
@@ -1251,7 +1280,8 @@ class TestBase extends base_js_1.Base {
         }
         else if (sub) {
             this.#process();
-            if (queueEmpty(this)) {
+            if (queueEmpty(this) &&
+                (this.#planEnd === -1 || this.count < this.#planEnd)) {
                 const options = Object.assign({}, this.options);
                 options.test = this.name;
                 this.fail('test unfinished', options);

@@ -644,7 +644,7 @@ class Base extends minipass_1.Minipass {
      * @group Test Reflection
      */
     passing() {
-        return this.parser.ok;
+        return this.parser.ok && (this.results?.ok !== false);
     }
 }
 exports.Base = Base;
