@@ -2,6 +2,8 @@ import t, { Test } from 'tap'
 
 import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
+import { resolveImport } from 'resolve-import'
 
 const CWD = process.cwd().toUpperCase()
 const deCwd = <T extends any>(obj: T): T => {
@@ -526,4 +528,38 @@ t.test('adding plugins', async t => {
     t.equal(process.exitCode, 1)
     process.exitCode = 0
   })
+})
+
+t.test('print warning if not running in project', async t => {
+  const errs = t.capture(console, 'error').args
+  const logs = t.capture(console, 'log').args
+
+  const config = new MockConfig(t)
+  config.globCwd = resolve('/project/dir')
+  resolveImport
+  const mockTap = pathToFileURL(
+    resolve('/project/dir/node_modules/tap/index.js')
+  )
+  const mockProjectRun = pathToFileURL(
+    resolve('/project/dir/node_modules/@tapjs/run/index.js')
+  )
+  const mockActiveRun = pathToFileURL(
+    resolve('/global/node_modules/@tapjs/run/index.js')
+  )
+  const mockRI = async (req: string | URL, f?: string | URL) => {
+    if (req === 'tap' && f === resolve(config.globCwd, 'x'))
+      return mockTap
+    if (req === '@tapjs/run' && f === mockTap) return mockProjectRun
+    else if (req === '@tapjs/run') return mockActiveRun
+    return resolveImport(req, f)
+  }
+
+  const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    'resolve-import': {
+      resolveImport: mockRI,
+    },
+  })) as typeof import('../dist/esm/plugin.js')
+
+  await plugin(['list'], config as unknown as LoadedConfig)
+  t.matchSnapshot({ logs: logs(), errs: errs() })
 })

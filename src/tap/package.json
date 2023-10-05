@@ -60,7 +60,8 @@
     "@tapjs/stdin": "1.1.6",
     "@tapjs/test": "1.3.6",
     "@tapjs/typescript": "1.2.6",
-    "@tapjs/worker": "1.1.6"
+    "@tapjs/worker": "1.1.6",
+    "resolve-import": "1.4.2"
   },
   "tap": {
     "typecheck": false,

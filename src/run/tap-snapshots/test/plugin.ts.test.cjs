@@ -209,3 +209,33 @@ Array [
   ],
 ]
 `
+
+exports[`test/plugin.ts > TAP > print warning if not running in project > must match snapshot 1`] = `
+Object {
+  "errs": Array [
+    Array [
+      String(
+        global/local mixup!
+        
+        The tap plugin command must be run by the locally installed tap executable,
+        and this appears to be running in a global install location at
+        /global/
+        
+        This will likely fail. Try:
+        
+            npm exec tap plugin "list"
+        
+      ),
+    ],
+  ],
+  "logs": Array [
+    Array [
+      String(
+        a
+        b
+        c
+      ),
+    ],
+  ],
+}
+`
