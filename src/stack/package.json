@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/stack",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Utility for working with stack traces",
   "tshy": {
     "main": true,
