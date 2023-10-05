@@ -7,6 +7,9 @@ import { defaultPlugins } from '@tapjs/test'
 import chalk from 'chalk'
 
 import { lstat } from 'node:fs/promises'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { resolveImport } from 'resolve-import'
 
 import { build } from './build.js'
 import { getInstallSet } from './get-install-set.js'
@@ -18,10 +21,50 @@ const exists = (f: string) =>
     () => false
   )
 
+const detectGlobalInstall = async (
+  args: string[],
+  project: string
+) => {
+  // find the tap that will be loaded from the project root
+  const activeRunner = String(
+    await resolveImport('@tapjs/run', import.meta.url)
+  )
+  const projectRunner = String(
+    await resolveImport('tap', resolve(project, 'x'))
+      .then(projectTap => resolveImport('@tapjs/run', projectTap))
+      .catch(() => resolveImport('@tapjs/run', project))
+      .catch(() => activeRunner)
+  )
+  if (activeRunner !== projectRunner) {
+    const f = fileURLToPath(activeRunner).split('node_modules')
+    f.pop()
+    const myNM = f.join('node_modules')
+    console.error(
+      `${chalk.bold.red('global/local mixup!')}
+
+The tap plugin command must be run by the ${chalk.yellow(
+        'locally installed'
+      )} tap executable,
+and this appears to be running in a global install location at
+${chalk.yellow(myNM)}
+
+This will likely fail. Try:
+
+    ${chalk.green(
+      `npm exec tap plugin ${args
+        .map(a => JSON.stringify(a))
+        .join(' ')}`
+    )}
+`
+    )
+  }
+}
+
 export const plugin = async (
   args: string[],
   config: LoadedConfig
 ) => {
+  await detectGlobalInstall(args, config.globCwd)
   switch (args[0]) {
     case 'add':
       return add(args.slice(1), config)
