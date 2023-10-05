@@ -1,18 +1,18 @@
 import { TAP, tap } from '@tapjs/core'
 
-import { plugin as After } from '@tapjs/after'
-import { plugin as AfterEach } from '@tapjs/after-each'
-import { plugin as Asserts } from '@tapjs/asserts'
-import { plugin as Before } from '@tapjs/before'
-import { plugin as BeforeEach } from '@tapjs/before-each'
-import { plugin as Filter } from '@tapjs/filter'
-import { plugin as Fixture } from '@tapjs/fixture'
-import { plugin as Intercept } from '@tapjs/intercept'
-import { plugin as Mock } from '@tapjs/mock'
-import { plugin as Snapshot } from '@tapjs/snapshot'
-import { plugin as Spawn } from '@tapjs/spawn'
-import { plugin as Stdin } from '@tapjs/stdin'
-import { plugin as Worker } from '@tapjs/worker'
+import type { plugin as After } from '@tapjs/after'
+import type { plugin as AfterEach } from '@tapjs/after-each'
+import type { plugin as Asserts } from '@tapjs/asserts'
+import type { plugin as Before } from '@tapjs/before'
+import type { plugin as BeforeEach } from '@tapjs/before-each'
+import type { plugin as Filter } from '@tapjs/filter'
+import type { plugin as Fixture } from '@tapjs/fixture'
+import type { plugin as Intercept } from '@tapjs/intercept'
+import type { plugin as Mock } from '@tapjs/mock'
+import type { plugin as Snapshot } from '@tapjs/snapshot'
+import type { plugin as Spawn } from '@tapjs/spawn'
+import type { plugin as Stdin } from '@tapjs/stdin'
+import type { plugin as Worker } from '@tapjs/worker'
 
 export {
   Base,
@@ -99,7 +99,7 @@ export {
 
 export const t: TAP = tap()
 
-// People really like doing `import { test } from 'tap'`
+// People really like doing `import { test }`
 // this makes that work by exporting these methods as named exports.
 //
 // All methods on a Test object are bound to the appropriate plugin

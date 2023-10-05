@@ -30,6 +30,18 @@ writeFileSync(
     .replace(/'\n\]/, `',\n]`)}\n`
 )
 
+const tapDummyImportFile = resolve(
+  __dirname,
+  '../src/tap/src/dummy-import.ts'
+)
+writeFileSync(
+  tapDummyImportFile,
+  `// just here to ensure all of these are forced to be deps
+${builtins.map(b => `import '${b}'`).join('\n')}
+throw new Error('this module should not be loaded')
+`
+)
+
 // make them all depended on by the @tapjs/test pkg, so that pnpm links them
 // however, we REMOVE these deps before the build runs, because otherwise
 // nx gets confused about the circular dependency link.

@@ -39,10 +39,6 @@
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
-  "dependencies": {
-    "tcompare": "6.4.1",
-    "trivial-deferred": "^2.0.0"
-  },
   "peerDependencies": {
     "@tapjs/core": "1.3.6"
   },

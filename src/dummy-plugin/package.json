@@ -94,5 +94,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
+  },
+  "dependencies": {
+    "@tapjs/reporter": "1.3.2",
+    "ink": "^4.4.1",
+    "react": "^18.2.0"
   }
 }

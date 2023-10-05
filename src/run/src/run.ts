@@ -136,6 +136,11 @@ export const run = async (args: string[], config: LoadedConfig) => {
               cwd: config.globCwd,
               absolute: true,
             })
+      if (mapped?.length && !coveredFiles?.length) {
+        // provided a glob expression that didn't match anything.
+        // cover nothing.
+        coveredFiles = null
+      }
       const _TAPJS_PROCESSINFO_COVERAGE_ =
         coveredFiles === null ? '0' : '1'
       const _TAPJS_PROCESSINFO_COV_FILES_ = (coveredFiles || []).join(

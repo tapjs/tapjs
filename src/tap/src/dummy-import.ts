@@ -1,0 +1,17 @@
+// just here to ensure all of these are forced to be deps
+import '@tapjs/after'
+import '@tapjs/after-each'
+import '@tapjs/asserts'
+import '@tapjs/before'
+import '@tapjs/before-each'
+import '@tapjs/filter'
+import '@tapjs/fixture'
+import '@tapjs/intercept'
+import '@tapjs/mock'
+import '@tapjs/node-serialize'
+import '@tapjs/snapshot'
+import '@tapjs/spawn'
+import '@tapjs/stdin'
+import '@tapjs/typescript'
+import '@tapjs/worker'
+throw new Error('this module should not be loaded')

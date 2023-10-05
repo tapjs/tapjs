@@ -1,5 +1,5 @@
 import { LoadedConfig } from '@tapjs/config'
-import * as yaml from 'yaml'
+import * as yaml from 'tap-yaml'
 import { tryGetVersion } from './try-get-version.js'
 
 import { signature } from '@tapjs/test'

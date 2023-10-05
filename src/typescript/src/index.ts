@@ -2,6 +2,8 @@ import { env, TapPlugin } from '@tapjs/core'
 import { resolve } from 'node:path'
 
 // This just adds the ts-node/esm loader
+// appease the import-deps test
+// import('ts-node')
 export const loader = 'ts-node/esm'
 
 // https://github.com/TypeStrong/ts-node/pull/2009

@@ -1,4 +1,7 @@
 // Exports a loader, which does all the work.
+// import('@esbuild-kit/esm-loader')
+// import('@esbuild-kit/cjs-loader')
+// import('@tapjs/core')
 export const loader = '@tapjs/esbuild-kit/loader'
 export const preload = true
 import type { TapPlugin } from '@tapjs/core'

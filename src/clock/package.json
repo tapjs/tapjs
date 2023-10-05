@@ -39,8 +39,8 @@
   },
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "clock-mock": "^2.0.2",
-    "mock-clock": "^0.7.1"
+    "@tapjs/after": "1.1.6",
+    "clock-mock": "^2.0.2"
   },
   "peerDependencies": {
     "@tapjs/core": "1.3.6"

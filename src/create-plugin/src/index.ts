@@ -10,7 +10,7 @@ const corePkg = JSON.parse(
     await resolveImport('@tapjs/core/package.json', import.meta.url),
     'utf8'
   )
-)
+) as typeof import('@tapjs/core/package.json')
 const { version: coreVersion } = corePkg
 
 const { prompt, build, values, positionals, run } = new Init(

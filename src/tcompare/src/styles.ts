@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { Format } from './format.js'
 import reactElementToJsxString from './react-element-to-jsx-string.js'
 

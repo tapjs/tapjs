@@ -116,7 +116,6 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "glob": "^10.3.10",
-    "mock-clock": "^0.7.1",
     "semver": "^7.5.4",
     "signal-exit": "4.1"
   },
