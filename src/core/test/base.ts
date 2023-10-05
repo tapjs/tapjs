@@ -389,3 +389,14 @@ t.test('prevent write after end', async t => {
   t.equal(tb.streamWritable, false)
   tb.write('no op')
 })
+
+t.test('results.ok=false means not passing', async t => {
+  const tb = new Minimal({ name: 'empty' })
+  tb.end()
+  await tb.concat()
+  t.equal(tb.results?.ok, true, 'results.ok is true')
+  t.equal(tb.passing(), true, 'passing() true')
+  if (!tb.results) throw new Error('wat!?')
+  tb.results.ok = false
+  t.equal(tb.passing(), false, 'not ok results, not passing()')
+})

@@ -1384,41 +1384,40 @@ t.test('debug is inherited', async t => {
 })
 
 t.test('asserts while occupied and ended', async t => {
-  const tb = new T({ name: 'parent' })
-
-  const x = (a: any, b: any) => {
-    tb[a == 'a' ? 'pass' : 'fail']('should be equal', {
-      found: a,
-      wanted: 'a',
+  let tb!: typeof t
+  t.test('parent', t => {
+    tb = t
+    const x = (a: any, b: any) => {
+      t[a == 'a' ? 'pass' : 'fail']('should be equal', {
+        found: a,
+        wanted: 'a',
+      })
+      t[b == 'b' ? 'pass' : 'fail']('should be equal', {
+        found: b,
+        wanted: 'b',
+      })
+    }
+    t.once('idle', () => {
+      tb.end()
+      setTimeout(() => tb.endAll())
     })
-    tb[b == 'b' ? 'pass' : 'fail']('should be equal', {
-      found: b,
-      wanted: 'b',
+    t.test('parent', async t => {
+      t.test('child', async t => {
+        await Promise.resolve(true)
+        t.pass('this is fine')
+        x('a', 'b')
+        await Promise.resolve(true)
+        t.pass('this is fine')
+      })
+      tb.test('child 2', async t => {
+        await Promise.resolve(true)
+        t.pass('this is fine')
+        x('a', 'b')
+        await Promise.resolve(true)
+        t.pass('this is fine')
+      })
     })
-  }
-  tb.on('idle', () => {
-    tb.end()
-    setTimeout(() => tb.endAll())
   })
-  tb.test('parent', async tb => {
-    tb.test('child', async t => {
-      await Promise.resolve(true)
-      t.pass('this is fine')
-      x('a', 'b')
-      await Promise.resolve(true)
-      t.pass('this is fine')
-    })
-    tb.test('child 2', async t => {
-      await Promise.resolve(true)
-      t.pass('this is fine')
-      x('a', 'b')
-      await Promise.resolve(true)
-      t.pass('this is fine')
-    })
-  })
-  const output = await tb.concat()
-  t.equal(tb.passing(), true)
-  t.matchSnapshot(output)
 })
 
 t.test('wait for waiters before entering subtests', async t => {
@@ -1626,4 +1625,44 @@ t.test('unmet plan plus async children with delay', async t => {
   const res = await tb.concat()
   t.matchSnapshot(res)
   t.equal(tb.passing(), false)
+})
+
+t.test('every combination of awaiting, async, plan, end()', t => {
+  for (const end of [true, false]) {
+    for (const p of [true, false]) {
+      for (const aw of [true, false]) {
+        t.test(`end=${end} await=${aw} plan=${p}`, async t => {
+          if (p) t.plan(1)
+          if (aw)
+            await t.resolves(new Promise<void>(r => setTimeout(r)))
+          else t.resolves(new Promise<void>(r => setTimeout(r)))
+          if (end) t.end()
+        })
+      }
+    }
+  }
+
+  for (const p of [true, false]) {
+    t.test(`sync return, plan=${p}`, t => {
+      if (p) t.plan(1)
+      t.resolves(new Promise<null>(r => setTimeout(r)))
+      if (!p) t.end()
+    })
+  }
+
+  t.end()
+})
+
+t.test('cannot create subtest after promise resolves', async t => {
+  const tb = new T({ name: 'root', diagnostic: false })
+  tb.test('parent', async t => {
+    const p = t.test('child', async () => {})
+    const { subtest } = p
+    if (!subtest) throw new Error('did not get subtest')
+    await p
+    subtest.test('this should not work', async () => {})
+  })
+  tb.end()
+  const output = await tb.concat()
+  t.matchSnapshot(output)
 })
