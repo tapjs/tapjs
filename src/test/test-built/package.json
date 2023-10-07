@@ -27,9 +27,12 @@
   "license": "BlueOak-1.0.0",
   "type": "module",
   "tshy": {
+    "main": true,
     "exports": {
       "./package.json": "./package.json",
       ".": "./src/index.ts"
     }
-  }
+  },
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts"
 }
