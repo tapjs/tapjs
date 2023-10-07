@@ -99,6 +99,8 @@ Major rewrite.
 - Assertion aliases moved to the optional `@tapjs/synonyms`
   plugin (so no longer deprecated, but opt-in)
 - Dropped support for node 14 and earlier.
+- Probably good idea to [add `/.tap` to your `.gitignore`
+  file](./dot-tap-folder.md)
 
 ### CLI
 

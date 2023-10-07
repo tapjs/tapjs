@@ -138,8 +138,7 @@ running `TAP_DEBUG=1 tap ./test/foo.ts` will run as if the
 
 This is the "project root" from tap's point of view. It's where
 it looks for the config file (either `.taprc` or `package.json`),
-and where it puts the `.tap` folder containing process and
-coverage tracking information.
+and where it puts the [`.tap` folder](./dot-tap-folder.md).
 
 ### `_TAPJS_PROCESSINFO_*`
 

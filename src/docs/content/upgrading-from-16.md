@@ -12,6 +12,13 @@ The [changelog](./changelog.md) covers much of the details, but
 this is intended to be a more deliberate guide for users
 depending on features that have changed.
 
+## Fixtures, coverage, and processinfo moved to one folder
+
+This stuff is all stored in the [`.tap`
+folder](./dot-tap-folder.md) now. If you were previously ignoring
+`/coverage`, `/.nyc_info`, and/or `.tap-testdir-*`, you can now
+replace that with just `/.tap`.
+
 ## `mochaGlobals`
 
 In tap 16, a top-level function `tap.mochaGlobals()` would dump
