@@ -419,6 +419,13 @@ export class Test<
   /* c8 ignore stop */
 
   /**
+   * The string signature of the plugins built into this Test class
+   */
+  get pluginSignature() {
+    return signature
+  }
+
+  /**
    * Add a plugin at run-time.
    *
    * Creates a subclass of {@link @tapjs/test!index.Test} which has the

@@ -1,6 +1,7 @@
 import { LoadedConfig } from '@tapjs/config'
 import { Cleanup } from 'foreground-child'
 import { SpawnOptions, SpawnSyncOptions } from 'node:child_process'
+import { resolve } from 'node:path'
 import t from 'tap'
 
 // strip off the env, but in the process, verify there's no npm junk
@@ -22,13 +23,17 @@ const deEnv = <T extends any>(o: T): T => {
 t.formatSnapshot = o => deEnv(o)
 
 // mocks for failing commands
+let npmMockPrefix = '/path/to/project'
 const mockFail = {
   'node:child_process': {
-    spawnSync(_: string, __: string[], ___: SpawnSyncOptions) {
+    spawnSync(cmd: string, args: string[], ___: SpawnSyncOptions) {
       return {
         status: 1,
         signal: 'SIGTERM',
-        stdout: 'stdout',
+        stdout:
+          args[0] === 'prefix' && cmd === 'npm'
+            ? npmMockPrefix
+            : 'stdout',
         stderr: 'stderr',
       }
     },
@@ -58,11 +63,14 @@ const failFG = t.capture(
 // mocks for successful commands
 const mockPass = {
   'node:child_process': {
-    spawnSync(_: string, __: string[], ___: SpawnSyncOptions) {
+    spawnSync(cmd: string, args: string[], ___: SpawnSyncOptions) {
       return {
         status: 0,
         signal: null,
-        stdout: 'stdout',
+        stdout:
+          args[0] === 'prefix' && cmd === 'npm'
+            ? npmMockPrefix
+            : 'stdout',
         stderr: 'stderr',
       }
     },
@@ -90,14 +98,15 @@ const passFG = t.capture(
 ).args
 
 const mockConfig = {
-  globCwd: '/path/to/project',
+  globCwd: npmMockPrefix,
 } as unknown as LoadedConfig
 
 t.test('passing commands', async t => {
-  const { npmBg, install, uninstall } = (await t.mockImport(
-    '../dist/esm/npm.js',
-    mockPass
-  )) as typeof import('../dist/esm/npm.js')
+  const { npmBg, install, uninstall, npmFindCwd } =
+    (await t.mockImport(
+      '../dist/esm/npm.js',
+      mockPass
+    )) as typeof import('../dist/esm/npm.js')
   t.test('random command', async t => {
     const res = npmBg(['config', 'get', 'registry'], mockConfig)
     t.match(res, { status: 0, signal: null })
@@ -105,6 +114,8 @@ t.test('passing commands', async t => {
     t.strictSame(passFG(), [])
   })
   t.test('install', async t => {
+    await npmFindCwd(mockConfig.globCwd)
+    t.match(passSpawn(), [['npm', ['prefix']]])
     await install(['a', 'b'], mockConfig)
     t.strictSame(passSpawn(), [])
     t.matchSnapshot(passFG())
@@ -117,10 +128,11 @@ t.test('passing commands', async t => {
 })
 
 t.test('failing commands', async t => {
-  const { npmBg, install, uninstall } = (await t.mockImport(
-    '../dist/esm/npm.js',
-    mockFail
-  )) as typeof import('../dist/esm/npm.js')
+  const { npmBg, install, uninstall, npmFindCwd } =
+    (await t.mockImport(
+      '../dist/esm/npm.js',
+      mockFail
+    )) as typeof import('../dist/esm/npm.js')
   t.test('random command', async t => {
     const res = npmBg(['config', 'get', 'registry'], mockConfig)
     t.match(res, { status: 1, signal: 'SIGTERM' })
@@ -128,6 +140,8 @@ t.test('failing commands', async t => {
     t.strictSame(failFG(), [])
   })
   t.test('install', async t => {
+    await npmFindCwd(mockConfig.globCwd)
+    t.match(failSpawn(), [['npm', ['prefix']]])
     await t.rejects(install(['a', 'b'], mockConfig))
     t.strictSame(failSpawn(), [])
     t.matchSnapshot(failFG())
@@ -137,5 +151,92 @@ t.test('failing commands', async t => {
     await uninstall(['a', 'b'], mockConfig)
     t.strictSame(failSpawn(), [])
     t.matchSnapshot(failFG())
+  })
+})
+
+t.test('npm installs go to workspace root', async t => {
+  const testdir = {
+    'package.json': JSON.stringify({
+      workspaces: ['./packages/test'],
+    }),
+    packages: {
+      test: {
+        'package.json': JSON.stringify({}),
+      },
+    },
+    node_modules: {
+      tap: {
+        'package.json': JSON.stringify({ main: 'index.js' }),
+        'index.js': '',
+      },
+      '@tapjs': {
+        test: {
+          'package.json': JSON.stringify({ main: 'index.js' }),
+          'index.js': '',
+        },
+      },
+    },
+  }
+  t.test('find from location of tap dep', async t => {
+    const { npmFindCwd } = (await t.mockImport(
+      '../dist/esm/npm.js',
+      mockPass
+    )) as typeof import('../dist/esm/npm.js')
+    mockConfig.globCwd = resolve(
+      t.testdir(testdir) + '/packages/test'
+    )
+    t.equal(await npmFindCwd(mockConfig.globCwd), t.testdirName)
+    // call second time to cover caching
+    t.equal(await npmFindCwd(mockConfig.globCwd), t.testdirName)
+    t.strictSame(passSpawn(), [])
+  })
+  t.test('find from location of @tapjs/test dep', async t => {
+    const { npmFindCwd } = (await t.mockImport(
+      '../dist/esm/npm.js',
+      mockPass
+    )) as typeof import('../dist/esm/npm.js')
+    mockConfig.globCwd = resolve(
+      t.testdir({
+        ...testdir,
+        // make the tap package a link out of node_modules
+        tap: testdir.node_modules.tap,
+        node_modules: {
+          ...testdir.node_modules,
+          tap: t.fixture('symlink', '../tap'),
+        },
+      }) + '/packages/test'
+    )
+    t.equal(await npmFindCwd(mockConfig.globCwd), t.testdirName)
+    t.strictSame(passSpawn(), [])
+  })
+  t.test('find from npm prefix cmd', async t => {
+    const { npmFindCwd } = (await t.mockImport(
+      '../dist/esm/npm.js',
+      mockPass
+    )) as typeof import('../dist/esm/npm.js')
+    // both packages fail to resolve
+    //@ts-ignore
+    delete testdir.node_modules['@tapjs'].test['index.js']
+    //@ts-ignore
+    delete testdir.node_modules.tap['index.js']
+    mockConfig.globCwd = resolve(
+      t.testdir(testdir) + '/packages/test'
+    )
+    t.equal(await npmFindCwd(mockConfig.globCwd), npmMockPrefix)
+    t.match(passSpawn(), [['npm', ['prefix']]])
+  })
+  t.test('fall back to globCwd', async t => {
+    const { npmFindCwd } = (await t.mockImport(
+      '../dist/esm/npm.js',
+      mockFail
+    )) as typeof import('../dist/esm/npm.js')
+    //@ts-ignore
+    delete testdir.node_modules['@tapjs']['index.js']
+    mockConfig.globCwd = resolve(
+      t.testdir(testdir) + '/packages/test'
+    )
+    npmMockPrefix = ''
+    t.equal(await npmFindCwd(mockConfig.globCwd), mockConfig.globCwd)
+    t.match(failSpawn(), [['npm', ['prefix']]])
   })
 })

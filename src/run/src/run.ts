@@ -11,6 +11,7 @@ import { relative, resolve } from 'node:path'
 import { rimraf } from 'rimraf'
 import { runAfter } from './after.js'
 import { runBefore } from './before.js'
+import { build } from './build.js'
 import { getCoverageMap } from './coverage-map.js'
 import { executeTestSuite } from './execute-test-suite.js'
 import { values } from './main-config.js'
@@ -96,6 +97,12 @@ export const run = async (args: string[], config: LoadedConfig) => {
     },
 
     async t => {
+      // if the configured plugins aren't what tap is built with, rebuild it
+      // this won't affect the tap loaded here in the runner, but will in the
+      // the test files we're about to run.
+      const needBuild = t.pluginSignature !== config.pluginSignature
+      if (needBuild) await build([], config)
+
       // have to register before doing before/after because otherwise
       // that will trigger a pipe to stdout.
       t.register()

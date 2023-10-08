@@ -419,6 +419,12 @@ class Test extends core_1.TestBase {
     }
     /* c8 ignore stop */
     /**
+     * The string signature of the plugins built into this Test class
+     */
+    get pluginSignature() {
+        return exports.signature;
+    }
+    /**
      * Add a plugin at run-time.
      *
      * Creates a subclass of {@link @tapjs/test!index.Test} which has the
