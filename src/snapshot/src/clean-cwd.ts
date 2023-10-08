@@ -1,4 +1,5 @@
 import { cwd } from '@tapjs/core'
+import { pathToFileURL } from 'node:url'
 
 // escape a string to json, then unwrap the "
 // used for cwd detection
@@ -6,10 +7,11 @@ const esc = (s: string) => {
   const j = JSON.stringify(s)
   return j.substring(1, j.length - 1)
 }
+const cwdURL = String(pathToFileURL(cwd)).substring('file://'.length)
 const cwdPosix = cwd.replace(/\\/g, '/')
 const cwdLcase = cwd.toLowerCase()
 const cwdPosixLcase = cwdPosix.toLowerCase()
-const cwds = new Set([cwd, cwdPosix, cwdLcase, cwdPosixLcase])
+const cwds = new Set([cwdURL, cwd, cwdPosix, cwdLcase, cwdPosixLcase])
 for (const c of [...cwds]) {
   cwds.add(esc(c))
   cwds.add(esc(esc(c)))

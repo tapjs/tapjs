@@ -1,16 +1,55 @@
+import * as nodeUrl from 'node:url'
 import t from 'tap'
 
 t.capture(process, 'cwd', () => 'D:\\some\\TEST-Path')
+
+const s = 'D:\\some\\TEST-Path'
+const u = 'file:///D:/some/TEST-Path'
+
 const { cleanCWD } = (await t.mockImport('../dist/esm/clean-cwd.js', {
   '@tapjs/core': {
-    cwd: 'D:\\some\\TEST-Path',
+    cwd: s,
   },
+  url: t.createMock(nodeUrl, {
+    pathToFileURL: (path: string): URL =>
+      path === s ? new URL(u) : nodeUrl.pathToFileURL(path),
+  }),
 })) as typeof import('../dist/esm/clean-cwd.js')
 
-const s = process.cwd()
 const p = s.replace(/\\/g, '/')
 
-const obj = { s: [s, p, s, p] }
+const {
+  href,
+  origin,
+  protocol,
+  username,
+  password,
+  host,
+  hostname,
+  port,
+  pathname,
+  search,
+  searchParams,
+  hash,
+} = new URL(u)
+
+const obj = {
+  s: [s, p, s, p, u],
+  url: {
+    href,
+    origin,
+    protocol,
+    username,
+    password,
+    host,
+    hostname,
+    port,
+    pathname,
+    search,
+    searchParams,
+    hash,
+  },
+}
 const j1 = JSON.stringify(obj)
 const j2 = JSON.stringify({ json: j1 })
 const j3 = JSON.stringify({ json: j2 })
