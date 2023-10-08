@@ -21,6 +21,20 @@ property keys being ignored.
   `Symbol.<key>`, eg `Symbol.iterator` instead of
   `Symbol(Symbol.iterator)`.
 - Add `--reporter-file` option to pipe test report to a file.
+- (18.4.1) Print Symbols better in `js` compare/formatting styles
+- (18.4.1) Include known non-enumerable Error properties in
+  comparisons
+- (18.4.1) Pre-load source maps to avoid excessive calls causing
+  hang in Node 20 on exit.
+- (18.4.2) Fix timing issue breaking `node --test` serialization
+- (18.4.3) reporter: fix extra space on source indicator line
+- (18.4.3) Fix some combinations of `async` test functions,
+  `t.plan()`, and explicit `t.end()` resulting in "Test after
+  promise resolution" errors.
+- (18.4.4) snapshot: handle file:// cwd urls on windows
+- (18.4.4) manage plugins better in npm workspaces
+- (18.4.4) mock: allow absolute deps to be mocked, but not node
+  builtins
 
 ## 18.3
 
