@@ -1,5 +1,5 @@
 import { relative } from 'path'
-import t from 'tap'
+import t, { Test } from 'tap'
 import { loader, plugin } from '../dist/esm/index.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -171,4 +171,30 @@ t.test('mockAll editing', t => {
   t.same(Object.keys(y), ['a'])
   t.same(t.mockAll(null), {})
   t.end()
+})
+
+t.test('cannot mock node builtins', async t => {
+  const tt = new Test({ name: 'failing mocker' })
+  tt.runMain(() => {})
+  tt.test('subtest', async t => {
+    await t.mockImport('fs')
+    t.mockRequire('fs')
+  })
+  tt.end()
+  const result = await tt.concat()
+  t.equal(tt.passing(), false)
+  t.match(
+    result,
+    `
+            await t.mockImport('fs')
+        ------------^
+`
+  )
+  t.match(
+    result,
+    `
+            t.mockRequire('fs')
+        ------^
+`
+  )
 })
