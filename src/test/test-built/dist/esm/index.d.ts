@@ -358,6 +358,10 @@ export declare class Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends 
      */
     constructor(opts: Opts, __INTERNAL?: PluginExtensionOption<Ext, Opts>);
     /**
+     * The string signature of the plugins built into this Test class
+     */
+    get pluginSignature(): string;
+    /**
      * Add a plugin at run-time.
      *
      * Creates a subclass of {@link @tapjs/test!index.Test} which has the

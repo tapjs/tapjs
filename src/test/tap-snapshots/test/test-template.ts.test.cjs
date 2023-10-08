@@ -28,3 +28,7 @@ ok 2 - (unnamed test) # time={TIME}
 1..2
 
 `
+
+exports[`test/test-template.ts > TAP > make a test, do some stuff with it > pluginSignature 1`] = `
+
+`

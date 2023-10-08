@@ -188,6 +188,7 @@ base object.
 - [plugins](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#plugins)
 - [applyPlugin](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#applyPlugin)
 - [pluginLoaded](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#pluginLoaded)
+- [pluginSignature](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#pluginSignature)
 
 ### Spies, Mocks, and Fixtures
 

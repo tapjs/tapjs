@@ -1,6 +1,7 @@
 import { spawn } from 'child_process'
 import t from 'tap'
 
+import { LoadedConfig } from '@tapjs/config'
 import { readFileSync, statSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { resolveImport } from 'resolve-import'
@@ -423,4 +424,30 @@ ok 1 - this is standard input
   t.equal(signal, null)
   t.equal(stderr, '')
   t.matchSnapshot(stdout)
+})
+
+t.test('build before run if plugins mismatch', async t => {
+  const cwd = process.cwd()
+  t.teardown(() => process.chdir(cwd))
+
+  const { run } = (await t.mockImport('../dist/esm/run.js', {
+    '../dist/esm/build.js': {
+      build: () => Promise.reject(new Error('expected')),
+    },
+  })) as typeof import('../dist/esm/run.js')
+
+  const dir = t.testdir({
+    'test.js': `import t from 'tap'; t.pass('this is fine')`,
+  })
+  process.chdir(dir)
+  t.rejects(
+    run(['test.js'], {
+      globCwd: dir,
+      pluginSignature: 'does not match',
+      values: {},
+      positionals: ['run', 'index.js'],
+      get: () => undefined,
+    } as unknown as LoadedConfig),
+    { message: 'expected', stack: 'x' }
+  )
 })

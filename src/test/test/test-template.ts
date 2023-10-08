@@ -20,6 +20,7 @@ t.test('make a test, do some stuff with it', async t => {
   t.type(td.method, 'function')
   t.equal(td.method, td.methodAlias, 'aliases stay aliased')
   t.equal(tt.pluginLoaded(plugin), false, 'plugin not on og object')
+  t.matchSnapshot(tt.pluginSignature, 'pluginSignature')
   //@ts-expect-error
   t.equal(tt.method, undefined, 'method still undefined on og object')
   // just verify that it doesn't type error after the check
