@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/synonyms",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "extend the @tapjs/asserts methods with various aliases",
   "tshy": {
     "main": true,
@@ -40,10 +40,10 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/asserts": "1.1.7"
+    "@tapjs/asserts": "1.1.8"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.3.7"
+    "@tapjs/core": "1.3.8"
   },
   "tap": {
     "typecheck": false
