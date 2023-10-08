@@ -60,8 +60,11 @@ for (const file of files) {
   }
 }
 
-if (!foundIn.size && !Object.keys(deps).length) {
-  t.pass('no deps')
+if (
+  !foundIn.size &&
+  (pkgName === '@tapjs/test' || !Object.keys(deps).length)
+) {
+  t.pass('no deps to check')
 } else {
   if (pkgName !== '@tapjs/test') {
     for (const dep of Object.keys(deps)) {
