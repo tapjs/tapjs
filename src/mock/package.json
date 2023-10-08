@@ -56,7 +56,7 @@
   "dependencies": {
     "@tapjs/after": "1.1.7",
     "@tapjs/stack": "1.2.5",
-    "resolve-import": "^1.4.2",
+    "resolve-import": "^1.4.4",
     "walk-up-path": "^3.0.1"
   },
   "peerDependencies": {

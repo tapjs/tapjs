@@ -61,7 +61,7 @@
     "@tapjs/test": "1.3.7",
     "@tapjs/typescript": "1.2.7",
     "@tapjs/worker": "1.1.7",
-    "resolve-import": "1.4.2"
+    "resolve-import": "^1.4.4"
   },
   "tap": {
     "typecheck": false,
