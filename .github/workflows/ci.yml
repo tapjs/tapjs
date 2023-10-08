@@ -35,4 +35,4 @@ jobs:
           TAP_TIMEOUT: '0'
           TAP_COLOR: '1'
         run: |
-          npm test -ws --color=always
+          npm test -ws --color=always -Rmin
