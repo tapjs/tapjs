@@ -132,7 +132,7 @@ t.test('generate some mock imports', async t => {
   )
   const expect = new URL(mod, import.meta.url)
   expect.searchParams.set('tapmock', `${serviceKey}.${service.key}`)
-  t.equal(service.module, String(expect))
+  t.equal(await service.module, String(expect))
   t.type(service.key, 'string')
   t.match(service, {
     mocks: {
@@ -167,7 +167,7 @@ t.test('generate some mock imports', async t => {
       stack: String,
     },
   })
-  t.strictSame(await import(service.module), {
+  t.strictSame(await import(await service.module), {
     __proto__: null,
     foo: 'bar',
     myFS: 'hello from fs',
@@ -242,39 +242,39 @@ t.test('create with no mocks, nothing to resolve', async t => {
     action: 'resolve',
     id: 'whatever',
     url: './blah.mjs',
-    parentURL: service.module,
+    parentURL: await service.module,
   }), String(expect))
 
   t.equal(await MSCJS.resolve({
     action: 'resolve',
     id: 'whatever',
     url: './blah.mjs',
-    parentURL: service.module,
+    parentURL: await service.module,
   }), String(expect))
 
   t.equal(await service.resolve({
     action: 'resolve',
     id: 'whatever',
     url: './blah.mjs',
-    parentURL: service.module,
+    parentURL: await service.module,
   }), String(expect))
 
   t.equal(await service.resolve({
     action: 'resolve',
     id: 'another one',
     url: './nonexistent.mjs',
-    parentURL: service.module,
+    parentURL: await service.module,
   }), undefined)
   t.equal(await MockService.resolve({
     action: 'resolve',
     id: 'another one',
     url: './nonexistent.mjs',
-    parentURL: service.module,
+    parentURL: await service.module,
   }), undefined)
   t.equal(await MSCJS.resolve({
     action: 'resolve',
     id: 'another one',
     url: './nonexistent.mjs',
-    parentURL: service.module,
+    parentURL: await service.module,
   }), undefined)
 })

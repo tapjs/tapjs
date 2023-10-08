@@ -1,6 +1,7 @@
 import { plugin as AfterPlugin } from '@tapjs/after'
 import { TapPlugin, TestBase } from '@tapjs/core'
 import * as stack from '@tapjs/stack'
+import { isBuiltin } from 'node:module'
 import { mockRequire } from './mock-require.js'
 import { MockService } from './mock-service.js'
 
@@ -23,7 +24,10 @@ export class TapMock {
     TapMock.#refs.set(t, this)
     // inherit #allMock
     const p = t.parent && TapMock.#refs.get(t.parent)
-    this.#allMock = Object.assign(Object.create(null), p ? p.#allMock : {})
+    this.#allMock = Object.assign(
+      Object.create(null),
+      p ? p.#allMock : {}
+    )
   }
 
   /**
@@ -132,7 +136,14 @@ export class TapMock {
    *
    * @group Spies, Mocks, and Fixtures
    */
-  mockImport(module: string, mocks: Record<string, any> = {}) {
+  async mockImport(module: string, mocks: Record<string, any> = {}) {
+    if (isBuiltin(module)) {
+      this.#t.t.currentAssert = this.mockImport
+      this.#t.t.fail(
+        'Node built-in modules cannot have their imports mocked'
+      )
+      return {}
+    }
     mocks = Object.assign({}, this.#allMock, mocks)
     if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
       this.#didTeardown = true
@@ -144,7 +155,7 @@ export class TapMock {
       this.#t.t.mockImport
     )
     this.#mocks.push(service)
-    return import(service.module)
+    return Promise.resolve(service.module).then(s => import(s))
   }
 
   /**
@@ -167,6 +178,13 @@ export class TapMock {
    * @group Spies, Mocks, and Fixtures
    */
   mockRequire(module: string, mocks: Record<string, any> = {}) {
+    if (isBuiltin(module)) {
+      this.#t.t.currentAssert = this.mockRequire
+      this.#t.t.fail(
+        'Node built-in modules cannot have their imports mocked'
+      )
+      return {}
+    }
     mocks = Object.assign({}, this.#allMock, mocks)
     return mockRequire(module, mocks, this.#t.t.mockRequire)
   }

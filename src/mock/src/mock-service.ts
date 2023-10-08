@@ -30,6 +30,7 @@ import { pathToFileURL } from 'url'
 import { MessagePort } from 'worker_threads'
 import { exportLine } from './export-line.js'
 import { mungeMocks } from './munge-mocks.js'
+import { resolveMockEntryPoint } from './resolve-mock-entry-point.js'
 import { serviceKey } from './service-key.js'
 
 const { hasOwnProperty } = Object.prototype
@@ -114,7 +115,7 @@ g[kInstances] = instances
 const mockServiceCtorSymbol = Symbol('private')
 export class MockService {
   key: string = getKey()
-  module?: string
+  module?: string | Promise<string>
   mocks?: Record<string, Record<string, any>>
   caller?: {
     path: string
@@ -227,7 +228,7 @@ export class MockService {
     module: string,
     mocks: Record<string, any> = {},
     caller: Function | ((...a: any[]) => any) = MockService.create
-  ): MockService & { module: string } {
+  ): MockService & { module: string | Promise<string> } {
     const ms = new MockService(mockServiceCtorSymbol)
 
     /* c8 ignore start */
@@ -243,13 +244,18 @@ export class MockService {
     if (!path) {
       throw new Error('could not get current call site')
     }
+
     const dir = dirname(path)
     const url = pathToFileURL(path)
-    const mockedModuleURL = new URL(module, url)
-    mockedModuleURL.searchParams.set(
-      'tapmock',
-      `${serviceKey}.${ms.key}`
+
+    const resolved = resolveMockEntryPoint(
+      url,
+      module,
+      serviceKey,
+      ms.key,
+      caller
     )
+    resolved.then(s => (ms.module = s))
 
     ms.mocks = mungeMocks(mocks, dir)
     ms.caller = {
@@ -263,9 +269,7 @@ export class MockService {
     const g = globalThis as typeof globalThis & {
       [sym]?: MockService
     }
-    return (g[sym] = Object.assign(ms, {
-      module: String(mockedModuleURL),
-    }))
+    return (g[sym] = Object.assign(ms, { module: resolved }))
   }
 
   unmock() {
