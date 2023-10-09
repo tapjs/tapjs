@@ -88,7 +88,7 @@ export class TapMock {
           return [k, v]
         })
         .concat(
-          Object.entries(overrides).filter(([k]) => !(Object.hasOwnProperty(bases, k))
+          Object.entries(overrides).filter(([k]) => !Object.hasOwnProperty(bases, k))
         )
     ) as MockedObject<B, O>
 
