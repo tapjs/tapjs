@@ -93,7 +93,7 @@ export class TapMock {
     ) as MockedObject<B, O>
 
     if (Object.getPrototypeOf(bases) !== Object.prototype) {
-        Object.setPrototypeOf(mockedObject, Object.getPrototypeOf(bases))
+      Object.setPrototypeOf(mockedObject, Object.getPrototypeOf(bases))
     }
 
     return mockedObject
