@@ -1,0 +1,35 @@
+name: ✨ Feature Request
+description: Suggest a new feature to make tap even better
+title: "[FEATURE] <title>"
+labels: [feature]
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    description: Please [search here](https://github.com/tapjs/tapjs/issues) to see if an issue already exists for your proposed feature.
+    options:
+    - label: I have searched the existing issues
+      required: true
+- type: checkboxes
+  attributes:
+    label: Have you read the `CONTRIBUTING` guide on posting issues, and `CODE_OF_CONDUCT`?
+    description: Please [read this](https://github.com/tapjs/tapjs/blob/main/CONTRIBUTING.md) and [this](https://github.com/tapjs/tapjs/blob/main/CODE_OF_CONDUCT.md)
+    options:
+    - label: yes I read the things
+      required: true
+- type: textarea
+  attributes:
+    label: Description
+    description: Describe what you'd like to be able to do, what problem it solves, why it's useful, etc.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Example
+    description: How would this feature be used? What would the API look like? What would happen? What output would be generated? Get creative!
+    value: |
+      ```js
+      // put some example code here
+      ```
+  validations:
+    required: false

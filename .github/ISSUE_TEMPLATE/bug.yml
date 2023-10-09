@@ -1,0 +1,57 @@
+name: 🐞 Bug
+description: File a bug/issue
+title: "[BUG] <title>"
+labels: [bug]
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    description: Please [search here](https://github.com/tapjs/tapjs/issues) to see if an issue already exists for your problem.
+    options:
+    - label: I have searched the existing issues
+      required: true
+- type: checkboxes
+  attributes:
+    label: Have you read the `CONTRIBUTING` guide on posting bugs, and `CODE_OF_CONDUCT`?
+    description: Please [read this](https://github.com/tapjs/tapjs/blob/main/CONTRIBUTING.md) and [this](https://github.com/tapjs/tapjs/blob/main/CODE_OF_CONDUCT.md)
+    options:
+    - label: yes I read the things
+      required: true
+- type: checkboxes
+  attributes:
+    label: This issue exists in the latest tap version
+    description: Please make sure you have installed the latest tap version and verified it is still an issue.
+    options:
+    - label: I am using the latest tap
+      required: true
+- type: textarea
+  attributes:
+    label: Description
+    description: describe what you're experiencing and what you'd expect
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Reproduction
+    description: Best: a link to a public repository or gist that shows the problem. Also pretty good: clear instructions to trigger the issue, including all configuration necessary, code that has to be run, etc.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Environment
+    description: Run these commands and paste the output.
+    value: |
+      ```
+      which tap
+      npm ls tap
+      tap versions
+      tap config list
+      tap plugin list
+      # if using typescript:
+      npm ls ts-node
+      npm ls tsc
+      # posix:
+      uname -a
+      # windows (in powershell)
+      "$([Environment]::OSVersion.VersionString) $(('x86', 'x64')[[Environment]::Is64BitOperatingSystem])"
+      ```

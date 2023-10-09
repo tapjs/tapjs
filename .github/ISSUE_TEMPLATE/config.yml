@@ -1,0 +1,20 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://node-tap.org/
+    description: The website
+  - name: Typedocs
+    url: https://tapjs.github.io/tapjs
+    description: Automatically generated documentation of tap's codebase
+  - name: Chat
+    url: https://matrix.to/#/#tapjs:matrix.org
+    about: Discussions on Matrix.org, fast and easy, end-to-end encrypted
+  - name: Email
+    url: mailto:isaacs@tapjs.org
+    about: Insecure plain text that I might theoretically see some day (maybe)
+  - name: Contributing Guide
+    url: https://github.com/tapjs/tapjs/blob/main/CONTRIBUTING.md
+    about: Helpful information about posting bugs, sending PRs, etc.
+  - name: Code of Conduct
+    url: https://github.com/tapjs/tapjs/blob/main/CODE_OF_CONDUCT.md
+    about: Explicit behavior expectations and commitments
