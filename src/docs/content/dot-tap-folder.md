@@ -81,6 +81,21 @@ folder as an argument to any other program that knows how to
 interpret this format, or put coverage files in this folder and
 tap will include them in its coverage reporting.
 
+## `.tap/report`
+
+When generating coverage reports, the files generated go in here.
+
+| `--coverage-report` config | file generated                                                |
+| -------------------------- | ------------------------------------------------------------- |
+| `text` (default)           | no file generated, just writes to terminal                    |
+| `html`                     | `.tap/report/index.html`                                      |
+| `lcov`                     | `.tap/report/lcov.info`, `.tap/report/lcov-report/index.html` |
+| `clover`                   | `.tap/report/clover.xml`                                      |
+| `cobertura`                | `.tap/report/cobertura-coverage.xml`                          |
+| `json`                     | `.tap/report/coverage-final.json                              |
+| `json-summary`             | `.tap/report/coverage-summary.json                            |
+| `lcovonly`                 | `.tap/report/lcov.info`                                       |
+
 ## `.tap/fixtures`
 
 This is the folder where the [`@tapjs/fixture`
