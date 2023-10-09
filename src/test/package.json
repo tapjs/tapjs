@@ -7,6 +7,16 @@
     "exports": {
       ".": "./src/index.ts",
       "./package.json": "./package.json",
+      "./test-built": {
+        "import": {
+          "types": "./test-built/dist/esm/index.d.ts",
+          "default": "./test-built/dist/esm/index.js"
+        },
+        "require": {
+          "types": "./test-built/dist/commonjs/index.d.ts",
+          "default": "./test-built/dist/commonjs/index.js"
+        }
+      },
       "./built": {
         "import": {
           "types": "./test-built/dist/esm/index.d.ts",
@@ -37,6 +47,16 @@
       }
     },
     "./package.json": "./package.json",
+    "./test-built": {
+      "import": {
+        "types": "./test-built/dist/esm/index.d.ts",
+        "default": "./test-built/dist/esm/index.js"
+      },
+      "require": {
+        "types": "./test-built/dist/commonjs/index.d.ts",
+        "default": "./test-built/dist/commonjs/index.js"
+      }
+    },
     "./built": {
       "import": {
         "types": "./test-built/dist/esm/index.d.ts",

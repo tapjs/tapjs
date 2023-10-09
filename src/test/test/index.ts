@@ -1,5 +1,5 @@
 import t from 'tap'
-import { Test as TestBuilt } from '@tapjs/test/built'
+import { Test as TestBuilt } from '@tapjs/test/test-built'
 import { TestBase } from '@tapjs/core'
 import { Test } from '../dist/esm/index.js'
 
