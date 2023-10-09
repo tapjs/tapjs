@@ -72,7 +72,7 @@ export class TapMock {
   >(bases: B, overrides: O): MockedObject<B, O> {
     if (Array.isArray(overrides))
       return overrides as unknown as MockedObject<B, O>
-    return Object.fromEntries(
+    const mockedObject = Object.fromEntries(
       Object.entries(bases)
         .map(([k, v]) => {
           if (k in overrides) {
@@ -88,9 +88,20 @@ export class TapMock {
           return [k, v]
         })
         .concat(
-          Object.entries(overrides).filter(([k]) => !(k in bases)),
+          Object.entries(overrides).filter(
+            ([k]) => !Object.hasOwnProperty.call(bases, k),
+          ),
         ),
     ) as MockedObject<B, O>
+
+    if (Object.getPrototypeOf(bases) !== Object.prototype) {
+      Object.setPrototypeOf(
+        mockedObject,
+        Object.getPrototypeOf(bases),
+      )
+    }
+
+    return mockedObject
   }
 
   /**
