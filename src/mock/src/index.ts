@@ -239,7 +239,9 @@ export class TapMock {
 export type MockedObject<B, O> = O extends Array<any>
   ? O
   : B extends { [k: PropertyKey]: any }
-  ? O extends { [k: string]: any }
+  ? O extends Function
+    ? O
+    : O extends { [k: string]: any }
     ? {
         [k in keyof B]: k extends keyof O
           ? MockedObject<B[k], O[k]>
