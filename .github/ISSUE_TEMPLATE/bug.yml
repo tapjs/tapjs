@@ -33,8 +33,11 @@ body:
 - type: textarea
   attributes:
     label: Reproduction
-    description: Best: a link to a public repository or gist that shows the problem. Also pretty good: clear instructions to trigger the issue, including all configuration necessary, code that has to be run, etc.
-  validations:
+    description: >
+      Best: a link to a public repository or gist that shows the problem. Also
+      pretty good: clear instructions to trigger the issue, including all
+      configuration necessary, code that has to be run, etc.
+    validations:
     required: true
 - type: textarea
   attributes:
