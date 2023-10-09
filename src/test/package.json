@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/test",
-  "version": "1.3.8",
+  "version": "1.3.9",
   "description": "the pluggable Test class for node-tap",
   "tshy": {
     "main": true,
@@ -85,21 +85,21 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "1.1.8",
-    "@tapjs/after-each": "1.1.8",
-    "@tapjs/asserts": "1.1.8",
-    "@tapjs/before": "1.1.8",
-    "@tapjs/before-each": "1.1.8",
-    "@tapjs/filter": "1.2.8",
-    "@tapjs/fixture": "1.2.8",
-    "@tapjs/intercept": "1.2.8",
-    "@tapjs/mock": "1.2.6",
-    "@tapjs/node-serialize": "1.1.8",
-    "@tapjs/snapshot": "1.2.8",
-    "@tapjs/spawn": "1.1.8",
-    "@tapjs/stdin": "1.1.8",
-    "@tapjs/typescript": "1.2.8",
-    "@tapjs/worker": "1.1.8",
+    "@tapjs/after": "1.1.9",
+    "@tapjs/after-each": "1.1.9",
+    "@tapjs/asserts": "1.1.9",
+    "@tapjs/before": "1.1.9",
+    "@tapjs/before-each": "1.1.9",
+    "@tapjs/filter": "1.2.9",
+    "@tapjs/fixture": "1.2.9",
+    "@tapjs/intercept": "1.2.9",
+    "@tapjs/mock": "1.2.7",
+    "@tapjs/node-serialize": "1.1.9",
+    "@tapjs/snapshot": "1.2.9",
+    "@tapjs/spawn": "1.1.9",
+    "@tapjs/stdin": "1.1.9",
+    "@tapjs/typescript": "1.2.9",
+    "@tapjs/worker": "1.1.9",
     "glob": "^10.3.10",
     "jackspeak": "^2.3.6",
     "mkdirp": "^3.0.0",
@@ -112,7 +112,7 @@
     "typescript": "5.2"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.3.8"
+    "@tapjs/core": "1.3.9"
   },
   "tap": {
     "typecheck": false,
