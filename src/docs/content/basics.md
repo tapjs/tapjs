@@ -59,19 +59,20 @@ $ tap run
 
 And you'll get reports like this:
 
-<pre>$ tap run
-<span style="color:black;background:green"> PASS </span> foo.test.js 2 <span style="color:green">OK</span> <span color="#999">1.052s</span>
+<pre style="color:#eeeeee;background:#222222;position:relative">$ tap run
+<span style="font-weight:bold;color:#000000;background:#00aa00"> PASS </span> docs/foo.test.js <span style="font-weight:bold">2</span> <span style="color:#00a000">OK</span> <span style="font-weight:100;color:#b2b2b2">427ms
 
-<div style="width:min-content;background:white;color:black">                       
-  🌈 TEST COMPLETE 🌈  
-                       </div>
-<b>Asserts:</b>  <span style="color:green">2 pass</span>  <span style="color:#900">0 fail</span>  <span style="color:#999">2 of 2 complete</span>
-<b>Suites:</b>   <span style="color:green">1 pass</span>  <span style="color:#900">0 fail</span>  <span style="color:#999">1 of 1 complete</span>
+</span><span style="background:#ffffff">                       
+</span><span style="font-weight:bold;color:#000000;background:#ffffff">  <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>   TEST COMPLETE <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>    
+</span><span style="background:#ffffff">                       
 
-<span style="color:#999"># { total: 2, pass: 2 }
-# time=1091.538ms</span></pre>
+</span><span style="font-weight:bold">Asserts:</span>  <span style="color:#00a000">2 pass</span>  <span style="font-weight:100;color:#bf0000">0 fail</span>  <span style="font-weight:100;color:#b2b2b2">2 of 2 complete
+</span><span style="font-weight:bold">Suites:</span>   <span style="color:#00a000">1 pass</span>  <span style="font-weight:100;color:#bf0000">0 fail</span>  <span style="font-weight:100;color:#b2b2b2">1 of 1 complete
 
-Keep reading if you want to know more.
+# { total: 2, pass: 2 }
+# time=463.429ms</span></pre>
+
+Tap can do a lot of stuff. Keep reading if you want to know more.
 
 ## Writing Tests
 
@@ -166,14 +167,47 @@ not ok 2 - this fails
 # time=13.576ms
 ```
 
+When run with the tap cli, it looks like this:
+
+<pre style="color:#eeeeee;background:#222222;position:relative">$ tap t.mts
+<span style="font-weight:bold;color:#ffffff;background:#ff0000"> FAIL </span> t.mts <span style="color:#ff0000">1 failed</span> of <span style="font-weight:bold">2</span> <span style="font-weight:100;color:#b2b2b2">14ms
+</span> <span style="font-weight:bold;color:#ff0000"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> this fails <span style="font-weight:100;color:#b2b2b2">t.mts:5:3
+
+</span><span style="background:#ffffff">                       
+</span><span style="font-weight:bold;color:#000000;background:#ffffff">  <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>   TEST COMPLETE <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>    
+</span><span style="background:#ffffff">                       
+
+</span><span style="font-weight:bold;color:#ffffff;background:#ff0000"> FAIL </span> t.mts <span style="color:#ff0000">1 failed</span> of <span style="font-weight:bold">2</span> <span style="font-weight:100;color:#b2b2b2">14ms
+</span> <span style="font-weight:bold;color:#ff0000"><span style="position:absolute;line-height:1;margin-top:0.3ex">✖</span>  </span> this fails
+    <span style="font-weight:100;color:#b2b2b2;background:#1c1c1c">t.mts                                            
+</span>    <span style="color:#8fa5d1;background:#1c1c1c">2 </span><span style="color:#d0d0d0;background:#1c1c1c">                                               
+</span>    <span style="color:#8fa5d1;background:#1c1c1c">3 </span><span style="color:#79c0ff;background:#1c1c1c">const</span><span style="color:#d0d0d0;background:#1c1c1c"> myObject = </span><span style="color:#93cdff;background:#1c1c1c">{</span><span style="color:#d0d0d0;background:#1c1c1c"> a: </span><span style="color:#87d75f;background:#1c1c1c">1</span><span style="color:#93cdff;background:#1c1c1c">,</span><span style="color:#d0d0d0;background:#1c1c1c"> b: </span><span style="color:#87d75f;background:#1c1c1c">2</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#93cdff;background:#1c1c1c">}</span><span style="color:#d0d0d0;background:#1c1c1c">                
+</span>    <span style="color:#8fa5d1;background:#1c1c1c">4 </span><span style="color:#d0d0d0;background:#1c1c1c">t</span><span style="color:#93cdff;background:#1c1c1c">.</span><span style="color:#d0d0d0;background:#1c1c1c">match</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">myObject</span><span style="color:#93cdff;background:#1c1c1c">,</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#93cdff;background:#1c1c1c">{</span><span style="color:#d0d0d0;background:#1c1c1c"> a: Number </span><span style="color:#93cdff;background:#1c1c1c">},</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#87d75f;background:#1c1c1c">'this passes'</span><span style="color:#93cdff;background:#1c1c1c">)
+</span>    <span style="color:#8fa5d1;background:#1c1c1c">5 </span><span style="color:#d0d0d0;background:#1c1c1c">t</span><span style="color:#93cdff;background:#1c1c1c">.</span><span style="color:#d0d0d0;background:#1c1c1c">matchOnly</span><span style="color:#93cdff;background:#1c1c1c">(</span><span style="color:#d0d0d0;background:#1c1c1c">myObject</span><span style="color:#93cdff;background:#1c1c1c">,</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#93cdff;background:#1c1c1c">{</span><span style="color:#d0d0d0;background:#1c1c1c"> b: </span><span style="color:#87d75f;background:#1c1c1c">2</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#93cdff;background:#1c1c1c">},</span><span style="color:#d0d0d0;background:#1c1c1c"> </span><span style="color:#87d75f;background:#1c1c1c">'this fails'</span><span style="color:#93cdff;background:#1c1c1c">)</span><span style="color:#d0d0d0;background:#1c1c1c">  
+</span>    <span style="color:#ff0000;background:#1c1c1c">━━━━</span><span style="font-weight:bold;color:#ff0000;background:#1c1c1c">┛</span><span style="color:#ff0000;background:#1c1c1c">                                            
+</span>    <span style="color:#ffe5f1;background:#ac3ea3">--- expected   
+</span>    <span style="color:#f2ffe5;background:#3a7500">+++ actual     
+</span>    <span style="font-weight:bold;color:#759eef;background:#222222">@@ -1,2 +1,3 @@
+</span>    <span style="color:#cccccc;background:#333333"> Object {      
+</span>    <span style="color:#f2ffe5;background:#3a7500">+  &quot;a&quot;: 1,     
+</span>    <span style="color:#cccccc;background:#333333"> }             
+</span>    <span style="color:#ffff00">t.mts</span><span style="font-weight:100;color:#b2b2b2">:5:3
+
+</span><span style="font-weight:bold">Asserts:</span>  <span style="color:#00a000">1 pass</span>  <span style="font-weight:bold;color:#ff0000">1 fail</span>  <span style="font-weight:100;color:#b2b2b2">2 of 2 complete
+</span><span style="font-weight:bold">Suites:</span>   <span style="color:#00a000">0 pass</span>  <span style="font-weight:bold;color:#ff0000">1 fail</span>  <span style="font-weight:100;color:#b2b2b2">1 of 1 complete
+
+# No coverage generated
+# { total: 2, pass: 1, fail: 1 }
+# time=45.911ms</span></pre>
+
 The tap framework will print the assertion, as well as
 information about where the failure occurred, what was expected,
 and so on.
 
 ## Child Tests
 
-It's usually convenient to group tests into "suites" of
-assertions about related functionality.
+It's usually convenient to [group tests](./structure.md) into
+"suites" of assertions about related functionality.
 
 This can be done in tap using the
 [`t.test()`](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#test)
@@ -257,18 +291,19 @@ the correct loaders all assembled in the arguments, and format
 the output so that excessive noise is eliminated, and actionable
 information is clearly highlighted.
 
-<pre>$ tap t.mts
-<span style="color:black;background:green"> PASS </span> t.mts 2 <span style="color:green">OK</span> <span color="#999">1.052s</span>
+<pre style="color:#eeeeee;background:#222222;position:relative">$ tap t.mts
+<span style="font-weight:bold;color:#000000;background:#00aa00"> PASS </span> docs/foo.test.js <span style="font-weight:bold">2</span> <span style="color:#00a000">OK</span> <span style="font-weight:100;color:#b2b2b2">410ms
 
-<div style="width:min-content;background:white;color:black">                       
-  🌈 TEST COMPLETE 🌈  
-                       </div>
-<b>Asserts:</b>  <span style="color:green">2 pass</span>  <span style="color:#900">0 fail</span>  <span style="color:#999">2 of 2 complete</span>
-<b>Suites:</b>   <span style="color:green">1 pass</span>  <span style="color:#900">0 fail</span>  <span style="color:#999">1 of 1 complete</span>
+</span><span style="background:#ffffff">                       
+</span><span style="font-weight:bold;color:#000000;background:#ffffff">  <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>   TEST COMPLETE <span style="position:absolute;line-height:1;margin-top:0.3ex">🌈</span>    
+</span><span style="background:#ffffff">                       
 
-<span style="color:#999"># No coverage generated
+</span><span style="font-weight:bold">Asserts:</span>  <span style="color:#00a000">2 pass</span>  <span style="font-weight:100;color:#bf0000">0 fail</span>  <span style="font-weight:100;color:#b2b2b2">2 of 2 complete
+</span><span style="font-weight:bold">Suites:</span>   <span style="color:#00a000">1 pass</span>  <span style="font-weight:100;color:#bf0000">0 fail</span>  <span style="font-weight:100;color:#b2b2b2">1 of 1 complete
+
+# No coverage generated
 # { total: 2, pass: 2 }
-# time=1091.538ms</span></pre>
+# time=446.935ms</span></pre>
 
 ## Code Coverage
 
@@ -300,6 +335,10 @@ information as you write your tests:
 - [`@tapjs/fixture`](./plugins/fixture.md) Create temporary test
   directories which are automatically cleaned up when the test
   ends.
+- [`@tapjs/snapshot`](./plugins/snapshot.md) Use the
+  `t.matchSnapshot` method to save values to a file automatically
+  by running `tap --snapshot`, and then verify them later when
+  running the test.
 
 For much more detail about the behavior of `Test` objects in your
 program, check out the [full generated typedocs for the Test
@@ -356,3 +395,16 @@ Why even have a test if you're ok with it failing?
 Tap will never support such a thing. (Actually, it probably is
 possible to do somehow with plugins. But don't! It's a horrible
 idea!)
+
+## Further Reading
+
+- [Writing Well-Structured Tests with Tap](./structure.md)
+- [Upgrading to tap 18 from tap v16 and
+  before](./upgrading-from-16.md)
+- [The tap CLI and configuration options](./cli.11ty.js)
+- [Test Environment](./environment.md)
+- [tap REPL](./repl.md)
+- [What's in that `.tap` folder?](./dot-tap-folder.md)
+- [full API reference](./api.md)
+
+Or maybe don't bother reading all that, and just go write some tests 😅
