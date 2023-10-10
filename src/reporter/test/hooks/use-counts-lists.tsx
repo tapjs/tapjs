@@ -57,19 +57,15 @@ t.test('show counts and lists', async t => {
         lists: { fail: [], todo: [], skip: [], pass: [] },
       },
       {
-        counts: { total: 1, pass: 0 },
+        counts: { total: 1, pass: 1 },
         lists: { fail: [], todo: [], skip: [], pass: [] },
       },
       {
-        counts: { total: 2, pass: 1 },
+        counts: { total: 2, pass: 2 },
         lists: { fail: [], todo: [], skip: [], pass: [] },
       },
       {
-        counts: { total: 3, pass: 2 },
-        lists: { fail: [], todo: [], skip: [], pass: [] },
-      },
-      {
-        counts: { total: 4, pass: 2, fail: 1 },
+        counts: { total: 3, pass: 2, fail: 1 },
         lists: {
           fail: [
             {
@@ -85,7 +81,7 @@ t.test('show counts and lists', async t => {
         },
       },
       {
-        counts: { total: 5, pass: 2, fail: 1, todo: 1 },
+        counts: { total: 4, pass: 2, fail: 1, todo: 1 },
         lists: {
           fail: [
             {
@@ -108,7 +104,7 @@ t.test('show counts and lists', async t => {
         },
       },
       {
-        counts: { total: 6, pass: 2, fail: 1, todo: 1, skip: 1 },
+        counts: { total: 5, pass: 2, fail: 1, todo: 1, skip: 1 },
         lists: {
           fail: [
             {
@@ -138,11 +134,53 @@ t.test('show counts and lists', async t => {
         },
       },
       {
-        counts: { total: 7, pass: 3, fail: 1, todo: 1, skip: 1 },
+        counts: { total: 6, pass: 3, fail: 1, todo: 1, skip: 1 },
         lists: {
           fail: [
             {
               name: 'not quite as fine',
+              ok: false,
+              skip: false,
+              todo: false,
+            },
+          ],
+          todo: [
+            {
+              name: 'will be fine',
+              ok: true,
+              skip: false,
+              todo: true,
+            },
+          ],
+          skip: [
+            {
+              name: 'dont care if its fine',
+              ok: true,
+              skip: true,
+              todo: false,
+            },
+          ],
+          pass: [],
+        },
+      },
+      {
+        counts: {
+          total: 7,
+          pass: 3,
+          fail: 2,
+          todo: 1,
+          skip: 1,
+        },
+        lists: {
+          fail: [
+            {
+              name: 'not quite as fine',
+              ok: false,
+              skip: false,
+              todo: false,
+            },
+            {
+              name: 'second fail',
               ok: false,
               skip: false,
               todo: false,

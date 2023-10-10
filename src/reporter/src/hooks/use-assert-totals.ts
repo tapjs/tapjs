@@ -6,7 +6,7 @@ export const useAssertTotals = (test: TestBase) => {
   const [asserts, updateAsserts] = useState<Counts>(new Counts())
   useLayoutEffect(() =>
     listenCleanup(test, 'assert', () =>
-      updateAsserts(new Counts(test.assertTotals))
+      updateAsserts(new Counts(test.counts))
     )
   )
   return asserts
