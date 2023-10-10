@@ -52,7 +52,7 @@ body:
       tap plugin list
       # if using typescript:
       npm ls ts-node
-      npm ls tsc
+      npm ls typescript
       # posix:
       uname -a
       # windows (in powershell)
