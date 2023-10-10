@@ -2,9 +2,13 @@
 // serialized message stream.
 
 import { Base, TAP } from '@tapjs/core'
-import { TestStreamSerialize } from '@tapjs/error-serdes'
+import {
+  TestStreamDeserialize,
+  TestStreamSerialize,
+} from '@tapjs/error-serdes'
 
 import { proc } from '@tapjs/core'
+import { inspect } from 'node:util'
 import { commentMethod } from './comment.js'
 import { onAddFn } from './on-add.js'
 import { printMessagesFn } from './print-messages.js'
@@ -22,15 +26,29 @@ export const serialize = (tap: TAP): void => {
     throw new Error('Cannot serialize TAP stream, already registered')
   }
   tap.register?.()
+  tap.options.passes = true
 
   const subsMap = new TestMap<Base[]>()
   const diagsMap = new TestMap<DiagnosticData[]>([[tap, []]])
 
   const stream = new TestStreamSerialize()
-  // stream
-  //   .pipe(new TestStreamDeserialize())
-  //   .on('data', c => stdout.write(format(c)))
-  stream.pipe(stdout)
+  // just for inspecting in dev.
+  /* c8 ignore start */
+  if (process.env.TAP_SERIALIZE_DEBUG === '1') {
+    stream
+      .pipe(new TestStreamDeserialize())
+      .on('data', c =>
+        stdout.write(
+          inspect(JSON.parse(JSON.stringify(c)), {
+            colors: true,
+            depth: Infinity,
+          }) + '\n'
+        )
+      )
+  } else {
+  /* c8 ignore stop */
+    stream.pipe(stdout)
+  }
 
   const comment = commentMethod(stream, diagsMap)
 
@@ -40,8 +58,10 @@ export const serialize = (tap: TAP): void => {
     throw new Error('Cannot serialize TAP stream, no process object')
   }
   /* c8 ignore stop */
-  serializeStdio(stream, proc, 'stderr')
-  serializeStdio(stream, proc, 'stdout')
+  if (process.env.TAP_SERIALIZE_DEBUG !== '1') {
+    serializeStdio(stream, proc, 'stderr')
+    serializeStdio(stream, proc, 'stdout')
+  }
 
   const onAdd = onAddFn(comment, diagsMap, subsMap)
 
