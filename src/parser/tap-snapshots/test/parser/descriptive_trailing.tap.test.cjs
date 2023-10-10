@@ -15,6 +15,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Interlock activated",
       "id": 1,
@@ -32,6 +33,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Interlock activated",
       "id": 1,
@@ -49,6 +51,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Interlock activated",
       "id": 1,
@@ -70,6 +73,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Megathrusters are go",
       "id": 2,
@@ -87,6 +91,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Megathrusters are go",
       "id": 2,
@@ -104,6 +109,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Megathrusters are go",
       "id": 2,
@@ -125,6 +131,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Head formed",
       "id": 3,
@@ -142,6 +149,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Head formed",
       "id": 3,
@@ -159,6 +167,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Head formed",
       "id": 3,
@@ -180,6 +189,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Blazing sword formed",
       "id": 4,
@@ -197,6 +207,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Blazing sword formed",
       "id": 4,
@@ -214,6 +225,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Blazing sword formed",
       "id": 4,
@@ -235,6 +247,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Robeast destroyed",
       "id": 5,
@@ -252,6 +265,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Robeast destroyed",
       "id": 5,
@@ -269,6 +283,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Robeast destroyed",
       "id": 5,
@@ -331,6 +346,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Interlock activated",
       "id": 1,
@@ -348,6 +364,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Interlock activated",
       "id": 1,
@@ -365,6 +382,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Interlock activated",
       "id": 1,
@@ -386,6 +404,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Megathrusters are go",
       "id": 2,
@@ -403,6 +422,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Megathrusters are go",
       "id": 2,
@@ -420,6 +440,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Megathrusters are go",
       "id": 2,
@@ -441,6 +462,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Head formed",
       "id": 3,
@@ -458,6 +480,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Head formed",
       "id": 3,
@@ -475,6 +498,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Head formed",
       "id": 3,
@@ -496,6 +520,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Blazing sword formed",
       "id": 4,
@@ -513,6 +538,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Blazing sword formed",
       "id": 4,
@@ -530,6 +556,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Blazing sword formed",
       "id": 4,
@@ -551,6 +578,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Robeast destroyed",
       "id": 5,
@@ -568,6 +596,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Robeast destroyed",
       "id": 5,
@@ -585,6 +614,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Robeast destroyed",
       "id": 5,

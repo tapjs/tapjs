@@ -23,6 +23,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "retrieving servers from the database",
       "id": 1,
@@ -40,6 +41,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "retrieving servers from the database",
       "id": 1,
@@ -57,6 +59,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "retrieving servers from the database",
       "id": 1,
@@ -86,6 +89,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged diamond",
       "id": 2,
@@ -103,6 +107,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged diamond",
       "id": 2,
@@ -120,6 +125,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged diamond",
       "id": 2,
@@ -141,6 +147,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged ruby",
       "id": 3,
@@ -158,6 +165,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged ruby",
       "id": 3,
@@ -175,6 +183,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged ruby",
       "id": 3,
@@ -212,6 +221,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -232,6 +242,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -252,6 +263,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -276,6 +288,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged onyx",
       "id": 5,
@@ -293,6 +306,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged onyx",
       "id": 5,
@@ -310,6 +324,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged onyx",
       "id": 5,
@@ -347,6 +362,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "timeout",
         "severity": "fail",
@@ -367,6 +383,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "timeout",
         "severity": "fail",
@@ -387,6 +404,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "timeout",
         "severity": "fail",
@@ -411,6 +429,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged gold",
       "id": 7,
@@ -428,6 +447,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged gold",
       "id": 7,
@@ -445,6 +465,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged gold",
       "id": 7,
@@ -479,6 +500,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "message": "hostname \\"saphire\\" unknown",
             "severity": "fail",
@@ -496,6 +518,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "message": "timeout",
             "severity": "fail",
@@ -550,6 +573,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "retrieving servers from the database",
       "id": 1,
@@ -567,6 +591,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "retrieving servers from the database",
       "id": 1,
@@ -584,6 +609,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "retrieving servers from the database",
       "id": 1,
@@ -613,6 +639,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged diamond",
       "id": 2,
@@ -630,6 +657,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged diamond",
       "id": 2,
@@ -647,6 +675,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged diamond",
       "id": 2,
@@ -668,6 +697,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged ruby",
       "id": 3,
@@ -685,6 +715,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged ruby",
       "id": 3,
@@ -702,6 +733,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pinged ruby",
       "id": 3,
@@ -739,6 +771,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -759,6 +792,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -779,6 +813,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -812,6 +847,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "message": "hostname \\"saphire\\" unknown",
             "severity": "fail",

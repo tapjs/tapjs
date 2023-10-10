@@ -67,6 +67,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Board",
       "id": 1,
@@ -84,6 +85,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Board",
       "id": 1,
@@ -101,6 +103,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Board",
       "id": 1,
@@ -122,6 +125,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is zero",
       "id": 2,
@@ -139,6 +143,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is zero",
       "id": 2,
@@ -156,6 +161,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is zero",
       "id": 2,
@@ -177,6 +183,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Tile",
       "id": 3,
@@ -194,6 +201,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Tile",
       "id": 3,
@@ -211,6 +219,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Tile",
       "id": 3,
@@ -232,6 +241,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Get possible places to put the Tile",
       "id": 4,
@@ -249,6 +259,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Get possible places to put the Tile",
       "id": 4,
@@ -266,6 +277,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Get possible places to put the Tile",
       "id": 4,
@@ -287,6 +299,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Placing the tile produces no error",
       "id": 5,
@@ -304,6 +317,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Placing the tile produces no error",
       "id": 5,
@@ -321,6 +335,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Placing the tile produces no error",
       "id": 5,
@@ -342,6 +357,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is 1",
       "id": 6,
@@ -359,6 +375,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is 1",
       "id": 6,
@@ -376,6 +393,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is 1",
       "id": 6,
@@ -478,6 +496,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Board",
       "id": 1,
@@ -495,6 +514,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Board",
       "id": 1,
@@ -512,6 +532,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Board",
       "id": 1,
@@ -533,6 +554,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is zero",
       "id": 2,
@@ -550,6 +572,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is zero",
       "id": 2,
@@ -567,6 +590,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is zero",
       "id": 2,
@@ -588,6 +612,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Tile",
       "id": 3,
@@ -605,6 +630,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Tile",
       "id": 3,
@@ -622,6 +648,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "The object isa Tile",
       "id": 3,
@@ -643,6 +670,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Get possible places to put the Tile",
       "id": 4,
@@ -660,6 +688,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Get possible places to put the Tile",
       "id": 4,
@@ -677,6 +706,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Get possible places to put the Tile",
       "id": 4,
@@ -698,6 +728,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Placing the tile produces no error",
       "id": 5,
@@ -715,6 +746,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Placing the tile produces no error",
       "id": 5,
@@ -732,6 +764,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Placing the tile produces no error",
       "id": 5,
@@ -753,6 +786,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is 1",
       "id": 6,
@@ -770,6 +804,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is 1",
       "id": 6,
@@ -787,6 +822,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Board size is 1",
       "id": 6,

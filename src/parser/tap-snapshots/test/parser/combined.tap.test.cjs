@@ -27,6 +27,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -44,6 +45,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -61,6 +63,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -82,6 +85,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "basset hounds got long ears",
       "id": 2,
@@ -99,6 +103,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "basset hounds got long ears",
       "id": 2,
@@ -116,6 +121,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "basset hounds got long ears",
       "id": 2,
@@ -137,6 +143,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "all hell broke loose",
       "id": 3,
@@ -154,6 +161,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "all hell broke loose",
       "id": 3,
@@ -171,6 +179,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "all hell broke loose",
       "id": 3,
@@ -192,6 +201,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -209,6 +219,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -226,6 +237,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -247,6 +259,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "say \\"live without loving\\",",
       "id": 0,
@@ -264,6 +277,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "say \\"live without loving\\",",
       "id": 0,
@@ -281,6 +295,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "say \\"live without loving\\",",
       "id": 0,
@@ -302,6 +317,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "I'd beg off.",
       "id": 6,
@@ -319,6 +335,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "I'd beg off.",
       "id": 6,
@@ -336,6 +353,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "I'd beg off.",
       "id": 6,
@@ -357,6 +375,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 7,
@@ -374,6 +393,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 7,
@@ -391,6 +411,7 @@ Array [
     "skip",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 7,
@@ -412,6 +433,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Girls are such exquisite hell",
       "id": 8,
@@ -429,6 +451,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Girls are such exquisite hell",
       "id": 8,
@@ -446,6 +469,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Girls are such exquisite hell",
       "id": 8,
@@ -467,6 +491,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Elegy 9B",
       "id": 9,
@@ -484,6 +509,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Elegy 9B",
       "id": 9,
@@ -501,6 +527,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Elegy 9B",
       "id": 9,
@@ -522,6 +549,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 10,
@@ -539,6 +567,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 10,
@@ -556,6 +585,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 10,
@@ -578,6 +608,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "all hell broke loose",
           "id": 3,
@@ -592,6 +623,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 10,
@@ -619,6 +651,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 7,
@@ -637,6 +670,22 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "",
+          "id": 4,
+          "name": "",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "if I heard a voice from heaven ...",
+        },
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Elegy 9B",
           "id": 9,
@@ -677,6 +726,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -694,6 +744,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -711,6 +762,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -732,6 +784,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "basset hounds got long ears",
       "id": 2,
@@ -749,6 +802,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "basset hounds got long ears",
       "id": 2,
@@ -766,6 +820,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "basset hounds got long ears",
       "id": 2,
@@ -787,6 +842,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "all hell broke loose",
       "id": 3,
@@ -804,6 +860,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "all hell broke loose",
       "id": 3,
@@ -821,6 +878,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "all hell broke loose",
       "id": 3,
@@ -851,6 +909,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "all hell broke loose",
           "id": 3,

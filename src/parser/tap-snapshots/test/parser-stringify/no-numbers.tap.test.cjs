@@ -19,6 +19,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are good",
       "id": 0,
@@ -36,6 +37,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are bad",
       "id": 2,
@@ -62,6 +64,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "we are bad",
           "id": 2,
@@ -131,6 +134,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are good",
       "id": 0,
@@ -148,6 +152,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are bad",
       "id": 2,
@@ -165,6 +170,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are zesty!",
       "id": 0,
@@ -187,6 +193,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "we are bad",
           "id": 2,
@@ -232,6 +239,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are good",
       "id": 1,
@@ -249,6 +257,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are bad",
       "id": 2,
@@ -266,6 +275,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are zesty!",
       "id": 3,
@@ -295,6 +305,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "we are bad",
           "id": 2,
@@ -364,6 +375,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are good",
       "id": 0,
@@ -381,6 +393,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are bad",
       "id": 2,
@@ -398,6 +411,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are zesty!",
       "id": 0,
@@ -420,6 +434,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "we are bad",
           "id": 2,
@@ -489,6 +504,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are good",
       "id": 0,
@@ -506,6 +522,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "we are bad",
       "id": 2,
@@ -532,6 +549,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "we are bad",
           "id": 2,

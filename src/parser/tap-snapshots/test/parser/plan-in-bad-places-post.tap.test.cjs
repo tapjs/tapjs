@@ -46,6 +46,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "subtest",
           "id": 0,
@@ -100,6 +101,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "subtest",
       "id": 0,
@@ -117,6 +119,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "subtest",
       "id": 0,
@@ -138,6 +141,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "subtest",
       "id": 0,
@@ -175,6 +179,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yaml",
       "id": 0,
@@ -192,6 +197,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yaml",
       "id": 0,
@@ -209,6 +215,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yaml",
       "id": 0,
@@ -346,6 +353,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "subtest",
           "id": 0,
@@ -400,6 +408,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "subtest",
       "id": 0,
@@ -417,6 +426,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "subtest",
       "id": 0,
@@ -438,6 +448,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "subtest",
       "id": 0,
@@ -475,6 +486,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yaml",
       "id": 0,
@@ -492,6 +504,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yaml",
       "id": 0,
@@ -509,6 +522,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yaml",
       "id": 0,

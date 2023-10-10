@@ -11,6 +11,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that argument passing works",
       "id": 2,
@@ -28,6 +29,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that passing arguments as references work",
       "id": 3,
@@ -45,6 +47,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test a normal sub",
       "id": 4,
@@ -62,6 +65,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Detach test",
       "id": 6,
@@ -79,6 +83,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 8,
@@ -96,6 +101,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 9,
@@ -113,6 +119,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 10,
@@ -130,6 +137,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 11,
@@ -147,6 +155,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 12,
@@ -164,6 +173,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 13,
@@ -294,6 +304,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that argument passing works",
       "id": 2,
@@ -311,6 +322,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that passing arguments as references work",
       "id": 3,
@@ -328,6 +340,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test a normal sub",
       "id": 4,
@@ -345,6 +358,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Detach test",
       "id": 6,
@@ -362,6 +376,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 8,
@@ -379,6 +394,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 9,
@@ -396,6 +412,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 10,
@@ -413,6 +430,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 11,
@@ -430,6 +448,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 12,
@@ -447,6 +466,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 13,
@@ -535,6 +555,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that argument passing works",
       "id": 1,
@@ -552,6 +573,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that passing arguments as references work",
       "id": 2,
@@ -569,6 +591,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test a normal sub",
       "id": 3,
@@ -586,6 +609,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Detach test",
       "id": 4,
@@ -603,6 +627,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 5,
@@ -620,6 +645,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 6,
@@ -637,6 +663,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 7,
@@ -654,6 +681,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 8,
@@ -671,6 +699,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 9,
@@ -688,6 +717,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 10,
@@ -817,6 +847,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that argument passing works",
       "id": 2,
@@ -834,6 +865,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that passing arguments as references work",
       "id": 3,
@@ -851,6 +883,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test a normal sub",
       "id": 4,
@@ -868,6 +901,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Detach test",
       "id": 6,
@@ -885,6 +919,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 8,
@@ -902,6 +937,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 9,
@@ -919,6 +955,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 10,
@@ -936,6 +973,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 11,
@@ -953,6 +991,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 12,
@@ -970,6 +1009,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 13,
@@ -1117,6 +1157,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that argument passing works",
       "id": 2,
@@ -1134,6 +1175,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test that passing arguments as references work",
       "id": 3,
@@ -1151,6 +1193,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test a normal sub",
       "id": 4,
@@ -1168,6 +1211,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Detach test",
       "id": 6,
@@ -1185,6 +1229,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 8,
@@ -1202,6 +1247,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Nested thread test",
       "id": 9,
@@ -1219,6 +1265,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 10,
@@ -1236,6 +1283,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 7, got 7",
       "id": 11,
@@ -1253,6 +1301,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 12,
@@ -1270,6 +1319,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Wanted 8, got 8",
       "id": 13,

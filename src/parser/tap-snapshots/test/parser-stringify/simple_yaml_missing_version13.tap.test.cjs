@@ -19,6 +19,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -36,6 +37,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Array [
         Object {
           "fnurk": "skib",
@@ -62,6 +64,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 3,
@@ -79,6 +82,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "expected": Array [
           1,
@@ -107,6 +111,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -219,6 +224,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -236,6 +242,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Array [
         Object {
           "fnurk": "skib",
@@ -262,6 +269,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 3,
@@ -279,6 +287,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "expected": Array [
           1,
@@ -307,6 +316,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -359,6 +369,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -376,6 +387,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Array [
         Object {
           "fnurk": "skib",
@@ -402,6 +414,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 3,
@@ -419,6 +432,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "expected": Array [
           1,
@@ -447,6 +461,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -566,6 +581,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -583,6 +599,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Array [
         Object {
           "fnurk": "skib",
@@ -609,6 +626,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 3,
@@ -626,6 +644,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "expected": Array [
           1,
@@ -654,6 +673,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -766,6 +786,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -783,6 +804,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Array [
         Object {
           "fnurk": "skib",
@@ -809,6 +831,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 3,
@@ -826,6 +849,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "expected": Array [
           1,
@@ -854,6 +878,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,

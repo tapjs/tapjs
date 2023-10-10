@@ -68,6 +68,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "true is ok",
                   "id": 1,
@@ -89,6 +90,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "doag is also okay",
                   "id": 2,
@@ -151,6 +153,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": true,
               "diag": null,
               "fullname": "first",
               "id": 1,
@@ -183,6 +186,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "but that is ok",
                   "id": 1,
@@ -204,6 +208,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "this passes",
                   "id": 2,
@@ -225,6 +230,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "nested ok",
                   "id": 3,
@@ -303,6 +309,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": true,
               "diag": null,
               "fullname": "second",
               "id": 2,
@@ -413,6 +420,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting",
           "id": 1,
@@ -434,6 +442,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "this passes",
           "id": 2,
@@ -508,6 +517,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true is ok",
       "id": 1,
@@ -525,6 +535,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true is ok",
       "id": 1,
@@ -546,6 +557,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doag is also okay",
       "id": 2,
@@ -563,6 +575,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doag is also okay",
       "id": 2,
@@ -584,6 +597,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "first",
       "id": 1,
@@ -601,6 +615,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "first",
       "id": 1,
@@ -626,6 +641,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "but that is ok",
       "id": 1,
@@ -643,6 +659,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "but that is ok",
       "id": 1,
@@ -664,6 +681,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -681,6 +699,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -702,6 +721,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nested ok",
       "id": 3,
@@ -719,6 +739,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nested ok",
       "id": 3,
@@ -744,6 +765,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "second",
       "id": 2,
@@ -761,6 +783,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "second",
       "id": 2,
@@ -786,6 +809,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -803,6 +827,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -824,6 +849,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -841,6 +867,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -866,6 +893,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "../tap/test/test/ok.js",
       "id": 1,
@@ -883,6 +911,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "../tap/test/test/ok.js",
       "id": 1,
@@ -900,6 +929,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "../tap/test/test/ok.js",
       "id": 1,
@@ -1015,6 +1045,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "true is ok",
                   "id": 1,
@@ -1036,6 +1067,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "doag is also okay",
                   "id": 2,
@@ -1098,6 +1130,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": true,
               "diag": null,
               "fullname": "first",
               "id": 1,
@@ -1130,6 +1163,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "but that is ok",
                   "id": 1,
@@ -1151,6 +1185,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "this passes",
                   "id": 2,
@@ -1172,6 +1207,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "nested ok",
                   "id": 3,
@@ -1250,6 +1286,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": true,
               "diag": null,
               "fullname": "second",
               "id": 2,
@@ -1360,6 +1397,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting",
           "id": 1,
@@ -1381,6 +1419,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "this passes",
           "id": 2,
@@ -1455,6 +1494,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true is ok",
       "id": 1,
@@ -1472,6 +1512,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true is ok",
       "id": 1,
@@ -1493,6 +1534,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doag is also okay",
       "id": 2,
@@ -1510,6 +1552,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doag is also okay",
       "id": 2,
@@ -1531,6 +1574,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "first",
       "id": 1,
@@ -1548,6 +1592,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "first",
       "id": 1,
@@ -1573,6 +1618,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "but that is ok",
       "id": 1,
@@ -1590,6 +1636,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "but that is ok",
       "id": 1,
@@ -1611,6 +1658,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -1628,6 +1676,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -1649,6 +1698,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nested ok",
       "id": 3,
@@ -1666,6 +1716,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nested ok",
       "id": 3,
@@ -1691,6 +1742,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "second",
       "id": 2,
@@ -1708,6 +1760,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "second",
       "id": 2,
@@ -1733,6 +1786,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -1750,6 +1804,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -1771,6 +1826,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -1788,6 +1844,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -1813,6 +1870,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "../tap/test/test/ok.js",
       "id": 1,
@@ -1830,6 +1888,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "../tap/test/test/ok.js",
       "id": 1,
@@ -1847,6 +1906,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "../tap/test/test/ok.js",
       "id": 1,

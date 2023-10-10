@@ -1350,6 +1350,7 @@ t.test('passes:true gets passed down', async t => {
       diag: null,
       time: null,
       fullname: 'child passer > this is fine',
+      closingTestPoint: false,
     },
   ])
 })

@@ -53,6 +53,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x1 > y > ypoint",
               "id": 1,
@@ -123,6 +124,7 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x1 > y",
           "id": 1,
@@ -189,6 +191,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x1 > y > ypoint",
       "id": 1,
@@ -206,6 +209,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x1 > y > ypoint",
       "id": 1,
@@ -239,6 +243,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x1",
       "id": 1,
@@ -282,6 +287,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x2 > y > ypoint",
               "id": 1,
@@ -352,6 +358,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x2 > y",
           "id": 1,
@@ -418,6 +425,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x2 > y > ypoint",
       "id": 1,
@@ -435,6 +443,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x2 > y > ypoint",
       "id": 1,
@@ -468,6 +477,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x2",
       "id": 2,
@@ -511,6 +521,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x3 > y > ypoint",
               "id": 1,
@@ -581,6 +592,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x3 > y",
           "id": 1,
@@ -647,6 +659,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x3 > y > ypoint",
       "id": 1,
@@ -664,6 +677,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x3 > y > ypoint",
       "id": 1,
@@ -697,6 +711,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x3",
       "id": 3,
@@ -740,6 +755,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x4 > y > ypoint",
               "id": 1,
@@ -810,6 +826,7 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x4 > y",
           "id": 1,
@@ -876,6 +893,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x4 > y > ypoint",
       "id": 1,
@@ -893,6 +911,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x4 > y > ypoint",
       "id": 1,
@@ -926,6 +945,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x4",
       "id": 4,
@@ -969,6 +989,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x5 > y > ypoint",
               "id": 1,
@@ -1039,6 +1060,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x5 > y",
           "id": 1,
@@ -1105,6 +1127,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x5 > y > ypoint",
       "id": 1,
@@ -1122,6 +1145,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x5 > y > ypoint",
       "id": 1,
@@ -1155,6 +1179,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x5",
       "id": 5,
@@ -1198,6 +1223,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x6 > y > ypoint",
               "id": 1,
@@ -1268,6 +1294,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x6 > y",
           "id": 1,
@@ -1334,6 +1361,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x6 > y > ypoint",
       "id": 1,
@@ -1351,6 +1379,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x6 > y > ypoint",
       "id": 1,
@@ -1384,6 +1413,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x6",
       "id": 6,
@@ -1427,6 +1457,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x7 > y > ypoint",
               "id": 1,
@@ -1497,6 +1528,7 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x7 > y",
           "id": 1,
@@ -1563,6 +1595,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x7 > y > ypoint",
       "id": 1,
@@ -1580,6 +1613,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x7 > y > ypoint",
       "id": 1,
@@ -1613,6 +1647,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x7",
       "id": 7,
@@ -1656,6 +1691,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x8 > y > ypoint",
               "id": 1,
@@ -1726,6 +1762,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x8 > y",
           "id": 1,
@@ -1792,6 +1829,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x8 > y > ypoint",
       "id": 1,
@@ -1809,6 +1847,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x8 > y > ypoint",
       "id": 1,
@@ -1842,6 +1881,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x8",
       "id": 8,
@@ -1885,6 +1925,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x9 > y > ypoint",
               "id": 1,
@@ -1955,6 +1996,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x9 > y",
           "id": 1,
@@ -2021,6 +2063,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x9 > y > ypoint",
       "id": 1,
@@ -2038,6 +2081,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x9 > y > ypoint",
       "id": 1,
@@ -2071,6 +2115,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x9",
       "id": 9,
@@ -2171,6 +2216,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x1 > y > ypoint",
               "id": 1,
@@ -2241,6 +2287,7 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x1 > y",
           "id": 1,
@@ -2307,6 +2354,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x1 > y > ypoint",
       "id": 1,
@@ -2324,6 +2372,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x1 > y > ypoint",
       "id": 1,
@@ -2357,6 +2406,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x1",
       "id": 1,
@@ -2400,6 +2450,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x2 > y > ypoint",
               "id": 1,
@@ -2470,6 +2521,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x2 > y",
           "id": 1,
@@ -2536,6 +2588,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x2 > y > ypoint",
       "id": 1,
@@ -2553,6 +2606,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x2 > y > ypoint",
       "id": 1,
@@ -2586,6 +2640,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x2",
       "id": 2,
@@ -2629,6 +2684,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x3 > y > ypoint",
               "id": 1,
@@ -2699,6 +2755,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x3 > y",
           "id": 1,
@@ -2765,6 +2822,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x3 > y > ypoint",
       "id": 1,
@@ -2782,6 +2840,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x3 > y > ypoint",
       "id": 1,
@@ -2815,6 +2874,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x3",
       "id": 3,
@@ -2858,6 +2918,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x4 > y > ypoint",
               "id": 1,
@@ -2928,6 +2989,7 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x4 > y",
           "id": 1,
@@ -2994,6 +3056,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x4 > y > ypoint",
       "id": 1,
@@ -3011,6 +3074,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x4 > y > ypoint",
       "id": 1,
@@ -3044,6 +3108,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x4",
       "id": 4,
@@ -3087,6 +3152,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x5 > y > ypoint",
               "id": 1,
@@ -3157,6 +3223,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x5 > y",
           "id": 1,
@@ -3223,6 +3290,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x5 > y > ypoint",
       "id": 1,
@@ -3240,6 +3308,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x5 > y > ypoint",
       "id": 1,
@@ -3273,6 +3342,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x5",
       "id": 5,
@@ -3316,6 +3386,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x6 > y > ypoint",
               "id": 1,
@@ -3386,6 +3457,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x6 > y",
           "id": 1,
@@ -3452,6 +3524,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x6 > y > ypoint",
       "id": 1,
@@ -3469,6 +3542,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x6 > y > ypoint",
       "id": 1,
@@ -3502,6 +3576,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x6",
       "id": 6,
@@ -3545,6 +3620,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x7 > y > ypoint",
               "id": 1,
@@ -3615,6 +3691,7 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x7 > y",
           "id": 1,
@@ -3681,6 +3758,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x7 > y > ypoint",
       "id": 1,
@@ -3698,6 +3776,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x7 > y > ypoint",
       "id": 1,
@@ -3731,6 +3810,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x7",
       "id": 7,
@@ -3774,6 +3854,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x8 > y > ypoint",
               "id": 1,
@@ -3844,6 +3925,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x8 > y",
           "id": 1,
@@ -3910,6 +3992,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x8 > y > ypoint",
       "id": 1,
@@ -3927,6 +4010,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x8 > y > ypoint",
       "id": 1,
@@ -3960,6 +4044,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x8",
       "id": 8,
@@ -4003,6 +4088,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x9 > y > ypoint",
               "id": 1,
@@ -4073,6 +4159,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x9 > y",
           "id": 1,
@@ -4139,6 +4226,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x9 > y > ypoint",
       "id": 1,
@@ -4156,6 +4244,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x9 > y > ypoint",
       "id": 1,
@@ -4189,6 +4278,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x9",
       "id": 9,

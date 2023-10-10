@@ -30,6 +30,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x > not a subtest",
           "id": 1,
@@ -54,6 +55,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x > y > ypoint",
               "id": 1,
@@ -111,6 +113,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x > y",
           "id": 2,
@@ -168,6 +171,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -277,6 +281,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x > not a subtest",
           "id": 1,
@@ -301,6 +306,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x > y > ypoint",
               "id": 1,
@@ -358,6 +364,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x > y",
           "id": 2,
@@ -415,6 +422,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -483,6 +491,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x > not a subtest",
       "id": 1,
@@ -500,6 +509,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x > y > ypoint",
       "id": 2,
@@ -608,6 +618,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x > not a subtest",
           "id": 1,
@@ -632,6 +643,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x > y > ypoint",
               "id": 1,
@@ -689,6 +701,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x > y",
           "id": 2,
@@ -746,6 +759,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -855,6 +869,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x > not a subtest",
           "id": 1,
@@ -879,6 +894,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "x > y > ypoint",
               "id": 1,
@@ -936,6 +952,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "x > y",
           "id": 2,
@@ -993,6 +1010,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "x",
       "id": 1,

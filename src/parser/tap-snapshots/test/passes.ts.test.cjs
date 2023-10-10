@@ -19,6 +19,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "1 passed",
       },
@@ -38,6 +39,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "1 passed",
       },
@@ -57,6 +59,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "1 passed",
       },
@@ -76,6 +79,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "2 failed",
       },
@@ -95,6 +99,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "2 failed",
       },
@@ -114,6 +119,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "message": "2 failed",
       },
@@ -138,6 +144,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "message": "2 failed",
           },
@@ -158,6 +165,7 @@ Array [
       "passes": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "message": "1 passed",
           },

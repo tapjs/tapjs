@@ -63,6 +63,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -80,6 +81,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -97,6 +99,7 @@ Array [
     "pass",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -207,6 +210,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -224,6 +228,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -241,6 +246,7 @@ Array [
     "pass",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,

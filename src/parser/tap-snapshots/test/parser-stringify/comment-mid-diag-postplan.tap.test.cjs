@@ -23,6 +23,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "after": "comment",
       },
@@ -63,6 +64,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "after": "comment",
           },
@@ -152,6 +154,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "after": "comment",
       },
@@ -202,6 +205,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child",
           "id": 1,
@@ -223,6 +227,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child",
           "id": 2,
@@ -276,6 +281,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 2,
@@ -314,6 +320,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "after": "comment",
           },
@@ -373,6 +380,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "after": "comment",
       },
@@ -404,6 +412,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child",
       "id": 2,
@@ -425,6 +434,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child",
       "id": 3,
@@ -462,6 +472,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "after": "comment",
           },
@@ -570,6 +581,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "after": "comment",
       },
@@ -620,6 +632,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child",
           "id": 1,
@@ -641,6 +654,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child",
           "id": 2,
@@ -694,6 +708,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 2,
@@ -732,6 +747,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "after": "comment",
           },
@@ -840,6 +856,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "after": "comment",
       },
@@ -880,6 +897,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "after": "comment",
           },

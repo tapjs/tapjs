@@ -47,6 +47,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "ok": Array [
           "I wished for a bailout!",
@@ -69,6 +70,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "ok": Array [
           "I wished for a bailout!",
@@ -91,6 +93,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "ok": Array [
           "I wished for a bailout!",
@@ -117,6 +120,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child test",
       "id": 2,
@@ -134,6 +138,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child test",
       "id": 2,
@@ -151,6 +156,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child test",
       "id": 2,
@@ -172,6 +178,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should come last",
       "id": 3,
@@ -189,6 +196,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should come last",
       "id": 3,
@@ -206,6 +214,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should come last",
       "id": 3,
@@ -288,6 +297,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "ok": Array [
           "I wished for a bailout!",
@@ -310,6 +320,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "ok": Array [
           "I wished for a bailout!",
@@ -332,6 +343,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "ok": Array [
           "I wished for a bailout!",
@@ -358,6 +370,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child test",
       "id": 2,
@@ -375,6 +388,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child test",
       "id": 2,
@@ -392,6 +406,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child test",
       "id": 2,
@@ -413,6 +428,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should come last",
       "id": 3,
@@ -430,6 +446,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should come last",
       "id": 3,
@@ -447,6 +464,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should come last",
       "id": 3,

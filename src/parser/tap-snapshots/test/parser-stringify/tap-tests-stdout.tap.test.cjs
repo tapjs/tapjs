@@ -27,6 +27,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 1,
@@ -48,6 +49,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should not be equivalent",
       "id": 2,
@@ -77,6 +79,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/buffer_compare.js",
       "id": 3,
@@ -98,6 +101,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "just setup, nothing relevant",
       "id": 4,
@@ -115,6 +119,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/common.js",
       "id": 5,
@@ -144,6 +149,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 6,
@@ -165,6 +171,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 7,
@@ -186,6 +193,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 8,
@@ -207,6 +215,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 9,
@@ -228,6 +237,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 10,
@@ -249,6 +259,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 11,
@@ -278,6 +289,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/consumer.js",
       "id": 12,
@@ -307,6 +319,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should output debugger message",
       "id": 13,
@@ -336,6 +349,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 14,
@@ -365,6 +379,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 15,
@@ -386,6 +401,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 16,
@@ -407,6 +423,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 17,
@@ -436,6 +453,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep-strict.js",
       "id": 18,
@@ -465,6 +483,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 19,
@@ -486,6 +505,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 20,
@@ -507,6 +527,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 21,
@@ -536,6 +557,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep.js",
       "id": 22,
@@ -557,6 +579,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "File with executable bit should be executed",
       "id": 23,
@@ -574,6 +597,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/executed.sh",
       "id": 24,
@@ -607,6 +631,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 25,
@@ -624,6 +649,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 26,
@@ -645,6 +671,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 27,
@@ -662,6 +689,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 28,
@@ -683,6 +711,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 29,
@@ -700,6 +729,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 30,
@@ -725,6 +755,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 31,
@@ -742,6 +773,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 32,
@@ -763,6 +795,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 33,
@@ -780,6 +813,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 34,
@@ -809,6 +843,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/exit-code.js",
       "id": 35,
@@ -838,6 +873,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 36,
@@ -863,6 +899,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 37,
@@ -884,6 +921,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 38,
@@ -917,6 +955,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/expose-gc-test.js",
       "id": 39,
@@ -950,6 +989,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "1-1",
       "id": 40,
@@ -971,6 +1011,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "2-1",
       "id": 41,
@@ -992,6 +1033,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "3-1",
       "id": 42,
@@ -1009,6 +1051,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/global-harness-async.js",
       "id": 43,
@@ -1050,6 +1093,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/independent-timeouts.js",
       "id": 44,
@@ -1079,6 +1123,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 45,
@@ -1096,6 +1141,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 46,
@@ -1117,6 +1163,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 47,
@@ -1134,6 +1181,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 48,
@@ -1163,6 +1211,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/isolated-conf-test.js",
       "id": 49,
@@ -1192,6 +1241,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sanity check",
       "id": 50,
@@ -1209,6 +1259,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not ok",
       "id": 51,
@@ -1226,6 +1277,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "total test count",
       "id": 52,
@@ -1243,6 +1295,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests passed",
       "id": 53,
@@ -1260,6 +1313,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests failed",
       "id": 54,
@@ -1277,6 +1331,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok is boolean",
       "id": 55,
@@ -1294,6 +1349,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip is number",
       "id": 56,
@@ -1311,6 +1367,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "results isa Results",
       "id": 57,
@@ -1328,6 +1385,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Test",
       "id": 58,
@@ -1345,6 +1403,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Harness",
       "id": 59,
@@ -1374,6 +1433,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/meta-test.js",
       "id": 60,
@@ -1403,6 +1463,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync child A",
       "id": 61,
@@ -1428,6 +1489,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 62,
@@ -1449,6 +1511,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 63,
@@ -1470,6 +1533,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync grandchild in async child A",
       "id": 64,
@@ -1491,6 +1555,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 65,
@@ -1520,6 +1585,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-async.js",
       "id": 66,
@@ -1549,6 +1615,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "p test",
       "id": 67,
@@ -1570,6 +1637,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test",
       "id": 68,
@@ -1591,6 +1659,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "grch test",
       "id": 69,
@@ -1612,6 +1681,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test 2",
       "id": 70,
@@ -1641,6 +1711,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-test.js",
       "id": 71,
@@ -1678,6 +1749,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": ", 8 can stay.",
       "id": 72,
@@ -1715,6 +1787,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "might be confusing",
       "id": 73,
@@ -1732,6 +1805,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "done now, exiting",
       "id": 74,
@@ -1749,6 +1823,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/non-tap-output.js",
       "id": 75,
@@ -1782,6 +1857,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description",
       "id": 76,
@@ -1799,6 +1875,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description",
       "id": 77,
@@ -1816,6 +1893,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description before parent result",
       "id": 78,
@@ -1833,6 +1911,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent result before child description",
       "id": 79,
@@ -1850,6 +1929,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description before child result",
       "id": 80,
@@ -1879,6 +1959,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/output-childtest-description.js",
       "id": 81,
@@ -1908,6 +1989,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 82,
@@ -1925,6 +2007,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 83,
@@ -1954,6 +2037,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/result-trap.js",
       "id": 84,
@@ -1983,6 +2067,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "compiled seg faulter",
       "id": 85,
@@ -2004,6 +2089,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 86,
@@ -2021,6 +2107,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 87,
@@ -2038,6 +2125,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 88,
@@ -2055,6 +2143,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 89,
@@ -2072,6 +2161,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 90,
@@ -2089,6 +2179,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 91,
@@ -2110,6 +2201,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "cleaned up",
       "id": 92,
@@ -2139,6 +2231,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/segv.js",
       "id": 93,
@@ -2168,6 +2261,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 94,
@@ -2189,6 +2283,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 95,
@@ -2206,6 +2301,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 96,
@@ -2235,6 +2331,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test-with-plan.js",
       "id": 97,
@@ -2264,6 +2361,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 98,
@@ -2285,6 +2383,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 99,
@@ -2302,6 +2401,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 100,
@@ -2331,6 +2431,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test.js",
       "id": 101,
@@ -2360,6 +2461,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes",
       "id": 102,
@@ -2377,6 +2479,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false",
       "id": 103,
@@ -2394,6 +2497,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus",
       "id": 104,
@@ -2411,6 +2515,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected",
       "id": 105,
@@ -2428,6 +2533,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes without explanation",
       "id": 106,
@@ -2445,6 +2551,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false without explanation",
       "id": 107,
@@ -2462,6 +2569,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus without explanation",
       "id": 108,
@@ -2479,6 +2587,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected without explanation",
       "id": 109,
@@ -2508,6 +2617,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-assert-todo-skip.js",
       "id": 110,
@@ -2537,6 +2647,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 111,
@@ -2554,6 +2665,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 112,
@@ -2571,6 +2683,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not from file",
       "id": 113,
@@ -2588,6 +2701,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not from file",
       "id": 114,
@@ -2605,6 +2719,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -2647,6 +2762,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -2690,6 +2806,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes",
           "id": 102,
@@ -2704,6 +2821,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false",
           "id": 103,
@@ -2718,6 +2836,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes without explanation",
           "id": 106,
@@ -2732,6 +2851,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false without explanation",
           "id": 107,
@@ -2750,6 +2870,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus",
           "id": 104,
@@ -2764,6 +2885,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected",
           "id": 105,
@@ -2778,6 +2900,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus without explanation",
           "id": 108,
@@ -2792,6 +2915,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected without explanation",
           "id": 109,
@@ -3458,6 +3582,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 1,
@@ -3479,6 +3604,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should not be equivalent",
       "id": 2,
@@ -3508,6 +3634,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/buffer_compare.js",
       "id": 3,
@@ -3529,6 +3656,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "just setup, nothing relevant",
       "id": 4,
@@ -3546,6 +3674,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/common.js",
       "id": 5,
@@ -3575,6 +3704,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 6,
@@ -3596,6 +3726,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 7,
@@ -3617,6 +3748,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 8,
@@ -3638,6 +3770,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 9,
@@ -3659,6 +3792,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 10,
@@ -3680,6 +3814,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 11,
@@ -3709,6 +3844,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/consumer.js",
       "id": 12,
@@ -3738,6 +3874,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should output debugger message",
       "id": 13,
@@ -3767,6 +3904,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 14,
@@ -3796,6 +3934,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 15,
@@ -3817,6 +3956,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 16,
@@ -3838,6 +3978,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 17,
@@ -3867,6 +4008,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep-strict.js",
       "id": 18,
@@ -3896,6 +4038,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 19,
@@ -3917,6 +4060,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 20,
@@ -3938,6 +4082,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 21,
@@ -3967,6 +4112,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep.js",
       "id": 22,
@@ -3988,6 +4134,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "File with executable bit should be executed",
       "id": 23,
@@ -4005,6 +4152,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/executed.sh",
       "id": 24,
@@ -4038,6 +4186,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 25,
@@ -4055,6 +4204,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 26,
@@ -4076,6 +4226,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 27,
@@ -4093,6 +4244,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 28,
@@ -4114,6 +4266,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 29,
@@ -4131,6 +4284,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 30,
@@ -4156,6 +4310,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 31,
@@ -4173,6 +4328,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 32,
@@ -4194,6 +4350,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 33,
@@ -4211,6 +4368,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 34,
@@ -4240,6 +4398,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/exit-code.js",
       "id": 35,
@@ -4269,6 +4428,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 36,
@@ -4294,6 +4454,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 37,
@@ -4315,6 +4476,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 38,
@@ -4348,6 +4510,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/expose-gc-test.js",
       "id": 39,
@@ -4381,6 +4544,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "1-1",
       "id": 40,
@@ -4402,6 +4566,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "2-1",
       "id": 41,
@@ -4423,6 +4588,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "3-1",
       "id": 42,
@@ -4440,6 +4606,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/global-harness-async.js",
       "id": 43,
@@ -4481,6 +4648,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/independent-timeouts.js",
       "id": 44,
@@ -4510,6 +4678,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 45,
@@ -4527,6 +4696,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 46,
@@ -4548,6 +4718,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 47,
@@ -4565,6 +4736,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 48,
@@ -4594,6 +4766,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/isolated-conf-test.js",
       "id": 49,
@@ -4623,6 +4796,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sanity check",
       "id": 50,
@@ -4640,6 +4814,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not ok",
       "id": 51,
@@ -4657,6 +4832,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "total test count",
       "id": 52,
@@ -4674,6 +4850,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests passed",
       "id": 53,
@@ -4691,6 +4868,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests failed",
       "id": 54,
@@ -4708,6 +4886,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok is boolean",
       "id": 55,
@@ -4725,6 +4904,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip is number",
       "id": 56,
@@ -4742,6 +4922,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "results isa Results",
       "id": 57,
@@ -4759,6 +4940,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Test",
       "id": 58,
@@ -4776,6 +4958,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Harness",
       "id": 59,
@@ -4805,6 +4988,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/meta-test.js",
       "id": 60,
@@ -4834,6 +5018,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync child A",
       "id": 61,
@@ -4859,6 +5044,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 62,
@@ -4880,6 +5066,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 63,
@@ -4901,6 +5088,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync grandchild in async child A",
       "id": 64,
@@ -4922,6 +5110,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 65,
@@ -4951,6 +5140,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-async.js",
       "id": 66,
@@ -4980,6 +5170,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "p test",
       "id": 67,
@@ -5001,6 +5192,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test",
       "id": 68,
@@ -5022,6 +5214,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "grch test",
       "id": 69,
@@ -5043,6 +5236,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test 2",
       "id": 70,
@@ -5072,6 +5266,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-test.js",
       "id": 71,
@@ -5109,6 +5304,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": ", 8 can stay.",
       "id": 72,
@@ -5146,6 +5342,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "might be confusing",
       "id": 73,
@@ -5163,6 +5360,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "done now, exiting",
       "id": 74,
@@ -5180,6 +5378,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/non-tap-output.js",
       "id": 75,
@@ -5213,6 +5412,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description",
       "id": 76,
@@ -5230,6 +5430,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description",
       "id": 77,
@@ -5247,6 +5448,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description before parent result",
       "id": 78,
@@ -5264,6 +5466,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent result before child description",
       "id": 79,
@@ -5281,6 +5484,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description before child result",
       "id": 80,
@@ -5310,6 +5514,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/output-childtest-description.js",
       "id": 81,
@@ -5339,6 +5544,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 82,
@@ -5356,6 +5562,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 83,
@@ -5385,6 +5592,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/result-trap.js",
       "id": 84,
@@ -5414,6 +5622,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "compiled seg faulter",
       "id": 85,
@@ -5435,6 +5644,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 86,
@@ -5452,6 +5662,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 87,
@@ -5469,6 +5680,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 88,
@@ -5486,6 +5698,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 89,
@@ -5503,6 +5716,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 90,
@@ -5520,6 +5734,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 91,
@@ -5541,6 +5756,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "cleaned up",
       "id": 92,
@@ -5570,6 +5786,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/segv.js",
       "id": 93,
@@ -5599,6 +5816,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 94,
@@ -5620,6 +5838,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 95,
@@ -5637,6 +5856,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 96,
@@ -5666,6 +5886,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test-with-plan.js",
       "id": 97,
@@ -5695,6 +5916,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 98,
@@ -5716,6 +5938,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 99,
@@ -5733,6 +5956,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 100,
@@ -5762,6 +5986,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test.js",
       "id": 101,
@@ -5791,6 +6016,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes",
       "id": 102,
@@ -5808,6 +6034,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false",
       "id": 103,
@@ -5825,6 +6052,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus",
       "id": 104,
@@ -5842,6 +6070,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected",
       "id": 105,
@@ -5859,6 +6088,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes without explanation",
       "id": 106,
@@ -5876,6 +6106,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false without explanation",
       "id": 107,
@@ -5893,6 +6124,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus without explanation",
       "id": 108,
@@ -5910,6 +6142,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected without explanation",
       "id": 109,
@@ -5939,6 +6172,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-assert-todo-skip.js",
       "id": 110,
@@ -5968,6 +6202,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 111,
@@ -5985,6 +6220,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 112,
@@ -6002,6 +6238,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not from file",
       "id": 113,
@@ -6019,6 +6256,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not from file",
       "id": 114,
@@ -6036,6 +6274,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -6069,6 +6308,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 116,
@@ -6086,6 +6326,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 117,
@@ -6103,6 +6344,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not in TAP output",
       "id": 118,
@@ -6120,6 +6362,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 119,
@@ -6137,6 +6380,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -6169,6 +6413,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 121,
@@ -6186,6 +6431,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -6218,6 +6464,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -6262,6 +6509,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "command": "/usr/local/bin/iojs test-descriptions.js",
         "exit": 1,
@@ -6298,6 +6546,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 125,
@@ -6315,6 +6564,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok SKIP",
       "id": 126,
@@ -6332,6 +6582,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok SKIP",
       "id": 127,
@@ -6349,6 +6600,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary not in TAP output",
       "id": 128,
@@ -6366,6 +6618,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok TODO",
       "id": 129,
@@ -6383,6 +6636,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok TODO",
       "id": 130,
@@ -6400,6 +6654,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 131,
@@ -6417,6 +6672,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 132,
@@ -6438,6 +6694,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 133,
@@ -6455,6 +6712,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no SKIP in summary",
       "id": 134,
@@ -6472,6 +6730,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not in TAP output",
       "id": 135,
@@ -6489,6 +6748,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no TODO in summary",
       "id": 136,
@@ -6506,6 +6766,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 137,
@@ -6523,6 +6784,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 138,
@@ -6544,6 +6806,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 139,
@@ -6561,6 +6824,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok SKIP",
       "id": 140,
@@ -6578,6 +6842,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok SKIP",
       "id": 141,
@@ -6595,6 +6860,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary not in TAP output",
       "id": 142,
@@ -6612,6 +6878,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok TODO",
       "id": 143,
@@ -6629,6 +6896,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok TODO",
       "id": 144,
@@ -6646,6 +6914,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 145,
@@ -6663,6 +6932,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 146,
@@ -6692,6 +6962,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-directives.js",
       "id": 147,
@@ -6717,6 +6988,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "does not count as failure",
       "id": 148,
@@ -6742,6 +7014,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-skip.js",
       "id": 149,
@@ -6771,6 +7044,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test object should be instanceof Test",
       "id": 150,
@@ -6788,6 +7062,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test object should be instanceof Harness",
       "id": 151,
@@ -6805,6 +7080,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test._Test should be the Test class",
       "id": 152,
@@ -6822,6 +7098,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotDeepEqual method",
       "id": 153,
@@ -6839,6 +7116,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotDeepEqual method should be a function",
       "id": 154,
@@ -6856,6 +7134,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equals method",
       "id": 155,
@@ -6873,6 +7152,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equals method should be a function",
       "id": 156,
@@ -6890,6 +7170,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have inequivalent method",
       "id": 157,
@@ -6907,6 +7188,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "inequivalent method should be a function",
       "id": 158,
@@ -6924,6 +7206,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have threw method",
       "id": 159,
@@ -6941,6 +7224,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "threw method should be a function",
       "id": 160,
@@ -6958,6 +7242,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have strictEqual method",
       "id": 161,
@@ -6975,6 +7260,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "strictEqual method should be a function",
       "id": 162,
@@ -6992,6 +7278,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have emit method",
       "id": 163,
@@ -7009,6 +7296,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "emit method should be a function",
       "id": 164,
@@ -7026,6 +7314,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have fail method",
       "id": 165,
@@ -7043,6 +7332,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "fail method should be a function",
       "id": 166,
@@ -7060,6 +7350,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have strictEquals method",
       "id": 167,
@@ -7077,6 +7368,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "strictEquals method should be a function",
       "id": 168,
@@ -7094,6 +7386,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notLike method",
       "id": 169,
@@ -7111,6 +7404,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notLike method should be a function",
       "id": 170,
@@ -7128,6 +7422,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have dissimilar method",
       "id": 171,
@@ -7145,6 +7440,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "dissimilar method should be a function",
       "id": 172,
@@ -7162,6 +7458,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have true method",
       "id": 173,
@@ -7179,6 +7476,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true method should be a function",
       "id": 174,
@@ -7196,6 +7494,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have assert method",
       "id": 175,
@@ -7213,6 +7512,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "assert method should be a function",
       "id": 176,
@@ -7230,6 +7530,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have is method",
       "id": 177,
@@ -7247,6 +7548,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "is method should be a function",
       "id": 178,
@@ -7264,6 +7566,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ok method",
       "id": 179,
@@ -7281,6 +7584,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok method should be a function",
       "id": 180,
@@ -7298,6 +7602,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isEqual method",
       "id": 181,
@@ -7315,6 +7620,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isEqual method should be a function",
       "id": 182,
@@ -7332,6 +7638,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isDeeply method",
       "id": 183,
@@ -7349,6 +7656,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isDeeply method should be a function",
       "id": 184,
@@ -7366,6 +7674,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have deepEqual method",
       "id": 185,
@@ -7383,6 +7692,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "deepEqual method should be a function",
       "id": 186,
@@ -7400,6 +7710,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have deepEquals method",
       "id": 187,
@@ -7417,6 +7728,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "deepEquals method should be a function",
       "id": 188,
@@ -7434,6 +7746,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have pass method",
       "id": 189,
@@ -7451,6 +7764,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pass method should be a function",
       "id": 190,
@@ -7468,6 +7782,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have length method",
       "id": 191,
@@ -7485,6 +7800,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "length method should be a function",
       "id": 192,
@@ -7502,6 +7818,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have skip method",
       "id": 193,
@@ -7519,6 +7836,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip method should be a function",
       "id": 194,
@@ -7536,6 +7854,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotEqual method",
       "id": 195,
@@ -7553,6 +7872,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotEqual method should be a function",
       "id": 196,
@@ -7570,6 +7890,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have looseEquals method",
       "id": 197,
@@ -7587,6 +7908,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "looseEquals method should be a function",
       "id": 198,
@@ -7604,6 +7926,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have false method",
       "id": 199,
@@ -7621,6 +7944,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false method should be a function",
       "id": 200,
@@ -7638,6 +7962,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notDeeply method",
       "id": 201,
@@ -7655,6 +7980,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notDeeply method should be a function",
       "id": 202,
@@ -7672,6 +7998,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ifErr method",
       "id": 203,
@@ -7689,6 +8016,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ifErr method should be a function",
       "id": 204,
@@ -7706,6 +8034,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have hasFields method",
       "id": 205,
@@ -7723,6 +8052,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "hasFields method should be a function",
       "id": 206,
@@ -7740,6 +8070,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotDeeply method",
       "id": 207,
@@ -7757,6 +8088,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotDeeply method should be a function",
       "id": 208,
@@ -7774,6 +8106,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have like method",
       "id": 209,
@@ -7791,6 +8124,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "like method should be a function",
       "id": 210,
@@ -7808,6 +8142,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have similar method",
       "id": 211,
@@ -7825,6 +8160,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "similar method should be a function",
       "id": 212,
@@ -7842,6 +8178,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notOk method",
       "id": 213,
@@ -7859,6 +8196,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notOk method should be a function",
       "id": 214,
@@ -7876,6 +8214,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isDissimilar method",
       "id": 215,
@@ -7893,6 +8232,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isDissimilar method should be a function",
       "id": 216,
@@ -7910,6 +8250,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isEquivalent method",
       "id": 217,
@@ -7927,6 +8268,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isEquivalent method should be a function",
       "id": 218,
@@ -7944,6 +8286,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotEqual method",
       "id": 219,
@@ -7961,6 +8304,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotEqual method should be a function",
       "id": 220,
@@ -7978,6 +8322,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isSimilar method",
       "id": 221,
@@ -7995,6 +8340,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isSimilar method should be a function",
       "id": 222,
@@ -8012,6 +8358,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notDeepEqual method",
       "id": 223,
@@ -8029,6 +8376,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notDeepEqual method should be a function",
       "id": 224,
@@ -8046,6 +8394,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have type method",
       "id": 225,
@@ -8063,6 +8412,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "type method should be a function",
       "id": 226,
@@ -8080,6 +8430,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notok method",
       "id": 227,
@@ -8097,6 +8448,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notok method should be a function",
       "id": 228,
@@ -8114,6 +8466,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isInequivalent method",
       "id": 229,
@@ -8131,6 +8484,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isInequivalent method should be a function",
       "id": 230,
@@ -8148,6 +8502,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNot method",
       "id": 231,
@@ -8165,6 +8520,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNot method should be a function",
       "id": 232,
@@ -8182,6 +8538,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have same method",
       "id": 233,
@@ -8199,6 +8556,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "same method should be a function",
       "id": 234,
@@ -8216,6 +8574,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isInequal method",
       "id": 235,
@@ -8233,6 +8592,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isInequal method should be a function",
       "id": 236,
@@ -8250,6 +8610,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have _endNice method",
       "id": 237,
@@ -8267,6 +8628,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "_endNice method should be a function",
       "id": 238,
@@ -8284,6 +8646,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ifError method",
       "id": 239,
@@ -8301,6 +8664,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ifError method should be a function",
       "id": 240,
@@ -8318,6 +8682,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have iferror method",
       "id": 241,
@@ -8335,6 +8700,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "iferror method should be a function",
       "id": 242,
@@ -8352,6 +8718,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have clear method",
       "id": 243,
@@ -8369,6 +8736,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "clear method should be a function",
       "id": 244,
@@ -8386,6 +8754,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have has method",
       "id": 245,
@@ -8403,6 +8772,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "has method should be a function",
       "id": 246,
@@ -8420,6 +8790,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have not method",
       "id": 247,
@@ -8437,6 +8808,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not method should be a function",
       "id": 248,
@@ -8454,6 +8826,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have timeout method",
       "id": 249,
@@ -8471,6 +8844,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "timeout method should be a function",
       "id": 250,
@@ -8488,6 +8862,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notSimilar method",
       "id": 251,
@@ -8505,6 +8880,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notSimilar method should be a function",
       "id": 252,
@@ -8522,6 +8898,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isUnlike method",
       "id": 253,
@@ -8539,6 +8916,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isUnlike method should be a function",
       "id": 254,
@@ -8556,6 +8934,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEquals method",
       "id": 255,
@@ -8573,6 +8952,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEquals method should be a function",
       "id": 256,
@@ -8590,6 +8970,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have unsimilar method",
       "id": 257,
@@ -8607,6 +8988,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "unsimilar method should be a function",
       "id": 258,
@@ -8624,6 +9006,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have result method",
       "id": 259,
@@ -8641,6 +9024,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "result method should be a function",
       "id": 260,
@@ -8658,6 +9042,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotThrow method",
       "id": 261,
@@ -8675,6 +9060,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotThrow method should be a function",
       "id": 262,
@@ -8692,6 +9078,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have error method",
       "id": 263,
@@ -8709,6 +9096,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "error method should be a function",
       "id": 264,
@@ -8726,6 +9114,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have constructor method",
       "id": 265,
@@ -8743,6 +9132,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "constructor method should be a function",
       "id": 266,
@@ -8760,6 +9150,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEqual method",
       "id": 267,
@@ -8777,6 +9168,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEqual method should be a function",
       "id": 268,
@@ -8794,6 +9186,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have throws method",
       "id": 269,
@@ -8811,6 +9204,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "throws method should be a function",
       "id": 270,
@@ -8828,6 +9222,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isLike method",
       "id": 271,
@@ -8845,6 +9240,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isLike method should be a function",
       "id": 272,
@@ -8862,6 +9258,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotSimilar method",
       "id": 273,
@@ -8879,6 +9276,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotSimilar method should be a function",
       "id": 274,
@@ -8896,6 +9294,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotEquivalent method",
       "id": 275,
@@ -8913,6 +9312,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotEquivalent method should be a function",
       "id": 276,
@@ -8930,6 +9330,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have inequal method",
       "id": 277,
@@ -8947,6 +9348,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "inequal method should be a function",
       "id": 278,
@@ -8964,6 +9366,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEquivalent method",
       "id": 279,
@@ -8981,6 +9384,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEquivalent method should be a function",
       "id": 280,
@@ -8998,6 +9402,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotLike method",
       "id": 281,
@@ -9015,6 +9420,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotLike method should be a function",
       "id": 282,
@@ -9032,6 +9438,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equivalent method",
       "id": 283,
@@ -9049,6 +9456,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equivalent method should be a function",
       "id": 284,
@@ -9066,6 +9474,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have looseEqual method",
       "id": 285,
@@ -9083,6 +9492,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "looseEqual method should be a function",
       "id": 286,
@@ -9100,6 +9510,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equal method",
       "id": 287,
@@ -9117,6 +9528,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equal method should be a function",
       "id": 288,
@@ -9134,6 +9546,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have unlike method",
       "id": 289,
@@ -9151,6 +9564,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "unlike method should be a function",
       "id": 290,
@@ -9168,6 +9582,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotHave method",
       "id": 291,
@@ -9185,6 +9600,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotHave method should be a function",
       "id": 292,
@@ -9202,6 +9618,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have comment method",
       "id": 293,
@@ -9219,6 +9636,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "comment method should be a function",
       "id": 294,
@@ -9236,6 +9654,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isa method",
       "id": 295,
@@ -9253,6 +9672,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isa method should be a function",
       "id": 296,
@@ -9282,6 +9702,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-test.js",
       "id": 297,
@@ -9311,6 +9732,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a",
       "id": 298,
@@ -9328,6 +9750,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "b",
       "id": 299,
@@ -9349,6 +9772,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a",
       "id": 300,
@@ -9366,6 +9790,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "b",
       "id": 301,
@@ -9395,6 +9820,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/timeout.js",
       "id": 302,
@@ -9416,6 +9842,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/trivial-success.js",
       "id": 303,
@@ -9445,6 +9872,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 304,
@@ -9474,6 +9902,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/undefined_indented.js",
       "id": 305,
@@ -9503,6 +9932,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 306,
@@ -9520,6 +9950,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 307,
@@ -9537,6 +9968,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 308,
@@ -9554,6 +9986,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 309,
@@ -9571,6 +10004,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 310,
@@ -9588,6 +10022,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 311,
@@ -9617,6 +10052,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/valid-command.js",
       "id": 312,
@@ -9667,6 +10103,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -9697,6 +10134,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -9726,6 +10164,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -9755,6 +10194,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -9784,6 +10224,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "command": "/usr/local/bin/iojs test-descriptions.js",
             "exit": 1,
@@ -9814,6 +10255,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes",
           "id": 102,
@@ -9828,6 +10270,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false",
           "id": 103,
@@ -9842,6 +10285,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes without explanation",
           "id": 106,
@@ -9856,6 +10300,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false without explanation",
           "id": 107,
@@ -9870,6 +10315,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "does not count as failure",
           "id": 148,
@@ -9888,6 +10334,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus",
           "id": 104,
@@ -9902,6 +10349,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected",
           "id": 105,
@@ -9916,6 +10364,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus without explanation",
           "id": 108,
@@ -9930,6 +10379,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected without explanation",
           "id": 109,
@@ -9976,6 +10426,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 1,
@@ -9997,6 +10448,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should not be equivalent",
       "id": 2,
@@ -10026,6 +10478,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/buffer_compare.js",
       "id": 3,
@@ -10047,6 +10500,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "just setup, nothing relevant",
       "id": 4,
@@ -10064,6 +10518,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/common.js",
       "id": 5,
@@ -10093,6 +10548,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 6,
@@ -10114,6 +10570,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 7,
@@ -10135,6 +10592,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 8,
@@ -10156,6 +10614,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 9,
@@ -10177,6 +10636,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 10,
@@ -10198,6 +10658,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 11,
@@ -10227,6 +10688,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/consumer.js",
       "id": 12,
@@ -10256,6 +10718,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should output debugger message",
       "id": 13,
@@ -10285,6 +10748,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 14,
@@ -10314,6 +10778,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 15,
@@ -10335,6 +10800,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 16,
@@ -10356,6 +10822,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 17,
@@ -10385,6 +10852,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep-strict.js",
       "id": 18,
@@ -10414,6 +10882,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 19,
@@ -10435,6 +10904,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 20,
@@ -10456,6 +10926,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 21,
@@ -10485,6 +10956,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep.js",
       "id": 22,
@@ -10506,6 +10978,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "File with executable bit should be executed",
       "id": 23,
@@ -10523,6 +10996,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/executed.sh",
       "id": 24,
@@ -10556,6 +11030,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 25,
@@ -10573,6 +11048,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 26,
@@ -10594,6 +11070,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 27,
@@ -10611,6 +11088,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 28,
@@ -10632,6 +11110,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 29,
@@ -10649,6 +11128,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 30,
@@ -10674,6 +11154,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 31,
@@ -10691,6 +11172,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 32,
@@ -10712,6 +11194,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 33,
@@ -10729,6 +11212,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 34,
@@ -10758,6 +11242,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/exit-code.js",
       "id": 35,
@@ -10787,6 +11272,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 36,
@@ -10812,6 +11298,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 37,
@@ -10833,6 +11320,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 38,
@@ -10866,6 +11354,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/expose-gc-test.js",
       "id": 39,
@@ -10899,6 +11388,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "1-1",
       "id": 40,
@@ -10920,6 +11410,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "2-1",
       "id": 41,
@@ -10941,6 +11432,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "3-1",
       "id": 42,
@@ -10958,6 +11450,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/global-harness-async.js",
       "id": 43,
@@ -10999,6 +11492,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/independent-timeouts.js",
       "id": 44,
@@ -11028,6 +11522,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 45,
@@ -11045,6 +11540,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 46,
@@ -11066,6 +11562,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 47,
@@ -11083,6 +11580,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 48,
@@ -11112,6 +11610,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/isolated-conf-test.js",
       "id": 49,
@@ -11141,6 +11640,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sanity check",
       "id": 50,
@@ -11158,6 +11658,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not ok",
       "id": 51,
@@ -11175,6 +11676,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "total test count",
       "id": 52,
@@ -11192,6 +11694,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests passed",
       "id": 53,
@@ -11209,6 +11712,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests failed",
       "id": 54,
@@ -11226,6 +11730,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok is boolean",
       "id": 55,
@@ -11243,6 +11748,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip is number",
       "id": 56,
@@ -11260,6 +11766,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "results isa Results",
       "id": 57,
@@ -11277,6 +11784,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Test",
       "id": 58,
@@ -11294,6 +11802,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Harness",
       "id": 59,
@@ -11323,6 +11832,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/meta-test.js",
       "id": 60,
@@ -11352,6 +11862,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync child A",
       "id": 61,
@@ -11377,6 +11888,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 62,
@@ -11398,6 +11910,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 63,
@@ -11419,6 +11932,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync grandchild in async child A",
       "id": 64,
@@ -11440,6 +11954,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 65,
@@ -11469,6 +11984,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-async.js",
       "id": 66,
@@ -11498,6 +12014,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "p test",
       "id": 67,
@@ -11519,6 +12036,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test",
       "id": 68,
@@ -11540,6 +12058,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "grch test",
       "id": 69,
@@ -11561,6 +12080,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test 2",
       "id": 70,
@@ -11590,6 +12110,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-test.js",
       "id": 71,
@@ -11627,6 +12148,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": ", 8 can stay.",
       "id": 72,
@@ -11664,6 +12186,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "might be confusing",
       "id": 73,
@@ -11681,6 +12204,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "done now, exiting",
       "id": 74,
@@ -11698,6 +12222,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/non-tap-output.js",
       "id": 75,
@@ -11731,6 +12256,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description",
       "id": 76,
@@ -11748,6 +12274,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description",
       "id": 77,
@@ -11765,6 +12292,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description before parent result",
       "id": 78,
@@ -11782,6 +12310,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent result before child description",
       "id": 79,
@@ -11799,6 +12328,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description before child result",
       "id": 80,
@@ -11828,6 +12358,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/output-childtest-description.js",
       "id": 81,
@@ -11857,6 +12388,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 82,
@@ -11874,6 +12406,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 83,
@@ -11903,6 +12436,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/result-trap.js",
       "id": 84,
@@ -11932,6 +12466,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "compiled seg faulter",
       "id": 85,
@@ -11953,6 +12488,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 86,
@@ -11970,6 +12506,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 87,
@@ -11987,6 +12524,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 88,
@@ -12004,6 +12542,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 89,
@@ -12021,6 +12560,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 90,
@@ -12038,6 +12578,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 91,
@@ -12059,6 +12600,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "cleaned up",
       "id": 92,
@@ -12088,6 +12630,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/segv.js",
       "id": 93,
@@ -12117,6 +12660,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 94,
@@ -12138,6 +12682,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 95,
@@ -12155,6 +12700,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 96,
@@ -12184,6 +12730,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test-with-plan.js",
       "id": 97,
@@ -12213,6 +12760,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 98,
@@ -12234,6 +12782,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 99,
@@ -12251,6 +12800,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 100,
@@ -12280,6 +12830,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test.js",
       "id": 101,
@@ -12309,6 +12860,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes",
       "id": 102,
@@ -12326,6 +12878,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false",
       "id": 103,
@@ -12343,6 +12896,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus",
       "id": 104,
@@ -12360,6 +12914,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected",
       "id": 105,
@@ -12377,6 +12932,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes without explanation",
       "id": 106,
@@ -12394,6 +12950,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false without explanation",
       "id": 107,
@@ -12411,6 +12968,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus without explanation",
       "id": 108,
@@ -12428,6 +12986,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected without explanation",
       "id": 109,
@@ -12457,6 +13016,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-assert-todo-skip.js",
       "id": 110,
@@ -12486,6 +13046,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 111,
@@ -12503,6 +13064,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 112,
@@ -12520,6 +13082,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not from file",
       "id": 113,
@@ -12537,6 +13100,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not from file",
       "id": 114,
@@ -12554,6 +13118,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -12587,6 +13152,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 116,
@@ -12604,6 +13170,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 117,
@@ -12621,6 +13188,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not in TAP output",
       "id": 118,
@@ -12638,6 +13206,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 119,
@@ -12655,6 +13224,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -12687,6 +13257,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 121,
@@ -12704,6 +13275,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -12736,6 +13308,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -12780,6 +13353,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "command": "/usr/local/bin/iojs test-descriptions.js",
         "exit": 1,
@@ -12816,6 +13390,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 125,
@@ -12833,6 +13408,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok SKIP",
       "id": 126,
@@ -12850,6 +13426,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok SKIP",
       "id": 127,
@@ -12867,6 +13444,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary not in TAP output",
       "id": 128,
@@ -12884,6 +13462,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok TODO",
       "id": 129,
@@ -12901,6 +13480,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok TODO",
       "id": 130,
@@ -12918,6 +13498,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 131,
@@ -12935,6 +13516,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 132,
@@ -12956,6 +13538,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 133,
@@ -12973,6 +13556,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no SKIP in summary",
       "id": 134,
@@ -12990,6 +13574,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not in TAP output",
       "id": 135,
@@ -13007,6 +13592,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no TODO in summary",
       "id": 136,
@@ -13024,6 +13610,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 137,
@@ -13041,6 +13628,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 138,
@@ -13062,6 +13650,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 139,
@@ -13079,6 +13668,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok SKIP",
       "id": 140,
@@ -13096,6 +13686,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok SKIP",
       "id": 141,
@@ -13113,6 +13704,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary not in TAP output",
       "id": 142,
@@ -13130,6 +13722,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok TODO",
       "id": 143,
@@ -13147,6 +13740,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok TODO",
       "id": 144,
@@ -13164,6 +13758,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 145,
@@ -13181,6 +13776,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 146,
@@ -13210,6 +13806,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-directives.js",
       "id": 147,
@@ -13235,6 +13832,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "does not count as failure",
       "id": 148,
@@ -13260,6 +13858,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-skip.js",
       "id": 149,
@@ -13289,6 +13888,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test object should be instanceof Test",
       "id": 150,
@@ -13306,6 +13906,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test object should be instanceof Harness",
       "id": 151,
@@ -13323,6 +13924,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test._Test should be the Test class",
       "id": 152,
@@ -13340,6 +13942,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotDeepEqual method",
       "id": 153,
@@ -13357,6 +13960,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotDeepEqual method should be a function",
       "id": 154,
@@ -13374,6 +13978,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equals method",
       "id": 155,
@@ -13391,6 +13996,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equals method should be a function",
       "id": 156,
@@ -13408,6 +14014,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have inequivalent method",
       "id": 157,
@@ -13425,6 +14032,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "inequivalent method should be a function",
       "id": 158,
@@ -13442,6 +14050,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have threw method",
       "id": 159,
@@ -13459,6 +14068,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "threw method should be a function",
       "id": 160,
@@ -13476,6 +14086,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have strictEqual method",
       "id": 161,
@@ -13493,6 +14104,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "strictEqual method should be a function",
       "id": 162,
@@ -13510,6 +14122,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have emit method",
       "id": 163,
@@ -13527,6 +14140,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "emit method should be a function",
       "id": 164,
@@ -13544,6 +14158,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have fail method",
       "id": 165,
@@ -13561,6 +14176,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "fail method should be a function",
       "id": 166,
@@ -13578,6 +14194,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have strictEquals method",
       "id": 167,
@@ -13595,6 +14212,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "strictEquals method should be a function",
       "id": 168,
@@ -13612,6 +14230,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notLike method",
       "id": 169,
@@ -13629,6 +14248,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notLike method should be a function",
       "id": 170,
@@ -13646,6 +14266,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have dissimilar method",
       "id": 171,
@@ -13663,6 +14284,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "dissimilar method should be a function",
       "id": 172,
@@ -13680,6 +14302,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have true method",
       "id": 173,
@@ -13697,6 +14320,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true method should be a function",
       "id": 174,
@@ -13714,6 +14338,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have assert method",
       "id": 175,
@@ -13731,6 +14356,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "assert method should be a function",
       "id": 176,
@@ -13748,6 +14374,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have is method",
       "id": 177,
@@ -13765,6 +14392,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "is method should be a function",
       "id": 178,
@@ -13782,6 +14410,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ok method",
       "id": 179,
@@ -13799,6 +14428,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok method should be a function",
       "id": 180,
@@ -13816,6 +14446,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isEqual method",
       "id": 181,
@@ -13833,6 +14464,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isEqual method should be a function",
       "id": 182,
@@ -13850,6 +14482,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isDeeply method",
       "id": 183,
@@ -13867,6 +14500,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isDeeply method should be a function",
       "id": 184,
@@ -13884,6 +14518,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have deepEqual method",
       "id": 185,
@@ -13901,6 +14536,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "deepEqual method should be a function",
       "id": 186,
@@ -13918,6 +14554,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have deepEquals method",
       "id": 187,
@@ -13935,6 +14572,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "deepEquals method should be a function",
       "id": 188,
@@ -13952,6 +14590,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have pass method",
       "id": 189,
@@ -13969,6 +14608,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pass method should be a function",
       "id": 190,
@@ -13986,6 +14626,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have length method",
       "id": 191,
@@ -14003,6 +14644,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "length method should be a function",
       "id": 192,
@@ -14020,6 +14662,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have skip method",
       "id": 193,
@@ -14037,6 +14680,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip method should be a function",
       "id": 194,
@@ -14054,6 +14698,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotEqual method",
       "id": 195,
@@ -14071,6 +14716,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotEqual method should be a function",
       "id": 196,
@@ -14088,6 +14734,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have looseEquals method",
       "id": 197,
@@ -14105,6 +14752,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "looseEquals method should be a function",
       "id": 198,
@@ -14122,6 +14770,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have false method",
       "id": 199,
@@ -14139,6 +14788,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false method should be a function",
       "id": 200,
@@ -14156,6 +14806,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notDeeply method",
       "id": 201,
@@ -14173,6 +14824,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notDeeply method should be a function",
       "id": 202,
@@ -14190,6 +14842,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ifErr method",
       "id": 203,
@@ -14207,6 +14860,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ifErr method should be a function",
       "id": 204,
@@ -14224,6 +14878,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have hasFields method",
       "id": 205,
@@ -14241,6 +14896,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "hasFields method should be a function",
       "id": 206,
@@ -14258,6 +14914,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotDeeply method",
       "id": 207,
@@ -14275,6 +14932,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotDeeply method should be a function",
       "id": 208,
@@ -14292,6 +14950,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have like method",
       "id": 209,
@@ -14309,6 +14968,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "like method should be a function",
       "id": 210,
@@ -14326,6 +14986,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have similar method",
       "id": 211,
@@ -14343,6 +15004,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "similar method should be a function",
       "id": 212,
@@ -14360,6 +15022,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notOk method",
       "id": 213,
@@ -14377,6 +15040,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notOk method should be a function",
       "id": 214,
@@ -14394,6 +15058,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isDissimilar method",
       "id": 215,
@@ -14411,6 +15076,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isDissimilar method should be a function",
       "id": 216,
@@ -14428,6 +15094,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isEquivalent method",
       "id": 217,
@@ -14445,6 +15112,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isEquivalent method should be a function",
       "id": 218,
@@ -14462,6 +15130,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotEqual method",
       "id": 219,
@@ -14479,6 +15148,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotEqual method should be a function",
       "id": 220,
@@ -14496,6 +15166,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isSimilar method",
       "id": 221,
@@ -14513,6 +15184,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isSimilar method should be a function",
       "id": 222,
@@ -14530,6 +15202,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notDeepEqual method",
       "id": 223,
@@ -14547,6 +15220,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notDeepEqual method should be a function",
       "id": 224,
@@ -14564,6 +15238,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have type method",
       "id": 225,
@@ -14581,6 +15256,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "type method should be a function",
       "id": 226,
@@ -14598,6 +15274,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notok method",
       "id": 227,
@@ -14615,6 +15292,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notok method should be a function",
       "id": 228,
@@ -14632,6 +15310,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isInequivalent method",
       "id": 229,
@@ -14649,6 +15328,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isInequivalent method should be a function",
       "id": 230,
@@ -14666,6 +15346,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNot method",
       "id": 231,
@@ -14683,6 +15364,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNot method should be a function",
       "id": 232,
@@ -14700,6 +15382,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have same method",
       "id": 233,
@@ -14717,6 +15400,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "same method should be a function",
       "id": 234,
@@ -14734,6 +15418,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isInequal method",
       "id": 235,
@@ -14751,6 +15436,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isInequal method should be a function",
       "id": 236,
@@ -14768,6 +15454,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have _endNice method",
       "id": 237,
@@ -14785,6 +15472,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "_endNice method should be a function",
       "id": 238,
@@ -14802,6 +15490,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ifError method",
       "id": 239,
@@ -14819,6 +15508,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ifError method should be a function",
       "id": 240,
@@ -14836,6 +15526,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have iferror method",
       "id": 241,
@@ -14853,6 +15544,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "iferror method should be a function",
       "id": 242,
@@ -14870,6 +15562,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have clear method",
       "id": 243,
@@ -14887,6 +15580,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "clear method should be a function",
       "id": 244,
@@ -14904,6 +15598,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have has method",
       "id": 245,
@@ -14921,6 +15616,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "has method should be a function",
       "id": 246,
@@ -14938,6 +15634,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have not method",
       "id": 247,
@@ -14955,6 +15652,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not method should be a function",
       "id": 248,
@@ -14972,6 +15670,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have timeout method",
       "id": 249,
@@ -14989,6 +15688,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "timeout method should be a function",
       "id": 250,
@@ -15006,6 +15706,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notSimilar method",
       "id": 251,
@@ -15023,6 +15724,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notSimilar method should be a function",
       "id": 252,
@@ -15040,6 +15742,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isUnlike method",
       "id": 253,
@@ -15057,6 +15760,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isUnlike method should be a function",
       "id": 254,
@@ -15074,6 +15778,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEquals method",
       "id": 255,
@@ -15091,6 +15796,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEquals method should be a function",
       "id": 256,
@@ -15108,6 +15814,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have unsimilar method",
       "id": 257,
@@ -15125,6 +15832,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "unsimilar method should be a function",
       "id": 258,
@@ -15142,6 +15850,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have result method",
       "id": 259,
@@ -15159,6 +15868,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "result method should be a function",
       "id": 260,
@@ -15176,6 +15886,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotThrow method",
       "id": 261,
@@ -15193,6 +15904,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotThrow method should be a function",
       "id": 262,
@@ -15210,6 +15922,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have error method",
       "id": 263,
@@ -15227,6 +15940,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "error method should be a function",
       "id": 264,
@@ -15244,6 +15958,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have constructor method",
       "id": 265,
@@ -15261,6 +15976,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "constructor method should be a function",
       "id": 266,
@@ -15278,6 +15994,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEqual method",
       "id": 267,
@@ -15295,6 +16012,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEqual method should be a function",
       "id": 268,
@@ -15312,6 +16030,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have throws method",
       "id": 269,
@@ -15329,6 +16048,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "throws method should be a function",
       "id": 270,
@@ -15346,6 +16066,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isLike method",
       "id": 271,
@@ -15363,6 +16084,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isLike method should be a function",
       "id": 272,
@@ -15380,6 +16102,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotSimilar method",
       "id": 273,
@@ -15397,6 +16120,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotSimilar method should be a function",
       "id": 274,
@@ -15414,6 +16138,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotEquivalent method",
       "id": 275,
@@ -15431,6 +16156,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotEquivalent method should be a function",
       "id": 276,
@@ -15448,6 +16174,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have inequal method",
       "id": 277,
@@ -15465,6 +16192,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "inequal method should be a function",
       "id": 278,
@@ -15482,6 +16210,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEquivalent method",
       "id": 279,
@@ -15499,6 +16228,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEquivalent method should be a function",
       "id": 280,
@@ -15516,6 +16246,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotLike method",
       "id": 281,
@@ -15533,6 +16264,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotLike method should be a function",
       "id": 282,
@@ -15550,6 +16282,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equivalent method",
       "id": 283,
@@ -15567,6 +16300,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equivalent method should be a function",
       "id": 284,
@@ -15584,6 +16318,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have looseEqual method",
       "id": 285,
@@ -15601,6 +16336,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "looseEqual method should be a function",
       "id": 286,
@@ -15618,6 +16354,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equal method",
       "id": 287,
@@ -15635,6 +16372,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equal method should be a function",
       "id": 288,
@@ -15652,6 +16390,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have unlike method",
       "id": 289,
@@ -15669,6 +16408,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "unlike method should be a function",
       "id": 290,
@@ -15686,6 +16426,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotHave method",
       "id": 291,
@@ -15703,6 +16444,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotHave method should be a function",
       "id": 292,
@@ -15720,6 +16462,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have comment method",
       "id": 293,
@@ -15737,6 +16480,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "comment method should be a function",
       "id": 294,
@@ -15754,6 +16498,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isa method",
       "id": 295,
@@ -15771,6 +16516,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isa method should be a function",
       "id": 296,
@@ -15800,6 +16546,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-test.js",
       "id": 297,
@@ -15829,6 +16576,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a",
       "id": 298,
@@ -15846,6 +16594,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "b",
       "id": 299,
@@ -15867,6 +16616,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a",
       "id": 300,
@@ -15884,6 +16634,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "b",
       "id": 301,
@@ -15913,6 +16664,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/timeout.js",
       "id": 302,
@@ -15934,6 +16686,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/trivial-success.js",
       "id": 303,
@@ -15963,6 +16716,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 304,
@@ -15992,6 +16746,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/undefined_indented.js",
       "id": 305,
@@ -16021,6 +16776,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 306,
@@ -16038,6 +16794,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 307,
@@ -16055,6 +16812,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 308,
@@ -16072,6 +16830,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 309,
@@ -16089,6 +16848,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 310,
@@ -16106,6 +16866,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 311,
@@ -16135,6 +16896,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/valid-command.js",
       "id": 312,
@@ -16184,6 +16946,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -16214,6 +16977,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -16243,6 +17007,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -16272,6 +17037,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -16301,6 +17067,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "command": "/usr/local/bin/iojs test-descriptions.js",
             "exit": 1,
@@ -16331,6 +17098,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes",
           "id": 102,
@@ -16345,6 +17113,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false",
           "id": 103,
@@ -16359,6 +17128,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes without explanation",
           "id": 106,
@@ -16373,6 +17143,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false without explanation",
           "id": 107,
@@ -16387,6 +17158,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "does not count as failure",
           "id": 148,
@@ -16405,6 +17177,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus",
           "id": 104,
@@ -16419,6 +17192,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected",
           "id": 105,
@@ -16433,6 +17207,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus without explanation",
           "id": 108,
@@ -16447,6 +17222,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected without explanation",
           "id": 109,
@@ -17753,6 +18529,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 1,
@@ -17774,6 +18551,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should not be equivalent",
       "id": 2,
@@ -17803,6 +18581,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/buffer_compare.js",
       "id": 3,
@@ -17824,6 +18603,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "just setup, nothing relevant",
       "id": 4,
@@ -17841,6 +18621,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/common.js",
       "id": 5,
@@ -17870,6 +18651,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 6,
@@ -17891,6 +18673,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 7,
@@ -17912,6 +18695,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 8,
@@ -17933,6 +18717,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 9,
@@ -17954,6 +18739,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 10,
@@ -17975,6 +18761,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 11,
@@ -18004,6 +18791,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/consumer.js",
       "id": 12,
@@ -18033,6 +18821,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should output debugger message",
       "id": 13,
@@ -18062,6 +18851,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 14,
@@ -18091,6 +18881,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 15,
@@ -18112,6 +18903,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 16,
@@ -18133,6 +18925,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 17,
@@ -18162,6 +18955,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep-strict.js",
       "id": 18,
@@ -18191,6 +18985,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 19,
@@ -18212,6 +19007,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 20,
@@ -18233,6 +19029,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 21,
@@ -18262,6 +19059,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep.js",
       "id": 22,
@@ -18283,6 +19081,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "File with executable bit should be executed",
       "id": 23,
@@ -18300,6 +19099,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/executed.sh",
       "id": 24,
@@ -18333,6 +19133,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 25,
@@ -18350,6 +19151,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 26,
@@ -18371,6 +19173,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 27,
@@ -18388,6 +19191,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 28,
@@ -18409,6 +19213,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 29,
@@ -18426,6 +19231,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 30,
@@ -18451,6 +19257,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 31,
@@ -18468,6 +19275,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 32,
@@ -18489,6 +19297,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 33,
@@ -18506,6 +19315,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 34,
@@ -18535,6 +19345,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/exit-code.js",
       "id": 35,
@@ -18564,6 +19375,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 36,
@@ -18589,6 +19401,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 37,
@@ -18610,6 +19423,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 38,
@@ -18643,6 +19457,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/expose-gc-test.js",
       "id": 39,
@@ -18676,6 +19491,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "1-1",
       "id": 40,
@@ -18697,6 +19513,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "2-1",
       "id": 41,
@@ -18718,6 +19535,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "3-1",
       "id": 42,
@@ -18735,6 +19553,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/global-harness-async.js",
       "id": 43,
@@ -18776,6 +19595,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/independent-timeouts.js",
       "id": 44,
@@ -18805,6 +19625,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 45,
@@ -18822,6 +19643,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 46,
@@ -18843,6 +19665,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 47,
@@ -18860,6 +19683,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 48,
@@ -18889,6 +19713,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/isolated-conf-test.js",
       "id": 49,
@@ -18918,6 +19743,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sanity check",
       "id": 50,
@@ -18935,6 +19761,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not ok",
       "id": 51,
@@ -18952,6 +19779,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "total test count",
       "id": 52,
@@ -18969,6 +19797,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests passed",
       "id": 53,
@@ -18986,6 +19815,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests failed",
       "id": 54,
@@ -19003,6 +19833,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok is boolean",
       "id": 55,
@@ -19020,6 +19851,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip is number",
       "id": 56,
@@ -19037,6 +19869,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "results isa Results",
       "id": 57,
@@ -19054,6 +19887,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Test",
       "id": 58,
@@ -19071,6 +19905,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Harness",
       "id": 59,
@@ -19100,6 +19935,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/meta-test.js",
       "id": 60,
@@ -19129,6 +19965,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync child A",
       "id": 61,
@@ -19154,6 +19991,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 62,
@@ -19175,6 +20013,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 63,
@@ -19196,6 +20035,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync grandchild in async child A",
       "id": 64,
@@ -19217,6 +20057,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 65,
@@ -19246,6 +20087,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-async.js",
       "id": 66,
@@ -19275,6 +20117,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "p test",
       "id": 67,
@@ -19296,6 +20139,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test",
       "id": 68,
@@ -19317,6 +20161,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "grch test",
       "id": 69,
@@ -19338,6 +20183,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test 2",
       "id": 70,
@@ -19367,6 +20213,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-test.js",
       "id": 71,
@@ -19404,6 +20251,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": ", 8 can stay.",
       "id": 72,
@@ -19441,6 +20289,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "might be confusing",
       "id": 73,
@@ -19458,6 +20307,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "done now, exiting",
       "id": 74,
@@ -19475,6 +20325,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/non-tap-output.js",
       "id": 75,
@@ -19508,6 +20359,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description",
       "id": 76,
@@ -19525,6 +20377,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description",
       "id": 77,
@@ -19542,6 +20395,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description before parent result",
       "id": 78,
@@ -19559,6 +20413,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent result before child description",
       "id": 79,
@@ -19576,6 +20431,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description before child result",
       "id": 80,
@@ -19605,6 +20461,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/output-childtest-description.js",
       "id": 81,
@@ -19634,6 +20491,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 82,
@@ -19651,6 +20509,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 83,
@@ -19680,6 +20539,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/result-trap.js",
       "id": 84,
@@ -19709,6 +20569,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "compiled seg faulter",
       "id": 85,
@@ -19730,6 +20591,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 86,
@@ -19747,6 +20609,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 87,
@@ -19764,6 +20627,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 88,
@@ -19781,6 +20645,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 89,
@@ -19798,6 +20663,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 90,
@@ -19815,6 +20681,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 91,
@@ -19836,6 +20703,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "cleaned up",
       "id": 92,
@@ -19865,6 +20733,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/segv.js",
       "id": 93,
@@ -19894,6 +20763,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 94,
@@ -19915,6 +20785,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 95,
@@ -19932,6 +20803,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 96,
@@ -19961,6 +20833,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test-with-plan.js",
       "id": 97,
@@ -19990,6 +20863,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 98,
@@ -20011,6 +20885,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 99,
@@ -20028,6 +20903,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 100,
@@ -20057,6 +20933,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test.js",
       "id": 101,
@@ -20086,6 +20963,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes",
       "id": 102,
@@ -20103,6 +20981,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false",
       "id": 103,
@@ -20120,6 +20999,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus",
       "id": 104,
@@ -20137,6 +21017,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected",
       "id": 105,
@@ -20154,6 +21035,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes without explanation",
       "id": 106,
@@ -20171,6 +21053,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false without explanation",
       "id": 107,
@@ -20188,6 +21071,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus without explanation",
       "id": 108,
@@ -20205,6 +21089,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected without explanation",
       "id": 109,
@@ -20234,6 +21119,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-assert-todo-skip.js",
       "id": 110,
@@ -20263,6 +21149,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 111,
@@ -20280,6 +21167,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 112,
@@ -20297,6 +21185,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not from file",
       "id": 113,
@@ -20314,6 +21203,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not from file",
       "id": 114,
@@ -20331,6 +21221,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -20364,6 +21255,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 116,
@@ -20381,6 +21273,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 117,
@@ -20398,6 +21291,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not in TAP output",
       "id": 118,
@@ -20415,6 +21309,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 119,
@@ -20432,6 +21327,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -20464,6 +21360,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 121,
@@ -20481,6 +21378,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -20513,6 +21411,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -20557,6 +21456,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "command": "/usr/local/bin/iojs test-descriptions.js",
         "exit": 1,
@@ -20593,6 +21493,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 125,
@@ -20610,6 +21511,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok SKIP",
       "id": 126,
@@ -20627,6 +21529,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok SKIP",
       "id": 127,
@@ -20644,6 +21547,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary not in TAP output",
       "id": 128,
@@ -20661,6 +21565,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok TODO",
       "id": 129,
@@ -20678,6 +21583,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok TODO",
       "id": 130,
@@ -20695,6 +21601,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 131,
@@ -20712,6 +21619,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 132,
@@ -20733,6 +21641,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 133,
@@ -20750,6 +21659,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no SKIP in summary",
       "id": 134,
@@ -20767,6 +21677,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not in TAP output",
       "id": 135,
@@ -20784,6 +21695,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no TODO in summary",
       "id": 136,
@@ -20801,6 +21713,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 137,
@@ -20818,6 +21731,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 138,
@@ -20839,6 +21753,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "overall result is PASS",
       "id": 139,
@@ -20856,6 +21771,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok SKIP",
       "id": 140,
@@ -20873,6 +21789,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok SKIP",
       "id": 141,
@@ -20890,6 +21807,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary not in TAP output",
       "id": 142,
@@ -20907,6 +21825,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures ok TODO",
       "id": 143,
@@ -20924,6 +21843,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures not ok TODO",
       "id": 144,
@@ -20941,6 +21861,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not in TAP output",
       "id": 145,
@@ -20958,6 +21879,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "no ugly \\"undefined\\" in output",
       "id": 146,
@@ -20987,6 +21909,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-directives.js",
       "id": 147,
@@ -21012,6 +21935,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "does not count as failure",
       "id": 148,
@@ -21037,6 +21961,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-skip.js",
       "id": 149,
@@ -21066,6 +21991,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test object should be instanceof Test",
       "id": 150,
@@ -21083,6 +22009,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test object should be instanceof Harness",
       "id": 151,
@@ -21100,6 +22027,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test._Test should be the Test class",
       "id": 152,
@@ -21117,6 +22045,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotDeepEqual method",
       "id": 153,
@@ -21134,6 +22063,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotDeepEqual method should be a function",
       "id": 154,
@@ -21151,6 +22081,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equals method",
       "id": 155,
@@ -21168,6 +22099,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equals method should be a function",
       "id": 156,
@@ -21185,6 +22117,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have inequivalent method",
       "id": 157,
@@ -21202,6 +22135,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "inequivalent method should be a function",
       "id": 158,
@@ -21219,6 +22153,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have threw method",
       "id": 159,
@@ -21236,6 +22171,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "threw method should be a function",
       "id": 160,
@@ -21253,6 +22189,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have strictEqual method",
       "id": 161,
@@ -21270,6 +22207,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "strictEqual method should be a function",
       "id": 162,
@@ -21287,6 +22225,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have emit method",
       "id": 163,
@@ -21304,6 +22243,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "emit method should be a function",
       "id": 164,
@@ -21321,6 +22261,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have fail method",
       "id": 165,
@@ -21338,6 +22279,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "fail method should be a function",
       "id": 166,
@@ -21355,6 +22297,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have strictEquals method",
       "id": 167,
@@ -21372,6 +22315,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "strictEquals method should be a function",
       "id": 168,
@@ -21389,6 +22333,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notLike method",
       "id": 169,
@@ -21406,6 +22351,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notLike method should be a function",
       "id": 170,
@@ -21423,6 +22369,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have dissimilar method",
       "id": 171,
@@ -21440,6 +22387,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "dissimilar method should be a function",
       "id": 172,
@@ -21457,6 +22405,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have true method",
       "id": 173,
@@ -21474,6 +22423,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "true method should be a function",
       "id": 174,
@@ -21491,6 +22441,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have assert method",
       "id": 175,
@@ -21508,6 +22459,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "assert method should be a function",
       "id": 176,
@@ -21525,6 +22477,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have is method",
       "id": 177,
@@ -21542,6 +22495,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "is method should be a function",
       "id": 178,
@@ -21559,6 +22513,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ok method",
       "id": 179,
@@ -21576,6 +22531,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok method should be a function",
       "id": 180,
@@ -21593,6 +22549,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isEqual method",
       "id": 181,
@@ -21610,6 +22567,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isEqual method should be a function",
       "id": 182,
@@ -21627,6 +22585,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isDeeply method",
       "id": 183,
@@ -21644,6 +22603,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isDeeply method should be a function",
       "id": 184,
@@ -21661,6 +22621,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have deepEqual method",
       "id": 185,
@@ -21678,6 +22639,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "deepEqual method should be a function",
       "id": 186,
@@ -21695,6 +22657,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have deepEquals method",
       "id": 187,
@@ -21712,6 +22675,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "deepEquals method should be a function",
       "id": 188,
@@ -21729,6 +22693,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have pass method",
       "id": 189,
@@ -21746,6 +22711,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pass method should be a function",
       "id": 190,
@@ -21763,6 +22729,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have length method",
       "id": 191,
@@ -21780,6 +22747,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "length method should be a function",
       "id": 192,
@@ -21797,6 +22765,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have skip method",
       "id": 193,
@@ -21814,6 +22783,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip method should be a function",
       "id": 194,
@@ -21831,6 +22801,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotEqual method",
       "id": 195,
@@ -21848,6 +22819,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotEqual method should be a function",
       "id": 196,
@@ -21865,6 +22837,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have looseEquals method",
       "id": 197,
@@ -21882,6 +22855,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "looseEquals method should be a function",
       "id": 198,
@@ -21899,6 +22873,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have false method",
       "id": 199,
@@ -21916,6 +22891,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false method should be a function",
       "id": 200,
@@ -21933,6 +22909,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notDeeply method",
       "id": 201,
@@ -21950,6 +22927,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notDeeply method should be a function",
       "id": 202,
@@ -21967,6 +22945,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ifErr method",
       "id": 203,
@@ -21984,6 +22963,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ifErr method should be a function",
       "id": 204,
@@ -22001,6 +22981,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have hasFields method",
       "id": 205,
@@ -22018,6 +22999,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "hasFields method should be a function",
       "id": 206,
@@ -22035,6 +23017,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotDeeply method",
       "id": 207,
@@ -22052,6 +23035,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotDeeply method should be a function",
       "id": 208,
@@ -22069,6 +23053,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have like method",
       "id": 209,
@@ -22086,6 +23071,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "like method should be a function",
       "id": 210,
@@ -22103,6 +23089,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have similar method",
       "id": 211,
@@ -22120,6 +23107,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "similar method should be a function",
       "id": 212,
@@ -22137,6 +23125,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notOk method",
       "id": 213,
@@ -22154,6 +23143,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notOk method should be a function",
       "id": 214,
@@ -22171,6 +23161,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isDissimilar method",
       "id": 215,
@@ -22188,6 +23179,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isDissimilar method should be a function",
       "id": 216,
@@ -22205,6 +23197,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isEquivalent method",
       "id": 217,
@@ -22222,6 +23215,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isEquivalent method should be a function",
       "id": 218,
@@ -22239,6 +23233,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotEqual method",
       "id": 219,
@@ -22256,6 +23251,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotEqual method should be a function",
       "id": 220,
@@ -22273,6 +23269,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isSimilar method",
       "id": 221,
@@ -22290,6 +23287,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isSimilar method should be a function",
       "id": 222,
@@ -22307,6 +23305,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notDeepEqual method",
       "id": 223,
@@ -22324,6 +23323,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notDeepEqual method should be a function",
       "id": 224,
@@ -22341,6 +23341,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have type method",
       "id": 225,
@@ -22358,6 +23359,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "type method should be a function",
       "id": 226,
@@ -22375,6 +23377,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notok method",
       "id": 227,
@@ -22392,6 +23395,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notok method should be a function",
       "id": 228,
@@ -22409,6 +23413,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isInequivalent method",
       "id": 229,
@@ -22426,6 +23431,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isInequivalent method should be a function",
       "id": 230,
@@ -22443,6 +23449,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNot method",
       "id": 231,
@@ -22460,6 +23467,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNot method should be a function",
       "id": 232,
@@ -22477,6 +23485,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have same method",
       "id": 233,
@@ -22494,6 +23503,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "same method should be a function",
       "id": 234,
@@ -22511,6 +23521,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isInequal method",
       "id": 235,
@@ -22528,6 +23539,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isInequal method should be a function",
       "id": 236,
@@ -22545,6 +23557,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have _endNice method",
       "id": 237,
@@ -22562,6 +23575,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "_endNice method should be a function",
       "id": 238,
@@ -22579,6 +23593,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have ifError method",
       "id": 239,
@@ -22596,6 +23611,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ifError method should be a function",
       "id": 240,
@@ -22613,6 +23629,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have iferror method",
       "id": 241,
@@ -22630,6 +23647,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "iferror method should be a function",
       "id": 242,
@@ -22647,6 +23665,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have clear method",
       "id": 243,
@@ -22664,6 +23683,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "clear method should be a function",
       "id": 244,
@@ -22681,6 +23701,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have has method",
       "id": 245,
@@ -22698,6 +23719,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "has method should be a function",
       "id": 246,
@@ -22715,6 +23737,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have not method",
       "id": 247,
@@ -22732,6 +23755,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not method should be a function",
       "id": 248,
@@ -22749,6 +23773,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have timeout method",
       "id": 249,
@@ -22766,6 +23791,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "timeout method should be a function",
       "id": 250,
@@ -22783,6 +23809,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notSimilar method",
       "id": 251,
@@ -22800,6 +23827,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notSimilar method should be a function",
       "id": 252,
@@ -22817,6 +23845,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isUnlike method",
       "id": 253,
@@ -22834,6 +23863,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isUnlike method should be a function",
       "id": 254,
@@ -22851,6 +23881,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEquals method",
       "id": 255,
@@ -22868,6 +23899,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEquals method should be a function",
       "id": 256,
@@ -22885,6 +23917,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have unsimilar method",
       "id": 257,
@@ -22902,6 +23935,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "unsimilar method should be a function",
       "id": 258,
@@ -22919,6 +23953,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have result method",
       "id": 259,
@@ -22936,6 +23971,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "result method should be a function",
       "id": 260,
@@ -22953,6 +23989,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotThrow method",
       "id": 261,
@@ -22970,6 +24007,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotThrow method should be a function",
       "id": 262,
@@ -22987,6 +24025,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have error method",
       "id": 263,
@@ -23004,6 +24043,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "error method should be a function",
       "id": 264,
@@ -23021,6 +24061,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have constructor method",
       "id": 265,
@@ -23038,6 +24079,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "constructor method should be a function",
       "id": 266,
@@ -23055,6 +24097,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEqual method",
       "id": 267,
@@ -23072,6 +24115,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEqual method should be a function",
       "id": 268,
@@ -23089,6 +24133,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have throws method",
       "id": 269,
@@ -23106,6 +24151,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "throws method should be a function",
       "id": 270,
@@ -23123,6 +24169,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isLike method",
       "id": 271,
@@ -23140,6 +24187,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isLike method should be a function",
       "id": 272,
@@ -23157,6 +24205,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotSimilar method",
       "id": 273,
@@ -23174,6 +24223,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotSimilar method should be a function",
       "id": 274,
@@ -23191,6 +24241,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotEquivalent method",
       "id": 275,
@@ -23208,6 +24259,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotEquivalent method should be a function",
       "id": 276,
@@ -23225,6 +24277,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have inequal method",
       "id": 277,
@@ -23242,6 +24295,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "inequal method should be a function",
       "id": 278,
@@ -23259,6 +24313,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have notEquivalent method",
       "id": 279,
@@ -23276,6 +24331,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notEquivalent method should be a function",
       "id": 280,
@@ -23293,6 +24349,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isNotLike method",
       "id": 281,
@@ -23310,6 +24367,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isNotLike method should be a function",
       "id": 282,
@@ -23327,6 +24385,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equivalent method",
       "id": 283,
@@ -23344,6 +24403,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equivalent method should be a function",
       "id": 284,
@@ -23361,6 +24421,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have looseEqual method",
       "id": 285,
@@ -23378,6 +24439,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "looseEqual method should be a function",
       "id": 286,
@@ -23395,6 +24457,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have equal method",
       "id": 287,
@@ -23412,6 +24475,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "equal method should be a function",
       "id": 288,
@@ -23429,6 +24493,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have unlike method",
       "id": 289,
@@ -23446,6 +24511,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "unlike method should be a function",
       "id": 290,
@@ -23463,6 +24529,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have doesNotHave method",
       "id": 291,
@@ -23480,6 +24547,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "doesNotHave method should be a function",
       "id": 292,
@@ -23497,6 +24565,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have comment method",
       "id": 293,
@@ -23514,6 +24583,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "comment method should be a function",
       "id": 294,
@@ -23531,6 +24601,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should have isa method",
       "id": 295,
@@ -23548,6 +24619,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "isa method should be a function",
       "id": 296,
@@ -23577,6 +24649,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-test.js",
       "id": 297,
@@ -23606,6 +24679,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a",
       "id": 298,
@@ -23623,6 +24697,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "b",
       "id": 299,
@@ -23644,6 +24719,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a",
       "id": 300,
@@ -23661,6 +24737,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "b",
       "id": 301,
@@ -23690,6 +24767,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/timeout.js",
       "id": 302,
@@ -23711,6 +24789,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/trivial-success.js",
       "id": 303,
@@ -23740,6 +24819,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 304,
@@ -23769,6 +24849,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/undefined_indented.js",
       "id": 305,
@@ -23798,6 +24879,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 306,
@@ -23815,6 +24897,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 307,
@@ -23832,6 +24915,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 308,
@@ -23849,6 +24933,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 309,
@@ -23866,6 +24951,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 310,
@@ -23883,6 +24969,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 311,
@@ -23912,6 +24999,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/valid-command.js",
       "id": 312,
@@ -23962,6 +25050,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -23992,6 +25081,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -24021,6 +25111,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -24050,6 +25141,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -24079,6 +25171,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "command": "/usr/local/bin/iojs test-descriptions.js",
             "exit": 1,
@@ -24109,6 +25202,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes",
           "id": 102,
@@ -24123,6 +25217,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false",
           "id": 103,
@@ -24137,6 +25232,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes without explanation",
           "id": 106,
@@ -24151,6 +25247,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false without explanation",
           "id": 107,
@@ -24165,6 +25262,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "does not count as failure",
           "id": 148,
@@ -24183,6 +25281,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus",
           "id": 104,
@@ -24197,6 +25296,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected",
           "id": 105,
@@ -24211,6 +25311,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus without explanation",
           "id": 108,
@@ -24225,6 +25326,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected without explanation",
           "id": 109,
@@ -25531,6 +26633,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 1,
@@ -25552,6 +26655,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should not be equivalent",
       "id": 2,
@@ -25581,6 +26685,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/buffer_compare.js",
       "id": 3,
@@ -25602,6 +26707,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "just setup, nothing relevant",
       "id": 4,
@@ -25619,6 +26725,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/common.js",
       "id": 5,
@@ -25648,6 +26755,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 6,
@@ -25669,6 +26777,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 7,
@@ -25690,6 +26799,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 8,
@@ -25711,6 +26821,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 9,
@@ -25732,6 +26843,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 10,
@@ -25753,6 +26865,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 11,
@@ -25782,6 +26895,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/consumer.js",
       "id": 12,
@@ -25811,6 +26925,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should output debugger message",
       "id": 13,
@@ -25840,6 +26955,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 14,
@@ -25869,6 +26985,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 15,
@@ -25890,6 +27007,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 16,
@@ -25911,6 +27029,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be strictly equal",
       "id": 17,
@@ -25940,6 +27059,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep-strict.js",
       "id": 18,
@@ -25969,6 +27089,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 19,
@@ -25990,6 +27111,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 20,
@@ -26011,6 +27133,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 21,
@@ -26040,6 +27163,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/deep.js",
       "id": 22,
@@ -26061,6 +27185,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "File with executable bit should be executed",
       "id": 23,
@@ -26078,6 +27203,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/executed.sh",
       "id": 24,
@@ -26111,6 +27237,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 25,
@@ -26128,6 +27255,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 26,
@@ -26149,6 +27277,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 27,
@@ -26166,6 +27295,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 28,
@@ -26187,6 +27317,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 29,
@@ -26204,6 +27335,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 30,
@@ -26229,6 +27361,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 31,
@@ -26246,6 +27379,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 32,
@@ -26267,6 +27401,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 33,
@@ -26284,6 +27419,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 34,
@@ -26313,6 +27449,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/exit-code.js",
       "id": 35,
@@ -26342,6 +27479,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 36,
@@ -26367,6 +27505,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 37,
@@ -26388,6 +27527,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 38,
@@ -26421,6 +27561,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/expose-gc-test.js",
       "id": 39,
@@ -26454,6 +27595,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "1-1",
       "id": 40,
@@ -26475,6 +27617,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "2-1",
       "id": 41,
@@ -26496,6 +27639,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "3-1",
       "id": 42,
@@ -26513,6 +27657,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/global-harness-async.js",
       "id": 43,
@@ -26554,6 +27699,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/independent-timeouts.js",
       "id": 44,
@@ -26583,6 +27729,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 45,
@@ -26600,6 +27747,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 46,
@@ -26621,6 +27769,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 47,
@@ -26638,6 +27787,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 48,
@@ -26667,6 +27817,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/isolated-conf-test.js",
       "id": 49,
@@ -26696,6 +27847,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sanity check",
       "id": 50,
@@ -26713,6 +27865,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not ok",
       "id": 51,
@@ -26730,6 +27883,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "total test count",
       "id": 52,
@@ -26747,6 +27901,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests passed",
       "id": 53,
@@ -26764,6 +27919,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tests failed",
       "id": 54,
@@ -26781,6 +27937,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ok is boolean",
       "id": 55,
@@ -26798,6 +27955,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip is number",
       "id": 56,
@@ -26815,6 +27973,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "results isa Results",
       "id": 57,
@@ -26832,6 +27991,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Test",
       "id": 58,
@@ -26849,6 +28009,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test isa Harness",
       "id": 59,
@@ -26878,6 +28039,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/meta-test.js",
       "id": 60,
@@ -26907,6 +28069,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync child A",
       "id": 61,
@@ -26932,6 +28095,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 62,
@@ -26953,6 +28117,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 63,
@@ -26974,6 +28139,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "sync grandchild in async child A",
       "id": 64,
@@ -26995,6 +28161,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 65,
@@ -27024,6 +28191,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-async.js",
       "id": 66,
@@ -27053,6 +28221,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "p test",
       "id": 67,
@@ -27074,6 +28243,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test",
       "id": 68,
@@ -27095,6 +28265,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "grch test",
       "id": 69,
@@ -27116,6 +28287,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "ch test 2",
       "id": 70,
@@ -27145,6 +28317,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/nested-test.js",
       "id": 71,
@@ -27182,6 +28355,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": ", 8 can stay.",
       "id": 72,
@@ -27219,6 +28393,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "might be confusing",
       "id": 73,
@@ -27236,6 +28411,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "done now, exiting",
       "id": 74,
@@ -27253,6 +28429,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/non-tap-output.js",
       "id": 75,
@@ -27286,6 +28463,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description",
       "id": 76,
@@ -27303,6 +28481,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description",
       "id": 77,
@@ -27320,6 +28499,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent description before parent result",
       "id": 78,
@@ -27337,6 +28517,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs parent result before child description",
       "id": 79,
@@ -27354,6 +28535,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "outputs child description before child result",
       "id": 80,
@@ -27383,6 +28565,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/output-childtest-description.js",
       "id": 81,
@@ -27412,6 +28595,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 82,
@@ -27429,6 +28613,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 83,
@@ -27458,6 +28643,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/result-trap.js",
       "id": 84,
@@ -27487,6 +28673,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "compiled seg faulter",
       "id": 85,
@@ -27508,6 +28695,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 86,
@@ -27525,6 +28713,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 87,
@@ -27542,6 +28731,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 88,
@@ -27559,6 +28749,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 89,
@@ -27576,6 +28767,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 90,
@@ -27593,6 +28785,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 91,
@@ -27614,6 +28807,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "cleaned up",
       "id": 92,
@@ -27643,6 +28837,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/segv.js",
       "id": 93,
@@ -27672,6 +28867,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 94,
@@ -27693,6 +28889,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 95,
@@ -27710,6 +28907,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 96,
@@ -27739,6 +28937,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test-with-plan.js",
       "id": 97,
@@ -27768,6 +28967,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "it works",
       "id": 98,
@@ -27789,6 +28989,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "math should work",
       "id": 99,
@@ -27806,6 +29007,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false should not be ok",
       "id": 100,
@@ -27835,6 +29037,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/simple-harness-test.js",
       "id": 101,
@@ -27864,6 +29067,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes",
       "id": 102,
@@ -27881,6 +29085,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false",
       "id": 103,
@@ -27898,6 +29103,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus",
       "id": 104,
@@ -27915,6 +29121,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected",
       "id": 105,
@@ -27932,6 +29139,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "always passes without explanation",
       "id": 106,
@@ -27949,6 +29157,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "false without explanation",
       "id": 107,
@@ -27966,6 +29175,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "bonus without explanation",
       "id": 108,
@@ -27983,6 +29193,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "expected without explanation",
       "id": 109,
@@ -28012,6 +29223,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/test-assert-todo-skip.js",
       "id": 110,
@@ -28041,6 +29253,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "exit cleanly",
       "id": 111,
@@ -28058,6 +29271,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "captures SKIP description",
       "id": 112,
@@ -28075,6 +29289,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skip summary is not from file",
       "id": 113,
@@ -28092,6 +29307,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "todo summary is not from file",
       "id": 114,
@@ -28109,6 +29325,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "column": 7,
         "file": "child_process.js",
@@ -28151,6 +29368,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "column": 7,
             "file": "child_process.js",
@@ -28194,6 +29412,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes",
           "id": 102,
@@ -28208,6 +29427,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false",
           "id": 103,
@@ -28222,6 +29442,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "always passes without explanation",
           "id": 106,
@@ -28236,6 +29457,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "false without explanation",
           "id": 107,
@@ -28254,6 +29476,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus",
           "id": 104,
@@ -28268,6 +29491,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected",
           "id": 105,
@@ -28282,6 +29506,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "bonus without explanation",
           "id": 108,
@@ -28296,6 +29521,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "expected without explanation",
           "id": 109,

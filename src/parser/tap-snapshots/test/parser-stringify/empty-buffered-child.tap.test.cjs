@@ -54,6 +54,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -175,6 +176,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -239,6 +241,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 1,
@@ -359,6 +362,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,
@@ -480,6 +484,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 0,

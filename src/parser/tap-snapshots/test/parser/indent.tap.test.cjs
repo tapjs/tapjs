@@ -66,6 +66,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "first > true is ok",
           "id": 1,
@@ -87,6 +88,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "first > doag is also okay",
           "id": 2,
@@ -141,6 +143,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > true is ok",
       "id": 1,
@@ -158,6 +161,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > true is ok",
       "id": 1,
@@ -179,6 +183,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > doag is also okay",
       "id": 2,
@@ -196,6 +201,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > doag is also okay",
       "id": 2,
@@ -217,6 +223,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "first",
       "id": 1,
@@ -249,6 +256,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "second > no plan",
           "id": 1,
@@ -293,6 +301,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "second > this passes > granddaughter",
               "id": 0,
@@ -334,6 +343,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "it": "is yaml",
                 "ok": 1,
@@ -375,6 +385,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "second > this passes > grandchild",
               "id": 0,
@@ -406,10 +417,42 @@ Array [
                 "start": 1,
               },
               "skip": 1,
-              "skips": Array [],
+              "skips": Array [
+                Object {
+                  "buffered": false,
+                  "closingTestPoint": false,
+                  "diag": null,
+                  "fullname": "second > this passes > granddaughter",
+                  "id": 0,
+                  "name": "granddaughter",
+                  "ok": false,
+                  "plan": null,
+                  "previous": null,
+                  "skip": "for no raisin",
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
+                },
+              ],
               "time": 1200,
               "todo": 1,
-              "todos": Array [],
+              "todos": Array [
+                Object {
+                  "buffered": false,
+                  "closingTestPoint": false,
+                  "diag": null,
+                  "fullname": "second > this passes > grandchild",
+                  "id": 0,
+                  "name": "grandchild",
+                  "ok": false,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": true,
+                },
+              ],
             },
           ],
           Array [
@@ -477,6 +520,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "second > this passes",
           "id": 2,
@@ -539,6 +583,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > no plan",
       "id": 1,
@@ -556,6 +601,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > no plan",
       "id": 1,
@@ -585,6 +631,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > granddaughter",
       "id": 0,
@@ -602,6 +649,7 @@ Array [
     "skip",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > granddaughter",
       "id": 0,
@@ -643,6 +691,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
@@ -664,6 +713,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
@@ -705,6 +755,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > grandchild",
       "id": 0,
@@ -722,6 +773,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > grandchild",
       "id": 0,
@@ -761,6 +813,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "second",
       "id": 2,
@@ -862,6 +915,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "first > true is ok",
           "id": 1,
@@ -883,6 +937,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "first > doag is also okay",
           "id": 2,
@@ -937,6 +992,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > true is ok",
       "id": 1,
@@ -954,6 +1010,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > true is ok",
       "id": 1,
@@ -975,6 +1032,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > doag is also okay",
       "id": 2,
@@ -992,6 +1050,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "first > doag is also okay",
       "id": 2,
@@ -1013,6 +1072,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "first",
       "id": 1,
@@ -1045,6 +1105,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "second > no plan",
           "id": 1,
@@ -1089,6 +1150,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "second > this passes > granddaughter",
               "id": 0,
@@ -1130,6 +1192,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "it": "is yaml",
                 "ok": 1,
@@ -1171,6 +1234,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "second > this passes > grandchild",
               "id": 0,
@@ -1202,10 +1266,42 @@ Array [
                 "start": 1,
               },
               "skip": 1,
-              "skips": Array [],
+              "skips": Array [
+                Object {
+                  "buffered": false,
+                  "closingTestPoint": false,
+                  "diag": null,
+                  "fullname": "second > this passes > granddaughter",
+                  "id": 0,
+                  "name": "granddaughter",
+                  "ok": false,
+                  "plan": null,
+                  "previous": null,
+                  "skip": "for no raisin",
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
+                },
+              ],
               "time": 1200,
               "todo": 1,
-              "todos": Array [],
+              "todos": Array [
+                Object {
+                  "buffered": false,
+                  "closingTestPoint": false,
+                  "diag": null,
+                  "fullname": "second > this passes > grandchild",
+                  "id": 0,
+                  "name": "grandchild",
+                  "ok": false,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": true,
+                },
+              ],
             },
           ],
           Array [
@@ -1273,6 +1369,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "second > this passes",
           "id": 2,
@@ -1335,6 +1432,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > no plan",
       "id": 1,
@@ -1352,6 +1450,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > no plan",
       "id": 1,
@@ -1381,6 +1480,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > granddaughter",
       "id": 0,
@@ -1398,6 +1498,7 @@ Array [
     "skip",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > granddaughter",
       "id": 0,
@@ -1439,6 +1540,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
@@ -1460,6 +1562,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "it": "is yaml",
         "ok": 1,
@@ -1501,6 +1604,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > grandchild",
       "id": 0,
@@ -1518,6 +1622,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "second > this passes > grandchild",
       "id": 0,
@@ -1557,6 +1662,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "second",
       "id": 2,

@@ -23,6 +23,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "contains # hash",
       "id": 1,
@@ -40,6 +41,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "contains # hash",
       "id": 1,
@@ -57,6 +59,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "contains # hash",
       "id": 1,
@@ -78,6 +81,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "directive",
       "id": 2,
@@ -95,6 +99,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "directive",
       "id": 2,
@@ -112,6 +117,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "directive",
       "id": 2,
@@ -133,6 +139,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "escaped \\\\ slash \\\\",
       "id": 3,
@@ -150,6 +157,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "escaped \\\\ slash \\\\",
       "id": 3,
@@ -167,6 +175,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "escaped \\\\ slash \\\\",
       "id": 3,
@@ -188,6 +197,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 4,
@@ -205,6 +215,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 4,
@@ -222,6 +233,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 4,
@@ -243,6 +255,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yes todo",
       "id": 5,
@@ -260,6 +273,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yes todo",
       "id": 5,
@@ -277,6 +291,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yes todo",
       "id": 5,
@@ -298,6 +313,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 6,
@@ -315,6 +331,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 6,
@@ -332,6 +349,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 6,
@@ -381,6 +399,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "directive",
           "id": 2,
@@ -395,6 +414,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "escaped \\\\ slash \\\\",
           "id": 3,
@@ -409,6 +429,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "yes todo",
           "id": 5,
@@ -445,6 +466,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "contains # hash",
       "id": 1,
@@ -462,6 +484,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "contains # hash",
       "id": 1,
@@ -479,6 +502,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "contains # hash",
       "id": 1,
@@ -500,6 +524,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "directive",
       "id": 2,
@@ -517,6 +542,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "directive",
       "id": 2,
@@ -534,6 +560,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "directive",
       "id": 2,
@@ -555,6 +582,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "escaped \\\\ slash \\\\",
       "id": 3,
@@ -572,6 +600,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "escaped \\\\ slash \\\\",
       "id": 3,
@@ -589,6 +618,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "escaped \\\\ slash \\\\",
       "id": 3,
@@ -610,6 +640,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 4,
@@ -627,6 +658,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 4,
@@ -644,6 +676,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 4,
@@ -665,6 +698,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yes todo",
       "id": 5,
@@ -682,6 +716,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yes todo",
       "id": 5,
@@ -699,6 +734,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "yes todo",
       "id": 5,
@@ -720,6 +756,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 6,
@@ -737,6 +774,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 6,
@@ -754,6 +792,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "not todo # hash # todo",
       "id": 6,
@@ -803,6 +842,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "directive",
           "id": 2,
@@ -817,6 +857,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "escaped \\\\ slash \\\\",
           "id": 3,
@@ -831,6 +872,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "yes todo",
           "id": 5,

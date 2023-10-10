@@ -103,6 +103,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "Invalid time value",
@@ -137,6 +138,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "Invalid time value",
@@ -171,6 +173,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "Invalid time value",
@@ -304,6 +307,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "code": "ERR_TEST_FAILURE",
             "error": "ok",
@@ -356,6 +360,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "code": "ERR_TEST_FAILURE",
                 "error": "ok",
@@ -497,6 +502,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "ok",
@@ -532,6 +538,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "ok",
@@ -607,6 +614,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "1 subtest failed",
@@ -655,6 +663,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "code": "ERR_TEST_FAILURE",
             "error": "Invalid time value",
@@ -686,6 +695,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": Object {
             "code": "ERR_TEST_FAILURE",
             "error": "1 subtest failed",
@@ -823,6 +833,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "Invalid time value",
@@ -857,6 +868,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "Invalid time value",
@@ -891,6 +903,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "code": "ERR_TEST_FAILURE",
         "error": "Invalid time value",
@@ -938,6 +951,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "code": "ERR_TEST_FAILURE",
             "error": "Invalid time value",

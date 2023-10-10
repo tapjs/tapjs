@@ -22,6 +22,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "subtest > this is fine",
           "id": 1,
@@ -79,6 +80,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {},
       "fullname": "subtest",
       "id": 1,
@@ -187,6 +189,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "subtest > this is fine",
           "id": 1,
@@ -244,6 +247,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {},
       "fullname": "subtest",
       "id": 1,
@@ -316,6 +320,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "subtest > this is fine",
       "id": 1,
@@ -423,6 +428,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "subtest > this is fine",
           "id": 1,
@@ -480,6 +486,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {},
       "fullname": "subtest",
       "id": 1,
@@ -588,6 +595,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "subtest > this is fine",
           "id": 1,
@@ -645,6 +653,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {},
       "fullname": "subtest",
       "id": 1,

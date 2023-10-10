@@ -27,6 +27,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Hamlette",
       "id": 1,
@@ -44,6 +45,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Hamlette",
       "id": 1,
@@ -61,6 +63,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Hamlette",
       "id": 1,
@@ -95,7 +98,23 @@ Array [
       "skips": Array [],
       "time": null,
       "todo": 1,
-      "todos": Array [],
+      "todos": Array [
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "Hamlette",
+          "id": 1,
+          "name": "Hamlette",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": true,
+        },
+      ],
     },
   ],
 ]
@@ -123,6 +142,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Hamlette",
       "id": 1,
@@ -140,6 +160,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Hamlette",
       "id": 1,
@@ -157,6 +178,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Hamlette",
       "id": 1,
@@ -191,7 +213,23 @@ Array [
       "skips": Array [],
       "time": null,
       "todo": 1,
-      "todos": Array [],
+      "todos": Array [
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "Hamlette",
+          "id": 1,
+          "name": "Hamlette",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": true,
+        },
+      ],
     },
   ],
 ]

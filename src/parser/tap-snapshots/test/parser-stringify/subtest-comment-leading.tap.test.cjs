@@ -41,6 +41,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > true is ok",
               "id": 1,
@@ -58,6 +59,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > doag is also okay",
               "id": 2,
@@ -107,6 +109,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > first",
           "id": 1,
@@ -131,6 +134,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > but that is ok",
               "id": 1,
@@ -148,6 +152,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > this passes",
               "id": 2,
@@ -165,6 +170,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > nested ok",
               "id": 3,
@@ -222,6 +228,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > second",
           "id": 2,
@@ -279,6 +286,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -296,6 +304,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -433,6 +442,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > true is ok",
               "id": 1,
@@ -450,6 +460,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > doag is also okay",
               "id": 2,
@@ -499,6 +510,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > first",
           "id": 1,
@@ -523,6 +535,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > but that is ok",
               "id": 1,
@@ -540,6 +553,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > this passes",
               "id": 2,
@@ -557,6 +571,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > nested ok",
               "id": 3,
@@ -614,6 +629,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > second",
           "id": 2,
@@ -671,6 +687,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -688,6 +705,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -760,6 +778,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nesting > first > true is ok",
       "id": 1,
@@ -777,6 +796,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nesting > first > doag is also okay",
       "id": 2,
@@ -794,6 +814,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nesting > second > but that is ok",
       "id": 3,
@@ -811,6 +832,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nesting > second > this passes",
       "id": 4,
@@ -828,6 +850,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "nesting > second > nested ok",
       "id": 5,
@@ -845,6 +868,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 6,
@@ -981,6 +1005,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > true is ok",
               "id": 1,
@@ -998,6 +1023,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > doag is also okay",
               "id": 2,
@@ -1047,6 +1073,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > first",
           "id": 1,
@@ -1071,6 +1098,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > but that is ok",
               "id": 1,
@@ -1088,6 +1116,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > this passes",
               "id": 2,
@@ -1105,6 +1134,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > nested ok",
               "id": 3,
@@ -1162,6 +1192,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > second",
           "id": 2,
@@ -1219,6 +1250,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -1236,6 +1268,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,
@@ -1373,6 +1406,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > true is ok",
               "id": 1,
@@ -1390,6 +1424,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > first > doag is also okay",
               "id": 2,
@@ -1439,6 +1474,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > first",
           "id": 1,
@@ -1463,6 +1499,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > but that is ok",
               "id": 1,
@@ -1480,6 +1517,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > this passes",
               "id": 2,
@@ -1497,6 +1535,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "nesting > second > nested ok",
               "id": 3,
@@ -1554,6 +1593,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "nesting > second",
           "id": 2,
@@ -1611,6 +1651,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "nesting",
       "id": 1,
@@ -1628,6 +1669,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this passes",
       "id": 2,

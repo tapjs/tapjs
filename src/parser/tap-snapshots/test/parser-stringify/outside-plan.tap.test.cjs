@@ -23,6 +23,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pretty big",
       "id": 234,
@@ -44,6 +45,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "less big",
       "id": 5,
@@ -65,6 +67,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "three",
       "id": 3,
@@ -87,6 +90,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "pretty big",
           "id": 234,
@@ -105,6 +109,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "less big",
           "id": 5,
@@ -184,6 +189,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pretty big",
       "id": 234,
@@ -205,6 +211,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "less big",
       "id": 5,
@@ -226,6 +233,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "three",
       "id": 3,
@@ -248,6 +256,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "pretty big",
           "id": 234,
@@ -266,6 +275,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "less big",
           "id": 5,
@@ -319,6 +329,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pretty big",
       "id": 1,
@@ -340,6 +351,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "less big",
       "id": 2,
@@ -361,6 +373,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "three",
       "id": 3,
@@ -390,6 +403,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "pretty big",
           "id": 1,
@@ -408,6 +422,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "less big",
           "id": 2,
@@ -487,6 +502,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pretty big",
       "id": 234,
@@ -508,6 +524,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "less big",
       "id": 5,
@@ -529,6 +546,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "three",
       "id": 3,
@@ -551,6 +569,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "pretty big",
           "id": 234,
@@ -569,6 +588,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "less big",
           "id": 5,
@@ -648,6 +668,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "pretty big",
       "id": 234,
@@ -669,6 +690,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "less big",
       "id": 5,
@@ -690,6 +712,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "three",
       "id": 3,
@@ -712,6 +735,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "pretty big",
           "id": 234,
@@ -730,6 +754,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "less big",
           "id": 5,

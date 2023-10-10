@@ -53,7 +53,7 @@ TAP version 14
     not ok 2 - cannot create subtest after parent promise resolves
       ---
       stack: |
-        Minimal.<anonymous> (test/test-base.ts:1663:13)
+        Minimal.<anonymous> (test/test-base.ts:1664:13)
       at:
         fileName: test/test-base.ts
         lineNumber: ##

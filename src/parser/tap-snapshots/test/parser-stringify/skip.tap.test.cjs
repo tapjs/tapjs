@@ -19,6 +19,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -36,6 +37,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 2,
@@ -53,6 +55,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "#skip should not skip because escaped",
       "id": 3,
@@ -70,6 +73,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notskip, because testTitle#skip is not a directive",
       "id": 4,
@@ -87,6 +91,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -121,6 +126,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 2,
@@ -135,6 +141,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 5,
@@ -196,6 +203,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -213,6 +221,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 2,
@@ -230,6 +239,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "#skip should not skip because escaped",
       "id": 3,
@@ -247,6 +257,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notskip, because testTitle#skip is not a directive",
       "id": 4,
@@ -264,6 +275,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -298,6 +310,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 2,
@@ -312,6 +325,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 5,
@@ -345,6 +359,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -362,6 +377,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 2,
@@ -379,6 +395,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "#skip should not skip because escaped",
       "id": 3,
@@ -396,6 +413,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notskip, because testTitle#skip is not a directive",
       "id": 4,
@@ -413,6 +431,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -454,6 +473,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 2,
@@ -468,6 +488,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 5,
@@ -529,6 +550,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -546,6 +568,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 2,
@@ -563,6 +586,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "#skip should not skip because escaped",
       "id": 3,
@@ -580,6 +604,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notskip, because testTitle#skip is not a directive",
       "id": 4,
@@ -597,6 +622,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -631,6 +657,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 2,
@@ -645,6 +672,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 5,
@@ -706,6 +734,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -723,6 +752,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 2,
@@ -740,6 +770,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "#skip should not skip because escaped",
       "id": 3,
@@ -757,6 +788,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "notskip, because testTitle#skip is not a directive",
       "id": 4,
@@ -774,6 +806,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 5,
@@ -808,6 +841,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 2,
@@ -822,6 +856,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 5,

@@ -23,6 +23,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -57,6 +58,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x",
           "id": 1,
@@ -116,6 +118,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -150,6 +153,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x",
           "id": 1,
@@ -187,6 +191,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -228,6 +233,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x",
           "id": 1,
@@ -287,6 +293,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -321,6 +328,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x",
           "id": 1,
@@ -380,6 +388,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 1,
@@ -414,6 +423,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "x",
           "id": 1,

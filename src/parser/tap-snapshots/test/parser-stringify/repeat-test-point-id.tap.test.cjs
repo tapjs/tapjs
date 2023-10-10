@@ -15,6 +15,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -32,6 +33,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -40,6 +42,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -62,6 +65,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -70,6 +74,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -105,6 +110,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -113,6 +119,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -132,6 +139,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -140,6 +148,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -212,6 +221,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -229,6 +239,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -237,6 +248,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -259,6 +271,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -267,6 +280,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -302,6 +316,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -310,6 +325,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -329,6 +345,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -337,6 +354,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -391,6 +409,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -408,6 +427,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 2,
@@ -416,6 +436,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -438,6 +459,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 3,
@@ -446,6 +468,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -480,6 +503,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 2,
@@ -488,6 +512,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -507,6 +532,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 3,
@@ -515,6 +541,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -587,6 +614,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -604,6 +632,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -612,6 +641,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -634,6 +664,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -642,6 +673,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -677,6 +709,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -685,6 +718,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -704,6 +738,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -712,6 +747,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -784,6 +820,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -801,6 +838,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -809,6 +847,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -831,6 +870,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 1,
@@ -839,6 +879,7 @@ Array [
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "",
         "id": 1,
@@ -874,6 +915,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -882,6 +924,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
@@ -901,6 +944,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 1,
@@ -909,6 +953,7 @@ Array [
           "plan": null,
           "previous": Result {
             "buffered": false,
+            "closingTestPoint": false,
             "diag": null,
             "fullname": "",
             "id": 1,
