@@ -35,11 +35,12 @@ property keys being ignored.
 - (18.4.4) manage plugins better in npm workspaces
 - (18.4.4) mock: allow absolute deps to be mocked, but not node
   builtins
-- (18.4.5) fix windows `tap build` command
-- (18.4.5) fix home page display on Google Chrome
-- (18.4.5) make `test.counts` consistent, unify with
+- (18.4.5) export test-built where node10 tsc can find it
+- (18.4.6) fix windows `tap build` command
+- (18.4.6) fix home page display on Google Chrome
+- (18.4.6) make `test.counts` consistent, unify with
   `test.assertTotals`, since they are the same thing
-- (18.4.5) fix `t.createMock` return type
+- (18.4.6) fix `t.createMock` return type
 
 ## 18.3
 
