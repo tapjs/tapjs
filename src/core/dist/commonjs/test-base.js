@@ -181,7 +181,6 @@ class TestBase extends base_js_1.Base {
     constructor(options) {
         super(options);
         this.parser.on('result', r => {
-            // this.#onParserResult(r)
             this.emit('assert', r);
         });
         this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1;

@@ -325,7 +325,7 @@ class Base extends minipass_1.Minipass {
         this.parser.on('line', l => this.#online(l));
         this.parser.once('bailout', reason => this.onbail(reason));
         this.parser.on('complete', result => this.oncomplete(result));
-        this.parser.on('result', (res) => this.#onParserResult(res));
+        this.parser.on('result', res => this.#onParserResult(res));
     }
     /**
      * Set the amount of time in milliseconds before this test is considered
