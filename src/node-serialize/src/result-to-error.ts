@@ -28,6 +28,7 @@ export const resultToError = (
     stack: diagStack,
     diff: rawDiff,
     source,
+    passes: _,
     ...diag
   } = result.diag || {}
   const at: CallSiteLike | CallSiteLikeJSON =

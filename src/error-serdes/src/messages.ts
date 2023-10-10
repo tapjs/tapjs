@@ -43,8 +43,8 @@ export interface FailDataDetailsSerialized
 export interface TestData extends NamedNestedLocation {
   details: PassDataDetails | FailDataDetails
   testNumber: number
-  todo?: number | boolean
-  skip?: number | boolean
+  todo?: string | boolean
+  skip?: string | boolean
 }
 export type PassData = TestData & { details: PassDataDetails }
 export type FailData = TestData & {
