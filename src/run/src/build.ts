@@ -1,13 +1,12 @@
 import type { LoadedConfig } from '@tapjs/config'
 import { foregroundChild } from 'foreground-child'
-import { createRequire } from 'node:module'
+import { fileURLToPath } from 'node:url'
+import { resolveImport } from 'resolve-import'
 import { mainCommand } from './main-config.js'
-const require = createRequire(import.meta.url)
-const tmbin = require.resolve('.bin/generate-tap-test-class')
-const execArgs = [
-  '--loader=ts-node/esm',
-  '--no-warnings',
-]
+const tmbin = fileURLToPath(
+  await resolveImport('@tapjs/test/generate-tap-test-class')
+)
+const execArgs = ['--loader=ts-node/esm', '--no-warnings']
 const node = process.execPath
 
 export const build = async (args: string[], config: LoadedConfig) => {

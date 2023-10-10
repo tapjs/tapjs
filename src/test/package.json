@@ -26,7 +26,8 @@
           "types": "./test-built/dist/commonjs/index.d.ts",
           "default": "./test-built/dist/commonjs/index.js"
         }
-      }
+      },
+      "./generate-tap-test-class": "./scripts/build.mjs"
     }
   },
   "type": "module",
@@ -66,7 +67,8 @@
         "types": "./test-built/dist/commonjs/index.d.ts",
         "default": "./test-built/dist/commonjs/index.js"
       }
-    }
+    },
+    "./generate-tap-test-class": "./scripts/build.mjs"
   },
   "files": [
     "dist",
