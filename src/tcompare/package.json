@@ -1,6 +1,6 @@
 {
   "name": "tcompare",
-  "version": "6.4.2",
+  "version": "6.4.3",
   "description": "A comprehensive comparison library, for use in test frameworks",
   "tshy": {
     "main": true,

@@ -1,6 +1,6 @@
 {
   "name": "tap-parser",
-  "version": "15.2.0",
+  "version": "15.2.1",
   "description": "parse the test anything protocol",
   "tshy": {
     "main": true,
