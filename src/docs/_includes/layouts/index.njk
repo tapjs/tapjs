@@ -10,10 +10,7 @@ layout: base.njk
       </div>
     </div>
     <div class="hero__InnerBits">
-      <img
-        src="/static/big-logo.gif"
-        alt="tap logo"
-        class="hero__Logo" />
+      <img src="/static/big-logo.gif" alt="tap logo" class="hero__Logo"/>
       <h1 class="hero__Title">
         {{ metadata.description }}
       </h1>
@@ -21,21 +18,16 @@ layout: base.njk
     </div>
   </div>
 </section>
-
 <section class="features">
   <div class="features__Content">
     <h2>Node-Tap Features</h2>
     <div class="features__Columns">
       <section class="no-fancy-dsl">
-        <img src="/static/brain.gif" alt="brain" />
+        <img src="/static/brain.gif" alt="brain"/>
         <div>{% renderFile "./_includes/no-fancy-dsl.md" %}</div>
       </section>
-      <img
-        src="/static/separator.svg"
-        alt="separator"
-        class="features__Separator" />
       <section class="batteries-included">
-        <img src="/static/batteries.gif" alt="batteries" />
+        <img src="/static/batteries.gif" alt="batteries"/>
         <div>
           {% renderFile "./_includes/batteries-included.md" %}
         </div>
@@ -44,16 +36,14 @@ layout: base.njk
     <a class="button-link" href="/basics">Get Started</a>
   </div>
 </section>
-
 <section class="why-tap">
   <div class="why-tap__Content">
     <div class="EncircledImage__GreyCircle">
       <div class="EncircledImage__WhiteCircle">
-        <img src="/static/question-mark.gif" alt="(?)" />
+        <img src="/static/question-mark.gif" alt="(?)"/>
       </div>
     </div>
     {% renderFile "./_includes/why-tap.md" %}
   </div>
 </section>
-
 <footer>{% renderFile "./_includes/footer.md" %}</footer>

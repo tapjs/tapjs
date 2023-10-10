@@ -56,10 +56,10 @@ p {
 blockquote {
   margin: 0;
   padding: 0.5rem 1.5rem;
-  background:#fff;
+  background: #fff;
   border: 1px solid #f90;
   border-radius: 4px;
-  font-size:1.1;
+  font-size: 1.1;
 }
 
 a {
@@ -263,7 +263,7 @@ a:hover {
   font-size: 14px;
   display: block;
   width: 180px;
-  margin: 20px auto;
+  margin: 60px auto 20px auto;
   transition-duration: 0.5s;
   transition-timing-function: ease;
   transition-delay: 0s;
@@ -288,6 +288,7 @@ a:hover {
 .index .features h2 {
   font-size: 20px;
   text-align: center;
+  margin-bottom: 40px;
 }
 .index .features h3 {
   font-size: 16px;
@@ -309,6 +310,10 @@ a:hover {
   flex-direction: column;
   padding: 0 30px;
   max-width: 500px;
+  flex: 1;
+}
+.index .features__Columns section:nth-child(1) {
+  border-right: 1px solid #ccc;
 }
 .index .features__Columns section img {
   padding-bottom: 20px;
@@ -318,9 +323,6 @@ a:hover {
   height: auto;
 }
 @media screen and (max-width: 768px) {
-  .index .features__Columns img.features__Separator {
-    display: none;
-  }
   .index .features__Columns {
     flex-direction: column;
     align-items: center;
@@ -329,6 +331,9 @@ a:hover {
     max-width: 100%;
     display: flex;
     flex-direction: row;
+  }
+  .index .features__Columns section:nth-child(1) {
+    border-right: none;
   }
   .index .features h3 {
     text-align: left;
