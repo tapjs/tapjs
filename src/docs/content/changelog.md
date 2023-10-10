@@ -35,6 +35,11 @@ property keys being ignored.
 - (18.4.4) manage plugins better in npm workspaces
 - (18.4.4) mock: allow absolute deps to be mocked, but not node
   builtins
+- (18.4.5) fix windows `tap build` command
+- (18.4.5) fix home page display on Google Chrome
+- (18.4.5) make `test.counts` consistent, unify with
+  `test.assertTotals`, since they are the same thing
+- (18.4.5) fix `t.createMock` return type
 
 ## 18.3
 
@@ -91,8 +96,8 @@ rather than `TAP` output.
   initializer created incorrect stub code.
 - Fix issue where plugin names were sorted improperly, leading to
   a failure to build config-exporting userland plugins.
-- Avoid triggering warning about `import {...} assert
-  {type:'json'}` being experimental.
+- Avoid triggering warning about import assertions being
+  experimental.
 
 ## 18.0
 
@@ -262,7 +267,7 @@ added, enabling "spies" and mocks for methods and properties.
 
 The `t.mock` method is now `t.mockRequire`. An asynchronous
 `t.mockImport` is added for mocking modules loaded via
-`import()`.  The `t.createMock` method can be used to swap out
+`import()`. The `t.createMock` method can be used to swap out
 one or more properties of an object passed to `t.mockRequire` or
 `t.mockImport`.
 
