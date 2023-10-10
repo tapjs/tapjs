@@ -229,7 +229,6 @@ t.skip('createMock object with accessors', t => {
   t.end()
 })
 
-
 t.test('mockAll editing', t => {
   t.same(t.mockAll({ a: 'blah' }), { a: 'blah' })
   t.same(t.mockAll({ b: 'blah' }), { a: 'blah', b: 'blah' })
