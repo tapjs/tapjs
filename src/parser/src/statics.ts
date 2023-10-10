@@ -51,7 +51,7 @@ export const parse = (
 export const stringify = (
   msg: EventLog,
   { flat = false, indent = '', id = getId() }
-):string => {
+): string => {
   const ind = flat ? '' : indent
   return (
     ind +

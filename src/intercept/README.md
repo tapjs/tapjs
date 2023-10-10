@@ -71,7 +71,12 @@ t.test('intercept a property set/get', t => {
   t.equal(process.version, '1.2.3')
   t.match(results(), [
     { receiver: process, type: 'get', value: '1.2.3', success: true },
-    { receiver: process, type: 'set', value: '2.4.6', success: false },
+    {
+      receiver: process,
+      type: 'set',
+      value: '2.4.6',
+      success: false,
+    },
     { receiver: process, type: 'get', value: '1.2.3', success: true },
   ])
 })

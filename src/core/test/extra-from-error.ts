@@ -123,15 +123,19 @@ t.test('find a useful call site', t => {
     er = e
   }
   const ex = extraFromError(er)
-  t.match(ex, {
-    at: {
-      constructor: CallSiteLike,
-      fileName: 'test/extra-from-error.ts',
-      lineNumber: Number,
-      columnNumber: Number,
+  t.match(
+    ex,
+    {
+      at: {
+        constructor: CallSiteLike,
+        fileName: 'test/extra-from-error.ts',
+        lineNumber: Number,
+        columnNumber: Number,
+      },
+      stack: String,
     },
-    stack: String,
-  }, 'found a useful callsite below the top site')
+    'found a useful callsite below the top site'
+  )
 
   const notUseful = Object.assign(new Error('no good'), {
     stack: `RangeError: no good
@@ -142,17 +146,21 @@ t.test('find a useful call site', t => {
 `,
   })
   const nex = extraFromError(notUseful)
-  t.matchStrict(nex, {
-    at: {
-      constructor: CallSiteLike,
-      lineNumber: null,
-      columnNumber: null,
-      fileName: null,
-      typeName: 'Some',
-      methodName: 'method (<anonymous>)',
-      functionName: 'Some.method (<anonymous>)',
+  t.matchStrict(
+    nex,
+    {
+      at: {
+        constructor: CallSiteLike,
+        lineNumber: null,
+        columnNumber: null,
+        fileName: null,
+        typeName: 'Some',
+        methodName: 'method (<anonymous>)',
+        functionName: 'Some.method (<anonymous>)',
+      },
+      stack: String,
     },
-    stack: String,
-  }, 'did not find a useful site, use the top site')
+    'did not find a useful site, use the top site'
+  )
   t.end()
 })

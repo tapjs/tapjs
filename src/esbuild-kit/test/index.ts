@@ -43,9 +43,9 @@ t.test('set the configs from tap configs', async t => {
   delete process.env.ESBK_DISABLE_CACHE
   process.env.TAP_ESBK_TSCONFIG_PATH = 'some-path'
   process.env.TAP_ESBK_DISABLE_CACHE = '1'
-  const { plugin } = await t.mockImport(
+  const { plugin } = (await t.mockImport(
     '../dist/esm/index.js'
-  ) as typeof import('../dist/esm/index.js')
+  )) as typeof import('../dist/esm/index.js')
   const tb = new TestBase({ name: 'esbk env test' })
   plugin(tb)
   t.match(process.env, {

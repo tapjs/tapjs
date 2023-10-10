@@ -25,7 +25,7 @@ export const plugin: TapPlugin<HelloSayer> = (t: TestBase) => {
   return {
     hello: (who: string = 'world') => {
       console.error(`${t.name} says "Hello, ${who}!"`)
-    }
+    },
   }
 }
 ```
@@ -170,7 +170,7 @@ export class BreakProcess {
   }
 
   breakProcess() {
-    // if we already broke it, 
+    // if we already broke it, nothing to do
     if (this.#restore) return
     const originalProcess = process
     global.process = { not: 'the actual process object' }

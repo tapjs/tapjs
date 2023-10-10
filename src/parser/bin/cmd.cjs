@@ -237,7 +237,7 @@ if (json === 'silent' || json === 'lines') {
     .on('end', () => {
       const buf = Buffer.concat(input)
       const result = Parser.parse(buf, options)
-      let i = result.length -1
+      let i = result.length - 1
       while (result[i] && Array.isArray(result[i])) {
         if (result[i][0] === 'finish' || result[i][0] === 'close') {
           i--

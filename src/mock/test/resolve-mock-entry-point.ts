@@ -24,7 +24,6 @@ t.equal(
     'mock-key',
     () => {}
   ),
-  String(
-    await resolveImport('@tapjs/synonyms', import.meta.url)
-  ) + '?tapmock=service-key.mock-key'
+  String(await resolveImport('@tapjs/synonyms', import.meta.url)) +
+    '?tapmock=service-key.mock-key'
 )

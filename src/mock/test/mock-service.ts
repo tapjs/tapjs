@@ -3,8 +3,14 @@ import { CallSiteLike } from '@tapjs/stack'
 import { relative, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import t from 'tap'
-import { MockService as MSCJS, isMockServiceResponse as isMSRCJS } from '../dist/commonjs/mock-service.js'
-import { MockService, isMockServiceResponse as isMSRMJS } from '../dist/esm/mock-service.js'
+import {
+  MockService as MSCJS,
+  isMockServiceResponse as isMSRCJS,
+} from '../dist/commonjs/mock-service.js'
+import {
+  MockService,
+  isMockServiceResponse as isMSRMJS,
+} from '../dist/esm/mock-service.js'
 import { serviceKey } from '../dist/esm/service-key.js'
 
 t.pass('this is fine')
@@ -23,21 +29,30 @@ t.throws(() => new MockService(), 'not to be constructed directly')
 // version; only MJS after 20.6.
 t.test('isMockServiceResponse', t => {
   t.plan(2)
-  for (const [name, isMSR] of Object.entries({isMSRMJS, isMSRCJS})) {
+  for (const [name, isMSR] of Object.entries({
+    isMSRMJS,
+    isMSRCJS,
+  })) {
     t.test(name, t => {
-      t.equal(isMSR({
-        id: 'x',
-        action: 'load',
-        url: 'http://x',
-        response: 'source'
-      }), true)
-      t.equal(isMSR({
-        id: 'x',
-        action: 'resolve',
-        url: 'http://x',
-        parentURL: 'http://y',
-        response: undefined,
-      }), true)
+      t.equal(
+        isMSR({
+          id: 'x',
+          action: 'load',
+          url: 'http://x',
+          response: 'source',
+        }),
+        true
+      )
+      t.equal(
+        isMSR({
+          id: 'x',
+          action: 'resolve',
+          url: 'http://x',
+          parentURL: 'http://y',
+          response: undefined,
+        }),
+        true
+      )
       t.equal(isMSR(false), false)
       t.end()
     })
@@ -238,43 +253,61 @@ t.test('create with no mocks, nothing to resolve', async t => {
   const expect = pathToFileURL(resolve(t.testdirName, 'blah.mjs'))
   expect.searchParams.set('tapmock', `${serviceKey}.${service.key}`)
 
-  t.equal(await MockService.resolve({
-    action: 'resolve',
-    id: 'whatever',
-    url: './blah.mjs',
-    parentURL: await service.module,
-  }), String(expect))
+  t.equal(
+    await MockService.resolve({
+      action: 'resolve',
+      id: 'whatever',
+      url: './blah.mjs',
+      parentURL: await service.module,
+    }),
+    String(expect)
+  )
 
-  t.equal(await MSCJS.resolve({
-    action: 'resolve',
-    id: 'whatever',
-    url: './blah.mjs',
-    parentURL: await service.module,
-  }), String(expect))
+  t.equal(
+    await MSCJS.resolve({
+      action: 'resolve',
+      id: 'whatever',
+      url: './blah.mjs',
+      parentURL: await service.module,
+    }),
+    String(expect)
+  )
 
-  t.equal(await service.resolve({
-    action: 'resolve',
-    id: 'whatever',
-    url: './blah.mjs',
-    parentURL: await service.module,
-  }), String(expect))
+  t.equal(
+    await service.resolve({
+      action: 'resolve',
+      id: 'whatever',
+      url: './blah.mjs',
+      parentURL: await service.module,
+    }),
+    String(expect)
+  )
 
-  t.equal(await service.resolve({
-    action: 'resolve',
-    id: 'another one',
-    url: './nonexistent.mjs',
-    parentURL: await service.module,
-  }), undefined)
-  t.equal(await MockService.resolve({
-    action: 'resolve',
-    id: 'another one',
-    url: './nonexistent.mjs',
-    parentURL: await service.module,
-  }), undefined)
-  t.equal(await MSCJS.resolve({
-    action: 'resolve',
-    id: 'another one',
-    url: './nonexistent.mjs',
-    parentURL: await service.module,
-  }), undefined)
+  t.equal(
+    await service.resolve({
+      action: 'resolve',
+      id: 'another one',
+      url: './nonexistent.mjs',
+      parentURL: await service.module,
+    }),
+    undefined
+  )
+  t.equal(
+    await MockService.resolve({
+      action: 'resolve',
+      id: 'another one',
+      url: './nonexistent.mjs',
+      parentURL: await service.module,
+    }),
+    undefined
+  )
+  t.equal(
+    await MSCJS.resolve({
+      action: 'resolve',
+      id: 'another one',
+      url: './nonexistent.mjs',
+      parentURL: await service.module,
+    }),
+    undefined
+  )
 })

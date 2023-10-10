@@ -39,9 +39,7 @@ if (!commands.has(mainCommand)) {
 }
 
 export const args = positionals.slice(
-  positionals[0] === mainCommand
-    ? 1
-    : 0
+  positionals[0] === mainCommand ? 1 : 0
 )
 
 if (mainCommand === 'version' || mainCommand === 'versions') {

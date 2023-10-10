@@ -40,10 +40,12 @@ export class MarkdownStream extends Minipass<string> {
         ? 'green'
         : 'red'
 
-    const msg = typeof skip === 'string' ?
-      `<span color="cyan">${skip}</span>`
-      : typeof todo === 'string' ?
-      `<span color="magenta">${todo}</span>`: ''
+    const msg =
+      typeof skip === 'string'
+        ? `<span color="cyan">${skip}</span>`
+        : typeof todo === 'string'
+        ? `<span color="magenta">${todo}</span>`
+        : ''
 
     const { source, diff, ...extra } = diag || {}
     /* c8 ignore start */
@@ -56,8 +58,11 @@ export class MarkdownStream extends Minipass<string> {
     const ymlExtra = stringify(extra).trimEnd()
     const preExtra =
       ymlExtra === '{}' ? '' : `\n\n\`\`\`yaml\n${ymlExtra}\n\`\`\``
-    const preDiff = diff ? `\n\n\`\`\`diff\n${diff.trimEnd()}\n\`\`\`` : ''
-    const b = (preDiff + srcPre + preExtra).replace(/^/gm, '    ')
+    const preDiff = diff
+      ? `\n\n\`\`\`diff\n${diff.trimEnd()}\n\`\`\``
+      : ''
+    const b = (preDiff + srcPre + preExtra)
+      .replace(/^/gm, '    ')
       .replace(/\n    \n/g, '\n\n')
     const body = b.trim() ? '\n\n    ' + b.trimStart() : '\n'
     super.write(

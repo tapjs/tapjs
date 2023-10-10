@@ -30,7 +30,8 @@ export const useSuiteTotals = (test: Base) => {
     /* c8 ignore stop */
     let { total, fail, pass, skip, complete } = suites
     complete++
-    const isFail = !results.ok || results.plan.skipAll && test.options.failSkip
+    const isFail =
+      !results.ok || (results.plan.skipAll && test.options.failSkip)
     if (isFail) fail++
     else if (results.plan.skipAll) skip++
     else pass++

@@ -200,7 +200,7 @@ t.test('no diff, but expected and actual', t => {
         },
       },
       expected: {
-        something: true
+        something: true,
       },
     },
     time: null,

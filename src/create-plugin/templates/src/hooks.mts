@@ -8,9 +8,9 @@
 // See the node docs for more information, or the @tapjs/dummy-plugin
 // for an example.
 
-import {GlobalPreloadHook, LoadHook, ResolveHook} from "module";
+import { GlobalPreloadHook, LoadHook, ResolveHook } from 'module'
 
-export const globalPreload:GlobalPreloadHook = ({ port }) => {
+export const globalPreload: GlobalPreloadHook = ({ port }) => {
   // this is a message port for communication between main and loader threads
   port
   return ''
@@ -19,8 +19,11 @@ export const globalPreload:GlobalPreloadHook = ({ port }) => {
 export const load: LoadHook = async (url, context, nextLoad) =>
   nextLoad(url, context)
 
-export const resolve: ResolveHook = async (url, context, nextResolve) =>
-  nextResolve(url, context)
+export const resolve: ResolveHook = async (
+  url,
+  context,
+  nextResolve
+) => nextResolve(url, context)
 
 // arguments are whatever data is passed in via Module.register() in import.mts
 export const initialize = async () => {}

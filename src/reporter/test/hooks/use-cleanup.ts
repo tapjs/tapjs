@@ -12,9 +12,9 @@ const { useCleanup } = (await t.mockImport(
 t.test('do a thing and then clean it up', t => {
   let effectCalled = false
   let cleanupCalled = false
-  const doCleanup = useCleanup((cleanup) => {
+  const doCleanup = useCleanup(cleanup => {
     effectCalled = true
-    cleanup.push(() => cleanupCalled = true)
+    cleanup.push(() => (cleanupCalled = true))
   }, [])
   t.equal(effectCalled, true)
   t.equal(cleanupCalled, false)
@@ -27,10 +27,10 @@ t.test('do a thing and then clean it up, return cleanup', t => {
   let effectCalled = false
   let cleanupCalled = false
   let directCleanupCalled = false
-  const doCleanup = useCleanup((cleanup) => {
+  const doCleanup = useCleanup(cleanup => {
     effectCalled = true
-    cleanup.push(() => cleanupCalled = true)
-    return () => directCleanupCalled = true
+    cleanup.push(() => (cleanupCalled = true))
+    return () => (directCleanupCalled = true)
   }, [])
   t.equal(effectCalled, true)
   t.equal(cleanupCalled, false)

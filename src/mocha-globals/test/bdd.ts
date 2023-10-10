@@ -1,10 +1,6 @@
 import assert from 'node:assert'
 import t from 'tap'
-import {
-  currentTest,
-  globalize,
-  mount,
-} from '../dist/esm/index.js'
+import { currentTest, globalize, mount } from '../dist/esm/index.js'
 
 globalize()
 mount(t)

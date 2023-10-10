@@ -7,11 +7,14 @@ import * as tsDes from '../src/test-stream-deserialize.js'
 import * as messages from '../src/messages.js'
 import * as constants from '../src/constants.js'
 
-t.strictSame(index, Object.assign(Object.create(null), {
-  ...ser,
-  ...des,
-  ...tsSer,
-  ...tsDes,
-  ...messages,
-  constants,
-}))
+t.strictSame(
+  index,
+  Object.assign(Object.create(null), {
+    ...ser,
+    ...des,
+    ...tsSer,
+    ...tsDes,
+    ...messages,
+    constants,
+  })
+)

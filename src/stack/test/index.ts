@@ -354,9 +354,9 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.notMatch(noGlobDiff, /node_modules.glob/)
       t.notMatch(noGlobDiff, /node_modules.diff/)
 
-      const globNM = fileURLToPath(
-        await resolveImport('glob')
-      ).toLowerCase().replace(/(node_modules.glob).*$/, '$1')
+      const globNM = fileURLToPath(await resolveImport('glob'))
+        .toLowerCase()
+        .replace(/(node_modules.glob).*$/, '$1')
       t.match(expandStack(unfiltered).toLowerCase(), globNM)
 
       t.end()

@@ -11,7 +11,7 @@ import {
   Worker,
 } from '@tapjs/core'
 import { Test, TestOpts } from '@tapjs/test'
-import {resolve} from 'path'
+import { resolve } from 'path'
 
 t.test('parse options', t => {
   const opts: any[] = []
@@ -67,6 +67,6 @@ t.test('spawn a worker with a file', t => {
     `,
   })
   const filename = resolve(d, 'file.mjs')
-  t.worker(filename, { workerData: { a: 1 }}, 'worker with file')
+  t.worker(filename, { workerData: { a: 1 } }, 'worker with file')
   t.end()
 })

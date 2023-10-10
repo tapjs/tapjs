@@ -1,1 +1,2 @@
-export default t => t.replace('test', 'src').replace(/\.[^\.]+$/, '.*')
+export default t =>
+  t.replace('test', 'src').replace(/\.[^\.]+$/, '.*')

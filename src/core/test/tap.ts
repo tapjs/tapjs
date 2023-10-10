@@ -83,7 +83,7 @@ const main = () => {
       child.stdout.on('data', c => out.push(c))
       child.stderr.on('data', c => err.push(c))
       let outEnded = false
-      child.stdout.on('end', () => outEnded = true)
+      child.stdout.on('end', () => (outEnded = true))
       const res = await new Promise<Result>(res => {
         child.on('close', (code, signal) => {
           t.equal(outEnded, true, 'output ended')

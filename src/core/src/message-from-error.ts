@@ -8,7 +8,8 @@ export const messageFromError = (er: unknown): string => {
     const { name, message, stack, error, code } = er
     if (error && typeof error == 'string') return error
     const nc = name && typeof name === 'string' ? `${name}: ` : ''
-    const ncCode = nc && typeof code === 'string' ? `${name} [${code}]: `: ''
+    const ncCode =
+      nc && typeof code === 'string' ? `${name} [${code}]: ` : ''
     if (message && typeof message === 'string') return message
     if (typeof stack === 'string' && stack.trim()) {
       const lines = stack.trim().split('\n')

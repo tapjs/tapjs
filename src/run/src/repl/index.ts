@@ -190,7 +190,10 @@ export class Repl {
         this.parseCommand(input).then((res?: any) => {
           cb(null, res)
           while (this.#queue.length && !this.proc) {
-            const [input, d] = this.#queue[0] as [string, Deferred<any>]
+            const [input, d] = this.#queue[0] as [
+              string,
+              Deferred<any>
+            ]
             this.#queue.shift()
             d.resolve(this.parseCommand(input))
           }

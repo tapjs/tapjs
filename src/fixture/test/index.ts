@@ -54,16 +54,13 @@ t.test('save fixture with property', t => {
   let dir!: string
   t.equal(t.saveFixture, false)
   t.teardown(() => rmdirSync(dir))
-  t.test(
-    'child test that saves its fixture',
-    t => {
-      t.saveFixture = true
-      dir = t.testdir()
-      t.equal(t.saveFixture, true)
-      t.equal(lstatSync(dir).isDirectory(), true)
-      t.end()
-    }
-  )
+  t.test('child test that saves its fixture', t => {
+    t.saveFixture = true
+    dir = t.testdir()
+    t.equal(t.saveFixture, true)
+    t.equal(lstatSync(dir).isDirectory(), true)
+    t.end()
+  })
   t.equal(lstatSync(dir).isDirectory(), true)
   t.end()
 })

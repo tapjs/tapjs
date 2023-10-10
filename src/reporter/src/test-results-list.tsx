@@ -22,12 +22,7 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
   const lists = test.lists
 
   const resultsList: (ReactElement | Result)[] = []
-  if (
-    results.plan.skipAll &&
-    !bailedOut &&
-    !signal &&
-    !exitCode
-  ) {
+  if (results.plan.skipAll && !bailedOut && !signal && !exitCode) {
     resultsList.push(
       <Box gap={1} paddingLeft={1}>
         <Text color="cyan" bold>

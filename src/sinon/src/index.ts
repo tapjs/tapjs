@@ -11,7 +11,10 @@ export class TapSinon {
   #opts: Partial<sinon.SinonSandboxConfig>
   #sandbox?: sinon.SinonSandbox
   constructor(t: TestBase, { sinon: opts }: TapSinonOpts) {
-    this.#opts = opts || { ...sinon.defaultConfig, useFakeTimers: false }
+    this.#opts = opts || {
+      ...sinon.defaultConfig,
+      useFakeTimers: false,
+    }
     this.#t = t
   }
   get sinon() {

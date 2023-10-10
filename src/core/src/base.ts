@@ -509,7 +509,7 @@ export class Base<
     this.parser.on('line', l => this.#online(l))
     this.parser.once('bailout', reason => this.onbail(reason))
     this.parser.on('complete', result => this.oncomplete(result))
-    this.parser.on('result', (res) => this.#onParserResult(res))
+    this.parser.on('result', res => this.#onParserResult(res))
   }
 
   /**

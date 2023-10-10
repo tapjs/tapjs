@@ -5,7 +5,11 @@ import { resolve } from 'path'
 
 const node = process.execPath
 
-export const runBefore = (t: TAP, argv: string[], config: LoadedConfig) => {
+export const runBefore = (
+  t: TAP,
+  argv: string[],
+  config: LoadedConfig
+) => {
   const before = config.get('before')
   if (before) {
     t.before(

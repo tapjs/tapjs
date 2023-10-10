@@ -26,9 +26,12 @@ const mockChokidar = new (class {
 
 t.afterEach(() => (mockChokidar.files = undefined))
 
-const { Watch } = (await t.mockImport('../../dist/esm/repl/watch.js', {
-  chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-})) as typeof import('../../dist/esm/repl/watch.js')
+const { Watch } = (await t.mockImport(
+  '../../dist/esm/repl/watch.js',
+  {
+    chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+  }
+)) as typeof import('../../dist/esm/repl/watch.js')
 
 t.test('watch some files', async t => {
   const pi = {

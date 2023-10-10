@@ -24,14 +24,14 @@ to specify the formatting style, diff context lines, and so on.
 
 It can contain the following fields:
 
-* `sort` - boolean, sort items alphabetically by key.
-* `bufferChunkSize` - number of bytes to show on each line when
+- `sort` - boolean, sort items alphabetically by key.
+- `bufferChunkSize` - number of bytes to show on each line when
   printing buffers, default `32`
-* `includeEnumerable` - boolean, include any and all enumerable
+- `includeEnumerable` - boolean, include any and all enumerable
   properties, including those inherited on the prototype chain.
   By default, only `own` properties are shown.
-* `includeGetters` - boolean, include getter properties.
-* `diffContext` - how many lines of context to print around
+- `includeGetters` - boolean, include getter properties.
+- `diffContext` - how many lines of context to print around
   changes in diffs, default `10`. Note that the test reporter
   might use more or less than this value when displaying pretty
   colored diffs.

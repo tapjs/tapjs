@@ -207,7 +207,7 @@ export const config = {
     short: 'O',
     description: `Only run tests with \`{only: true}\` option, or created with
                   the \`t.only(...)\` function.`,
-    nodeArgs: (v: boolean) => v ? ['--test-only'] : []
+    nodeArgs: (v: boolean) => (v ? ['--test-only'] : []),
   },
 
   /**

@@ -90,18 +90,26 @@ For example:
 
 ```js
 // ok, works fine
-t.test('fake timers test one', { sinon: { useFakeTimers: true }}, t => {
-  t.test('child test', t => {
+t.test(
+  'fake timers test one',
+  { sinon: { useFakeTimers: true } },
+  t => {
+    t.test('child test', t => {
+      // etc.
+    })
+  }
+)
+t.test(
+  'second fake timers test',
+  { sinon: { useFakeTimers: true } },
+  t => {
     // etc.
-  })
-})
-t.test('second fake timers test', { sinon: { useFakeTimers: true }}, t => {
-  // etc.
-})
+  }
+)
 
 // this, however, does not work:
-t.test('parent', { sinon: { useFakeTimers: true }}, t => {
-  t.test('child', { sinon: { useFakeTimers: true }}, t => {
+t.test('parent', { sinon: { useFakeTimers: true } }, t => {
+  t.test('child', { sinon: { useFakeTimers: true } }, t => {
     // will throw an error
   })
 })

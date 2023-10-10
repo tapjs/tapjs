@@ -38,7 +38,7 @@ t.test('first test', t => {
     console.error('before in first test')
   })
   console.error('in first test')
-  t.test('child test', (t) => {
+  t.test('child test', t => {
     console.error('child of first test')
     t.end()
   })

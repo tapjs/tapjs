@@ -18,7 +18,9 @@ export const parseDirective = (
 ): [Directive, any] | false => {
   if (!line.trim()) return false
 
-  line = line.replace(OPEN_BRACE_EOL, '').trim()
+  line = line
+    .replace(OPEN_BRACE_EOL, '')
+    .trim()
     .replace(/^duration_ms ([0-9.]+)$/, 'time=$1ms')
   const time = line.match(
     /^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i

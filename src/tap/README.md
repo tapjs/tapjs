@@ -198,7 +198,7 @@ have to coverage-ignore something, it's a sign that you need to
 either delete that code or refactor it into a more easily tested
 module.
 
------
+---
 
 Software testing should help you build software. It should be a
 security blanket and a quality ratchet, giving you the support to

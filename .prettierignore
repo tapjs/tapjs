@@ -2,6 +2,9 @@
 /src/*/example
 /.github
 /src/*/dist
+/src/*/.tshy
+/src/test/test-built
+/src/*/docs
 /src/*/tap-snapshots
 /tap-snapshots
 /src/*/test/**/fixture

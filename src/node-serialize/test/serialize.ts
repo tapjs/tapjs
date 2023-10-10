@@ -4,11 +4,12 @@ import { Minipass } from 'minipass'
 import { setTimeout } from 'node:timers/promises'
 import t, { Minimal } from 'tap'
 
-t.cleanSnapshot = s => s
-  .replace(/"file": "[^\n]*",$/gm, '"file": "{FILE}",')
-  .replace(/"line": [0-9]+,$/gm, '"line": ##,')
-  .replace(/"column": [0-9]+,$/gm, '"column": ##,')
-  .replace(/"duration_ms": [0-9\.]+,$/gm, '"duration_ms": ##,')
+t.cleanSnapshot = s =>
+  s
+    .replace(/"file": "[^\n]*",$/gm, '"file": "{FILE}",')
+    .replace(/"line": [0-9]+,$/gm, '"line": ##,')
+    .replace(/"column": [0-9]+,$/gm, '"column": ##,')
+    .replace(/"duration_ms": [0-9\.]+,$/gm, '"duration_ms": ##,')
 
 t.test('various throws', async t => {
   const { serialize } = (await t.mockImport(

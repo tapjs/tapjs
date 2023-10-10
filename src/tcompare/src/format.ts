@@ -434,10 +434,7 @@ export class Format {
     if (s.startsWith('Symbol(Symbol.')) {
       // check to see if it's a key on the Symbol global.
       // return Symbol.iterator, not Symbol(Symbol.iterator)
-      const symKey = key.substring(
-        'Symbol.'.length,
-        s.length - 1
-      )
+      const symKey = key.substring('Symbol.'.length, s.length - 1)
       if (
         symKey &&
         Symbol[symKey as keyof SymbolConstructor] === sym
@@ -843,9 +840,9 @@ export class Format {
       return keys
     }
 
-    keys.push(...this.#getPojoKeys(obj).concat(
-      this.#getPojoKeys(obj, true)
-    ))
+    keys.push(
+      ...this.#getPojoKeys(obj).concat(this.#getPojoKeys(obj, true))
+    )
     if (!this.options.includeGetters) {
       return keys
     }

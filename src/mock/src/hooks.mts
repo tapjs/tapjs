@@ -11,7 +11,9 @@ export const globalPreload: GlobalPreloadHook = ({ port }) => {
   // loader thread. connect client
   client = new MockServiceClient(port)
   const serviceModuleCJS = JSON.stringify(
-    fileURLToPath(new URL('../commonjs/mock-service.js', import.meta.url))
+    fileURLToPath(
+      new URL('../commonjs/mock-service.js', import.meta.url)
+    )
   )
   const base = JSON.stringify(fileURLToPath(import.meta.url))
   return `

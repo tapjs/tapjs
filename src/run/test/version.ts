@@ -59,15 +59,18 @@ t.test('fallback if version not found', async t => {
   type T = typeof t
 
   const runTest = async (t: T, tv: RegExp | null) => {
-    const { version } = (await t.mockImport('../dist/esm/version.js', {
-      '@tapjs/test': {
-        signature,
-      },
-      '../dist/esm/try-get-version.js': {
-        tryGetVersion: (pkg: string) =>
-          broken.includes(pkg) ? undefined : tryGetVersion(pkg),
-      },
-    })) as typeof import('../dist/esm/version.js')
+    const { version } = (await t.mockImport(
+      '../dist/esm/version.js',
+      {
+        '@tapjs/test': {
+          signature,
+        },
+        '../dist/esm/try-get-version.js': {
+          tryGetVersion: (pkg: string) =>
+            broken.includes(pkg) ? undefined : tryGetVersion(pkg),
+        },
+      }
+    )) as typeof import('../dist/esm/version.js')
     const logs = t.capture(console, 'log')
     const config = { get: () => false } as unknown as LoadedConfig
     if (tv === null) {

@@ -419,7 +419,7 @@ t.test('captureFn', t => {
     //@ts-expect-error
     wrapped.call(q)
 
-    type M = { x(this: M, b:number): number; a: number }
+    type M = { x(this: M, b: number): number; a: number }
     const m: M = {
       x(b) {
         return this?.a + b
@@ -432,7 +432,7 @@ t.test('captureFn', t => {
     //@ts-expect-error
     w.call(m)
     //@ts-expect-error
-    w.call({a: 2})
+    w.call({ a: 2 })
     t.equal(w.call(m, 1), 2)
     const c = w.calls[0]
     if (!c) {
@@ -534,9 +534,11 @@ t.test('capture', t => {
     // do not allow passing in a function that expects a given this
     // receiver that isn't satisfied by the object it's applied to.
     //@ts-expect-error
-    t.capture(a, 'a', function(this: B) { return 2 })
+    t.capture(a, 'a', function (this: B) {
+      return 2
+    })
     // this is fine, though, because unknown can be anything
-    const res = t.capture(a, 'a', function() {
+    const res = t.capture(a, 'a', function () {
       // with the impl, it knows 'this' is same type as object
       //@ts-expect-error
       this.x = 'y'

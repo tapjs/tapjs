@@ -213,6 +213,6 @@ t.test('end mid-message', async t => {
   const data = await ser.concat()
   des.write(data.subarray(0, data.length - 1))
   t.throws(() => des.end(), {
-    message: 'deserialize ended mid-message'
+    message: 'deserialize ended mid-message',
   })
 })

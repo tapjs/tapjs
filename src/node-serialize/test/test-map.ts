@@ -15,7 +15,10 @@ t.equal(tm.get(testTwo), 2)
 t.equal(tm.has(testTwo.t), true)
 t.equal(tm.get(testTwo.t), 2)
 
-const tm2 = new TestMap<number>([[testOne, 1], [testTwo, 2]])
+const tm2 = new TestMap<number>([
+  [testOne, 1],
+  [testTwo, 2],
+])
 t.equal(tm2.has(testOne), true)
 t.equal(tm2.get(testOne), 1)
 t.equal(tm2.has(testOne.t), true)

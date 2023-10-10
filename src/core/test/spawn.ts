@@ -14,7 +14,6 @@ const classes = [
   ['mjs', SpawnMJS, TestBaseMJS],
 ] as const
 
-
 t.plan(2)
 for (const [dialect, Spawn, TestBase] of classes) {
   t.test(dialect, t => {

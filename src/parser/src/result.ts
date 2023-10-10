@@ -6,7 +6,7 @@ import { Plan } from './plan.js'
 /**
  * An indication that a violation of the TAP specification has occurred
  *
- * This can indicate a test point that exceeds the plan, a test point 
+ * This can indicate a test point that exceeds the plan, a test point
  * encountered after a trailing plan, or in the case of `pragma +strict`,
  * any non-TAP data.
  */

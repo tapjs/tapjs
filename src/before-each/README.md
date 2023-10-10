@@ -10,7 +10,7 @@ bring it back.
 
 ```ts
 import t from 'tap'
-t.beforeEach((t) => {
+t.beforeEach(t => {
   // this will run before each child test, all of their child
   // tests, and so on
   // the parameter is the child test that is about to start.

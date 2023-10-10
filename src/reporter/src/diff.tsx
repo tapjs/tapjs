@@ -41,9 +41,7 @@ const Line: FC<{ line: string }> = ({ line }) =>
   )
 
 const White: FC<{ line: string }> = ({ line }) => (
-  <Text
-    backgroundColor={theme.white.bg}
-    color={theme.white.fg}>
+  <Text backgroundColor={theme.white.bg} color={theme.white.fg}>
     {line}
   </Text>
 )

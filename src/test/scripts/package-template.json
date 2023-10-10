@@ -17,9 +17,7 @@
       }
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prepare": "tshy",
     "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"

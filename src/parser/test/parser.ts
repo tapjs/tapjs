@@ -79,5 +79,4 @@ ok 1 - this is fine
   np.end(data)
   const frn = new FinalResults(false, np)
   t.equal(frn.passes, undefined)
-
 })

@@ -10,7 +10,7 @@ bring it back.
 
 ```ts
 import t from 'tap'
-t.afterEach((t) => {
+t.afterEach(t => {
   // this will run after each child test, all of their child
   // tests, and so on
   // the parameter is the child test that just ended.

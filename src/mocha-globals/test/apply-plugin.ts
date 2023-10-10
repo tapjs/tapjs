@@ -1,4 +1,4 @@
-import tap, {Test} from 'tap'
+import tap, { Test } from 'tap'
 import {
   currentSuite,
   currentTest,
@@ -62,7 +62,7 @@ describe('suite aliases', () => {
 })
 
 describe('test aliases', () => {
-  it('has aliases for it()', function(this: Test) {
+  it('has aliases for it()', function (this: Test) {
     this.equal(specify, it)
     this.equal(test, it)
   })

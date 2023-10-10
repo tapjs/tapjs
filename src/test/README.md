@@ -31,7 +31,7 @@ import t from 'tap'
 
 const plugin = t => ({
   hello: () => console.log('hello from ', t.name),
-  blowUp: () => t.fail('blowing up')
+  blowUp: () => t.fail('blowing up'),
 })
 
 t.test('apply a plugin', original => {
@@ -61,7 +61,7 @@ import { Test } from '@tapjs/test'
 
 const plugin = t => ({
   hello: () => console.log('hello from ', t.name),
-  blowUp: () => t.fail('blowing up')
+  blowUp: () => t.fail('blowing up'),
 })
 
 const maybeBlowup = (t: Test) => {

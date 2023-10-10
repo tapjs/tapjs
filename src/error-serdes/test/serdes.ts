@@ -1,5 +1,5 @@
 import t from 'tap'
-import {inspect} from 'util'
+import { inspect } from 'util'
 import {
   kCustomInspect,
   kCustomInspectedObject,
@@ -23,9 +23,14 @@ t.test('check serialized type byte', t => {
     serializeError({ [kCustomInspect]: () => 'x' })[0],
     kCustomInspectedObject
   )
-  t.equal(serializeError({
-    [kCustomInspect]: () => { throw 'oops' },
-  })[0], kSerializedObject)
+  t.equal(
+    serializeError({
+      [kCustomInspect]: () => {
+        throw 'oops'
+      },
+    })[0],
+    kSerializedObject
+  )
   t.equal(serializeError(null)[0], kSerializedObject)
 
   // too big to be serialized as an object, serializes as inspect
@@ -58,7 +63,7 @@ t.test('serdes symbol, becomes Symbol.for', t => {
 })
 
 t.test('serdes function becomes inspected string', t => {
-  const f = function hello () {}
+  const f = function hello() {}
   t.equal(serdes(f), inspect(f))
   t.end()
 })

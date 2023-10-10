@@ -2,7 +2,7 @@
 
 // import Module from 'node:module'
 // import { Serializable } from 'node:worker_threads'
-// 
+//
 // const { register } = Module as {
 //   register?: (
 //     url: string | URL,
@@ -13,7 +13,7 @@
 //     }
 //   ) => void
 // }
-// 
+//
 // register?.(new URL('./loader.js', import.meta.url))
 //
 // Or:
@@ -35,7 +35,7 @@
 import { register } from 'node:module'
 
 // This is the main thread, do whatever setup needs to be done here.
-// This triggers a call to initialize() to be run in the laoder thread,
+// This triggers a call to initialize() to be run in the loader thread,
 // which is defined in ./hooks.mts
 //@ts-ignore
 register(String(new URL('./loader.mjs', import.meta.url)), {

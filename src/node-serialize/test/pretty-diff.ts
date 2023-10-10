@@ -5,7 +5,8 @@ t.equal(prettyDiff(''), '')
 t.equal(prettyDiff(null), '')
 t.equal(prettyDiff({}), '')
 t.equal(prettyDiff(true), '')
-t.matchSnapshot(prettyDiff(`--- expected
+t.matchSnapshot(
+  prettyDiff(`--- expected
 +++ actual
 @@ -1,9 +1,7 @@
  Object {
@@ -18,4 +19,5 @@ t.matchSnapshot(prettyDiff(`--- expected
      },
    },
  }
-`))
+`)
+)
