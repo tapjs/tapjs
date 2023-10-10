@@ -9,7 +9,7 @@ import { AsyncResource } from 'async_hooks'
 import { Minipass } from 'minipass'
 import { hrtime } from 'node:process'
 import { format } from 'node:util'
-import { FinalResults, Parser, TapError } from 'tap-parser'
+import { FinalResults, Parser, Result, TapError } from 'tap-parser'
 import { Deferred } from 'trivial-deferred'
 import { Counts } from './counts.js'
 import { diags } from './diags.js'
@@ -477,34 +477,39 @@ export class Base<
     }
   }
 
+  #isFilterSkip(res: Result) {
+    return (
+      typeof res.skip === 'string' &&
+      /^filter: (only|\/.*\/)$/.test(res.skip)
+    )
+  }
+
+  #onParserResult(res: Result) {
+    this.counts.total++
+    const type = res.todo
+      ? 'todo'
+      : res.skip
+      ? 'skip'
+      : !res.ok
+      ? 'fail'
+      : 'pass'
+    this.counts[type]++
+    if (type === 'pass' && this.options.passes) {
+      this.lists.pass.push(res)
+    } else if (type === 'todo') {
+      this.lists.todo.push(res)
+    } else if (type === 'skip') {
+      if (!this.#isFilterSkip(res)) this.lists.skip.push(res)
+    } else if (type === 'fail') {
+      this.lists.fail.push(res)
+    }
+  }
+
   #setupParser() {
     this.parser.on('line', l => this.#online(l))
     this.parser.once('bailout', reason => this.onbail(reason))
     this.parser.on('complete', result => this.oncomplete(result))
-
-    this.parser.on('result', () => this.counts.total++)
-    this.parser.on('pass', res => {
-      if (this.options.passes) {
-        this.lists.pass.push(res)
-      }
-      this.counts.pass++
-    })
-    this.parser.on('todo', res => {
-      this.counts.todo++
-      this.lists.todo.push(res)
-    })
-    this.parser.on('skip', res => {
-      // it is uselessly noisy to print out lists of tests skipped
-      // because of a --grep or --only argument.
-      if (/^filter: (only|\/.*\/)$/.test(res.skip)) return
-
-      this.counts.skip++
-      this.lists.skip.push(res)
-    })
-    this.parser.on('fail', res => {
-      this.counts.fail++
-      this.lists.fail.push(res)
-    })
+    this.parser.on('result', (res) => this.#onParserResult(res))
   }
 
   /**
@@ -608,7 +613,9 @@ export class Base<
    * Boolean indicating whether the underlying stream can be written to,
    * or if it has been ended.
    */
-  get streamWritable() { return this.#writable }
+  get streamWritable() {
+    return this.#writable
+  }
 
   /**
    * The main test function. For this Base class, this is a no-op. Subclasses
@@ -870,6 +877,6 @@ export class Base<
    * @group Test Reflection
    */
   passing() {
-    return this.parser.ok && (this.results?.ok !== false)
+    return this.parser.ok && this.results?.ok !== false
   }
 }

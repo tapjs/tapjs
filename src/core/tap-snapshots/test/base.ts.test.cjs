@@ -323,7 +323,7 @@ Counts {
   "complete": 0,
   "fail": 1,
   "pass": 1,
-  "skip": 5,
+  "skip": 6,
   "todo": 4,
   "total": 12,
 }
@@ -597,7 +597,7 @@ Counts {
   "complete": 0,
   "fail": 0,
   "pass": 2,
-  "skip": 3,
+  "skip": 4,
   "todo": 2,
   "total": 8,
 }

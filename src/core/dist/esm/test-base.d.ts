@@ -223,7 +223,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      *
      * @group Test Reflection
      */
-    assertTotals: Counts;
+    get assertTotals(): Counts;
     /**
      * true if the test has printed at least one TestPoint
      *

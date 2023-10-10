@@ -43,7 +43,6 @@ const proc_js_1 = require("./proc.js");
 const test_point_js_1 = require("./test-point.js");
 const waiter_js_1 = require("./waiter.js");
 const implicit_end_sigil_js_1 = require("./implicit-end-sigil.js");
-const index_js_1 = require("./index.js");
 const normalize_message_extra_js_1 = require("./normalize-message-extra.js");
 const VERSION = 'TAP version 14\n';
 const queueEmpty = (t) => t.queue.length === 0 ||
@@ -160,13 +159,9 @@ class TestBase extends base_js_1.Base {
      *
      * @group Test Reflection
      */
-    assertTotals = new index_js_1.Counts({
-        total: 0,
-        fail: 0,
-        pass: 0,
-        skip: 0,
-        todo: 0,
-    });
+    get assertTotals() {
+        return this.counts;
+    }
     /**
      * true if the test has printed at least one TestPoint
      *
@@ -186,7 +181,7 @@ class TestBase extends base_js_1.Base {
     constructor(options) {
         super(options);
         this.parser.on('result', r => {
-            this.#onParserResult(r);
+            // this.#onParserResult(r)
             this.emit('assert', r);
         });
         this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1;
@@ -1120,10 +1115,6 @@ class TestBase extends base_js_1.Base {
         t.deferred = d;
         this.#process();
         return Object.assign(d.promise, { subtest: t });
-    }
-    #onParserResult(r) {
-        this.assertTotals.total++;
-        this.assertTotals[r.todo ? 'todo' : r.skip ? 'skip' : !r.ok ? 'fail' : 'pass']++;
     }
     /**
      * Method called when an unrecoverable error is encountered in a test.

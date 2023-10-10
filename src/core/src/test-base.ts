@@ -293,13 +293,9 @@ export class TestBase extends Base<TestBaseEvents> {
    *
    * @group Test Reflection
    */
-  assertTotals: Counts = new Counts({
-    total: 0,
-    fail: 0,
-    pass: 0,
-    skip: 0,
-    todo: 0,
-  })
+  get assertTotals() {
+    return this.counts
+  }
 
   /**
    * true if the test has printed at least one TestPoint
@@ -323,7 +319,6 @@ export class TestBase extends Base<TestBaseEvents> {
     super(options)
 
     this.parser.on('result', r => {
-      this.#onParserResult(r)
       this.emit('assert', r)
     })
 
@@ -1383,13 +1378,6 @@ export class TestBase extends Base<TestBaseEvents> {
     t.deferred = d
     this.#process()
     return Object.assign(d.promise, { subtest: t })
-  }
-
-  #onParserResult(r: ParserResult) {
-    this.assertTotals.total++
-    this.assertTotals[
-      r.todo ? 'todo' : r.skip ? 'skip' : !r.ok ? 'fail' : 'pass'
-    ]++
   }
 
   /**

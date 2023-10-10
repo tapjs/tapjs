@@ -14,7 +14,6 @@ import { argv, cwd } from './proc.js';
 import { TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-import { Counts, } from './index.js';
 import { normalizeMessageExtra } from './normalize-message-extra.js';
 const VERSION = 'TAP version 14\n';
 const queueEmpty = (t) => t.queue.length === 0 ||
@@ -131,13 +130,9 @@ export class TestBase extends Base {
      *
      * @group Test Reflection
      */
-    assertTotals = new Counts({
-        total: 0,
-        fail: 0,
-        pass: 0,
-        skip: 0,
-        todo: 0,
-    });
+    get assertTotals() {
+        return this.counts;
+    }
     /**
      * true if the test has printed at least one TestPoint
      *
@@ -157,7 +152,7 @@ export class TestBase extends Base {
     constructor(options) {
         super(options);
         this.parser.on('result', r => {
-            this.#onParserResult(r);
+            // this.#onParserResult(r)
             this.emit('assert', r);
         });
         this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1;
@@ -1091,10 +1086,6 @@ export class TestBase extends Base {
         t.deferred = d;
         this.#process();
         return Object.assign(d.promise, { subtest: t });
-    }
-    #onParserResult(r) {
-        this.assertTotals.total++;
-        this.assertTotals[r.todo ? 'todo' : r.skip ? 'skip' : !r.ok ? 'fail' : 'pass']++;
     }
     /**
      * Method called when an unrecoverable error is encountered in a test.
