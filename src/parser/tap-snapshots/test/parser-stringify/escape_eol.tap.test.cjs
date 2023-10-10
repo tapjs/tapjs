@@ -19,6 +19,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should parse as literal backslash --> \\\\",
       "id": 1,
@@ -36,6 +37,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Not a continuation line",
       "id": 2,
@@ -110,6 +112,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should parse as literal backslash --> \\\\",
       "id": 1,
@@ -127,6 +130,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Not a continuation line",
       "id": 2,
@@ -179,6 +183,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should parse as literal backslash --> \\\\",
       "id": 1,
@@ -196,6 +201,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Not a continuation line",
       "id": 2,
@@ -277,6 +283,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should parse as literal backslash --> \\\\",
       "id": 1,
@@ -294,6 +301,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Not a continuation line",
       "id": 2,
@@ -368,6 +376,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Should parse as literal backslash --> \\\\",
       "id": 1,
@@ -385,6 +394,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Not a continuation line",
       "id": 2,

@@ -31,6 +31,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 1,
@@ -48,6 +49,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 1,
@@ -65,6 +67,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 1,
@@ -86,6 +89,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 2,
@@ -103,6 +107,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 2,
@@ -120,6 +125,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 2,
@@ -149,6 +155,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 3,
@@ -166,6 +173,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 3,
@@ -183,6 +191,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 3,
@@ -204,6 +213,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 4,
@@ -221,6 +231,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 4,
@@ -238,6 +249,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 4,
@@ -316,6 +328,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 1,
@@ -333,6 +346,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 1,
@@ -350,6 +364,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 1,
@@ -371,6 +386,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 2,
@@ -388,6 +404,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 2,
@@ -405,6 +422,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equivalent",
       "id": 2,
@@ -434,6 +452,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 3,
@@ -451,6 +470,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 3,
@@ -468,6 +488,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "should be equal",
       "id": 3,
@@ -489,6 +510,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 4,
@@ -506,6 +528,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 4,
@@ -523,6 +546,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed assert)",
       "id": 4,

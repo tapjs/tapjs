@@ -22,6 +22,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "found": String(
               
@@ -68,6 +69,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "found": String(
                   
@@ -236,6 +238,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "found": String(
               
@@ -286,6 +289,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "found": String(
                   
@@ -348,6 +352,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "-t 0.2",
       "id": 1,
@@ -378,6 +383,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "-t 0.2",
           "id": 1,
@@ -427,6 +433,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "found": String(
           
@@ -476,6 +483,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "-t 0.2",
           "id": 1,
@@ -589,6 +597,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "found": String(
               
@@ -639,6 +648,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "found": String(
                   
@@ -701,6 +711,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "-t 0.2",
       "id": 1,
@@ -731,6 +742,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "-t 0.2",
           "id": 1,
@@ -844,6 +856,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "found": String(
               
@@ -890,6 +903,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "found": String(
                   

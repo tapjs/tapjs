@@ -34,6 +34,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "a set of tests to be done later > should have a thingie",
           "id": 1,
@@ -55,6 +56,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "a set of tests to be done later > should have a second whoosits also",
           "id": 2,
@@ -87,6 +89,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > the subset > should be a child thingie",
               "id": 1,
@@ -108,6 +111,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
               "id": 2,
@@ -140,6 +144,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > has some of these things > true is truthy",
                   "id": 1,
@@ -161,6 +166,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > has some of these things > ten is also truthy",
                   "id": 2,
@@ -235,6 +241,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": true,
               "diag": null,
               "fullname": "a set of tests to be done later > the subset > has some of these things",
               "id": 3,
@@ -284,6 +291,7 @@ Array [
               "todos": Array [
                 Object {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > should be a child thingie",
                   "id": 1,
@@ -298,6 +306,7 @@ Array [
                 },
                 Object {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
                   "id": 2,
@@ -358,6 +367,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "a set of tests to be done later > the subset",
           "id": 3,
@@ -407,6 +417,7 @@ Array [
           "todos": Array [
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > should have a thingie",
               "id": 1,
@@ -421,6 +432,7 @@ Array [
             },
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > should have a second whoosits also",
               "id": 2,
@@ -449,6 +461,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a thingie",
       "id": 1,
@@ -466,6 +479,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a thingie",
       "id": 1,
@@ -487,6 +501,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a second whoosits also",
       "id": 2,
@@ -504,6 +519,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a second whoosits also",
       "id": 2,
@@ -529,6 +545,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should be a child thingie",
       "id": 1,
@@ -546,6 +563,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should be a child thingie",
       "id": 1,
@@ -567,6 +585,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
       "id": 2,
@@ -584,6 +603,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
       "id": 2,
@@ -609,6 +629,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > true is truthy",
       "id": 1,
@@ -626,6 +647,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > true is truthy",
       "id": 1,
@@ -647,6 +669,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > ten is also truthy",
       "id": 2,
@@ -664,6 +687,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > ten is also truthy",
       "id": 2,
@@ -705,6 +729,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 1,
@@ -737,6 +762,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "another set of tests > is a second set",
           "id": 1,
@@ -758,6 +784,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "another set of tests > looks like english",
           "id": 2,
@@ -779,6 +806,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "another set of tests > is marked TODO",
           "id": 3,
@@ -828,6 +856,7 @@ Array [
           "todos": Array [
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "another set of tests > is a second set",
               "id": 1,
@@ -842,6 +871,7 @@ Array [
             },
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "another set of tests > looks like english",
               "id": 2,
@@ -856,6 +886,7 @@ Array [
             },
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "another set of tests > is marked TODO",
               "id": 3,
@@ -884,6 +915,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is a second set",
       "id": 1,
@@ -901,6 +933,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is a second set",
       "id": 1,
@@ -922,6 +955,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > looks like english",
       "id": 2,
@@ -939,6 +973,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > looks like english",
       "id": 2,
@@ -960,6 +995,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is marked TODO",
       "id": 3,
@@ -977,6 +1013,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is marked TODO",
       "id": 3,
@@ -1002,6 +1039,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "another set of tests",
       "id": 2,
@@ -1083,6 +1121,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "a set of tests to be done later > should have a thingie",
           "id": 1,
@@ -1104,6 +1143,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "a set of tests to be done later > should have a second whoosits also",
           "id": 2,
@@ -1136,6 +1176,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > the subset > should be a child thingie",
               "id": 1,
@@ -1157,6 +1198,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
               "id": 2,
@@ -1189,6 +1231,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > has some of these things > true is truthy",
                   "id": 1,
@@ -1210,6 +1253,7 @@ Array [
                 "assert",
                 Result {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > has some of these things > ten is also truthy",
                   "id": 2,
@@ -1284,6 +1328,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": true,
               "diag": null,
               "fullname": "a set of tests to be done later > the subset > has some of these things",
               "id": 3,
@@ -1333,6 +1378,7 @@ Array [
               "todos": Array [
                 Object {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > should be a child thingie",
                   "id": 1,
@@ -1347,6 +1393,7 @@ Array [
                 },
                 Object {
                   "buffered": false,
+                  "closingTestPoint": false,
                   "diag": null,
                   "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
                   "id": 2,
@@ -1407,6 +1454,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "a set of tests to be done later > the subset",
           "id": 3,
@@ -1456,6 +1504,7 @@ Array [
           "todos": Array [
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > should have a thingie",
               "id": 1,
@@ -1470,6 +1519,7 @@ Array [
             },
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a set of tests to be done later > should have a second whoosits also",
               "id": 2,
@@ -1498,6 +1548,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a thingie",
       "id": 1,
@@ -1515,6 +1566,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a thingie",
       "id": 1,
@@ -1536,6 +1588,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a second whoosits also",
       "id": 2,
@@ -1553,6 +1606,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > should have a second whoosits also",
       "id": 2,
@@ -1578,6 +1632,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should be a child thingie",
       "id": 1,
@@ -1595,6 +1650,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should be a child thingie",
       "id": 1,
@@ -1616,6 +1672,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
       "id": 2,
@@ -1633,6 +1690,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > should also be a whoosits",
       "id": 2,
@@ -1658,6 +1716,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > true is truthy",
       "id": 1,
@@ -1675,6 +1734,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > true is truthy",
       "id": 1,
@@ -1696,6 +1756,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > ten is also truthy",
       "id": 2,
@@ -1713,6 +1774,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a set of tests to be done later > the subset > has some of these things > ten is also truthy",
       "id": 2,
@@ -1754,6 +1816,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a set of tests to be done later",
       "id": 1,
@@ -1786,6 +1849,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "another set of tests > is a second set",
           "id": 1,
@@ -1807,6 +1871,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "another set of tests > looks like english",
           "id": 2,
@@ -1828,6 +1893,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "another set of tests > is marked TODO",
           "id": 3,
@@ -1877,6 +1943,7 @@ Array [
           "todos": Array [
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "another set of tests > is a second set",
               "id": 1,
@@ -1891,6 +1958,7 @@ Array [
             },
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "another set of tests > looks like english",
               "id": 2,
@@ -1905,6 +1973,7 @@ Array [
             },
             Object {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "another set of tests > is marked TODO",
               "id": 3,
@@ -1933,6 +2002,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is a second set",
       "id": 1,
@@ -1950,6 +2020,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is a second set",
       "id": 1,
@@ -1971,6 +2042,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > looks like english",
       "id": 2,
@@ -1988,6 +2060,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > looks like english",
       "id": 2,
@@ -2009,6 +2082,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is marked TODO",
       "id": 3,
@@ -2026,6 +2100,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "another set of tests > is marked TODO",
       "id": 3,
@@ -2051,6 +2126,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "another set of tests",
       "id": 2,

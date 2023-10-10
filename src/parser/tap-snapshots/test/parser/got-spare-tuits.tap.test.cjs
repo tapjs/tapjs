@@ -35,6 +35,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Creating test program",
       "id": 1,
@@ -52,6 +53,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Creating test program",
       "id": 1,
@@ -69,6 +71,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Creating test program",
       "id": 1,
@@ -90,6 +93,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test program runs, no error",
       "id": 2,
@@ -107,6 +111,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test program runs, no error",
       "id": 2,
@@ -124,6 +129,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test program runs, no error",
       "id": 2,
@@ -145,6 +151,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop",
       "id": 3,
@@ -162,6 +169,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop",
       "id": 3,
@@ -179,6 +187,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop",
       "id": 3,
@@ -200,6 +209,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop 2",
       "id": 4,
@@ -217,6 +227,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop 2",
       "id": 4,
@@ -234,6 +245,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop 2",
       "id": 4,
@@ -268,7 +280,38 @@ Array [
       "skips": Array [],
       "time": null,
       "todo": 2,
-      "todos": Array [],
+      "todos": Array [
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "infinite loop",
+          "id": 3,
+          "name": "infinite loop",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "halting problem unsolved",
+        },
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "infinite loop 2",
+          "id": 4,
+          "name": "infinite loop 2",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "halting problem unsolved",
+        },
+      ],
     },
   ],
 ]
@@ -304,6 +347,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Creating test program",
       "id": 1,
@@ -321,6 +365,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Creating test program",
       "id": 1,
@@ -338,6 +383,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Creating test program",
       "id": 1,
@@ -359,6 +405,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test program runs, no error",
       "id": 2,
@@ -376,6 +423,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test program runs, no error",
       "id": 2,
@@ -393,6 +441,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test program runs, no error",
       "id": 2,
@@ -414,6 +463,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop",
       "id": 3,
@@ -431,6 +481,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop",
       "id": 3,
@@ -448,6 +499,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop",
       "id": 3,
@@ -469,6 +521,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop 2",
       "id": 4,
@@ -486,6 +539,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop 2",
       "id": 4,
@@ -503,6 +557,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "infinite loop 2",
       "id": 4,
@@ -537,7 +592,38 @@ Array [
       "skips": Array [],
       "time": null,
       "todo": 2,
-      "todos": Array [],
+      "todos": Array [
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "infinite loop",
+          "id": 3,
+          "name": "infinite loop",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "halting problem unsolved",
+        },
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "infinite loop 2",
+          "id": 4,
+          "name": "infinite loop 2",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "halting problem unsolved",
+        },
+      ],
     },
   ],
 ]

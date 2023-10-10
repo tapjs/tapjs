@@ -34,6 +34,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "tbd",
           "id": 1,
@@ -96,6 +97,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -113,6 +115,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -138,6 +141,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -155,6 +159,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -172,6 +177,7 @@ Array [
     "todo",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -204,6 +210,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "skippy",
           "id": 1,
@@ -266,6 +273,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skippy",
       "id": 1,
@@ -283,6 +291,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skippy",
       "id": 1,
@@ -308,6 +317,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "skippy",
       "id": 2,
@@ -325,6 +335,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "skippy",
       "id": 2,
@@ -342,6 +353,7 @@ Array [
     "skip",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "skippy",
       "id": 2,
@@ -388,6 +400,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "skippy",
           "id": 2,
@@ -406,6 +419,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "tbd",
           "id": 1,
@@ -453,6 +467,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "tbd",
           "id": 1,
@@ -515,6 +530,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -532,6 +548,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -557,6 +574,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -574,6 +592,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -591,6 +610,7 @@ Array [
     "todo",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "tbd",
       "id": 1,
@@ -623,6 +643,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "skippy",
           "id": 1,
@@ -685,6 +706,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skippy",
       "id": 1,
@@ -702,6 +724,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "skippy",
       "id": 1,
@@ -727,6 +750,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "skippy",
       "id": 2,
@@ -744,6 +768,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "skippy",
       "id": 2,
@@ -761,6 +786,7 @@ Array [
     "skip",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "skippy",
       "id": 2,
@@ -807,6 +833,7 @@ Array [
       "skips": Array [
         Object {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "skippy",
           "id": 2,
@@ -825,6 +852,7 @@ Array [
       "todos": Array [
         Object {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "tbd",
           "id": 1,

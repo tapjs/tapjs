@@ -13,6 +13,7 @@ FinalResults {
   "failures": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > failed test",
       "id": 6,
@@ -27,12 +28,14 @@ FinalResults {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "fullname": "(unnamed test) > failed skipped test",
       "id": 6,
       "name": "failed skipped test",
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "(unnamed test) > failed test",
         "id": 6,
@@ -65,6 +68,7 @@ FinalResults {
   "skips": Array [
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skipped test",
       "id": 2,
@@ -79,6 +83,7 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skipped with message",
       "id": 3,
@@ -93,6 +98,51 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
+      "diag": null,
+      "fullname": "(unnamed test) > failed skipped test",
+      "id": 6,
+      "name": "failed skipped test",
+      "ok": false,
+      "plan": null,
+      "previous": Result {
+        "buffered": false,
+        "closingTestPoint": false,
+        "diag": null,
+        "fullname": "(unnamed test) > failed test",
+        "id": 6,
+        "name": "failed test",
+        "ok": false,
+        "plan": null,
+        "previous": null,
+        "skip": false,
+        "tapError": null,
+        "time": null,
+        "todo": false,
+      },
+      "skip": true,
+      "tapError": "test point id 6 appears multiple times",
+      "time": null,
+      "todo": false,
+    },
+    Object {
+      "buffered": false,
+      "closingTestPoint": false,
+      "diag": null,
+      "fullname": "(unnamed test) > failed skipped with message",
+      "id": 8,
+      "name": "failed skipped with message",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": "with a message",
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+    Object {
+      "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skip for filter",
       "id": 11,
@@ -107,6 +157,7 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skip for grep",
       "id": 12,
@@ -125,6 +176,7 @@ FinalResults {
   "todos": Array [
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > todo test",
       "id": 4,
@@ -139,11 +191,42 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > todo test with message",
       "id": 5,
       "name": "todo test with message",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": "with a message",
+    },
+    Object {
+      "buffered": false,
+      "closingTestPoint": false,
+      "diag": null,
+      "fullname": "(unnamed test) > failed todo test",
+      "id": 9,
+      "name": "failed todo test",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": true,
+    },
+    Object {
+      "buffered": false,
+      "closingTestPoint": false,
+      "diag": null,
+      "fullname": "(unnamed test) > failed todo test with message",
+      "id": 10,
+      "name": "failed todo test with message",
+      "ok": false,
       "plan": null,
       "previous": null,
       "skip": false,
@@ -160,6 +243,7 @@ Lists {
   "fail": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > failed test",
       "id": 6,
@@ -177,6 +261,7 @@ Lists {
   "skip": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skipped test",
       "id": 2,
@@ -191,6 +276,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skipped with message",
       "id": 3,
@@ -205,12 +291,14 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "fullname": "(unnamed test) > failed skipped test",
       "id": 6,
       "name": "failed skipped test",
       "plan": null,
       "previous": Result {
         "buffered": false,
+        "closingTestPoint": false,
         "diag": null,
         "fullname": "(unnamed test) > failed test",
         "id": 6,
@@ -230,6 +318,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > failed skipped with message",
       "id": 8,
@@ -244,6 +333,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > skip for filter",
       "id": 11,
@@ -260,6 +350,7 @@ Lists {
   "todo": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > todo test",
       "id": 4,
@@ -274,6 +365,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > todo test with message",
       "id": 5,
@@ -288,6 +380,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > failed todo test",
       "id": 9,
@@ -302,6 +395,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "(unnamed test) > failed todo test with message",
       "id": 10,
@@ -354,6 +448,7 @@ FinalResults {
   "passes": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > this is fine",
       "id": 1,
@@ -368,6 +463,7 @@ FinalResults {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > another normal pass",
       "id": 8,
@@ -392,6 +488,7 @@ FinalResults {
   "skips": Array [
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skipped test",
       "id": 2,
@@ -406,6 +503,7 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skipped with message",
       "id": 3,
@@ -420,6 +518,7 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skip for filter",
       "id": 6,
@@ -434,6 +533,7 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skip for grep",
       "id": 7,
@@ -452,6 +552,7 @@ FinalResults {
   "todos": Array [
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > todo test",
       "id": 4,
@@ -466,6 +567,7 @@ FinalResults {
     },
     Object {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > todo test with message",
       "id": 5,
@@ -488,6 +590,7 @@ Lists {
   "pass": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > this is fine",
       "id": 1,
@@ -502,6 +605,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > another normal pass",
       "id": 8,
@@ -518,6 +622,7 @@ Lists {
   "skip": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skipped test",
       "id": 2,
@@ -532,6 +637,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skipped with message",
       "id": 3,
@@ -546,6 +652,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > skip for filter",
       "id": 6,
@@ -562,6 +669,7 @@ Lists {
   "todo": Array [
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > todo test",
       "id": 4,
@@ -576,6 +684,7 @@ Lists {
     },
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "passer > todo test with message",
       "id": 5,

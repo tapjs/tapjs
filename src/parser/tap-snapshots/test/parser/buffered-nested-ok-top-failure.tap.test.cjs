@@ -58,6 +58,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
@@ -112,6 +113,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
@@ -129,6 +131,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
@@ -150,6 +153,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "please sir, my son, he is sick",
       "id": 1,
@@ -167,6 +171,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "please sir, my son, he is sick",
       "id": 1,
@@ -184,6 +189,7 @@ Array [
     "fail",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "please sir, my son, he is sick",
       "id": 1,
@@ -206,6 +212,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "please sir, my son, he is sick",
           "id": 1,
@@ -292,6 +299,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
@@ -346,6 +354,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
@@ -363,6 +372,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
@@ -384,6 +394,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "please sir, my son, he is sick",
       "id": 1,
@@ -401,6 +412,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "please sir, my son, he is sick",
       "id": 1,
@@ -418,6 +430,7 @@ Array [
     "fail",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "please sir, my son, he is sick",
       "id": 1,
@@ -448,6 +461,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "please sir, my son, he is sick",
           "id": 1,

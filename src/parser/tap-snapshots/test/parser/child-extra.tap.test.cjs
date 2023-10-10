@@ -42,6 +42,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
@@ -156,6 +157,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
@@ -173,6 +175,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
@@ -210,6 +213,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 1,
@@ -307,6 +311,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
@@ -421,6 +426,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
@@ -438,6 +444,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
@@ -475,6 +482,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "test/debug-test.js",
       "id": 1,

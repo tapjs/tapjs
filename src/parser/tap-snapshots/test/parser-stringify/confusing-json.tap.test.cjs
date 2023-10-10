@@ -22,6 +22,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
@@ -39,6 +40,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
@@ -164,6 +166,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Test newlines in tap and console.log",
       "id": 1,
@@ -296,6 +299,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
@@ -313,6 +317,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
@@ -438,6 +443,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Test newlines in tap and console.log",
       "id": 1,
@@ -574,6 +580,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test newlines in tap and console.log > Before console.log",
       "id": 1,
@@ -591,6 +598,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Test newlines in tap and console.log > After console.log",
       "id": 2,
@@ -722,6 +730,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
@@ -739,6 +748,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
@@ -901,6 +911,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Test newlines in tap and console.log",
       "id": 1,
@@ -1102,6 +1113,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
@@ -1119,6 +1131,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
@@ -1281,6 +1294,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Test newlines in tap and console.log",
       "id": 1,

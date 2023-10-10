@@ -30,6 +30,7 @@ level: 3
 ok: true
 id: 2
 time: 0.822
+closingTestPoint: true
 plan:
   start: 1
   end: 2
@@ -51,6 +52,7 @@ level: 2
 ok: true
 id: 1
 time: 5.817
+closingTestPoint: true
 plan:
   start: 1
   end: 3
@@ -174,6 +176,7 @@ diag:
     columnNumber: 3
     isToplevel: true
 time: 11.27
+closingTestPoint: true
 plan:
   start: 1
   end: 2
@@ -203,6 +206,7 @@ level: 2
 ok: true
 id: 7
 skip: no tests found
+closingTestPoint: true
 plan:
   start: 1
   end: 0
@@ -227,6 +231,7 @@ level: 2
 ok: true
 id: 8
 time: 0.067
+closingTestPoint: true
 plan:
   start: 1
   end: 0
@@ -249,6 +254,7 @@ level: 2
 ok: true
 id: 9
 time: 0.07
+closingTestPoint: true
 plan:
   start: 1
   end: 0
@@ -287,6 +293,7 @@ level: 2
 ok: true
 id: 10
 time: 0.397
+closingTestPoint: true
 plan:
   start: 1
   end: 8
@@ -326,6 +333,7 @@ diag:
     columnNumber: 3
     isToplevel: true
 time: 0.109
+closingTestPoint: true
 plan:
   start: 1
   end: 1
@@ -392,6 +400,7 @@ diag:
     columnNumber: 3
     isToplevel: true
 time: 0.197
+closingTestPoint: true
 plan:
   start: 1
   end: 3
@@ -425,6 +434,7 @@ diag:
   context: !symbol/shared tap.isRunner
   exitCode: 1
 time: 484.581
+closingTestPoint: true
 plan:
   start: 1
   end: 13

@@ -27,6 +27,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child > test point in child",
           "id": 1,
@@ -61,6 +62,7 @@ Array [
             },
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "child > test point in child",
               "id": 1,
@@ -199,6 +201,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child > test point in child",
           "id": 1,
@@ -233,6 +236,7 @@ Array [
             },
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "child > test point in child",
               "id": 1,
@@ -286,6 +290,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 1,
@@ -324,6 +329,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child",
           "id": 1,
@@ -386,6 +392,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "child > test point in child",
       "id": 1,
@@ -423,6 +430,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child",
           "id": 1,
@@ -510,6 +518,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child > test point in child",
           "id": 1,
@@ -544,6 +553,7 @@ Array [
             },
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "child > test point in child",
               "id": 1,
@@ -597,6 +607,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child",
       "id": 1,
@@ -635,6 +646,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child",
           "id": 1,
@@ -722,6 +734,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "child > test point in child",
           "id": 1,
@@ -756,6 +769,7 @@ Array [
             },
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "child > test point in child",
               "id": 1,

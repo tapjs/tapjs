@@ -28,6 +28,7 @@ export class Result {
   public diag: any | null = null
   public time: number | null = null
   public fullname: string = ''
+  public closingTestPoint: boolean = false
 
   constructor(parsed: string[], parser: Parser) {
     const ok = !parsed[1]

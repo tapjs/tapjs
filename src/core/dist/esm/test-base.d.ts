@@ -11,7 +11,7 @@ import { Result, TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { Worker } from './worker.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-import { Counts, Extra, MessageExtra, TapBaseEvents, TapFile } from './index.js';
+import { Extra, MessageExtra, TapBaseEvents, TapFile } from './index.js';
 /**
  * Options that can be passed to TestBase objects
  */
@@ -223,7 +223,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      *
      * @group Test Reflection
      */
-    get assertTotals(): Counts;
+    get assertTotals(): import("./counts.js").Counts;
     /**
      * true if the test has printed at least one TestPoint
      *

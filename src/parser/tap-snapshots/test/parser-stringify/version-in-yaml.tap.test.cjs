@@ -22,6 +22,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -53,6 +54,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -178,6 +180,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -213,6 +216,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -260,6 +264,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child indented",
       "id": 1,
@@ -284,6 +289,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -319,6 +325,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -366,6 +373,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child unindented",
       "id": 2,
@@ -390,6 +398,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -425,6 +434,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -472,6 +482,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child unnamed",
       "id": 3,
@@ -496,6 +507,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -531,6 +543,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -578,6 +591,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child buffered",
       "id": 4,
@@ -608,6 +622,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child indented",
           "id": 1,
@@ -622,6 +637,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child unindented",
           "id": 2,
@@ -636,6 +652,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child unnamed",
           "id": 3,
@@ -650,6 +667,7 @@ Array [
         },
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child buffered",
           "id": 4,
@@ -699,6 +717,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "version": String(
           
@@ -721,6 +740,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "version": String(
           
@@ -743,6 +763,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "version": String(
           
@@ -765,6 +786,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child unnamed",
       "id": 4,
@@ -782,6 +804,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "version": String(
           
@@ -816,6 +839,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child indented",
           "id": 1,
@@ -830,6 +854,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child unindented",
           "id": 2,
@@ -844,6 +869,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child unnamed",
           "id": 4,
@@ -858,6 +884,7 @@ Array [
         },
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child buffered",
           "id": 4,
@@ -994,6 +1021,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -1029,6 +1057,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -1076,6 +1105,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child indented",
       "id": 1,
@@ -1100,6 +1130,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -1135,6 +1166,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -1182,6 +1214,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child unindented",
       "id": 2,
@@ -1206,6 +1239,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -1241,6 +1275,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -1288,6 +1323,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child unnamed",
       "id": 3,
@@ -1312,6 +1348,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -1347,6 +1384,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   
@@ -1394,6 +1432,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "child buffered",
       "id": 4,
@@ -1424,6 +1463,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child indented",
           "id": 1,
@@ -1438,6 +1478,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child unindented",
           "id": 2,
@@ -1452,6 +1493,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child unnamed",
           "id": 3,
@@ -1466,6 +1508,7 @@ Array [
         },
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "child buffered",
           "id": 4,
@@ -1602,6 +1645,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "version": String(
               
@@ -1633,6 +1677,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": Object {
                 "version": String(
                   

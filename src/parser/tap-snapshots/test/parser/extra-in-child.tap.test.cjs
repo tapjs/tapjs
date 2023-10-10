@@ -45,6 +45,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
@@ -66,6 +67,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
@@ -140,6 +142,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
@@ -172,6 +175,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
@@ -346,6 +350,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
@@ -420,6 +425,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
@@ -437,6 +443,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
@@ -458,6 +465,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
@@ -475,6 +483,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
@@ -716,6 +725,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
@@ -733,6 +743,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
@@ -770,6 +781,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "test/01c-user-updates.js",
       "id": 1,
@@ -870,6 +882,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
@@ -891,6 +904,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
@@ -965,6 +979,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
@@ -997,6 +1012,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
@@ -1171,6 +1187,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
@@ -1245,6 +1262,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
@@ -1262,6 +1280,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
@@ -1283,6 +1302,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
@@ -1300,6 +1320,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
@@ -1541,6 +1562,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
@@ -1558,6 +1580,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
@@ -1595,6 +1618,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "test/01c-user-updates.js",
       "id": 1,

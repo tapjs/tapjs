@@ -27,6 +27,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Foo",
       "id": 1,
@@ -44,6 +45,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Foo",
       "id": 1,
@@ -61,6 +63,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Foo",
       "id": 1,
@@ -82,6 +85,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Unexpected success",
       "id": 2,
@@ -99,6 +103,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Unexpected success",
       "id": 2,
@@ -116,6 +121,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Unexpected success",
       "id": 2,
@@ -137,6 +143,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "This is not todo",
       "id": 3,
@@ -154,6 +161,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "This is not todo",
       "id": 3,
@@ -171,6 +179,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "This is not todo",
       "id": 3,
@@ -192,6 +201,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -209,6 +219,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -226,6 +237,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -247,6 +259,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "testTitle#todo is not a todo, it's a url",
       "id": 5,
@@ -264,6 +277,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "testTitle#todo is not a todo, it's a url",
       "id": 5,
@@ -281,6 +295,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "testTitle#todo is not a todo, it's a url",
       "id": 5,
@@ -318,6 +333,22 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "Foo",
+          "id": 1,
+          "name": "Foo",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "Just testing the todo interface.",
+        },
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Unexpected success",
           "id": 2,
@@ -332,6 +363,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 4,
@@ -372,6 +404,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Foo",
       "id": 1,
@@ -389,6 +422,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Foo",
       "id": 1,
@@ -406,6 +440,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Foo",
       "id": 1,
@@ -427,6 +462,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Unexpected success",
       "id": 2,
@@ -444,6 +480,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Unexpected success",
       "id": 2,
@@ -461,6 +498,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "Unexpected success",
       "id": 2,
@@ -482,6 +520,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "This is not todo",
       "id": 3,
@@ -499,6 +538,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "This is not todo",
       "id": 3,
@@ -516,6 +556,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "This is not todo",
       "id": 3,
@@ -537,6 +578,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -554,6 +596,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -571,6 +614,7 @@ Array [
     "todo",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "",
       "id": 4,
@@ -592,6 +636,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "testTitle#todo is not a todo, it's a url",
       "id": 5,
@@ -609,6 +654,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "testTitle#todo is not a todo, it's a url",
       "id": 5,
@@ -626,6 +672,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "testTitle#todo is not a todo, it's a url",
       "id": 5,
@@ -663,6 +710,22 @@ Array [
       "todos": Array [
         Object {
           "buffered": false,
+          "closingTestPoint": false,
+          "diag": null,
+          "fullname": "Foo",
+          "id": 1,
+          "name": "Foo",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": "Just testing the todo interface.",
+        },
+        Object {
+          "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "Unexpected success",
           "id": 2,
@@ -677,6 +740,7 @@ Array [
         },
         Object {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "",
           "id": 4,

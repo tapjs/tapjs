@@ -67,6 +67,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "data": Object {
           "expected": Object {
@@ -97,6 +98,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "data": Object {
           "expected": Object {
@@ -127,6 +129,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "data": Object {
           "expected": Object {
@@ -174,6 +177,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "data": Object {
               "expected": Object {
@@ -282,6 +286,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "data": Object {
           "expected": Object {
@@ -312,6 +317,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "data": Object {
           "expected": Object {
@@ -342,6 +348,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "data": Object {
           "expected": Object {
@@ -385,6 +392,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "data": Object {
               "expected": Object {

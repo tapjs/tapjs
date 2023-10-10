@@ -152,6 +152,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "index.js > boom",
           "id": 1,
@@ -325,6 +326,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {
         "arguments": Array [
           "index.js",
@@ -367,6 +369,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": Object {
             "arguments": Array [
               "index.js",
@@ -698,6 +701,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "index.js > boom",
           "id": 1,
@@ -871,6 +875,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {
         "arguments": Array [
           "index.js",
@@ -925,6 +930,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": Object {
             "arguments": Array [
               "index.js",
@@ -1102,6 +1108,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "index.js > boom",
       "id": 1,
@@ -1119,6 +1126,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {
         "arguments": Array [
           "index.js",
@@ -1172,6 +1180,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": Object {
             "arguments": Array [
               "index.js",
@@ -1545,6 +1554,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "index.js > boom",
           "id": 1,
@@ -1815,6 +1825,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {
         "arguments": Array [
           "index.js",
@@ -1961,6 +1972,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": Object {
             "arguments": Array [
               "index.js",
@@ -2334,6 +2346,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "index.js > boom",
           "id": 1,
@@ -2604,6 +2617,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": Object {
         "arguments": Array [
           "index.js",
@@ -2738,6 +2752,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": Object {
             "arguments": Array [
               "index.js",

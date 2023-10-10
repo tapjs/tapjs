@@ -79,6 +79,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "empty",
       "id": 1,
@@ -96,6 +97,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "empty",
       "id": 1,
@@ -113,6 +115,7 @@ Array [
     "fail",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "empty",
       "id": 1,
@@ -145,6 +148,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_test > subtest event A",
           "id": 1,
@@ -166,6 +170,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_test > subtest event B",
           "id": 2,
@@ -228,6 +233,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test > subtest event A",
       "id": 1,
@@ -245,6 +251,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test > subtest event A",
       "id": 1,
@@ -266,6 +273,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test > subtest event B",
       "id": 2,
@@ -283,6 +291,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test > subtest event B",
       "id": 2,
@@ -308,6 +317,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "my_test",
       "id": 2,
@@ -352,6 +362,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_test_plan > subtest event A",
           "id": 1,
@@ -373,6 +384,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_test_plan > subtest event B",
           "id": 2,
@@ -427,6 +439,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test_plan > subtest event A",
       "id": 1,
@@ -444,6 +457,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test_plan > subtest event A",
       "id": 1,
@@ -465,6 +479,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test_plan > subtest event B",
       "id": 2,
@@ -482,6 +497,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_test_plan > subtest event B",
       "id": 2,
@@ -503,6 +519,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "my_test_plan",
       "id": 3,
@@ -535,6 +552,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_streamy_test > subtest event A",
           "id": 1,
@@ -556,6 +574,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_streamy_test > subtest event B",
           "id": 2,
@@ -618,6 +637,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test > subtest event A",
       "id": 1,
@@ -635,6 +655,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test > subtest event A",
       "id": 1,
@@ -656,6 +677,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test > subtest event B",
       "id": 2,
@@ -673,6 +695,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test > subtest event B",
       "id": 2,
@@ -698,6 +721,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Subtest: my_streamy_test",
       "id": 4,
@@ -715,6 +739,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Subtest: my_streamy_test",
       "id": 4,
@@ -732,6 +757,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Subtest: my_streamy_test",
       "id": 4,
@@ -776,6 +802,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_streamy_test_plan > subtest event A",
           "id": 1,
@@ -797,6 +824,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my_streamy_test_plan > subtest event B",
           "id": 2,
@@ -851,6 +879,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test_plan > subtest event A",
       "id": 1,
@@ -868,6 +897,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test_plan > subtest event A",
       "id": 1,
@@ -889,6 +919,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test_plan > subtest event B",
       "id": 2,
@@ -906,6 +937,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my_streamy_test_plan > subtest event B",
       "id": 2,
@@ -927,6 +959,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Subtest: my_streamy_test_plan",
       "id": 5,
@@ -944,6 +977,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Subtest: my_streamy_test_plan",
       "id": 5,
@@ -961,6 +995,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "Subtest: my_streamy_test_plan",
       "id": 5,
@@ -995,6 +1030,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "empty",
           "id": 1,
@@ -1102,6 +1138,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "empty",
       "id": 1,
@@ -1119,6 +1156,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "empty",
       "id": 1,
@@ -1136,6 +1174,7 @@ Array [
     "fail",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "empty",
       "id": 1,
@@ -1166,6 +1205,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": true,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "empty",
           "id": 1,

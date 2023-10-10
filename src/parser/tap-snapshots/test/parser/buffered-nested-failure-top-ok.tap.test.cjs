@@ -58,6 +58,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my kids are fine > no they aren't",
           "id": 0,
@@ -80,6 +81,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "my kids are fine > no they aren't",
               "id": 0,
@@ -127,6 +129,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my kids are fine > no they aren't",
       "id": 0,
@@ -144,6 +147,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my kids are fine > no they aren't",
       "id": 0,
@@ -165,6 +169,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "my kids are fine",
       "id": 1,
@@ -182,6 +187,7 @@ Array [
     "result",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "my kids are fine",
       "id": 1,
@@ -199,6 +205,7 @@ Array [
     "pass",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "my kids are fine",
       "id": 1,
@@ -292,6 +299,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "my kids are fine > no they aren't",
           "id": 0,
@@ -322,6 +330,7 @@ Array [
           "failures": Array [
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "my kids are fine > no they aren't",
               "id": 0,
@@ -369,6 +378,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my kids are fine > no they aren't",
       "id": 0,
@@ -386,6 +396,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "my kids are fine > no they aren't",
       "id": 0,

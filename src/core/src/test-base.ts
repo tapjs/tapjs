@@ -22,7 +22,6 @@ import { Worker } from './worker.js'
 
 import { IMPLICIT } from './implicit-end-sigil.js'
 import {
-  Counts,
   Extra,
   MessageExtra,
   TapBaseEvents,

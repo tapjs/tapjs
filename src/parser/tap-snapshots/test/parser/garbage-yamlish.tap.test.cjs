@@ -35,6 +35,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
@@ -52,6 +53,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
@@ -69,6 +71,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
@@ -107,6 +110,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "But this is not garbage",
       "id": 2,
@@ -124,6 +128,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "But this is not garbage",
       "id": 2,
@@ -141,6 +146,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "But this is not garbage",
       "id": 2,
@@ -174,6 +180,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "truncating the yamlish",
       "id": 3,
@@ -191,6 +198,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "truncating the yamlish",
       "id": 3,
@@ -208,6 +216,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "truncating the yamlish",
       "id": 3,
@@ -238,6 +247,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this is truncated weirdly",
       "id": 4,
@@ -255,6 +265,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this is truncated weirdly",
       "id": 4,
@@ -272,6 +283,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "this is truncated weirdly",
       "id": 4,
@@ -314,6 +326,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,
@@ -328,6 +341,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "truncating the yamlish",
           "id": 3,
@@ -342,6 +356,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "this is truncated weirdly",
           "id": 4,
@@ -405,6 +420,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
@@ -422,6 +438,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
@@ -439,6 +456,7 @@ Array [
     "fail",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
@@ -477,6 +495,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": null,
           "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,

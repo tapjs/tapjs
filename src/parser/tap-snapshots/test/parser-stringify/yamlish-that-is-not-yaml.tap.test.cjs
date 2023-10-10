@@ -15,6 +15,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -73,6 +74,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -193,6 +195,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -255,6 +258,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -307,6 +311,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -368,6 +373,7 @@ Array [
       "failures": Array [
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -488,6 +494,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -579,6 +586,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -699,6 +707,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -786,6 +795,7 @@ Array [
         },
         Result {
           "buffered": false,
+          "closingTestPoint": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",

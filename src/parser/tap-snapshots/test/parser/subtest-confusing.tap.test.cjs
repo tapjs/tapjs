@@ -53,6 +53,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a brace looks like this > x > ypoint",
               "id": 1,
@@ -127,6 +128,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "a brace looks like this > y",
           "id": 1,
@@ -197,6 +199,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
@@ -214,6 +217,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
@@ -239,6 +243,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a brace looks like this > y",
       "id": 1,
@@ -256,6 +261,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a brace looks like this > y",
       "id": 1,
@@ -277,6 +283,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a brace looks like this",
       "id": 1,
@@ -298,6 +305,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 2,
@@ -315,6 +323,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 2,
@@ -332,6 +341,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 2,
@@ -432,6 +442,7 @@ Array [
             "assert",
             Result {
               "buffered": false,
+              "closingTestPoint": false,
               "diag": null,
               "fullname": "a brace looks like this > x > ypoint",
               "id": 1,
@@ -506,6 +517,7 @@ Array [
         "assert",
         Result {
           "buffered": false,
+          "closingTestPoint": true,
           "diag": null,
           "fullname": "a brace looks like this > y",
           "id": 1,
@@ -576,6 +588,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
@@ -593,6 +606,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
@@ -618,6 +632,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a brace looks like this > y",
       "id": 1,
@@ -635,6 +650,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a brace looks like this > y",
       "id": 1,
@@ -656,6 +672,7 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "closingTestPoint": true,
       "diag": null,
       "fullname": "a brace looks like this",
       "id": 1,
@@ -677,6 +694,7 @@ Array [
     "assert",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 2,
@@ -694,6 +712,7 @@ Array [
     "result",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 2,
@@ -711,6 +730,7 @@ Array [
     "pass",
     Result {
       "buffered": false,
+      "closingTestPoint": false,
       "diag": null,
       "fullname": "x",
       "id": 2,

@@ -67,7 +67,7 @@ export class Parser
   braceLevel: number = 0
   buffer: string = ''
   buffered: boolean
-  closingTestPoint: Result | null = null
+  #closingTestPoint: Result | null = null
   comments: string[] = []
   count: number = 0
   fail: number = 0
@@ -95,6 +95,14 @@ export class Parser
   syntheticPlan: boolean = false
   time: number | null = null
   todo: number = 0
+
+  get closingTestPoint() {
+    return this.#closingTestPoint
+  }
+  set closingTestPoint(res) {
+    this.#closingTestPoint = res
+    if (res) res.closingTestPoint = true
+  }
 
   /* c8 ignore start */
   get readable(): false {
@@ -596,8 +604,7 @@ export class Parser
 
   endChild() {
     if (this.#child && (!this.#bailingOut || this.#child.count)) {
-      if (this.#child.closingTestPoint)
-        this.#child.time = this.#child.closingTestPoint.time || null
+      this.#child.time = this.#child.closingTestPoint?.time || null
       this.#previousChild = this.#child
       this.#child.end()
       this.#child = null
@@ -616,11 +623,11 @@ export class Parser
     this.#current = null
 
     this.count++
+    const { skip, todo } = res
+    if (skip) this.skips.push({ ...res, skip })
+    if (todo) this.todos.push({ ...res, todo })
     if (res.ok) {
       this.pass++
-      const { skip, todo } = res
-      if (skip) this.skips.push({ ...res, skip })
-      if (todo) this.todos.push({ ...res, todo })
       if (!skip && !todo && this.passes) this.passes.push(res)
     } else {
       this.fail++
