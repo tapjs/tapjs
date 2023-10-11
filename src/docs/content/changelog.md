@@ -5,6 +5,18 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.5
+
+- add `closingTestPoint` to tap-parser `Result` objects, to
+  indicate whether a test point is the final closing test point
+  of a subtest, or just a "normal" assertion.
+- better reporting of results when run under `node --test`,
+  especially tests containing `skip` and `todo` test points.
+- typescript: default `--tsconfig` to the first of these files
+  found in the project directory, if present:
+  `tsconfig.tap.json`, `tsconfig.test.json`,
+  `tsconfig.spec.json`, `tsconfig.json`.
+
 ## 18.4
 
 Note: The formatting of `Symbol` objects and enumerable `Symbol`
