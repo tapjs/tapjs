@@ -10,12 +10,15 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.7.x]
-        os: [ubuntu-latest]
+        node-version: [16.x, 18.x, 20.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - uses: actions/checkout@v3
