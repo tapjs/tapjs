@@ -173,10 +173,10 @@ ok 1 - everything is ok, just very communicative
 not ok 2 - failing, gonna tell you why
   ---
   at:
-    file: foo.js
-    line: 13
-    column: 4
-  message: This is not ok
+    fileName: foo.js
+    lineNumber: 13
+    columnNumber: 4
+  message: A message describing the error
   thrown: true
   ...
 
