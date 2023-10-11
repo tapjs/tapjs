@@ -17,6 +17,14 @@ Object {
       
                         If this is a relative directory, then it is resolved
                         against the project root directory.
+      
+                        Defaults to the first of these files that are found in
+                        the project root directory:
+      
+                        - tsconfig.tap.json
+                        - tsconfig.test.json
+                        - tsconfig.spec.json
+                        - tsconfig.json
     ),
     "type": "string",
   },

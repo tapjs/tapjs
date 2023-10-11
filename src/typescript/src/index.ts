@@ -1,4 +1,5 @@
 import { env, TapPlugin } from '@tapjs/core'
+import { statSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 // This just adds the ts-node/esm loader
@@ -13,6 +14,14 @@ export const loader = 'ts-node/esm'
 // otherwise any other resolve()'s won't be run
 export const preload = true
 
+const fileExists = (path: string) => {
+  try {
+    return statSync(path).isFile()
+  } catch {
+    return false
+  }
+}
+
 let didSet = false
 export const plugin: TapPlugin<{}> = () => {
   if (!didSet) {
@@ -20,6 +29,19 @@ export const plugin: TapPlugin<{}> = () => {
       env.TS_NODE_TRANSPILE_ONLY = '0'
     } else {
       env.TS_NODE_TRANSPILE_ONLY = '1'
+    }
+    if (env.TAP_CWD && !env.TAP_TSCONFIG) {
+      for (const tsconfig of [
+        'tsconfig.tap.json',
+        'tsconfig.test.json',
+        'tsconfig.spec.json',
+        'tsconfig.json',
+      ]) {
+        if (fileExists(resolve(env.TAP_CWD, tsconfig))) {
+          env.TAP_TSCONFIG = tsconfig
+          break
+        }
+      }
     }
     if (env.TAP_TSCONFIG && env.TAP_CWD) {
       env.TS_NODE_PROJECT = resolve(env.TAP_CWD, env.TAP_TSCONFIG)
@@ -95,6 +117,14 @@ export const config = {
    *
    * If this is a relative directory, then it is resolved against the project
    * root directory.
+   *
+   * Defaults to the first of these files that are found in the project root
+   * directory:
+   *
+   * - tsconfig.tap.json
+   * - tsconfig.test.json
+   * - tsconfig.spec.json
+   * - tsconfig.json
    */
   tsconfig: {
     type: 'string',
@@ -105,6 +135,14 @@ export const config = {
                   \`TS_NODE_PROJECT\` environment variable.
 
                   If this is a relative directory, then it is resolved
-                  against the project root directory.`,
+                  against the project root directory.
+
+                  Defaults to the first of these files that are found in
+                  the project root directory:
+
+                  - tsconfig.tap.json
+                  - tsconfig.test.json
+                  - tsconfig.spec.json
+                  - tsconfig.json`,
   },
 }

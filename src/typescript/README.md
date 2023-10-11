@@ -36,3 +36,17 @@ bit, at the expense of some type safety.
 Note that even if you pre-compile your tests, they will still be
 subject to type checking if `"allowJs": true` is set in your
 tsconfig.
+
+## Configuration
+
+Set these as command line flags, or in a `.taprc` or `package.json`,
+or via the `tap config set <key>=<value>` command.
+
+- `typecheck` Defaults to false. Applies strict type checking to
+  tests and the files they load, (at the expense of making tests
+  slower).
+
+- `tsconfig` Set to the `tsconfig.json` file to be used when
+  loading TypeScript tests. Defaults to the first of these found,
+  if present: `tsconfig.tap.json`, `tsconfig.test.json`,
+  `tsconfig.spec.json`, `tsconfig.json`.

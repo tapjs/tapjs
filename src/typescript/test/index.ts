@@ -1,4 +1,5 @@
 import * as core from '@tapjs/core'
+import { unlinkSync } from 'fs'
 import { resolve } from 'path'
 import t from 'tap'
 import { config, loader } from '../dist/esm/index.js'
@@ -70,5 +71,43 @@ t.test('--tsconfig option', async t => {
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_PROJECT, resolve(cwd, 'tsconfig.foo.json'))
+  t.end()
+})
+
+t.test('--tsconfig defaults', async t => {
+  const files = [
+    'tsconfig.tap.json',
+    'tsconfig.test.json',
+    'tsconfig.spec.json',
+    'tsconfig.json',
+  ]
+  const cwd = t.testdir(Object.fromEntries(files.map(f => [f, ''])))
+
+  for (const file of files) {
+    t.test(file, async t => {
+      const mock = {
+        '@tapjs/core': t.createMock(core, {
+          env: {
+            TS_NODE_PROJECT: undefined,
+            TAP_TSCONFIG: undefined,
+            TAP_CWD: cwd,
+          },
+        }),
+      }
+      const {
+        '@tapjs/core': { env },
+      } = mock
+      const { plugin } = (await t.mockImport(
+        '../dist/esm/index.js',
+        mock
+      )) as typeof import('../dist/esm/index.js')
+      plugin(t)
+      plugin(t)
+      t.equal(env.TAP_TSCONFIG, file)
+      t.equal(env.TS_NODE_PROJECT, resolve(cwd, file))
+      unlinkSync(resolve(cwd, file))
+    })
+  }
+
   t.end()
 })
