@@ -44,9 +44,9 @@ linkpkg src/test/test-built
 echo -n "                                      "$'\r'
 
 # need to rebuild tap after plugins
-nx run-many --target=prepare --exclude tap,@tapjs/run
-nx run-many --target=prepare -p @tapjs/run
-nx run-many --target=prepare -p tap
+nx run-many --verbose --target=prepare --exclude tap,@tapjs/run
+nx run-many --verbose --target=prepare -p @tapjs/run
+nx run-many --verbose --target=prepare -p tap
 node \
   --import=@isaacs/ts-node-temp-fork-for-pr-2009/import \
   --no-warnings \
