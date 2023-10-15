@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/node-serialize",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Stream TAP test data as a serialized node:test stream",
   "tshy": {
     "main": true,
@@ -41,11 +41,11 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/error-serdes": "1.2.0",
-    "@tapjs/stack": "1.2.5",
+    "@tapjs/stack": "1.2.6",
     "tap-parser": "15.3.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.4.0"
+    "@tapjs/core": "1.4.1"
   },
   "tap": {
     "fail-skip": true,
