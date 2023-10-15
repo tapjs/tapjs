@@ -189,7 +189,7 @@ export const config = (jack) => {
 // // these are added with --loader, only if --import is unavailable
 // export const loaderFallbacks = []
 const preloaders = new Set([
-    "ts-node/esm"
+    "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
 ]);
 const preimports = new Set([]);
 /**
@@ -198,7 +198,7 @@ const preimports = new Set([]);
  * that Node loads it before other loaders.
  */
 export const loaders = [
-    "ts-node/esm"
+    "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
 ].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1
         : 0);
@@ -217,7 +217,7 @@ export const importLoaders = [
  */
 export const loaderFallbacks = [
     "@tapjs/mock/loader",
-    "ts-node/esm"
+    "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
 ].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1
         : 0);

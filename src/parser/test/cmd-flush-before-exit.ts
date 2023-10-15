@@ -9,7 +9,7 @@ const args = [
   '--no-warnings',
   '--enable-source-maps',
   '--loader',
-  'ts-node/esm',
+  '@isaacs/ts-node-temp-fork-for-pr-2009/esm',
   __filename,
 ]
 

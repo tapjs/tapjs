@@ -3,7 +3,7 @@ import { unlinkSync } from 'fs'
 import { resolve } from 'path'
 import t from 'tap'
 import { config, loader } from '../dist/esm/index.js'
-t.equal(loader, 'ts-node/esm')
+t.equal(loader, '@isaacs/ts-node-temp-fork-for-pr-2009/esm')
 t.matchSnapshot(config)
 
 t.test('typecheck defaults to false', async t => {

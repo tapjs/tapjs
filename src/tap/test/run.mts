@@ -6,7 +6,7 @@ const bin = fileURLToPath(
 )
 t.test('runner just loads runner', t => {
   const proc = spawn(process.execPath, [
-    '--loader=ts-node/esm',
+    '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
     '--no-warnings',
     bin,
     '-h',

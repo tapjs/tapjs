@@ -426,7 +426,7 @@ diag:
   command: /usr/local/bin/node
   args:
     - --import=file:///cwd/node_modules/@tapjs/mock/dist/esm/import.mjs
-    - --loader=file:///cwd/node_modules/ts-node/esm.mjs
+    - --loader=file:///cwd/node_modules/@isaacs/ts-node-temp-fork-for-pr-2009/esm.mjs
     - --no-warnings
     - --enable-source-maps
     - --import=file:///cwd/node_modules/@tapjs/processinfo/dist/mjs/import.mjs

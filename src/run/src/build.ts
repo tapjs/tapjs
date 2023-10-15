@@ -6,7 +6,6 @@ import { mainCommand } from './main-config.js'
 const tmbin = fileURLToPath(
   await resolveImport('@tapjs/test/generate-tap-test-class')
 )
-const execArgs = ['--loader=ts-node/esm', '--no-warnings']
 const node = process.execPath
 
 export const build = async (args: string[], config: LoadedConfig) => {
@@ -16,7 +15,7 @@ export const build = async (args: string[], config: LoadedConfig) => {
     )
   }
 
-  const argv = [...execArgs, tmbin, ...config.pluginList]
+  const argv = [tmbin, ...config.pluginList]
   return new Promise<void>((res, rej) => {
     foregroundChild(node, argv, {}, (code, signal) => {
       // if this is the main command, just terminate in the same way

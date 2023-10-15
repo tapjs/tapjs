@@ -4,8 +4,8 @@ import { resolve } from 'node:path'
 
 // This just adds the ts-node/esm loader
 // appease the import-deps test
-// import('ts-node')
-export const loader = 'ts-node/esm'
+// import('@isaacs/ts-node-temp-fork-for-pr-2009')
+export const loader = '@isaacs/ts-node-temp-fork-for-pr-2009/esm'
 
 // https://github.com/TypeStrong/ts-node/pull/2009
 // export const importLoader = 'ts-node/import'

@@ -6,7 +6,7 @@
   ],
   "execArgv": [
     "--no-warnings",
-    "--loader=ts-node/esm",
+    "--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm",
     "--loader=@tapjs/mock/loader",
     "--enable-source-maps",
     "--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/esm/esm.mjs"

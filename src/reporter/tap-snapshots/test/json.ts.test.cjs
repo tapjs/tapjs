@@ -30,7 +30,7 @@ exports[`test/json.ts > TAP > json 1`] = `
         "command": "/usr/local/bin/node",
         "args": [
           "--import=file:///cwd/node_modules/@tapjs/mock/dist/esm/import.mjs",
-          "--loader=file:///cwd/node_modules/ts-node/esm.mjs",
+          "--loader=file:///cwd/node_modules/@isaacs/ts-node-temp-fork-for-pr-2009/esm.mjs",
           "--no-warnings",
           "--enable-source-maps",
           "--import=file:///cwd/node_modules/@tapjs/processinfo/dist/mjs/import.mjs",
@@ -472,7 +472,7 @@ exports[`test/json.ts > TAP > jsonstream 1`] = `
 ["start",{"name":"unfinished test","level":2}]
 ["pass",{"ok":true,"name":"going to fail","id":1,"fullname":"test/fixtures/example-tap.ts > unfinished test > going to fail"}]
 ["end",{"name":"unfinished test","level":2,"ok":false,"id":13,"diag":{"at":{"fileName":"test/fixtures/example-tap.ts","lineNumber":62,"columnNumber":3,"isToplevel":true},"source":"})\\n\\nt.test('unfinished test', t => {\\n--^\\n  t.plan(3)\\n  t.pass('going to fail')\\n"},"time":0.197,"fullname":"test/fixtures/example-tap.ts > unfinished test","closingTestPoint":true,"plan":{"start":1,"end":3},"tests":1,"failures":0,"assertions":1,"skipped":0}]
-["end",{"name":"test/fixtures/example-tap.ts","level":1,"ok":false,"id":1,"diag":{"stdio":"inherit","cwd":"/cwd/src/reporter","externalID":"test/fixtures/example-tap.ts","command":"/usr/local/bin/node","args":["--import=file:///cwd/node_modules/@tapjs/mock/dist/esm/import.mjs","--loader=file:///cwd/node_modules/ts-node/esm.mjs","--no-warnings","--enable-source-maps","--import=file:///cwd/node_modules/@tapjs/processinfo/dist/mjs/import.mjs","/cwd/src/reporter/test/fixtures/example-tap.ts"],"exitCode":1},"time":484.581,"fullname":"test/fixtures/example-tap.ts","closingTestPoint":true,"plan":{"start":1,"end":13},"tests":30,"failures":15,"assertions":21,"skipped":15}]
+["end",{"name":"test/fixtures/example-tap.ts","level":1,"ok":false,"id":1,"diag":{"stdio":"inherit","cwd":"/cwd/src/reporter","externalID":"test/fixtures/example-tap.ts","command":"/usr/local/bin/node","args":["--import=file:///cwd/node_modules/@tapjs/mock/dist/esm/import.mjs","--loader=file:///cwd/node_modules/@isaacs/ts-node-temp-fork-for-pr-2009/esm.mjs","--no-warnings","--enable-source-maps","--import=file:///cwd/node_modules/@tapjs/processinfo/dist/mjs/import.mjs","/cwd/src/reporter/test/fixtures/example-tap.ts"],"exitCode":1},"time":484.581,"fullname":"test/fixtures/example-tap.ts","closingTestPoint":true,"plan":{"start":1,"end":13},"tests":30,"failures":15,"assertions":21,"skipped":15}]
 ["end",{"name":"TAP Tests","level":0,"plan":{"start":1,"end":1},"tests":31,"failures":15,"assertions":21,"skipped":15}]
 
 `

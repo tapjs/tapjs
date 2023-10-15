@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 const res = spawnSync(
   process.execPath,
   [
-    '--loader=ts-node/esm',
+    '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
     '--no-warnings',
     resolve(dirname(fileURLToPath(import.meta.url)), './default-build.mts'),
   ],

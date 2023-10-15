@@ -48,7 +48,7 @@ export const setFilterNodeInternals = (s: boolean) =>
 // from node_modules.
 const ignoredPackages: string[] = [
   '@tapjs',
-  'ts-node',
+  '@isaacs/ts-node-temp-fork-for-pr-2009',
   'pirates',
   'function-loop',
   '@cspotcode/source-map-support',

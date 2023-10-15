@@ -87,6 +87,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
+    "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.1",
     "@tapjs/after": "1.1.11",
     "@tapjs/after-each": "1.1.11",
     "@tapjs/asserts": "1.1.11",
@@ -109,7 +110,6 @@
     "rimraf": "^5.0.5",
     "sync-content": "^1.0.1",
     "tap-parser": "15.3.0",
-    "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1",
     "tshy": "^1.2.2",
     "typescript": "5.2"
   },

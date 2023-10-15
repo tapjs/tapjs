@@ -98,7 +98,12 @@ prepare('src/core', ...builtins)
 
 spawnSync(
   process.execPath,
-  ['--loader=ts-node/esm', '--no-warnings', build, ...builtins],
+  [
+    '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
+    '--no-warnings',
+    build,
+    ...builtins,
+  ],
   {
     stdio: 'inherit',
   }

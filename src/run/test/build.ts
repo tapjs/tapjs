@@ -45,8 +45,6 @@ t.test('build success, main command, allow fg exit', async t => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
         t.strictSame(args, [
-          '--loader=ts-node/esm',
-          '--no-warnings',
           tmbin,
           'a',
           'b',
@@ -81,8 +79,6 @@ t.test('build failure, main command, allow fg exit', async t => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
         t.strictSame(args, [
-          '--loader=ts-node/esm',
-          '--no-warnings',
           tmbin,
           'a',
           'b',
@@ -117,8 +113,6 @@ t.test('build success, subcommand, cancel exit', async t => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
         t.strictSame(args, [
-          '--loader=ts-node/esm',
-          '--no-warnings',
           tmbin,
           'a',
           'b',
@@ -153,8 +147,6 @@ t.test('build fail, subcommand, fail with status', async t => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
         t.strictSame(args, [
-          '--loader=ts-node/esm',
-          '--no-warnings',
           tmbin,
           'a',
           'b',

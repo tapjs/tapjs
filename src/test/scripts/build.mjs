@@ -21,7 +21,7 @@ process.env.TS_NODE_PROJECT = tsconfig
 const res = spawnSync(
   process.execPath,
   [
-    '--loader=ts-node/esm',
+    '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
     '--no-warnings',
     resolve(__dirname, './build.mts'),
     ...process.argv.slice(2),

@@ -296,7 +296,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.equal(getFilterIgnoredPackages(), true, 'filter by default')
       const defaultIgnored = [
         '@tapjs',
-        'ts-node',
+        '@isaacs/ts-node-temp-fork-for-pr-2009',
         'pirates',
         'function-loop',
         '@cspotcode/source-map-support',
