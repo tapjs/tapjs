@@ -361,7 +361,7 @@ that you'll get to it later), conditionally skipped on platforms
 that don't support the feature (eg, doing unixy things on
 Windows, or vice versa), or deleted from the test suite.
 
-Ignoring test failures is an very bad practice, as it reduces
+Ignoring test failures is a very bad practice, as it reduces
 confidence in your tests, which means that you can't just relax
 and focus on your code.
 
