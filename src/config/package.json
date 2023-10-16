@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/config",
-  "version": "2.4.8",
+  "version": "2.4.9",
   "description": "Utility loading and managing tap configuration",
   "tshy": {
     "main": true,
@@ -44,13 +44,13 @@
     "jackspeak": "^2.3.6",
     "polite-json": "^4.0.1",
     "walk-up-path": "^3.0.1",
-    "@tapjs/core": "1.4.1",
-    "@tapjs/test": "1.3.12",
+    "@tapjs/core": "1.4.2",
+    "@tapjs/test": "1.3.13",
     "tap-yaml": "2.2.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.4.1",
-    "@tapjs/test": "1.3.12"
+    "@tapjs/core": "1.4.2",
+    "@tapjs/test": "1.3.13"
   },
   "tap": {
     "typecheck": false,
