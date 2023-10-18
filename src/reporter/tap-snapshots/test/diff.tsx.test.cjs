@@ -5,6 +5,17 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/diff.tsx > TAP > ansi escape codes > must match snapshot 1`] = `
+[48;2;172;62;163m[38;2;255;229;241m--- expected                                                       [39m[49m
+[48;2;58;117;0m[38;2;242;255;229m+++ actual                                                         [39m[49m
+[1m[48;2;34;34;34m[38;2;117;158;239m@@ -1,3 +1,3 @@[38;2;229;153;255m                                                    [39m[49m[22m
+[48;2;172;62;163m[38;2;255;229;241m-Error: Oh \\x1b[1mdeary \\x1b[2mdeary \\x1b[0mdear. {                [39m[49m
+[48;2;172;62;163m[38;2;255;229;241m-  "cause": "foo",                                                 [39m[49m
+[48;2;58;117;0m[38;2;242;255;229m+Error: Oh deary deary dear. {                                     [39m[49m
+[48;2;58;117;0m[38;2;242;255;229m+  "cause": "bar",                                                 [39m[49m
+[48;2;51;51;51m[38;2;204;204;204m }                                                                 [39m[49m
+`
+
 exports[`test/diff.tsx > TAP > diff some stuff > must match snapshot 1`] = `
 [48;2;172;62;163m[38;2;255;229;241m--- expected                                                       [39m[49m
 [48;2;58;117;0m[38;2;242;255;229m+++ actual                                                         [39m[49m

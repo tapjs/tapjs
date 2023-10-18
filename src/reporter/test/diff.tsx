@@ -1,9 +1,10 @@
-import './fixtures/chalk.js'
 import { createTwoFilesPatch } from 'diff'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
+import { format } from 'tcompare'
 import { Diff } from '../dist/esm/diff.js'
+import './fixtures/chalk.js'
 
 t.test('diff some stuff', async t => {
   const found = {
@@ -114,6 +115,28 @@ I am a sojourner in civilized life again.`
         'actual',
         expected,
         actual
+      )}
+    />
+  )
+  t.matchSnapshot(app.lastFrame())
+})
+
+t.test('ansi escape codes', async t => {
+  const expected = new Error(
+    `Oh \x1b[1mdeary \x1b[2mdeary \x1b[0mdear.`,
+    {
+      cause: 'foo',
+    }
+  )
+  const actual = new Error(`Oh deary deary dear.`, { cause: 'bar' })
+
+  const app = render(
+    <Diff
+      diff={createTwoFilesPatch(
+        'expected',
+        'actual',
+        format(expected),
+        format(actual)
       )}
     />
   )

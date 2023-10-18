@@ -84,14 +84,17 @@ export const Diff: FC<{ diff: string }> = ({ diff = '' }) => {
 
   let width = 0
   const maxLen = Math.max(columns - 5, 0)
-  const lines = sd.split('\n').filter(line => {
-    if (stringLength(line) > width) {
-      width = Math.min(maxLen, stringLength(line))
-    }
-    return (
-      line !== '\\ No newline at end of file' && !/^\=+$/.test(line)
-    )
-  })
+  const lines = sd
+    .replace(/\x1b/g, '\\' + 'x1b')
+    .split('\n')
+    .filter(line => {
+      if (line.length > width) {
+        width = Math.min(maxLen, line.length)
+      }
+      return (
+        line !== '\\ No newline at end of file' && !/^\=+$/.test(line)
+      )
+    })
   return (
     <Box flexDirection="column">
       {lines
