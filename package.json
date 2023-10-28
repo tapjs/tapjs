@@ -64,6 +64,7 @@
     "nx-cloud": "^16.4.0",
     "opener": "^1.5.2",
     "pacote": "^17.0.4",
+    "pagefind": "^1.0.3",
     "patch-console": "^2.0.0",
     "path-scurry": "^1.9.2",
     "polite-json": "^4.0.1",

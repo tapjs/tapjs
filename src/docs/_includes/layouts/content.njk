@@ -3,7 +3,7 @@ layout: base.njk
 ---
 
 {% if eleventyNavigation and eleventyNavigation.key %}
-<section id="sidebar">
+<section id="sidebar" data-pagefind-ignore="all">
   {{ content | readmeInclude | toc({ ul: true }) | safe }}
   {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
     activeListItemClass: "current-page",
@@ -12,9 +12,9 @@ layout: base.njk
 </section>
 {% endif %}
 
-<section id="content">
+<section id="content" data-pagefind-body>
   {% if title %}
-  <h1>{{ title }}</h1>
+  <h1 data-pagefind-meta="title">{{ title }}</h1>
   {% endif %}
 
   {{ content | readmeInclude | selfLinks | safe }}

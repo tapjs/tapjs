@@ -14,4 +14,26 @@
       </nav>
     </div>
   </div>
+  <div id="search" class="search"></div>
+  <script src="/pagefind/pagefind-ui.js" onload="
+    new PagefindUI({ element: '#search', showImages: false })
+  "></script>
+  <script>
+    {
+      const search = document.getElementById('search')
+      // make the whole search result clickable
+      // could probably hack the search results template to do this
+      // without JS, but this works.
+      search.addEventListener('click', e => {
+        let p = e.target
+        if (p.tagName === 'A') return true
+        while (p && p !== search && p.tagName !== 'LI')
+          p = p.parentElement
+        if (p?.tagName === 'LI') {
+          const a = p.getElementsByTagName('A')[0]
+          if (a && a.href) location.href = a.href
+        }
+      })
+    }
+  </script>
 </div>
