@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/docs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The content for https://node-tap.org",
   "type": "commonjs",
   "scripts": {
