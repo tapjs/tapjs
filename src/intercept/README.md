@@ -1,7 +1,10 @@
 # `@tapjs/intercept`
 
 A default tap plugin for doing object/global property/method
-interception and observing.
+interception and observing. These are sometimes refered to as
+"spy" or "mock" methods (though the term "mock" is extremely
+overloaded, and in tap is usually used to refer to [dependency
+injection mocking](https://node-tap.org/plugins/mock)).
 
 ## Usage
 
