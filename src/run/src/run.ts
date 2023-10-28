@@ -134,7 +134,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
         if (files.length === 1) return t.stdinOnly()
         else return t.stdin()
       }
-      const name = relative(config.globCwd, file)
+      const name = relative(config.globCwd, file).replace(/\\/g, '/')
       const mapped = map(name)
       let coveredFiles: null | string[] =
         mapped === null
