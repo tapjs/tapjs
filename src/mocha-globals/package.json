@@ -57,7 +57,7 @@
     "tapjs plugin"
   ],
   "engines": {
-    "node": ">=16"
+    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
   },
   "funding": {
     "url": "https://github.com/sponsors/isaacs"

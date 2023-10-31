@@ -74,7 +74,7 @@
     "react": "^18.2.0",
     "react-element-to-jsx-string": "^15.0.0",
     "read": "^2.1.0",
-    "resolve-import": "^1.4.4",
+    "resolve-import": "^1.4.5",
     "rimraf": "^5.0.5",
     "sinon": "^15.2.0",
     "string-length": "^6.0.0",

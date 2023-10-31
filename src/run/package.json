@@ -56,7 +56,7 @@
     "mkdirp": "^3.0.1",
     "opener": "^1.5.2",
     "pacote": "^17.0.3",
-    "resolve-import": "^1.4.4",
+    "resolve-import": "^1.4.5",
     "rimraf": "^5.0.5",
     "semver": "^7.5.4",
     "signal-exit": "^4.1.0",
@@ -79,7 +79,7 @@
     "cli"
   ],
   "engines": {
-    "node": ">=16"
+    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
   },
   "funding": {
     "url": "https://github.com/sponsors/isaacs"

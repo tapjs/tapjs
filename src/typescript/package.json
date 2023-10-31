@@ -56,7 +56,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "engines": {
-    "node": ">=16"
+    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
   },
   "repository": {
     "type": "git",

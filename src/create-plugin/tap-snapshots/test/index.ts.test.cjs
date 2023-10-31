@@ -17,7 +17,7 @@ Object {
     "typescript": "^5.1.3",
   },
   "engines": Object {
-    "node": ">=16.17",
+    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20",
   },
   "exports": Object {
     ".": Object {
