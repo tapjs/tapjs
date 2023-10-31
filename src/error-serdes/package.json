@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/error-serdes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Port of node's error_serdes.js to userland, plus test message streaming",
   "tshy": {
     "main": true,

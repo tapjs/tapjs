@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/node-serialize",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Stream TAP test data as a serialized node:test stream",
   "tshy": {
     "main": true,
@@ -40,12 +40,12 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/error-serdes": "1.2.0",
-    "@tapjs/stack": "1.2.6",
-    "tap-parser": "15.3.0"
+    "@tapjs/error-serdes": "1.2.1",
+    "@tapjs/stack": "1.2.7",
+    "tap-parser": "15.3.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.4.2"
+    "@tapjs/core": "1.4.3"
   },
   "tap": {
     "fail-skip": true,

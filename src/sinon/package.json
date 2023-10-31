@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/sinon",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "a sinon extension for tap",
   "tshy": {
     "main": true,
@@ -40,11 +40,11 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "1.1.13",
+    "@tapjs/after": "1.1.14",
     "sinon": "^15.2.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.4.2"
+    "@tapjs/core": "1.4.3"
   },
   "tap": {
     "typecheck": false
