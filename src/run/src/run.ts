@@ -20,6 +20,9 @@ import { readSave } from './save-list.js'
 import { testArgv } from './test-argv.js'
 import { testIsSerial } from './test-is-serial.js'
 
+const regExpEscape = (s: string) =>
+  s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+
 const node = process.execPath
 
 export const run = async (args: string[], config: LoadedConfig) => {
@@ -53,6 +56,14 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const covExcludeFiles: (string | undefined)[] = []
   let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined =
     undefined
+
+  // always exclude the root node_modules from coverage. we don't report
+  // on it, and it just takes up space in the .tap/coverage data.
+  const _TAPJS_PROCESSINFO_COV_EXCLUDE_ = String(
+    new RegExp(
+      '^' + regExpEscape(resolve(config.globCwd, 'node_modules'))
+    )
+  )
 
   return executeTestSuite(
     args,
@@ -180,6 +191,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
               _TAPJS_PROCESSINFO_COVERAGE_,
               _TAPJS_PROCESSINFO_COV_FILES_,
               _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_,
+              _TAPJS_PROCESSINFO_COV_EXCLUDE_,
             },
             name,
             cwd: config.globCwd,
