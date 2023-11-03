@@ -16,6 +16,18 @@ eleventyNavigation:
   found in the project directory, if present:
   `tsconfig.tap.json`, `tsconfig.test.json`,
   `tsconfig.spec.json`, `tsconfig.json`.
+- (18.5.1) Use `@isaacs/ts-node-temp-fork-for-pr-2009` in place
+  of `ts-node`
+- (18.5.2) Improve prevention of hangs on Node 20 resulting from
+  excessive source map lookup calls
+- (18.5.3) reporter: escape ANSI escape codes in diffs
+- (18.5.3) add search to documentation site
+- (18.5.3) explicitly name tests with `/` path separators
+- (18.5.4) update engines declaration for `resolve-import`
+- (18.5.5) fix merging of coverage reports for windows tests
+- (18.5.5) always exclude `./node_modules` from coverage
+- (18.5.6) use `--import` interface for typescript loader to
+  support Node v21
 
 ## 18.4
 
