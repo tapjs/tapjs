@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "1.4.11",
+  "version": "1.4.12",
   "description": "Command-line interface for the node-tap runner",
   "tshy": {
     "dialects": [
@@ -39,14 +39,14 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "1.1.14",
-    "@tapjs/before": "1.1.14",
-    "@tapjs/config": "2.4.10",
+    "@tapjs/after": "1.1.15",
+    "@tapjs/before": "1.1.15",
+    "@tapjs/config": "2.4.11",
     "@tapjs/processinfo": "^3.1.6",
-    "@tapjs/reporter": "1.3.11",
-    "@tapjs/spawn": "1.1.14",
-    "@tapjs/stdin": "1.1.14",
-    "@tapjs/test": "1.3.14",
+    "@tapjs/reporter": "1.3.12",
+    "@tapjs/spawn": "1.1.15",
+    "@tapjs/stdin": "1.1.15",
+    "@tapjs/test": "1.3.15",
     "c8": "^8.0.1",
     "chalk": "^5.3.0",
     "chokidar": "^3.5.3",
@@ -67,7 +67,7 @@
     "which": "^4.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.4.3"
+    "@tapjs/core": "1.4.4"
   },
   "tap": {
     "typecheck": false,
