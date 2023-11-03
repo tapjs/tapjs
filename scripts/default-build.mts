@@ -99,7 +99,7 @@ prepare('src/core', ...builtins)
 spawnSync(
   process.execPath,
   [
-    '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
+    '--import=@isaacs/ts-node-temp-fork-for-pr-2009/import',
     '--no-warnings',
     build,
     ...builtins,

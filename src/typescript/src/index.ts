@@ -6,9 +6,7 @@ import { resolve } from 'node:path'
 // appease the import-deps test
 // import('@isaacs/ts-node-temp-fork-for-pr-2009')
 export const loader = '@isaacs/ts-node-temp-fork-for-pr-2009/esm'
-
-// https://github.com/TypeStrong/ts-node/pull/2009
-// export const importLoader = 'ts-node/import'
+export const importLoader = '@isaacs/ts-node-temp-fork-for-pr-2009/import'
 
 // ts-node/esm should come AHEAD of other loaders in the args list,
 // otherwise any other resolve()'s won't be run

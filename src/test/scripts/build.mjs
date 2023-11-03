@@ -3,6 +3,8 @@
 import { spawnSync } from 'node:child_process'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import Module from 'node:module'
+const useImport = !!Module.register
 
 const no = ['--no-warnings']
 
@@ -18,11 +20,20 @@ const tsconfig = resolve(__dirname, 'tsconfig.json')
 
 process.env.TS_NODE_PROJECT = tsconfig
 
+// node version specific
+/* c8 ignore start */
+const tsNodeImport = useImport
+  ? ['--import=@isaacs/ts-node-temp-fork-for-pr-2009/import']
+  : [
+      '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
+      '--no-warnings',
+    ]
+/* c8 ignore stop */
+
 const res = spawnSync(
   process.execPath,
   [
-    '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
-    '--no-warnings',
+    ...tsNodeImport,
     resolve(__dirname, './build.mts'),
     ...process.argv.slice(2),
   ],

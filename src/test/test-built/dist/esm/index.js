@@ -191,15 +191,15 @@ export const config = (jack) => {
 const preloaders = new Set([
     "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
 ]);
-const preimports = new Set([]);
+const preimports = new Set([
+    "@isaacs/ts-node-temp-fork-for-pr-2009/import"
+]);
 /**
  * The set of `loader` strings exported by plugins. If a plugin exports
  * `preload = true`, then it will be sorted to the start of this list, so
  * that Node loads it before other loaders.
  */
-export const loaders = [
-    "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
-].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+export const loaders = [].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1
         : 0);
 /**
@@ -207,7 +207,8 @@ export const loaders = [
  * `Module.register` in node v20.6 and higher.
  */
 export const importLoaders = [
-    "@tapjs/mock/import"
+    "@tapjs/mock/import",
+    "@isaacs/ts-node-temp-fork-for-pr-2009/import"
 ].sort((a, b) => preimports.has(a) && !preimports.has(b) ? -1
     : !preimports.has(a) && preimports.has(b) ? 1
         : 0);
