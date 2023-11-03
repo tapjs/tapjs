@@ -1,4 +1,5 @@
 {
+  "neverConnectToCloud": true,
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx-cloud",
@@ -12,13 +13,13 @@
           "snap",
           "format",
           "typedoc"
-        ],
-        "accessToken": "ZWFiM2M5NWUtMTgyNS00YTg5LTgyYjAtMDFhYjExZWNiZjg0fHJlYWQtd3JpdGU="
+        ]
       }
     }
   },
   "targetDefaults": {
     "build": {
+      "cache": true,
       "dependsOn": [
         "^prepare"
       ],
