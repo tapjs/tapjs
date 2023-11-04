@@ -98,6 +98,7 @@ t.test('other commands', t => {
     'report',
     'repl',
     'replay',
+    'debug',
   ]
   t.plan(commands.length)
   for (const cmd of commands) {

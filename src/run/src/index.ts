@@ -19,6 +19,10 @@ switch (mainCommand) {
     ;(await import('./version.js')).version(args, config)
     break
 
+  case 'debug':
+    ;(await import('./debug.js')).debug(args, config)
+    break
+
   case 'repl':
     ;(await import('./repl.js')).repl(args, config)
     break

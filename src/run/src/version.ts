@@ -23,7 +23,7 @@ export const version = async (args: string[], config: LoadedConfig) =>
     ? printAllVersions()
     : printTapVersion()
 
-const printAllVersions = async () => {
+export const getAllVersions = async () => {
   // find all packages anywhere named 'tap', '@tapjs/*', 'tap-*',
   // treport, or tcompare
   const versions: Record<string, string | Record<string, string>> = {}
@@ -43,8 +43,12 @@ const printAllVersions = async () => {
       pluginVersions[p] = v
     }
   }
-  // also try to get all the plugins that aren't part of core
-  console.log(yaml.stringify(versions).trimEnd())
+
+  return versions
+}
+
+const printAllVersions = async () => {
+  console.log(yaml.stringify(await getAllVersions()).trimEnd())
 }
 
 const printTapVersion = async () => {

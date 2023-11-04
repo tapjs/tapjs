@@ -32,6 +32,7 @@ const commands = new Set([
   'repl',
   'replay',
   'config',
+  'debug',
 ])
 
 if (!commands.has(mainCommand)) {
