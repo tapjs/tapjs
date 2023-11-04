@@ -51,7 +51,7 @@ body:
       tap config list
       tap plugin list
       # if using typescript:
-      npm ls ts-node
+      npm ls @isaacs/ts-node-temp-fork-for-pr-2009
       npm ls typescript
       # posix:
       uname -a
