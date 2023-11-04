@@ -217,6 +217,12 @@ export default jack({
     and positional arguments.`
   )
 
+  .heading('tap debug', 3, { pre: true })
+  .description(
+    `Output various debugging information, useful when posting issues
+    on <https://github.com/tapjs/tapjs/issues>.`
+  )
+
   .heading('tap help', 3, { pre: true })
   .description(
     `Print usage information
