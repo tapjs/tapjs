@@ -1236,3 +1236,27 @@ exports[`test/same.tsx > TAP > undefined is the same as itself > must match snap
 exports[`test/same.tsx > TAP > undefined is the same as itself > must match snapshot 3`] = `
 
 `
+
+exports[`test/same.tsx > TAP > valueOf > must match snapshot 1`] = `
+
+`
+
+exports[`test/same.tsx > TAP > valueOf > must match snapshot 2`] = `
+
+`
+
+exports[`test/same.tsx > TAP > valueOf > must match snapshot 3`] = `
+
+`
+
+exports[`test/same.tsx > TAP > valueOf > must match snapshot 4`] = `
+
+`
+
+exports[`test/same.tsx > TAP > valueOf > must match snapshot 5`] = `
+
+`
+
+exports[`test/same.tsx > TAP > valueOf > must match snapshot 6`] = `
+
+`

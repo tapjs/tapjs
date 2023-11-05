@@ -105,6 +105,16 @@ export class Same extends Format {
       ? true
       : a === b
       ? true
+      : a instanceof Date && b instanceof Date
+      ? a.getTime() === b.getTime()
+      : typeof a?.valueOf === 'function' &&
+        typeof b?.valueOf === 'function' &&
+        a.valueOf() === b.valueOf()
+      ? true
+      : typeof a?.valueOf === 'function' && a.valueOf() === b
+      ? true
+      : typeof b?.valueOf === 'function' && b.valueOf() === a
+      ? true
       : a === null || b === null
       ? a == b
       : a !== a
@@ -125,8 +135,6 @@ export class Same extends Format {
       ? false
       : Buffer.isBuffer(a) && Buffer.isBuffer(b)
       ? a.equals(b)
-      : a instanceof Date && b instanceof Date
-      ? a.getTime() === b.getTime()
       : a instanceof RegExp && b instanceof RegExp
       ? this.regexpSame(a, b)
       : 'COMPLEX' // might still be a deeper mismatch, of course

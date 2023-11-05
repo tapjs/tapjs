@@ -141,6 +141,16 @@ t.test('same, notSame', t => {
   t.ok(a.notSame({ a: 1 }, { a: 1, b: 2 }))
   t.ok(a.notSame({ a: 1 }, { a: 1, b: 2 }))
   t.ok(a.notSame({ a: 1, b: 2 }, { b: 2 }))
+  class Numberish {
+    foo: number
+    valueOf() { return 1 }
+    constructor() {
+      this.foo = Math.random()
+    }
+  }
+  t.ok(a.same(1, new Numberish()))
+  t.ok(a.same(new Numberish(), 1))
+  t.ok(a.same(new Numberish(), new Numberish()))
   t.end()
 })
 

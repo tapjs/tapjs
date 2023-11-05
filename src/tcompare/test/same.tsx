@@ -794,3 +794,32 @@ t.test('react', t => {
   })
   t.end()
 })
+
+t.test('valueOf', t => {
+  class Numberish {
+    foo: number
+    valueOf() {
+      return 1
+    }
+    constructor() {
+      this.foo = Math.random()
+    }
+  }
+  t.ok(same(t, 1, new Numberish()), 'num to ish')
+  t.ok(same(t, new Numberish(), 1), 'ish to num')
+  t.ok(same(t, new Numberish(), new Numberish()), 'ish to ish')
+  const data = Object.create(null)
+  class DataWrap {
+    foo: number
+    constructor() {
+      this.foo = Math.random()
+    }
+    valueOf() {
+      return data
+    }
+  }
+  t.ok(same(t, data, new DataWrap()), 'data to wrap')
+  t.ok(same(t, new DataWrap(), data), 'wrap to data')
+  t.ok(same(t, new DataWrap(), new DataWrap()), 'wrap to wrap')
+  t.end()
+})
