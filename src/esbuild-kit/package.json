@@ -6,7 +6,8 @@
     "main": true,
     "exports": {
       "./package.json": "./package.json",
-      ".": "./src/index.ts"
+      ".": "./src/index.ts",
+      "./loader": "./src/loader.mts"
     }
   },
   "type": "module",
@@ -22,6 +23,12 @@
       "require": {
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./loader": {
+      "import": {
+        "types": "./dist/esm/loader.d.mts",
+        "default": "./dist/esm/loader.mjs"
       }
     }
   },
