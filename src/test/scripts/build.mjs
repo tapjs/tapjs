@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import Module from 'node:module'
+import { resolveImport } from 'resolve-import'
 const useImport = !!Module.register
 
 const no = ['--no-warnings']
@@ -23,9 +24,19 @@ process.env.TS_NODE_PROJECT = tsconfig
 // node version specific
 /* c8 ignore start */
 const tsNodeImport = useImport
-  ? ['--import=@isaacs/ts-node-temp-fork-for-pr-2009/import']
+  ? [
+      '--import=' +
+        (await resolveImport(
+          '@isaacs/ts-node-temp-fork-for-pr-2009/import',
+          import.meta.url
+        )),
+    ]
   : [
-      '--loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm',
+      '--loader=' +
+        (await resolveImport(
+          '@isaacs/ts-node-temp-fork-for-pr-2009/esm',
+          import.meta.url
+        )),
       '--no-warnings',
     ]
 /* c8 ignore stop */

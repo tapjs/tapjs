@@ -4,7 +4,10 @@ import { fileURLToPath } from 'node:url'
 import { resolveImport } from 'resolve-import'
 import { mainCommand } from './main-config.js'
 const tmbin = fileURLToPath(
-  await resolveImport('@tapjs/test/generate-tap-test-class')
+  await resolveImport(
+    '@tapjs/test/generate-tap-test-class',
+    import.meta.url
+  )
 )
 const node = process.execPath
 
