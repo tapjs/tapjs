@@ -100,6 +100,10 @@ export class TestFixtures {
       const { onEOF } = this.#t
       this.#t.onEOF = async () => {
         this.#t.onEOF = onEOF
+        if (relative(process.cwd(), dir) === '') {
+          // cd out of it first, or else Windows fails with EBUSY every time
+          process.chdir(dirname(dir))
+        }
         await rimraf(dir)
         await onEOF()
       }

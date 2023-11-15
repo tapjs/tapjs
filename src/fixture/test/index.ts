@@ -5,6 +5,7 @@ import {
   rmdirSync,
   writeFileSync,
 } from 'fs'
+import { relative } from 'path'
 import t from 'tap'
 import { plugin } from '../dist/esm/index.js'
 
@@ -82,6 +83,20 @@ t.test('change testdirName', t => {
   })
   t.test('after cleanup', t => {
     t.strictSame(readdirSync(dir), [], 'all 3 got deleted')
+    t.end()
+  })
+  t.end()
+})
+
+t.test('cd out of dir before deleting', t => {
+  let dir: string
+  t.test('chdir into testdir', t => {
+    process.chdir(t.testdir({}))
+    dir = t.testdirName
+    t.end()
+  })
+  t.test('got kicked up a level', t => {
+    t.equal(relative(dir, process.cwd()), '..')
     t.end()
   })
   t.end()
