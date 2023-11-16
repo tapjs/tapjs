@@ -5,6 +5,15 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.6
+
+- Consider objects matching in `t.same()` if their `valueOf`
+  method return values are equal.
+- Fully resolve a few module references for pnpm's benefit
+- avoid `EBUSY` when deleting fixture dir on Windows if it is the
+  current working directory at the time of deletion
+- add `@tapjs/tsx`, deprecate `@tapjs/esbuild-kit`
+
 ## 18.5
 
 - add `closingTestPoint` to tap-parser `Result` objects, to
@@ -28,6 +37,8 @@ eleventyNavigation:
 - (18.5.5) always exclude `./node_modules` from coverage
 - (18.5.6) use `--import` interface for typescript loader to
   support Node v21
+- (18.5.7) add `tap debug` command for printing stuff for issues
+- (18.5.8) fix esbuild-kit, add missing loader
 
 ## 18.4
 
