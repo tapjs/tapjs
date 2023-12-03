@@ -103,7 +103,7 @@ export class TapMock {
    *
    * @deprecated
    */
-  mock(module: string, mocks: { [k: string]: any } = {}) {
+  mock<T = any>(module: string, mocks: { [k: string]: any } = {}): T {
     /* c8 ignore start */
     const at = stack.at(this.#t.t.mock)?.toJSON() || ''
     /* c8 ignore stop */
@@ -111,7 +111,7 @@ export class TapMock {
       't.mock() is now t.mockRequire(). Please update your tests.',
       at
     )
-    return mockRequire(module, mocks, this.#t.t.mock)
+    return mockRequire(module, mocks, this.#t.t.mock) as T
   }
 
   /**
@@ -123,26 +123,31 @@ export class TapMock {
    * `default` property on the resolved object, making
    * {@link @tapjs/mock!index.TapMock#mockRequire} somewhat more intuitive in those cases.
    *
-   * For type info, cast result to `as typeof import(...)`, as
-   * TypeScript lacks a way to infer imports dynamically.
+   * For type info, cast using `as typeof import(...)` or use the type
+   * parameter, as TypeScript lacks a way to infer imports dynamically.
    *
    * For example:
    *
    * ```ts
-   * const myThing = await t.mockImport('../my-thing.js', {
+   * const myThing = await t.mockImport<
+   *   typeof import('../my-thing.js')
+   * >('../my-thing.js', {
    *   some: { tricky: 'mocks' },
-   * }) as typeof import('../my-thing.js')
+   * })
    * ```
    *
    * @group Spies, Mocks, and Fixtures
    */
-  async mockImport(module: string, mocks: Record<string, any> = {}) {
+  async mockImport<T = any>(
+    module: string,
+    mocks: Record<string, any> = {}
+  ): Promise<T> {
     if (isBuiltin(module)) {
       this.#t.t.currentAssert = this.mockImport
       this.#t.t.fail(
         'Node built-in modules cannot have their imports mocked'
       )
-      return {}
+      return {} as T
     }
     mocks = Object.assign({}, this.#allMock, mocks)
     if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
@@ -164,29 +169,34 @@ export class TapMock {
    *
    * Only works with CommonJS modules.
    *
-   * For type info, cast result to `as typeof import(...)`, as
-   * TypeScript lacks a way to infer imports dynamically.
+   * For type info, cast using `as typeof import(...)` or use the type
+   * parameter, as TypeScript lacks a way to infer imports dynamically.
    *
    * For example:
    *
    * ```ts
-   * const myThing = t.mockRequire('../my-thing.js', {
+   * const myThing = t.mockRequire<
+   *   typeof import('../my-thing.js')
+   * >('../my-thing.js', {
    *   some: { tricky: 'mocks' },
-   * }) as typeof import('../my-thing.js')
+   * })
    * ```
    *
    * @group Spies, Mocks, and Fixtures
    */
-  mockRequire(module: string, mocks: Record<string, any> = {}) {
+  mockRequire<T = any>(
+    module: string,
+    mocks: Record<string, any> = {}
+  ): T {
     if (isBuiltin(module)) {
       this.#t.t.currentAssert = this.mockRequire
       this.#t.t.fail(
         'Node built-in modules cannot have their imports mocked'
       )
-      return {}
+      return {} as T
     }
     mocks = Object.assign({}, this.#allMock, mocks)
-    return mockRequire(module, mocks, this.#t.t.mockRequire)
+    return mockRequire(module, mocks, this.#t.t.mockRequire) as T
   }
 
   /**

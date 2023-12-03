@@ -25,11 +25,13 @@ t.test('handls stat failure by throwing', async t => {
       code: 'ENOENT',
     })
   }
-  // do 'as typeof import(...)' so that TS knows what it returns
-  const thingThatDoesStat = (await t.mockImport(
+  // supply type param so that TS knows what it returns
+  const thingThatDoesStat = (await t.mockImport<
+    typeof import('../dist/my-statty-thing.js')
+  >(
     '../dist/my-statty-thing.js',
     { 'node:fs': { statSync: mockStatSync } }
-  )) as typeof import('../dist/my-statty-thing.js')
+  ))
 
   t.throws(() => thingThatDoesStat('filename.txt'), {
     message: 'expected error',
@@ -81,10 +83,10 @@ import * from 'tap'
 import * as FS from 'node:fs'
 
 t.test('situation where we get a bogus file descriptor', async t => {
-  const { thing } = await t.mockImport(
+  const { thing } = await t.mockImport<typeof import('../dist/my-thing.js')>(
     '../dist/my-thing.js',
     { 'node:fs': t.createMock(FS, { openSync: () => true }) }
-  ) as typeof import('../dist/my-thing.js')
+  )
   t.throws(() => thing(), {
     // imagine this is the error we get for some reason
     message: 'got non-numeric file descriptor: true',
