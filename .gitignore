@@ -1,4 +1,6 @@
 /node_modules
+/.tsimp
+/src/*/.tsimp
 /docs
 /src/*/.tshy-build-tmp
 /src/*/node_modules

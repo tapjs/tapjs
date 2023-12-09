@@ -114,6 +114,7 @@ g[kInstances] = instances
 
 const mockServiceCtorSymbol = Symbol('private')
 export class MockService {
+  static #port?: MessagePort
   key: string = getKey()
   module?: string | Promise<string>
   mocks?: Record<string, Record<string, any>>
@@ -136,6 +137,7 @@ export class MockService {
   // appropriately to messages we can handle
   /* c8 ignore start */
   static async listen(port: MessagePort) {
+    this.#port = port
     port.on('message', async msg => {
       /* c8 ignore stop */
       /* c8 ignore start */
@@ -224,11 +226,11 @@ export class MockService {
     return buildSrc(this, mockURL)
   }
 
-  static create(
+  static async create(
     module: string,
     mocks: Record<string, any> = {},
     caller: Function | ((...a: any[]) => any) = MockService.create
-  ): MockService & { module: string | Promise<string> } {
+  ): Promise<MockService & { module: string | Promise<string> }> {
     const ms = new MockService(mockServiceCtorSymbol)
 
     /* c8 ignore start */
@@ -238,12 +240,15 @@ export class MockService {
     if (needIgnoreTap) stack.addIgnoredPackage('@tapjs')
     const at = stack.at(caller)
     if (needIgnoreTap) stack.removeIgnoredPackage('@tapjs')
-    /* c8 ignore stop */
 
     const path = at?.absoluteFileName
     if (!path) {
       throw new Error('could not get current call site')
     }
+    /* c8 ignore stop */
+
+    // tell the loader hooks thread that it's ok to start using it now.
+    this.#port?.postMessage({ start: true })
 
     const dir = dirname(path)
     const url = pathToFileURL(path)

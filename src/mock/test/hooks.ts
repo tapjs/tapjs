@@ -94,15 +94,17 @@ t.test('globalPreload', async t => {
   )
   t.equal(
     await hooks.resolve(
-      'file:///blah.js',
-      { parentURL: 'file:///bloo' } as unknown as ResolveHookContext,
+      'file:///blahr.js',
+      {
+        parentURL: 'file:///bloor',
+      } as unknown as ResolveHookContext,
       () => 'nextResolve called' as unknown as ResolveFnOutput
     ),
     'nextResolve called'
   )
   t.strictSame(resolveCalled, {
-    url: 'file:///blah.js',
-    parentURL: 'file:///bloo',
+    url: 'file:///blahr.js',
+    parentURL: 'file:///bloor',
   })
   t.equal(
     await hooks.load(

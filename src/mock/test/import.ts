@@ -12,7 +12,7 @@ const loader = await resolveImport(
 let registered = false
 let serviceStarted = false
 await t.mockImport('../dist/esm/import.mjs', {
-  module: {
+  'node:module': {
     register: (url: URL | string, data: any) => {
       registered = true
       t.equal(String(url), String(loader), 'register loader')

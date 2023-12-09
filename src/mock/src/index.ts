@@ -154,7 +154,7 @@ export class TapMock {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.unmock())
     }
-    const service = MockService.create(
+    const service = await MockService.create(
       module,
       mocks,
       this.#t.t.mockImport

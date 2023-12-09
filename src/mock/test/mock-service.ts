@@ -67,10 +67,10 @@ t.throws(() => MSCJS.get('not a valid key'), {
 })
 
 t.test('fails if stack.at fails', t => {
-  t.throws(() => MockService.create('m', {}, () => {}), {
+  t.rejects(() => MockService.create('m', {}, () => {}), {
     message: 'could not get current call site',
   })
-  t.throws(() => MSCJS.create('m', {}, () => {}), {
+  t.rejects(() => MSCJS.create('m', {}, () => {}), {
     message: 'could not get current call site',
   })
   t.end()
@@ -128,7 +128,7 @@ t.test('generate some mock imports', async t => {
   const bar = resolve(t.testdirName, 'bar.mjs')
   const baz = './' + relative(__dirname, t.testdirName) + '/baz.mjs'
   const boo = String(pathToFileURL(resolve(t.testdirName, 'boo.mjs')))
-  const service = MockService.create(mod, {
+  const service = await MockService.create(mod, {
     fs: 'hello from fs',
     'node:path': 'hello from path',
     [bar]: {
@@ -249,7 +249,7 @@ t.test('create with no mocks, nothing to resolve', async t => {
     'module.mjs': `console.log('hello')`,
     'blah.mjs': 'console.log("blah")',
   })
-  const service = MockService.create(resolve(dir, 'module.mjs'))
+  const service = await MockService.create(resolve(dir, 'module.mjs'))
   const expect = pathToFileURL(resolve(t.testdirName, 'blah.mjs'))
   expect.searchParams.set('tapmock', `${serviceKey}.${service.key}`)
 

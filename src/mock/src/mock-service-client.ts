@@ -12,14 +12,26 @@ const getId = () => randomBytes(8).toString('hex')
 
 export class MockServiceClient {
   #port: MessagePort
+  #started: boolean = false
   #requests: Map<string, (res: MockServiceResponse) => void> =
     new Map()
+
   constructor(port: MessagePort) {
     this.#port = port
     this.#port.on('message', msg => this.#receive(msg))
     this.#port.unref()
   }
+
   #receive(msg: any) {
+    if (
+      !this.#started &&
+      !!msg &&
+      typeof msg === 'object' &&
+      msg.start === true
+    ) {
+      this.#started = true
+      return
+    }
     if (!isMockServiceResponse(msg)) return
     const resolve = this.#requests.get(msg.id)
     // unpossible
@@ -32,24 +44,30 @@ export class MockServiceClient {
     }
     resolve(msg)
   }
+
   async #fetch(msg: MockServiceRequest) {
+    if (!this.#started) return { response: null }
+
     return new Promise<MockServiceResponse>(resolve => {
       this.#requests.set(msg.id, resolve)
       this.#port.ref()
       this.#port.postMessage(msg)
     })
   }
+
   async load(url: string) {
-    const res = await this.#fetch({
-      action: 'load',
-      url,
-      id: getId(),
-    })
-    return res.response
+    return (
+      await this.#fetch({
+        action: 'load',
+        url,
+        id: getId(),
+      })
+    ).response
   }
+
   async resolve(url: string, parentURL?: string) {
     return (
-      parentURL &&
+      !!parentURL &&
       (
         await this.#fetch({
           action: 'resolve',
