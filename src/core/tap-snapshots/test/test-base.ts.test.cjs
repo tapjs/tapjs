@@ -51,26 +51,6 @@ TAP version 14
     ok 1 - child # time={TIME}
     
     not ok 2 - cannot create subtest after parent promise resolves
-      ---
-      stack: |
-        Minimal.<anonymous> (test/test-base.ts:1664:13)
-      at:
-        fileName: test/test-base.ts
-        lineNumber: ##
-        columnNumber: ##
-        typeName: Minimal
-        methodName: <anonymous>
-        functionName: Minimal.<anonymous>
-      test: child
-      source: |2
-            if (!subtest) throw new Error('did not get subtest')
-            await p
-            subtest.test('this should not work', async () => {})
-        ------------^
-          })
-          tb.end()
-      ...
-    
     1..2
 not ok 1 - parent # time={TIME}
 

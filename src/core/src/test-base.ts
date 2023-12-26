@@ -522,6 +522,7 @@ export class TestBase extends Base<TestBaseEvents> {
       'passes',
       'failTodo',
       'failSkip',
+      'diagnostic',
     ] as const
     for (const k of inheritedFlags) {
       if (

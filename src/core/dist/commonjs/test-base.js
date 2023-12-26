@@ -354,6 +354,7 @@ class TestBase extends base_js_1.Base {
             'passes',
             'failTodo',
             'failSkip',
+            'diagnostic',
         ];
         for (const k of inheritedFlags) {
             if (extra[k] === undefined &&

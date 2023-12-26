@@ -1669,3 +1669,16 @@ t.test('cannot create subtest after promise resolves', async t => {
   const output = await tb.concat()
   t.matchSnapshot(output)
 })
+
+t.test('diagnostic is inherited', async t => {
+  t.capture(console, 'error')
+  const tb = new T({ name: 'parent', diagnostic: true, jobs: 4 })
+  const { subtest: wd } = tb.test('with diagnostic', async () => {})
+  const { subtest: wod } = tb.test(
+    'without diagnostic',
+    { diagnostic: false },
+    async () => {}
+  )
+  t.match(wd, { options: { diagnostic: true } })
+  t.match(wod, { options: { diagnostic: false } })
+})

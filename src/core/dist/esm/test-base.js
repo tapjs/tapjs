@@ -325,6 +325,7 @@ export class TestBase extends Base {
             'passes',
             'failTodo',
             'failSkip',
+            'diagnostic',
         ];
         for (const k of inheritedFlags) {
             if (extra[k] === undefined &&
