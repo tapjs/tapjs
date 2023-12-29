@@ -1,7 +1,7 @@
 import { globSync } from 'glob'
 import { ConfigOptionBase, isConfigOption } from 'jackspeak'
 import { mkdirp, mkdirpSync } from 'mkdirp'
-import { spawnSync } from 'node:child_process'
+import spawn from 'cross-spawn'
 import { readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { basename, resolve } from 'node:path'
@@ -429,7 +429,11 @@ writeFileSync(
 const nm = resolve(dir, 'node_modules')
 mkdirpSync(resolve(nm, '@tapjs'))
 symlinkSync('../..', resolve(nm, '@tapjs/test-built'))
-spawnSync('npm', ['run', 'prepare'], { cwd: dir, stdio: 'inherit' })
+const res = spawn.sync('npm', ['run', 'prepare'], { cwd: dir, stdio: 'inherit' })
+if (res.status != 0) {
+  console.error(`'npm run prepare' failed with status code ${res.status}. Error: `, res.error)
+  process.exit(1)
+}
 rimrafSync(nm)
 
 export {}
