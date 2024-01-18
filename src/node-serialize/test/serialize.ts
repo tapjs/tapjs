@@ -12,9 +12,9 @@ t.cleanSnapshot = s =>
     .replace(/"duration_ms": [0-9\.]+,$/gm, '"duration_ms": ##,')
 
 t.test('various throws', async t => {
-  const { serialize } = (await t.mockImport(
-    '../src/serialize.js'
-  )) as typeof import('../src/serialize.js')
+  const { serialize } = await t.mockImport<
+    typeof import('../src/serialize.js')
+  >('../src/serialize.js')
   t.throws(
     () => serialize({ registered: true } as unknown as CORE.TAP),
     {
@@ -45,9 +45,11 @@ t.test('serialize a test stream', async t => {
     columns: 50,
   }
 
-  const { serialize } = (await t.mockImport('../src/serialize.js', {
+  const { serialize } = await t.mockImport<
+    typeof import('../src/serialize.js')
+  >('../src/serialize.js', {
     '@tapjs/core': { proc },
-  })) as typeof import('../src/serialize.js')
+  })
 
   serialize(tap)
   t.not(proc.stdout, des, 'stdout got captured')

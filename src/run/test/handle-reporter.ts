@@ -65,22 +65,21 @@ const mockFS = t.createMock(FS, {
   },
 })
 
-const { handleReporter } = (await t.mockImport(
-  '../dist/esm/handle-reporter.js',
-  {
-    '@tapjs/reporter': mockReporter,
-    'node:child_process': mockCP,
-    'node:fs': mockFS,
-    './fixtures/custom-react-reporter/index.js': await import(
-      './fixtures/custom-react-reporter/index.js'
-    ),
-    './fixtures/custom-stream-reporter/index.js': await import(
-      './fixtures/custom-stream-reporter/index.js'
-    ),
-    which: (path: string) =>
-      path === 'test-exe-reporter' ? `/bin/${path}` : which(path),
-  }
-)) as typeof import('../dist/esm/handle-reporter.js')
+const { handleReporter } = await t.mockImport<
+  typeof import('../dist/esm/handle-reporter.js')
+>('../dist/esm/handle-reporter.js', {
+  '@tapjs/reporter': mockReporter,
+  'node:child_process': mockCP,
+  'node:fs': mockFS,
+  './fixtures/custom-react-reporter/index.js': await import(
+    './fixtures/custom-react-reporter/index.js'
+  ),
+  './fixtures/custom-stream-reporter/index.js': await import(
+    './fixtures/custom-stream-reporter/index.js'
+  ),
+  which: (path: string) =>
+    path === 'test-exe-reporter' ? `/bin/${path}` : which(path),
+})
 
 t.beforeEach(() => {
   reporterCalled.length = 0

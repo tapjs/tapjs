@@ -43,9 +43,9 @@ t.test('set the configs from tap configs', async t => {
   delete process.env.TSX_DISABLE_CACHE
   process.env.TAP_TSX_TSCONFIG_PATH = 'some-path'
   process.env.TAP_TSX_DISABLE_CACHE = '1'
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/index.js'
-  )) as typeof import('../dist/esm/index.js')
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js')
   const tb = new TestBase({ name: 'tsx env test' })
   plugin(tb)
   t.match(process.env, {

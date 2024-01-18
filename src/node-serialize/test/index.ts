@@ -6,9 +6,11 @@ t.test('serialize if env says to', async t => {
     serializeCalled = true
   })
 
-  const { plugin } = (await t.mockImport('../src/index.js', {
+  const { plugin } = await t.mockImport<
+    typeof import('../src/index.js')
+  >('../src/index.js', {
     '../src/serialize.js': { serialize: mockSerialize },
-  })) as typeof import('../src/index.js')
+  })
 
   delete process.env.NODE_TEST_CONTEXT
   plugin(new Minimal({ name: 'TAP' }))

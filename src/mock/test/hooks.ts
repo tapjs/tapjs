@@ -44,11 +44,13 @@ t.test('globalPreload', async t => {
     }
   }
   let client: MockMockClient | undefined = undefined
-  const hooks = (await t.mockImport('../dist/esm/hooks.mjs', {
+  const hooks = await t.mockImport<
+    typeof import('../dist/esm/hooks.mjs')
+  >('../dist/esm/hooks.mjs', {
     '../dist/esm/mock-service-client.js': {
       MockServiceClient: MockMockClient,
     },
-  })) as typeof import('../dist/esm/hooks.mjs')
+  })
   t.equal(client, undefined, 'no client until initialized')
   const message = (hook: 'load' | 'resolve') =>
     'initialize() or globalPreload() must be run prior to ' +
@@ -136,11 +138,13 @@ t.test('initialize', async t => {
     }
   }
   let client: MockMockClient | undefined = undefined
-  const hooks = (await t.mockImport('../dist/esm/hooks.mjs', {
+  const hooks = await t.mockImport<
+    typeof import('../dist/esm/hooks.mjs')
+  >('../dist/esm/hooks.mjs', {
     '../dist/esm/mock-service-client.js': {
       MockServiceClient: MockMockClient,
     },
-  })) as typeof import('../dist/esm/hooks.mjs')
+  })
   t.equal(client, undefined, 'no client until initialized')
   const message = (hook: 'load' | 'resolve') =>
     'initialize() or globalPreload() must be run prior to ' +

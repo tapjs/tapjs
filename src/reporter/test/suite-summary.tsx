@@ -13,31 +13,30 @@ const run = async (
   timedOut: any = null,
   bailedOut: string | boolean = false
 ) => {
-  const { SuiteSummary } = (await t.mockImport(
-    '../dist/esm/suite-summary.js',
-    {
-      chalk,
-      '../dist/esm/hooks/use-test-time.js': {
-        useTestTime: () => 123,
-      },
-      '../dist/esm/hooks/use-timed-out.js': {
-        useTimedOut: () => timedOut,
-      },
-      '../dist/esm/hooks/use-comments.js': {
-        useComments: () => comments,
-      },
-      '../dist/esm/ms.js': { ms: () => '{TIME}' },
-      '../dist/esm/hooks/use-assert-totals.js': {
-        useAssertTotals: () => new Counts(asserts),
-      },
-      '../dist/esm/hooks/use-suite-totals.js': {
-        useSuiteTotals: () => new Counts(suites),
-      },
-      '../dist/esm/hooks/use-bailed-out.js': {
-        useBailedOut: () => bailedOut,
-      },
-    }
-  )) as typeof import('../dist/esm/suite-summary.js')
+  const { SuiteSummary } = await t.mockImport<
+    typeof import('../dist/esm/suite-summary.js')
+  >('../dist/esm/suite-summary.js', {
+    chalk,
+    '../dist/esm/hooks/use-test-time.js': {
+      useTestTime: () => 123,
+    },
+    '../dist/esm/hooks/use-timed-out.js': {
+      useTimedOut: () => timedOut,
+    },
+    '../dist/esm/hooks/use-comments.js': {
+      useComments: () => comments,
+    },
+    '../dist/esm/ms.js': { ms: () => '{TIME}' },
+    '../dist/esm/hooks/use-assert-totals.js': {
+      useAssertTotals: () => new Counts(asserts),
+    },
+    '../dist/esm/hooks/use-suite-totals.js': {
+      useSuiteTotals: () => new Counts(suites),
+    },
+    '../dist/esm/hooks/use-bailed-out.js': {
+      useBailedOut: () => bailedOut,
+    },
+  })
   t.matchSnapshot(render(<SuiteSummary test={t} />).lastFrame())
 }
 

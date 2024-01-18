@@ -6,27 +6,26 @@ import t from 'tap'
 import * as tapParser from 'tap-parser'
 import chalk from './fixtures/chalk.js'
 
-const { TestResultsList } = (await t.mockImport(
-  '../dist/esm/test-results-list.js',
-  {
-    '../dist/esm/stack.js': {
-      Stack: () => (
-        <Box>
-          <Text>STACK</Text>
-        </Box>
-      ),
-    },
-    '../dist/esm/source.js': {
-      Source: () => (
-        <Box>
-          <Text>SOURCE</Text>
-        </Box>
-      ),
-    },
-    'tap-parser': tapParser,
-    chalk,
-  }
-)) as typeof import('../dist/esm/test-results-list.js')
+const { TestResultsList } = await t.mockImport<
+  typeof import('../dist/esm/test-results-list.js')
+>('../dist/esm/test-results-list.js', {
+  '../dist/esm/stack.js': {
+    Stack: () => (
+      <Box>
+        <Text>STACK</Text>
+      </Box>
+    ),
+  },
+  '../dist/esm/source.js': {
+    Source: () => (
+      <Box>
+        <Text>SOURCE</Text>
+      </Box>
+    ),
+  },
+  'tap-parser': tapParser,
+  chalk,
+})
 
 t.test('passing test results, details, no callsite', async t => {
   const tb = new Minimal({ name: 'passer' })

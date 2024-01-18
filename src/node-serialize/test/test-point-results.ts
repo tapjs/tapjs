@@ -32,7 +32,7 @@ not ok 11 - fail no diag
 
 const tb = new Minimal({ name: 'root', at: stack.at() })
 // we'd never have a nestingLevel=0 irl
-tb.nestingLevel ++
+tb.nestingLevel++
 
 for (const [testNumber, res] of results.entries()) {
   t.matchSnapshot(testPointResults(res, tb, testNumber + 1))

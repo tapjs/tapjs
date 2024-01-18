@@ -78,10 +78,9 @@ t.test('list some test files', async t => {
   }
 
   const logs = t.capture(console, 'log')
-  const { list } = (await t.mockImport(
-    '../dist/esm/list.js',
-    mocks
-  )) as typeof import('../dist/esm/list.js')
+  const { list } = await t.mockImport<
+    typeof import('../dist/esm/list.js')
+  >('../dist/esm/list.js', mocks)
 
   const sortedLog = () =>
     logs
@@ -338,10 +337,9 @@ t.test('filter changed files', async t => {
     },
   }
 
-  const { list } = (await t.mockImport(
-    '../dist/esm/list.js',
-    mocks
-  )) as typeof import('../dist/esm/list.js')
+  const { list } = await t.mockImport<
+    typeof import('../dist/esm/list.js')
+  >('../dist/esm/list.js', mocks)
   const sort = (a: string[]) =>
     a.sort((a, b) => a.localeCompare(b, 'en'))
 

@@ -22,17 +22,16 @@ t.test('relativize no-ops if path methods throw', async t => {
   }
   const overrides = { resolve: nope, relative: nope }
   const PATH = await import('node:path')
-  const { CallSiteLike } = (await t.mockImport(
-    '../dist/esm/call-site-like.js',
-    {
-      path: {
-        ...PATH,
-        ...overrides,
-        posix: { ...PATH.posix, ...overrides },
-        win32: { ...PATH.win32, ...overrides },
-      },
-    }
-  )) as typeof import('../dist/esm/call-site-like.js')
+  const { CallSiteLike } = await t.mockImport<
+    typeof import('../dist/esm/call-site-like.js')
+  >('../dist/esm/call-site-like.js', {
+    path: {
+      ...PATH,
+      ...overrides,
+      posix: { ...PATH.posix, ...overrides },
+      win32: { ...PATH.win32, ...overrides },
+    },
+  })
   const c = new CallSiteLike(
     null,
     '/some/path/to/file.js:1:2 (/src/x.js:33:44)'

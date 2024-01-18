@@ -6,7 +6,9 @@ t.capture(process, 'cwd', () => 'D:\\some\\TEST-Path')
 const s = 'D:\\some\\TEST-Path'
 const u = 'file:///D:/some/TEST-Path'
 
-const { cleanCWD } = (await t.mockImport('../dist/esm/clean-cwd.js', {
+const { cleanCWD } = await t.mockImport<
+  typeof import('../dist/esm/clean-cwd.js')
+>('../dist/esm/clean-cwd.js', {
   '@tapjs/core': {
     cwd: s,
   },
@@ -14,7 +16,7 @@ const { cleanCWD } = (await t.mockImport('../dist/esm/clean-cwd.js', {
     pathToFileURL: (path: string): URL =>
       path === s ? new URL(u) : nodeUrl.pathToFileURL(path),
   }),
-})) as typeof import('../dist/esm/clean-cwd.js')
+})
 
 const p = s.replace(/\\/g, '/')
 

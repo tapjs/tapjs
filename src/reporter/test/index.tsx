@@ -18,9 +18,9 @@ t.beforeEach(t =>
 )
 
 t.test('unknown report type', async t => {
-  const { report } = (await t.mockImport(
-    '../dist/esm/index.js'
-  )) as typeof import('../dist/esm/index.js')
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js')
   await t.rejects(
     report(
       'blorgeebloop',
@@ -39,11 +39,13 @@ t.test('render with a custom tag', async t => {
     rendered = opts
     return <></>
   }
-  const { report } = (await t.mockImport('../dist/esm/index.js', {
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
     ink: t.createMock(INK, {
       render,
     }),
-  })) as typeof import('../dist/esm/index.js')
+  })
   let registered = false
   const mockTap = {
     register: () => (registered = true),
@@ -68,14 +70,16 @@ t.test('render with known ink report type', async t => {
     rendered = opts
     return <></>
   }
-  const { report } = (await t.mockImport('../dist/esm/index.js', {
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
     ink: t.createMock(INK, {
       render,
     }),
     '../dist/esm/base.js': {
       Base: Tag,
     },
-  })) as typeof import('../dist/esm/index.js')
+  })
   let registered = false
   const mockTap = {
     register: () => (registered = true),
@@ -102,7 +106,9 @@ t.test('render with known stream report type', async t => {
       return dest
     }
   }
-  const { report } = (await t.mockImport('../dist/esm/index.js', {
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
     ink: t.createMock(INK, {
       render,
     }),
@@ -110,7 +116,7 @@ t.test('render with known stream report type', async t => {
       JUnit,
     },
     minipass: { Minipass, isStream: () => true },
-  })) as typeof import('../dist/esm/index.js')
+  })
   let registered = false
   let tapPiped = false
   let reportPiped = false
@@ -141,14 +147,16 @@ t.test('render with Ink piped to a stream', async t => {
     rendered = opts
     return <></>
   }
-  const { report } = (await t.mockImport('../dist/esm/index.js', {
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
     ink: t.createMock(INK, {
       render: (node: any, stdout: any) => {
         t.equal(stdout, output)
         return render(node)
       },
     }),
-  })) as typeof import('../dist/esm/index.js')
+  })
   let registered = false
   const mockTap = {
     register: () => (registered = true),
@@ -179,7 +187,9 @@ t.test(
         return dest
       }
     }
-    const { report } = (await t.mockImport('../dist/esm/index.js', {
+    const { report } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js', {
       ink: t.createMock(INK, {
         render,
       }),
@@ -187,7 +197,7 @@ t.test(
         JUnit,
       },
       minipass: { Minipass, isStream: () => true },
-    })) as typeof import('../dist/esm/index.js')
+    })
     let registered = false
     let tapPiped = false
     let reportPiped = false

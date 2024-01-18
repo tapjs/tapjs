@@ -1,10 +1,9 @@
 import t from 'tap'
-const { fileCompleter } = (await t.mockImport(
-  '../../dist/esm/repl/file-completer.js',
-  {
-    path: t.createMock(await import('node:path'), { sep: '/' }),
-  }
-)) as typeof import('../../dist/esm/repl/file-completer.js')
+const { fileCompleter } = await t.mockImport<
+  typeof import('../../dist/esm/repl/file-completer.js')
+>('../../dist/esm/repl/file-completer.js', {
+  path: t.createMock(await import('node:path'), { sep: '/' }),
+})
 
 t.test('file completions', t => {
   const dir = t.testdir({

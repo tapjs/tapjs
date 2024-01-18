@@ -18,10 +18,9 @@ t.test('typecheck defaults to false', async t => {
   const {
     '@tapjs/core': { env },
   } = mock
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/index.js',
-    mock
-  )) as typeof import('../dist/esm/index.js')
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', mock)
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_TRANSPILE_ONLY, '1')
@@ -40,10 +39,9 @@ t.test('typecheck true => transpile only false', async t => {
   const {
     '@tapjs/core': { env },
   } = mock
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/index.js',
-    mock
-  )) as typeof import('../dist/esm/index.js')
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', mock)
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_TRANSPILE_ONLY, '0')
@@ -64,10 +62,9 @@ t.test('--tsconfig option', async t => {
   const {
     '@tapjs/core': { env },
   } = mock
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/index.js',
-    mock
-  )) as typeof import('../dist/esm/index.js')
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', mock)
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_PROJECT, resolve(cwd, 'tsconfig.foo.json'))
@@ -97,10 +94,9 @@ t.test('--tsconfig defaults', async t => {
       const {
         '@tapjs/core': { env },
       } = mock
-      const { plugin } = (await t.mockImport(
-        '../dist/esm/index.js',
-        mock
-      )) as typeof import('../dist/esm/index.js')
+      const { plugin } = await t.mockImport<
+        typeof import('../dist/esm/index.js')
+      >('../dist/esm/index.js', mock)
       plugin(t)
       plugin(t)
       t.equal(env.TAP_TSCONFIG, file)

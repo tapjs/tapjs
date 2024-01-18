@@ -6,25 +6,24 @@ import React, { FC } from 'react'
 import t from 'tap'
 import { getTest } from './fixtures/get-test.js'
 
-const { ResultDetailList } = (await t.mockImport(
-  '../dist/esm/result-detail-list.js',
-  {
-    '../dist/esm/ms.js': {
-      ms: () => '{TIME}',
-    },
-    '../dist/esm/hooks/use-test-time.js': {
-      useTestTime: () => 123,
-    },
-    chalk,
-    '../dist/esm/stack.js': {
-      Stack: () => (
-        <Box>
-          <Text>XXX mock stack XXX</Text>
-        </Box>
-      ),
-    },
-  }
-)) as typeof import('../dist/esm/result-detail-list.js')
+const { ResultDetailList } = await t.mockImport<
+  typeof import('../dist/esm/result-detail-list.js')
+>('../dist/esm/result-detail-list.js', {
+  '../dist/esm/ms.js': {
+    ms: () => '{TIME}',
+  },
+  '../dist/esm/hooks/use-test-time.js': {
+    useTestTime: () => 123,
+  },
+  chalk,
+  '../dist/esm/stack.js': {
+    Stack: () => (
+      <Box>
+        <Text>XXX mock stack XXX</Text>
+      </Box>
+    ),
+  },
+})
 
 const Banner: FC<{}> = () => (
   <Box>

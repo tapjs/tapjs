@@ -29,7 +29,9 @@ t.pass('this is fine')
   const mockConfig = {
     globCwd: dir,
   } as unknown as LoadedConfig
-  const { replay } = (await t.mockImport('../dist/esm/replay.js', {
+  const { replay } = await t.mockImport<
+    typeof import('../dist/esm/replay.js')
+  >('../dist/esm/replay.js', {
     '../dist/esm/execute-test-suite.js': {
       executeTestSuite: async (
         args: string[],
@@ -46,7 +48,7 @@ t.pass('this is fine')
       },
     },
     '@tapjs/core': CORE,
-  })) as typeof import('../dist/esm/replay.js')
+  })
 
   await replay([], mockConfig)
   mockTap.end()

@@ -7,7 +7,9 @@ import React from 'react'
 import t from 'tap'
 import { getTest } from './fixtures/get-test.js'
 
-const { Terse } = (await t.mockImport('../dist/esm/terse.js', {
+const { Terse } = await t.mockImport<
+  typeof import('../dist/esm/terse.js')
+>('../dist/esm/terse.js', {
   chalk,
   '../dist/esm/ms.js': {
     ms: () => '{TIME}',
@@ -22,7 +24,7 @@ const { Terse } = (await t.mockImport('../dist/esm/terse.js', {
       </Box>
     ),
   },
-})) as typeof import('../dist/esm/terse.js')
+})
 
 t.test('no comments or passes', async t => {
   const tb = getTest()

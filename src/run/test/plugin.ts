@@ -63,18 +63,18 @@ class MockConfig {
 }
 
 t.test('unknown plugin command', async t => {
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/plugin.js'
-  )) as typeof import('../dist/esm/plugin.js')
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/plugin.js')
+  >('../dist/esm/plugin.js')
   t.rejects(plugin(['asdf'], new MockConfig(t).l), {
     message: 'Unknown plugin command: asdf',
   })
 })
 
 t.test('list plugins', async t => {
-  const { plugin } = (await t.mockImport(
-    '../dist/esm/plugin.js'
-  )) as typeof import('../dist/esm/plugin.js')
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/plugin.js')
+  >('../dist/esm/plugin.js')
   const logs = t.capture(console, 'log')
   const errs = t.capture(console, 'error')
   t.test('no args', async t => {
@@ -95,14 +95,16 @@ t.test('remove plugin', async t => {
   t.test('remove existing custom plugin', async t => {
     let buildRan = false
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
           foregroundChild: nope,
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
 
     await plugin(['rm', 'a'], config.l)
     t.strictSame(config.edited, { plugin: ['b', 'c'] })
@@ -121,14 +123,16 @@ t.test('remove plugin', async t => {
     const config = new MockConfig(t)
     config.pluginList.push('@tapjs/mock')
 
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
           foregroundChild: nope,
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
 
     await plugin(['rm', '@tapjs/mock'], config.l)
     t.strictSame(config.edited, {
@@ -167,14 +171,16 @@ t.test('remove plugin', async t => {
     config.pluginList.push(p)
     config.values.plugin.push(p)
 
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
           foregroundChild: nope,
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
 
     await plugin(['rm', p], config.l)
     t.strictSame(config.edited, {
@@ -192,14 +198,16 @@ t.test('remove plugin', async t => {
     const config = new MockConfig(t)
     let buildRan = false
 
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
           foregroundChild: nope,
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
 
     await plugin(['rm', 'x'], config.l)
     t.strictSame(config.edited, undefined)
@@ -217,9 +225,9 @@ t.test('adding plugins', async t => {
 
   t.test('fail if no name provided', async t => {
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport(
-      '../dist/esm/plugin.js'
-    )) as typeof import('../dist/esm/plugin.js')
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js')
 
     t.rejects(plugin(['add'], config.l), {
       message: 'no plugin name provided',
@@ -228,7 +236,9 @@ t.test('adding plugins', async t => {
 
   t.test('already present', async t => {
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/get-install-set.js': {
         getInstallSet: () => ({
           added: new Set(),
@@ -236,7 +246,7 @@ t.test('adding plugins', async t => {
           needCleanup: new Set(),
         }),
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', 'a', 'b', 'c'], config.l)
     t.strictSame(logs.args(), [
       ['nothing to do, all plugins already installed'],
@@ -248,12 +258,14 @@ t.test('adding plugins', async t => {
     config.values.plugin.push('!@tapjs/mock')
     config.pluginList.push('!@tapjs/mock')
     let buildRan = false
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': { build: () => (buildRan = true) },
       'foreground-child': {
         foregroundChild: nope,
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', '@tapjs/mock'], config.l)
     t.equal(buildRan, true)
     t.strictSame(config.values.plugin, ['a', 'b', 'c'])
@@ -279,7 +291,9 @@ t.test('adding plugins', async t => {
     const p = resolve(dir, 'my-plugin')
     let buildRan = false
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': { build: () => (buildRan = true) },
       '../dist/esm/get-install-set.js': {
         getInstallSet: async (_: any, c: LoadedConfig) => {
@@ -297,7 +311,7 @@ t.test('adding plugins', async t => {
         install: nope,
         uninstall: nope,
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', p], config.l)
     t.equal(buildRan, true)
     t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
@@ -311,7 +325,9 @@ t.test('adding plugins', async t => {
     let installRan = false
     const p = 'dep-plugin'
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': { build: () => (buildRan = true) },
       '../dist/esm/get-install-set.js': {
         getInstallSet: (_: any, c: LoadedConfig) => {
@@ -333,7 +349,7 @@ t.test('adding plugins', async t => {
           installRan = true
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', p], config.l)
     t.equal(buildRan, true)
     t.equal(installRan, true)
@@ -349,7 +365,9 @@ t.test('adding plugins', async t => {
     let uninstallRan = false
     const p = 'dep-plugin'
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: async () => {
           buildRan = true
@@ -377,7 +395,7 @@ t.test('adding plugins', async t => {
           throw new Error('should not uninstall anything')
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', p], config.l)
     t.equal(buildRan, true)
     t.equal(installRan, true)
@@ -396,7 +414,9 @@ t.test('adding plugins', async t => {
     let uninstallRan = false
     const p = 'dep-plugin'
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: async () => {
           buildRan = true
@@ -425,7 +445,7 @@ t.test('adding plugins', async t => {
           t.strictSame(args, [p])
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', p], config.l)
     t.equal(buildRan, true)
     t.equal(installRan, true)
@@ -444,7 +464,9 @@ t.test('adding plugins', async t => {
     let installRan = false
     const p = 'dep-plugin'
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/get-install-set.js': {
         getInstallSet: () => ({
           added: new Set([p]),
@@ -467,7 +489,7 @@ t.test('adding plugins', async t => {
         },
         uninstall: nope,
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', p], config.l)
     t.equal(installRan, true)
     t.equal(buildRan, false)
@@ -486,7 +508,9 @@ t.test('adding plugins', async t => {
     let uninstallRan = false
     const p = 'dep-plugin'
     const config = new MockConfig(t)
-    const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
       '../dist/esm/build.js': {
         build: async () => {
           buildRan = true
@@ -516,7 +540,7 @@ t.test('adding plugins', async t => {
           throw new Error('uninstall fail in test')
         },
       },
-    })) as typeof import('../dist/esm/plugin.js')
+    })
     await plugin(['add', p], config.l)
     t.equal(buildRan, true)
     t.equal(installRan, true)
@@ -554,11 +578,13 @@ t.test('print warning if not running in project', async t => {
     return resolveImport(req, f)
   }
 
-  const { plugin } = (await t.mockImport('../dist/esm/plugin.js', {
+  const { plugin } = await t.mockImport<
+    typeof import('../dist/esm/plugin.js')
+  >('../dist/esm/plugin.js', {
     'resolve-import': {
       resolveImport: mockRI,
     },
-  })) as typeof import('../dist/esm/plugin.js')
+  })
 
   await plugin(['list'], config as unknown as LoadedConfig)
   t.matchSnapshot({ logs: logs(), errs: errs() })

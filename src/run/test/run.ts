@@ -430,11 +430,13 @@ t.test('build before run if plugins mismatch', async t => {
   const cwd = process.cwd()
   t.teardown(() => process.chdir(cwd))
 
-  const { run } = (await t.mockImport('../dist/esm/run.js', {
+  const { run } = await t.mockImport<
+    typeof import('../dist/esm/run.js')
+  >('../dist/esm/run.js', {
     '../dist/esm/build.js': {
       build: () => Promise.reject(new Error('expected')),
     },
-  })) as typeof import('../dist/esm/run.js')
+  })
 
   const dir = t.testdir({
     'test.js': `import t from 'tap'; t.pass('this is fine')`,

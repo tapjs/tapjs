@@ -14,9 +14,9 @@ t.beforeEach(t =>
 t.test('no args, run', async t => {
   t.intercept(process, 'argv', { value: process.argv.slice(0, 2) })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, valuesActual)
   t.strictSame(positionals, [])
@@ -30,9 +30,9 @@ t.test('unknown positional arg, run', async t => {
     value: [...process.argv.slice(0, 2), 'asdf.js'],
   })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, valuesActual)
   t.strictSame(positionals, ['asdf.js'])
@@ -46,9 +46,9 @@ t.test('explicit run', async t => {
     value: [...process.argv.slice(0, 2), 'run'],
   })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, valuesActual)
   t.strictSame(positionals, ['run'])
@@ -62,9 +62,9 @@ t.test('explicit run positional', async t => {
     value: [...process.argv.slice(0, 2), 'run', 'asdf.js'],
   })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, valuesActual)
   t.strictSame(positionals, ['run', 'asdf.js'])
@@ -78,9 +78,9 @@ t.test('--help, run help', async t => {
     value: [...process.argv.slice(0, 2), '--help'],
   })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, { ...valuesActual, help: true })
   t.strictSame(positionals, [])
@@ -94,9 +94,9 @@ t.test('--version, run version', async t => {
     value: [...process.argv.slice(0, 2), '--version'],
   })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, { ...valuesActual, version: true })
   t.strictSame(positionals, [])
@@ -110,9 +110,9 @@ t.test('--versions, run versions', async t => {
     value: [...process.argv.slice(0, 2), '--versions'],
   })
   const { values, positionals, mainCommand, args, mainBin } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/main-config.js')>(
       '../dist/esm/main-config.js'
-    )) as typeof import('../dist/esm/main-config.js')
+    )
 
   t.strictSame(values, { ...valuesActual, versions: true })
   t.strictSame(positionals, [])

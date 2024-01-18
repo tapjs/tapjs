@@ -6,23 +6,22 @@ import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 
-const { TestSummary } = (await t.mockImport(
-  '../dist/esm/test-summary.js',
-  {
-    chalk,
-    '../dist/esm/ms.js': { ms: () => '{TIME}' },
-    '../dist/esm/hooks/use-test-time.js': {
-      useTestTime: () => 123,
-    },
-    '../dist/esm/stack.js': {
-      Stack: () => (
-        <Box>
-          <Text>XXX mock stack XXX</Text>
-        </Box>
-      ),
-    },
-  }
-)) as typeof import('../dist/esm/test-summary.js')
+const { TestSummary } = await t.mockImport<
+  typeof import('../dist/esm/test-summary.js')
+>('../dist/esm/test-summary.js', {
+  chalk,
+  '../dist/esm/ms.js': { ms: () => '{TIME}' },
+  '../dist/esm/hooks/use-test-time.js': {
+    useTestTime: () => 123,
+  },
+  '../dist/esm/stack.js': {
+    Stack: () => (
+      <Box>
+        <Text>XXX mock stack XXX</Text>
+      </Box>
+    ),
+  },
+})
 
 t.test('simple passing', async t => {
   const tb = new Minimal({ name: 'pass' })

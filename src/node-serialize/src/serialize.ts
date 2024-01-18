@@ -35,18 +35,16 @@ export const serialize = (tap: TAP): void => {
   // just for inspecting in dev.
   /* c8 ignore start */
   if (process.env.TAP_SERIALIZE_DEBUG === '1') {
-    stream
-      .pipe(new TestStreamDeserialize())
-      .on('data', c =>
-        stdout.write(
-          inspect(JSON.parse(JSON.stringify(c)), {
-            colors: true,
-            depth: Infinity,
-          }) + '\n'
-        )
+    stream.pipe(new TestStreamDeserialize()).on('data', c =>
+      stdout.write(
+        inspect(JSON.parse(JSON.stringify(c)), {
+          colors: true,
+          depth: Infinity,
+        }) + '\n'
       )
+    )
   } else {
-  /* c8 ignore stop */
+    /* c8 ignore stop */
     stream.pipe(stdout)
   }
 

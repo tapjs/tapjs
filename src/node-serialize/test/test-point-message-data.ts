@@ -2,7 +2,7 @@ import t, { Minimal } from 'tap'
 
 import * as stack from '@tapjs/stack'
 import { Parser, Result } from 'tap-parser'
-import {testPointMessageData} from '../src/test-point-message-data.js'
+import { testPointMessageData } from '../src/test-point-message-data.js'
 
 const p = new Parser()
 const results: Result[] = []
@@ -32,7 +32,7 @@ not ok 11 - fail no diag
 
 const tb = new Minimal({ name: 'root', at: stack.at() })
 // we'd never have a nestingLevel=0 irl
-tb.nestingLevel ++
+tb.nestingLevel++
 
 for (const res of results) {
   t.matchSnapshot(testPointMessageData(res, tb))

@@ -7,14 +7,13 @@ const __filename = fileURLToPath(import.meta.url)
 
 t.equal(mainScript(), __filename)
 t.test('use default in eval mode', async t => {
-  const { mainScript } = (await t.mockImport(
-    '../dist/esm/main-script.js',
-    {
-      '../dist/esm/proc.js': t.createMock(proc, {
-        proc: { _eval: 'some string' },
-      }),
-    }
-  )) as typeof import('../dist/esm/main-script.js')
+  const { mainScript } = await t.mockImport<
+    typeof import('../dist/esm/main-script.js')
+  >('../dist/esm/main-script.js', {
+    '../dist/esm/proc.js': t.createMock(proc, {
+      proc: { _eval: 'some string' },
+    }),
+  })
   t.equal(mainScript('default'), 'default')
   t.end()
 })
@@ -25,23 +24,22 @@ t.test('use default in repl mode', async t => {
     //@ts-ignore
     delete globalThis.repl
   })
-  const { mainScript } = (await t.mockImport(
-    '../dist/esm/main-script.js'
-  )) as typeof import('../dist/esm/main-script.js')
+  const { mainScript } = await t.mockImport<
+    typeof import('../dist/esm/main-script.js')
+  >('../dist/esm/main-script.js')
   t.equal(mainScript('default'), 'default')
   t.end()
 })
 
 t.test('use default if no argv[1] somehow', async t => {
-  const { mainScript } = (await t.mockImport(
-    '../dist/esm/main-script.js',
-    {
-      '../dist/esm/proc.js': t.createMock(proc, {
-        argv: [],
-        proc: { argv: [] },
-      }),
-    }
-  )) as typeof import('../dist/esm/main-script.js')
+  const { mainScript } = await t.mockImport<
+    typeof import('../dist/esm/main-script.js')
+  >('../dist/esm/main-script.js', {
+    '../dist/esm/proc.js': t.createMock(proc, {
+      argv: [],
+      proc: { argv: [] },
+    }),
+  })
   t.equal(mainScript('default'), 'default')
   t.end()
 })

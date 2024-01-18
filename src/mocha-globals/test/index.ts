@@ -23,9 +23,9 @@ t.beforeEach(t =>
 
 t.test('without global injection', async t => {
   process.env.TAP_MOCHA_GLOBALS = '0'
-  const mg = (await t.mockImport(
-    '../dist/esm/index.js'
-  )) as typeof import('../dist/esm/index.js')
+  const mg = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js')
   t.match(
     mg,
     {
@@ -70,9 +70,9 @@ t.test('without global injection', async t => {
 
 t.test('with global injection', async t => {
   process.env.TAP_MOCHA_GLOBALS = '1'
-  const mg = (await t.mockImport(
-    '../dist/esm/index.js'
-  )) as typeof import('../dist/esm/index.js')
+  const mg = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js')
   t.match(
     mg,
     {

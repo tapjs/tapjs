@@ -143,7 +143,9 @@ t.test('same, notSame', t => {
   t.ok(a.notSame({ a: 1, b: 2 }, { b: 2 }))
   class Numberish {
     foo: number
-    valueOf() { return 1 }
+    valueOf() {
+      return 1
+    }
     constructor() {
       this.foo = Math.random()
     }

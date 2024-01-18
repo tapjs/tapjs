@@ -103,10 +103,10 @@ const mockConfig = {
 
 t.test('passing commands', async t => {
   const { npmBg, install, uninstall, npmFindCwd } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/npm.js')>(
       '../dist/esm/npm.js',
       mockPass
-    )) as typeof import('../dist/esm/npm.js')
+    )
   t.test('random command', async t => {
     const res = npmBg(['config', 'get', 'registry'], mockConfig)
     t.match(res, { status: 0, signal: null })
@@ -129,10 +129,10 @@ t.test('passing commands', async t => {
 
 t.test('failing commands', async t => {
   const { npmBg, install, uninstall, npmFindCwd } =
-    (await t.mockImport(
+    await t.mockImport<typeof import('../dist/esm/npm.js')>(
       '../dist/esm/npm.js',
       mockFail
-    )) as typeof import('../dist/esm/npm.js')
+    )
   t.test('random command', async t => {
     const res = npmBg(['config', 'get', 'registry'], mockConfig)
     t.match(res, { status: 1, signal: 'SIGTERM' })
@@ -178,10 +178,9 @@ t.test('npm installs go to workspace root', async t => {
     },
   }
   t.test('find from location of tap dep', async t => {
-    const { npmFindCwd } = (await t.mockImport(
-      '../dist/esm/npm.js',
-      mockPass
-    )) as typeof import('../dist/esm/npm.js')
+    const { npmFindCwd } = await t.mockImport<
+      typeof import('../dist/esm/npm.js')
+    >('../dist/esm/npm.js', mockPass)
     mockConfig.globCwd = resolve(
       t.testdir(testdir) + '/packages/test'
     )
@@ -191,10 +190,9 @@ t.test('npm installs go to workspace root', async t => {
     t.strictSame(passSpawn(), [])
   })
   t.test('find from location of @tapjs/test dep', async t => {
-    const { npmFindCwd } = (await t.mockImport(
-      '../dist/esm/npm.js',
-      mockPass
-    )) as typeof import('../dist/esm/npm.js')
+    const { npmFindCwd } = await t.mockImport<
+      typeof import('../dist/esm/npm.js')
+    >('../dist/esm/npm.js', mockPass)
     mockConfig.globCwd = resolve(
       t.testdir({
         ...testdir,
@@ -210,10 +208,9 @@ t.test('npm installs go to workspace root', async t => {
     t.strictSame(passSpawn(), [])
   })
   t.test('find from npm prefix cmd', async t => {
-    const { npmFindCwd } = (await t.mockImport(
-      '../dist/esm/npm.js',
-      mockPass
-    )) as typeof import('../dist/esm/npm.js')
+    const { npmFindCwd } = await t.mockImport<
+      typeof import('../dist/esm/npm.js')
+    >('../dist/esm/npm.js', mockPass)
     // both packages fail to resolve
     //@ts-ignore
     delete testdir.node_modules['@tapjs'].test['index.js']
@@ -226,10 +223,9 @@ t.test('npm installs go to workspace root', async t => {
     t.match(passSpawn(), [['npm', ['prefix']]])
   })
   t.test('fall back to globCwd', async t => {
-    const { npmFindCwd } = (await t.mockImport(
-      '../dist/esm/npm.js',
-      mockFail
-    )) as typeof import('../dist/esm/npm.js')
+    const { npmFindCwd } = await t.mockImport<
+      typeof import('../dist/esm/npm.js')
+    >('../dist/esm/npm.js', mockFail)
     //@ts-ignore
     delete testdir.node_modules['@tapjs']['index.js']
     mockConfig.globCwd = resolve(

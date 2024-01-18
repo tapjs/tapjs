@@ -11,9 +11,9 @@ t.test('fallbacks', async t => {
     value: undefined,
     configurable: true,
   })
-  const { proc, argv, cwd, env } = (await t.mockImport(
-    '../dist/esm/proc.js'
-  )) as typeof import('../dist/esm/proc.js')
+  const { proc, argv, cwd, env } = await t.mockImport<
+    typeof import('../dist/esm/proc.js')
+  >('../dist/esm/proc.js')
   Object.defineProperty(globalThis, 'process', {
     value: process_,
     configurable: true,

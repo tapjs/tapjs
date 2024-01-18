@@ -155,13 +155,12 @@ const run = (
 // run a few simple commands directly so we can cover running without args
 // the rest will be spawned, so we can capture stdout properly.
 t.test('default options', async t => {
-  const { Repl } = (await t.mockImport(
-    '../../dist/esm/repl/index.js',
-    {
-      'node:repl': { start: mockRepl.start.bind(mockRepl) },
-      chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-    }
-  )) as typeof import('../../dist/esm/repl/index.js')
+  const { Repl } = await t.mockImport<
+    typeof import('../../dist/esm/repl/index.js')
+  >('../../dist/esm/repl/index.js', {
+    'node:repl': { start: mockRepl.start.bind(mockRepl) },
+    chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+  })
 
   const dir = t.testdir({ '.tap': { processinfo: {} } })
   const r = new Repl({
@@ -187,13 +186,12 @@ t.test('show help', async t => {
   t.teardown(() => process.chdir(cwd))
   process.chdir(dir)
 
-  const { Repl } = (await t.mockImport(
-    '../../dist/esm/repl/index.js',
-    {
-      'node:repl': { start: mockRepl.start.bind(mockRepl) },
-      chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-    }
-  )) as typeof import('../../dist/esm/repl/index.js')
+  const { Repl } = await t.mockImport<
+    typeof import('../../dist/esm/repl/index.js')
+  >('../../dist/esm/repl/index.js', {
+    'node:repl': { start: mockRepl.start.bind(mockRepl) },
+    chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+  })
 
   const input = new Minipass<string>({ encoding: 'utf8' })
   const output = new Minipass<string>({ encoding: 'utf8' })
@@ -258,13 +256,12 @@ t.test('sigint handling', async t => {
   t.teardown(() => process.chdir(cwd))
   process.chdir(dir)
 
-  const { Repl } = (await t.mockImport(
-    '../../dist/esm/repl/index.js',
-    {
-      'node:repl': { start: mockRepl.start.bind(mockRepl) },
-      chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-    }
-  )) as typeof import('../../dist/esm/repl/index.js')
+  const { Repl } = await t.mockImport<
+    typeof import('../../dist/esm/repl/index.js')
+  >('../../dist/esm/repl/index.js', {
+    'node:repl': { start: mockRepl.start.bind(mockRepl) },
+    chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+  })
 
   const input = new Minipass<string>({ encoding: 'utf8' })
   const output = new Minipass<string>({ encoding: 'utf8' })
@@ -406,13 +403,12 @@ coverage-map: map.js
     process.chdir(dir)
 
     // test after running, so that we can see processinfo completions
-    const { Repl } = (await t.mockImport(
-      '../../dist/esm/repl/index.js',
-      {
-        'node:repl': { start: mockRepl.start.bind(mockRepl) },
-        chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-      }
-    )) as typeof import('../../dist/esm/repl/index.js')
+    const { Repl } = await t.mockImport<
+      typeof import('../../dist/esm/repl/index.js')
+    >('../../dist/esm/repl/index.js', {
+      'node:repl': { start: mockRepl.start.bind(mockRepl) },
+      chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+    })
 
     const r = new Repl({
       globCwd: dir,
@@ -532,14 +528,13 @@ cp.test.mjs:
 })
 
 t.test('watch for changes that happen during a test run', async t => {
-  const { Repl } = (await t.mockImport(
-    '../../dist/esm/repl/index.js',
-    {
-      'node:repl': { start: mockRepl.start.bind(mockRepl) },
-      chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-      'node:child_process': t.createMock(CP, { spawn: mockSpawn }),
-    }
-  )) as typeof import('../../dist/esm/repl/index.js')
+  const { Repl } = await t.mockImport<
+    typeof import('../../dist/esm/repl/index.js')
+  >('../../dist/esm/repl/index.js', {
+    'node:repl': { start: mockRepl.start.bind(mockRepl) },
+    chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+    'node:child_process': t.createMock(CP, { spawn: mockSpawn }),
+  })
 
   const dir = t.testdir({ '.tap': { processinfo: {} } })
   const input = new Minipass<string>({ encoding: 'utf8' })

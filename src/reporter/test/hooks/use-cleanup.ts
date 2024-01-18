@@ -1,13 +1,12 @@
 import t from 'tap'
-const { useCleanup } = (await t.mockImport(
-  '../../dist/esm/hooks/use-cleanup.js',
-  {
-    react: {
-      // mock returns the value so we can call the cleanup fn
-      useLayoutEffect: (fn: Function) => fn(),
-    },
-  }
-)) as typeof import('../../dist/esm/hooks/use-cleanup.js')
+const { useCleanup } = await t.mockImport<
+  typeof import('../../dist/esm/hooks/use-cleanup.js')
+>('../../dist/esm/hooks/use-cleanup.js', {
+  react: {
+    // mock returns the value so we can call the cleanup fn
+    useLayoutEffect: (fn: Function) => fn(),
+  },
+})
 
 t.test('do a thing and then clean it up', t => {
   let effectCalled = false

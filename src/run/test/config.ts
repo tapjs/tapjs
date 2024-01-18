@@ -310,12 +310,11 @@ t.test('edit', t => {
           return spawnResponse
         },
       })
-      const { config } = (await t.mockImport(
-        '../dist/esm/config.js',
-        {
-          'node:child_process': cp,
-        }
-      )) as typeof import('../dist/esm/config.js')
+      const { config } = await t.mockImport<
+        typeof import('../dist/esm/config.js')
+      >('../dist/esm/config.js', {
+        'node:child_process': cp,
+      })
 
       t.test(
         'edit resume fails without a file there already',

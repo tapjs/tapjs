@@ -5,9 +5,9 @@ import { resolve } from 'path'
 import t from 'tap'
 
 t.test('no before config, nothing to do', async t => {
-  const { runBefore } = (await t.mockImport(
-    '../dist/esm/before.js'
-  )) as typeof import('../dist/esm/before.js')
+  const { runBefore } = await t.mockImport<
+    typeof import('../dist/esm/before.js')
+  >('../dist/esm/before.js')
   let beforeCalled = false
   const tt = Object.assign(new EventEmitter(), {
     before: () => (beforeCalled = true),
@@ -21,7 +21,9 @@ t.test('no before config, nothing to do', async t => {
 t.test('have before config, adds before that spawns', async t => {
   const expectArgs = ['a', 'b']
   let foregroundChildCalled = false
-  const { runBefore } = (await t.mockImport('../dist/esm/before.js', {
+  const { runBefore } = await t.mockImport<
+    typeof import('../dist/esm/before.js')
+  >('../dist/esm/before.js', {
     'foreground-child': {
       foregroundChild: (
         cmd: string,
@@ -34,7 +36,7 @@ t.test('have before config, adds before that spawns', async t => {
         t.equal(cb(), false)
       },
     },
-  })) as typeof import('../dist/esm/before.js')
+  })
   let beforeFunction!: () => Promise<void>
   let beforeCalled = false
   const tt = Object.assign(new EventEmitter(), {
@@ -55,7 +57,9 @@ t.test('have before config, adds before that spawns', async t => {
 t.test('let fg end process if before proc fails', async t => {
   const expectArgs = ['a', 'b']
   let foregroundChildCalled = false
-  const { runBefore } = (await t.mockImport('../dist/esm/before.js', {
+  const { runBefore } = await t.mockImport<
+    typeof import('../dist/esm/before.js')
+  >('../dist/esm/before.js', {
     'foreground-child': {
       foregroundChild: (
         cmd: string,
@@ -68,7 +72,7 @@ t.test('let fg end process if before proc fails', async t => {
         t.equal(cb(1), undefined)
       },
     },
-  })) as typeof import('../dist/esm/before.js')
+  })
   let beforeFunction!: () => Promise<void>
   let beforeCalled = false
   const tt = Object.assign(new EventEmitter(), {

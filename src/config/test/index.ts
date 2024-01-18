@@ -15,19 +15,18 @@ t.test('basic tests', async t => {
 
 t.test('reporter from env or config', t => {
   t.test('default, with color', async t => {
-    const { TapConfig } = (await t.mockImport(
-      '../dist/esm/index.js',
-      {
-        '@tapjs/core': t.createMock(core, {
-          env: {
-            TAP: undefined,
-            TAP_REPORTER: undefined,
-            NO_COLOR: undefined,
-            TAP_COLOR: '1',
-          },
-        }),
-      }
-    )) as typeof import('../dist/esm/index.js')
+    const { TapConfig } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js', {
+      '@tapjs/core': t.createMock(core, {
+        env: {
+          TAP: undefined,
+          TAP_REPORTER: undefined,
+          NO_COLOR: undefined,
+          TAP_COLOR: '1',
+        },
+      }),
+    })
     const tc = await TapConfig.load()
     t.equal(tc.get('reporter'), 'base')
     t.equal(tc.get('reporter'), 'base', 'cache coverage')
@@ -44,10 +43,9 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = (await t.mockImport(
-      '../dist/esm/index.js',
-      m
-    )) as typeof import('../dist/esm/index.js')
+    const { TapConfig } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js', m)
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
 
@@ -61,16 +59,15 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = (await t.mockImport(
-      '../dist/esm/index.js',
-      {
-        ...m,
-        '../dist/esm/jack.js': await t.mockImport(
-          '../dist/esm/jack.js',
-          m
-        ),
-      }
-    )) as typeof import('../dist/esm/index.js')
+    const { TapConfig } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js', {
+      ...m,
+      '../dist/esm/jack.js': await t.mockImport(
+        '../dist/esm/jack.js',
+        m
+      ),
+    })
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
 
@@ -85,16 +82,15 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = (await t.mockImport(
-      '../dist/esm/index.js',
-      {
-        ...m,
-        '../dist/esm/jack.js': await t.mockImport(
-          '../dist/esm/jack.js',
-          m
-        ),
-      }
-    )) as typeof import('../dist/esm/index.js')
+    const { TapConfig } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js', {
+      ...m,
+      '../dist/esm/jack.js': await t.mockImport(
+        '../dist/esm/jack.js',
+        m
+      ),
+    })
     t.equal((await TapConfig.load()).get('reporter'), 'base')
   })
 
@@ -876,21 +872,20 @@ t.test('load file from env.TAP_RCFILE', async t => {
     for (const cwd of ['git', 'taprc', 'pj']) {
       process.chdir(dir + '/cwds/' + cwd)
       t.test(`rcfile=${rcfile} cwd=${cwd}`, async t => {
-        const { TapConfig } = (await t.mockImport(
-          '../dist/esm/index.js',
-          {
-            '@tapjs/core': t.createMock(core, {
-              cwd: resolve(dir, 'cwds', cwd),
-              env: {
-                TAP: undefined,
-                TAP_REPORTER: undefined,
-                NO_COLOR: undefined,
-                TAP_COLOR: '1',
-                TAP_RCFILE: resolve(dir, rcfile),
-              },
-            }),
-          }
-        )) as typeof import('../dist/esm/index.js')
+        const { TapConfig } = await t.mockImport<
+          typeof import('../dist/esm/index.js')
+        >('../dist/esm/index.js', {
+          '@tapjs/core': t.createMock(core, {
+            cwd: resolve(dir, 'cwds', cwd),
+            env: {
+              TAP: undefined,
+              TAP_REPORTER: undefined,
+              NO_COLOR: undefined,
+              TAP_COLOR: '1',
+              TAP_RCFILE: resolve(dir, rcfile),
+            },
+          }),
+        })
         const c = await TapConfig.load()
         t.strictSame(c.get('reporter-arg'), rcfile.split('.'))
       })

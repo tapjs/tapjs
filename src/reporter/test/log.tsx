@@ -8,7 +8,9 @@ import React from 'react'
 import t from 'tap'
 import { logs } from './fixtures/logs.js'
 
-const { Log } = (await t.mockImport('../dist/esm/log.js', {
+const { Log } = await t.mockImport<
+  typeof import('../dist/esm/log.js')
+>('../dist/esm/log.js', {
   chalk,
   '../dist/esm/test-summary.js': {
     TestSummary: ({ test }: { test: { name: string } }) => (
@@ -23,7 +25,7 @@ const { Log } = (await t.mockImport('../dist/esm/log.js', {
       useLog: () => logs,
     }
   ),
-})) as typeof import('../dist/esm/log.js')
+})
 
 t.matchSnapshot(
   render(<Log test={t} config={{} as LoadedConfig} />).lastFrame()

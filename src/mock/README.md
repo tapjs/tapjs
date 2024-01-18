@@ -26,12 +26,11 @@ t.test('handls stat failure by throwing', async t => {
     })
   }
   // supply type param so that TS knows what it returns
-  const thingThatDoesStat = (await t.mockImport<
+  const thingThatDoesStat = await t.mockImport<
     typeof import('../dist/my-statty-thing.js')
-  >(
-    '../dist/my-statty-thing.js',
-    { 'node:fs': { statSync: mockStatSync } }
-  ))
+  >('../dist/my-statty-thing.js', {
+    'node:fs': { statSync: mockStatSync },
+  })
 
   t.throws(() => thingThatDoesStat('filename.txt'), {
     message: 'expected error',

@@ -1,37 +1,36 @@
-import chalk from './fixtures/chalk.js'
 import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
+import chalk from './fixtures/chalk.js'
 
-const { ResultDetails } = (await t.mockImport(
-  '../dist/esm/result-details.js',
-  {
-    chalk,
-    '../dist/esm/stack.js': {
-      Stack: ({ stack }: { stack: string }) => (
-        <Box>
-          <Text>STACK {stack}</Text>
-        </Box>
-      ),
-    },
-    '../dist/esm/source.js': {
-      Source: ({ at, source }: { at: any; source: string }) => (
-        <Box flexDirection="column">
-          <Text>AT {JSON.stringify(at)}</Text>
-          <Text>SOURCE {source}</Text>
-        </Box>
-      ),
-    },
-    '../dist/esm/diff.js': {
-      Diff: ({ diff }: { diff: string }) => (
-        <Box>
-          <Text>DIFF {diff}</Text>
-        </Box>
-      ),
-    },
-  }
-)) as typeof import('../dist/esm/result-details.js')
+const { ResultDetails } = await t.mockImport<
+  typeof import('../dist/esm/result-details.js')
+>('../dist/esm/result-details.js', {
+  chalk,
+  '../dist/esm/stack.js': {
+    Stack: ({ stack }: { stack: string }) => (
+      <Box>
+        <Text>STACK {stack}</Text>
+      </Box>
+    ),
+  },
+  '../dist/esm/source.js': {
+    Source: ({ at, source }: { at: any; source: string }) => (
+      <Box flexDirection="column">
+        <Text>AT {JSON.stringify(at)}</Text>
+        <Text>SOURCE {source}</Text>
+      </Box>
+    ),
+  },
+  '../dist/esm/diff.js': {
+    Diff: ({ diff }: { diff: string }) => (
+      <Box>
+        <Text>DIFF {diff}</Text>
+      </Box>
+    ),
+  },
+})
 
 import { Result } from 'tap-parser'
 

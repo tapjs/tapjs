@@ -645,11 +645,13 @@ t.test('end stuff', t => {
 })
 
 t.test('fullname when mainScript not available', async t => {
-  const { TestBase } = (await t.mockImport('../dist/esm/index.js', {
+  const { TestBase } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
     '../dist/esm/main-script.js': {
       mainScript: (def: string) => def,
     },
-  })) as typeof import('../dist/esm/index.js')
+  })
   const tb = new TestBase({ name: 'full name' })
   t.equal(tb.fullname, 'TAP > full name')
 })

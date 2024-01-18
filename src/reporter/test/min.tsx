@@ -9,7 +9,9 @@ import { getTest } from './fixtures/get-test.js'
 
 const config = {} as unknown as LoadedConfig
 
-const { Min } = (await t.mockImport('../dist/esm/min.js', {
+const { Min } = await t.mockImport<
+  typeof import('../dist/esm/min.js')
+>('../dist/esm/min.js', {
   chalk,
   '../dist/esm/ms.js': {
     ms: () => '{TIME}',
@@ -24,7 +26,7 @@ const { Min } = (await t.mockImport('../dist/esm/min.js', {
       </Box>
     ),
   },
-})) as typeof import('../dist/esm/min.js')
+})
 
 t.test('no comments or passes', async t => {
   const tb = getTest()

@@ -41,10 +41,9 @@ t.mockAll({
 })
 
 t.test('mix of loaders and imports', async t => {
-  const { testArgv } = (await t.mockImport(
-    '../dist/esm/test-argv.js',
-    mocks
-  )) as typeof import('../dist/esm/test-argv.js')
+  const { testArgv } = await t.mockImport<
+    typeof import('../dist/esm/test-argv.js')
+  >('../dist/esm/test-argv.js', mocks)
   t.strictSame(
     testArgv({ get: () => {} } as unknown as LoadedConfig),
     [
@@ -58,10 +57,9 @@ t.test('mix of loaders and imports', async t => {
 })
 
 t.test('with --node-arg', async t => {
-  const { testArgv } = (await t.mockImport(
-    '../dist/esm/test-argv.js',
-    mocks
-  )) as typeof import('../dist/esm/test-argv.js')
+  const { testArgv } = await t.mockImport<
+    typeof import('../dist/esm/test-argv.js')
+  >('../dist/esm/test-argv.js', mocks)
   t.strictSame(
     testArgv({ get: () => ['a', 'b'] } as unknown as LoadedConfig),
     [
@@ -77,10 +75,9 @@ t.test('with --node-arg', async t => {
 })
 
 t.test('all imports, no loader', async t => {
-  const { testArgv } = (await t.mockImport(
-    '../dist/esm/test-argv.js',
-    mocksAllImport
-  )) as typeof import('../dist/esm/test-argv.js')
+  const { testArgv } = await t.mockImport<
+    typeof import('../dist/esm/test-argv.js')
+  >('../dist/esm/test-argv.js', mocksAllImport)
   t.strictSame(
     testArgv({ get: () => [] } as unknown as LoadedConfig),
     [
@@ -93,10 +90,9 @@ t.test('all imports, no loader', async t => {
 })
 
 t.test('no import support, only loader', async t => {
-  const { testArgv } = (await t.mockImport(
-    '../dist/esm/test-argv.js',
-    mocksNoImport
-  )) as typeof import('../dist/esm/test-argv.js')
+  const { testArgv } = await t.mockImport<
+    typeof import('../dist/esm/test-argv.js')
+  >('../dist/esm/test-argv.js', mocksNoImport)
   t.strictSame(
     testArgv({ get: () => [] } as unknown as LoadedConfig),
     [
