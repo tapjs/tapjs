@@ -48,7 +48,7 @@ nx run-many --verbose --target=prepare --exclude tap,@tapjs/run
 nx run-many --verbose --target=prepare -p @tapjs/run
 nx run-many --verbose --target=prepare -p tap
 node \
-  --import=@isaacs/ts-node-temp-fork-for-pr-2009/import \
+  --loader=@isaacs/ts-node-temp-fork-for-pr-2009/esm \
   --no-warnings \
   scripts/default-build.mts
 # lastly, run the actual install to do all the linking
