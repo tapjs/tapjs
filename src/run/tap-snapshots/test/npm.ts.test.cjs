@@ -25,6 +25,7 @@ Array [
       "env": Object {
         "ok": true,
       },
+      "shell": true,
     },
     Function (code, signal),
   ],
@@ -48,6 +49,7 @@ Array [
       "env": Object {
         "ok": true,
       },
+      "shell": true,
     },
   ],
 ]
@@ -72,6 +74,7 @@ Array [
       "env": Object {
         "ok": true,
       },
+      "shell": true,
     },
     Function (code, signal),
   ],
@@ -98,6 +101,7 @@ Array [
       "env": Object {
         "ok": true,
       },
+      "shell": true,
     },
     Function (code, signal),
   ],
@@ -121,6 +125,7 @@ Array [
       "env": Object {
         "ok": true,
       },
+      "shell": true,
     },
   ],
 ]
@@ -145,6 +150,7 @@ Array [
       "env": Object {
         "ok": true,
       },
+      "shell": true,
     },
     Function (code, signal),
   ],

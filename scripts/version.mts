@@ -84,7 +84,11 @@ const run = (
   args: string[] = [],
   options: SpawnSyncOptions = {}
 ) => {
-  const res = spawnSync(cmd, args, { ...options, encoding: 'utf8' })
+  const res = spawnSync(cmd, args, {
+    ...options,
+    encoding: 'utf8',
+    shell: true,
+  })
   if (res.error || res.status || res.signal) {
     const cause = {
       cmd,
@@ -463,7 +467,10 @@ const pubAll = () => {
   if (!pubs.length) {
     console.log('all packages published')
   }
-  console.error('PUBS', pubs.map(p => [p.name, p.version]))
+  console.error(
+    'PUBS',
+    pubs.map(p => [p.name, p.version])
+  )
   for (const p of pubs) {
     const tag = parse(p.version)?.prerelease?.length
       ? 'pre'

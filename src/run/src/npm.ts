@@ -31,6 +31,7 @@ const npmGetPrefix = (cwd: string) =>
     env: npmFreeEnv,
     encoding: 'utf8',
     cwd,
+    shell: true,
   }).stdout || null
 
 export const npmFindCwd = async (globCwd: string): Promise<string> =>
@@ -57,6 +58,7 @@ export const npmBg = (args: string[], config: LoadedConfig) =>
     env: npmFreeEnv,
     encoding: 'utf8',
     cwd: npmCwd || config.globCwd,
+    shell: true,
   })
 
 /**
@@ -84,6 +86,7 @@ const npmFg = (
     {
       env: npmFreeEnv,
       cwd: npmCwd || config.globCwd,
+      shell: true,
       /* c8 ignore stop */
     },
     cb

@@ -429,7 +429,19 @@ writeFileSync(
 const nm = resolve(dir, 'node_modules')
 mkdirpSync(resolve(nm, '@tapjs'))
 symlinkSync('../..', resolve(nm, '@tapjs/test-built'))
-spawnSync('npm', ['run', 'prepare'], { cwd: dir, stdio: 'inherit' })
+const res = spawnSync('npm', ['run', 'prepare'], {
+  shell: true,
+  cwd: dir,
+  stdio: 'inherit',
+})
+if (res.status !== 0 || res.signal !== null) {
+  console.error('`npm run prepare` failed', {
+    code: res.status,
+    signal: res.signal,
+    ...( res.error && { error: res.error })
+  })
+  process.exitCode = 1
+}
 rimrafSync(nm)
 
 export {}
