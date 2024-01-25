@@ -5,6 +5,19 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.7
+
+- Use type param for mockImport, mockRequire
+- Refactor `@tapjs/mock` plugin to work around ESM hooks deadocks
+- Add `shell: true` when spawning npm, for windows' benefit
+- Fix bootstrap ci loader on node versions lacking `--import`
+- Always initialize `t.context`, so that `t.context.field =
+  value` works even if no initial context object was provided
+- Late-bind `t.context`, so that it can be mutated in async
+  `before` methods and still preserved. `t.context` is now set
+  when the test actually runs, not when the Test object is
+  constructed.
+
 ## 18.6
 
 - Consider objects matching in `t.same()` if their `valueOf`
