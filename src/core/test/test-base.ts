@@ -1691,3 +1691,14 @@ t.test('can set a context field without context option', async t => {
     t.end()
   })
 })
+
+t.test('can set context in async before hook', async t => {
+  t.before(async () => {
+    await new Promise<void>(res => setTimeout(res, 10))
+    t.context = { foo: 'bar' }
+  })
+  t.test('child test', t => {
+    t.equal(t.context.foo, 'bar')
+    t.end()
+  })
+})

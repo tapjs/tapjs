@@ -160,6 +160,11 @@ export interface BaseOpts extends Extra {
    *
    * If not set in the options, this is initialized to a null-prototyped
    * object, so that usage like `t.context.foo = 'bar'` will work as expected.
+   *
+   * This is initialized and set on the Test object in the `runMain` method,
+   * *not* at construction time. If set explicitly on the Test object in a
+   * `before` hook, then any context specified on options or inherited from
+   * the parent test will be ignored.
    */
   context?: any
   /**
@@ -417,15 +422,6 @@ export class Base<
 
     this.silent = !!options.silent
 
-    // if it's null or an object, inherit from it.  otherwise, copy it.
-    const ctx = options.context
-    if (ctx !== undefined) {
-      this.context =
-        typeof ctx === 'object' ? Object.create(ctx) : ctx
-    } else {
-      this.context = Object.create(null)
-    }
-
     this.bail = !!options.bail
     this.strict = !!options.strict
     this.omitVersion = !!options.omitVersion
@@ -591,6 +587,16 @@ export class Base<
     this.debug('BASE runMain')
     this.start = hrtime.bigint()
     this.#started = true
+
+    // if it's null or an object, inherit from it.  otherwise, copy it.
+    const ctx =
+      this.context ??
+      ('context' in this.options
+        ? this.options.context
+        : this.parent?.context) ??
+      null
+    this.context = typeof ctx === 'object' ? Object.create(ctx) : ctx
+
     this.hook.runInAsyncScope(this.main, this, cb)
   }
 

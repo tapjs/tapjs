@@ -1072,7 +1072,6 @@ export class TestBase extends Base {
             extra.at = st[0];
             extra.stack = st.map(c => String(c)).join('\n');
         }
-        extra.context = this.context;
         this.#inheritFlags(extra);
         const t = new Class(extra);
         this.queue.push(t);

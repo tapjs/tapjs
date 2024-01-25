@@ -1360,7 +1360,6 @@ export class TestBase extends Base<TestBaseEvents> {
       extra.at = st[0]
       extra.stack = st.map(c => String(c)).join('\n')
     }
-    extra.context = this.context
 
     this.#inheritFlags(extra)
 

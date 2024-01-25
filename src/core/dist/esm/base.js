@@ -229,15 +229,6 @@ export class Base extends Minipass {
         this.counts = new Counts();
         this.lists = new Lists();
         this.silent = !!options.silent;
-        // if it's null or an object, inherit from it.  otherwise, copy it.
-        const ctx = options.context;
-        if (ctx !== undefined) {
-            this.context =
-                typeof ctx === 'object' ? Object.create(ctx) : ctx;
-        }
-        else {
-            this.context = Object.create(null);
-        }
         this.bail = !!options.bail;
         this.strict = !!options.strict;
         this.omitVersion = !!options.omitVersion;
@@ -396,6 +387,13 @@ export class Base extends Minipass {
         this.debug('BASE runMain');
         this.start = hrtime.bigint();
         this.#started = true;
+        // if it's null or an object, inherit from it.  otherwise, copy it.
+        const ctx = this.context ??
+            ('context' in this.options
+                ? this.options.context
+                : this.parent?.context) ??
+            null;
+        this.context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
         this.hook.runInAsyncScope(this.main, this, cb);
     }
     /**

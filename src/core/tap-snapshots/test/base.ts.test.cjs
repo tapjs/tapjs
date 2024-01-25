@@ -5,6 +5,14 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/base.ts > TAP > basic instantiation > context after main 1`] = `
+Null Object {}
+`
+
+exports[`test/base.ts > TAP > basic instantiation > context before main 1`] = `
+undefined
+`
+
 exports[`test/base.ts > TAP > basic instantiation > must match snapshot 1`] = `
 FinalResults {
   "bailout": false,
@@ -423,10 +431,6 @@ Counts {
 }
 `
 
-exports[`test/base.ts > TAP > basic instantiation > must match snapshot 4`] = `
-Null Object {}
-`
-
 exports[`test/base.ts > TAP > prevent write after end > must match snapshot 1`] = `
 TAP version 14
 # Subtest: ok
@@ -710,8 +714,4 @@ Counts {
   "todo": 2,
   "total": 8,
 }
-`
-
-exports[`test/base.ts > TAP > track passes in lists if passes:true in options > must match snapshot 4`] = `
-Null Object {}
 `
