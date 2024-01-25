@@ -1682,3 +1682,12 @@ t.test('diagnostic is inherited', async t => {
   t.match(wd, { options: { diagnostic: true } })
   t.match(wod, { options: { diagnostic: false } })
 })
+
+t.test('can set a context field without context option', async t => {
+  const now = Date.now()
+  t.context.when = now
+  t.test('child test', t => {
+    t.equal(t.context.when, now, 'the time is now!')
+    t.end()
+  })
+})

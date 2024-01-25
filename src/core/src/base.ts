@@ -157,6 +157,9 @@ export interface BaseOpts extends Extra {
    * is set in a `t.before()` or `t.beforeEach()` method. Scalar values
    * are inherited by child tests. Object values are extended in child
    * tests using `Object.create()`.
+   *
+   * If not set in the options, this is initialized to a null-prototyped
+   * object, so that usage like `t.context.foo = 'bar'` will work as expected.
    */
   context?: any
   /**
@@ -420,7 +423,7 @@ export class Base<
       this.context =
         typeof ctx === 'object' ? Object.create(ctx) : ctx
     } else {
-      this.context = null
+      this.context = Object.create(null)
     }
 
     this.bail = !!options.bail

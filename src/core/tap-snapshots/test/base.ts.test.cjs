@@ -424,7 +424,7 @@ Counts {
 `
 
 exports[`test/base.ts > TAP > basic instantiation > must match snapshot 4`] = `
-null
+Null Object {}
 `
 
 exports[`test/base.ts > TAP > prevent write after end > must match snapshot 1`] = `
@@ -713,5 +713,5 @@ Counts {
 `
 
 exports[`test/base.ts > TAP > track passes in lists if passes:true in options > must match snapshot 4`] = `
-null
+Null Object {}
 `

@@ -240,7 +240,7 @@ class Base extends minipass_1.Minipass {
                 typeof ctx === 'object' ? Object.create(ctx) : ctx;
         }
         else {
-            this.context = null;
+            this.context = Object.create(null);
         }
         this.bail = !!options.bail;
         this.strict = !!options.strict;
