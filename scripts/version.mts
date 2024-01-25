@@ -87,7 +87,6 @@ const run = (
   const res = spawnSync(cmd, args, {
     ...options,
     encoding: 'utf8',
-    shell: true,
   })
   if (res.error || res.status || res.signal) {
     const cause = {
