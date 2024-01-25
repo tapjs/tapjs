@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/asserts",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "",
   "tshy": {
     "main": true,
@@ -46,7 +46,7 @@
     "trivial-deferred": "^2.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.4.6"
+    "@tapjs/core": "1.5.0"
   },
   "tap": {
     "coverage-map": "./map.js",
