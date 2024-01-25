@@ -27,6 +27,8 @@ const cleanNodeNames = (str: string) =>
       /new AssertionError\([^\)]+\)/g,
       'new AssertionError(<contents elided for testing>)'
     )
+    // remove internal symbols, which differ across node versions
+    .replace(/\s*\[Symbol\([^\)]+\)\]: [^,]+,\n?/g, '')
     // tight formatting
     .replace(/"name":"AssertionError",/g, '')
     .replace(/"domain":null,/g, '')
