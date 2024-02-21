@@ -12,8 +12,6 @@ Tap plugins are typically a function that takes a `Test` object
 and optionally an `options` object, and returns an object that is
 used as the extension.
 
-This is a very simple "hello, world" plugin:
-
 For example, a very simple "hello, world" plugin:
 
 ```ts
