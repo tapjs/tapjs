@@ -28,6 +28,15 @@ type Result = {
   stderr: string
 }
 
+// make sure we keep getting a fresh TAP when we re-import fresh
+const privSym = Symbol.for('TAP private constructor')
+const g = globalThis as typeof globalThis & {
+  [privSym]?: typeof t
+}
+t.beforeEach(() => {
+  delete g[privSym]
+})
+
 const run = async (
   cwd: string,
   args: string[] = [],
@@ -429,7 +438,6 @@ ok 1 - this is standard input
 t.test('build before run if plugins mismatch', async t => {
   const cwd = process.cwd()
   t.teardown(() => process.chdir(cwd))
-
   const { run } = await t.mockImport<
     typeof import('../dist/esm/run.js')
   >('../dist/esm/run.js', {
