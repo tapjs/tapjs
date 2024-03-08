@@ -17,6 +17,13 @@ eleventyNavigation:
   `before` methods and still preserved. `t.context` is now set
   when the test actually runs, not when the Test object is
   constructed.
+- (18.7.1) Fix confusing behavior when `tap` is loaded both as
+  CommonJS and ESM in the same program.
+- (18.7.1) Make `--allow-empty-coverage` default to true when
+  `--disable-coverage` is set.
+- (18.7.1) Update `@tapjs/processinfo` to fix cases where
+  transpiled CommonJS can escape being recorded by the loader,
+  and thus is not tracked for coverage.
 
 ## 18.6
 
