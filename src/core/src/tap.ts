@@ -25,7 +25,7 @@ import { TestBase } from './test-base.js'
 
 const stdout = proc?.stdout
 
-const privSym = Symbol('private constructor')
+const privSym = Symbol.for('TAP private constructor')
 type PrivateTAPCtor = {
   [privSym]: true
 }
@@ -122,7 +122,7 @@ class TAP extends Test {
     // plugins get applied right here:
     super(options)
 
-    instance = this
+    instance = g[privSym] = this
     this.on('idle', () => maybeAutoend())
     this.on('complete', (results: FinalResults) =>
       this.#oncomplete(results)
@@ -483,6 +483,10 @@ const ignoreEPIPE = () => {
   }
 }
 
+const g = globalThis as typeof globalThis & {
+  [privSym]: TAP
+}
+
 /**
  * The exported function instantiates a {@link @tapjs/core!tap.TAP} object if
  * we don't already have one, or return the one that was previously
@@ -492,5 +496,6 @@ const ignoreEPIPE = () => {
  * but they are ignored if the instance was already created.
  */
 export const tap = (opts?: TestOpts) =>
-  instance || new TAP(privateTAPCtor, opts)
+  instance ?? g[privSym] ?? new TAP(privateTAPCtor, opts)
+
 export type { TAP }

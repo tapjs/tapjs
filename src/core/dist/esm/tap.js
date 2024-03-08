@@ -19,7 +19,7 @@ import { diags } from './diags.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
 import { env, proc } from './proc.js';
 const stdout = proc?.stdout;
-const privSym = Symbol('private constructor');
+const privSym = Symbol.for('TAP private constructor');
 const privateTAPCtor = {
     [privSym]: true,
 };
@@ -102,7 +102,7 @@ class TAP extends Test {
         };
         // plugins get applied right here:
         super(options);
-        instance = this;
+        instance = g[privSym] = this;
         this.on('idle', () => maybeAutoend());
         this.on('complete', (results) => this.#oncomplete(results));
         // only attach the teardown autoend if we're using the teardown plugin
@@ -409,6 +409,7 @@ const ignoreEPIPE = () => {
         return emit.call(stdout, ev, ...args);
     };
 };
+const g = globalThis;
 /**
  * The exported function instantiates a {@link @tapjs/core!tap.TAP} object if
  * we don't already have one, or return the one that was previously
@@ -417,5 +418,5 @@ const ignoreEPIPE = () => {
  * Options may be provided, which will override the environment settings,
  * but they are ignored if the instance was already created.
  */
-export const tap = (opts) => instance || new TAP(privateTAPCtor, opts);
+export const tap = (opts) => instance ?? g[privSym] ?? new TAP(privateTAPCtor, opts);
 //# sourceMappingURL=tap.js.map

@@ -4,6 +4,9 @@ import stripAnsi from 'strip-ansi-cjs'
 import { fileURLToPath } from 'url'
 import { env } from '../dist/esm/proc.js'
 import { tap } from '../dist/esm/tap.js'
+import { createRequire } from 'node:module'
+const req = createRequire(import.meta.url)
+const { tap: cjsTap } = req('../dist/commonjs/tap.js')
 
 const __filename = fileURLToPath(import.meta.url)
 
@@ -23,6 +26,7 @@ type Result = {
 const main = () => {
   const t = tap({ some: 'options' })
   t.equal(t.options.some, 'options')
+  t.equal(t, cjsTap())
   const clean = (s: string) =>
     stripAnsi(s)
       .replace(/# time=[0-9.]+m?s\n/g, '# time={TIME}\n')
