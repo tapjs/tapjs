@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/node-serialize",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Stream TAP test data as a serialized node:test stream",
   "tshy": {
     "main": true,
@@ -45,7 +45,7 @@
     "tap-parser": "15.3.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.5.0"
+    "@tapjs/core": "1.5.1"
   },
   "tap": {
     "fail-skip": true,
