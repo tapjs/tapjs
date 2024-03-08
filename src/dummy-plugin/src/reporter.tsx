@@ -4,14 +4,19 @@
 //
 // The user can either do --reporter=@tapjs/dummy-plugin/reporter, or
 // --reporter=dummy, and both will load this test reporter.
+//@ts-ignore
 import { Reporter } from '@tapjs/reporter'
+//@ts-ignore
 import {
   useAssertTotals,
   useSuiteTotals,
+  //@ts-ignore
 } from '@tapjs/reporter/hooks'
+//@ts-ignore
 import { Box, Text } from 'ink'
 import React from 'react'
 
+//@ts-ignore
 export default (({ test, config }) => {
   const asserts = useAssertTotals(test)
   const suites = useSuiteTotals(test)

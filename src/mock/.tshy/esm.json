@@ -5,7 +5,11 @@
     "../src/**/*.mts",
     "../src/**/*.tsx"
   ],
+  "exclude": [
+    ".././src/hooks-url-cjs.cts",
+    ".././src/service-key-cjs.cts"
+  ],
   "compilerOptions": {
-    "outDir": "../.tshy-build-tmp/esm"
+    "outDir": "../.tshy-build/esm"
   }
 }

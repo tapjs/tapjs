@@ -5,7 +5,11 @@
     "../src/**/*.mts",
     "../src/**/*.tsx"
   ],
+  "exclude": [
+    ".././src/load-reporter-cjs.cts",
+    ".././src/reporter-cjs.cts"
+  ],
   "compilerOptions": {
-    "outDir": "../.tshy-build-tmp/esm"
+    "outDir": "../.tshy-build/esm"
   }
 }

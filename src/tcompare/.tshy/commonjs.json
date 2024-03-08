@@ -6,10 +6,9 @@
     "../src/**/*.tsx"
   ],
   "exclude": [
-    ".../src/**/*.mts",
-    "../src/react-element-to-jsx-string.ts"
+    "../src/**/*.mts"
   ],
   "compilerOptions": {
-    "outDir": "../.tshy-build-tmp/commonjs"
+    "outDir": "../.tshy-build/commonjs"
   }
 }

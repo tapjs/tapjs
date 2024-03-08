@@ -6,11 +6,9 @@
     "../src/**/*.tsx"
   ],
   "exclude": [
-    ".../src/**/*.mts",
-    "../src/hooks-url.ts",
-    "../src/service-key.ts"
+    "../src/**/*.mts"
   ],
   "compilerOptions": {
-    "outDir": "../.tshy-build-tmp/commonjs"
+    "outDir": "../.tshy-build/commonjs"
   }
 }

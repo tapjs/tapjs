@@ -6,11 +6,9 @@
     "../src/**/*.tsx"
   ],
   "exclude": [
-    ".../src/**/*.mts",
-    "../src/load-reporter.ts",
-    "../src/reporter.tsx"
+    "../src/**/*.mts"
   ],
   "compilerOptions": {
-    "outDir": "../.tshy-build-tmp/commonjs"
+    "outDir": "../.tshy-build/commonjs"
   }
 }
