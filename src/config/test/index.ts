@@ -892,3 +892,20 @@ t.test('load file from env.TAP_RCFILE', async t => {
     }
   }
 })
+
+t.test('default allow-empty-coverage when disable-coverage set', async t => {
+  const dir = t.testdir({
+    '.taprc': `
+disable-coverage: true
+`,
+  })
+  const cwd = process.cwd()
+  t.teardown(() => process.chdir(cwd))
+  process.chdir(dir)
+  const { TapConfig } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js')
+  const c = await TapConfig.load()
+  t.equal(c.get('disable-coverage'), true)
+  t.equal(c.get('allow-empty-coverage'), true)
+})

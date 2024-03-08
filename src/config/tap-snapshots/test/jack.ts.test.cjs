@@ -131,7 +131,7 @@ Object {
     "description": String(
       Do not generate code coverage information for the test run.
       
-      This will always result in a \`# No coverage generated\` message being printed, and will cause the test run to exit in error unless \`allow-empty-coverage\` is also set.
+      This will always result in a \`# No coverage generated\` message being printed. If this flag is set, then \`--allow-empty-coverage\` will default to \`true\`, because we do not expect to get any coverage.
       
       WARNING: tests that do not produce coverage are untrustworthy. This should only be used when coverage is being generated and tracked by some other mechanism.
     ),

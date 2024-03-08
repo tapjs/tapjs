@@ -125,7 +125,14 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * Get a configuration value, as we currently know it
    */
   get<K extends keyof OptionsResults<C>>(k: K): OptionsResults<C>[K] {
-    return this.parse().values[k]
+    const value = this.parse().values[k]
+    // special case: if --disable-coverage is set, then default
+    // --allow-empty-coverage to true, so we don't get unuseful failures.
+    if (k === 'allow-empty-coverage' && value === undefined) {
+      const disabled = this.get('disable-coverage')
+      if (disabled) return true as OptionsResults<C>[K]
+    }
+    return value
   }
 
   /**
