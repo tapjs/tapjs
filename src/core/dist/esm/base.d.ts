@@ -295,13 +295,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * Numeric identifier for this test
      */
     childId: number;
-    /**
-     * Any arbitrary data that is provided to this test object. Often, this
-     * is set in a `t.before()` or `t.beforeEach()` method. Scalar values
-     * are inherited by child tests. Object values are extended in child
-     * tests using `Object.create()`.
-     */
-    context: any;
+    get context(): any;
+    set context(c: any);
     /**
      * the TAP stream data for buffered tests
      *

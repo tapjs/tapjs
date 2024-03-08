@@ -18,6 +18,8 @@ import type { Extra, TestBase } from './index.js'
 import { Lists } from './lists.js'
 import { messageFromError } from './message-from-error.js'
 
+const unsetContext = Symbol('TAP.context unset')
+
 /**
  * Events emitted by the Base class
  */
@@ -340,7 +342,14 @@ export class Base<
    * are inherited by child tests. Object values are extended in child
    * tests using `Object.create()`.
    */
-  context: any
+  #context: any = unsetContext
+  get context () {
+    if (this.#context === unsetContext) this.#context = Object.create(null)
+    return this.#context
+  }
+  set context (c: any) {
+    this.#context = c
+  }
 
   /**
    * the TAP stream data for buffered tests
@@ -590,12 +599,12 @@ export class Base<
 
     // if it's null or an object, inherit from it.  otherwise, copy it.
     const ctx =
-      this.context ??
+      this.#context !== unsetContext ? this.#context :
       ('context' in this.options
         ? this.options.context
         : this.parent?.context) ??
       null
-    this.context = typeof ctx === 'object' ? Object.create(ctx) : ctx
+    this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx
 
     this.hook.runInAsyncScope(this.main, this, cb)
   }

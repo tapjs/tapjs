@@ -14,6 +14,7 @@ import { diags } from './diags.js';
 import { extraFromError } from './extra-from-error.js';
 import { Lists } from './lists.js';
 import { messageFromError } from './message-from-error.js';
+const unsetContext = Symbol('TAP.context unset');
 /**
  * Wrapper for the async-hook-domain that catches errors thrown during
  * test operation.
@@ -160,7 +161,15 @@ export class Base extends Minipass {
      * are inherited by child tests. Object values are extended in child
      * tests using `Object.create()`.
      */
-    context;
+    #context = unsetContext;
+    get context() {
+        if (this.#context === unsetContext)
+            this.#context = Object.create(null);
+        return this.#context;
+    }
+    set context(c) {
+        this.#context = c;
+    }
     /**
      * the TAP stream data for buffered tests
      *
@@ -388,12 +397,12 @@ export class Base extends Minipass {
         this.start = hrtime.bigint();
         this.#started = true;
         // if it's null or an object, inherit from it.  otherwise, copy it.
-        const ctx = this.context ??
+        const ctx = this.#context !== unsetContext ? this.#context :
             ('context' in this.options
                 ? this.options.context
                 : this.parent?.context) ??
-            null;
-        this.context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
+                null;
+        this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
         this.hook.runInAsyncScope(this.main, this, cb);
     }
     /**

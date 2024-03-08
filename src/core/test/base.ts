@@ -402,3 +402,12 @@ t.test('results.ok=false means not passing', async t => {
   tb.results.ok = false
   t.equal(tb.passing(), false, 'not ok results, not passing()')
 })
+
+t.test('context looks like an object when not yet set', t => {
+  const tb = new Minimal({ name: 'ctx tester' })
+  t.strictSame(tb.context, Object.create(null))
+  const c = {}
+  tb.context = c
+  t.equal(tb.context, c)
+  t.end()
+})

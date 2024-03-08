@@ -6,11 +6,11 @@
  */
 'use strict'
 exports[`test/base.ts > TAP > basic instantiation > context after main 1`] = `
-Null Object {}
+Object {}
 `
 
 exports[`test/base.ts > TAP > basic instantiation > context before main 1`] = `
-undefined
+Null Object {}
 `
 
 exports[`test/base.ts > TAP > basic instantiation > must match snapshot 1`] = `
