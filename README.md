@@ -161,3 +161,17 @@ Because there's a bootstrapping cycle between `@tapjs/core`,
 `@tapjs/test`, and all of the plugins, they MUST use
 `skipLibCheck: true` in their tsconfigs. It should not be used in
 other packages.
+
+## You might also consider
+
+- [Vitest](https://vitest.dev/guide/features.html)
+  - Excellent tooling, very fast test runner, compatible with jest and [chai's well know exepect.toBe type api]([url](https://www.chaijs.com/api/bdd/)https://www.chaijs.com/api/bdd/).
+  - Painless coverage reports (no map function).
+  - Reporting options (there's TAP output also)
+  - Uses vite's HMR to enhance speed
+  - File watch mode.
+  - Plug in for vscode's test runner. Can run and debug tests in a few clicks.
+  - "In code" testing (tests next to code)
+  - Benchmark test built in
+  - Test filtering with a single keyword (or pattern)
+  - Typescript / esmodules natively
