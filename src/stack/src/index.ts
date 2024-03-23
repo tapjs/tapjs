@@ -306,12 +306,8 @@ export const captureError = (
   e: Error | NodeJS.ErrnoException
 ): CallSiteLike[] => {
   // errors almost always have these fields
-  const {
-    stack = '',
-    message = '',
-    name = '',
-    code,
-  } = e as NodeJS.ErrnoException
+  const { message = '', name = '', code } = e as NodeJS.ErrnoException
+  const stack = typeof e.stack === 'string' ? e.stack : ''
   const head = name && message ? `${name}: ${message}\n` : ''
   const errnoHead =
     name && message && code ? `${name} [${code}]: ${message}` : ''
@@ -330,6 +326,7 @@ export const captureError = (
       .filter(l => !!l)
       .map(line => new CallSiteLike(e, line))
   )
+
   // if we didn't clean the header cleanly, then sweep the stack for
   // any weird junk it might contain
   return cleanHead

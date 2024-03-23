@@ -19,21 +19,14 @@ for (const c of [...cwds]) {
   cwds.add(esc(esc(esc(esc(c)))))
 }
 
+const reSpecial = /[/\-\\^$*+?.()|[\]{}]/g
+const escapeRegex = (s: string) => s.replace(reSpecial, '\\$&')
+
 export const cleanCWD = (snap: string) => {
   const tag = '{CWD}'
   for (const c of cwds) {
-    let i = -1
-    // pad it out so that the length matches through the walk
-    const replace = tag + '\u0001'.repeat(c.length - tag.length)
-    while (
-      -1 !== (i = snap.toLowerCase().indexOf(c.toLowerCase(), i))
-    ) {
-      snap =
-        snap.substring(0, i) +
-        replace +
-        snap.substring(i + replace.length)
-    }
-    snap = snap.split(replace).join(tag)
+    const r = new RegExp(escapeRegex(c), 'gi')
+    snap = snap.replace(r, tag)
   }
   return snap
 }

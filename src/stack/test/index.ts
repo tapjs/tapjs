@@ -494,6 +494,12 @@ ${short.stack?.split('\n').slice(1).join('\n')}`
       t.end()
     })
 
+    t.test('error objects sometimes have weird stacks', t => {
+      const e = Object.assign(new Error('weird'), { stack: 1243 })
+      t.same(captureError(e), [])
+      t.end()
+    })
+
     t.end()
   })
 }
