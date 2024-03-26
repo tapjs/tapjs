@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "is-actual-promise": "^1.0.0",
+    "is-actual-promise": "^1.0.1",
     "tcompare": "6.4.5",
     "trivial-deferred": "^2.0.0"
   },

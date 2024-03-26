@@ -84,7 +84,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "minipass": "^7.0.3"
+    "minipass": "^7.0.4"
   },
   "tap": {
     "fail-skip": true,

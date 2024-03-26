@@ -41,7 +41,7 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/after": "1.1.19",
-    "sinon": "^15.2.0"
+    "sinon": "^17.0.1"
   },
   "peerDependencies": {
     "@tapjs/core": "1.5.1"

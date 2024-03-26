@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me>",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "yaml": "^2.3.0",
+    "yaml": "^2.4.1",
     "yaml-types": "^0.3.0"
   },
   "tap": {

@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "is-actual-promise": "^1.0.0"
+    "is-actual-promise": "^1.0.1"
   },
   "peerDependencies": {
     "@tapjs/core": "1.5.1"

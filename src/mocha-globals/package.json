@@ -45,7 +45,7 @@
     "@tapjs/before": "1.1.19",
     "@tapjs/before-each": "1.1.19",
     "@tapjs/stack": "1.2.7",
-    "is-actual-promise": "^1.0.0"
+    "is-actual-promise": "^1.0.1"
   },
   "peerDependencies": {
     "@tapjs/core": "1.5.1"

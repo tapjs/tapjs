@@ -82,8 +82,8 @@ export class TapFile extends Base<TapFileEvents> {
     } else if (!this.tapStream) {
       throw new Error('either tapStream or filename must be provided')
     }
-    this.tapStream.on('error', er => {
-      er.tapCaught = this.caughtName
+    (this.tapStream as Minipass<Buffer>).on('error', er => {
+      (er as Error & { tapCaught: string }).tapCaught = this.caughtName
       this.threw(er)
     })
     if (this.options.timeout) {

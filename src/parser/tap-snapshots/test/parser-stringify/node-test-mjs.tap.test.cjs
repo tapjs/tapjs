@@ -135,7 +135,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -168,7 +169,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -669,7 +671,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -706,7 +709,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
       
         test (node:internal/test_runner/harness:227:12)
       
-        SuiteContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:65:3)
+        SuiteContext.<anonymous>
+        (file:///path/to/node-test-example/test/node.test.js:65:3)
       
         Suite.runInAsyncScope (node:async_hooks:206:9)
       
@@ -743,7 +747,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -780,7 +785,8 @@ not ok 2 - A thing > nesting suite # time=0.036708ms
   
     test (node:internal/test_runner/harness:227:12)
   
-    SuiteContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:65:3)
+    SuiteContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:65:3)
   
     Suite.runInAsyncScope (node:async_hooks:206:9)
   
@@ -1105,7 +1111,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -1142,7 +1149,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
       
         test (node:internal/test_runner/harness:227:12)
       
-        SuiteContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:65:3)
+        SuiteContext.<anonymous>
+        (file:///path/to/node-test-example/test/node.test.js:65:3)
       
         Suite.runInAsyncScope (node:async_hooks:206:9)
       
@@ -1179,7 +1187,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -1216,7 +1225,8 @@ not ok 2 - A thing > nesting suite # time=0.036708ms
   
     test (node:internal/test_runner/harness:227:12)
   
-    SuiteContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:65:3)
+    SuiteContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:65:3)
   
     Suite.runInAsyncScope (node:async_hooks:206:9)
   
@@ -1367,7 +1377,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   
@@ -1400,7 +1411,8 @@ not ok 1 - uhoh, this one throws # time=0.711ms
   
     thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
   
-    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    TestContext.<anonymous>
+    (file:///path/to/node-test-example/test/node.test.js:38:16)
   
     Test.runInAsyncScope (node:async_hooks:206:9)
   

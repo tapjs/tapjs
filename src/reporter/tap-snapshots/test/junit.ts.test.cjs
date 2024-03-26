@@ -79,19 +79,24 @@ at:
 stack: >
   Test.<anonymous> (test/fixtures/example-tap.ts:15:5)
 
-  Test.cb (../core/dist/esm/test-base.js:170:42) (../core/src/test-base.ts:341:17)
+  Test.cb (../core/dist/esm/test-base.js:170:42)
+  (../core/src/test-base.ts:341:17)
 
   ../core/dist/esm/test-base.js:858:29 (../core/src/test-base.ts:1116:21)
 
-  Test.main (../core/dist/esm/test-base.js:867:11) (../core/src/test-base.ts:1124:7)
+  Test.main (../core/dist/esm/test-base.js:867:11)
+  (../core/src/test-base.ts:1124:7)
 
   Test.runMain (../core/dist/esm/base.js:392:19) (../core/src/base.ts:584:15)
 
-  TAP.#processSubtest (../core/dist/esm/test-base.js:906:15) (../core/src/test-base.ts:1169:9)
+  TAP.#processSubtest (../core/dist/esm/test-base.js:906:15)
+  (../core/src/test-base.ts:1169:9)
 
-  TAP.#process (../core/dist/esm/test-base.js:614:37) (../core/src/test-base.ts:859:29)
+  TAP.#process (../core/dist/esm/test-base.js:614:37)
+  (../core/src/test-base.ts:859:29)
 
-  TAP.sub (../core/dist/esm/test-base.js:1038:22) (../core/src/test-base.ts:1319:18)
+  TAP.sub (../core/dist/esm/test-base.js:1038:22)
+  (../core/src/test-base.ts:1319:18)
 
   test/fixtures/example-tap.ts:14:3
 source: |
@@ -126,19 +131,24 @@ at:
 stack: >
   Test.<anonymous> (test/fixtures/example-tap.ts:16:5)
 
-  Test.cb (../core/dist/esm/test-base.js:170:42) (../core/src/test-base.ts:341:17)
+  Test.cb (../core/dist/esm/test-base.js:170:42)
+  (../core/src/test-base.ts:341:17)
 
   ../core/dist/esm/test-base.js:858:29 (../core/src/test-base.ts:1116:21)
 
-  Test.main (../core/dist/esm/test-base.js:867:11) (../core/src/test-base.ts:1124:7)
+  Test.main (../core/dist/esm/test-base.js:867:11)
+  (../core/src/test-base.ts:1124:7)
 
   Test.runMain (../core/dist/esm/base.js:392:19) (../core/src/base.ts:584:15)
 
-  TAP.#processSubtest (../core/dist/esm/test-base.js:906:15) (../core/src/test-base.ts:1169:9)
+  TAP.#processSubtest (../core/dist/esm/test-base.js:906:15)
+  (../core/src/test-base.ts:1169:9)
 
-  TAP.#process (../core/dist/esm/test-base.js:614:37) (../core/src/test-base.ts:859:29)
+  TAP.#process (../core/dist/esm/test-base.js:614:37)
+  (../core/src/test-base.ts:859:29)
 
-  TAP.sub (../core/dist/esm/test-base.js:1038:22) (../core/src/test-base.ts:1319:18)
+  TAP.sub (../core/dist/esm/test-base.js:1038:22)
+  (../core/src/test-base.ts:1319:18)
 
   test/fixtures/example-tap.ts:14:3
 source: |
