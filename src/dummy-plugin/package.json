@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/dummy-plugin",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "an example plugin for use in testing tap itself",
   "tshy": {
     "main": true,
@@ -76,7 +76,7 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "peerDependencies": {
-    "@tapjs/core": "1.5.2"
+    "@tapjs/core": "1.5.3"
   },
   "tap": {
     "typecheck": false
@@ -96,7 +96,7 @@
     "url": "git+https://github.com/tapjs/tapjs.git"
   },
   "dependencies": {
-    "@tapjs/reporter": "1.3.18",
+    "@tapjs/reporter": "1.3.19",
     "ink": "^4.4.1",
     "react": "^18.2.0"
   }

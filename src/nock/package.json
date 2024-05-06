@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/nock",
-  "version": "3.1.20",
+  "version": "3.1.21",
   "description": "a nock extension for tap",
   "tshy": {
     "main": true,
@@ -39,12 +39,12 @@
   },
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/snapshot": "1.2.20",
+    "@tapjs/snapshot": "1.2.21",
     "@tapjs/stack": "1.2.8",
     "nock": "^13.5.4"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.5.2"
+    "@tapjs/core": "1.5.3"
   },
   "tap": {
     "typecheck": false
