@@ -34,12 +34,12 @@ export type ErrorMessageMatch = {
 }
 
 export type ErrorNameMatch = {
-  name: string | RegExp
+  name: string | RegExp | null | undefined
   [k: string]: any
 }
 
 export type ErrorCodeMatch = {
-  code: string | RegExp
+  code: string | RegExp | number | null | undefined
   [k: string]: any
 }
 

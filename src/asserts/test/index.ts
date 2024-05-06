@@ -474,6 +474,15 @@ t.test('throws, doesNotThrow', t => {
     ),
     { message: 'ok' }
   )
+  t.match(
+    a.throws(
+      () => {
+        throw Object.assign(new Error(''), { code: null, foo: 'bar' })
+      },
+      { code: null, foo: 'bar' }
+    ),
+    { code: null, foo: 'bar' }
+  )
 
   t.end()
 })
@@ -532,6 +541,24 @@ t.test('rejects', async t => {
     await a.rejects(() => {
       throw new Error('ok')
     })
+  )
+  t.match(
+    await a.rejects(
+      async () => {
+        throw Object.assign(new Error(''), { code: null, foo: 'bar' })
+      },
+      { code: null, foo: 'bar' }
+    ),
+    { code: null, foo: 'bar' }
+  )
+  t.match(
+    await a.rejects(
+      Promise.reject(
+        Object.assign(new Error(''), { code: null, foo: 'bar' })
+      )
+    ),
+    { code: null, foo: 'bar' },
+    { code: null, foo: 'bar' }
   )
 })
 
