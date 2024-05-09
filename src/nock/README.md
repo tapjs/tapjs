@@ -17,8 +17,8 @@ A [tap](https://node-tap.org) extension that integrates
     `nock.enableNetConnect()` in teardown
 - `t.nock.snapshot()`
   - when [snapshots are
-    enabled](https://node-tap.org/docs/api/snapshot-testing/#testing-output-with-snapshots),
-    sends real requests and records responses to a fixture
+    enabled](https://node-tap.org/plugins/snapshot/), sends real
+    requests and records responses to a fixture
   - when snapshots are not enabled, loads fixture data and sets
     up `nock` scopes for you
 
@@ -80,7 +80,7 @@ because it won't be automatically applied to child tests, but it
 can be good if you only need `nock` in a small number of tests.
 
 ```ts
-import tapNock from '@tapjs/nock'
+import { plugin as tapNock } from '@tapjs/nock'
 import t from 'tap'
 
 t.test('sends a request', async t => {
