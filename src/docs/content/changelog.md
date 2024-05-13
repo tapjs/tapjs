@@ -5,6 +5,11 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.8
+
+- Allow `Error` objects to be matched on the `cause` property in
+  `t.throws()` and `t.rejects()`.
+
 ## 18.7
 
 - Use type param for mockImport, mockRequire
