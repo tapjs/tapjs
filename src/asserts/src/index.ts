@@ -43,12 +43,18 @@ export type ErrorCodeMatch = {
   [k: string]: any
 }
 
+export type ErrorCauseMatch = {
+  cause: any
+  [k: string]: any
+}
+
 export type ErrorMatch =
   | Error
   | typeof Error
   | ErrorMessageMatch
   | ErrorNameMatch
   | ErrorCodeMatch
+  | ErrorCauseMatch
   | RegExp
 
 export type ThrowsArgs =

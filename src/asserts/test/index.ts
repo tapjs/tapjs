@@ -431,6 +431,15 @@ t.test('throws, doesNotThrow', t => {
   )
   t.notOk(a.throws(() => {}))
 
+  t.ok(
+    a.throws(
+      () => {
+        throw new Error('x', { cause: 'y' })
+      },
+      { cause: 'y' }
+    )
+  )
+
   t.ok(a.doesNotThrow(() => {}))
   t.equal(
     a.doesNotThrow(() => {
@@ -531,6 +540,12 @@ t.test('rejects', async t => {
   )
   t.notOk(await a.rejects(Promise.reject(new Error('ok')), /^nope$/))
   t.notOk(await a.rejects(Promise.resolve()))
+
+  t.ok(
+    await a.rejects(Promise.reject(new Error('x', { cause: 'y' })), {
+      cause: 'y',
+    })
+  )
 
   //@ts-expect-error
   t.notOk(await a.rejects(true))
