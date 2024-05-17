@@ -12,8 +12,7 @@ import {
 } from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
-import { relative, resolve } from 'node:path'
-import { basename, dirname } from 'path'
+import { basename, dirname, relative, resolve } from 'path'
 import {
   kIndent,
   parse as jsonParse,
