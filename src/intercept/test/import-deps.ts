@@ -16,7 +16,7 @@ const {
   dependencies,
   peerDependencies,
 } = JSON.parse(
-  await readFile(resolve(src, '../package.json'), 'utf8')
+  await readFile(resolve(src, '../package.json'), 'utf8'),
 ) as {
   name: string
   dependencies?: Record<string, string>
@@ -79,7 +79,7 @@ if (
       deps,
       { [dep]: String },
       'loaded, should be declared: ' + dep,
-      { paths: f }
+      { paths: f },
     )
   }
 }

@@ -20,7 +20,7 @@ export const printMessagesFn = (
   tap: TAP,
   stream: TestStreamSerialize,
   subsMap: TestMap<Base[]>,
-  diagsMap: TestMap<DiagnosticData[]>
+  diagsMap: TestMap<DiagnosticData[]>,
 ) => {
   const printMessages = (t: Base, testNumber: number = 0) => {
     // enqueue all my subs, then dequeue each one and print them

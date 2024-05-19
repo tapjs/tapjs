@@ -6,7 +6,7 @@ import { testNestedLocation } from './test-nested-location.js'
 export const onAddFn = (
   comment: (this: Base, ...args: any[]) => void,
   diagsMap: TestMap<DiagnosticData[]>,
-  subsMap: TestMap<Base[]>
+  subsMap: TestMap<Base[]>,
 ) => {
   const onAdd = (t: Base) => {
     const tt = t as TestBase

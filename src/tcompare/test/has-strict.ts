@@ -30,11 +30,11 @@ t.test('iterables match one another', t => {
   t.ok(hasStrict(t, a, b), 'iterables match one another')
   t.notOk(
     hasStrict(t, a, arr),
-    'iterable does not strictly match array'
+    'iterable does not strictly match array',
   )
   t.notOk(
     hasStrict(t, arr, b),
-    'array does not strictly match iterable'
+    'array does not strictly match iterable',
   )
   t.end()
 })
@@ -43,11 +43,11 @@ t.test('url object matches normal object (ctors not relevant)', t => {
   const u = new URL('https://google.com/foo')
   t.ok(
     hasStrict(t, u, { pathname: '/foo' }),
-    'plain object can match class instance'
+    'plain object can match class instance',
   )
   t.notOk(
     hasStrict(t, u, { pathname: '/f' }),
-    'no partial string matching tho'
+    'no partial string matching tho',
   )
   t.ok(
     hasStrict(
@@ -55,8 +55,8 @@ t.test('url object matches normal object (ctors not relevant)', t => {
       u,
       Object.assign(Object.create(null), {
         pathname: '/foo',
-      })
-    )
+      }),
+    ),
   )
   t.ok(
     hasStrict(
@@ -67,23 +67,23 @@ t.test('url object matches normal object (ctors not relevant)', t => {
         constructor() {
           this.pathname = '/foo'
         }
-      })()
-    )
+      })(),
+    ),
   )
   t.ok(
     hasStrict(t, u, {
       pathname: '/foo',
       constructor: URL,
     }),
-    'specifying ctor explicitly checks it'
+    'specifying ctor explicitly checks it',
   )
   t.notOk(
     hasStrict(
       t,
       { pathname: '/foo' },
-      { pathname: '/foo', constructor: URL }
+      { pathname: '/foo', constructor: URL },
     ),
-    'specifying ctor explicitly checks it'
+    'specifying ctor explicitly checks it',
   )
   t.end()
 })

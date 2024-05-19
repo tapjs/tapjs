@@ -65,11 +65,11 @@ t.test('globalPreload', async t => {
         } as unknown as ResolveHookContext,
         () => {
           throw new Error('should not call nextLoad')
-        }
+        },
       ) as Promise<ResolveFnOutput>,
     {
       message: message('resolve'),
-    }
+    },
   )
   t.equal(resolveCalled, undefined)
   t.rejects(
@@ -79,11 +79,11 @@ t.test('globalPreload', async t => {
         {} as unknown as LoadHookContext,
         () => {
           throw new Error('should not call nextResolve')
-        }
+        },
       ) as Promise<LoadFnOutput>,
     {
       message: message('load'),
-    }
+    },
   )
   t.equal(loadCalled, undefined)
 
@@ -92,7 +92,7 @@ t.test('globalPreload', async t => {
     hooks.globalPreload({
       port: port1,
     } as unknown as GlobalPreloadContext),
-    'string'
+    'string',
   )
   t.equal(
     await hooks.resolve(
@@ -100,9 +100,9 @@ t.test('globalPreload', async t => {
       {
         parentURL: 'file:///bloor',
       } as unknown as ResolveHookContext,
-      () => 'nextResolve called' as unknown as ResolveFnOutput
+      () => 'nextResolve called' as unknown as ResolveFnOutput,
     ),
-    'nextResolve called'
+    'nextResolve called',
   )
   t.strictSame(resolveCalled, {
     url: 'file:///blahr.js',
@@ -112,9 +112,9 @@ t.test('globalPreload', async t => {
     await hooks.load(
       'file:///blah.js',
       {} as unknown as LoadHookContext,
-      () => 'nextLoad called' as unknown as LoadFnOutput
+      () => 'nextLoad called' as unknown as LoadFnOutput,
     ),
-    'nextLoad called'
+    'nextLoad called',
   )
   t.equal(loadCalled, 'file:///blah.js')
 })
@@ -159,11 +159,11 @@ t.test('initialize', async t => {
         } as unknown as ResolveHookContext,
         () => {
           throw new Error('should not call nextLoad')
-        }
+        },
       ) as Promise<ResolveFnOutput>,
     {
       message: message('resolve'),
-    }
+    },
   )
   t.equal(resolveCalled, undefined)
   t.rejects(
@@ -173,11 +173,11 @@ t.test('initialize', async t => {
         {} as unknown as LoadHookContext,
         () => {
           throw new Error('should not call nextResolve')
-        }
+        },
       ) as Promise<LoadFnOutput>,
     {
       message: message('load'),
-    }
+    },
   )
   t.equal(loadCalled, undefined)
 
@@ -186,15 +186,15 @@ t.test('initialize', async t => {
     hooks.initialize({
       port: port1,
     } as unknown as GlobalPreloadContext),
-    undefined
+    undefined,
   )
   t.equal(
     await hooks.resolve(
       'file:///blah.js',
       { parentURL: 'file:///bloo' } as unknown as ResolveHookContext,
-      () => 'nextResolve called' as unknown as ResolveFnOutput
+      () => 'nextResolve called' as unknown as ResolveFnOutput,
     ),
-    'nextResolve called'
+    'nextResolve called',
   )
   t.strictSame(resolveCalled, {
     url: 'file:///blah.js',
@@ -204,9 +204,9 @@ t.test('initialize', async t => {
     await hooks.load(
       'file:///blah.js',
       {} as unknown as LoadHookContext,
-      () => 'nextLoad called' as unknown as LoadFnOutput
+      () => 'nextLoad called' as unknown as LoadFnOutput,
     ),
-    'nextLoad called'
+    'nextLoad called',
   )
   t.equal(loadCalled, 'file:///blah.js')
 
@@ -219,9 +219,9 @@ t.test('initialize', async t => {
       {} as unknown as LoadHookContext,
       () => {
         throw new Error('should not call nextLoad')
-      }
+      },
     ),
-    { format: 'module', source: 'source code', shortCircuit: true }
+    { format: 'module', source: 'source code', shortCircuit: true },
   )
   t.strictSame(
     await hooks.resolve(
@@ -229,13 +229,13 @@ t.test('initialize', async t => {
       { parentURL: 'file:///bloo' } as unknown as ResolveHookContext,
       () => {
         throw new Error('should not call nextResolve')
-      }
+      },
     ),
     {
       url: 'tapmock://x.y/z',
       format: 'module',
       shortCircuit: true,
-    }
+    },
   )
 })
 
@@ -330,7 +330,7 @@ t.test(
       bar: 'mocked bar',
       fooBar: 'foo mocked bar',
     })
-  }
+  },
 )
 
 t.test('mockImport with full file:// url', async t => {

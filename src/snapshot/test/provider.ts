@@ -20,7 +20,7 @@ t.test('load and save a snapshot', t => {
       message: `Snapshot file not found: ${file}
 Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
     },
-    'file not found throws'
+    'file not found throws',
   )
   p.snap('snapshot data', 'exists')
   p.save()
@@ -30,7 +30,7 @@ Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
       message: `Snapshot entry not found: "msg"
 Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
     },
-    'entry not found throws'
+    'entry not found throws',
   )
 
   // have to create a new provider, can't read and write on the same one
@@ -44,7 +44,7 @@ Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
       message: `Snapshot file not found: ${d}
 Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
     },
-    'snapshot not a file throws on read'
+    'snapshot not a file throws on read',
   )
 
   const pf = new SnapshotProviderDefault(file)
@@ -61,7 +61,7 @@ Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
   t.throws(
     () => statSync(resolve(d, 'empty')),
     { code: 'ENOENT' },
-    'deleted'
+    'deleted',
   )
 
   // if it's gone already that's fine
@@ -71,7 +71,7 @@ Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
   t.throws(
     () => statSync(resolve(d, 'empty2')),
     { code: 'ENOENT' },
-    'deleted'
+    'deleted',
   )
 
   // throw unlink error if it isn't enoent

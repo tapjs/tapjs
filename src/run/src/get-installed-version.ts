@@ -8,13 +8,13 @@ import { resolve } from 'path'
  */
 export const getInstalledVersion = (
   name: string,
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const pj = resolve(
-    config.globCwd,
+    config.projectRoot,
     'node_modules',
     name,
-    'package.json'
+    'package.json',
   )
   try {
     return (JSON.parse(readFileSync(pj, 'utf8')) as Manifest).version

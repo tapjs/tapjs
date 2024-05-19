@@ -5,14 +5,14 @@ import { at, CallSiteLike, captureString } from '@tapjs/stack'
 const notConfig = (
   m: string,
   property: PropertyKey,
-  caller: ((...a: any[]) => any) | Function
+  caller: ((...a: any[]) => any) | Function,
 ) => {
   const s =
-    typeof property === 'string'
-      ? `'${property}'`
-      : property.toString()
+    typeof property === 'string' ?
+      `'${property}'`
+    : property.toString()
   const er = new Error(
-    `Cannot ${m} ${s}, defined {configurable:false}`
+    `Cannot ${m} ${s}, defined {configurable:false}`,
   )
   Error.captureStackTrace(er, caller)
   return er
@@ -95,10 +95,11 @@ export type Unarray<A> = A extends (infer V)[] ? V : A
 /**
  * Get tuple of member types from array of array types
  */
-export type UnarrayArray<L> = L extends [infer H, ...infer T]
-  ? H extends unknown[]
-    ? T extends unknown[][]
-      ? [Unarray<H>, ...UnarrayArray<T>]
+export type UnarrayArray<L> =
+  L extends [infer H, ...infer T] ?
+    H extends unknown[] ?
+      T extends unknown[][] ?
+        [Unarray<H>, ...UnarrayArray<T>]
       : [Unarray<H>]
     : true
   : L
@@ -106,19 +107,22 @@ export type UnarrayArray<L> = L extends [infer H, ...infer T]
 /**
  * Get overloaded return values as tuple of arrays
  */
-export type ORTuple<F> = F extends {
-  (...a: any[]): infer A0
-  (...a: any[]): infer A1
-  (...a: any[]): infer A2
-  (...a: any[]): infer A3
-  (...a: any[]): infer A4
-  (...a: any[]): infer A5
-  (...a: any[]): infer A6
-  (...a: any[]): infer A7
-  (...a: any[]): infer A8
-  (...a: any[]): infer A9
-}
-  ? [A0[], A1[], A2[], A3[], A4[], A5[], A6[], A7[], A8[], A9[]]
+export type ORTuple<F> =
+  F extends (
+    {
+      (...a: any[]): infer A0
+      (...a: any[]): infer A1
+      (...a: any[]): infer A2
+      (...a: any[]): infer A3
+      (...a: any[]): infer A4
+      (...a: any[]): infer A5
+      (...a: any[]): infer A6
+      (...a: any[]): infer A7
+      (...a: any[]): infer A8
+      (...a: any[]): infer A9
+    }
+  ) ?
+    [A0[], A1[], A2[], A3[], A4[], A5[], A6[], A7[], A8[], A9[]]
   : never
 
 /**
@@ -135,27 +139,31 @@ export type OverloadParams<F> = TupleUnion<
  *
  * @internal
  */
-export type OverloadParamsTuple<F> = F extends {
-  (...a: infer A0): any
-  (...a: infer A1): any
-  (...a: infer A2): any
-  (...a: infer A3): any
-  (...a: infer A4): any
-  (...a: infer A5): any
-  (...a: infer A6): any
-  (...a: infer A7): any
-  (...a: infer A8): any
-  (...a: infer A9): any
-}
-  ? [A0, A1, A2, A3, A4, A5, A6, A7, A8, A9]
+export type OverloadParamsTuple<F> =
+  F extends (
+    {
+      (...a: infer A0): any
+      (...a: infer A1): any
+      (...a: infer A2): any
+      (...a: infer A3): any
+      (...a: infer A4): any
+      (...a: infer A5): any
+      (...a: infer A6): any
+      (...a: infer A7): any
+      (...a: infer A8): any
+      (...a: infer A9): any
+    }
+  ) ?
+    [A0, A1, A2, A3, A4, A5, A6, A7, A8, A9]
   : never
 
 /**
  * Convert all `unknown[]` types in an array type to `never`
  */
-export type NeverUnknown<T extends unknown[]> = unknown[] extends T
-  ? (T extends {}[] ? true : false) extends true
-    ? any[]
+export type NeverUnknown<T extends unknown[]> =
+  unknown[] extends T ?
+    (T extends {}[] ? true : false) extends true ?
+      any[]
     : never
   : T
 
@@ -163,19 +171,20 @@ export type NeverUnknown<T extends unknown[]> = unknown[] extends T
  * Convert all `unknown[]` types in an array type to `never[]`
  */
 export type NeverTupleUnknown<T extends unknown[]> =
-  unknown[] extends T
-    ? (T extends {}[] ? true : false) extends true
-      ? any[]
-      : never[]
-    : T
+  unknown[] extends T ?
+    (T extends {}[] ? true : false) extends true ?
+      any[]
+    : never[]
+  : T
 
 /**
  * Filter out `unknown[]` types from a tuple by converting them to `never`
  */
-export type FilterUnknown<L> = L extends [infer H, ...infer T]
-  ? H extends unknown[]
-    ? T extends unknown[][]
-      ? [NeverUnknown<H>, ...FilterUnknown<T>]
+export type FilterUnknown<L> =
+  L extends [infer H, ...infer T] ?
+    H extends unknown[] ?
+      T extends unknown[][] ?
+        [NeverUnknown<H>, ...FilterUnknown<T>]
       : [NeverUnknown<H>]
     : FilterUnknown<T>
   : L
@@ -183,10 +192,11 @@ export type FilterUnknown<L> = L extends [infer H, ...infer T]
 /**
  * Filter out `unknown[]` types from a tuple by converting them to `never[]`
  */
-export type FilterTupleUnknown<L> = L extends [infer H, ...infer T]
-  ? H extends unknown[]
-    ? T extends unknown[][]
-      ? [NeverTupleUnknown<H>, ...FilterTupleUnknown<T>]
+export type FilterTupleUnknown<L> =
+  L extends [infer H, ...infer T] ?
+    H extends unknown[] ?
+      T extends unknown[][] ?
+        [NeverTupleUnknown<H>, ...FilterTupleUnknown<T>]
       : [NeverTupleUnknown<H>]
     : FilterTupleUnknown<T>
   : L
@@ -194,19 +204,14 @@ export type FilterTupleUnknown<L> = L extends [infer H, ...infer T]
 /**
  * Create a union from a tuple type
  */
-export type TupleUnion<L> = L extends [infer H, ...infer T]
-  ? H | TupleUnion<T>
-  : never
+export type TupleUnion<L> =
+  L extends [infer H, ...infer T] ? H | TupleUnion<T> : never
 
 /**
  * Infer the `this` target of a function
  */
-export type Receiver<F> = F extends (
-  this: infer T,
-  ...a: any[]
-) => any
-  ? T
-  : never
+export type Receiver<F> =
+  F extends (this: infer T, ...a: any[]) => any ? T : never
 
 /**
  * The method returned by {@link @tapjs/intercept!Interceptor#capture},
@@ -217,7 +222,7 @@ export type Receiver<F> = F extends (
 export type CaptureResultsMethod<
   T extends {},
   M extends Methods<T>,
-  F = T[M]
+  F = T[M],
 > = (() => CaptureResult<
   F extends (...a: any[]) => any ? F : (...a: any[]) => any
 >[]) & {
@@ -297,7 +302,7 @@ export class Interceptor {
     obj: T,
     prop: keyof T,
     desc?: PropertyDescriptor,
-    strictMode: boolean = true
+    strictMode: boolean = true,
   ): InterceptResultsMethod {
     const resList: InterceptResult[] = []
 
@@ -338,8 +343,9 @@ export class Interceptor {
     }
 
     if (!desc) {
-      desc = orig
-        ? { ...orig }
+      desc =
+        orig ?
+          { ...orig }
         : {
             value: undefined,
             configurable: true,
@@ -390,10 +396,10 @@ export class Interceptor {
             if (strictMode) {
               const er = new TypeError(
                 `Cannot set property '${String(
-                  prop
+                  prop,
                 )}' of ${Object.prototype.toString.call(
-                  obj
-                )} which has only a getter`
+                  obj,
+                )} which has only a getter`,
               )
               Error.captureStackTrace(er, interceptor.set)
               throw er
@@ -406,8 +412,8 @@ export class Interceptor {
               if (strictMode) {
                 const er = new TypeError(
                   `Cannot assign to read only property '${String(
-                    prop
-                  )}' of ${Object.prototype.toString.call(obj)}`
+                    prop,
+                  )}' of ${Object.prototype.toString.call(obj)}`,
                 )
                 Error.captureStackTrace(er, interceptor.set)
                 throw er
@@ -436,7 +442,7 @@ export class Interceptor {
         resList.length = 0
         return r
       },
-      { restore: () => restore() }
+      { restore: () => restore() },
     )
   }
 
@@ -460,7 +466,7 @@ export class Interceptor {
   capture<T extends {}, M extends Methods<T>>(
     obj: T,
     method: M,
-    impl: (this: T, ...a: any[]) => any = (..._: any[]) => {}
+    impl: (this: T, ...a: any[]) => any = (..._: any[]) => {},
   ): CaptureResultsMethod<T, M> {
     const prop = Object.getOwnPropertyDescriptor(obj, method)
     if (prop && !prop.configurable) {
@@ -469,8 +475,9 @@ export class Interceptor {
 
     // if we don't have a prop we can restore by just deleting
     // otherwise, we restore by putting it back as it was
-    let restore = prop
-      ? () => {
+    let restore =
+      prop ?
+        () => {
           Object.defineProperty(obj, method, prop)
           restore = () => {}
         }
@@ -507,12 +514,11 @@ export class Interceptor {
           const r = fn.calls.slice()
           fn.calls.length = 0
           return r.map(({ args }) => args) as OverloadParams<
-            T[M] extends { (...a: any[]): any }
-              ? T[M]
-              : (...a: any[]) => any
+            T[M] extends { (...a: any[]): any } ? T[M]
+            : (...a: any[]) => any
           >[]
         },
-      }
+      },
     )
   }
 
@@ -527,7 +533,7 @@ export class Interceptor {
    * @group Spies, Mocks, and Fixtures
    */
   captureFn<F extends (this: any, ...a: any[]) => any>(
-    original: F
+    original: F,
   ): F & {
     calls: CaptureResult<F>[]
     args: () => OverloadParams<F>[]
@@ -558,7 +564,7 @@ export class Interceptor {
           }
         }
       } as F,
-      { calls, args }
+      { calls, args },
     )
   }
 }

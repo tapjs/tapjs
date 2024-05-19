@@ -28,6 +28,6 @@ t.test('check if test is done', async t => {
 
   t.strictSame(
     reduce(app.frames).filter(f => f.trim()),
-    ['false', 'true']
+    ['false', 'true'],
   )
 })

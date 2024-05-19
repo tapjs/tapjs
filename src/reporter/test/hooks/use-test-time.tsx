@@ -36,7 +36,7 @@ t.test('get the time', async t => {
     const p = f[i - 1]
     t.ok(
       typeof n === 'number' && typeof p === 'number' && n >= p,
-      'numbers inreasing'
+      'numbers inreasing',
     )
     t.ok(f[i] === f[i], 'not NaN')
   }

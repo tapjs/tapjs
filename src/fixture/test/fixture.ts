@@ -7,11 +7,11 @@ t.test('fixture type validation', t => {
   t.equal(new Fixture('file', Buffer.from('hello')).type, 'file')
   t.equal(
     new Fixture('file', new Uint8Array(Buffer.from('hello'))).type,
-    'file'
+    'file',
   )
   t.equal(
     Object.prototype.toString.call(new Fixture('dir', {})),
-    '[object Fixture<dir>]'
+    '[object Fixture<dir>]',
   )
   t.equal(new Fixture('link', 'target').type, 'link')
   t.equal(new Fixture('symlink', 'target').type, 'symlink')
@@ -58,7 +58,7 @@ t.test('make stuff the long way', t => {
       link: new Fixture('link', 'file'),
       sym: new Fixture('symlink', 'subdir'),
       missing: new Fixture('symlink', 'missing'),
-    })
+    }),
   )
   t.type(dir, 'string')
   t.equal(lstatSync(dir).isDirectory(), true)

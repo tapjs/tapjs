@@ -8,7 +8,7 @@ import { npmBg } from './npm.js'
 
 const corePJ = await resolveImport('@tapjs/core/package.json')
 const { version: coreVersion } = JSON.parse(
-  readFileSync(fileURLToPath(corePJ), 'utf8')
+  readFileSync(fileURLToPath(corePJ), 'utf8'),
 ) as { version: 'string' }
 
 let registry: string | undefined = undefined
@@ -18,7 +18,7 @@ const getPackument = async (pkg: string, config: LoadedConfig) => {
     if (regLookup.error) throw regLookup.error
     if (regLookup.status || regLookup.signal) {
       throw new Error(
-        'failed to look up npm registry: ' + regLookup.stderr.trim()
+        'failed to look up npm registry: ' + regLookup.stderr.trim(),
       )
     }
     registry = regLookup.stdout.trim()
@@ -36,7 +36,7 @@ const getPackument = async (pkg: string, config: LoadedConfig) => {
 export const selectVersion = async (
   name: string,
   range: string = '',
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const packu = await getPackument(name, config)
   let acceptable: string | undefined = undefined

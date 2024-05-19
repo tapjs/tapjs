@@ -11,12 +11,12 @@ export const repl = async (args: string[], config: LoadedConfig) => {
     process.exitCode = 1
     return
   }
-  const dir = resolve(config.globCwd, '.tap/processinfo')
+  const dir = resolve(config.projectRoot, '.tap/processinfo')
   const r = new Repl(
     config,
     process.stdin,
     process.stdout,
-    await ProcessInfo.load({ dir })
+    await ProcessInfo.load({ dir }),
   )
   r.start()
   if (args.length) {

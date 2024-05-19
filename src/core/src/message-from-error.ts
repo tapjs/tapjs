@@ -14,11 +14,12 @@ export const messageFromError = (er: unknown): string => {
     if (typeof stack === 'string' && stack.trim()) {
       const lines = stack.trim().split('\n')
       const line = String(lines[0])
-      return name && line.startsWith(nc)
-        ? line.substring(nc.length)
-        : ncCode && line.startsWith(ncCode)
-        ? line.substring(ncCode.length)
+      return (
+        name && line.startsWith(nc) ? line.substring(nc.length)
+        : ncCode && line.startsWith(ncCode) ?
+          line.substring(ncCode.length)
         : line
+      )
     }
   }
   return 'unhandled error'

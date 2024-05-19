@@ -51,12 +51,12 @@ export class WorkerPlugin {
   worker(
     filename: string,
     options: WorkerOpts,
-    name?: string
+    name?: string,
   ): PromiseWithWorker
   worker(
     filename: string,
     options?: WorkerOpts | string,
-    name?: string
+    name?: string,
   ): PromiseWithWorker {
     if (typeof options === 'string') {
       name = options

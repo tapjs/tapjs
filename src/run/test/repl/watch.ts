@@ -39,7 +39,7 @@ t.test('watch some files', async t => {
       ['two', {}],
     ]),
     externalIDsChanged: async (
-      f: (id: string, n: any) => boolean
+      f: (id: string, n: any) => boolean,
     ) => {
       if (f('one', pi.files.get('one'))) {
         return new Set([pi.files.get('one')])
@@ -51,7 +51,7 @@ t.test('watch some files', async t => {
   let sawChange = false
   const w = new Watch(
     pi as unknown as ProcessInfo,
-    () => (sawChange = true)
+    () => (sawChange = true),
   )
 
   // only validate changes where the pi node is a root process node

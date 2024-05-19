@@ -6,11 +6,10 @@ export { synonyms }
 type Syn = typeof synonyms
 type Deref<K extends keyof Syn> = Syn[K]
 type Synonymized = {
-  [k in keyof typeof synonyms]: Deref<k> extends keyof Assertions
-    ? Assertions[Deref<k>]
-    : Deref<k> extends keyof TestBase
-    ? TestBase[Deref<k>]
-    : true
+  [k in keyof typeof synonyms]: Deref<k> extends keyof Assertions ?
+    Assertions[Deref<k>]
+  : Deref<k> extends keyof TestBase ? TestBase[Deref<k>]
+  : true
 }
 
 export interface Synonyms extends Synonymized {}
@@ -52,7 +51,7 @@ export class Synonyms {
     }
     Object.defineProperties(
       this,
-      Object.fromEntries(methods.entries())
+      Object.fromEntries(methods.entries()),
     )
   }
 }

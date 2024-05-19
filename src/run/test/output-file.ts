@@ -22,7 +22,7 @@ t.test('if no output-file, do nothing special', async t => {
   outputFile(
     tt as unknown as TAP,
     { get: () => undefined } as unknown as LoadedConfig,
-    false
+    false,
   )
   t.equal(mkdirpCalled, false, 'should not make a dir')
 })
@@ -77,7 +77,7 @@ t.test('output-file, no reporter, pipe stdout and file', async t => {
   outputFile(
     tt as unknown as TAP,
     { get: () => 'output-file' } as unknown as LoadedConfig,
-    false
+    false,
   )
 
   t.equal(mkdirpCalled, true)
@@ -139,7 +139,7 @@ t.test('output-file and reporter, pipe to file', async t => {
   outputFile(
     tt as unknown as TAP,
     { get: () => 'output-file' } as unknown as LoadedConfig,
-    true
+    true,
   )
 
   t.equal(mkdirpCalled, true)

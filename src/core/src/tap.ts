@@ -91,7 +91,7 @@ class TAP extends Test {
     /* c8 ignore start */
     if (priv !== privateTAPCtor) {
       throw new Error(
-        'the TAP singleton should not be instantiated directly'
+        'the TAP singleton should not be instantiated directly',
       )
     }
     const timeoutEnv = env.TAP_TIMEOUT || '30'
@@ -125,7 +125,7 @@ class TAP extends Test {
     instance = g[privSym] = this
     this.on('idle', () => maybeAutoend())
     this.on('complete', (results: FinalResults) =>
-      this.#oncomplete(results)
+      this.#oncomplete(results),
     )
 
     // only attach the teardown autoend if we're using the teardown plugin
@@ -175,7 +175,7 @@ class TAP extends Test {
     // create a root domain to handle throws that happen outside
     // of any subtest.
     const rootDomain = new Domain((er, type) =>
-      this.hookDomain.onerror(er, type)
+      this.hookDomain.onerror(er, type),
     )
     this.hook.onDestroy = () => rootDomain.destroy()
   }
@@ -245,12 +245,12 @@ class TAP extends Test {
     options: {
       expired?: string
       signal?: NodeJS.Signals | null
-    } = { expired: this.name, signal: null }
+    } = { expired: this.name, signal: null },
   ) {
     const occ = this.occupied
     const extra = Object.assign(
       getTimeoutExtra(options.signal),
-      options
+      options,
     )
     super.timeout(extra)
     if (occ) this.emit('timeout', extra)
@@ -321,7 +321,7 @@ const registerTimeoutListener = (t: TAP) => {
           key?: string
           child?: string
         }
-      | any
+      | any,
   ) => {
     if (
       msg &&
@@ -364,7 +364,8 @@ const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
   /* c8 ignore start */
   const handles = (p._getActiveHandles() || []).filter(
     /* c8 ignore stop */
-    h => h !== proc?.stdout && h !== proc?.stdin && h !== proc?.stderr
+    h =>
+      h !== proc?.stdout && h !== proc?.stdin && h !== proc?.stderr,
   )
   const requests = p._getActiveRequests()
 
@@ -420,7 +421,7 @@ const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
 let didProcessTimeout = false
 const onProcessTimeout = (
   t: TAP,
-  signal: NodeJS.Signals | null = null
+  signal: NodeJS.Signals | null = null,
 ) => {
   // pretty much impossible to do this, since we forcibly exit,
   // but it is theoretically possible if SIGALRM is caught.

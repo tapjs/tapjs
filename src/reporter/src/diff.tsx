@@ -30,15 +30,10 @@ const theme = {
 const columns = process.stdout.columns || 80
 
 const Line: FC<{ line: string }> = ({ line }) =>
-  line.charAt(0) === '+' ? (
-    <Green line={line} />
-  ) : line.charAt(0) === '-' ? (
-    <Red line={line} />
-  ) : line.charAt(0) === '@' ? (
-    <Ctx line={line} />
-  ) : (
-    <White line={line} />
-  )
+  line.charAt(0) === '+' ? <Green line={line} />
+  : line.charAt(0) === '-' ? <Red line={line} />
+  : line.charAt(0) === '@' ? <Ctx line={line} />
+  : <White line={line} />
 
 const White: FC<{ line: string }> = ({ line }) => (
   <Text backgroundColor={theme.white.bg} color={theme.white.fg}>
@@ -48,23 +43,24 @@ const White: FC<{ line: string }> = ({ line }) => (
 
 const Ctx: FC<{ line: string }> = ({ line }) => {
   const f = line.match(/^(\@\@.*?\@\@)( .*)$/)
-  return f ? (
-    <Box>
-      <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.fg}>
-        {f[1]}
+  return f ?
+      <Box>
+        <Text
+          bold
+          backgroundColor={theme.ctx.bg}
+          color={theme.ctx.fg}>
+          {f[1]}
+        </Text>
+        <Text
+          bold
+          backgroundColor={theme.ctx.bg}
+          color={theme.ctx.extra}>
+          {f[2]}
+        </Text>
+      </Box>
+    : <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.fg}>
+        {line}
       </Text>
-      <Text
-        bold
-        backgroundColor={theme.ctx.bg}
-        color={theme.ctx.extra}>
-        {f[2]}
-      </Text>
-    </Box>
-  ) : (
-    <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.fg}>
-      {line}
-    </Text>
-  )
 }
 
 const Green: FC<{ line: string }> = ({ line }) => (
@@ -99,9 +95,9 @@ export const Diff: FC<{ diff: string }> = ({ diff = '' }) => {
     <Box flexDirection="column">
       {lines
         .map(line =>
-          stringLength(line) <= width
-            ? line + ' '.repeat(width - stringLength(line))
-            : line
+          stringLength(line) <= width ?
+            line + ' '.repeat(width - stringLength(line))
+          : line,
         )
         .map((line, key) => (
           <Box key={key}>

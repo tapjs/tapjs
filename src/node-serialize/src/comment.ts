@@ -6,7 +6,7 @@ import { TestMap } from './test-map.js'
 
 export const commentMethod = (
   stream: TestStreamSerialize,
-  diagsMap: TestMap<DiagnosticData[]>
+  diagsMap: TestMap<DiagnosticData[]>,
 ) => {
   return function comment(this: Base, ...args: any[]) {
     const message = format(...args)

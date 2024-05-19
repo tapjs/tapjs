@@ -5,7 +5,7 @@ import { locFromAt } from '../src/loc-from-at.js'
 
 const foo = (): [
   ReturnType<typeof at>,
-  ReturnType<typeof locFromAt>
+  ReturnType<typeof locFromAt>,
 ] => {
   return [at(bar), locFromAt(bar)]
 }
@@ -35,5 +35,5 @@ t.strictSame(
       column: undefined,
     },
   ],
-  'empty object if callsite not found'
+  'empty object if callsite not found',
 )

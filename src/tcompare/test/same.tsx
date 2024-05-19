@@ -7,7 +7,7 @@ const same = (
   t: Test,
   a: any,
   b: any,
-  options: FormatOptions & { diffContext?: number } = {}
+  options: FormatOptions & { diffContext?: number } = {},
 ) => {
   const s = compare.same(a, b, options)
   t.matchSnapshot(s.diff)
@@ -18,7 +18,7 @@ const match = (
   t: Test,
   a: any,
   b: any,
-  options: FormatOptions & { diffContext?: number } = {}
+  options: FormatOptions & { diffContext?: number } = {},
 ) => {
   const s = compare.match(a, b, options)
   t.matchSnapshot(s.diff)
@@ -29,12 +29,12 @@ t.test('ctor usage', t => {
   t.throws(
     //@ts-expect-error
     () => new compare.Same(true),
-    new TypeError('must supply options object')
+    new TypeError('must supply options object'),
   )
   t.throws(
     //@ts-expect-error
     () => new compare.Same(true, {}),
-    new TypeError('must supply expected value')
+    new TypeError('must supply expected value'),
   )
 
   const s = new compare.Same(true, { expect: false })
@@ -42,7 +42,7 @@ t.test('ctor usage', t => {
   t.equal(
     s.memoDiff,
     s.print(),
-    'printing multiple times is memoized'
+    'printing multiple times is memoized',
   )
 
   t.throws(
@@ -51,7 +51,7 @@ t.test('ctor usage', t => {
         expect: true,
         style: 'tight',
       }),
-    new Error('"tight" style not appropriate for diffs')
+    new Error('"tight" style not appropriate for diffs'),
   )
 
   t.end()
@@ -160,7 +160,7 @@ t.test('maps extra and missing', t => {
     new Map([
       ['b', 2],
       ['a', 1],
-    ])
+    ]),
   )
   same(
     t,
@@ -168,7 +168,7 @@ t.test('maps extra and missing', t => {
       ['b', 2],
       ['a', 1],
     ]),
-    new Map([['a', 1]])
+    new Map([['a', 1]]),
   )
   t.end()
 })
@@ -180,7 +180,7 @@ t.test('sets extra and missing', t => {
     new Set([
       ['b', 2],
       ['a', 1],
-    ])
+    ]),
   )
   same(
     t,
@@ -188,7 +188,7 @@ t.test('sets extra and missing', t => {
       ['b', 2],
       ['a', 1],
     ]),
-    new Set([['a', 1]])
+    new Set([['a', 1]]),
   )
   t.end()
 })
@@ -221,8 +221,8 @@ t.test('should handle dates', function (t) {
     same(
       t,
       { x: new Date('1972-08-01') },
-      { x: new Date('1972-08-01') }
-    )
+      { x: new Date('1972-08-01') },
+    ),
   )
   t.end()
 })
@@ -247,8 +247,8 @@ t.test('should handle functions', function (t) {
     same(
       t,
       function a() {},
-      function a() {}
-    )
+      function a() {},
+    ),
   )
   t.notOk(
     same(
@@ -259,9 +259,9 @@ t.test('should handle functions', function (t) {
       },
       function a() {
         return a
-      }
+      },
     ),
-    'different toString'
+    'different toString',
   )
   t.notOk(same(t, fnA, fnB), 'different names')
   t.ok(same(t, fnA, fnA))
@@ -288,7 +288,7 @@ t.test(
     t.ok(same(t, BigInt('1'), BigInt('1')))
     t.notOk(same(t, BigInt('1'), BigInt('2')))
     t.end()
-  }
+  },
 )
 
 t.test('same arrays match', function (t) {
@@ -315,11 +315,11 @@ t.test(
       same(
         t,
         { x: { a: 1, b: 2 }, y: { c: 3, d: 4 } },
-        { y: { d: 4, c: 3 }, x: { b: '2', a: '1' } }
-      )
+        { y: { d: 4, c: 3 }, x: { b: '2', a: '1' } },
+      ),
     )
     t.end()
-  }
+  },
 )
 
 t.test('undefined is the same as itself', function (t) {
@@ -372,8 +372,8 @@ t.test('flexible about key order and types', function (t) {
         'bar',
         11,
         { baz: { a: '1', b: '2', c: '3', d: '4' } },
-      ]
-    )
+      ],
+    ),
   )
   t.end()
 })
@@ -444,7 +444,7 @@ t.test('should notice different Buffers', function (t) {
   var longb = Buffer.alloc(320)
   for (var i = 0; i < 160; i++) longb.writeUInt16LE(i, i * 2)
   t.notOk(
-    same(t, { x: { y: { z: shortb } } }, { x: { y: { z: longb } } })
+    same(t, { x: { y: { z: shortb } } }, { x: { y: { z: longb } } }),
   )
   t.end()
 })
@@ -531,7 +531,7 @@ t.test('errors', t => {
     same(t, new Error('foo'), {
       name: 'Error',
       message: 'foo',
-    })
+    }),
   )
   const b: Error & { foo?: string } = new Error('foo')
   b.foo = 'bar'
@@ -581,11 +581,11 @@ t.test('diffs of errors with \\n in the message', t => {
   er2.foo = 'two'
   t.notOk(
     same(t, er, er2),
-    'errors with different properties are not the same'
+    'errors with different properties are not the same',
   )
   t.notOk(
     same(t, { er }, { er: er2 }),
-    'errors with different properties are not the same'
+    'errors with different properties are not the same',
   )
   t.end()
 })
@@ -642,7 +642,7 @@ t.test('hidden props and getters', t => {
   t.ok(same(t, one, two, { includeGetters: true }), 'include getters')
   t.notOk(
     same(t, one, two, { includeEnumerable: true }),
-    'all enumerable'
+    'all enumerable',
   )
   t.end()
 })
@@ -755,8 +755,8 @@ t.test('react', t => {
       <div>
         <img src="foo" />
       </div>,
-      el
-    )
+      el,
+    ),
   )
   t.notOk(
     same(
@@ -764,8 +764,8 @@ t.test('react', t => {
       <div className="divvy">
         <img src="foo" />
       </div>,
-      el
-    )
+      el,
+    ),
   )
   t.ok(
     match(
@@ -773,15 +773,15 @@ t.test('react', t => {
       <div className="divvy">
         <img src="foo" />
       </div>,
-      el
-    )
+      el,
+    ),
   )
   t.ok(
     same(t, el, {
       ...el,
       props: { ...el.props, children: [[[[el.props.children]]]] },
     }),
-    'array nesting ignored with jsx'
+    'array nesting ignored with jsx',
   )
   t.test('array nesting relevant when not using react strings', t => {
     const other = {

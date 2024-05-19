@@ -7,7 +7,7 @@ const node = process.execPath
 export const runAfter = (
   t: TAP,
   argv: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const after = config.get('after')
   if (after) {
@@ -20,7 +20,7 @@ export const runAfter = (
             res()
             if (code || signal) return
             return false
-          }
+          },
         )
       })
     })

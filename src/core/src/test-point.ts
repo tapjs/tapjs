@@ -26,7 +26,7 @@ export class TestPoint {
   constructor(
     ok: boolean,
     message: string,
-    extra?: { [key: string]: any }
+    extra?: { [key: string]: any },
   ) {
     extra = extra || {}
     this.ok = ok ? 'ok ' : 'not ok '
@@ -43,7 +43,7 @@ export class TestPoint {
 
 const tpMessage = (
   description: string,
-  extra: { [k: string]: any }
+  extra: { [k: string]: any },
 ): string => {
   let message = description ? ` - ${description}` : ''
 

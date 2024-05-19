@@ -68,7 +68,7 @@ export type ExpectedEmit = [
   event: string,
   handler: (...a: any) => void,
   msg: string,
-  extra: Extra
+  extra: Extra,
 ]
 
 // return true of every argument is an object
@@ -77,7 +77,7 @@ const objects = (...a: any[]): boolean =>
 
 const hasOwn = <T extends {}>(
   obj: T,
-  key: string | number | symbol
+  key: string | number | symbol,
 ) => Object.prototype.hasOwnProperty.call(obj, key)
 
 export class Assertions {
@@ -210,9 +210,9 @@ export class Assertions {
     this.#t.currentAssert = this.#t.t.type
 
     const name =
-      typeof klass === 'function'
-        ? klass.name || '(anonymous constructor)'
-        : klass
+      typeof klass === 'function' ?
+        klass.name || '(anonymous constructor)'
+      : klass
 
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(`type is ${name}`, args)
@@ -224,15 +224,16 @@ export class Assertions {
 
     const tof = typeof obj
     const type =
-      !obj && tof === 'object'
-        ? 'null'
-        : // treat as object, but not Object
+      !obj && tof === 'object' ? 'null'
+        // treat as object, but not Object
         // t.type(() => {}, Function)
+      : (
         tof === 'function' &&
-          typeof klass === 'function' &&
-          klass !== Object
-        ? 'object'
-        : tof
+        typeof klass === 'function' &&
+        klass !== Object
+      ) ?
+        'object'
+      : tof
 
     if (
       (type === 'number' && klass === Number) ||
@@ -310,7 +311,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should be equivalent strictly',
-      args
+      args,
     )
     const { match, diff } = strict(found, wanted, this.#opts)
     if (match) return this.#t.pass(...me)
@@ -333,7 +334,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should not be equivalent strictly',
-      args
+      args,
     )
     const { match } = strict(found, doNotWant, this.#opts)
     if (!match) return this.#t.pass(...me)
@@ -352,7 +353,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should be equivalent',
-      args
+      args,
     )
     const { match, diff } = has(found, wanted, this.#opts)
     if (match) return this.#t.pass(...me)
@@ -371,7 +372,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should not be equivalent',
-      args
+      args,
     )
     const { match } = has(found, doNotWant, this.#opts)
     if (!match) return this.#t.pass(...me)
@@ -390,7 +391,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should be equivalent strictly',
-      args
+      args,
     )
     const { match, diff } = hasStrict(found, wanted, this.#opts)
     if (match) return this.#t.pass(...me)
@@ -416,7 +417,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should not be equivalent strictly',
-      args
+      args,
     )
     const { match } = hasStrict(found, doNotWant, this.#opts)
     if (!match) return this.#t.pass(...me)
@@ -511,7 +512,7 @@ export class Assertions {
     const { match: ok, diff } = matchOnlyStrict(
       found,
       wanted,
-      this.#opts
+      this.#opts,
     )
     if (ok) return this.#t.pass(...me)
     Object.assign(me[1], { diff })
@@ -535,7 +536,7 @@ export class Assertions {
     const { match: ok } = matchOnlyStrict(
       found,
       doNotWant,
-      this.#opts
+      this.#opts,
     )
     if (!ok) return this.#t.pass(...me)
     Object.assign(me[1], { found, doNotWant })
@@ -604,7 +605,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'specified property should be defined',
-      args
+      args,
     )
     Object.assign(me[1], { found, wanted })
     try {
@@ -636,7 +637,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'specified property should be defined own property',
-      args
+      args,
     )
     Object.assign(me[1], { found, wanted })
     try {
@@ -668,13 +669,13 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
-      args
+      args,
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
       return this.#t.fail(
         'property list must be iterable object',
-        me[1]
+        me[1],
       )
     }
     for (const prop of wanted) {
@@ -682,7 +683,7 @@ export class Assertions {
         Object.assign(me[1], { invalidProperty: prop })
         return this.#t.fail(
           'invalid property in hasProps assertion',
-          me[1]
+          me[1],
         )
       }
       try {
@@ -716,13 +717,13 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
-      args
+      args,
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
       return this.#t.fail(
         'property list must be iterable object',
-        me[1]
+        me[1],
       )
     }
     for (const prop of wanted) {
@@ -730,7 +731,7 @@ export class Assertions {
         Object.assign(me[1], { invalidProperty: prop })
         return this.#t.fail(
           'invalid property in hasOwnProps assertion',
-          me[1]
+          me[1],
         )
       }
       try {
@@ -764,13 +765,13 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
-      args
+      args,
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
       return this.#t.fail(
         'property list must be iterable object',
-        me[1]
+        me[1],
       )
     }
     const seen = new Set<string | symbol | number>()
@@ -779,7 +780,7 @@ export class Assertions {
       if (!['string', 'number', 'symbol'].includes(typeof prop)) {
         return this.#t.fail(
           'invalid property in hasOwnPropsOnly assertion',
-          { ...me[1], invalidProperty: prop }
+          { ...me[1], invalidProperty: prop },
         )
       }
       try {
@@ -820,7 +821,7 @@ export class Assertions {
     const args = [wanted, msg, extra] as ThrowsArgs
     const [w, m, e] = normalizeThrowsArgs(
       fn.name || 'expected to throw',
-      args
+      args,
     )
     try {
       fn()
@@ -836,14 +837,9 @@ export class Assertions {
         })
       }
       return (
-        (w
-          ? this.match(
-              isRegExp(wanted) ? er.message : er,
-              wanted,
-              m,
-              e
-            )
-          : this.#t.pass(m, e)) && er
+        (w ?
+          this.match(isRegExp(wanted) ? er.message : er, wanted, m, e)
+        : this.#t.pass(m, e)) && er
       )
     }
   }
@@ -863,7 +859,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       fn.name || 'expect to not throw',
-      args
+      args,
     )
 
     try {
@@ -872,9 +868,9 @@ export class Assertions {
     } catch (er) {
       // pull the errorOrigin from the thrown error, if possible
       const res =
-        er !== undefined && er !== null
-          ? this.error(er, ...me)
-          : this.#t.fail(...me)
+        er !== undefined && er !== null ?
+          this.error(er, ...me)
+        : this.#t.fail(...me)
       return (res && (er as Error)) || res
     }
   }
@@ -898,9 +894,9 @@ export class Assertions {
     let p!: Promise<T>
     try {
       p =
-        typeof fnOrPromise === 'function'
-          ? fnOrPromise()
-          : fnOrPromise
+        typeof fnOrPromise === 'function' ? fnOrPromise() : (
+          fnOrPromise
+        )
     } catch (er) {
       p = Promise.reject(er)
     }
@@ -908,7 +904,7 @@ export class Assertions {
     if (!isPromise(p)) {
       return this.#t.fail(
         'no promise or async function provided to t.rejects',
-        e
+        e,
       )
     }
 
@@ -928,10 +924,10 @@ export class Assertions {
         })
       }
       d.resolve(
-        (w
-          ? this.match(isRegExp(w) ? er.message : er, w, m, e)
-          : this.#t.pass(m, e)) &&
-          (er || true)
+        (w ?
+          this.match(isRegExp(w) ? er.message : er, w, m, e)
+        : this.#t.pass(m, e)) &&
+          (er || true),
       )
     }
     return d.promise
@@ -956,9 +952,9 @@ export class Assertions {
     let p!: Promise<T>
     try {
       p =
-        typeof fnOrPromise === 'function'
-          ? fnOrPromise()
-          : fnOrPromise
+        typeof fnOrPromise === 'function' ? fnOrPromise() : (
+          fnOrPromise
+        )
     } catch (er) {
       p = Promise.reject(er)
     }
@@ -966,7 +962,7 @@ export class Assertions {
     if (!isPromise(p)) {
       return this.#t.fail(
         'no promise or async function provided to t.resolves',
-        me[1]
+        me[1],
       )
     }
 
@@ -978,9 +974,9 @@ export class Assertions {
     } catch (er) {
       // pull the errorOrigin from the thrown error, if possible
       const res =
-        er !== undefined && er !== null
-          ? this.error(er, ...me)
-          : this.#t.fail(...me)
+        er !== undefined && er !== null ?
+          this.error(er, ...me)
+        : this.#t.fail(...me)
       d.resolve((res && (er as Error)) || res)
     }
     return d.promise
@@ -1003,7 +999,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'expected to resolve and match provided pattern',
-      args
+      args,
     )
     this.#t.currentAssert = this.#t.t.resolveMatch
     me[1].at = me[1].at || stack.at(this.#t.currentAssert)
@@ -1011,9 +1007,9 @@ export class Assertions {
     let p!: Promise<T>
     try {
       p =
-        typeof fnOrPromise === 'function'
-          ? fnOrPromise()
-          : fnOrPromise
+        typeof fnOrPromise === 'function' ? fnOrPromise() : (
+          fnOrPromise
+        )
     } catch (er) {
       p = Promise.reject(er)
     }
@@ -1021,7 +1017,7 @@ export class Assertions {
     if (!isPromise(p)) {
       return this.#t.fail(
         'no promise or async function provided to t.resolveMatch',
-        me[1]
+        me[1],
       )
     }
 
@@ -1032,9 +1028,9 @@ export class Assertions {
     } catch (er) {
       // pull the errorOrigin from the thrown error, if possible
       d.resolve(
-        er !== undefined && er !== null
-          ? this.error(er, ...me)
-          : this.#t.fail(...me)
+        er !== undefined && er !== null ?
+          this.error(er, ...me)
+        : this.#t.fail(...me),
       )
     }
     return d.promise
@@ -1059,7 +1055,7 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       `expect ${event} to be emitted`,
-      args
+      args,
     )
     me[1].at = me[1].at || stack.at(this.#t.t.emits)
     me[1].stack = me[1].stack || stack.captureString(this.#t.t.emits)
@@ -1125,7 +1121,7 @@ export class Assertions {
         ...normalizeMessageExtra('non-Error error encountered', [
           msg,
           { ...me[1], found: er },
-        ] as MessageExtra)
+        ] as MessageExtra),
       )
     }
     // ok, we got an error, that's a problem
@@ -1158,5 +1154,5 @@ const isRegExp = (re: any): re is RegExp =>
 
 export const plugin: TapPlugin<Assertions, AssertOptions> = (
   t: TestBase,
-  opts: AssertOptions = {}
+  opts: AssertOptions = {},
 ) => new Assertions(t, opts)

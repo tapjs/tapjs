@@ -213,7 +213,7 @@ export interface BaseOpts extends Extra {
 }
 
 export class Base<
-  Events extends TapBaseEvents = TapBaseEvents
+  Events extends TapBaseEvents = TapBaseEvents,
 > extends Minipass<string, string, Events> {
   /**
    * Set upon test completion when a child test is ready to be processed by its
@@ -343,11 +343,12 @@ export class Base<
    * tests using `Object.create()`.
    */
   #context: any = unsetContext
-  get context () {
-    if (this.#context === unsetContext) this.#context = Object.create(null)
+  get context() {
+    if (this.#context === unsetContext)
+      this.#context = Object.create(null)
     return this.#context
   }
-  set context (c: any) {
+  set context(c: any) {
     this.#context = c
   }
 
@@ -435,8 +436,9 @@ export class Base<
     this.strict = !!options.strict
     this.omitVersion = !!options.omitVersion
     this.preserveWhitespace = options.preserveWhitespace !== false
-    this.buffered = this.silent
-      ? options.buffered === undefined
+    this.buffered =
+      this.silent ?
+        options.buffered === undefined
       : !!options.buffered
     this.bailedOut = false
     this.errors = []
@@ -494,12 +496,10 @@ export class Base<
 
   #onParserResult(res: Result) {
     this.counts.total++
-    const type = res.todo
-      ? 'todo'
-      : res.skip
-      ? 'skip'
-      : !res.ok
-      ? 'fail'
+    const type =
+      res.todo ? 'todo'
+      : res.skip ? 'skip'
+      : !res.ok ? 'fail'
       : 'pass'
     this.counts[type]++
     if (type === 'pass' && this.options.passes) {
@@ -560,7 +560,7 @@ export class Base<
     options: { expired?: string; message?: string } = {
       expired: this.name,
       message: 'timeout!',
-    }
+    },
   ) {
     this.timedOut = true
     const { message = 'timeout!' } = options
@@ -599,11 +599,11 @@ export class Base<
 
     // if it's null or an object, inherit from it.  otherwise, copy it.
     const ctx =
-      this.#context !== unsetContext ? this.#context :
-      ('context' in this.options
-        ? this.options.context
-        : this.parent?.context) ??
-      null
+      this.#context !== unsetContext ?
+        this.#context
+      : ('context' in this.options ?
+          this.options.context
+        : this.parent?.context) ?? null
     this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx
 
     this.hook.runInAsyncScope(this.main, this, cb)
@@ -821,7 +821,7 @@ export class Base<
     er: any,
     extra?: Extra,
     proxy: boolean = false,
-    ended: boolean = false
+    ended: boolean = false,
   ): Extra | void | undefined {
     this.debug('BASE.threw', er)
     this.hook.emitDestroy()
@@ -864,7 +864,7 @@ export class Base<
       'Base.threw, but finished',
       this.name,
       this.results,
-      extra.message
+      extra.message,
     )
     const alreadyBailing =
       (this.results?.ok === false && this.bail) ||

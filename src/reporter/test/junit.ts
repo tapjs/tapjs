@@ -3,9 +3,9 @@ import { fileURLToPath } from 'url'
 
 const tapData = readFileSync(
   fileURLToPath(
-    new URL('./fixtures/example-tap.tap', import.meta.url)
+    new URL('./fixtures/example-tap.tap', import.meta.url),
   ),
-  'utf8'
+  'utf8',
 )
 
 import { JUnit } from '../src/junit.js'

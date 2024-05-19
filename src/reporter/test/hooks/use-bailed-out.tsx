@@ -24,7 +24,7 @@ t.test('already bailed test is just true', async t => {
   app.unmount()
   t.strictSame(
     reduce(app.frames).filter(f => f.trim()),
-    ['"bailout reason"']
+    ['"bailout reason"'],
   )
 })
 
@@ -39,6 +39,6 @@ t.test('note when test bails out', async t => {
   app.unmount()
   t.strictSame(
     reduce(app.frames).filter(f => f.trim()),
-    ['false', 'true']
+    ['false', 'true'],
   )
 })

@@ -22,29 +22,22 @@ export type FixtureDirContent =
   | Fixture<'link'>
   | Fixture<'symlink'>
 
-export type FixtureContent<T> = T extends 'file'
-  ? string | Buffer | Uint8Array
-  : T extends 'link' | 'symlink'
-  ? string
-  : T extends 'dir'
-  ? FixtureDir
+export type FixtureContent<T> =
+  T extends 'file' ? string | Buffer | Uint8Array
+  : T extends 'link' | 'symlink' ? string
+  : T extends 'dir' ? FixtureDir
   : never
 
-type GetType<T extends FixtureDirContent> = T extends Fixture<
-  infer Type
->
-  ? Type
-  : T extends string | Buffer | Uint8Array
-  ? 'file'
-  : T extends number | symbol | bigint
-  ? never
-  : T extends {}
-  ? 'dir'
+type GetType<T extends FixtureDirContent> =
+  T extends Fixture<infer Type> ? Type
+  : T extends string | Buffer | Uint8Array ? 'file'
+  : T extends number | symbol | bigint ? never
+  : T extends {} ? 'dir'
   : never
 
 const validateDirContents = (
   content: Record<string, FixtureDirContent>,
-  seen: Set<Record<string, FixtureDirContent>>
+  seen: Set<Record<string, FixtureDirContent>>,
 ) => {
   for (const [f, v] of Object.entries(content)) {
     const t = rawToType(v)
@@ -57,7 +50,7 @@ const validateDirContents = (
       const r = v as Record<string, FixtureDirContent>
       if (seen.has(r)) {
         throw new Error(
-          'cycle detected in t.fixture contents at ' + f
+          'cycle detected in t.fixture contents at ' + f,
         )
       }
       seen.add(r)
@@ -68,10 +61,10 @@ const validateDirContents = (
 
 const assertValidContent: (
   type: FixtureType,
-  content: any
+  content: any,
 ) => void = <T extends FixtureType>(
   type: T,
-  content: any
+  content: any,
 ): asserts content is FixtureContent<T> => {
   switch (type) {
     case 'dir':
@@ -87,7 +80,7 @@ const assertValidContent: (
         !(content instanceof Uint8Array)
       ) {
         throw new TypeError(
-          'file fixture must have string/buffer content'
+          'file fixture must have string/buffer content',
         )
       }
       break
@@ -118,12 +111,12 @@ const rawToType = (f: FixtureDirContent): FixtureType => {
 }
 
 const rawToFixture = (
-  f: FixtureDirContent
+  f: FixtureDirContent,
 ): Fixture<GetType<typeof f>> =>
   f instanceof Fixture ? f : new Fixture(rawToType(f), f)
 
 const isSymlinkF = (
-  f: Fixture<FixtureType>
+  f: Fixture<FixtureType>,
 ): f is Fixture<'symlink'> => f.type === 'symlink'
 const isLinkF = (f: Fixture<FixtureType>): f is Fixture<'link'> =>
   f.type === 'link'
@@ -149,7 +142,7 @@ export class Fixture<T extends FixtureType> {
   static make(
     abs: string,
     content: FixtureDirContent,
-    symlinks: null | { [k: string]: string } = null
+    symlinks: null | { [k: string]: string } = null,
   ) {
     const f = rawToFixture(content)
 
@@ -180,7 +173,7 @@ export class Fixture<T extends FixtureType> {
         symlinkSync(
           target,
           abs,
-          isDir(abs, target) ? 'junction' : 'file'
+          isDir(abs, target) ? 'junction' : 'file',
         )
       }
     }

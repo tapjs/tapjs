@@ -13,12 +13,12 @@ t.cleanSnapshot = s =>
   s
     .split('\n')
     .filter(
-      l => !loaderLine.test(l) && !versionLine.test(l) && l.trim()
+      l => !loaderLine.test(l) && !versionLine.test(l) && l.trim(),
     )
     .join('\n')
     .replace(
       /file:\/\/.*?test\/fixture\/index\.mjs:[0-9]+$/gm,
-      '{CWD}/test/fixture/index.mjs:##'
+      '{CWD}/test/fixture/index.mjs:##',
     )
     .replace(/^    at .*$/gm, '')
     .replace(/\n+$/, '')
@@ -26,14 +26,14 @@ t.cleanSnapshot = s =>
 const node = process.execPath
 const fixture = resolve(
   dirname(fileURLToPath(import.meta.url)),
-  'fixture'
+  'fixture',
 )
 const script = resolve(fixture, 'index.mjs')
 
 const respond = async (
   r: Readable,
   w: Writable,
-  responses: string[]
+  responses: string[],
 ): Promise<void> => {
   if (!responses.length) {
     w.end()
@@ -52,7 +52,7 @@ const bridgeKeeper = async (
   args: string[],
   env: Record<string, string>,
   cwd: string,
-  response: string[]
+  response: string[],
 ) => {
   const p = spawn(node, [script, ...args], {
     cwd,
@@ -105,7 +105,7 @@ t.test('lancelot: basic init script behavior', async t => {
     ['--includeExtra'],
     {},
     cwd,
-    response
+    response,
   )
   t.equal(code, 0, 'exit 0 status code')
   t.equal(signal, null, 'no termination signal')
@@ -123,7 +123,7 @@ t.test('arthur: set cli options', async t => {
     ['--answer=an african or european swallow?', '--blerp'],
     {},
     cwd,
-    response
+    response,
   )
   t.equal(code, 0, 'exit 0 status code')
   t.equal(signal, null, 'no termination signal')
@@ -141,7 +141,7 @@ t.test('galahad: accept default (to great peril)', async t => {
     [],
     { npm_config_yes: 'true' },
     cwd,
-    response
+    response,
   )
   t.equal(code, 1, 'thrown off the bridge')
   t.equal(signal, null, 'no termination signal')

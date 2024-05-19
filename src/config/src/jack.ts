@@ -57,7 +57,7 @@ export default jack({
     `Short options are parsed gnu-style, so for example \`-bCRterse\` would be
      equivalent to \`--bail --no-color --reporter=terse\`
 
-     Much more documentation available at: <https://www.node-tap.org/>`
+     Much more documentation available at: <https://www.node-tap.org/>`,
   )
 
   .heading('Subcommands')
@@ -67,7 +67,7 @@ export default jack({
     according to the \`include\` and \`exclude\` glob expressions.
 
     If the first argument to the tap cli is not one of these subcommands,
-    then it will be treated as a test file to run.`
+    then it will be treated as a test file to run.`,
   )
 
   .heading('tap plugin [add <plugin> | rm <plugin> | list]', 3, {
@@ -89,7 +89,7 @@ export default jack({
     \`tap plugin add my-plugin@1.x\` will try to install a version that
     satisfies the semver range. It will be saved in the configuration without
     the version. If the plugin is updated in node_modules, it _may_ require
-    running \`tap build\`, if the types or interfaces change between versions.`
+    running \`tap build\`, if the types or interfaces change between versions.`,
   )
   .heading('tap plugin rm <plugin>', 4, { pre: true })
   .description(
@@ -99,7 +99,7 @@ export default jack({
     by adding \`!<plugin>\` to the \`plugin\` tap config.
 
     Node-tap will *not* automatically uninstall plugin dependencies when
-    removed.`
+    removed.`,
   )
   .heading('tap plugin list', 4, { pre: true })
   .description('List the plugins in use')
@@ -110,7 +110,7 @@ export default jack({
 
     Coverage reporters can also be specified as positional arguments,
     for example \`tap report html\`.
-    `
+    `,
   )
 
   .heading('tap replay', 3, { pre: true })
@@ -120,7 +120,7 @@ export default jack({
 
     This does *not* run the actual tests again, it just pipes their
     TAP standard output through the reporter, but it can be useful to
-    view the results of the previous test run.`
+    view the results of the previous test run.`,
   )
 
   .heading('tap repl', 3, { pre: true })
@@ -130,27 +130,27 @@ export default jack({
     saved process info of past runs.
 
     Run \`tap repl help\` for a list of REPL commands, or run \`help\` in
-    the REPL itself.`
+    the REPL itself.`,
   )
 
   .heading('tap build', 3, { pre: true })
   .description(
     `Rebuild tap with the configured plugins. This is done automatically when
     running tests if the set of plugins does not match what tap was previously
-    built with.`
+    built with.`,
   )
 
   .heading('tap version', 3, { pre: true })
   .description(
     `Print the version of tap in use
 
-    This is also run if the -v --version flag is set`
+    This is also run if the -v --version flag is set`,
   )
   .heading('tap versions', 3, { pre: true })
   .description(
     `Print the versions of tap and its components and plugins.
 
-    This is also run if the -V --versions flag is set`
+    This is also run if the -V --versions flag is set`,
   )
 
   .heading('tap config [get | list | dump | set | edit]', 3, {
@@ -163,7 +163,7 @@ export default jack({
     `Print the resolved values of the keys specified.
 
     If any keys are undefined (because they have no default and are not
-    set), they are omitted.`
+    set), they are omitted.`,
   )
 
   .heading('tap config list [<key> ...]', 4, { pre: true })
@@ -174,13 +174,13 @@ export default jack({
     Items are sorted, and keys are highlighted.
 
     If one or more key names are provided, then the results will be filtered
-    to only show those configuration keys.`
+    to only show those configuration keys.`,
   )
 
   .heading('tap config dump', 4, { pre: true })
   .description(
     `Current effect configuration is dumped in YAML format, without
-    any highlighting or sorting.`
+    any highlighting or sorting.`,
   )
 
   .heading('tap config set <key=val> [<key=val> ...]', 4, {
@@ -195,7 +195,7 @@ export default jack({
 
     To delete a value, set it with \`key=\` (ie, provide an empty value).
     This can be used for example to clear out an array field and then
-    fill it, rather than appending to it.`
+    fill it, rather than appending to it.`,
   )
 
   .heading('tap config edit', 4, { pre: true })
@@ -208,26 +208,26 @@ export default jack({
     .taprc file in the project root, then they'll be written there in
     YAML format.
 
-    All comments and empty lines in the file will be removed.`
+    All comments and empty lines in the file will be removed.`,
   )
 
   .heading('tap list', 3, { pre: true })
   .description(
     `Print the test files that will be run, according to the configuration
-    and positional arguments.`
+    and positional arguments.`,
   )
 
   .heading('tap debug', 3, { pre: true })
   .description(
     `Output various debugging information, useful when posting issues
-    on <https://github.com/tapjs/tapjs/issues>.`
+    on <https://github.com/tapjs/tapjs/issues>.`,
   )
 
   .heading('tap help', 3, { pre: true })
   .description(
     `Print usage information
 
-    This is also run if the -h --help flag is set.`
+    This is also run if the -h --help flag is set.`,
   )
 
   .heading('Configuration')
@@ -264,7 +264,7 @@ export default jack({
      .taprc file, will set \`TAP_OMIT_VERSION=1\` in the environment.
 
      Environment and CLI options take priority over any config files.
-    `
+    `,
   )
 
   .heading('Basic Options')
@@ -591,7 +591,7 @@ export default jack({
      The \`before\` module, if specified, will always run before any tests,
      and the \`after\` module will be loaded after the entire test run is
      complete.
-    `
+    `,
   )
 
   .num({

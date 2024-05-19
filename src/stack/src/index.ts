@@ -12,11 +12,13 @@ const regExpEscape = (s: string) =>
 // platform portability accommodation
 /* c8 ignore start */
 let cwd =
-  typeof process === 'object' &&
-  process &&
-  typeof process.cwd === 'function'
-    ? process.cwd()
-    : undefined
+  (
+    typeof process === 'object' &&
+    process &&
+    typeof process.cwd === 'function'
+  ) ?
+    process.cwd()
+  : undefined
 /* c8 ignore stop */
 
 /**
@@ -110,10 +112,12 @@ const buildIgnoredPackages = () => {
   // because when it's loaded from node_modules, it'll be excluded
   // by virtue of being in that folder anyhow.
   const built =
-    ignoredPackages.includes('@tapjs') ||
-    ignoredPackages.includes('@tapjs/test')
-      ? getTestBuiltPath()
-      : ''
+    (
+      ignoredPackages.includes('@tapjs') ||
+      ignoredPackages.includes('@tapjs/test')
+    ) ?
+      getTestBuiltPath()
+    : ''
   const re = built ? `${built}([/\\\\].*|$)|${nm}` : nm
   return new RegExp(re)
 }
@@ -122,9 +126,9 @@ const buildIgnoredPackages = () => {
  * exported for testing, no real purpose, but also no harm in looking
  */
 export const getIgnoredPackagesRE = () =>
-  !dirty
-    ? ignoredPackagesRE
-    : (ignoredPackagesRE = buildIgnoredPackages())
+  !dirty ? ignoredPackagesRE : (
+    (ignoredPackagesRE = buildIgnoredPackages())
+  )
 
 let ignoredPackagesRE: RegExp | undefined = buildIgnoredPackages()
 let filterIgnoredPackages = true
@@ -210,16 +214,16 @@ let capturing = false
  */
 export function capture(
   limit: number,
-  fn: Function | ((...a: any[]) => any)
+  fn: Function | ((...a: any[]) => any),
 ): CallSiteLike[]
 export function capture(limit: number): CallSiteLike[]
 export function capture(
-  fn: Function | ((...a: any[]) => any)
+  fn: Function | ((...a: any[]) => any),
 ): CallSiteLike[]
 export function capture(): CallSiteLike[]
 export function capture(
   limit: number | Function | ((...a: any[]) => any) = 0,
-  fn: Function | ((...a: any[]) => any) = capture
+  fn: Function | ((...a: any[]) => any) = capture,
 ): CallSiteLike[] {
   // should be impossible to hit, but can if we have to look up
   // a sourcemap for a file we haven't seen before, and the filename
@@ -256,7 +260,7 @@ export function capture(
  * `undefined` will be returned.
  */
 export const at: (
-  fn?: Function | ((...a: any[]) => any)
+  fn?: Function | ((...a: any[]) => any),
 ) => CallSiteLike | undefined = (fn = at) => {
   const [site] = capture(1, fn)
   return site
@@ -268,16 +272,16 @@ export const at: (
  */
 export function captureString(
   limit: number,
-  fn: Function | ((...a: any[]) => any)
+  fn: Function | ((...a: any[]) => any),
 ): string
 export function captureString(limit: number): string
 export function captureString(
-  fn?: Function | ((...a: any[]) => any)
+  fn?: Function | ((...a: any[]) => any),
 ): string
 export function captureString(): string
 export function captureString(
   limit: number | Function | ((...a: any[]) => any) = Infinity,
-  fn: Function | ((...a: any[]) => any) = captureString
+  fn: Function | ((...a: any[]) => any) = captureString,
 ): string {
   if (typeof limit === 'function') {
     fn = limit
@@ -303,7 +307,7 @@ export function captureString(
  * incorrect data may result. It's only as good as the stack you pass to it.
  */
 export const captureError = (
-  e: Error | NodeJS.ErrnoException
+  e: Error | NodeJS.ErrnoException,
 ): CallSiteLike[] => {
   // errors almost always have these fields
   const { message = '', name = '', code } = e as NodeJS.ErrnoException
@@ -314,24 +318,23 @@ export const captureError = (
   const cleanHead = !!head && stack.startsWith(head)
   const cleanErrnoHead = !!errnoHead && stack.startsWith(errnoHead)
 
-  const s = cleanHead
-    ? stack.substring(head.length)
-    : cleanErrnoHead
-    ? stack.substring(errnoHead.length)
+  const s =
+    cleanHead ? stack.substring(head.length)
+    : cleanErrnoHead ? stack.substring(errnoHead.length)
     : stack
   const cleaned = clean(
     s
       .trimEnd()
       .split('\n')
       .filter(l => !!l)
-      .map(line => new CallSiteLike(e, line))
+      .map(line => new CallSiteLike(e, line)),
   )
 
   // if we didn't clean the header cleanly, then sweep the stack for
   // any weird junk it might contain
-  return cleanHead
-    ? cleaned
-    : cleaned.filter(c => !isErrorStackHead(c))
+  return cleanHead ? cleaned : (
+      cleaned.filter(c => !isErrorStackHead(c))
+    )
 }
 
 /**
@@ -360,7 +363,7 @@ export const parseStack = (s: string): CallSiteLike[] =>
       .trimEnd()
       .split('\n')
       .filter(l => !!l.trim())
-      .map(line => new CallSiteLike(null, line))
+      .map(line => new CallSiteLike(null, line)),
   )
 
 export const expandStack = (s?: string | CallSiteLike[]): string => {

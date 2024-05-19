@@ -8,7 +8,7 @@ const t = tap.applyPlugin(plugin)
 t.equal(
   tap.pluginLoaded(plugin),
   false,
-  'plugin not loaded on og root'
+  'plugin not loaded on og root',
 )
 //@ts-expect-error
 t.equal(tap.nock, undefined, 'no nock object on og root')
@@ -61,7 +61,7 @@ t.test('disableNetConnect/enableNetConnect work', async t => {
         message: /Disallowed net connect/,
         code: 'ENETUNREACH',
       },
-      'network connection was not allowed'
+      'network connection was not allowed',
     )
   }
 
@@ -102,7 +102,7 @@ t.test('cleans scopes in teardown', async t => {
       t.equal(res.status, 200, 'nock scope works')
       const body = await res.json()
       t.same(body, { hello: 'world' })
-    }
+    },
   )
 
   // nock throws ENETUNREACH if no scopes are active, if any are it throws ERR_NOCK_NO_MATCH
@@ -111,7 +111,7 @@ t.test('cleans scopes in teardown', async t => {
     {
       code: 'ERR_NOCK_NO_MATCH',
     },
-    'child test scope was cleared'
+    'child test scope was cleared',
   )
 
   // parent scope usage #2
@@ -150,7 +150,7 @@ t.test('cleans scopes in teardown', async t => {
     {
       code: 'ERR_NOCK_NO_MATCH',
     },
-    'and all scopes are gone'
+    'and all scopes are gone',
   )
 })
 

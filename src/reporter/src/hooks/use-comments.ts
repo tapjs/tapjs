@@ -24,7 +24,7 @@ export const useComments = (test: Base) => {
           updateComments([...comments_])
         }
       }),
-    [comments, test]
+    [comments, test],
   )
 
   return [...comments_]

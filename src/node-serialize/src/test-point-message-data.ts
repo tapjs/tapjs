@@ -5,11 +5,11 @@ import { locFromCallSite } from './loc-from-callsite.js'
 
 export const testPointMessageData = (
   res: Result | TapError,
-  t: Base
+  t: Base,
 ): NamedNestedLocation => ({
   name: res.name,
   nesting: t.nestingLevel + 1,
-  ...(res.diag?.at
-    ? locFromCallSite(res.diag.at)
-    : locFromCallSite(t.options.at)),
+  ...(res.diag?.at ?
+    locFromCallSite(res.diag.at)
+  : locFromCallSite(t.options.at)),
 })

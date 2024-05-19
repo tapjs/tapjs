@@ -15,19 +15,19 @@ const dir = t.testdir({
 
 t.equal(
   getInstalledVersion('foo', {
-    globCwd: dir,
+    projectRoot: dir,
   } as unknown as LoadedConfig),
-  '1.2.3'
+  '1.2.3',
 )
 t.equal(
   getInstalledVersion('bar', {
-    globCwd: dir,
+    projectRoot: dir,
   } as unknown as LoadedConfig),
-  ''
+  '',
 )
 t.equal(
   getInstalledVersion('notjson', {
-    globCwd: dir,
+    projectRoot: dir,
   } as unknown as LoadedConfig),
-  ''
+  '',
 )

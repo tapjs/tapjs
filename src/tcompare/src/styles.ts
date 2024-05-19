@@ -48,7 +48,7 @@ export interface Style {
     er: (Error | { name?: string; message?: string }) & {
       generatedMessage?: string
     },
-    cls: string
+    cls: string,
   ) => string
   /** end of an `Error` object */
   errorTail: (indent: string) => string
@@ -159,20 +159,22 @@ const pretty: Style = {
   circular: node => `<*ref_${node.id}>`,
   nodeId: id => `&ref_${id} `,
   errorEmpty: er =>
-    !(er instanceof Error)
-      ? `${(er as Error).name || '(no name)'}: ${
-          (er as Error).message || '(no message)'
-        }`
-      : `${er.toString()}`,
+    !(er instanceof Error) ?
+      `${(er as Error).name || '(no name)'}: ${
+        (er as Error).message || '(no message)'
+      }`
+    : `${er.toString()}`,
   errorHead: (er, cls) => {
     // assertion errors sometimes generate WACKY stuff
-    return cls === 'AssertionError' && er.generatedMessage
-      ? er.name + ' {\n'
-      : !(er instanceof Error)
-      ? `${(er as Error).name || '(no name)'}: ${
+    return (
+      cls === 'AssertionError' && er.generatedMessage ?
+        er.name + ' {\n'
+      : !(er instanceof Error) ?
+        `${(er as Error).name || '(no name)'}: ${
           (er as Error).message || '(no message)'
         } \{\n`
       : `${er.toString()} \{\n`
+    )
   },
   errorTail: indent => `${indent}}`,
   pojoEmpty: cls => `${cls} \{\}`,

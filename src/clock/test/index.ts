@@ -9,5 +9,5 @@ t.match(withClock.clock, Clock, 't.clock is a Clock')
 t.equal(
   withClock.clock,
   withClock.clock,
-  'getter returns same object each time'
+  'getter returns same object each time',
 )

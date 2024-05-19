@@ -24,49 +24,42 @@ export class MarkdownStream extends Minipass<string> {
   onCase(c: Case) {
     const { name, id, diag, ok, skip, todo } = c.result
     const t =
-      skip !== false
-        ? 'skip'
-        : todo !== false
-        ? 'todo'
-        : ok
-        ? 'pass'
-        : 'fail'
+      skip !== false ? 'skip'
+      : todo !== false ? 'todo'
+      : ok ? 'pass'
+      : 'fail'
     const color =
-      t === 'skip'
-        ? 'cyan'
-        : t === 'todo'
-        ? 'magenta'
-        : t === 'pass'
-        ? 'green'
-        : 'red'
+      t === 'skip' ? 'cyan'
+      : t === 'todo' ? 'magenta'
+      : t === 'pass' ? 'green'
+      : 'red'
 
     const msg =
-      typeof skip === 'string'
-        ? `<span color="cyan">${skip}</span>`
-        : typeof todo === 'string'
-        ? `<span color="magenta">${todo}</span>`
-        : ''
+      typeof skip === 'string' ? `<span color="cyan">${skip}</span>`
+      : typeof todo === 'string' ?
+        `<span color="magenta">${todo}</span>`
+      : ''
 
     const { source, diff, ...extra } = diag || {}
     /* c8 ignore start */
     const file = diag?.at?.fileName || diag?.at?.file || diag?.file
     /* c8 ignore stop */
     const srcLang = file ? parse(file).ext.substring(1) : ''
-    const srcPre = source
-      ? `\n\n\`\`\`${srcLang}\n${source.trimEnd()}\n\`\`\``
+    const srcPre =
+      source ?
+        `\n\n\`\`\`${srcLang}\n${source.trimEnd()}\n\`\`\``
       : ''
     const ymlExtra = stringify(extra).trimEnd()
     const preExtra =
       ymlExtra === '{}' ? '' : `\n\n\`\`\`yaml\n${ymlExtra}\n\`\`\``
-    const preDiff = diff
-      ? `\n\n\`\`\`diff\n${diff.trimEnd()}\n\`\`\``
-      : ''
+    const preDiff =
+      diff ? `\n\n\`\`\`diff\n${diff.trimEnd()}\n\`\`\`` : ''
     const b = (preDiff + srcPre + preExtra)
       .replace(/^/gm, '    ')
       .replace(/\n    \n/g, '\n\n')
     const body = b.trim() ? '\n\n    ' + b.trimStart() : '\n'
     super.write(
-      `${id}. <b style="color:${color}">${t}</b> ${name}${msg}${body}\n`
+      `${id}. <b style="color:${color}">${t}</b> ${name}${msg}${body}\n`,
     )
   }
 
@@ -87,27 +80,26 @@ export class MarkdownStream extends Minipass<string> {
     const file = diag.at?.fileName || diag.at?.file || diag.file
     /* c8 ignore stop */
     const srcLang = file ? parse(file).ext.substring(1) : ''
-    const srcPre = source
-      ? `\n\n\`\`\`${srcLang}\n${source}\n\`\`\``
-      : ''
+    const srcPre =
+      source ? `\n\n\`\`\`${srcLang}\n${source}\n\`\`\`` : ''
     const fn = summary.fullname || summary.name
     delete summary.fullname
     delete summary.name
     super.write(
       `\n----\n\n**${fn}**${srcPre}\n\n\`\`\`yaml\n${stringify(
-        summary
-      ).trimEnd()}\n\`\`\`\n\n`
+        summary,
+      ).trimEnd()}\n\`\`\`\n\n`,
     )
   }
 
   write(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(chunk: any, encoding?: any, cb?: any): boolean {
     return this.parser.write(chunk, encoding, cb)
@@ -116,12 +108,12 @@ export class MarkdownStream extends Minipass<string> {
   end(cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(chunk?: any, encoding?: any, cb?: any): this {
     this.parser.end(chunk, encoding, cb)

@@ -8,14 +8,14 @@ import { resultToError } from './result-to-error.js'
 export const testPointResults = (
   res: Result | TapError,
   t: Base,
-  testNumber: number
+  testNumber: number,
 ): PassData | FailData => {
   const p: PassData = {
     name: res.name,
     testNumber,
-    ...(res.diag?.at
-      ? locFromCallSite(res.diag.at)
-      : locFromCallSite(t.options.at)),
+    ...(res.diag?.at ?
+      locFromCallSite(res.diag.at)
+    : locFromCallSite(t.options.at)),
     nesting: t.nestingLevel + 1,
     details: {
       duration_ms: res.time ?? 0,
@@ -36,7 +36,7 @@ export const testPointResults = (
         code: 'ERR_TEST_FAILURE',
         failureType: 'testCodeFailure',
         stack: expandStack(
-          res.diag?.stack ?? t.options.stack
+          res.diag?.stack ?? t.options.stack,
         ).trimEnd(),
       }),
     },

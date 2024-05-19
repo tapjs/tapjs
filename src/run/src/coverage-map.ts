@@ -12,10 +12,10 @@ export const getCoverageMap = async (config: LoadedConfig) => {
   const coverageMap = config.get('coverage-map')
   if (!coverageMap) return () => []
   const mapModule = (await import(
-    String(pathToFileURL(resolve(config.globCwd, coverageMap)))
+    String(pathToFileURL(resolve(config.projectRoot, coverageMap)))
   ).catch(er => {
     throw new Error(
-      `Coverage map ${coverageMap} is not a valid module. ${er.message}`
+      `Coverage map ${coverageMap} is not a valid module. ${er.message}`,
     )
   })) as CoverageMapFn | { default: CoverageMapFn }
   /* c8 ignore start */
@@ -25,7 +25,7 @@ export const getCoverageMap = async (config: LoadedConfig) => {
 
   if (typeof map !== 'function') {
     throw new Error(
-      `Coverage map ${coverageMap} did not default export a function`
+      `Coverage map ${coverageMap} did not default export a function`,
     )
   }
   return (f: string) => {
@@ -36,7 +36,7 @@ export const getCoverageMap = async (config: LoadedConfig) => {
       !isStringArray(mapped)
     ) {
       throw new Error(
-        `Coverage map ${coverageMap} must return string, string[], or null`
+        `Coverage map ${coverageMap} must return string, string[], or null`,
       )
     }
     return mapped

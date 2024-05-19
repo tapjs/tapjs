@@ -577,7 +577,7 @@ t.test('non-configurable properties cannot be intercepted', t => {
         value: false,
         configurable: false,
       },
-    }
+    },
   ) as {
     method: () => true
     [m]: () => true

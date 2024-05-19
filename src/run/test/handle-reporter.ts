@@ -25,7 +25,7 @@ const mockReporter = t.createMock(REPORTER, {
   report: async (
     Type: string | FC<TapReportOpts>,
     tap: TAP,
-    config: LoadedConfig
+    config: LoadedConfig,
   ): Promise<boolean> => {
     reporterCalled.push([Type, tap, config])
     return true
@@ -43,9 +43,9 @@ const mockCP = t.createMock(CP, {
     return (mockProcess = {
       stdin: new Minipass<string>({ encoding: 'utf8' }),
       stdout:
-        options?.stdio?.[1] === 'pipe'
-          ? new Minipass<string>({ encoding: 'utf8' })
-          : null,
+        options?.stdio?.[1] === 'pipe' ?
+          new Minipass<string>({ encoding: 'utf8' })
+        : null,
     })
   },
 })
@@ -115,9 +115,9 @@ t.test('force TAP output', async t => {
     tb.on('end', () => stdout.end())
     const config = {
       get: (key: string) =>
-        key === 'reporter-file'
-          ? resolve(dir, 'should-not-exist')
-          : 'base',
+        key === 'reporter-file' ?
+          resolve(dir, 'should-not-exist')
+        : 'base',
     } as unknown as LoadedConfig
     t.equal(await handleReporter(tb as TAP, config), false)
     tb.pass('this is fine')
@@ -125,7 +125,7 @@ t.test('force TAP output', async t => {
     t.match(await output, 'ok 1 - this is fine\n')
     t.throws(
       () => statSync(resolve(dir, 'should-not-exist')),
-      'no reporter-file for TAP=1 test process'
+      'no reporter-file for TAP=1 test process',
     )
   })
 
@@ -139,9 +139,9 @@ t.test('force TAP output', async t => {
     tb.on('end', () => stdout.end())
     const config = {
       get: (key: string) =>
-        key === 'reporter-file'
-          ? undefined
-          : 'unknown !# reporter $@ not exist \x06\x07',
+        key === 'reporter-file' ? undefined : (
+          'unknown !# reporter $@ not exist \x06\x07'
+        ),
     } as unknown as LoadedConfig
     t.equal(await handleReporter(tb as TAP, config), false)
     tb.pass('this is fine')
@@ -178,14 +178,14 @@ t.test('silent', async t => {
       pipe: () => {
         throw new Error('should not pipe anywhere')
       },
-    }
+    },
   )
   const dir = t.testdir()
   const config = {
     get: (key: string) =>
-      key === 'reporter-file'
-        ? resolve(dir, 'should-not-exist')
-        : 'silent',
+      key === 'reporter-file' ?
+        resolve(dir, 'should-not-exist')
+      : 'silent',
   } as unknown as LoadedConfig
   t.equal(await handleReporter(tb as unknown as TAP, config), true)
   t.strictSame(reporterCalled, [])
@@ -193,7 +193,7 @@ t.test('silent', async t => {
   t.equal(registerCalled, true, 'register called')
   t.throws(
     () => statSync(resolve(dir, 'should-not-exist')),
-    'no reporter-file for silent reporter'
+    'no reporter-file for silent reporter',
   )
 })
 
@@ -208,7 +208,7 @@ t.test('silent because -R/dev/null', async t => {
       pipe: () => {
         throw new Error('should not pipe anywhere')
       },
-    }
+    },
   )
   const config = {
     get: (key: string) =>
@@ -223,7 +223,7 @@ t.test('silent because -R/dev/null', async t => {
 t.test('custom react reporter', async t => {
   const u = await resolveImport(
     './fixtures/custom-react-reporter/index.js',
-    import.meta.url
+    import.meta.url,
   )
   const f = fileURLToPath(u)
   const p = './' + relative(process.cwd(), fileURLToPath(u))
@@ -243,7 +243,7 @@ t.test('custom stream reporter', async t => {
   t.intercept(process, 'stdout', { value: stdout })
   const u = await resolveImport(
     './fixtures/custom-stream-reporter/index.js',
-    import.meta.url
+    import.meta.url,
   )
   const f = fileURLToPath(u)
   const p = './' + relative(process.cwd(), fileURLToPath(u))
@@ -268,7 +268,7 @@ t.test('custom stream reporter', async t => {
     await stdout.concat(),
     'TAP version 14\nok 1 - this is fine\n1..1\n' +
       JSON.stringify(tb.results),
-    'report output'
+    'report output',
   )
 })
 
@@ -283,7 +283,7 @@ t.test('custom stream reporter to file', async t => {
   })
   const u = await resolveImport(
     './fixtures/custom-stream-reporter/index.js',
-    import.meta.url
+    import.meta.url,
   )
   const f = fileURLToPath(u)
   const p = './' + relative(process.cwd(), fileURLToPath(u))
@@ -305,7 +305,7 @@ t.test('custom stream reporter to file', async t => {
         readFileSync(file, 'utf8'),
         'TAP version 14\nok 1 - this is fine\n1..1\n' +
           JSON.stringify(tb.results),
-        'report output'
+        'report output',
       )
       res()
     })
@@ -331,11 +331,9 @@ t.test('custom cli program reporter', async t => {
       const tb = new Minimal({ name: 'custom stream reporter' })
       const config = {
         get: (k: string) =>
-          k === 'reporter'
-            ? 'test-exe-reporter'
-            : k === 'reporter-arg'
-            ? cnf
-            : undefined,
+          k === 'reporter' ? 'test-exe-reporter'
+          : k === 'reporter-arg' ? cnf
+          : undefined,
       } as unknown as LoadedConfig
       t.equal(await handleReporter(tb as TAP, config), false)
       tb.pass('this is fine')
@@ -350,7 +348,7 @@ t.test('custom cli program reporter', async t => {
       if (!mockProcess) throw new Error('mockProcess not set')
       t.equal(
         await mockProcess.stdin.concat(),
-        'TAP version 14\nok 1 - this is fine\n1..1\n'
+        'TAP version 14\nok 1 - this is fine\n1..1\n',
       )
     })
   }
@@ -370,13 +368,10 @@ t.test('custom cli program reporter to file', async t => {
       const tb = new Minimal({ name: 'custom stream reporter' })
       const config = {
         get: (k: string) =>
-          k === 'reporter'
-            ? 'test-exe-reporter'
-            : k === 'reporter-arg'
-            ? cnf
-            : k === 'reporter-file'
-            ? file
-            : undefined,
+          k === 'reporter' ? 'test-exe-reporter'
+          : k === 'reporter-arg' ? cnf
+          : k === 'reporter-file' ? file
+          : undefined,
       } as unknown as LoadedConfig
       t.equal(await handleReporter(tb as TAP, config), false)
       tb.pass('this is fine')
@@ -401,7 +396,7 @@ t.test('custom cli program reporter to file', async t => {
       t.ok(mockProcess.stdout, 'piping stdout')
       t.equal(
         await mockProcess.stdin.concat(),
-        'TAP version 14\nok 1 - this is fine\n1..1\n'
+        'TAP version 14\nok 1 - this is fine\n1..1\n',
       )
       mockProcess.stdout?.end('exe reporter output')
       await mockProcess.stdout?.promise()

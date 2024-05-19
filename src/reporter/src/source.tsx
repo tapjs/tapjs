@@ -110,24 +110,26 @@ export const Source: FC<SourceOpts> = ({
         (isErrorOrigin ? 'error origin: ' : '') + at.fileName
       const title = chalk.bgAnsi256(234).dim(msg.padEnd(len))
       const caret =
-        at.columnNumber &&
-        at.columnNumber < stringLength(atLine) &&
-        at.columnNumber > 0
-          ? chalk.ansi256(252).bgAnsi256(234)(
-              chalk.red(
-                ' '.repeat(excess) +
-                  '━'.repeat(numLen + at.columnNumber) +
-                  chalk.bold('┛') +
-                  ' '.repeat(len - (numLen + at.columnNumber) - 1)
-              )
-            )
-          : ''
+        (
+          at.columnNumber &&
+          at.columnNumber < stringLength(atLine) &&
+          at.columnNumber > 0
+        ) ?
+          chalk.ansi256(252).bgAnsi256(234)(
+            chalk.red(
+              ' '.repeat(excess) +
+                '━'.repeat(numLen + at.columnNumber) +
+                chalk.bold('┛') +
+                ' '.repeat(len - (numLen + at.columnNumber) - 1),
+            ),
+          )
+        : ''
       const context = [title]
       if (!caret) {
         context.push(
           ...before.map(b => ' ' + b),
           chalk.bold.red('▶') + atLine,
-          ...after.map(l => ' ' + l)
+          ...after.map(l => ' ' + l),
         )
       } else {
         context.push(...before, atLine, caret, ...after)
@@ -141,11 +143,9 @@ export const Source: FC<SourceOpts> = ({
       )
     } catch {}
   }
-  return source ? (
-    <Box>
-      <Text>{source}</Text>
-    </Box>
-  ) : (
-    <></>
-  )
+  return source ?
+      <Box>
+        <Text>{source}</Text>
+      </Box>
+    : <></>
 }

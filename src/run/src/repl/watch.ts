@@ -38,7 +38,7 @@ export class Watch {
     // if the user set an externalID on a t.spawn() process in a test,
     // then that's not relevant.
     const c = await this.processInfo.externalIDsChanged(
-      (_, c) => !c.parent
+      (_, c) => !c.parent,
     )
     return c.size !== 0
   }

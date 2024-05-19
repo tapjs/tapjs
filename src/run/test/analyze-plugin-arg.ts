@@ -12,19 +12,19 @@ t.test('not a package spec to install', async t => {
       versionWant: '',
       versionInstalled: '',
     },
-    'local path'
+    'local path',
   )
   t.strictSame(
     await analyzePluginArg(
       '@tapjs/mock',
-      {} as unknown as LoadedConfig
+      {} as unknown as LoadedConfig,
     ),
     {
       name: '@tapjs/mock',
       versionWant: '',
       versionInstalled: '',
     },
-    'default plugin'
+    'default plugin',
   )
 })
 
@@ -45,6 +45,6 @@ t.test('package spec', async t => {
       name: 'foo',
       versionWant: '1.2.3',
       versionInstalled: '1.0.0',
-    }
+    },
   )
 })

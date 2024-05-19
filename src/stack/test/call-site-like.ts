@@ -5,7 +5,7 @@ import { CallSiteLike as CSLMJS } from '../dist/esm/index.js'
 import { callSiteStack } from './fixtures/eval-call-site.js'
 
 const __dirname = resolve(
-  fileURLToPath(new URL('.', import.meta.url))
+  fileURLToPath(new URL('.', import.meta.url)),
 )
 const cwd = resolve(__dirname, '..')
 
@@ -34,7 +34,7 @@ t.test('relativize no-ops if path methods throw', async t => {
   })
   const c = new CallSiteLike(
     null,
-    '/some/path/to/file.js:1:2 (/src/x.js:33:44)'
+    '/some/path/to/file.js:1:2 (/src/x.js:33:44)',
   )
   t.equal(c.generated?.fileName, '/some/path/to/file.js')
   c.cwd = '/some/path'
@@ -67,12 +67,12 @@ for (const [dialect, CallSiteLike] of Object.entries({
         throw new Error('did not get generated sourcemap bits')
       }
       c.generated.fileName = String(
-        pathToFileURL(c.generated.fileName as string)
+        pathToFileURL(c.generated.fileName as string),
       )
       t.equal(
         c.toString(true),
         ts,
-        'same toString(true) when file url'
+        'same toString(true) when file url',
       )
       t.end()
     })
@@ -107,7 +107,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
     t.test('turn tap stack into js stack, absolute path', t => {
       const c = new CallSiteLike(
         null,
-        '/a/b/c:1:2 (/a/b/c.ts:420:69)'
+        '/a/b/c:1:2 (/a/b/c.ts:420:69)',
       )
       t.equal(c.fileName, '/a/b/c.ts')
       t.equal(c.generated?.fileName, '/a/b/c')
@@ -129,7 +129,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       t => {
         const c = new CallSiteLike(
           null,
-          '/a/b/c:1:2 (/a/b/d/c.ts:420:69)'
+          '/a/b/c:1:2 (/a/b/d/c.ts:420:69)',
         )
         t.equal(c.fileName, '/a/b/d/c.ts')
         t.equal(c.generated?.fileName, '/a/b/c')
@@ -144,7 +144,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
         t.equal(c.generated?.fileName, '/a/b/c')
         t.equal(c.toString(true), j)
         t.end()
-      }
+      },
     )
 
     t.test('create from string error stack line', t => {
@@ -153,14 +153,14 @@ for (const [dialect, CallSiteLike] of Object.entries({
       t.match(c.fileName, /.+test\/fixtures\/capture\.ts$/)
       t.match(
         c.toString(true),
-        /.+test\/fixtures\/capture\.ts:[0-9]+:[0-9]+\)$/
+        /.+test\/fixtures\/capture\.ts:[0-9]+:[0-9]+\)$/,
       )
       c.cwd = cwd
       t.equal(c.cwd, cwd)
       t.equal(c.fileName, 'test/fixtures/capture.ts')
       t.equal(
         c.absoluteFileName,
-        resolve(cwd, 'test/fixtures/capture.ts')
+        resolve(cwd, 'test/fixtures/capture.ts'),
       )
       t.equal(c.generated, undefined)
       t.matchOnly(c.toJSON(), {
@@ -193,7 +193,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       const s = String(c)
       t.match(
         s,
-        /^getStack \(.+test\/fixtures\/capture\.js:\d+:\d+\) \(.+test\/fixtures\/capture\.ts:\d+:\d+\)$/
+        /^getStack \(.+test\/fixtures\/capture\.js:\d+:\d+\) \(.+test\/fixtures\/capture\.ts:\d+:\d+\)$/,
       )
       t.matchOnly(c.toJSON(), {
         fileName: /.+\/test\/fixtures\/capture\.ts$/,
@@ -219,7 +219,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       const s = String(c)
       t.match(
         s,
-        /^getAt \(test\/fixtures\/capture\.js:\d+:\d+\) \(test\/fixtures\/capture\.ts:\d+:\d+\)$/
+        /^getAt \(test\/fixtures\/capture\.js:\d+:\d+\) \(test\/fixtures\/capture\.ts:\d+:\d+\)$/,
       )
       t.matchOnly(c.toJSON(), {
         fileName: 'test/fixtures/capture.ts',
@@ -447,7 +447,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       })
       t.match(
         String(c),
-        /stack \(eval at <anonymous> \([^:]+:\d+:\d+\), <anonymous>:\d+:\d+\)/
+        /stack \(eval at <anonymous> \([^:]+:\d+:\d+\), <anonymous>:\d+:\d+\)/,
       )
       t.equal(c.cwd, c.evalOrigin?.cwd, 'eo has same cwd initially')
       c.cwd = dirname(__dirname)
@@ -455,7 +455,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       t.equal(
         c.absoluteFileName,
         null,
-        'no filename, no abs filename'
+        'no filename, no abs filename',
       )
       t.end()
     })
@@ -464,7 +464,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       const p = resolve('/a/b/c')
       const c = new CallSiteLike(
         null,
-        `    at Type.method (${p}:420:69)`
+        `    at Type.method (${p}:420:69)`,
       )
       c.cwd = process.cwd()
       t.equal(c.fileName, p)
@@ -476,7 +476,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       const p = resolve('/a/b/c')
       const c = new CallSiteLike(
         null,
-        `    at Type.method (${p}:420:69)`
+        `    at Type.method (${p}:420:69)`,
       )
       // missing functionName only happens when loading from an actual
       // CallSite object, so simulate it here for convenience
@@ -489,7 +489,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       const p = resolve('/a/b/c')
       const c = new CallSiteLike(
         null,
-        `    at Type.method (${p}:420:69)`
+        `    at Type.method (${p}:420:69)`,
       )
       // missing functionName only happens when loading from an actual
       // CallSite object, so simulate it here for convenience

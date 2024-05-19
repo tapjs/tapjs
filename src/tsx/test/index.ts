@@ -8,7 +8,7 @@ t.equal(t.pluginLoaded(plugin), false, 'plugin not loaded by default')
 
 const originalEnv = { ...process.env }
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('apply plugin to a test object', t => {

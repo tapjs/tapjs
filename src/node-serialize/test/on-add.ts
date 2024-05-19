@@ -47,7 +47,7 @@ t.test('track the things', async t => {
     {
       diags,
       subsMap: [...subsMap.values()].map(subs =>
-        subs.map(s => s.name)
+        subs.map(s => s.name),
       ),
       diagsMap: [...diagsMap.values()],
     },
@@ -82,6 +82,6 @@ t.test('track the things', async t => {
         [],
         [],
       ],
-    }
+    },
   )
 })

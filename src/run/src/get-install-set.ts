@@ -10,12 +10,12 @@ import { pkgExists } from './pkg-exists.js'
 const exists = (f: string) =>
   lstat(f).then(
     () => true,
-    () => false
+    () => false,
   )
 
 export const getInstallSet = async (
   args: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   // has a default, but tsc doesn't know about it
 
@@ -40,7 +40,7 @@ export const getInstallSet = async (
     if (versionWant === undefined) {
       console.error(chalk.red(`Cannot install ${plugin}.`))
       console.error(
-        `Version not found, or incompatible with the current tap version.`
+        `Version not found, or incompatible with the current tap version.`,
       )
       process.exit(1)
     }

@@ -14,5 +14,5 @@ t.equal(called, 1)
 
 t.type(
   listenCleanup(null, 'asdf', () => {}),
-  Function
+  Function,
 )

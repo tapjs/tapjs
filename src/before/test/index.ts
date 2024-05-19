@@ -10,7 +10,7 @@ t.cleanSnapshot = s =>
     .replace(/# time=[0-9\.]+m?s$/gm, '# time={TIME}')
     .replace(
       /stack: [|>]-?\n(.|\n)+\n  at:/g,
-      'stack: {STACK}\n  at:'
+      'stack: {STACK}\n  at:',
     )
     .replace(/lineNumber: \d+/, 'lineNumber: ##')
     .replace(/columnNumber: \d+/, 'columnNumber: ##')
@@ -75,7 +75,7 @@ t.test('rejected before fails test', async t => {
               throw new Error('oops')
         ------------^
             })
-`
+`,
   )
 })
 
@@ -96,7 +96,7 @@ t.test('throwing before fails test', async t => {
               throw new Error('oops')
         ------------^
             })
-`
+`,
   )
 })
 

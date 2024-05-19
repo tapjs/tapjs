@@ -16,7 +16,7 @@ const alwaysExcludeNames = [
 ]
 
 const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join(
-  '|'
+  '|',
 )})/**`
 
 const defaultInclude =
@@ -39,7 +39,7 @@ const dirInclude = '**/*.__EXTENSIONS__'
 export const list = async (
   args: string[],
   config: LoadedConfig,
-  noPruneUnchanged: boolean = false
+  noPruneUnchanged: boolean = false,
 ) => {
   const saveList: Set<string> = new Set(await readSave(config))
 
@@ -52,9 +52,9 @@ export const list = async (
     values.include || config.expandInclude(defaultInclude),
     {
       ignore,
-      cwd: config.globCwd,
+      cwd: config.projectRoot,
       withFileTypes: true,
-    }
+    },
   )
 
   const { scurry } = g
@@ -69,18 +69,19 @@ export const list = async (
     (
       await Promise.all(
         (
-          await (!args.length
-            ? g.walk()
-            : Promise.all(
-                args.map(async a => {
-                  if (a === '-' || a === '/dev/stdin') return a
-                  const st = await scurry.cwd
-                    .resolve(resolve(a))
-                    .lstat()
-                  if (st) return st
-                  return glob(a, { absolute: true })
-                })
-              ))
+          await (!args.length ?
+            g.walk()
+          : Promise.all(
+              args.map(async a => {
+                if (a === '-' || a === '/dev/stdin') return a
+                const st = await scurry.cwd
+                  .resolve(resolve(a))
+                  .lstat()
+                if (st) return st
+                // from process cwd, because it's a cli positional
+                return glob(a, { absolute: true })
+              }),
+            ))
         ).reduce(
           (
             set: (
@@ -89,13 +90,13 @@ export const list = async (
               | Promise<Path | undefined>
               | undefined
             )[],
-            entry: string | Path | string[]
+            entry: string | Path | string[],
           ) => {
             // stat the glob results a second time, even though we know
             // that they exist, because we need their stat info later.
             if (Array.isArray(entry)) {
               set.push(
-                ...entry.map(e => scurry.cwd.resolve(e).lstat())
+                ...entry.map(e => scurry.cwd.resolve(e).lstat()),
               )
             } else if (entry === '-' || entry === '/dev/stdin') {
               set.push(entry)
@@ -104,8 +105,8 @@ export const list = async (
             }
             return set
           },
-          []
-        )
+          [],
+        ),
       )
     ).filter(p => {
       // enoents should already be filtered out by glob, but just in case
@@ -113,7 +114,7 @@ export const list = async (
       if (!p) return false
       /* c8 ignore stop */
       return true
-    }) as (Path | '-' | '/dev/stdin')[]
+    }) as (Path | '-' | '/dev/stdin')[],
   )
   await expandDirectories(config, scurry, entries, g.ignore)
   const before = config.get('before')
@@ -138,7 +139,7 @@ export const list = async (
   }
 
   const files = [...entries].map(p =>
-    typeof p === 'string' ? p : p.relativePosix()
+    typeof p === 'string' ? p : p.relativePosix(),
   )
   if (mainCommand === 'list') {
     if (foundEntries) {
@@ -162,7 +163,7 @@ const expandDirectories = async (
   config: LoadedConfig,
   scurry: PathScurry,
   entries: Set<Path | '-' | '/dev/stdin'>,
-  ignore: string | string[] | IgnoreLike | undefined
+  ignore: string | string[] | IgnoreLike | undefined,
 ) => {
   // for each one that's a directory, expand it with the files it contains
   // then go back to the original dir when we're done expanding.
@@ -177,6 +178,7 @@ const expandDirectories = async (
         scurry,
         ignore,
         withFileTypes: true,
+        cwd: scurry.cwd.fullpath(),
       })) {
         entries.add(s)
       }
@@ -189,7 +191,7 @@ const expandDirectories = async (
 // that have changed since the last run.
 const pruneUnchanged = async (
   scurry: PathScurry,
-  entries: Set<Path | '-' | '/dev/stdin'>
+  entries: Set<Path | '-' | '/dev/stdin'>,
 ) => {
   const dir = scurry.resolve('.tap/processinfo')
   const db = new ProcessInfo({ dir })

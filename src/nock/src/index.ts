@@ -25,7 +25,7 @@ export type NockMethod = ((
   enableNetConnect: (typeof nock)['enableNetConnect']
   disableNetConnect: (typeof nock)['disableNetConnect']
   snapshot: (
-    options?: NockRecorderOptionsMaybe & NockRecorderLoadOptions
+    options?: NockRecorderOptionsMaybe & NockRecorderLoadOptions,
   ) => nock.Scope[]
 }
 
@@ -57,7 +57,7 @@ export class TapNock {
       },
       snapshot: (
         options: NockRecorderOptionsMaybe &
-          NockRecorderLoadOptions = {}
+          NockRecorderLoadOptions = {},
       ) => tn.#snapshot(options),
     })
   }
@@ -151,7 +151,7 @@ export class TapNock {
   }
 
   #snapshot(
-    options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {}
+    options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {},
   ): nock.Scope[] {
     // safety precaution
     /* c8 ignore start */
@@ -164,7 +164,7 @@ export class TapNock {
     /* c8 ignore start */
     if (!recorder) {
       const er = new Error(
-        'Cannot use t.nock.snapshot() without the @tapjs/snapshot plugin'
+        'Cannot use t.nock.snapshot() without the @tapjs/snapshot plugin',
       )
       Error.captureStackTrace(er, this.nock.snapshot)
       throw er

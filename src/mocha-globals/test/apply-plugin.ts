@@ -46,7 +46,7 @@ t.hasStrict(
     afterEach,
     teardown,
   },
-  'globalized'
+  'globalized',
 )
 
 t.equal(tt(), t.t)

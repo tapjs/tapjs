@@ -17,19 +17,15 @@ export const ResultTag: FC<ResultOpts> = ({
   test,
 }) => {
   const showCallsite = !details
-  const c = result.skip
-    ? '~'
-    : result.todo
-    ? '☐'
-    : !result.ok
-    ? '✖'
+  const c =
+    result.skip ? '~'
+    : result.todo ? '☐'
+    : !result.ok ? '✖'
     : '✓'
-  const textc = result.skip
-    ? 'cyan'
-    : result.todo
-    ? 'magenta'
-    : !result.ok
-    ? 'red'
+  const textc =
+    result.skip ? 'cyan'
+    : result.todo ? 'magenta'
+    : !result.ok ? 'red'
     : 'green'
   const pref = (
     <Text bold color={textc}>
@@ -42,16 +38,14 @@ export const ResultTag: FC<ResultOpts> = ({
   const at = result.diag?.at
   const fileName = at?.fileName
   const callsite =
-    showCallsite && at && fileName ? (
+    showCallsite && at && fileName ?
       <Text dimColor>
         {fileName}
-        {at.lineNumber && at.columnNumber
-          ? `:${at.lineNumber}:${at.columnNumber}`
-          : ''}
+        {at.lineNumber && at.columnNumber ?
+          `:${at.lineNumber}:${at.columnNumber}`
+        : ''}
       </Text>
-    ) : (
-      <></>
-    )
+    : <></>
   const name = assertName(result, test)
 
   return (

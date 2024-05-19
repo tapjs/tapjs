@@ -69,13 +69,13 @@ export class Filter {
 
     // don't filter test files when we're the cli test runner
     const { grep, grepInvert, runOnly } =
-      opts.context === Symbol.for('tap.isRunner')
-        ? ({
-            grep: [],
-            grepInvert: false,
-            runOnly: false,
-          } as FilterOptions)
-        : opts
+      opts.context === Symbol.for('tap.isRunner') ?
+        ({
+          grep: [],
+          grepInvert: false,
+          runOnly: false,
+        } as FilterOptions)
+      : opts
 
     if (grep !== undefined) {
       this.#grep = !Array.isArray(grep) ? [grep] : grep
@@ -107,8 +107,8 @@ export class Filter {
   #shouldSkipChild(
     extra: TestBaseOpts | BaseOpts | TestOpts,
     shouldSkipChild: (
-      extra: TestBaseOpts | BaseOpts | TestOpts
-    ) => boolean
+      extra: TestBaseOpts | BaseOpts | TestOpts,
+    ) => boolean,
   ) {
     const opts = extra as FilterOptions & Extra & TestBaseOpts
     const [pattern, ...rest] = this.#grep
@@ -117,9 +117,9 @@ export class Filter {
       const name = opts.name || ''
       /* c8 ignore stop */
       const m =
-        typeof pattern === 'string'
-          ? name.includes(pattern)
-          : pattern.test(name)
+        typeof pattern === 'string' ?
+          name.includes(pattern)
+        : pattern.test(name)
       const match = this.#grepInvert ? !m : m
       if (!match) {
         if (!this.#filterQuietly) {
@@ -147,7 +147,7 @@ export class Filter {
     if (opts.only && !this.#runOnly) {
       this.#t.comment(
         '%j has `only` set but all tests run',
-        extra.name
+        extra.name,
       )
     }
     if (typeof opts.runOnly === 'undefined') {
@@ -165,12 +165,12 @@ export class Filter {
   only(
     name: string,
     extra: TestOpts,
-    cb: (t: Test) => any
+    cb: (t: Test) => any,
   ): PromiseWithSubtest<Test>
   only(name: string, cb: (t: Test) => any): PromiseWithSubtest<Test>
   only(
     extra: TestOpts,
-    cb: (t: Test) => any
+    cb: (t: Test) => any,
   ): PromiseWithSubtest<Test>
   only(cb: (t: Test) => any): PromiseWithSubtest<Test>
   only(...args: TestArgs<Test>): PromiseWithSubtest<Test> {

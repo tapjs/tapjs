@@ -53,7 +53,7 @@ t.test('failing test with details', async t => {
   tb.end()
   await tb.concat()
   t.matchSnapshot(
-    render(<TestSummary details test={tb} />).lastFrame()
+    render(<TestSummary details test={tb} />).lastFrame(),
   )
 })
 
@@ -82,7 +82,7 @@ t.test('all the details', async t => {
   tb.end()
   await tb.concat()
   t.matchSnapshot(
-    render(<TestSummary details test={tb} />).lastFrame()
+    render(<TestSummary details test={tb} />).lastFrame(),
   )
   t.end()
 })

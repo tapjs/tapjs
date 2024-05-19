@@ -41,18 +41,14 @@ export const StdioLogLine: FC<StdioLog> = ({
   previous: p,
 }) => {
   const prefix =
-    isStdioLog(p) && p.fd === fd && p.name === name ? (
+    isStdioLog(p) && p.fd === fd && p.name === name ?
       <></>
-    ) : (
-      <Box gap={1} paddingTop={1}>
-        {fd === 1 ? (
+    : <Box gap={1} paddingTop={1}>
+        {fd === 1 ?
           <Text color="cyan" bold dimColor>{`1>`}</Text>
-        ) : (
-          <Text color="red" bold dimColor>{`2>`}</Text>
-        )}
+        : <Text color="red" bold dimColor>{`2>`}</Text>}
         <Text dimColor>{name}</Text>
       </Box>
-    )
 
   return (
     <Box flexDirection="column">
@@ -80,10 +76,6 @@ export const Log: FC<LogOpts> = ({ test, config, includeTests }) => {
 }
 
 const LogLine: FC<LogEntry> = log =>
-  isTestLog(log) ? (
-    <TestLogLine {...log} />
-  ) : isStdioLog(log) ? (
-    <StdioLogLine {...log} />
-  ) : (
-    <ConsoleLogLine {...log} />
-  )
+  isTestLog(log) ? <TestLogLine {...log} />
+  : isStdioLog(log) ? <StdioLogLine {...log} />
+  : <ConsoleLogLine {...log} />

@@ -27,7 +27,7 @@ t.pass('this is fine')
 `,
   })
   const mockConfig = {
-    globCwd: dir,
+    projectRoot: dir,
   } as unknown as LoadedConfig
   const { replay } = await t.mockImport<
     typeof import('../dist/esm/replay.js')
@@ -38,7 +38,7 @@ t.pass('this is fine')
         config: any,
         applyPlugins: (tap: any) => any,
         setup: (tap: any) => any,
-        execute: (t: TAP, file: string) => any
+        execute: (t: TAP, file: string) => any,
       ) => {
         t.strictSame(args, [])
         t.equal(config, mockConfig)

@@ -10,16 +10,16 @@ const config = {} as unknown as LoadedConfig
 const esbkPacku: Packument = JSON.parse(
   readFileSync(
     new URL('./fixtures/esbuild-kit.json', import.meta.url),
-    'utf8'
-  )
+    'utf8',
+  ),
 )
 
 // shuffle version order so that we exercise the newIfGt check
 const abbrevPacku_: Packument = JSON.parse(
   readFileSync(
     new URL('./fixtures/abbrev.json', import.meta.url),
-    'utf8'
-  )
+    'utf8',
+  ),
 )
 const abbrevPacku: Packument = {
   ...abbrevPacku_,
@@ -27,8 +27,12 @@ const abbrevPacku: Packument = {
     Object.entries(abbrevPacku_.versions).sort(([a], [b]) => {
       const ae = !(Number(a.replace(/[^0-9]+/g, '')) % 2)
       const be = !(Number(b.replace(/[^0-9]+/g, '')) % 2)
-      return ae === be ? a.localeCompare(b, 'en') : ae ? 1 : -1
-    })
+      return (
+        ae === be ? a.localeCompare(b, 'en')
+        : ae ? 1
+        : -1
+      )
+    }),
   ),
 }
 
@@ -86,7 +90,7 @@ t.test('look up a version that has a peer dep', async t => {
   })
   t.equal(
     await selectVersion('@tapjs/esbuild-kit', '*', config),
-    '0.0.0-5'
+    '0.0.0-5',
   )
 })
 
@@ -113,7 +117,7 @@ t.test('look up a version that is latest', async t => {
   })
   t.equal(
     await selectVersion('@tapjs/esbuild-kit', '*', config),
-    '0.0.0-17'
+    '0.0.0-17',
   )
 })
 
@@ -140,7 +144,7 @@ t.test('fail to find a satisfying version', async t => {
   })
   t.equal(
     await selectVersion('@tapjs/esbuild-kit', '1.0.0', config),
-    undefined
+    undefined,
   )
 })
 

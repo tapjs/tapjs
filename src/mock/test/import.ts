@@ -3,11 +3,11 @@ import t from 'tap'
 
 const importer = await resolveImport(
   '../dist/esm/import.mjs',
-  import.meta.url
+  import.meta.url,
 )
 const loader = await resolveImport(
   '../dist/esm/loader.mjs',
-  import.meta.url
+  import.meta.url,
 )
 let registered = false
 let serviceStarted = false
@@ -19,7 +19,7 @@ await t.mockImport('../dist/esm/import.mjs', {
       const u = new URL(data.parentURL)
       t.ok(
         u.searchParams.get('tapmock'),
-        'has ?tapmock because mocked'
+        'has ?tapmock because mocked',
       )
       u.search = ''
       t.equal(String(u), String(importer), 'parentURL is importer')
@@ -29,7 +29,7 @@ await t.mockImport('../dist/esm/import.mjs', {
           data: { port: 'PORT 2' },
           transferList: ['PORT 2'],
         },
-        'register data'
+        'register data',
       )
     },
   },

@@ -18,7 +18,7 @@ export interface ReadOptions<T extends string | number = string> {
 }
 
 export type ReadMethod<T extends string | number = string> = (
-  options: ReadOptions<T>
+  options: ReadOptions<T>,
 ) => Promise<T | string>
 
 /**
@@ -26,7 +26,7 @@ export type ReadMethod<T extends string | number = string> = (
  * the types specified
  */
 export async function read<T extends string | number = string>(
-  options: ReadOptions<T>
+  options: ReadOptions<T>,
 ): Promise<T | string> {
   return (read_ as ReadMethod<T>)(options)
 }

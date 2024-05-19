@@ -8,14 +8,14 @@ import { pathToFileURL } from 'url'
 
 export const mungeMocks = (
   mocksInput: Record<string, any>,
-  dir: string
+  dir: string,
 ): { [k: string]: { [j: string]: any } } => {
   const mocks = Object.create(null)
   for (const [k, v] of Object.entries(mocksInput)) {
     const m =
-      v && typeof v === 'object' && !Array.isArray(v)
-        ? v
-        : { default: v }
+      v && typeof v === 'object' && !Array.isArray(v) ?
+        v
+      : { default: v }
     if (isBuiltin(k)) {
       mocks[k] = m
       /* c8 ignore start */

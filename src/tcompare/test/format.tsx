@@ -18,14 +18,14 @@ const cleanNodeNames = (str: string) =>
     // remove node 10's ERR_ASSERTION litter
     .replace(
       /\s+"name": "AssertionError \[ERR_ASSERTION\]",\n/g,
-      '\n'
+      '\n',
     )
     .replace(/AssertionError \[ERR_ASSERTION\]/g, 'AssertionError')
     // remove enumerable domain:null field
     .replace(/\s+"domain": null,\n/g, '\n')
     .replace(
       /new AssertionError\([^\)]+\)/g,
-      'new AssertionError(<contents elided for testing>)'
+      'new AssertionError(<contents elided for testing>)',
     )
     // remove internal symbols, which differ across node versions
     .replace(/\s*\[Symbol\([^\)]+\)\]: [^,]+,\n?/g, '')
@@ -157,7 +157,7 @@ t.test('sorting', t => {
   t.equal(
     format({ b: 1, a: 2 }, { sort: true }),
     format({ a: 2, b: 1 }, { sort: true }),
-    'sorting makes them the same'
+    'sorting makes them the same',
   )
   t.end()
 })
@@ -165,7 +165,7 @@ t.test('sorting', t => {
 t.test('other misc', t => {
   t.throws(
     () => new Format(1, { isKey: true }),
-    new Error(`isKey should only be set for Map keys`)
+    new Error(`isKey should only be set for Map keys`),
   )
 
   const s = new Format(true)
@@ -175,12 +175,12 @@ t.test('other misc', t => {
   const parent = new Format([1])
   t.throws(
     () => new Format(1, { parent, isKey: true }),
-    new Error(`isKey should only be set for Map keys`)
+    new Error(`isKey should only be set for Map keys`),
   )
 
   t.throws(
     () => new Format(1, { style: 'nyancat' as StyleType }),
-    new TypeError(`unknown style: nyancat`)
+    new TypeError(`unknown style: nyancat`),
   )
 
   // fake out the 'seen' function
@@ -267,25 +267,25 @@ t.test('hidden props and getters', t => {
     new Format(one, {
       includeGetters: true,
     }).print(),
-    'enumerable inherited getters shown'
+    'enumerable inherited getters shown',
   )
   t.matchSnapshot(
     new Format(nullObj, {
       includeGetters: true,
     }).print(),
-    'enumerable inherited getters shown'
+    'enumerable inherited getters shown',
   )
   t.matchSnapshot(
     new Format(one, {
       includeEnumerable: true,
     }).print(),
-    'all enumerable properties shown'
+    'all enumerable properties shown',
   )
   t.matchSnapshot(
     new Format(nullObj, {
       includeEnumerable: true,
     }).print(),
-    'all enumerable properties shown'
+    'all enumerable properties shown',
   )
   t.end()
 })
@@ -296,7 +296,7 @@ t.test(
   t => {
     t.equal(new Format(BigInt('5')).print(), '5n')
     t.end()
-  }
+  },
 )
 
 t.test('locale sorting', t => {
@@ -324,7 +324,7 @@ t.test('invalid iterator', t => {
     f.print(),
     `Object {
   [Symbol.iterator]: Function [Symbol.iterator](),
-}`
+}`,
   )
   // then it realizes it's actually not
   t.equal(f.isArray(), false)
@@ -395,7 +395,7 @@ t.test('do not fail on throwing getter', t => {
   },
   "d": undefined,
   "e": 3,
-}`
+}`,
   )
   t.end()
 })
@@ -414,13 +414,13 @@ t.test('formatting jsx', t => {
     format({
       a: { b: { c: div } },
     }),
-    'element nested in object'
+    'element nested in object',
   )
   t.matchSnapshot(
     format({
       a: { b: { c: new Map([[div, true]]) } },
     }),
-    'element as Map key'
+    'element as Map key',
   )
   const childrens = [
     undefined,
@@ -464,7 +464,7 @@ t.test('formatting jsx', t => {
         .replace(/\n/g, ' ')
         .replace(/ +/g, ' ')
         .replace(/, ([}\]])/g, '$1')
-        .replace(/([\[{]) /g, '$1')}`
+        .replace(/([\[{]) /g, '$1')}`,
     )
   }
 
@@ -483,7 +483,7 @@ t.test('format aggregate errors and causes', t => {
           [sym]: 'something',
         }),
       ],
-      'agg agg'
+      'agg agg',
     ),
   ]
   const er = new AggregateError(errors, 'aggregated errors')

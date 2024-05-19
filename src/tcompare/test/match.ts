@@ -37,8 +37,8 @@ t.test('should handle dates', t => {
     match(
       t,
       { x: new Date('1972-08-01') },
-      { x: new Date('1972-08-01') }
-    )
+      { x: new Date('1972-08-01') },
+    ),
   )
   t.end()
 })
@@ -54,7 +54,7 @@ t.test(
     t.ok(match(t, { x: BigInt('1') }, { x: BigInt('1') }))
     t.ok(match(t, { x: BigInt('1') }, { x: BigInt }))
     t.end()
-  }
+  },
 )
 
 t.test('should handle RegExps', t => {
@@ -73,8 +73,8 @@ t.test('should handle RegExps', t => {
           return 'FooBar'
         },
       },
-      /^FooBar$/
-    )
+      /^FooBar$/,
+    ),
   )
   t.notOk(
     match(
@@ -84,8 +84,8 @@ t.test('should handle RegExps', t => {
           return 'x'
         },
       },
-      /^FooBar$/
-    )
+      /^FooBar$/,
+    ),
   )
   t.end()
 })
@@ -102,8 +102,8 @@ t.test('should handle functions', function (t) {
     match(
       t,
       function a() {},
-      function a() {}
-    )
+      function a() {},
+    ),
   )
   t.notOk(
     match(
@@ -114,9 +114,9 @@ t.test('should handle functions', function (t) {
       },
       function a() {
         return a
-      }
+      },
     ),
-    'different toString'
+    'different toString',
   )
   t.notOk(match(t, fnA, fnB), 'different names')
   t.ok(match(t, fnA, fnA))
@@ -166,11 +166,11 @@ t.test(
       match(
         t,
         { x: { a: 1, b: 2 }, y: { c: 3, d: 4 } },
-        { y: { d: 4, c: 3 }, x: { b: '2', a: '1' } }
-      )
+        { y: { d: 4, c: 3 }, x: { b: '2', a: '1' } },
+      ),
     )
     t.end()
-  }
+  },
 )
 
 t.test('undefined is the same as itself', t => {
@@ -225,11 +225,11 @@ t.test(
           'bar',
           11,
           { baz: { a: '1', b: '2', c: '3', d: '4' } },
-        ]
-      )
+        ],
+      ),
     )
     t.end()
-  }
+  },
 )
 
 t.test("match shouldn't blow up on circular data structures", t => {
@@ -332,7 +332,7 @@ t.test('ctors and other fun things', t => {
       set: Set,
       obj: Object,
       cls: Cls,
-    })
+    }),
   )
 
   t.ok(
@@ -341,25 +341,25 @@ t.test('ctors and other fun things', t => {
       date: d,
       foo: new Foo(),
       str: 'sd',
-    })
+    }),
   )
 
   t.notOk(
     match(t, obj, {
       inf: Number,
-    })
+    }),
   )
 
   t.notOk(
     match(t, obj, {
       neginf: Number,
-    })
+    }),
   )
 
   t.notOk(
     match(t, obj, {
       nan: Number,
-    })
+    }),
   )
 
   t.end()
@@ -396,19 +396,19 @@ t.test('set vs non-set, map vs non-map', t => {
     match(t, obj, {
       set: new Map(),
       map: new Map(),
-    })
+    }),
   )
   t.notOk(
     match(t, obj, {
       set: new Set(),
       map: new Set(),
-    })
+    }),
   )
   t.notOk(
     match(t, obj, {
       set: [],
       map: Array,
-    })
+    }),
   )
   t.end()
 })
@@ -461,11 +461,11 @@ t.test('diffs of errors with \\n in the message', t => {
   er2.foo = 'two'
   t.notOk(
     match(t, er, er2),
-    'errors with different properties are not the same'
+    'errors with different properties are not the same',
   )
   t.notOk(
     match(t, { er }, { er: er2 }),
-    'errors with different properties are not the same'
+    'errors with different properties are not the same',
   )
   t.end()
 })

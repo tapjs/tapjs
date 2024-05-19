@@ -10,9 +10,9 @@ export const useCountsLists = (test: Base): [Counts, Lists] => {
   useLayoutEffect(
     () =>
       listenCleanup(test.parser, 'result', () =>
-        update([test.counts, test.lists])
+        update([test.counts, test.lists]),
       ),
-    [test, counts, lists]
+    [test, counts, lists],
   )
   return [counts, lists]
 }

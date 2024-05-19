@@ -30,7 +30,7 @@ class MockProc extends EE {
   constructor(
     args: string[],
     input: string,
-    cb: (code: number, stdout: string, stderr: string) => void
+    cb: (code: number, stdout: string, stderr: string) => void,
   ) {
     super()
     this.argv = [node, bin].concat(args)
@@ -55,7 +55,7 @@ class MockProc extends EE {
 const run = (
   input: string,
   args: string[],
-  cb: (code: number, stdout: string, stderr: string) => void
+  cb: (code: number, stdout: string, stderr: string) => void,
 ) => {
   let exitCode = 0
   let stdout = ''
@@ -70,7 +70,7 @@ const run = (
 
   const fn = runInThisContext(
     '(function (process, console, require) {' + code + '\n})',
-    bin
+    bin,
   )
   fn(proc, cons, require)
   proc.emit('exit')
@@ -166,7 +166,7 @@ ok 1 - child
       const test = runTest(tap)
       t.test('no args', t => test(t, []))
       t.test('b w', t =>
-        test(t, ['-b', '-w', '--ignore-all-whitespace'])
+        test(t, ['-b', '-w', '--ignore-all-whitespace']),
       )
       t.test('t', t => test(t, ['-t', '--tap', '-f', '--no-flat']))
       t.test('flat', t => test(t, ['-B', '-f', '--flat', '-o']))
@@ -212,7 +212,7 @@ t.test('unrecognized arg', t =>
     t.matchSnapshot(o, 'output')
     t.matchSnapshot(e, 'stderr')
     t.end()
-  })
+  }),
 )
 
 t.test('help', t =>
@@ -221,7 +221,7 @@ t.test('help', t =>
     t.matchSnapshot(o, 'output')
     t.matchSnapshot(e, 'stderr')
     t.end()
-  })
+  }),
 )
 
 t.test('version', t => {

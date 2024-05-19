@@ -36,9 +36,9 @@ export class Has extends Same {
       .filter(k => expSet.has(k))
       .map(k => [k, obj[k]])
 
-    return this.sort
-      ? ent.sort((a, b) =>
-          String(a[0]).localeCompare(String(b[0]), 'en')
+    return this.sort ?
+        ent.sort((a, b) =>
+          String(a[0]).localeCompare(String(b[0]), 'en'),
         )
       : ent
   }

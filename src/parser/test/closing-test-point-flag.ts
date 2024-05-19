@@ -36,7 +36,7 @@ t.strictSame(
     ['this is fine', false],
     ['test point in subtest', false],
     ['child assert', false],
-  ]
+  ],
 )
 
 t.match(
@@ -47,5 +47,5 @@ t.match(
   [
     ['child test', { closingTestPoint: true }],
     ['child subtest', { closingTestPoint: true }],
-  ]
+  ],
 )

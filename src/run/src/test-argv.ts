@@ -14,30 +14,31 @@ const useImport = !!(module as { register?: (...a: any) => any })
   .register
 
 const testModule = String(
-  await resolveImport('@tapjs/test', import.meta.url)
+  await resolveImport('@tapjs/test', import.meta.url),
 )
 
 const resolveLoaders = (loaders: string[]) =>
   Promise.all(
     loaders.map(async loader =>
-      String(await resolveImport(loader, testModule))
-    )
+      String(await resolveImport(loader, testModule)),
+    ),
   )
 const importScripts = await resolveLoaders(
-  useImport ? importLoaders : []
+  useImport ? importLoaders : [],
 )
 const loaderScripts = await resolveLoaders(
-  useImport ? loaders : loaderFallbacks
+  useImport ? loaders : loaderFallbacks,
 )
 
-const pi = useImport
-  ? `--import=${await resolveImport(
+const pi =
+  useImport ?
+    `--import=${await resolveImport(
       '@tapjs/processinfo/import',
-      import.meta.url
+      import.meta.url,
     )}`
   : `--loader=${await resolveImport(
       '@tapjs/processinfo/loader',
-      import.meta.url
+      import.meta.url,
     )}`
 
 const always = [

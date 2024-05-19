@@ -23,7 +23,7 @@ t.strictSame(
     runOnly: null,
   }),
   {},
-  'deleteIfEmpty fields'
+  'deleteIfEmpty fields',
 )
 
 t.test('callsite reporting', t => {
@@ -45,7 +45,7 @@ t.test('callsite reporting', t => {
       },
       source: String,
     },
-    'handle array stacks that tap used to use long ago'
+    'handle array stacks that tap used to use long ago',
   )
   const c = cleanYamlObject({
     stack,
@@ -74,10 +74,10 @@ t.test('callsite reporting', t => {
     cleanYamlObject({
       at: new CallSiteLike(
         null,
-        '    at Fake.foo() (this file does not exist:420:69)'
+        '    at Fake.foo() (this file does not exist:420:69)',
       ),
     }),
-    'invalid callsite is fine'
+    'invalid callsite is fine',
   )
   const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
   nc.columnNumber = Infinity
@@ -86,7 +86,7 @@ t.test('callsite reporting', t => {
       no: 'caret',
       at: nc,
     }),
-    'no caret'
+    'no caret',
   )
   t.end()
 })
@@ -127,7 +127,7 @@ t.test('callsite reporting with error origin', t => {
         source: String,
       },
     },
-    'handle array stacks that tap used to use long ago'
+    'handle array stacks that tap used to use long ago',
   )
 
   const c = cleanYamlObject({
@@ -178,14 +178,14 @@ t.test('callsite reporting with error origin', t => {
     cleanYamlObject({
       at: new CallSiteLike(
         null,
-        '    at Fake.foo() (this file does not exist:420:69)'
+        '    at Fake.foo() (this file does not exist:420:69)',
       ),
       errorOrigin: new CallSiteLike(
         null,
-        '    at Fake.errorOrigin() (other not exist file:420:69)'
+        '    at Fake.errorOrigin() (other not exist file:420:69)',
       ),
     }),
-    'invalid callsite is fine'
+    'invalid callsite is fine',
   )
   const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
   nc.columnNumber = Infinity
@@ -197,7 +197,7 @@ t.test('callsite reporting with error origin', t => {
       at: nc,
       errorOrigin: { at: onc },
     }),
-    'no caret'
+    'no caret',
   )
   t.end()
 })
@@ -208,49 +208,49 @@ t.test('diffs', t => {
       found: 'hello\nworld',
       wanted: 'helper\nworld',
     }),
-    'string comparison'
+    'string comparison',
   )
   t.matchSnapshot(
     cleanYamlObject({
       found: 'hello\nworld',
       wanted: 123,
     }),
-    'string/number comparison'
+    'string/number comparison',
   )
   t.matchSnapshot(
     cleanYamlObject({
       found: 123,
       wanted: 'hello\nworld',
     }),
-    'string/number comparison'
+    'string/number comparison',
   )
   t.matchSnapshot(
     cleanYamlObject({
       found: '123',
       wanted: 123,
     }),
-    'matching string/number comparison'
+    'matching string/number comparison',
   )
   t.matchSnapshot(
     cleanYamlObject({
       found: 123,
       wanted: '123',
     }),
-    'matching string/number comparison'
+    'matching string/number comparison',
   )
   t.matchSnapshot(
     cleanYamlObject({
       found: { a: 1 },
       wanted: { b: 2 },
     }),
-    'differently shaped objects'
+    'differently shaped objects',
   )
   t.matchSnapshot(
     cleanYamlObject({
       found: { a: 1 },
       wanted: { a: 1 },
     }),
-    'matching unique objects'
+    'matching unique objects',
   )
   const a = { a: 1 }
   t.matchSnapshot(
@@ -258,7 +258,7 @@ t.test('diffs', t => {
       found: a,
       wanted: a,
     }),
-    'identical objects'
+    'identical objects',
   )
   t.end()
 })
@@ -289,7 +289,7 @@ t.test('pruning keys', t => {
       tapChildKey: '123',
       tapMochaTest: t,
     }),
-    {}
+    {},
   )
 
   t.end()
@@ -301,7 +301,7 @@ t.test('elide inline t.worker code', t => {
       eval: true,
       filename: 'some\ninline\ncode',
     }),
-    { eval: true, filename: '<inline code>' }
+    { eval: true, filename: '<inline code>' },
   )
   t.end()
 })
@@ -320,7 +320,7 @@ t.test('normalize stack line ending', t => {
     .trimEnd()
   t.equal(
     cleanYamlObject({ at: null, stack: st }).stack.endsWith('\n'),
-    true
+    true,
   )
   t.end()
 })

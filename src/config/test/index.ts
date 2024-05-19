@@ -5,6 +5,7 @@ import { resolve } from 'path'
 import t from 'tap'
 import { TapConfig } from '../dist/esm/index.js'
 import jack from '../dist/esm/jack.js'
+
 t.test('basic tests', async t => {
   const tc = new TapConfig()
   t.equal(tc.jack, jack)
@@ -65,7 +66,7 @@ t.test('reporter from env or config', t => {
       ...m,
       '../dist/esm/jack.js': await t.mockImport(
         '../dist/esm/jack.js',
-        m
+        m,
       ),
     })
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
@@ -88,7 +89,7 @@ t.test('reporter from env or config', t => {
       ...m,
       '../dist/esm/jack.js': await t.mockImport(
         '../dist/esm/jack.js',
-        m
+        m,
       ),
     })
     t.equal((await TapConfig.load()).get('reporter'), 'base')
@@ -194,7 +195,7 @@ t.test(
     })
     const tc = await TapConfig.load()
     t.equal(tc.configFile, resolve(dir, 'proj/.taprc'))
-  }
+  },
 )
 
 t.test('use first config file found in walkup', async t => {
@@ -231,7 +232,7 @@ t.test('config from .taprc', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -258,7 +259,7 @@ t.test('config from package.json', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -286,7 +287,7 @@ this
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -319,7 +320,7 @@ this
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -346,7 +347,7 @@ t.test('.taprc extends file', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -375,7 +376,7 @@ t.test('package.json extends file', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -397,7 +398,7 @@ t.test('extension has invalid field', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -428,7 +429,7 @@ t.test('extend from dep .taprc', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -460,7 +461,7 @@ t.test('extend from dep package.json', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -489,7 +490,7 @@ t.test('extend from dep package.json, but no config', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -512,7 +513,7 @@ t.test('extend from missing dep', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -536,7 +537,7 @@ t.test('edit .taprc config, add fields only', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -549,7 +550,7 @@ t.test('edit .taprc config, add fields only', async t => {
   t.equal(
     readFileSync(resolve(dir, '.taprc'), 'utf8'),
     '# vi' +
-      'm: set filetype=yaml :\ncolor: true\njobs: 3\nreporter: newrep\n'
+      'm: set filetype=yaml :\ncolor: true\njobs: 3\nreporter: newrep\n',
   )
 })
 
@@ -564,7 +565,7 @@ t.test('edit .taprc config, overwrite', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -576,7 +577,7 @@ t.test('edit .taprc config, overwrite', async t => {
   t.equal(tc.get('reporter'), 'newrep')
   t.equal(
     readFileSync(resolve(dir, '.taprc'), 'utf8'),
-    '# vi' + 'm: set filetype=yaml :\nreporter: newrep\n'
+    '# vi' + 'm: set filetype=yaml :\nreporter: newrep\n',
   )
 })
 
@@ -589,7 +590,7 @@ t.test('create .taprc config', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -603,7 +604,7 @@ t.test('create .taprc config', async t => {
   t.equal(
     readFileSync(resolve(dir, '.taprc'), 'utf8'),
     '# vi' +
-      'm: set filetype=yaml :\ncolor: true\njobs: 3\nreporter: newrep\n'
+      'm: set filetype=yaml :\ncolor: true\njobs: 3\nreporter: newrep\n',
   )
 })
 
@@ -618,7 +619,7 @@ t.test('edit package.json config', async t => {
         },
       },
       null,
-      '\t\t'
+      '\t\t',
     ),
   })
   const { TapConfig } = await t.mockImport('../dist/esm/index.js', {
@@ -628,7 +629,7 @@ t.test('edit package.json config', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -650,8 +651,8 @@ t.test('edit package.json config', async t => {
         },
       },
       null,
-      '\t\t'
-    ) + '\n'
+      '\t\t',
+    ) + '\n',
   )
 })
 
@@ -666,7 +667,7 @@ t.test('edit package.json config, overwrite', async t => {
         },
       },
       null,
-      '\t\t'
+      '\t\t',
     ),
   })
   const { TapConfig } = await t.mockImport('../dist/esm/index.js', {
@@ -676,7 +677,7 @@ t.test('edit package.json config, overwrite', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -696,8 +697,8 @@ t.test('edit package.json config, overwrite', async t => {
         },
       },
       null,
-      '\t\t'
-    ) + '\n'
+      '\t\t',
+    ) + '\n',
   )
 })
 
@@ -706,7 +707,7 @@ t.test('edit package.json config create tap obj', async t => {
     'package.json': JSON.stringify(
       { name: 'testing', tap: [] },
       null,
-      '\t\t'
+      '\t\t',
     ),
   })
   const { TapConfig } = await t.mockImport('../dist/esm/index.js', {
@@ -716,7 +717,7 @@ t.test('edit package.json config create tap obj', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -742,8 +743,8 @@ t.test('edit package.json config create tap obj', async t => {
         },
       },
       null,
-      '\t\t'
-    ) + '\n'
+      '\t\t',
+    ) + '\n',
   )
 })
 
@@ -756,7 +757,7 @@ t.test('create package.json config', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -779,8 +780,8 @@ t.test('create package.json config', async t => {
         },
       },
       null,
-      2
-    ) + '\n'
+      2,
+    ) + '\n',
   )
 })
 
@@ -793,7 +794,7 @@ t.test('cannot write config file with unrecognized name', async t => {
       env: Object.fromEntries(
         Object.keys(core.env)
           .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
-          .map(k => [k, undefined])
+          .map(k => [k, undefined]),
       ),
     }),
   })
@@ -804,7 +805,7 @@ t.test('cannot write config file with unrecognized name', async t => {
       message:
         'unrecognized config file type, must be named ' +
         '.taprc or package.json: some-file.txt',
-    }
+    },
   )
 })
 
@@ -831,7 +832,7 @@ t.test('expandInclude', async t => {
   t.equal(tc.expandInclude('xyz'), 'xyz')
   t.match(
     tc.expandInclude('xyz.__EXTENSIONS__'),
-    /^xyz\.@\((?:([a-z]+)\|)*[a-z]+\)$/
+    /^xyz\.@\((?:([a-z]+)\|)*[a-z]+\)$/,
   )
 })
 
@@ -893,19 +894,71 @@ t.test('load file from env.TAP_RCFILE', async t => {
   }
 })
 
-t.test('default allow-empty-coverage when disable-coverage set', async t => {
+t.test(
+  'default allow-empty-coverage when disable-coverage set',
+  async t => {
+    const dir = t.testdir({
+      '.taprc': `
+disable-coverage: true
+`,
+    })
+    const cwd = process.cwd()
+    t.teardown(() => process.chdir(cwd))
+    process.chdir(dir)
+    const { TapConfig } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js')
+    const c = await TapConfig.load()
+    t.equal(c.get('disable-coverage'), true)
+    t.equal(c.get('allow-empty-coverage'), true)
+  },
+)
+
+t.test('extension cycle loads what it can', async t => {
   const dir = t.testdir({
     '.taprc': `
 disable-coverage: true
+extends: './a/.taprc'
 `,
+    a: {
+      '.taprc': `
+only: true
+extends: './x.yaml'
+`,
+      'x.yaml': `
+bail: true
+extends: '../b/.taprc'
+`,
+    },
+    b: {
+      '.taprc': `
+coverage-map: './foo.js'
+extends: './x.yaml'
+`,
+      'x.yaml': `
+reporter: spec
+extends: '../a/.taprc'
+`,
+    },
   })
   const cwd = process.cwd()
   t.teardown(() => process.chdir(cwd))
   process.chdir(dir)
   const { TapConfig } = await t.mockImport<
     typeof import('../dist/esm/index.js')
-  >('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
+    '@tapjs/core': {
+      ...core,
+      cwd: dir,
+      env: {},
+    },
+  })
   const c = await TapConfig.load()
-  t.equal(c.get('disable-coverage'), true)
-  t.equal(c.get('allow-empty-coverage'), true)
+  t.matchStrict(c.values, {
+    'disable-coverage': true,
+    only: true,
+    bail: true,
+    'coverage-map': resolve(dir, 'b/foo.js'),
+    reporter: 'spec',
+  })
 })

@@ -36,7 +36,7 @@ export class Before {
         this.#t.t.test(
           'pause for before()',
           { silent: true, buffered: false },
-          t => t.end()
+          t => t.end(),
         )
       }
       this.#t.queue.push(() => this.#call(fn, true))

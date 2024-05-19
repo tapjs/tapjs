@@ -45,6 +45,6 @@ t.test('mung until no good', async t => {
       '@tapjs/core': { default: 'namespaced module' },
       '@tapjs/mock/import': { default: 'namespaced submodule' },
       'file:///url': { default: 'file:// url' },
-    })
+    }),
   )
 })

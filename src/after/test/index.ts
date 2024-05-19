@@ -10,7 +10,7 @@ t.cleanSnapshot = s =>
     .replace(/# time=[0-9\.]+m?s$/gm, '# time={TIME}')
     .replace(
       /stack: [|>]-?\n(.|\n)+\n  at:/g,
-      'stack: {STACK}\n  at:'
+      'stack: {STACK}\n  at:',
     )
     .replace(/lineNumber: \d+/, 'lineNumber: ##')
     .replace(/columnNumber: \d+/, 'columnNumber: ##')
@@ -68,12 +68,12 @@ t.test('handle async teardown', async t => {
   t.equal(
     teardownStarted,
     true,
-    'ran teardown, but not done with it yet'
+    'ran teardown, but not done with it yet',
   )
   t.equal(
     teardownDone,
     false,
-    'ran teardown, but not done with it yet'
+    'ran teardown, but not done with it yet',
   )
   t.matchSnapshot(await output, 'test output')
   t.equal(teardownDone, true, 'finished teardown')

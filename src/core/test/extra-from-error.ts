@@ -8,7 +8,7 @@ t.matchOnly(
     at: CallSiteLike,
     stack: String,
   },
-  'basic error handling, captures stack and callsite'
+  'basic error handling, captures stack and callsite',
 )
 
 t.matchOnly(
@@ -16,7 +16,7 @@ t.matchOnly(
   {
     error: 'hello',
   },
-  'not an error'
+  'not an error',
 )
 
 t.matchOnly(
@@ -26,14 +26,14 @@ t.matchOnly(
         code: 'some codes',
         context: { big: 'object' },
       },
-    })
+    }),
   ),
   {
     at: CallSiteLike,
     stack: String,
     source: { code: 'some codes' },
   },
-  'remove source.context'
+  'remove source.context',
 )
 
 t.matchOnly(
@@ -47,7 +47,7 @@ t.matchOnly(
     stack: String,
     other: 'thing',
   },
-  'remove tapChild from test options'
+  'remove tapChild from test options',
 )
 
 t.matchOnly(
@@ -61,7 +61,7 @@ t.matchOnly(
       tapChildAge: 7,
       other: 'thing',
       conflict: 'from options',
-    }
+    },
   ),
   {
     at: CallSiteLike,
@@ -69,7 +69,7 @@ t.matchOnly(
     other: 'thing',
     conflict: 'from extra',
   },
-  'remove tapChild and preexisting fields from test options'
+  'remove tapChild and preexisting fields from test options',
 )
 
 t.test('custom error', t => {
@@ -134,7 +134,7 @@ t.test('find a useful call site', t => {
       },
       stack: String,
     },
-    'found a useful callsite below the top site'
+    'found a useful callsite below the top site',
   )
 
   const notUseful = Object.assign(new Error('no good'), {
@@ -160,7 +160,7 @@ t.test('find a useful call site', t => {
       },
       stack: String,
     },
-    'did not find a useful site, use the top site'
+    'did not find a useful site, use the top site',
   )
   t.end()
 })

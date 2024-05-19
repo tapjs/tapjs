@@ -87,7 +87,7 @@ export class TestStreamSerialize extends Minipass<Buffer> {
         (serializedMessageLength >> 8) & 0xff,
         serializedMessageLength & 0xff,
       ],
-      kV8HeaderLength
+      kV8HeaderLength,
     )
     super.write(serializedMessage)
   }

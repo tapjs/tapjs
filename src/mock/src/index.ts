@@ -26,7 +26,7 @@ export class TapMock {
     const p = t.parent && TapMock.#refs.get(t.parent)
     this.#allMock = Object.assign(
       Object.create(null),
-      p ? p.#allMock : {}
+      p ? p.#allMock : {},
     )
   }
 
@@ -68,7 +68,7 @@ export class TapMock {
    */
   createMock<
     B extends { [k: PropertyKey]: any } | Array<any>,
-    O extends { [k: string]: any } | Array<any>
+    O extends { [k: string]: any } | Array<any>,
   >(bases: B, overrides: O): MockedObject<B, O> {
     if (Array.isArray(overrides))
       return overrides as unknown as MockedObject<B, O>
@@ -88,8 +88,8 @@ export class TapMock {
           return [k, v]
         })
         .concat(
-          Object.entries(overrides).filter(([k]) => !(k in bases))
-        )
+          Object.entries(overrides).filter(([k]) => !(k in bases)),
+        ),
     ) as MockedObject<B, O>
   }
 
@@ -109,7 +109,7 @@ export class TapMock {
     /* c8 ignore stop */
     console.error(
       't.mock() is now t.mockRequire(). Please update your tests.',
-      at
+      at,
     )
     return mockRequire(module, mocks, this.#t.t.mock) as T
   }
@@ -140,12 +140,12 @@ export class TapMock {
    */
   async mockImport<T = any>(
     module: string,
-    mocks: Record<string, any> = {}
+    mocks: Record<string, any> = {},
   ): Promise<T> {
     if (isBuiltin(module)) {
       this.#t.t.currentAssert = this.mockImport
       this.#t.t.fail(
-        'Node built-in modules cannot have their imports mocked'
+        'Node built-in modules cannot have their imports mocked',
       )
       return {} as T
     }
@@ -157,7 +157,7 @@ export class TapMock {
     const service = await MockService.create(
       module,
       mocks,
-      this.#t.t.mockImport
+      this.#t.t.mockImport,
     )
     this.#mocks.push(service)
     return Promise.resolve(service.module).then(s => import(s))
@@ -186,12 +186,12 @@ export class TapMock {
    */
   mockRequire<T = any>(
     module: string,
-    mocks: Record<string, any> = {}
+    mocks: Record<string, any> = {},
   ): T {
     if (isBuiltin(module)) {
       this.#t.t.currentAssert = this.mockRequire
       this.#t.t.fail(
-        'Node built-in modules cannot have their imports mocked'
+        'Node built-in modules cannot have their imports mocked',
       )
       return {} as T
     }
@@ -246,16 +246,14 @@ export class TapMock {
  * Utility type, overrides the properties in B with the properties
  * in O, deeply nested.
  */
-export type MockedObject<B, O> = O extends Array<any>
-  ? O
-  : B extends { [k: PropertyKey]: any }
-  ? O extends Function
-    ? O
-    : O extends { [k: string]: any }
-    ? {
-        [k in keyof B]: k extends keyof O
-          ? MockedObject<B[k], O[k]>
-          : B[k]
+export type MockedObject<B, O> =
+  O extends Array<any> ? O
+  : B extends { [k: PropertyKey]: any } ?
+    O extends Function ? O
+    : O extends { [k: string]: any } ?
+      {
+        [k in keyof B]: k extends keyof O ? MockedObject<B[k], O[k]>
+        : B[k]
       }
     : O
   : O

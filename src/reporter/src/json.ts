@@ -5,14 +5,14 @@ import { Minipass } from 'minipass'
 import { Parser, Result } from 'tap-parser'
 
 const trimResult = (
-  o: Record<string, any>
+  o: Record<string, any>,
 ): Record<string, any> | undefined => {
   const entries = Object.entries(o)
     .map(([k, v]) => [
       k,
-      !!v && typeof v === 'object' && !Array.isArray(v)
-        ? trimResult(v)
-        : v,
+      !!v && typeof v === 'object' && !Array.isArray(v) ?
+        trimResult(v)
+      : v,
     ])
     .filter(
       ([k, v]) =>
@@ -22,7 +22,7 @@ const trimResult = (
           v !== null &&
           v !== undefined &&
           v !== '' &&
-          !(Array.isArray(v) && !v.length))
+          !(Array.isArray(v) && !v.length)),
     )
   return Object.fromEntries(entries)
 }
@@ -33,8 +33,8 @@ export class Case {
     this.result = result
   }
   get failures() {
-    return this.result.ok && !this.result.skip && !this.result.todo
-      ? 0
+    return this.result.ok && !this.result.skip && !this.result.todo ?
+        0
       : 1
   }
   get skipped() {
@@ -118,11 +118,13 @@ export class Suite extends EventEmitter {
       .map(s => s.skipped)
       .reduce(
         (a, b) => a + b,
-        this.results?.plan.skipAll ||
-          this.summary?.skip ||
-          this.summary?.todo
-          ? 1
-          : 0
+        (
+          this.results?.plan.skipAll ||
+            this.summary?.skip ||
+            this.summary?.todo
+        ) ?
+          1
+        : 0,
       )
   }
 }
@@ -147,12 +149,12 @@ export class JSONReport extends Minipass<string> {
 
   write(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(chunk: any, encoding?: any, cb?: any): boolean {
     return this.parser.write(chunk, encoding, cb)
@@ -161,12 +163,12 @@ export class JSONReport extends Minipass<string> {
   end(cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(chunk?: any, encoding?: any, cb?: any): this {
     this.parser.end(chunk, encoding, cb)
@@ -192,15 +194,12 @@ export class JSONStream extends Minipass<string> {
   onCase(c: Case) {
     super.write(
       JSON.stringify([
-        c.result.skip
-          ? 'skip'
-          : c.result.todo
-          ? 'todo'
-          : c.result.ok
-          ? 'pass'
-          : 'fail',
+        c.result.skip ? 'skip'
+        : c.result.todo ? 'todo'
+        : c.result.ok ? 'pass'
+        : 'fail',
         c,
-      ]) + '\n'
+      ]) + '\n',
     )
   }
 
@@ -209,7 +208,7 @@ export class JSONStream extends Minipass<string> {
       JSON.stringify([
         'start',
         { name: s.name, level: s.parser.level },
-      ]) + '\n'
+      ]) + '\n',
     )
   }
 
@@ -222,18 +221,18 @@ export class JSONStream extends Minipass<string> {
           suites: undefined,
           cases: undefined,
         },
-      ]) + '\n'
+      ]) + '\n',
     )
   }
 
   write(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(chunk: any, encoding?: any, cb?: any): boolean {
     return this.parser.write(chunk, encoding, cb)
@@ -242,12 +241,12 @@ export class JSONStream extends Minipass<string> {
   end(cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(chunk?: any, encoding?: any, cb?: any): this {
     this.parser.end(chunk, encoding, cb)

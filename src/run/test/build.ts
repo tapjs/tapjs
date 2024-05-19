@@ -43,8 +43,8 @@ t.test('build success, main command, allow fg exit', async t => {
         options: any,
         cb: (
           code: number | null,
-          signal: NodeJS.Signals | null
-        ) => void | false
+          signal: NodeJS.Signals | null,
+        ) => void | false,
       ) => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
@@ -74,8 +74,8 @@ t.test('build failure, main command, allow fg exit', async t => {
         options: any,
         cb: (
           code: number | null,
-          signal: NodeJS.Signals | null
-        ) => void | false
+          signal: NodeJS.Signals | null,
+        ) => void | false,
       ) => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
@@ -105,8 +105,8 @@ t.test('build success, subcommand, cancel exit', async t => {
         options: any,
         cb: (
           code: number | null,
-          signal: NodeJS.Signals | null
-        ) => void | false
+          signal: NodeJS.Signals | null,
+        ) => void | false,
       ) => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})
@@ -136,8 +136,8 @@ t.test('build fail, subcommand, fail with status', async t => {
         options: any,
         cb: (
           code: number | null,
-          signal: NodeJS.Signals | null
-        ) => void | false
+          signal: NodeJS.Signals | null,
+        ) => void | false,
       ) => {
         t.equal(cmd, process.execPath)
         t.strictSame(options, {})

@@ -14,7 +14,7 @@ for (const k of Object.keys(originalEnv)) {
   if (/TAP/.test(k)) delete originalEnv[k]
 }
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('unknown report type', async t => {
@@ -25,11 +25,11 @@ t.test('unknown report type', async t => {
     report(
       'blorgeebloop',
       {} as unknown as TAP,
-      {} as unknown as LoadedConfig
+      {} as unknown as LoadedConfig,
     ),
     {
       message: 'unknown report type: blorgeebloop',
-    }
+    },
   )
 })
 
@@ -55,7 +55,7 @@ t.test('render with a custom tag', async t => {
   await report(
     Tag,
     mockTap as unknown as TAP,
-    mockConfig as unknown as LoadedConfig
+    mockConfig as unknown as LoadedConfig,
   )
   t.strictSame(rendered, {
     test: mockTap,
@@ -89,7 +89,7 @@ t.test('render with known ink report type', async t => {
   await report(
     'base',
     mockTap as unknown as TAP,
-    mockConfig as unknown as LoadedConfig
+    mockConfig as unknown as LoadedConfig,
   )
   t.strictSame(rendered, {
     test: mockTap,
@@ -133,7 +133,7 @@ t.test('render with known stream report type', async t => {
   await report(
     'junit',
     mockTap as unknown as TAP,
-    mockConfig as unknown as LoadedConfig
+    mockConfig as unknown as LoadedConfig,
   )
   t.equal(registered, true)
   t.equal(tapPiped, true)
@@ -167,7 +167,7 @@ t.test('render with Ink piped to a stream', async t => {
     Tag,
     mockTap as unknown as TAP,
     mockConfig as unknown as LoadedConfig,
-    output as unknown as Writable
+    output as unknown as Writable,
   )
   t.strictSame(rendered, {
     test: mockTap,
@@ -215,10 +215,10 @@ t.test(
       'junit',
       mockTap as unknown as TAP,
       mockConfig as unknown as LoadedConfig,
-      output as unknown as Writable
+      output as unknown as Writable,
     )
     t.equal(registered, true)
     t.equal(tapPiped, true)
     t.equal(reportPiped, true)
-  }
+  },
 )

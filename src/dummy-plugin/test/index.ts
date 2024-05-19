@@ -30,7 +30,7 @@ t.test('plugin adds stuff', async t => {
   t.equal(
     withPlug.methodAlias,
     withPlug.method,
-    'aliases are aliases'
+    'aliases are aliases',
   )
   t.equal(withPlug.whoami, withPlug.whoAmI, 'aliases are aliases')
   t.strictSame(withPlug.dummyConfig, {

@@ -8,7 +8,10 @@ import { ResultDetailList } from './result-detail-list.js'
 
 type Color = 'red' | 'green' | 'cyan' | 'magenta'
 const getColor = (r: Result) =>
-  r.skip ? 'cyan' : r.todo ? 'magenta' : !r.ok ? 'red' : 'green'
+  r.skip ? 'cyan'
+  : r.todo ? 'magenta'
+  : !r.ok ? 'red'
+  : 'green'
 const DOTS: Color[] = []
 const Dots: FC<{ test: TestBase }> = ({ test }) => {
   const [dots, updateDots] = useState<Color[]>([])
@@ -18,7 +21,7 @@ const Dots: FC<{ test: TestBase }> = ({ test }) => {
         DOTS.push(getColor(r))
         updateDots([...DOTS])
       }),
-    [dots]
+    [dots],
   )
   const width = Math.max(15, columns)
   return (

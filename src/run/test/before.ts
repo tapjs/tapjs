@@ -28,7 +28,7 @@ t.test('have before config, adds before that spawns', async t => {
       foregroundChild: (
         cmd: string,
         args: string[],
-        cb: () => any
+        cb: () => any,
       ) => {
         foregroundChildCalled = true
         t.equal(cmd, process.execPath)
@@ -64,7 +64,7 @@ t.test('let fg end process if before proc fails', async t => {
       foregroundChild: (
         cmd: string,
         args: string[],
-        cb: (code: number) => any
+        cb: (code: number) => any,
       ) => {
         foregroundChildCalled = true
         t.equal(cmd, process.execPath)

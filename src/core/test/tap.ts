@@ -39,7 +39,7 @@ const main = () => {
       .replace(/columnNumber: [0-9]+/g, 'columnNumber: ##')
       .replace(
         /After\.#callTeardown \([^)]+\)/g,
-        'After.#callTeardown (...)'
+        'After.#callTeardown (...)',
       )
       .replace(/TAP\.#t\.onEOF \([^)]+\)/g, 'TAP.#t.onEOF (...)')
       // node 16 puts this here and node 18 doesn't
@@ -48,12 +48,12 @@ const main = () => {
       // node 20 puts <anonymous> on some stack trace frames
       .replace(
         /(\s|^)<anonymous> \(test\/tap\.ts:##:##\)\n/g,
-        '$1test/tap.ts:##:##\n'
+        '$1test/tap.ts:##:##\n',
       )
       // node 20 puts cruft around thrown strings
       .replace(
         /^\s*node:internal[^:]+:[0-9]+\s+internalBinding[^\n]+\s+\^\s+([^\n]+)(.|\s)*$/,
-        "'$1'\n"
+        "'$1'\n",
       )
       // non-deterministic and version-specific
       .replace(/ +requests:\n +- type: FileHandleCloseReq\n/g, '')
@@ -277,7 +277,7 @@ const cases: Record<string, () => any> = {
       ],
       {
         timeout: 4321,
-      }
+      },
     )
     subtest!.on('end', () => {
       t.equal(subtest?.options.timeout, 12345, 'updated timeout')
@@ -297,7 +297,7 @@ const cases: Record<string, () => any> = {
       {
         eval: true,
         timeout: 4321,
-      }
+      },
     )
     subtest!.on('end', () => {
       t.equal(subtest?.options.timeout, 12345, 'updated timeout')

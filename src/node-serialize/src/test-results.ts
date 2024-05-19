@@ -11,7 +11,7 @@ import { testMessageData } from './test-message-data.js'
 export const testResults = (
   t: Base,
   count: number,
-  testNumber: number
+  testNumber: number,
 ): PassData | FailData | undefined => {
   if (!t.parent) return
 
@@ -30,8 +30,9 @@ export const testResults = (
     testNumber,
   }
 
-  const skip = results.plan.skipAll
-    ? results.plan.skipReason || true
+  const skip =
+    results.plan.skipAll ?
+      results.plan.skipReason || true
     : t.options.skip
   if (skip) p.skip = skip
   const todo = t.options.todo
@@ -53,8 +54,9 @@ export const testResults = (
           cause: m,
           /* c8 ignore start */
           failures: results.failures.map(f => f.name || f.tapError),
-          stack: t.options.stack
-            ? expandStack(t.options.stack)
+          stack:
+            t.options.stack ?
+              expandStack(t.options.stack)
             : undefined,
           /* c8 ignore stop */
         }),
@@ -71,7 +73,7 @@ export const testResults = (
         name: 'Unknown test failure',
         diag: {},
       },
-    t
+    t,
   )
 
   return {

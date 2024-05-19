@@ -42,7 +42,7 @@ export const types: Record<
 > = {}
 export const addType = (
   name: string,
-  report: Reporter | typeof Minipass<string>
+  report: Reporter | typeof Minipass<string>,
 ) => {
   types[name] = report
 }
@@ -59,7 +59,7 @@ export const report = async (
   Type: string | Reporter | typeof Minipass<string>,
   tap: TAP,
   config: LoadedConfig,
-  stdout: Writable = process.stdout
+  stdout: Writable = process.stdout,
 ) => {
   if (typeof Type === 'string') {
     if (types.hasOwnProperty(Type)) {
@@ -77,9 +77,9 @@ export const report = async (
     tap.on('complete', () => process.stdout.write('\x1b[?25h'))
     const T = Type as Reporter
     const opts =
-      stdout === process.stdout
-        ? { patchConsole: false }
-        : (stdout as WriteStream)
+      stdout === process.stdout ?
+        { patchConsole: false }
+      : (stdout as WriteStream)
     render(<T test={tap} config={config}></T>, opts)
   }
   return true

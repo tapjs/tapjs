@@ -400,7 +400,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * @group Internal Machinery
    */
   timeout(
-    options: Extra & { expired?: string } = { expired: this.name }
+    options: Extra & { expired?: string } = { expired: this.name },
   ) {
     options.expired = options.expired || this.name
     if (this.#occupied && this.#occupied instanceof Base) {
@@ -418,7 +418,7 @@ export class TestBase extends Base<TestBaseEvents> {
   pragma(set: { [k: string]: boolean }) {
     const p = Object.keys(set).reduce(
       (acc, i) => acc + 'pragma ' + (set[i] ? '+' : '-') + i + '\n',
-      ''
+      '',
     )
     this.queue.push(p)
     this.#process()
@@ -507,7 +507,7 @@ export class TestBase extends Base<TestBaseEvents> {
     return this.#currentAssert
   }
   set currentAssert(
-    fn: undefined | Function | ((...a: any[]) => any)
+    fn: undefined | Function | ((...a: any[]) => any),
   ) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
@@ -545,7 +545,7 @@ export class TestBase extends Base<TestBaseEvents> {
     ok: boolean,
     message: string,
     extra: Extra,
-    front: boolean = false
+    front: boolean = false,
   ) {
     this.currentAssert = this.#printResult
     this.#printedResult = true
@@ -562,14 +562,12 @@ export class TestBase extends Base<TestBaseEvents> {
       // and even then, pretty hard to trigger, since it would mean
       // going several turns of the event loop and hitting it at just
       // the right time before the process quits.
-      const failMessage = this.#promiseEnded
-        ? 'test assertion after Promise resolution'
-        : this.#explicitEnded
-        ? 'test assertion after end() was called'
-        : this.#explicitPlan
-        ? 'test assertion count exceeds plan'
-        : /* c8 ignore start */
-          'assertion after automatic end'
+      const failMessage =
+        this.#promiseEnded ? 'test assertion after Promise resolution'
+        : this.#explicitEnded ?
+          'test assertion after end() was called'
+        : this.#explicitPlan ? 'test assertion count exceeds plan'
+        : /* c8 ignore start */ 'assertion after automatic end'
       /* c8 ignore stop */
 
       const er = new Error(failMessage, {
@@ -595,13 +593,10 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     const diagnostic =
-      typeof extra.diagnostic === 'boolean'
-        ? extra.diagnostic
-        : typeof this.diagnostic === 'boolean'
-        ? this.diagnostic
-        : extra.skip || extra.todo
-        ? false
-        : !ok
+      typeof extra.diagnostic === 'boolean' ? extra.diagnostic
+      : typeof this.diagnostic === 'boolean' ? this.diagnostic
+      : extra.skip || extra.todo ? false
+      : !ok
 
     if (diagnostic) {
       extra.diagnostic = true
@@ -725,7 +720,7 @@ export class TestBase extends Base<TestBaseEvents> {
   waitOn(
     promise: Promise<any | void>,
     cb?: (w: Waiter) => any,
-    expectReject: boolean = false
+    expectReject: boolean = false,
   ): Promise<void> {
     const w = new Waiter(
       promise,
@@ -735,7 +730,7 @@ export class TestBase extends Base<TestBaseEvents> {
         this.#occupied = null
         this.#process()
       },
-      expectReject
+      expectReject,
     )
     // if the top of the queue is still the version line, we come
     // in after that. otherwise, it should be the next thing processed.
@@ -783,7 +778,7 @@ export class TestBase extends Base<TestBaseEvents> {
         '#end: queue not empty, or occupied',
         this.#awaitingEnd,
         this.#occupied,
-        this.queue
+        this.queue,
       )
       if (!this.#awaitingEnd) {
         this.#awaitingEnd = implicit === IMPLICIT ? IMPLICIT : true
@@ -797,7 +792,7 @@ export class TestBase extends Base<TestBaseEvents> {
         if (!this.#multiEndThrew) {
           this.#multiEndThrew = true
           const er = new Error(
-            'test end() method called more than once'
+            'test end() method called more than once',
           )
           Error.captureStackTrace(er, this.#currentAssert || this.end)
           er.cause = {
@@ -847,11 +842,9 @@ export class TestBase extends Base<TestBaseEvents> {
       argv.slice(2).join(' ')
     ).trim()
     const n: string[] = [
-      (this.parent
-        ? this.parent.fullname
-        : main === 'TAP'
-        ? 'TAP'
-        : relative(cwd, main).replace(/\\/g, '/')
+      (this.parent ? this.parent.fullname
+      : main === 'TAP' ? 'TAP'
+      : relative(cwd, main).replace(/\\/g, '/')
       ).trim(),
     ]
     // tests will generally always have a name
@@ -931,7 +924,7 @@ export class TestBase extends Base<TestBaseEvents> {
           this.debug(
             ' > weird method not found in queue??',
             m,
-            typeof this[m]
+            typeof this[m],
           )
           continue
         }
@@ -946,7 +939,7 @@ export class TestBase extends Base<TestBaseEvents> {
             (er: unknown) => {
               this.#processing = false
               this.threw(er)
-            }
+            },
           )
           return
         }
@@ -989,7 +982,7 @@ export class TestBase extends Base<TestBaseEvents> {
       'done processing',
       this.queue,
       this.#occupied,
-      this.#awaitingEnd
+      this.#awaitingEnd,
     )
     this.#processing = false
 
@@ -1001,12 +994,12 @@ export class TestBase extends Base<TestBaseEvents> {
       this.debug(
         'idle after #process',
         this.#awaitingEnd,
-        this.#occupied
+        this.#occupied,
       )
       if (this.#awaitingEnd) {
         this.debug('awaited end in process', this.#awaitingEnd)
         this.#end(
-          this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined
+          this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined,
         )
       }
       // the root tap runner uses this event to know when it is safe to
@@ -1053,9 +1046,9 @@ export class TestBase extends Base<TestBaseEvents> {
     p.readyToProcess = true
     const to = p.options.timeout
     const dur =
-      to && p.passing()
-        ? Number(hrtime.bigint() - p.start) / 1e6
-        : null
+      to && p.passing() ?
+        Number(hrtime.bigint() - p.start) / 1e6
+      : null
     if (dur && to && dur > to) {
       p.timeout()
     } else {
@@ -1065,7 +1058,7 @@ export class TestBase extends Base<TestBaseEvents> {
       '%s.#onBufferedEnd',
       this.name,
       p.name,
-      p.results.bailout
+      p.results.bailout,
     )
     p.options.tapChildBuffer = p.output || ''
     p.options.stack = ''
@@ -1170,7 +1163,7 @@ export class TestBase extends Base<TestBaseEvents> {
             this.#occupied,
             this.queue,
             this.#explicitPlan,
-            this.#awaitingEnd
+            this.#awaitingEnd,
           )
           // the promise has ended
           // If we had an explicit plan that is now satisfied but was waiting
@@ -1191,7 +1184,7 @@ export class TestBase extends Base<TestBaseEvents> {
             // implicit end is this function right here.
             this.#end(
               /* c8 ignore start */
-              this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined
+              this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined,
               /* c8 ignore stop */
             )
           } else {
@@ -1206,7 +1199,7 @@ export class TestBase extends Base<TestBaseEvents> {
           }
           er.tapCaught = 'returnedPromiseRejection'
           done(er)
-        }
+        },
       )
     } else {
       done()
@@ -1251,7 +1244,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * @group Subtest Methods
    */
   stdinOnly<T extends BaseOpts>(
-    extra?: T & { tapStream?: Readable | Minipass<string | Buffer> }
+    extra?: T & { tapStream?: Readable | Minipass<string | Buffer> },
   ) {
     const stream = (extra?.tapStream ?? process.stdin) as Minipass
     /* c8 ignore start */
@@ -1314,7 +1307,7 @@ export class TestBase extends Base<TestBaseEvents> {
   sub<T extends Base, O extends BaseOpts>(
     Class: { new (options: O): T },
     extra: O | TestBaseOpts = {},
-    caller: (...a: any[]) => unknown = this.sub
+    caller: (...a: any[]) => unknown = this.sub,
   ): PromiseWithSubtest<T> {
     if (this.bailedOut) {
       return Object.assign(Promise.resolve(null), {
@@ -1323,12 +1316,11 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     if (this.results || this.ended) {
-      const msg = this.#promiseEnded
-        ? 'cannot create subtest after parent promise resolves'
-        : this.#explicitEnded
-        ? 'subtest after parent test end()'
-        : this.#explicitPlan
-        ? 'test count exceeds plan'
+      const msg =
+        this.#promiseEnded ?
+          'cannot create subtest after parent promise resolves'
+        : this.#explicitEnded ? 'subtest after parent test end()'
+        : this.#explicitPlan ? 'test count exceeds plan'
         : /* c8 ignore start */
           'cannot create subtest after parent test ends'
       /* c8 ignore stop */
@@ -1392,7 +1384,7 @@ export class TestBase extends Base<TestBaseEvents> {
   threw(
     er: any,
     extra?: Extra,
-    proxy: boolean = false
+    proxy: boolean = false,
   ): Extra | void | undefined {
     this.debug('TestBase.threw', this.name, er.message)
     // this can happen if a beforeEach throws.  capture the error here
@@ -1448,8 +1440,9 @@ export class TestBase extends Base<TestBaseEvents> {
         // error `Name: message` line.
         /* c8 ignore start */
         const f = `${er.name || 'Error'}: ${er.message}\n`
-        const st = er.stack.startsWith(f)
-          ? er.stack.substring(f.length)
+        const st =
+          er.stack.startsWith(f) ?
+            er.stack.substring(f.length)
           : er.stack
         /* c8 ignore stop */
         const p = stack.parseStack(st)
@@ -1468,8 +1461,8 @@ export class TestBase extends Base<TestBaseEvents> {
       this.#occupied.abort(
         Object.assign(
           new Error('error thrown while awaiting Promise'),
-          { thrown: er }
-        )
+          { thrown: er },
+        ),
       )
       this.#occupied = null
     }
@@ -1583,7 +1576,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * @group Internal Machinery
    */
   shouldSkipChild<O extends BaseOpts>(
-    extra: O | TestBaseOpts | BaseOpts
+    extra: O | TestBaseOpts | BaseOpts,
   ): boolean {
     return !!(extra.skip || extra.todo)
   }

@@ -57,7 +57,7 @@ const LOGS = new Map<TestBase, LogEntry[]>()
 export const useLog = (
   test: TestBase,
   config: LoadedConfig,
-  includeTests: boolean = false
+  includeTests: boolean = false,
 ) => {
   const fromCache = LOGS.get(test) || []
   LOGS.set(test, fromCache)
@@ -78,7 +78,7 @@ export const useLog = (
       cleanup.push(
         patchConsole((_stream, text) => {
           appendLog({ text })
-        })
+        }),
       )
 
       for (const test of tests) {
@@ -90,14 +90,16 @@ export const useLog = (
               fd: 1,
               text: c,
             })
-          })
+          }),
         )
 
         // the terse report does not show log lines for tests
         // completing, just the other stuff.
         if (includeTests) {
           cleanup.push(
-            listenCleanup(test, 'complete', () => appendLog({ test }))
+            listenCleanup(test, 'complete', () =>
+              appendLog({ test }),
+            ),
           )
         }
 
@@ -110,7 +112,7 @@ export const useLog = (
                 fd: 2,
                 text: String(c),
               })
-            })
+            }),
           )
         }
 
@@ -131,14 +133,14 @@ export const useLog = (
                   fd: 0,
                   text: c,
                 })
-              })
+              }),
             )
           }
           onChild(test.parser)
         }
       }
     },
-    [logs, tests]
+    [logs, tests],
   )
 
   return logs

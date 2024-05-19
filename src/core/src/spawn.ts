@@ -87,7 +87,7 @@ export class Spawn extends Base<SpawnEvents> {
     IOType | Stream | number | null | undefined,
     'pipe',
     IOType | Stream | number | null | undefined,
-    'ipc'
+    'ipc',
   ]
   env: { [k: string]: string } | NodeJS.ProcessEnv
   proc: null | ChildProcess = null
@@ -126,7 +126,7 @@ export class Spawn extends Base<SpawnEvents> {
         /* c8 ignore start */
         if (stdin === 'ipc' || stderr === 'ipc') {
           throw new Error(
-            'cannot spawn subtest with ipc in stdin or stderr'
+            'cannot spawn subtest with ipc in stdin or stderr',
           )
         }
         /* c8 ignore stop */
@@ -186,13 +186,13 @@ export class Spawn extends Base<SpawnEvents> {
     const proc = (this.proc = ProcessInfo.spawn(
       this.command,
       this.args,
-      options
+      options,
     ))
     /* c8 ignore start */
     if (!hasStdout(proc)) {
       return this.threw(
         'failed to open child process stdout',
-        this.options
+        this.options,
       )
     }
     /* c8 ignore stop */
@@ -294,7 +294,7 @@ export class Spawn extends Base<SpawnEvents> {
             // doesn't matter.
             /* c8 ignore start */
           },
-          () => {}
+          () => {},
         )
       } catch {}
       /* c8 ignore stop */
@@ -329,19 +329,17 @@ export class Spawn extends Base<SpawnEvents> {
 
   static procName(cwd: string, command: string, args: string[]) {
     return (
-      command === process.execPath
-        ? basename(process.execPath) +
-          ' ' +
-          args
-            .map(a =>
-              a.indexOf(cwd) === 0
-                ? './' +
-                  a.substring(cwd.length + 1).replace(/\\/g, '/')
-                : a
-            )
-            .join(' ')
-            .trim()
-        : command + ' ' + args.join(' ')
-    ).replace(/\\/g, '/')
+      command === process.execPath ?
+        basename(process.execPath) +
+        ' ' +
+        args
+          .map(a =>
+            a.indexOf(cwd) === 0 ?
+              './' + a.substring(cwd.length + 1).replace(/\\/g, '/')
+            : a,
+          )
+          .join(' ')
+          .trim()
+      : command + ' ' + args.join(' ')).replace(/\\/g, '/')
   }
 }

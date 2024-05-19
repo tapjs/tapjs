@@ -101,7 +101,7 @@ t.test('spawn something', t => {
 ok 1 - this is fine
 ok 2 - later maybe # TODO
 not ok 3 - y
-`
+`,
     )
 
     t.end()
@@ -128,7 +128,7 @@ t.test('timeout', t => {
     parent.end()
     t.equal(
       await w.concat(),
-      'TAP version 14\n1..0 # no tests found\n'
+      'TAP version 14\n1..0 # no tests found\n',
     )
     t.equal(
       await parent.concat(),
@@ -139,7 +139,7 @@ not ok 1 - timeout!
   ...
 
 1..1
-`
+`,
     )
 
     t.end()
@@ -240,7 +240,7 @@ t.test('abort unfinished', t => {
 not ok 1 - test unfinished
 
 1..1
-`
+`,
     )
     t.end()
   })
@@ -299,7 +299,7 @@ t.test('send message from worker to make a comment', t => {
       `TAP version 14
 1..1
 ok 1
-`
+`,
     )
     t.end()
   })

@@ -34,32 +34,38 @@ const npmGetPrefix = (cwd: string) =>
     shell: true,
   }).stdout || null
 
-export const npmFindCwd = async (globCwd: string): Promise<string> =>
+export const npmFindCwd = async (
+  projectRoot: string,
+): Promise<string> =>
   (npmCwd ??=
     // if tap is in node_modules, take the parent.
     // almost always going to be the one that hits.
-    (await getDepNMParent('tap', globCwd)) ??
+    (await getDepNMParent('tap', projectRoot)) ??
     // failing that, look for the Test class they're using.
-    (await getDepNMParent('@tapjs/test', globCwd)) ??
+    (await getDepNMParent('@tapjs/test', projectRoot)) ??
     // the workspace root, if we're in a monorepo workspace
-    npmGetPrefix(globCwd) ??
+    npmGetPrefix(projectRoot) ??
     // fall back finally to the project root
-    globCwd)
+    projectRoot)
 
 const npmFreeEnv = Object.fromEntries(
-  Object.entries(process.env).filter(([k]) => !/^npm_/i.test(k))
+  Object.entries(process.env).filter(([k]) => !/^npm_/i.test(k)),
 )
 
 /**
  * Run an npm command in the background, returning the result
  */
 export const npmBg = (args: string[], config: LoadedConfig) =>
-  spawnSync('npm', ['--prefix', npmCwd ?? config.globCwd, ...args], {
-    env: npmFreeEnv,
-    encoding: 'utf8',
-    cwd: npmCwd || config.globCwd,
-    shell: true,
-  })
+  spawnSync(
+    'npm',
+    ['--prefix', npmCwd ?? config.projectRoot, ...args],
+    {
+      env: npmFreeEnv,
+      encoding: 'utf8',
+      cwd: npmCwd || config.projectRoot,
+      shell: true,
+    },
+  )
 
 /**
  * Run an npm command in the foreground
@@ -69,27 +75,27 @@ const npmFg = (
   config: LoadedConfig,
   cb: (
     code: number | null,
-    signal: NodeJS.Signals | null
+    signal: NodeJS.Signals | null,
   ) =>
     | number
     | false
     | void
     | NodeJS.Signals
     | Promise<number | false | void | NodeJS.Signals | undefined>
-    | undefined
+    | undefined,
 ) =>
   foregroundChild(
     'npm',
     // will always have set npmCwd by now
     /* c8 ignore start */
-    ['--prefix', npmCwd ?? config.globCwd, ...args],
+    ['--prefix', npmCwd ?? config.projectRoot, ...args],
     {
       env: npmFreeEnv,
-      cwd: npmCwd || config.globCwd,
+      cwd: npmCwd || config.projectRoot,
       shell: true,
       /* c8 ignore stop */
     },
-    cb
+    cb,
   )
 
 // suppress all non-essential npm output
@@ -97,16 +103,19 @@ const quiet = ['--no-audit', '--loglevel=error', '--no-progress']
 
 export const install = async (
   pkgs: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
-  await npmFindCwd(config.globCwd)
+  await npmFindCwd(config.projectRoot)
   const args = ['install', ...quiet, '--save-dev', ...pkgs]
   await new Promise<void>((res, rej) => {
     npmFg(args, config, (code, signal) => {
       // allow error exit to proceed
       if (code || signal) {
         rej(
-          Object.assign(new Error('install failed'), { code, signal })
+          Object.assign(new Error('install failed'), {
+            code,
+            signal,
+          }),
         )
         return
       }
@@ -119,15 +128,15 @@ export const install = async (
 
 export const uninstall = async (
   pkgs: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
-  await npmFindCwd(config.globCwd)
+  await npmFindCwd(config.projectRoot)
   const args = ['rm', ...quiet, ...pkgs]
   await new Promise<void>(res =>
     npmFg(args, config, (code, signal) => {
       // allow error exit to proceed
       res()
       return code || signal ? undefined : false
-    })
+    }),
   )
 }

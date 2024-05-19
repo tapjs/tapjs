@@ -6,15 +6,15 @@ import { mainCommand } from './main-config.js'
 const tmbin = fileURLToPath(
   await resolveImport(
     '@tapjs/test/generate-tap-test-class',
-    import.meta.url
-  )
+    import.meta.url,
+  ),
 )
 const node = process.execPath
 
 export const build = async (args: string[], config: LoadedConfig) => {
   if (args.length !== 0) {
     throw new TypeError(
-      'build command does not take positional arguments'
+      'build command does not take positional arguments',
     )
   }
 
@@ -32,7 +32,7 @@ export const build = async (args: string[], config: LoadedConfig) => {
           Object.assign(new Error('build failed'), {
             code,
             signal,
-          })
+          }),
         )
       } else {
         res()

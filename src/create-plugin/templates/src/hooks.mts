@@ -22,7 +22,7 @@ export const load: LoadHook = async (url, context, nextLoad) =>
 export const resolve: ResolveHook = async (
   url,
   context,
-  nextResolve
+  nextResolve,
 ) => nextResolve(url, context)
 
 // arguments are whatever data is passed in via Module.register() in import.mts

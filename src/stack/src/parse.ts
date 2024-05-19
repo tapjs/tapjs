@@ -142,7 +142,7 @@ const parseCallSiteLine_ = (line: string): Compiled => {
         string,
         string,
         string,
-        string
+        string,
       ]
   if (wem) {
     const evalOrigin = parseCallSiteLine(wem[2])
@@ -167,7 +167,7 @@ const compileLineRefParse = (
   file: string | undefined,
   line: string | undefined,
   col: string | undefined,
-  other: string | undefined
+  other: string | undefined,
 ): LineRef | NativeLineRef | Compiled => {
   if (other === 'native') {
     return { isNative: true, [isCompiled]: true }
@@ -193,8 +193,8 @@ const parseLineRefs = (line: string): Compiled => {
   const tm = line.match(trailingLineRefsRe)
   if (!tm) {
     const bm = line.match(bareLineRefRe)
-    return bm
-      ? compileLineRefParse(bm[1], bm[2], bm[3], bm[4])
+    return bm ?
+        compileLineRefParse(bm[1], bm[2], bm[3], bm[4])
       : { fname: line, [isCompiled]: true }
   }
 
@@ -232,13 +232,11 @@ const parseLineRefs = (line: string): Compiled => {
   /* c8 ignore start */
   pre += lineRefs
     .map(lr =>
-      isLineRef(lr)
-        ? ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
-        : lr.isNative
-        ? ` (native)`
-        : lr.fileName
-        ? ` (${lr.fileName})`
-        : ''
+      isLineRef(lr) ?
+        ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
+      : lr.isNative ? ` (native)`
+      : lr.fileName ? ` (${lr.fileName})`
+      : '',
     )
     .join('')
   /* c8 ignore stop */

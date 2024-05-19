@@ -46,28 +46,28 @@ t.test('array likes', t => {
       i: (function (..._: any[]) {
         return arguments
       })(1, 2, 3),
-    })
+    }),
   )
   t.ok(
     has(t, a, {
       i: (function (..._: any[]) {
         return arguments
       })(1, 2, 3),
-    })
+    }),
   )
   t.ok(
     has(t, a, {
       a: (function (..._: any[]) {
         return arguments
       })(1, 2),
-    })
+    }),
   )
   t.ok(
     has(t, a, {
       i: (function (..._: any[]) {
         return arguments
       })(1, 2),
-    })
+    }),
   )
   t.notOk(has(t, arr, { foo: 'bar' }))
   t.end()
@@ -83,7 +83,7 @@ t.test('map', t => {
         [{ a: 1 }, 1],
         [{ a: 1 }, 1],
       ]),
-    })
+    }),
   )
   t.notOk(
     has(t, a, {
@@ -91,7 +91,7 @@ t.test('map', t => {
         [3, 4],
         ['3', 4],
       ]),
-    })
+    }),
   )
   t.ok(
     has(t, a, {
@@ -99,7 +99,7 @@ t.test('map', t => {
         [3, 4],
         [1, 2],
       ]),
-    })
+    }),
   )
   t.ok(
     has(t, a, {
@@ -107,7 +107,7 @@ t.test('map', t => {
         [1, 2],
         [3, 4],
       ]),
-    })
+    }),
   )
   t.notOk(
     has(t, a, {
@@ -115,7 +115,7 @@ t.test('map', t => {
         [1, 2],
         [4, 3],
       ]),
-    })
+    }),
   )
   t.notOk(has(t, a, { em: new Map([[1, 2]]) }))
   t.notOk(has(t, a, { em: new Map([[1, 2]]) }))
@@ -132,7 +132,7 @@ t.test('set', t => {
   t.notOk(
     has(t, a, {
       cs: new Set([{ a: 1 }, { a: 1 }, { a: 1 }]),
-    })
+    }),
   )
   t.end()
 })
@@ -168,7 +168,7 @@ t.test('complex object', t => {
       c: {
         s: new Set([new Map<any, any>([[{ s: new Set() }, a]])]),
       },
-    })
+    }),
   )
   t.notOk(has(t, a, { xyz: true }))
 
@@ -183,13 +183,13 @@ t.test('complex object', t => {
 
 t.test('errors', t => {
   const er: Error & { code?: number; signal?: string } = new Error(
-    'foo'
+    'foo',
   )
   er.code = 1
   er.signal = 'blerg'
   t.ok(has(t, er, { code: 1 }))
   const er2: Error & { code?: number; signal?: string } = new Error(
-    'foo'
+    'foo',
   )
   er2.signal = 'blerg'
   t.ok(has(t, er, er2))
@@ -287,7 +287,7 @@ t.test('sort pojos', t => {
 +  "m": 3,
 +  "x": 1,
  }
-`
+`,
   )
   t.end()
 })

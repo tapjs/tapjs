@@ -41,7 +41,7 @@ t.test('diff some stuff', async t => {
     'expected',
     'actual',
     JSON.stringify(wanted, null, 2) + '\n',
-    JSON.stringify(found, null, 2) + '\n'
+    JSON.stringify(found, null, 2) + '\n',
   )
   const app = render(<Diff diff={diff} />)
   t.matchSnapshot(app.lastFrame())
@@ -82,7 +82,7 @@ t.test('weird ctx line', async t => {
     'expected',
     'actual',
     JSON.stringify(wanted, null, 2) + '\n',
-    JSON.stringify(found, null, 2) + '\n'
+    JSON.stringify(found, null, 2) + '\n',
   ).replace(/^@.*$/m, '@apple is a fruit@')
   const app = render(<Diff diff={diff} />)
   t.matchSnapshot(app.lastFrame())
@@ -114,9 +114,9 @@ I am a sojourner in civilized life again.`
         'expected',
         'actual',
         expected,
-        actual
+        actual,
       )}
-    />
+    />,
   )
   t.matchSnapshot(app.lastFrame())
 })
@@ -126,7 +126,7 @@ t.test('ansi escape codes', async t => {
     `Oh \x1b[1mdeary \x1b[2mdeary \x1b[0mdear.`,
     {
       cause: 'foo',
-    }
+    },
   )
   const actual = new Error(`Oh deary deary dear.`, { cause: 'bar' })
 
@@ -136,9 +136,9 @@ t.test('ansi escape codes', async t => {
         'expected',
         'actual',
         format(expected),
-        format(actual)
+        format(actual),
       )}
-    />
+    />,
   )
   t.matchSnapshot(app.lastFrame())
 })

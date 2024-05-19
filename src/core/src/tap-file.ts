@@ -64,14 +64,14 @@ export class TapFile extends Base<TapFileEvents> {
   static getName(
     name?: string,
     filename?: string,
-    cwd: string = procCwd
+    cwd: string = procCwd,
   ) {
     if (name) return name
     if (!filename) return 'file input'
     const rel = relative(cwd, filename)
     return (rel.startsWith('..' + sep) ? filename : rel).replace(
       /\.tap$/,
-      ''
+      '',
     )
   }
 
@@ -82,8 +82,9 @@ export class TapFile extends Base<TapFileEvents> {
     } else if (!this.tapStream) {
       throw new Error('either tapStream or filename must be provided')
     }
-    (this.tapStream as Minipass<Buffer>).on('error', er => {
-      (er as Error & { tapCaught: string }).tapCaught = this.caughtName
+    ;(this.tapStream as Minipass<Buffer>).on('error', er => {
+      ;(er as Error & { tapCaught: string }).tapCaught =
+        this.caughtName
       this.threw(er)
     })
     if (this.options.timeout) {

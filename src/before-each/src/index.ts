@@ -62,7 +62,7 @@ export class BeforeEach {
     loop(
       this.#onBeforeEach.map(f => () => f(this.#t.t)),
       cb,
-      onerr
+      onerr,
     )
   }
 }

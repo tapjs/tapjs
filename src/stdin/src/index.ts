@@ -31,7 +31,7 @@ export class StdinPlugin {
   stdin(extra: StdinOpts): PromiseWithStdin
   stdin(
     name?: string | StdinOpts,
-    extra?: StdinOpts
+    extra?: StdinOpts,
   ): PromiseWithStdin {
     if (name && typeof name === 'object') {
       extra = name
@@ -42,7 +42,7 @@ export class StdinPlugin {
     return this.#t.sub(
       Stdin,
       parseTestArgs<Stdin>(name, extra, stdinCB),
-      this.#t.t.stdin
+      this.#t.t.stdin,
     )
   }
 }

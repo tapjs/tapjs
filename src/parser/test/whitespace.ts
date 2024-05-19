@@ -42,7 +42,7 @@ t.test('drop whitespace', function (t) {
         .filter(function (line) {
           return line.trim()
         })
-        .join('\n') + '\n'
+        .join('\n') + '\n',
     )
     t.end()
   })

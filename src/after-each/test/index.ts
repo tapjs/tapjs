@@ -165,7 +165,7 @@ t.test('rejected ae fails relevant test', async t => {
     `
               if (tt.name === 'fail') throw new Error('nope')
         ------------------------------------^
-`
+`,
   )
   t.strictSame(log, [
     ['child main'],
@@ -205,7 +205,7 @@ t.test('throwing ae fails relevant test', async t => {
     `
               if (tt.name === 'fail') throw new Error('nope')
         ------------------------------------^
-`
+`,
   )
   t.strictSame(log, [
     ['child main'],

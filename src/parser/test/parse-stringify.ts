@@ -18,7 +18,7 @@ for (const tapFile of tapFiles) {
     t.snapshotFile = path.resolve(
       __dirname,
       '..',
-      `tap-snapshots/test/parser-stringify/${tapFile}.test.cjs`
+      `tap-snapshots/test/parser-stringify/${tapFile}.test.cjs`,
     )
     t.plan(4)
     const tapContent = await fs.promises.readFile(f, 'utf8')

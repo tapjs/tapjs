@@ -4,14 +4,14 @@ import { listenCleanup } from '../listen-cleanup.js'
 
 export const useBailedOut = (t: Base) => {
   const [bailedOut, setBailedOut] = useState<string | boolean>(
-    t.bailedOut
+    t.bailedOut,
   )
   useLayoutEffect(
     () =>
       listenCleanup(t, 'bailout', (reason?: string) =>
-        setBailedOut(reason || true)
+        setBailedOut(reason || true),
       ),
-    [t.bailedOut]
+    [t.bailedOut],
   )
   return bailedOut
 }

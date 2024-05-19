@@ -5,7 +5,7 @@ import t from 'tap'
 const originalEnv = { ...process.env }
 originalEnv._TAP_REPL = '0'
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('do not run if already in the repl', async t => {
@@ -62,7 +62,7 @@ t.test('run a repl with no args', async t => {
     },
   })
   r.result = 'result'
-  await repl([], { globCwd: 'cwd' } as unknown as LoadedConfig)
+  await repl([], { projectRoot: 'cwd' } as unknown as LoadedConfig)
   t.equal(r.parsed, undefined)
   t.equal(r.running, true)
   t.strictSame(logs(), [])
@@ -91,7 +91,7 @@ t.test('run a repl with args', async t => {
   })
   r.result = 'result'
   await repl(['a', 'b', 'c'], {
-    globCwd: 'cwd',
+    projectRoot: 'cwd',
   } as unknown as LoadedConfig)
   t.equal(r.parsed, 'a b c')
   t.equal(r.running, true)

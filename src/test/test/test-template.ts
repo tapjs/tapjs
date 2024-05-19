@@ -55,7 +55,7 @@ t.test('make a test, do some stuff with it', async t => {
     // edge case unlikely to ever matter.
     t.strictSame(
       Object.getOwnPropertyDescriptor(ttd, 'foo'),
-      undefined
+      undefined,
     )
 
     t.strictSame(ttd.dummyConfig, {
@@ -82,9 +82,9 @@ t.test('make a test, do some stuff with it', async t => {
     t.equal('blahrgfg' in ttd, false)
     t.equal(
       Object.getOwnPropertyNames(Object.getPrototypeOf(ttd)).includes(
-        'myOwnDummyProp'
+        'myOwnDummyProp',
       ),
-      true
+      true,
     )
     t.equal(Object.getPrototypeOf(ttd).dummyConfig, ttd.dummyConfig)
     t.equal(ttd.whoami(), ttd)
@@ -105,7 +105,7 @@ t.test('make a test, do some stuff with it', async t => {
     t.equal(m.toString().replace(/[\s;]+/g, ''), 'method(){return1}')
     t.equal(
       ttd.method.toString.toString(),
-      'function toString() { [native code] }'
+      'function toString() { [native code] }',
     )
     t.equal(ttd.method(), 1)
     t.equal(ttd.method(), 1)
@@ -114,7 +114,7 @@ t.test('make a test, do some stuff with it', async t => {
     t.equal(ttd.method.toString().replace(/[\s;]+/g, ''), '()=>2')
     t.equal(
       ttd.method.toString.toString(),
-      'function toString() { [native code] }'
+      'function toString() { [native code] }',
     )
     t.equal(ttd.method(), 2)
     t.equal(ttd.method(), 2)

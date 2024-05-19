@@ -12,8 +12,8 @@ export const globalPreload: GlobalPreloadHook = ({ port }) => {
   client = new MockServiceClient(port)
   const serviceModuleCJS = JSON.stringify(
     fileURLToPath(
-      new URL('../commonjs/mock-service.js', import.meta.url)
-    )
+      new URL('../commonjs/mock-service.js', import.meta.url),
+    ),
   )
   const base = JSON.stringify(fileURLToPath(import.meta.url))
   return `
@@ -36,12 +36,12 @@ export const load: LoadHook = async (url, context, nextLoad) => {
     throw new Error(
       'initialize() or globalPreload() must be run prior to ' +
         'running the load() hook. Did you --loader when you meant ' +
-        '--import or vice versa?'
+        '--import or vice versa?',
     )
   }
   const source = await client.load(url)
-  return source
-    ? {
+  return source ?
+      {
         format: 'module',
         source: `${source}`,
         shortCircuit: true,
@@ -52,18 +52,18 @@ export const load: LoadHook = async (url, context, nextLoad) => {
 export const resolve: ResolveHook = async (
   url,
   context,
-  nextResolve
+  nextResolve,
 ) => {
   if (!client) {
     throw new Error(
       'initialize() or globalPreload() must be run prior to ' +
         'running the resolve() hook. Did you --loader when you meant ' +
-        '--import or vice versa?'
+        '--import or vice versa?',
     )
   }
   const response = await client.resolve(url, context.parentURL)
-  return response && response.startsWith('tapmock://')
-    ? {
+  return response && response.startsWith('tapmock://') ?
+      {
         url: response,
         format: 'module',
         shortCircuit: true,

@@ -128,17 +128,18 @@ export class Format {
     this.id = null
     this.idCounter = 0
     this.idMap = this.parent ? this.parent.idMap : new Map()
-    const style = this.parent
-      ? this.parent.style
+    const style =
+      this.parent ?
+        this.parent.style
       : styles[options.style || 'pretty']
     if (!style) {
       throw new TypeError(`unknown style: ${options.style}`)
     }
     this.style = style
     this.bufferChunkSize =
-      this.style.bufferChunkSize === Infinity
-        ? Infinity
-        : options.bufferChunkSize || this.style.bufferChunkSize
+      this.style.bufferChunkSize === Infinity ?
+        Infinity
+      : options.bufferChunkSize || this.style.bufferChunkSize
 
     // for printing child values of pojos and maps
     this.key = options.key
@@ -150,10 +151,9 @@ export class Format {
     }
 
     this.level = this.parent ? this.parent.level + 1 : 0
-    this.indent = this.parent
-      ? this.parent.indent
-      : typeof options.indent === 'string'
-      ? options.indent
+    this.indent =
+      this.parent ? this.parent.indent
+      : typeof options.indent === 'string' ? options.indent
       : '  '
     this.match = true
     this.object = obj
@@ -233,13 +233,14 @@ export class Format {
     )
   }
   isReactElementChildren(children: any): boolean {
-    return !children || typeof children === 'string'
-      ? true
-      : typeof children === 'object'
-      ? children instanceof Set || Array.isArray(children)
-        ? ![...children].some(c => !this.isReactElementChildren(c))
+    return (
+      !children || typeof children === 'string' ? true
+      : typeof children === 'object' ?
+        children instanceof Set || Array.isArray(children) ?
+          ![...children].some(c => !this.isReactElementChildren(c))
         : Format.prototype.isReactElement.call(this, children)
       : false
+    )
   }
 
   // technically this means "is an iterable we don't have another fit for"
@@ -297,22 +298,24 @@ export class Format {
 
   getClass(): string {
     const ts = objToString(this.object).slice(8, -1)
-    return this.object.constructor !== Object &&
-      this.object.constructor &&
-      this.object.constructor.name &&
-      this.object.constructor.name !== ts
-      ? this.object.constructor.name
-      : !Object.getPrototypeOf(this.object)
-      ? 'Null Object'
+    return (
+      (
+        this.object.constructor !== Object &&
+          this.object.constructor &&
+          this.object.constructor.name &&
+          this.object.constructor.name !== ts
+      ) ?
+        this.object.constructor.name
+      : !Object.getPrototypeOf(this.object) ? 'Null Object'
       : ts
+    )
   }
 
   get objectAsArray(): any[] | null {
     // return the object as an actual array, if we can
-    const value = Array.isArray(this.object)
-      ? this.object
-      : this.isArray()
-      ? arrayFrom(this.object)
+    const value =
+      Array.isArray(this.object) ? this.object
+      : this.isArray() ? arrayFrom(this.object)
       : null
 
     if (value === null) {
@@ -467,10 +470,9 @@ export class Format {
     }
     const indent = this.isKey ? '' : this.indentLevel()
     const key = this.isKeyless() ? '' : this.getKey()
-    const sep = !key
-      ? ''
-      : this.parent && this.parent.isMap()
-      ? this.style.mapKeyValSep()
+    const sep =
+      !key ? ''
+      : this.parent && this.parent.isMap() ? this.style.mapKeyValSep()
       : this.style.pojoKeyValSep()
     this.memo =
       this.style.start(indent, key, sep) + this.nodeId() + this.memo
@@ -481,28 +483,23 @@ export class Format {
       return
     }
     this.memo +=
-      this.isKey || !this.parent
-        ? ''
-        : this.parent.isMap()
-        ? this.style.mapEntrySep()
-        : this.parent.isBuffer()
-        ? ''
-        : this.parent.isArray()
-        ? this.style.arrayEntrySep()
-        : this.parent.isSet()
-        ? this.style.setEntrySep()
-        : this.parent.isString()
-        ? ''
-        : this.style.pojoEntrySep()
+      this.isKey || !this.parent ? ''
+      : this.parent.isMap() ? this.style.mapEntrySep()
+      : this.parent.isBuffer() ? ''
+      : this.parent.isArray() ? this.style.arrayEntrySep()
+      : this.parent.isSet() ? this.style.setEntrySep()
+      : this.parent.isString() ? ''
+      : this.style.pojoEntrySep()
   }
 
   getKey(): string {
-    return this.parent && this.parent.isMap()
-      ? this.style.mapKeyStart() +
+    return (
+      this.parent && this.parent.isMap() ?
+        this.style.mapKeyStart() +
           this.parent.child(this.key, { isKey: true }, Format).print()
-      : typeof this.key === 'string'
-      ? JSON.stringify(this.key)
+      : typeof this.key === 'string' ? JSON.stringify(this.key)
       : `[${this.#printSymbol(this.key)}]`
+    )
   }
 
   printCircular(seen: Format): void {
@@ -514,20 +511,16 @@ export class Format {
   }
 
   printCollection(): void {
-    return this.isError()
-      ? this.printError()
-      : this.isSet()
-      ? this.printSet()
-      : this.isMap()
-      ? this.printMap()
-      : this.isBuffer()
-      ? this.printBuffer()
-      : this.isArray() && this.objectAsArray
-      ? this.printArray()
-      : this.isReactElement()
-      ? this.printReactElement()
-      : // TODO streams, JSX
-        this.printPojo()
+    return (
+      this.isError() ? this.printError()
+      : this.isSet() ? this.printSet()
+      : this.isMap() ? this.printMap()
+      : this.isBuffer() ? this.printBuffer()
+      : this.isArray() && this.objectAsArray ? this.printArray()
+      : this.isReactElement() ? this.printReactElement()
+        // TODO streams, JSX
+      : this.printPojo()
+    )
   }
 
   nodeId(): string {
@@ -761,7 +754,7 @@ export class Format {
   printArrayBody(): void {
     if (this.objectAsArray) {
       this.objectAsArray.forEach((val, key) =>
-        this.printArrayEntry(key, val)
+        this.printArrayEntry(key, val),
       )
     }
   }
@@ -814,7 +807,7 @@ export class Format {
     // get all enumerable symbols
     const keys: symbol[] = Object.getOwnPropertySymbols(obj)
     return keys.filter(
-      k => Object.getOwnPropertyDescriptor(obj, k)?.enumerable
+      k => Object.getOwnPropertyDescriptor(obj, k)?.enumerable,
     )
   }
 
@@ -841,7 +834,7 @@ export class Format {
     }
 
     keys.push(
-      ...this.#getPojoKeys(obj).concat(this.#getPojoKeys(obj, true))
+      ...this.#getPojoKeys(obj).concat(this.#getPojoKeys(obj, true)),
     )
     if (!this.options.includeGetters) {
       return keys
@@ -904,9 +897,9 @@ export class Format {
         return [k, undefined]
       }
     })
-    return this.sort
-      ? ent.sort((a, b) =>
-          String(a[0]).localeCompare(String(b[0]), 'en')
+    return this.sort ?
+        ent.sort((a, b) =>
+          String(a[0]).localeCompare(String(b[0]), 'en'),
         )
       : ent
   }

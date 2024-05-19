@@ -18,7 +18,7 @@ const Tag: FC<{ test: Minimal }> = ({ test }) => {
         skip: !!r.skip,
         todo: !!r.todo,
       })),
-    ])
+    ]),
   )
   return (
     <Box>
@@ -205,6 +205,6 @@ t.test('show counts and lists', async t => {
           pass: [],
         },
       },
-    ]
+    ],
   )
 })

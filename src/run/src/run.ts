@@ -37,13 +37,13 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const testArgs: string[] = values['test-arg'] || []
   const testEnv: string[] = values['test-env'] || []
   /* c8 ignore stop */
-  process.env._TAPJS_PROCESSINFO_CWD_ = config.globCwd
+  process.env._TAPJS_PROCESSINFO_CWD_ = config.projectRoot
   process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
     // don't consider snapshots and fixtures, or else we'll
     // always think that all tests are new after generating!
     // TODO: these come from plugins, they should be able to export
     // this, like with testFileExtensions.
-    /(^(node|tapmock):|[\\\/](\.tap|tap-snapshots)[\\\/])/
+    /(^(node|tapmock):|[\\\/](\.tap|tap-snapshots)[\\\/])/,
   )
 
   const argv = testArgv(config)
@@ -61,15 +61,15 @@ export const run = async (args: string[], config: LoadedConfig) => {
   // on it, and it just takes up space in the .tap/coverage data.
   const _TAPJS_PROCESSINFO_COV_EXCLUDE_ = String(
     new RegExp(
-      '^' + regExpEscape(resolve(config.globCwd, 'node_modules'))
-    )
+      '^' + regExpEscape(resolve(config.projectRoot, 'node_modules')),
+    ),
   )
 
   return executeTestSuite(
     args,
     config,
     (
-      t
+      t,
     ): TAP &
       ReturnType<typeof AfterPlugin> &
       ReturnType<typeof SpawnPlugin> &
@@ -90,14 +90,17 @@ export const run = async (args: string[], config: LoadedConfig) => {
 
       // always set in dev, and the applyPlugin behavior is well tested
       /* c8 ignore start */
-      const a = (t as TAP).pluginLoaded(SpawnPlugin)
-        ? t
+      const a =
+        (t as TAP).pluginLoaded(SpawnPlugin) ?
+          t
         : t.applyPlugin(SpawnPlugin)
-      const b = (a as TAP).pluginLoaded(BeforePlugin)
-        ? a
+      const b =
+        (a as TAP).pluginLoaded(BeforePlugin) ?
+          a
         : a.applyPlugin(BeforePlugin)
-      const c = (b as TAP).pluginLoaded(StdinPlugin)
-        ? b
+      const c =
+        (b as TAP).pluginLoaded(StdinPlugin) ?
+          b
         : b.applyPlugin(StdinPlugin)
       /* c8 ignore stop */
       return c as TAP &
@@ -122,8 +125,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
 
       // don't delete old coverage if only running subset of suites
       if (!config.get('changed') && !saveList.length) {
-        await rimraf(resolve(config.globCwd, '.tap/processinfo'))
-        await rimraf(resolve(config.globCwd, '.tap/coverage'))
+        await rimraf(resolve(config.projectRoot, '.tap/processinfo'))
+        await rimraf(resolve(config.projectRoot, '.tap/coverage'))
       }
 
       outputDir(t, config)
@@ -133,7 +136,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       if (!_TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_) {
         _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_ = [
           ...covExcludeFiles.filter(f => typeof f === 'string'),
-          ...files.map(f => resolve(config.globCwd, f)),
+          ...files.map(f => resolve(config.projectRoot, f)),
         ].join('\n')
       }
 
@@ -145,15 +148,18 @@ export const run = async (args: string[], config: LoadedConfig) => {
         if (files.length === 1) return t.stdinOnly()
         else return t.stdin()
       }
-      const name = relative(config.globCwd, file).replace(/\\/g, '/')
+      const name = relative(config.projectRoot, file).replace(
+        /\\/g,
+        '/',
+      )
       const mapped = map(name)
       let coveredFiles: null | string[] =
-        mapped === null
-          ? null
-          : await glob(mapped, {
-              cwd: config.globCwd,
-              absolute: true,
-            })
+        mapped === null ? null : (
+          await glob(mapped, {
+            cwd: config.projectRoot,
+            absolute: true,
+          })
+        )
       if (mapped?.length && !coveredFiles?.length) {
         // provided a glob expression that didn't match anything.
         // cover nothing.
@@ -162,7 +168,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       const _TAPJS_PROCESSINFO_COVERAGE_ =
         coveredFiles === null ? '0' : '1'
       const _TAPJS_PROCESSINFO_COV_FILES_ = (coveredFiles || []).join(
-        '\n'
+        '\n',
       )
       const buffered = !testIsSerial(file) && t.jobs > 1
       const args = [...argv, file, ...testArgs]
@@ -173,10 +179,10 @@ export const run = async (args: string[], config: LoadedConfig) => {
         st.isBlockDevice() ||
         st.isFIFO() ||
         file.toLowerCase().endsWith('.tap')
-      return raw
-        ? t.sub<TapFile, TapFileOpts>(TapFile, {
+      return raw ?
+          t.sub<TapFile, TapFileOpts>(TapFile, {
             at: null,
-            cwd: config.globCwd,
+            cwd: config.projectRoot,
             buffered,
             filename: file,
           })
@@ -194,9 +200,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
               _TAPJS_PROCESSINFO_COV_EXCLUDE_,
             },
             name,
-            cwd: config.globCwd,
+            cwd: config.projectRoot,
             externalID: name,
           })
-    }
+    },
   )
 }

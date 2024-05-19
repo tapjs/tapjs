@@ -28,7 +28,7 @@ import { Init } from 'npm-init-template'
 // Provide it with the path to this file, so we know how to find
 // the template files.  If using commonjs, use __filename instead.
 const { prompt, build, values, positionals, run } = new Init(
-  import.meta.url
+  import.meta.url,
 )
 
 // any prompts that the user already set in the command line,
@@ -43,7 +43,7 @@ await prompt('What is your favorite color?', 'color', {
 })
 await prompt(
   'What is the flight average velocity of an unladen sparrow?',
-  'sparrow'
+  'sparrow',
 )
 
 if (values.sparrow === "I don't know") {

@@ -77,7 +77,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
         t.equal(
           res.at?.toJSON().generated?.fileName,
           undefined,
-          'generated fileName omitted, matches source'
+          'generated fileName omitted, matches source',
         )
 
         t.type(res.atBar, CallSiteLike)
@@ -99,12 +99,12 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
         t.not(
           res.atBar?.lineNumber,
           res.at?.lineNumber,
-          'at() and at(bar) return different lines'
+          'at() and at(bar) return different lines',
         )
         t.equal(
           res.atBar?.toJSON().generated?.fileName,
           undefined,
-          'generated fileName omitted, matches source'
+          'generated fileName omitted, matches source',
         )
         t.end()
       })
@@ -112,40 +112,40 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.test('string captures', t => {
         t.match(
           res.captureString,
-          /^baz \(test\/index\.ts:\d+:\d+\)\nbar \(test\/index\.ts:\d+:\d+\)\nfoo \(test\/index\.ts:\d+:\d+\)\nTest\.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.+/
+          /^baz \(test\/index\.ts:\d+:\d+\)\nbar \(test\/index\.ts:\d+:\d+\)\nfoo \(test\/index\.ts:\d+:\d+\)\nTest\.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.+/,
         )
         t.match(
           res.captureString4,
-          /^baz \(test\/index\.ts:\d+:\d+\)\nbar \(test\/index\.ts:\d+:\d+\)\nfoo \(test\/index\.ts:\d+:\d+\)\nTest\.<anonymous> \(test\/index\.ts:\d+:\d+\)\n$/
+          /^baz \(test\/index\.ts:\d+:\d+\)\nbar \(test\/index\.ts:\d+:\d+\)\nfoo \(test\/index\.ts:\d+:\d+\)\nTest\.<anonymous> \(test\/index\.ts:\d+:\d+\)\n$/,
         )
 
         t.match(
           res.captureStringBar,
-          /^foo \(test\/index\.ts:\d+:\d+\)\nTest.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.*/
+          /^foo \(test\/index\.ts:\d+:\d+\)\nTest.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.*/,
         )
         t.match(
           res.captureString4Bar,
-          /^foo \(test\/index\.ts:\d+:\d+\)\nTest.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.*/
+          /^foo \(test\/index\.ts:\d+:\d+\)\nTest.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.*/,
         )
         t.equal(
           res.captureString4Bar.trim().split('\n').length,
           4,
-          'got 4 lines'
+          'got 4 lines',
         )
         t.match(
           res.captureString,
           'core/dist',
-          'includes generated filenames'
+          'includes generated filenames',
         )
 
         t.match(
           res.captureErrorString,
-          /^baz \(test\/index\.ts:\d+:\d+\)\nbar \(test\/index\.ts:\d+:\d+\)\nfoo \(test\/index\.ts:\d+:\d+\)\nTest\.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.+/
+          /^baz \(test\/index\.ts:\d+:\d+\)\nbar \(test\/index\.ts:\d+:\d+\)\nfoo \(test\/index\.ts:\d+:\d+\)\nTest\.<anonymous> \(test\/index\.ts:\d+:\d+\)\n.+/,
         )
         t.notMatch(
           res.captureErrorString,
           'core/dist',
-          'no generated filenames in Error stack'
+          'no generated filenames in Error stack',
         )
         t.end()
       })
@@ -155,9 +155,9 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
         const { lineNumber, columnNumber, generated, ...rest } = c
         return Object.assign(
           rest,
-          generated?.fileName
-            ? { generated: { fileName: generated.fileName } }
-            : {}
+          generated?.fileName ?
+            { generated: { fileName: generated.fileName } }
+          : {},
         )
       }
 
@@ -165,28 +165,28 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
         t.strictSame(
           stripLineCol(res.capture[0]),
           stripLineCol(res.at),
-          'top capture() is same as at()'
+          'top capture() is same as at()',
         )
         t.equal(res.capture4.length, 4)
         for (let i = 0; i < res.capture4.length; i++) {
           t.strictSame(
             stripLineCol(res.capture4[i]),
             stripLineCol(res.capture[i]),
-            'capture(4) is same as top 4 of capture()'
+            'capture(4) is same as top 4 of capture()',
           )
         }
 
         t.strictSame(
           stripLineCol(res.captureBar[0]),
           stripLineCol(res.atBar),
-          'top capture(bar) is same as at(bar)'
+          'top capture(bar) is same as at(bar)',
         )
         t.equal(res.capture4Bar.length, 4)
         for (let i = 0; i < res.capture4Bar.length; i++) {
           t.strictSame(
             stripLineCol(res.capture4Bar[i]),
             stripLineCol(res.captureBar[i]),
-            'capture(4, bar) is same as top 4 of capture(bar)'
+            'capture(4, bar) is same as top 4 of capture(bar)',
           )
         }
 
@@ -209,7 +209,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
         }>(res =>
           setTimeout(async function timeout() {
             return res(baz())
-          })
+          }),
         )
       const baz = async () => {
         const er = new Error('trace')
@@ -232,15 +232,15 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.test('filtered results', t => {
         t.match(
           filtered.captureString,
-          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n$/
+          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n$/,
         )
         t.match(
           filtered.captureErrorString,
-          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n$/
+          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n$/,
         )
         t.match(
           filtered.captureString1,
-          /baz \(test\/index\.ts:\d+:\d+\)\n$/
+          /baz \(test\/index\.ts:\d+:\d+\)\n$/,
         )
         t.notMatch(filtered.captureString, 'node:internal')
         t.notMatch(filtered.captureErrorString, 'node:internal')
@@ -253,15 +253,15 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.test('unfiltered results', t => {
         t.match(
           unfiltered.captureString,
-          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n.*node:internal/
+          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n.*node:internal/,
         )
         t.match(
           unfiltered.captureErrorString,
-          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n.*node:internal/
+          /baz \(test\/index\.ts:\d+:\d+\)\n.*\(test\/index\.ts:\d+:\d+\)\n.*node:internal/,
         )
         t.match(
           unfiltered.captureString1,
-          /baz \(test\/index\.ts:\d+:\d+\)\n$/
+          /baz \(test\/index\.ts:\d+:\d+\)\n$/,
         )
         t.match(unfiltered.captureString, 'node:internal')
         t.match(unfiltered.captureErrorString, 'node:internal')
@@ -328,7 +328,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.equal(
         unfiltered2,
         unfiltered,
-        'unfiltered when filter turned off'
+        'unfiltered when filter turned off',
       )
       setFilterIgnoredPackages(true)
       t.equal(getFilterIgnoredPackages(), true, 'filter on again')
@@ -381,7 +381,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.match(
         expandStack(cap as any),
         __dirname,
-        'expanded stack has dir in it'
+        'expanded stack has dir in it',
       )
       t.equal(expandStack(), '', 'expands undefined to empty string')
       t.end()
@@ -393,7 +393,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.match(
         parseStack(stack),
         parseStack(headless),
-        'head is removed'
+        'head is removed',
       )
       t.end()
     })
@@ -403,7 +403,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.equal(
         getIgnoredPackages().includes('@tapjs'),
         true,
-        'includes @tapjs to start'
+        'includes @tapjs to start',
       )
       // make sure that isn't there also
       removeIgnoredPackage('@tapjs/test')
@@ -411,27 +411,27 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.match(
         ignored?.toString(),
         /\btest-built\b/,
-        'ignoring the built test module'
+        'ignoring the built test module',
       )
       removeIgnoredPackage('@tapjs')
       removeIgnoredPackage('@tapjs/test')
       t.notMatch(
         getIgnoredPackagesRE()?.toString(),
         /\btest-built\b/,
-        'not ignored if tapjs not ignored'
+        'not ignored if tapjs not ignored',
       )
       addIgnoredPackage('@tapjs/test')
       t.match(
         ignored?.toString(),
         /\btest-built\b/,
-        'ignoring the built test module if @tapjs/test is present'
+        'ignoring the built test module if @tapjs/test is present',
       )
       removeIgnoredPackage('@tapjs/test')
       addIgnoredPackage('@tapjs/core')
       t.notMatch(
         getIgnoredPackagesRE()?.toString(),
         /\btest-built\b/,
-        'not ignored if other @tapjs modules are ignored, only @tapjs and @tapjs/test'
+        'not ignored if other @tapjs modules are ignored, only @tapjs and @tapjs/test',
       )
       // leave it how we found it
       removeIgnoredPackage('@tapjs/core')
@@ -480,11 +480,11 @@ ${short.stack?.split('\n').slice(1).join('\n')}`
         new TypeError('blah'),
         {
           code: 'ERR_BLAH_DEE_BLOO',
-        }
+        },
       )
       er.stack = String(er.stack).replace(
         /^TypeError:/,
-        'TypeError [ERR_BLAH_DEE_BLOO]:'
+        'TypeError [ERR_BLAH_DEE_BLOO]:',
       )
       t.match(captureError(er)[0], {
         lineNumber: Number,

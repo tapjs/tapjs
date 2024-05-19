@@ -42,8 +42,11 @@ class TapFile extends base_js_1.Base {
         else if (!this.tapStream) {
             throw new Error('either tapStream or filename must be provided');
         }
+        ;
         this.tapStream.on('error', er => {
-            er.tapCaught = this.caughtName;
+            ;
+            er.tapCaught =
+                this.caughtName;
             this.threw(er);
         });
         if (this.options.timeout) {

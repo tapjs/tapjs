@@ -18,7 +18,7 @@ t.test('parse options', t => {
     sub<T extends Base, O extends BaseOpts>(
       Class: { new (options: O): T },
       extra: O | TestOpts | TestBaseOpts | BaseOpts = {},
-      caller: (...a: any[]) => unknown
+      caller: (...a: any[]) => unknown,
     ): PromiseWithSubtest<T> {
       t.equal(Class, Spawn)
       t.type(caller, Function)

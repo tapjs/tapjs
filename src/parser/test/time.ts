@@ -26,7 +26,7 @@ t.test('buffered with time directives', t => {
     c.on('complete', (r: FinalResults) => {
       t.equal(c.time, r.time, 'child time found in final result')
       times.push(r.time)
-    })
+    }),
   )
 
   p.on('complete', r => {
@@ -63,7 +63,7 @@ t.test('streamed with time directives', t => {
     c.on('complete', (r: FinalResults) => {
       t.equal(c.time, r.time, 'child time found in final result')
       times.push(r.time)
-    })
+    }),
   )
 
   p.on('complete', r => {
@@ -97,7 +97,7 @@ t.test('no time directives', t => {
     c.on('complete', (r: FinalResults) => {
       t.equal(c.time, r.time, 'child time found in final result')
       times.push(r.time)
-    })
+    }),
   )
 
   p.on('complete', r => {

@@ -73,24 +73,24 @@ export class SpawnPlugin {
   spawn(
     cmd: string,
     options: SpawnOpts,
-    name?: string
+    name?: string,
   ): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],
-    name?: string
+    name?: string,
   ): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],
     options: SpawnOpts,
-    name?: string
+    name?: string,
   ): PromiseWithSpawn
   spawn(
     cmd: string,
     args?: string | string[] | SpawnOpts,
     options?: SpawnOpts | string,
-    name?: string
+    name?: string,
   ): PromiseWithSpawn {
     if (typeof args === 'string') {
       args = [args]

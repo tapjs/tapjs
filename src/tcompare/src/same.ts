@@ -72,7 +72,7 @@ export class Same extends Format {
     this.expect = options.expect
     if (!this.style.diffable) {
       throw new Error(
-        `"${options.style}" style not appropriate for diffs`
+        `"${options.style}" style not appropriate for diffs`,
       )
     }
 
@@ -96,48 +96,43 @@ export class Same extends Format {
   test() {
     const a = this.object
     const b = this.expect
-    return typeof a === 'function' && typeof b === 'function'
-      ? a === b ||
+    return (
+      typeof a === 'function' && typeof b === 'function' ?
+        a === b ||
           (a.name === b.name && a.toString() === b.toString())
-      : typeof a === 'symbol' || typeof b === 'symbol'
-      ? typeof a === typeof b && a.toString() === b.toString()
-      : typeof a !== 'object' && typeof b !== 'object' && a == b
-      ? true
-      : a === b
-      ? true
-      : a instanceof Date && b instanceof Date
-      ? a.getTime() === b.getTime()
-      : typeof a?.valueOf === 'function' &&
+      : typeof a === 'symbol' || typeof b === 'symbol' ?
+        typeof a === typeof b && a.toString() === b.toString()
+      : typeof a !== 'object' && typeof b !== 'object' && a == b ?
+        true
+      : a === b ? true
+      : a instanceof Date && b instanceof Date ?
+        a.getTime() === b.getTime()
+      : (
+        typeof a?.valueOf === 'function' &&
         typeof b?.valueOf === 'function' &&
         a.valueOf() === b.valueOf()
-      ? true
-      : typeof a?.valueOf === 'function' && a.valueOf() === b
-      ? true
-      : typeof b?.valueOf === 'function' && b.valueOf() === a
-      ? true
-      : a === null || b === null
-      ? a == b
-      : a !== a
-      ? b !== b
-      : typeof a !== 'object' || typeof b !== 'object'
-      ? false
-      : !this.isError() && b instanceof Error
-      ? false
-      : this.isError() &&
+      ) ?
+        true
+      : typeof a?.valueOf === 'function' && a.valueOf() === b ? true
+      : typeof b?.valueOf === 'function' && b.valueOf() === a ? true
+      : a === null || b === null ? a == b
+      : a !== a ? b !== b
+      : typeof a !== 'object' || typeof b !== 'object' ? false
+      : !this.isError() && b instanceof Error ? false
+      : (
+        this.isError() &&
         ((b.message && b.message !== a.message) ||
           (b.name && b.name !== a.name))
-      ? false
-      : this.isSet() && !new Format(b).isSet()
-      ? false
-      : this.isMap() && !new Format(b).isMap()
-      ? false
-      : this.isArray() && !new Format(b).isArray()
-      ? false
-      : Buffer.isBuffer(a) && Buffer.isBuffer(b)
-      ? a.equals(b)
-      : a instanceof RegExp && b instanceof RegExp
-      ? this.regexpSame(a, b)
-      : 'COMPLEX' // might still be a deeper mismatch, of course
+      ) ?
+        false
+      : this.isSet() && !new Format(b).isSet() ? false
+      : this.isMap() && !new Format(b).isMap() ? false
+      : this.isArray() && !new Format(b).isArray() ? false
+      : Buffer.isBuffer(a) && Buffer.isBuffer(b) ? a.equals(b)
+      : a instanceof RegExp && b instanceof RegExp ?
+        this.regexpSame(a, b)
+      : 'COMPLEX'
+    ) // might still be a deeper mismatch, of course
   }
 
   regexpSame(a: RegExp, b: RegExp) {
@@ -248,17 +243,18 @@ export class Same extends Format {
       this.memo + '\n',
       undefined,
       undefined,
-      { context: this.diffContext }
+      { context: this.diffContext },
     ).replace(/^\=+\n/, ''))
   }
 
   child(
     obj: any,
     options: FormatOptions | SameOptions,
-    cls?: typeof Same
+    cls?: typeof Same,
   ) {
-    const expectKey = hasOwnProperty.call(options, 'expectKey')
-      ? (options as SameOptions).expectKey
+    const expectKey =
+      hasOwnProperty.call(options, 'expectKey') ?
+        (options as SameOptions).expectKey
       : options.key
     return super.child(
       obj,
@@ -266,7 +262,7 @@ export class Same extends Format {
         expect: this.childExpect(expectKey),
         ...options,
       },
-      cls
+      cls,
     )
   }
 
@@ -274,22 +270,19 @@ export class Same extends Format {
     // if we get here, we know that both expect and actual
     // are collections of the same type.  Otherwise they
     // would have gotten the simple printed diff.
-    return this.isSet()
-      ? key
-      : this.isMap()
-      ? this.expect.get(key)
-      : this.isArray()
-      ? (this.expectAsArray as any[])[key]
+    return (
+      this.isSet() ? key
+      : this.isMap() ? this.expect.get(key)
+      : this.isArray() ? (this.expectAsArray as any[])[key]
       : this.expect[key]
+    )
   }
 
   get expectAsArray() {
-    const value = Array.isArray(this.expect)
-      ? this.expect
-      : new Format(this.expect).isArray()
-      ? arrayFrom(this.expect)
-      : /* c8 ignore start */
-        null
+    const value =
+      Array.isArray(this.expect) ? this.expect
+      : new Format(this.expect).isArray() ? arrayFrom(this.expect)
+      : /* c8 ignore start */ null
     /* c8 ignore stop */
 
     defineProperty(this, 'expectAsArray', { value })
@@ -312,10 +305,9 @@ export class Same extends Format {
     /* c8 ignore start */
     const key = this.isKeyless() ? '' : this.getKey()
     /* c8 ignore stop */
-    const sep = !key
-      ? ''
-      : this.parent && this.parent.isMap()
-      ? this.style.mapKeyValSep()
+    const sep =
+      !key ? ''
+      : this.parent && this.parent.isMap() ? this.style.mapKeyValSep()
       : this.style.pojoKeyValSep()
     const start = this.style.start(indent, key, sep)
     this.memo = start + this.nodeId() + this.memo
@@ -326,20 +318,15 @@ export class Same extends Format {
     if (!this.parent || this.isKey) {
       return
     }
-    const end = this.parent.isMap()
-      ? this.style.mapEntrySep()
-      : this.parent.isArray()
-      ? this.style.arrayEntrySep()
-      : // these types are always simple printed
-      /* c8 ignore start */
-      this.parent.isSet()
-      ? this.style.setEntrySep()
-      : this.parent.isBuffer()
-      ? ''
-      : this.parent.isString()
-      ? ''
-      : /* c8 ignore stop */
-        this.style.pojoEntrySep()
+    const end =
+      this.parent.isMap() ? this.style.mapEntrySep()
+      : this.parent.isArray() ? this.style.arrayEntrySep()
+        // these types are always simple printed
+      : /* c8 ignore start */
+      this.parent.isSet() ? this.style.setEntrySep()
+      : this.parent.isBuffer() ? ''
+      : this.parent.isString() ? ''
+      : /* c8 ignore stop */ this.style.pojoEntrySep()
     this.memo += end
     this.memoExpect += end
   }
@@ -369,7 +356,7 @@ export class Same extends Format {
         expect: this.expect,
         parent: this.parent || undefined,
         reactString: false,
-      }
+      },
     )
     subDiff.print()
     if (!subDiff.match) {
@@ -414,7 +401,7 @@ export class Same extends Format {
       return fromSuper
     }
     return fromSuper.concat(
-      this.getPojoKeys(this.expect).filter(k => k in obj)
+      this.getPojoKeys(this.expect).filter(k => k in obj),
     )
   }
   printPojoHead() {
@@ -477,7 +464,7 @@ export class Same extends Format {
   expectErrorIsEmpty() {
     return (
       this.getPojoEntries(this.expect).filter(
-        ([k]) => k !== 'name' && k !== 'message'
+        ([k]) => k !== 'name' && k !== 'message',
       ).length === 0
     )
   }

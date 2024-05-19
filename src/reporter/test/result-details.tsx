@@ -50,7 +50,7 @@ t.test('result without diags, nothing to print', t => {
   t.equal(
     render(<ResultDetails result={res} />).lastFrame(),
     '',
-    'no diags, no details'
+    'no diags, no details',
   )
   t.end()
 })
@@ -79,7 +79,7 @@ t.test('result with only known diags', t => {
   } as Result
   t.matchSnapshot(
     render(<ResultDetails result={res} />).lastFrame(),
-    'diags and details'
+    'diags and details',
   )
   t.end()
 })
@@ -107,7 +107,7 @@ t.test('error without code', t => {
   } as Result
   t.matchSnapshot(
     render(<ResultDetails result={res} />).lastFrame(),
-    'diags and details'
+    'diags and details',
   )
   t.end()
 })
@@ -138,7 +138,7 @@ t.test('error that is not a string', t => {
   } as Result
   t.matchSnapshot(
     render(<ResultDetails result={res} />).lastFrame(),
-    'diags and details'
+    'diags and details',
   )
   t.end()
 })
@@ -171,7 +171,7 @@ t.test('diff', t => {
   } as Result
   t.matchSnapshot(
     render(<ResultDetails result={res} />).lastFrame(),
-    'diags and details'
+    'diags and details',
   )
   t.end()
 })
@@ -207,7 +207,7 @@ t.test('no diff, but expected and actual', t => {
   } as Result
   t.matchSnapshot(
     render(<ResultDetails result={res} />).lastFrame(),
-    'generated diff'
+    'generated diff',
   )
   t.end()
 })

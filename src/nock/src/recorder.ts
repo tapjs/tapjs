@@ -65,7 +65,7 @@ export class NockRecorder {
 
   constructor(
     test: TestBase,
-    caller: Function | ((...a: any[]) => any)
+    caller: Function | ((...a: any[]) => any),
   ) {
     this.#test = test
 
@@ -73,7 +73,7 @@ export class NockRecorder {
     /* c8 ignore start */
     if (!this.#test.t.pluginLoaded(SnapshotPlugin)) {
       throw new Error(
-        '@tapjs/nock: cannot record if snapshots are not enabled'
+        '@tapjs/nock: cannot record if snapshots are not enabled',
       )
     }
     /* c8 ignore stop */
@@ -84,7 +84,7 @@ export class NockRecorder {
     // a different extension
     this.#snapshotFile = this.#test.t.snapshotFile.replace(
       /\.test\.cjs$/,
-      '.nock.json'
+      '.nock.json',
     )
   }
 
@@ -128,7 +128,7 @@ export class NockRecorder {
     if (!Object.keys(this.#snapshot).length) {
       try {
         this.#snapshot = JSON.parse(
-          readFileSync(this.#snapshotFile, 'utf8')
+          readFileSync(this.#snapshotFile, 'utf8'),
         )
       } catch (e) {
         throw new ErrMissingSnapshotData(this.#test, this.#caller)
@@ -141,9 +141,9 @@ export class NockRecorder {
     }
 
     const load: (scope: nock.Definition) => nock.Definition =
-      typeof options.load === 'function'
-        ? options.load
-        : scope => scope
+      typeof options.load === 'function' ?
+        options.load
+      : scope => scope
 
     // turn the json data into real nocks and return them
     const nocks = this.#snapshot[key]?.map(scope => load(scope))
@@ -172,9 +172,9 @@ export class NockRecorder {
     this.#stack.push({
       key,
       clean:
-        typeof options.clean === 'function'
-          ? options.clean
-          : scope => scope,
+        typeof options.clean === 'function' ?
+          options.clean
+        : scope => scope,
     })
 
     if (!this.recording) {
@@ -252,7 +252,7 @@ export class NockRecorder {
     mkdirSync(dirname(this.#snapshotFile), { recursive: true })
     writeFileSync(
       this.#snapshotFile,
-      JSON.stringify(this.#snapshot, null, 2)
+      JSON.stringify(this.#snapshot, null, 2),
     )
   }
 }

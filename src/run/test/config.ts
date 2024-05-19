@@ -28,7 +28,7 @@ t.test('firstOf', t => {
 
 t.test('unknown cmd', async t => {
   await t.rejects(
-    config(['unknown command'], {} as unknown as LoadedConfig)
+    config(['unknown command'], {} as unknown as LoadedConfig),
   )
   t.matchSnapshot(join(errs()))
   t.strictSame(exits(), [[1]])
@@ -206,7 +206,7 @@ t.test('set', async t => {
   t.test('save something', async t => {
     await config(
       ['set', 'y=z', 'unknown=value', 'x=false'],
-      mockConfig
+      mockConfig,
     )
     t.strictSame(exits(), [])
     t.matchSnapshot(join(errs()))
@@ -251,19 +251,19 @@ t.test('edit', t => {
   for (const configFile of ['.taprc', 'package.json']) {
     t.test(configFile, async t => {
       const dir = t.testdir({
-        ...(configFile === '.taprc'
-          ? {
-              '.taprc': yaml.stringify(values),
-            }
-          : {}),
+        ...(configFile === '.taprc' ?
+          {
+            '.taprc': yaml.stringify(values),
+          }
+        : {}),
         '.git': {},
         'package.json': JSON.stringify({
           name: 'tap-config-edit-test',
-          ...(configFile === 'package.json'
-            ? {
-                tap: values,
-              }
-            : {}),
+          ...(configFile === 'package.json' ?
+            {
+              tap: values,
+            }
+          : {}),
         }),
       })
       const tmp = resolve(dir, '.tap', 'config-edit-tmp.yaml')
@@ -272,7 +272,7 @@ t.test('edit', t => {
       t.teardown(() => process.chdir(origCwd))
 
       const mockConfig = {
-        globCwd: dir,
+        projectRoot: dir,
         configFile: resolve(dir, configFile),
         values,
         valuesFromConfigFile: values,
@@ -301,7 +301,7 @@ t.test('edit', t => {
         spawnSync: (
           cmd: string,
           args: string[],
-          options: { stdio: string }
+          options: { stdio: string },
         ) => {
           t.equal(cmd, 'my-editor')
           t.strictSame(args, [tmp])
@@ -323,7 +323,7 @@ t.test('edit', t => {
           t.strictSame(exits(), [[1]])
           t.matchSnapshot(join(errs()))
           t.strictSame(logs(), [])
-        }
+        },
       )
 
       t.test('fail if the edit fails', async t => {
@@ -373,11 +373,11 @@ t.test('edit', t => {
         t.throws(
           () => statSync(tmp),
           { code: 'ENOENT' },
-          'tmp file removed'
+          'tmp file removed',
         )
         t.matchSnapshot(
           readFileSync(configFile, 'utf8'),
-          'config edited'
+          'config edited',
         )
       })
 
@@ -395,11 +395,11 @@ t.test('edit', t => {
         t.throws(
           () => statSync(tmp),
           { code: 'ENOENT' },
-          'tmp file removed'
+          'tmp file removed',
         )
         t.matchSnapshot(
           readFileSync(configFile, 'utf8'),
-          'config edited'
+          'config edited',
         )
       })
     })

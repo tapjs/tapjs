@@ -24,7 +24,7 @@ const getRes = (opts: { [k: string]: any } = {}) =>
       time: null,
       fullname: 'test name > fake result',
     },
-    opts
+    opts,
   ) as unknown as Result
 
 t.test('pass', t => {
@@ -33,8 +33,8 @@ t.test('pass', t => {
       <ResultTag
         test={{ name: 'test name' } as unknown as Base}
         result={getRes()}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -45,8 +45,8 @@ t.test('fail, no diag', t => {
       <ResultTag
         test={{ name: 'test name' } as unknown as Base}
         result={getRes({ ok: false })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -64,12 +64,12 @@ t.test('fail, with diag', t => {
               'expected',
               'actual',
               JSON.stringify({ x: 1 }, null, 2),
-              JSON.stringify({ x: 2, y: 1 }, null, 2)
+              JSON.stringify({ x: 2, y: 1 }, null, 2),
             ),
           },
         })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -92,12 +92,12 @@ t.test('fail, with diag, no line/column numbers', t => {
               'expected',
               'actual',
               JSON.stringify({ x: 1 }, null, 2),
-              JSON.stringify({ x: 2, y: 1 }, null, 2)
+              JSON.stringify({ x: 2, y: 1 }, null, 2),
             ),
           },
         })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -115,11 +115,11 @@ t.test('fail, with diag and details', t => {
             'expected',
             'actual',
             JSON.stringify({ x: 1 }, null, 2),
-            JSON.stringify({ x: 2, y: 1 }, null, 2)
+            JSON.stringify({ x: 2, y: 1 }, null, 2),
           ),
         },
       })}
-    />
+    />,
   ).lastFrame()
 
   t.matchSnapshot(actual)
@@ -132,8 +132,8 @@ t.test('skip no message', t => {
       <ResultTag
         test={{ name: 'test name' } as unknown as Base}
         result={getRes({ ok: true, skip: true })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -144,8 +144,8 @@ t.test('skip with message', t => {
       <ResultTag
         test={{ name: 'test name' } as unknown as Base}
         result={getRes({ ok: true, skip: 'skip message' })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -156,8 +156,8 @@ t.test('todo no message', t => {
       <ResultTag
         test={{ name: 'test name' } as unknown as Base}
         result={getRes({ ok: true, todo: true })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })
@@ -168,8 +168,8 @@ t.test('todo with message', t => {
       <ResultTag
         test={{ name: 'test name' } as unknown as Base}
         result={getRes({ ok: true, todo: 'todo message' })}
-      />
-    ).lastFrame()
+      />,
+    ).lastFrame(),
   )
   t.end()
 })

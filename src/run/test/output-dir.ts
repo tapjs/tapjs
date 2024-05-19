@@ -18,17 +18,17 @@ t.test('if no output-dir, do nothing special', async t => {
     tt as unknown as TAP,
     {
       get: () => undefined,
-      globCwd: t.testdir(),
-    } as unknown as LoadedConfig
+      projectRoot: t.testdir(),
+    } as unknown as LoadedConfig,
   )
   tt.emit(
     'spawn',
-    Object.assign(new EventEmitter(), { name: 'yolo' })
+    Object.assign(new EventEmitter(), { name: 'yolo' }),
   )
   t.strictSame(
     mkdirpCalled,
     [resolve(t.testdirName, '.tap/test-results')],
-    'only create the internal test-results dir'
+    'only create the internal test-results dir',
   )
 })
 
@@ -54,8 +54,8 @@ t.test('if has output-dir, do stuff on spawn', async t => {
     tt as unknown as TAP,
     {
       get: () => 'output-dir',
-      globCwd: t.testdir(),
-    } as unknown as LoadedConfig
+      projectRoot: t.testdir(),
+    } as unknown as LoadedConfig,
   )
   const st = Object.assign(new EventEmitter(), { name: 'test-name' })
   tt.emit('spawn', st)

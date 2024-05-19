@@ -45,7 +45,7 @@ t.test('save fixture with option', t => {
       t.equal(t.saveFixture, true)
       t.equal(lstatSync(dir).isDirectory(), true)
       t.end()
-    }
+    },
   )
   t.equal(lstatSync(dir).isDirectory(), true)
   t.end()

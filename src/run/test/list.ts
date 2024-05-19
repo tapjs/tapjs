@@ -64,7 +64,7 @@ t.test('list some test files', async t => {
   const cwd = process.cwd()
   process.chdir(dir)
   t.teardown(() => process.chdir(cwd))
-  t.intercept(mainConfig.config, 'globCwd', { value: dir })
+  t.intercept(mainConfig.config, 'projectRoot', { value: dir })
 
   let saveList: string[] = []
   const mocks = {
@@ -122,7 +122,7 @@ t.test('list some test files', async t => {
       (k: Parameters<typeof mainConfig.config.get>[0]) => {
         if (k === 'files') return ['src/*.spec.js', 'test/*.*js']
         return orig.call(mainConfig.config, k)
-      }
+      },
     )
     await list([], mainConfig.config)
     t.strictSame(sortedLog(), [
@@ -136,7 +136,7 @@ t.test('list some test files', async t => {
   t.test('specific files, noent, and stdin', async t => {
     await list(
       ['src/test.spec.js', '/dev/stdin', '-', 'enoent not exists'],
-      mainConfig.config
+      mainConfig.config,
     )
     t.strictSame(sortedLog(), ['-', '/dev/stdin', 'src/test.spec.js'])
   })
@@ -241,7 +241,7 @@ t.test('filter changed files', async t => {
   t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
 
   const fixture = fileURLToPath(
-    new URL('fixtures/project', import.meta.url)
+    new URL('fixtures/project', import.meta.url),
   )
   const cwd = process.cwd()
 
@@ -255,15 +255,15 @@ t.test('filter changed files', async t => {
             return [f, undefined]
           }
         })
-        .filter(([_, c]) => c !== undefined)
+        .filter(([_, c]) => c !== undefined),
     )
 
   const piFooRecord = {
     ...JSON.parse(
       readFileSync(
         resolve(fixture, '.tap/processinfo/uuid-foo.json'),
-        'utf8'
-      )
+        'utf8',
+      ),
     ),
     files: [
       resolve(t.testdirName, 'test/foo.mjs'),
@@ -274,8 +274,8 @@ t.test('filter changed files', async t => {
     ...JSON.parse(
       readFileSync(
         resolve(fixture, '.tap/processinfo/uuid-bar.json'),
-        'utf8'
-      )
+        'utf8',
+      ),
     ),
     files: [
       resolve(t.testdirName, 'test/bar.mjs'),
@@ -295,7 +295,7 @@ t.test('filter changed files', async t => {
 
   process.chdir(dir)
   t.teardown(() => process.chdir(cwd))
-  t.intercept(mainConfig.config, 'globCwd', { value: dir })
+  t.intercept(mainConfig.config, 'projectRoot', { value: dir })
 
   const touch = (path: string, d: Date = new Date()) =>
     utimesSync(path, d, d)
@@ -361,7 +361,7 @@ t.test('filter changed files', async t => {
     t.strictSame(
       sort(await list([], mainConfig.config)),
       ['test/bar.mjs', 'test/foo.mjs'],
-      'all tests changed'
+      'all tests changed',
     )
 
     date = new Date(date.getTime() + DAY)
@@ -370,25 +370,25 @@ t.test('filter changed files', async t => {
       JSON.stringify({
         ...JSON.parse(readFileSync(piBar, 'utf8')),
         date: date.toISOString(),
-      })
+      }),
     )
     writeFileSync(
       piFoo,
       JSON.stringify({
         ...JSON.parse(readFileSync(piFoo, 'utf8')),
         date: date.toISOString(),
-      })
+      }),
     )
     t.strictSame(
       sort(await list([], mainConfig.config)),
       [],
-      'no tests changed'
+      'no tests changed',
     )
 
     t.strictSame(
       sort(await list([], mainConfig.config, true)),
       ['test/bar.mjs', 'test/foo.mjs'],
-      'no prune unchanged internal param'
+      'no prune unchanged internal param',
     )
 
     date = new Date(date.getTime() + DAY)
@@ -396,27 +396,27 @@ t.test('filter changed files', async t => {
     t.strictSame(
       sort(await list([], mainConfig.config)),
       ['test/foo.mjs'],
-      'foo src changed'
+      'foo src changed',
     )
 
     t.strictSame(
       sort(await list([testBar, '-'], mainConfig.config)),
       ['-'],
-      'still run stdin if file filtered out'
+      'still run stdin if file filtered out',
     )
 
     writeFileSync(resolve(dir, 'test/new.mjs'), '')
     t.strictSame(
       sort(await list([], mainConfig.config)),
       ['test/foo.mjs', 'test/new.mjs'],
-      'never before run file is included'
+      'never before run file is included',
     )
 
     unlinkSync(srcBar)
     t.strictSame(
       sort(await list([], mainConfig.config)),
       ['test/bar.mjs', 'test/foo.mjs', 'test/new.mjs'],
-      'deleting the source file is a change'
+      'deleting the source file is a change',
     )
   })
 })

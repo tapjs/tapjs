@@ -121,7 +121,7 @@ const pluginNames = await Promise.all(
       console.error(
         `'${p}' does not appear to be a tap plugin. Could not load ` +
           `module with require().`,
-        er instanceof Error ? er.message : er
+        er instanceof Error ? er.message : er,
       )
       /* c8 ignore start */
       process.exit(1)
@@ -134,7 +134,7 @@ const pluginNames = await Promise.all(
           `loaded with require(), must export at least one of: ` +
           'a plugin function, config object, loader module identifier, ' +
           'or importLoader module identifier. Got: ' +
-          keys
+          keys,
       )
       process.exit(1)
     }
@@ -146,7 +146,7 @@ const pluginNames = await Promise.all(
       console.error(
         `'${p}' does not appear to be a tap plugin. Could not load ` +
           `module with import().`,
-        er instanceof Error ? er.message : er
+        er instanceof Error ? er.message : er,
       )
       /* c8 ignore start */
       process.exit(1)
@@ -159,7 +159,7 @@ const pluginNames = await Promise.all(
           `loaded with import(), must export at least one of: ` +
           'a plugin function, config object, loader module identifier, ' +
           'or importLoader module identifier. Got: ' +
-          keys
+          keys,
       )
       process.exit(1)
     }
@@ -204,7 +204,7 @@ const pluginNames = await Promise.all(
     if (imp.testFileExtensions !== undefined) {
       const invalidTestFileExtensions = () => {
         console.error(
-          `'${p}' exports an invalid testFileExtensions. Must be string[].`
+          `'${p}' exports an invalid testFileExtensions. Must be string[].`,
         )
         process.exit(1)
       }
@@ -220,13 +220,13 @@ const pluginNames = await Promise.all(
       }
     }
     return name
-  })
+  }),
 )
 
 const pluginImport = plugins
   .map(
     (p, i) =>
-      `import * as ${pluginNames[i]} from ${JSON.stringify(p)}\n`
+      `import * as ${pluginNames[i]} from ${JSON.stringify(p)}\n`,
   )
   .join('')
 
@@ -267,7 +267,7 @@ const pluginsConfig = (() => {
         const cv = `${cn}_value`
         nodeArgsDefs += def
         nodeArgsDefs += `  const ${cv} = values[${JSON.stringify(
-          field
+          field,
         )}]\n`
         nodeArgsBody +=
           `  if (${cv} !== undefined) {\n` +
@@ -288,30 +288,29 @@ const pluginsConfig = (() => {
     for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
       const jf = JSON.stringify(field)
       const fn =
-        (cfg.type === 'boolean'
-          ? 'flag'
-          : cfg.type === 'number'
-          ? 'num'
-          : 'opt') + (cfg.multiple ? 'List' : '')
+        (cfg.type === 'boolean' ? 'flag'
+        : cfg.type === 'number' ? 'num'
+        : 'opt') + (cfg.multiple ? 'List' : '')
       code += `    .${fn}({ ${jf}: config_${name}_${c++} })\n`
     }
   }
 
   code += '}\n'
 
-  const nodeArgs = !nodeArgsDefs
-    ? ''
-    : nodeArgsHead + nodeArgsDefs + nodeArgsBody + nodeArgsTail
+  const nodeArgs =
+    !nodeArgsDefs ? '' : (
+      nodeArgsHead + nodeArgsDefs + nodeArgsBody + nodeArgsTail
+    )
   return nodeArgs + code
 })()
 
 const pluginsCode = `export type PluginSet = ${
-  hasPlugin.size
-    ? `[
+  hasPlugin.size ?
+    `[
 ${sortedMapValues(hasPlugin)
   .map(name => `  typeof ${name}.plugin,\n`)
   .join('')}]`
-    : '(TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]'
+  : '(TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]'
 }
 
 const plugins = () => {
@@ -326,13 +325,13 @@ ${sortedMapValues(hasPlugin)
 const pluginLoaders = `const preloaders = new Set<string>(${JSON.stringify(
   sortedMapValues(preloaders),
   null,
-  2
+  2,
 )})
 
 const preimports = new Set<string>(${JSON.stringify(
   sortedMapValues(preimports),
   null,
-  2
+  2,
 )})
 
 /**
@@ -343,7 +342,7 @@ const preimports = new Set<string>(${JSON.stringify(
 export const loaders: string[] = ${JSON.stringify(
   sortedMapValues(hasLoader),
   null,
-  2
+  2,
 )}.sort(
   (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1
@@ -357,7 +356,7 @@ export const loaders: string[] = ${JSON.stringify(
 export const importLoaders: string[] = ${JSON.stringify(
   sortedMapValues(hasImport),
   null,
-  2
+  2,
 )}.sort(
   (a, b) => preimports.has(a) && !preimports.has(b) ? -1
     : !preimports.has(a) && preimports.has(b) ? 1
@@ -371,7 +370,7 @@ export const importLoaders: string[] = ${JSON.stringify(
 export const loaderFallbacks: string[] = ${JSON.stringify(
   sortedMapValues(new Map([...hasLoaderFallback, ...hasLoader])),
   null,
-  2
+  2,
 )}.sort(
   (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1
@@ -402,7 +401,7 @@ const swapTag = (src: string, tag: string, code: string): string => {
 
 const swapTags = (
   src: string,
-  tags: { [k: string]: string }
+  tags: { [k: string]: string },
 ): string => {
   let res = src
   for (const [tag, code] of Object.entries(tags)) {
@@ -421,7 +420,7 @@ writeFileSync(
     'PLUGIN SIGNATURE': signatureCode,
     LOADERS: pluginLoaders,
     'FILE TYPES': testFileExtensionsCode,
-  })
+  }),
 )
 
 // prevent tshy from creating this, then delete it
@@ -438,7 +437,7 @@ if (res.status !== 0 || res.signal !== null) {
   console.error('`npm run prepare` failed', {
     code: res.status,
     signal: res.signal,
-    ...( res.error && { error: res.error })
+    ...(res.error && { error: res.error }),
   })
   process.exitCode = 1
 }

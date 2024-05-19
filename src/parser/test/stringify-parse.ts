@@ -46,7 +46,7 @@ not ok - 1
 ok 2 - child
 1..2
 `,
-    { flat: true }
+    { flat: true },
   )
   t.matchSnapshot(Parser.stringify(res), 'basic')
   t.matchSnapshot(Parser.stringify(res, { flat: true }), 'flattened')
@@ -64,7 +64,7 @@ not ok - 1
 not ok 2 - child
 1..2
 `,
-    { flat: true }
+    { flat: true },
   )
   t.matchSnapshot(Parser.stringify(res), 'basic')
   t.matchSnapshot(Parser.stringify(res, { flat: true }), 'flattened')

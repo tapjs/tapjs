@@ -50,18 +50,21 @@ export class DummyPlugin {
     if (this.#dummyConfig) return this.#dummyConfig
     return (this.#dummyConfig = {
       flag: process.env.TAP_DUMMY_FLAG === '1',
-      flagSet: process.env.TAP_DUMMY_FLAG_SET
-        ? process.env.TAP_DUMMY_FLAG_SET.trim()
+      flagSet:
+        process.env.TAP_DUMMY_FLAG_SET ?
+          process.env.TAP_DUMMY_FLAG_SET.trim()
             .split('\n')
             .map(x => x === '1')
         : [],
       opt: process.env.TAP_DUMMY_OPT || '',
-      optSet: process.env.TAP_DUMMY_OPT_SET
-        ? process.env.TAP_DUMMY_OPT_SET.trim().split('\n')
+      optSet:
+        process.env.TAP_DUMMY_OPT_SET ?
+          process.env.TAP_DUMMY_OPT_SET.trim().split('\n')
         : [],
       num: parseInt(process.env.TAP_DUMMY_NUM || '0', 10),
-      numSet: process.env.TAP_DUMMY_NUM_SET
-        ? process.env.TAP_DUMMY_NUM_SET.trim()
+      numSet:
+        process.env.TAP_DUMMY_NUM_SET ?
+          process.env.TAP_DUMMY_NUM_SET.trim()
             .split('\n')
             .map(n => parseInt(n, 10))
         : [],

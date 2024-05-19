@@ -120,16 +120,14 @@ export class Init {
     this.values = Object.fromEntries(
       Object.entries(values).map(
         ([k, v]) =>
-          v === true
-            ? [k, k]
-            : // It's not actually possible to make a key false if
+          v === true ? [k, k]
+            // It's not actually possible to make a key false if
             // it's not known
-            /* c8 ignore start */
-            typeof v === 'string'
-            ? [k, v]
-            : [k, '']
+          : /* c8 ignore start */
+          typeof v === 'string' ? [k, v]
+          : [k, ''],
         /* c8 ignore stop */
-      )
+      ),
     )
   }
 
@@ -147,7 +145,7 @@ export class Init {
         (code, signal) => {
           res()
           return code || signal || false
-        }
+        },
       )
     })
   }
@@ -166,7 +164,7 @@ export class Init {
   async prompt(
     message: string,
     key: string,
-    options: ReadOptions<string> = {}
+    options: ReadOptions<string> = {},
   ): Promise<string> {
     const v = this.values[key]
     if (v !== undefined) return v
@@ -188,7 +186,7 @@ export class Init {
 
   async #load(
     path: string,
-    root: string = path
+    root: string = path,
   ): Promise<Record<string, string>> {
     const promises: Promise<Record<string, string>>[] = []
     for (const f of await readdir(path, {
@@ -201,13 +199,13 @@ export class Init {
         promises.push(
           readFile(p, 'utf8').then(contents => ({
             [relative(root, p)]: contents,
-          }))
+          })),
         )
       }
     }
     return (await Promise.all(promises)).reduce(
       (t: Record<string, string>, v) => Object.assign(t, v),
-      Object.create(null)
+      Object.create(null),
     )
   }
 
@@ -241,7 +239,7 @@ export class Init {
     templateSettings = Object.assign(
       {},
       defaultTemplateSettings,
-      templateSettings
+      templateSettings,
     )
     const promises: Promise<any>[] = []
     const partials = await this.#load(resolve(this.#dir, templates))
@@ -249,18 +247,17 @@ export class Init {
     /* c8 ignore start */
     const inc = typeof include === 'string' ? [include] : include
     const exc =
-      typeof exclude === 'string'
-        ? [exclude]
-        : !exclude
-        ? []
-        : exclude
+      typeof exclude === 'string' ? [exclude]
+      : !exclude ? []
+      : exclude
     /* c8 ignore stop */
 
     for (const [f, template] of Object.entries(partials)) {
       const p = parse(f)
       const isMustache = p.ext === '.mustache'
-      const tf = !isMustache
-        ? resolve(target, f)
+      const tf =
+        !isMustache ?
+          resolve(target, f)
         : resolve(target, p.dir, p.name)
       if (
         exc.some(p => minimatch(relative(target, tf), p)) ||
@@ -279,8 +276,13 @@ export class Init {
         promises.push(
           this.#write(
             tf,
-            mustache.render(template, this.values, partials, settings)
-          )
+            mustache.render(
+              template,
+              this.values,
+              partials,
+              settings,
+            ),
+          ),
         )
       }
     }

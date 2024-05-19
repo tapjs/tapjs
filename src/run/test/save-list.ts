@@ -4,11 +4,11 @@ import { resolve } from 'path'
 import t from 'tap'
 
 t.test('read when save=true, return empty list', async t => {
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: 'some\nthings\n',
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => undefined,
   } as unknown as LoadedConfig
   const { readSave } = await t.mockImport<
@@ -21,11 +21,11 @@ t.test('read when save=true, return empty list', async t => {
 })
 
 t.test('read when save=true, load list', async t => {
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: 'some\nthings\n',
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => 'save',
   } as unknown as LoadedConfig
   const { readSave } = await t.mockImport<
@@ -36,11 +36,11 @@ t.test('read when save=true, load list', async t => {
 })
 
 t.test('file missing, return empty list', async t => {
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: {},
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => 'save',
   } as unknown as LoadedConfig
   const { readSave } = await t.mockImport<
@@ -51,11 +51,11 @@ t.test('file missing, return empty list', async t => {
 })
 
 t.test('file empty or whitespace, return empty list', async t => {
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: '\n',
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => 'save',
   } as unknown as LoadedConfig
   const { readSave } = await t.mockImport<
@@ -67,11 +67,11 @@ t.test('file empty or whitespace, return empty list', async t => {
 
 t.test('write save list back to file', async t => {
   const list = ['other', 'things']
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: 'some\nthings\n',
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => 'save',
   } as unknown as LoadedConfig
   const { writeSave } = await t.mockImport<
@@ -79,36 +79,36 @@ t.test('write save list back to file', async t => {
   >('../dist/esm/save-list.js')
   await writeSave(config, list)
   t.equal(
-    readFileSync(resolve(globCwd, 'save'), 'utf8'),
-    'other\nthings\n'
+    readFileSync(resolve(projectRoot, 'save'), 'utf8'),
+    'other\nthings\n',
   )
 })
 
 t.test('unlink if list is empty', async t => {
   const list: string[] = []
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: 'some\nthings\n',
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => 'save',
   } as unknown as LoadedConfig
   const { writeSave } = await t.mockImport<
     typeof import('../dist/esm/save-list.js')
   >('../dist/esm/save-list.js')
   await writeSave(config, list)
-  t.throws(() => statSync(resolve(globCwd, 'save')), {
+  t.throws(() => statSync(resolve(projectRoot, 'save')), {
     code: 'ENOENT',
   })
 })
 
 t.test('writeSave is no op if no save config', async t => {
   const list = ['other', 'things']
-  const globCwd = t.testdir({
+  const projectRoot = t.testdir({
     save: 'some\nthings\n',
   })
   const config = {
-    globCwd,
+    projectRoot,
     get: () => undefined,
   } as unknown as LoadedConfig
   const { writeSave } = await t.mockImport<
@@ -116,7 +116,7 @@ t.test('writeSave is no op if no save config', async t => {
   >('../dist/esm/save-list.js')
   await writeSave(config, list)
   t.equal(
-    readFileSync(resolve(globCwd, 'save'), 'utf8'),
-    'some\nthings\n'
+    readFileSync(resolve(projectRoot, 'save'), 'utf8'),
+    'some\nthings\n',
   )
 })

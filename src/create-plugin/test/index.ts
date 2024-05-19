@@ -7,15 +7,15 @@ import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
 const binURL = await resolveImport(
   '../dist/esm/index.js',
-  import.meta.url
+  import.meta.url,
 )
 const bin = fileURLToPath(binURL)
 
 const corePkg = JSON.parse(
   readFileSync(
     await resolveImport('@tapjs/core/package.json', import.meta.url),
-    'utf8'
-  )
+    'utf8',
+  ),
 )
 const { version: coreVersion } = corePkg
 
@@ -33,7 +33,7 @@ class MockInit {
   async prompt(
     _: string,
     name: keyof typeof prompts,
-    d: { default?: any }
+    d: { default?: any },
   ) {
     return (values[name] =
       prompts[name] === undefined ? d.default : prompts[name])
@@ -216,7 +216,7 @@ Once published, add to projects by running:
 
 `,
           '',
-        ]
+        ],
       )
       const pj = readFileSync(t.testdirName + '/package.json', 'utf8')
       const manifest = JSON.parse(pj)

@@ -21,7 +21,7 @@ t.test('check serialized type byte', t => {
   t.equal(serializeError({ x: true })[0], kSerializedObject)
   t.equal(
     serializeError({ [kCustomInspect]: () => 'x' })[0],
-    kCustomInspectedObject
+    kCustomInspectedObject,
   )
   t.equal(
     serializeError({
@@ -29,7 +29,7 @@ t.test('check serialized type byte', t => {
         throw 'oops'
       },
     })[0],
-    kSerializedObject
+    kSerializedObject,
   )
   t.equal(serializeError(null)[0], kSerializedObject)
 
@@ -104,7 +104,7 @@ t.test('enumerability servives serdes', t => {
       configurable: false,
       writable: false,
     },
-    'getter flattened'
+    'getter flattened',
   )
   t.strictSame(
     Object.getOwnPropertyDescriptor(d, 'getset'),
@@ -114,7 +114,7 @@ t.test('enumerability servives serdes', t => {
       configurable: false,
       writable: false,
     },
-    'getter/setter flattened'
+    'getter/setter flattened',
   )
   const c = new Error('with cause', { cause: er })
   const b = serdes(c)

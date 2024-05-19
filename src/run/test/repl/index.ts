@@ -14,7 +14,7 @@ import { resolveImport } from 'resolve-import'
 import t from 'tap'
 import { options as watchOptions } from '../../dist/esm/repl/chokidar-options.js'
 const bin = fileURLToPath(
-  await resolveImport('../../dist/esm/index.js', import.meta.url)
+  await resolveImport('../../dist/esm/index.js', import.meta.url),
 )
 
 // just run tests in raw TAP mode
@@ -66,14 +66,14 @@ const mockRepl = new (class extends EventEmitter {
 const mockSpawn = (
   cmd: string,
   args: string[],
-  options: SpawnOptions
+  options: SpawnOptions,
 ) => {
   t.equal(options.stdio, 'inherit')
   t.equal(options.env?._TAP_REPL, '1')
   let exited = false
   const exit = (
     code: number | null,
-    signal: NodeJS.Signals | null
+    signal: NodeJS.Signals | null,
   ) => {
     if (!exited) {
       exited = true
@@ -106,13 +106,13 @@ const run = (
   cwd: string,
   args: string[] = [],
   stdin?: string,
-  testEnv: Record<string, string | undefined> = {}
+  testEnv: Record<string, string | undefined> = {},
 ): PromiseWithProcess<Result> => {
   const env = Object.assign(
     Object.fromEntries(
-      Object.entries(process.env).filter(([k]) => !/TAP/.test(k))
+      Object.entries(process.env).filter(([k]) => !/TAP/.test(k)),
     ),
-    testEnv
+    testEnv,
   )
   for (const [k, v] of Object.entries(env)) {
     if (v === undefined) delete env[k]
@@ -146,9 +146,9 @@ const run = (
           stdout: Buffer.concat(out).toString(),
           stderr: Buffer.concat(err).toString(),
         })
-      })
+      }),
     ),
-    { proc }
+    { proc },
   ) as PromiseWithProcess<Result>
 }
 
@@ -164,7 +164,7 @@ t.test('default options', async t => {
 
   const dir = t.testdir({ '.tap': { processinfo: {} } })
   const r = new Repl({
-    globCwd: dir,
+    projectRoot: dir,
     get: () => {},
   } as unknown as LoadedConfig)
   t.equal(r.input, process.stdin)
@@ -198,11 +198,11 @@ t.test('show help', async t => {
 
   const r = new Repl(
     {
-      globCwd: dir,
+      projectRoot: dir,
       get: () => {},
     } as unknown as LoadedConfig,
     input as unknown as ReadStream,
-    output as unknown as WriteStream
+    output as unknown as WriteStream,
   )
   r.start()
   const help = await r.parseCommand('h')
@@ -219,7 +219,7 @@ t.test('show help', async t => {
 
   t.equal(
     await r.parseCommand('f?'),
-    'no failed tests from previous runs'
+    'no failed tests from previous runs',
   )
 
   let spawnTapCalled: any = false
@@ -268,11 +268,11 @@ t.test('sigint handling', async t => {
 
   const r = new Repl(
     {
-      globCwd: dir,
+      projectRoot: dir,
       get: () => {},
     } as unknown as LoadedConfig,
     input as unknown as ReadStream,
-    output as unknown as WriteStream
+    output as unknown as WriteStream,
   )
   r.start()
   const proc = {
@@ -328,8 +328,8 @@ TAP version 14
 ok 1 - child
 ok 2 - other assertion
 1..2
-`
-    )
+`,
+    ),
   )
 })
 
@@ -411,7 +411,7 @@ coverage-map: map.js
     })
 
     const r = new Repl({
-      globCwd: dir,
+      projectRoot: dir,
       get: () => {},
     } as unknown as LoadedConfig)
 
@@ -448,7 +448,7 @@ coverage-map: map.js
     t.ok(
       res.stdout.startsWith(`TAP> i foo.test.mjs
 foo.test.mjs:
-  date:`)
+  date:`),
     )
     const piFiles = readdirSync(resolve(dir, '.tap/processinfo'))
     t.equal(piFiles.length, 1)
@@ -457,11 +457,11 @@ foo.test.mjs:
     t.strictSame(
       res.stdout.split(/[\r\n]+/).slice(2),
       byUuid.stdout.split(/[\r\n]+/).slice(2),
-      'same entry two different ways'
+      'same entry two different ways',
     )
     t.matchSnapshot(
       await run(dir, [], 'i not-a-valid-id\n'),
-      'no data found'
+      'no data found',
     )
     t.matchSnapshot(await run(dir, [], 'i\n'), 'no id provided')
   })
@@ -472,14 +472,14 @@ foo.test.mjs:
       `
       import t from 'tap'
       t.spawn(process.execPath, ['./foo.test.mjs'], { externalID: 'blah' })
-    `
+    `,
     )
     await run(dir, ['r', 'cp.test.mjs'], '')
     const res = await run(dir, [], 'i cp.test.mjs\n')
     t.ok(
       res.stdout.startsWith(`TAP> i cp.test.mjs
 cp.test.mjs:
-  date:`)
+  date:`),
     )
     t.match(res.stdout, 'children:')
   })
@@ -510,7 +510,7 @@ cp.test.mjs:
     const res = await run(dir, ['c'], '')
     t.match(
       res.stdout.replace(/ /g, ''),
-      '\nfoo.mjs|100|100|100|100|\n'
+      '\nfoo.mjs|100|100|100|100|\n',
     )
   })
 
@@ -520,7 +520,7 @@ cp.test.mjs:
     const res = await run(
       dir,
       [],
-      'w\nw\nw?\nw on\nw on\nw?\nw off\nw?\n'
+      'w\nw\nw?\nw on\nw on\nw?\nw off\nw?\n',
     )
     t.match(res, { code: 0, signal: null })
     t.matchSnapshot(res.stdout)
@@ -541,11 +541,11 @@ t.test('watch for changes that happen during a test run', async t => {
   const output = new Minipass<string>({ encoding: 'utf8' })
   const r = new Repl(
     {
-      globCwd: dir,
+      projectRoot: dir,
       get: () => {},
     } as unknown as LoadedConfig,
     input as unknown as NodeJS.ReadStream,
-    output as unknown as NodeJS.WriteStream
+    output as unknown as NodeJS.WriteStream,
   )
   let paused = false
   Object.assign(r, {
@@ -609,6 +609,6 @@ t.test('watch for changes that happen during a test run', async t => {
 signal: null
 change detected
 `,
-    'got expected output'
+    'got expected output',
   )
 })

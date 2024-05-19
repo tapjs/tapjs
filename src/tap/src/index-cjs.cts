@@ -70,7 +70,7 @@ declare global {
 
     export type TapPlugin<
       T extends Object,
-      O extends unknown = unknown
+      O extends unknown = unknown,
     > = items.TapPlugin<T, O>
   }
 }

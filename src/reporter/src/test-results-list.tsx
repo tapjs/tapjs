@@ -29,14 +29,14 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
           ~
         </Text>
         <Text>{results.plan.skipReason || 'no tests found'}</Text>
-      </Box>
+      </Box>,
     )
   }
   resultsList.push(
     ...lists.pass,
     ...lists.skip,
     ...lists.todo,
-    ...lists.fail
+    ...lists.fail,
   )
 
   if (typeof test.options.signal === 'string') {
@@ -46,7 +46,7 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
           ✖
         </Text>
         <Text>{test.options.signal}</Text>
-      </Box>
+      </Box>,
     )
   }
   if (bailedOut && !details) {
@@ -56,7 +56,7 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
           Bailout!
         </Text>
         <Text>{bailedOut}</Text>
-      </Box>
+      </Box>,
     )
   }
 
@@ -65,11 +65,10 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
   type RLG = (ReactElement[] | ReactElement)[]
   const resultsListGrouped: RLG = resultsList.reduce(
     (s: RLG, f: ReactElement | Result) => {
-      const el = isResult(f) ? (
-        <ResultTag result={f} details={details} test={test} />
-      ) : (
-        f
-      )
+      const el =
+        isResult(f) ?
+          <ResultTag result={f} details={details} test={test} />
+        : f
       if (!details || !(f instanceof Result) || !f.diag) {
         let l = s[s.length - 1]
         if (!Array.isArray(l)) {
@@ -82,22 +81,20 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
       }
       return s
     },
-    []
+    [],
   )
 
   return (
     <Box gap={1} flexDirection="column">
       {resultsListGrouped.map((f, key) => (
         <Box flexDirection="column" key={key}>
-          {Array.isArray(f) ? (
+          {Array.isArray(f) ?
             f.map((f, key) => (
               <Box flexDirection="column" key={key}>
                 {f}
               </Box>
             ))
-          ) : (
-            <Box key={key}>{f}</Box>
-          )}
+          : <Box key={key}>{f}</Box>}
         </Box>
       ))}
     </Box>

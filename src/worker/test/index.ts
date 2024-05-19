@@ -19,7 +19,7 @@ t.test('parse options', t => {
     sub<T extends Base, O extends BaseOpts>(
       Class: { new (options: O): T },
       extra: O | TestOpts | TestBaseOpts | BaseOpts = {},
-      caller: (...a: any[]) => unknown
+      caller: (...a: any[]) => unknown,
     ): PromiseWithSubtest<T> {
       t.equal(Class, Worker)
       t.type(caller, Function)
@@ -51,7 +51,7 @@ t.test('spawn a worker with inline code', t => {
     t.equal(t.isMainThread, false, 'not in the main thread')
     t.strictSame(t.workerData, { a: 1 }, 'got worker data')
     `,
-    { eval: true, workerData: { a: 1 } }
+    { eval: true, workerData: { a: 1 } },
   )
   t.end()
 })

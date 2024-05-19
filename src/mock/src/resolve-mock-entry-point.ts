@@ -5,7 +5,7 @@ export const resolveMockEntryPoint = async (
   module: string,
   serviceKey: string,
   key: string,
-  caller: Function | ((...a: any[]) => any)
+  caller: Function | ((...a: any[]) => any),
 ): Promise<string> => {
   let mockedModuleURL: URL
   if (module.startsWith('./') || module.startsWith('../')) {
@@ -17,7 +17,7 @@ export const resolveMockEntryPoint = async (
     /* c8 ignore start */
     if (typeof res === 'string') {
       const er = new TypeError(
-        'node builtins cannot be mock imported'
+        'node builtins cannot be mock imported',
       )
       Error.captureStackTrace(er, caller)
       throw er

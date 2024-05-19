@@ -12,13 +12,10 @@ export type ConfigValues = LoadedConfig['values']
 
 export let mainCommand: string =
   positionals[0] ||
-  (values.help
-    ? 'help'
-    : values.version
-    ? 'version'
-    : values.versions
-    ? 'versions'
-    : 'run')
+  (values.help ? 'help'
+  : values.version ? 'version'
+  : values.versions ? 'versions'
+  : 'run')
 
 const commands = new Set([
   'help',
@@ -40,7 +37,7 @@ if (!commands.has(mainCommand)) {
 }
 
 export const args = positionals.slice(
-  positionals[0] === mainCommand ? 1 : 0
+  positionals[0] === mainCommand ? 1 : 0,
 )
 
 if (mainCommand === 'version' || mainCommand === 'versions') {

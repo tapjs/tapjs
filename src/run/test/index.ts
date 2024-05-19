@@ -4,7 +4,7 @@ import t from 'tap'
 // reset it after every test. Use a fake intercept version instead.
 const originalEnv = { ...process.env }
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('help', async t => {

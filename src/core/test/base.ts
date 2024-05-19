@@ -113,7 +113,7 @@ t.test('test Base.threw() handling', t => {
       {
         some: 'diags',
         message: 'oops',
-      }
+      },
     )
     t.equal((er as Error & { test: string }).test, 'basic')
     t.same(errs(), [])
@@ -131,13 +131,13 @@ t.test('test Base.threw() handling', t => {
           some: 'diags',
           test: 'child test',
         },
-        true
+        true,
       ),
       {
         some: 'diags',
         test: 'child test',
         message: 'oops',
-      }
+      },
     )
     t.equal((er as Error & { test?: string }).test, undefined)
     t.same(errs(), [])

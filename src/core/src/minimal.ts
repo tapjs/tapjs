@@ -29,15 +29,15 @@ export class Minimal extends TestBase {
   test(
     name: string,
     extra: TestBaseOpts,
-    cb: (t: Minimal) => any
+    cb: (t: Minimal) => any,
   ): PromiseWithSubtest<Minimal>
   test(
     name: string,
-    cb: (t: Minimal) => any
+    cb: (t: Minimal) => any,
   ): PromiseWithSubtest<Minimal>
   test(
     extra: TestBaseOpts,
-    cb: (t: Minimal) => any
+    cb: (t: Minimal) => any,
   ): PromiseWithSubtest<Minimal>
   test(cb: (t: Minimal) => any): PromiseWithSubtest<Minimal>
   test(
@@ -47,7 +47,7 @@ export class Minimal extends TestBase {
     return this.sub(
       Minimal,
       extra,
-      this.test
+      this.test,
     ) as PromiseWithSubtest<Minimal>
   }
 }

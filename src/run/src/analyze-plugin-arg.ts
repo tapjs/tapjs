@@ -19,7 +19,7 @@ const pkgRe =
  */
 export const analyzePluginArg = async (
   plugin: string,
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const pkgMatch = plugin.match(pkgRe)
   if (!pkgMatch || defaultPlugins.includes(plugin)) {

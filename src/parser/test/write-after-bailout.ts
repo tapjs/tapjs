@@ -43,6 +43,6 @@ t.test('child calling _parse after bailout', function (t) {
       '    ok 1',
       'ok 1',
       '1..1',
-    ].join('\n')
+    ].join('\n'),
   )
 })

@@ -22,12 +22,12 @@ export class TestStreamDeserialize extends Minipass<
   write(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding,
-    cb?: () => void
+    cb?: () => void,
   ): boolean
   write(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | (() => void),
-    cb?: () => void
+    cb?: () => void,
   ): boolean {
     // stream.write types boilerplate
     /* c8 ignore start */
@@ -43,8 +43,9 @@ export class TestStreamDeserialize extends Minipass<
     }
     /* c8 ignore stop */
 
-    let buf = this.#buffer?.length
-      ? Buffer.concat([this.#buffer, chunk as Buffer])
+    let buf =
+      this.#buffer?.length ?
+        Buffer.concat([this.#buffer, chunk as Buffer])
       : (chunk as Buffer)
     this.#buffer = undefined
 
@@ -56,15 +57,15 @@ export class TestStreamDeserialize extends Minipass<
       const des = new DefaultDeserializer(
         buf.subarray(
           kSerializedSizeHeader,
-          size + kSerializedSizeHeader
-        )
+          size + kSerializedSizeHeader,
+        ),
       )
       buf = buf.subarray(size + kSerializedSizeHeader)
       des.readHeader()
       const item = des.readValue()
       if (item?.data?.details?.error) {
         item.data.details.error = deserializeError(
-          item.data.details.error
+          item.data.details.error,
         )
       }
 
@@ -88,21 +89,20 @@ export class TestStreamDeserialize extends Minipass<
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding,
-    cb?: () => void
+    cb?: () => void,
   ): this
   end(
     chunk?: Minipass.ContiguousData | (() => void),
     encoding?: Minipass.Encoding | (() => void),
-    cb?: () => void
+    cb?: () => void,
   ) {
     // just affordance for TS's persnicketiness
     /* c8 ignore start */
     const ret =
-      chunk === undefined || typeof chunk === 'function'
-        ? super.end(chunk)
-        : typeof encoding === 'function'
-        ? super.end(chunk, encoding)
-        : super.end(chunk, encoding, cb)
+      chunk === undefined || typeof chunk === 'function' ?
+        super.end(chunk)
+      : typeof encoding === 'function' ? super.end(chunk, encoding)
+      : super.end(chunk, encoding, cb)
     /* c8 ignore stop */
     if (this.#buffer) {
       this.emit('error', new Error('deserialize ended mid-message'))

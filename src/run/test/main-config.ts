@@ -8,14 +8,14 @@ import {
 
 const originalEnv = { ...process.env }
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('no args, run', async t => {
   t.intercept(process, 'argv', { value: process.argv.slice(0, 2) })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, valuesActual)
@@ -31,7 +31,7 @@ t.test('unknown positional arg, run', async t => {
   })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, valuesActual)
@@ -47,7 +47,7 @@ t.test('explicit run', async t => {
   })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, valuesActual)
@@ -63,7 +63,7 @@ t.test('explicit run positional', async t => {
   })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, valuesActual)
@@ -79,7 +79,7 @@ t.test('--help, run help', async t => {
   })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, { ...valuesActual, help: true })
@@ -95,7 +95,7 @@ t.test('--version, run version', async t => {
   })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, { ...valuesActual, version: true })
@@ -111,7 +111,7 @@ t.test('--versions, run versions', async t => {
   })
   const { values, positionals, mainCommand, args, mainBin } =
     await t.mockImport<typeof import('../dist/esm/main-config.js')>(
-      '../dist/esm/main-config.js'
+      '../dist/esm/main-config.js',
     )
 
   t.strictSame(values, { ...valuesActual, versions: true })

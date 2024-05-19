@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
   res.end(
     JSON.stringify({
       hello: req.url === '/' ? 'world' : String(req.url).slice(1),
-    })
+    }),
   )
 })
 
@@ -76,22 +76,22 @@ t.test(
 
     const snapshotFile = writeTest.snapshotFile.replace(
       /\.test\.cjs$/,
-      '.nock.json'
+      '.nock.json',
     )
     t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
     const snapshotData = JSON.parse(
-      fs.readFileSync(snapshotFile, 'utf8')
+      fs.readFileSync(snapshotFile, 'utf8'),
     )
     t.equal(
       Object.keys(snapshotData).length,
       1,
-      'snapshot has one entry'
+      'snapshot has one entry',
     )
     const snapshotKey = Object.keys(snapshotData)[0]
     t.equal(
       snapshotData[snapshotKey].length,
       1,
-      'snapshot entry has one scope'
+      'snapshot entry has one scope',
     )
 
     // the 'name' here must be different than the test above
@@ -107,7 +107,7 @@ t.test(
         fileName: /test[\\\/]snapshot\.mts$/,
       },
     })
-  }
+  },
 )
 
 t.test('snapshots work', async t => {
@@ -138,7 +138,7 @@ t.test('snapshots work', async t => {
 
   const snapshotFile = writeTest.snapshotFile.replace(
     /\.test\.cjs$/,
-    '.nock.json'
+    '.nock.json',
   )
   t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
 
@@ -154,7 +154,7 @@ t.test('snapshots work', async t => {
   t.equal(
     readTest.snapshotFile,
     writeTest.snapshotFile,
-    'uses the same file'
+    'uses the same file',
   )
   readTest.nock.snapshot()
 
@@ -193,7 +193,7 @@ t.test('snapshots work with transforms', async t => {
   t.same(
     writeScopes,
     [],
-    't.nock.snapshot() returns an empty array in write mode'
+    't.nock.snapshot() returns an empty array in write mode',
   )
 
   await writeTest.resolves(async () => {
@@ -209,7 +209,7 @@ t.test('snapshots work with transforms', async t => {
 
   const snapshotFile = writeTest.snapshotFile.replace(
     /\.test\.cjs$/,
-    '.nock.json'
+    '.nock.json',
   )
   t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
 
@@ -224,7 +224,7 @@ t.test('snapshots work with transforms', async t => {
   t.equal(
     readTest.snapshotFile,
     writeTest.snapshotFile,
-    'uses the same file'
+    'uses the same file',
   )
   const readScopes = readTest.nock.snapshot({
     load: scope => {
@@ -239,7 +239,7 @@ t.test('snapshots work with transforms', async t => {
       await fetch('http://127.0.0.1:65200')
     },
     { code: 'ERR_NOCK_NO_MATCH' },
-    'nock request without auth failed'
+    'nock request without auth failed',
   )
 
   await readTest.resolves(async () => {
@@ -251,7 +251,7 @@ t.test('snapshots work with transforms', async t => {
     t.equal(res.status, 200, 'got a 200')
     t.notOk(
       res.headers.has('date'),
-      'res does NOT have a date header'
+      'res does NOT have a date header',
     )
     const body = await res.json()
     t.same(body, { hello: 'world' }, 'got response body')
@@ -291,7 +291,7 @@ t.test('snapshots and nocks can co-exist', async t => {
             t.equal(res.status, 200)
             const body = await res.json()
             t.same(body, { hello: 'grandchild' })
-          }
+          },
         )
 
         await snapshotTest.resolves(async () => {
@@ -313,9 +313,9 @@ t.test('snapshots and nocks can co-exist', async t => {
             t.equal(res.status, 200)
             const body = await res.json()
             t.same(body, { hello: 'grandchild2' })
-          }
+          },
         )
-      }
+      },
     )
 
     await parentTest.test('test with nock', async nockTest => {
@@ -339,7 +339,7 @@ t.test('snapshots and nocks can co-exist', async t => {
   server.close()
   await t.resolves(
     runTests(false),
-    'tests run with snapshot disabled'
+    'tests run with snapshot disabled',
   )
 })
 
@@ -358,7 +358,7 @@ t.test(
       }).applyPlugin(plugin)
       snapshotFile = parentTest.snapshotFile.replace(
         /\.test\.cjs$/,
-        '.nock.json'
+        '.nock.json',
       )
       parentTest.nock.snapshot()
 
@@ -369,7 +369,7 @@ t.test(
         parentTest.same(
           body,
           { hello: 'parent1' },
-          'got response body'
+          'got response body',
         )
       }, 'first parent request worked')
 
@@ -383,7 +383,7 @@ t.test(
           childTest.same(
             body,
             { hello: 'child1' },
-            'got response body'
+            'got response body',
           )
         }, 'first child request worked')
 
@@ -394,17 +394,17 @@ t.test(
 
             await grandchildTest.resolves(async () => {
               const res = await fetch(
-                'http://127.0.0.1:65200/grandchild1'
+                'http://127.0.0.1:65200/grandchild1',
               )
               grandchildTest.equal(res.status, 200, 'got a 200')
               const body = await res.json()
               grandchildTest.same(
                 body,
                 { hello: 'grandchild1' },
-                'got response body'
+                'got response body',
               )
             }, 'first grandchild request worked')
-          }
+          },
         )
 
         await childTest.resolves(async () => {
@@ -414,7 +414,7 @@ t.test(
           childTest.same(
             body,
             { hello: 'child2' },
-            'got response body'
+            'got response body',
           )
         }, 'second child request worked')
       })
@@ -426,7 +426,7 @@ t.test(
         parentTest.same(
           body,
           { hello: 'parent2' },
-          'got response body'
+          'got response body',
         )
       }, 'second parent request worked')
 
@@ -448,7 +448,7 @@ t.test(
         parentTest.same(
           body,
           { hello: 'parent3' },
-          'got response body'
+          'got response body',
         )
       }, 'third parent request worked')
 
@@ -462,5 +462,5 @@ t.test(
     server.close()
 
     await t.resolves(runTests(false), 'snapshot reading tests pass')
-  }
+  },
 )

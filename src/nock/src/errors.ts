@@ -10,7 +10,7 @@ export class ErrMissingSnapshotData extends Error {
   code: string
   constructor(
     test: TestBase,
-    from: Function | ((...a: any[]) => any)
+    from: Function | ((...a: any[]) => any),
   ) {
     super(`Missing snapshot data for test: ${test.fullname}`)
     this.at = at(from)
@@ -28,7 +28,7 @@ export class ErrMockNotSatisfied extends Error {
   stack: ''
   constructor(scope: ScopeWithAt) {
     super(
-      `Mocks not yet satisfied:\n${scope.pendingMocks().join('\n')}`
+      `Mocks not yet satisfied:\n${scope.pendingMocks().join('\n')}`,
     )
     this.at = scope._at
     this.code = 'EMOCKSUNSATISFIED'

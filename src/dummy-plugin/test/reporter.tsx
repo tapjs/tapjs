@@ -12,10 +12,10 @@ const app = render(
     test={test}
     config={
       {
-        globCwd: '/some/path',
+        projectRoot: '/some/path',
       } as unknown as LoadedConfig
     }
-  />
+  />,
 )
 
 test.test('child test', async t => {

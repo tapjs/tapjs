@@ -1,4 +1,4 @@
-import {resolve} from 'node:path'
+import { resolve } from 'node:path'
 import * as nodeUrl from 'node:url'
 import t from 'tap'
 
@@ -12,9 +12,9 @@ t.test('short CWDs are not a problem', async t => {
     },
     url: t.createMock(nodeUrl, {
       pathToFileURL: (path: string): URL =>
-        path === s
-          ? new URL('file:///x')
-          : nodeUrl.pathToFileURL(path),
+        path === s ?
+          new URL('file:///x')
+        : nodeUrl.pathToFileURL(path),
     }),
   })
   t.capture(process, 'cwd', () => s)
@@ -93,7 +93,7 @@ t.test('normal length cwd path', async t => {
       'escaped',
       {
         string: c,
-      }
+      },
     )
   }
 
@@ -101,7 +101,7 @@ t.test('normal length cwd path', async t => {
   t.not(
     cleanCWD(JSON.stringify(j4)).toLowerCase().indexOf('test-path'),
     -1,
-    'does not escape beyond 4 levels'
+    'does not escape beyond 4 levels',
   )
   t.end()
 })

@@ -8,13 +8,13 @@ import { Init } from 'npm-init-template'
 const corePkg = JSON.parse(
   readFileSync(
     await resolveImport('@tapjs/core/package.json', import.meta.url),
-    'utf8'
-  )
+    'utf8',
+  ),
 ) as typeof import('@tapjs/core/package.json')
 const { version: coreVersion } = corePkg
 
 const { prompt, build, values, positionals, run } = new Init(
-  import.meta.url
+  import.meta.url,
 )
 
 values.coreVersion = `^${coreVersion}`
@@ -57,7 +57,7 @@ const defName =
 const name = (values.name = pkgName(
   await prompt('Plugin package name: ', 'name', {
     default: defName,
-  })
+  }),
 ))
 values.className = name
   .replace(/^.*?\/([^\/]+)$/, '$1')
@@ -80,8 +80,9 @@ await build({
   // from the build location, not the src location
   templates: '../../templates',
   target,
-  exclude: values.git?.trim().toLowerCase().startsWith('y')
-    ? []
+  exclude:
+    values.git?.trim().toLowerCase().startsWith('y') ?
+      []
     : ['.git*', '.github/**'],
 })
 

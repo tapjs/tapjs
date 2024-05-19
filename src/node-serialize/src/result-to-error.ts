@@ -22,7 +22,7 @@ export const resultToError = (
         name?: string
         diag?: Result['diag']
       },
-  test?: Base
+  test?: Base,
 ): Error => {
   const {
     stack: diagStack,

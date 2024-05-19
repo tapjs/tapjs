@@ -6,7 +6,7 @@ t.cleanSnapshot = s =>
     .replace(/\n  at:[^\n]*(\n    [^\n]+)/g, '\n  at: {CALLSITE}')
     .replace(
       /\n  source: [^\n]*(\n    [^\n]+)/g,
-      '\n  source: {SOURCE}'
+      '\n  source: {SOURCE}',
     )
 
 for (const ok of [true, false]) {
@@ -14,38 +14,38 @@ for (const ok of [true, false]) {
     t.matchSnapshot(new TestPoint(ok, 'name'), 'basic test point')
     t.matchSnapshot(
       new TestPoint(ok, 'name', { diagnostic: true, some: 'diags' }),
-      'diags'
+      'diags',
     )
     t.matchSnapshot(new TestPoint(ok, 'name', { time: 1234 }), 'time')
     t.matchSnapshot(new TestPoint(ok, 'name', { todo: true }), 'todo')
     t.matchSnapshot(
       new TestPoint(ok, 'name', { todo: 'msg' }),
-      'todo msg'
+      'todo msg',
     )
     t.matchSnapshot(new TestPoint(ok, 'name', { skip: true }), 'skip')
     t.matchSnapshot(
       new TestPoint(ok, 'name', { skip: 'msg' }),
-      'skip msg'
+      'skip msg',
     )
     t.matchSnapshot(
       new TestPoint(ok, '', { todo: true }),
-      'todo noname'
+      'todo noname',
     )
     t.matchSnapshot(
       new TestPoint(ok, '', { todo: 'msg' }),
-      'todo msg noname'
+      'todo msg noname',
     )
     t.matchSnapshot(
       new TestPoint(ok, '', { skip: true }),
-      'skip noname'
+      'skip noname',
     )
     t.matchSnapshot(
       new TestPoint(ok, '', { skip: 'msg' }),
-      'skip msg noname'
+      'skip msg noname',
     )
     t.matchSnapshot(
       new TestPoint(ok, '  a\nb\t# c \\  '),
-      'escape/trim'
+      'escape/trim',
     )
     t.end()
   })

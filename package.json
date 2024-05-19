@@ -6,6 +6,7 @@
   ],
   "type": "module",
   "prettier": {
+    "experimentalTernaries": true,
     "semi": false,
     "printWidth": 70,
     "tabWidth": 2,
@@ -68,7 +69,7 @@
     "patch-console": "^2.0.0",
     "path-scurry": "^1.9.2",
     "polite-json": "^4.0.1",
-    "prettier": "^2.8.7",
+    "prettier": "^3.2.5",
     "prismjs": "^1.29.0",
     "prismjs-terminal": "^1.2.3",
     "react": "^18.2.0",

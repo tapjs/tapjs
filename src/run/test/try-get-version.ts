@@ -18,8 +18,8 @@ t.test('try and get the version', t => {
   const expect = JSON.parse(
     readFileSync(
       new URL('../../tap/package.json', import.meta.url),
-      'utf8'
-    )
+      'utf8',
+    ),
   ).version
 
   t.equal(tryGetVersion('tap'), expect)

@@ -44,14 +44,12 @@ export function describe(block: SuiteBlock): void
 export function describe(name: string, block?: SuiteBlock): void
 export function describe(
   nameOrBlock: string | SuiteBlock,
-  block?: SuiteBlock
+  block?: SuiteBlock,
 ): void {
   const name =
-    typeof nameOrBlock === 'string'
-      ? nameOrBlock
-      : typeof nameOrBlock === 'function'
-      ? nameOrBlock.name
-      : undefined
+    typeof nameOrBlock === 'string' ? nameOrBlock
+    : typeof nameOrBlock === 'function' ? nameOrBlock.name
+    : undefined
   if (typeof nameOrBlock === 'function') block = nameOrBlock
   const fn = block
   if (!fn) {
@@ -61,7 +59,7 @@ export function describe(
   }
   if (!currentSuite) {
     const er = new Error(
-      `must import 'tap' before calling describe()`
+      `must import 'tap' before calling describe()`,
     )
     Error.captureStackTrace(er, describe)
     throw er
@@ -88,15 +86,12 @@ export function it(block: TestBlock): void
 export function it(name: string, block: TestBlock): void
 export function it(
   nameOrBlock?: string | TestBlock,
-  block?: TestBlock
+  block?: TestBlock,
 ): void {
   const name =
-    typeof nameOrBlock === 'string'
-      ? nameOrBlock
-      : typeof nameOrBlock === 'function'
-      ? nameOrBlock.name
-      : /* c8 ignore start */
-        undefined
+    typeof nameOrBlock === 'string' ? nameOrBlock
+    : typeof nameOrBlock === 'function' ? nameOrBlock.name
+    : /* c8 ignore start */ undefined
   /* c8 ignore stop */
   if (typeof nameOrBlock === 'function') block = nameOrBlock
   const cs = getCurrentSuite()
@@ -160,14 +155,12 @@ const hookPre = (
   hook: string,
   hookFn: (...a: any[]) => any,
   nameOrBlock: string | HookBlock,
-  block?: HookBlock
+  block?: HookBlock,
 ) => {
   const name =
-    typeof nameOrBlock === 'string'
-      ? nameOrBlock
-      : typeof nameOrBlock === 'function'
-      ? nameOrBlock.name
-      : undefined
+    typeof nameOrBlock === 'string' ? nameOrBlock
+    : typeof nameOrBlock === 'function' ? nameOrBlock.name
+    : undefined
   if (typeof nameOrBlock === 'function') block = nameOrBlock
   const suite = getCurrentSuite() || rootSuite?.t
   if (!suite) {
@@ -189,7 +182,7 @@ const hookPre = (
     },
   ] as [
     Exclude<ReturnType<typeof getCurrentSuite>, undefined>,
-    HookBlock
+    HookBlock,
   ]
 }
 
@@ -204,13 +197,13 @@ export function before(block: HookBlock): any | void
 export function before(name: string, block: HookBlock): any | void
 export function before(
   nameOrBlock: string | HookBlock,
-  block?: HookBlock
+  block?: HookBlock,
 ): any | void {
   const [suite, fn] = hookPre('before', before, nameOrBlock, block)
   /* c8 ignore start */
   if (!suite.pluginLoaded(BeforePlugin)) {
     const er = new Error(
-      '@tapjs/before plugin disabled, cannot call before()'
+      '@tapjs/before plugin disabled, cannot call before()',
     )
     Error.captureStackTrace(er, before)
     throw er
@@ -230,13 +223,13 @@ export function after(block: HookBlock): any | void
 export function after(name: string, block: HookBlock): any | void
 export function after(
   nameOrBlock: string | HookBlock,
-  block?: HookBlock
+  block?: HookBlock,
 ): any | void {
   const [suite, fn] = hookPre('after', after, nameOrBlock, block)
   /* c8 ignore start */
   if (!suite.pluginLoaded(AfterPlugin)) {
     const er = new Error(
-      '@tapjs/after plugin disabled, cannot call after()'
+      '@tapjs/after plugin disabled, cannot call after()',
     )
     Error.captureStackTrace(er, after)
     throw er
@@ -257,18 +250,18 @@ export function beforeEach(block: HookBlock): any | void
 export function beforeEach(name: string, block: HookBlock): any | void
 export function beforeEach(
   nameOrBlock: string | HookBlock,
-  block?: HookBlock
+  block?: HookBlock,
 ): any | void {
   const [suite, fn] = hookPre(
     'beforeEach',
     beforeEach,
     nameOrBlock,
-    block
+    block,
   )
   /* c8 ignore start */
   if (!suite.pluginLoaded(BeforeEachPlugin)) {
     const er = new Error(
-      '@tapjs/before-each plugin disabled, cannot call beforeEach()'
+      '@tapjs/before-each plugin disabled, cannot call beforeEach()',
     )
     Error.captureStackTrace(er, beforeEach)
     throw er
@@ -289,18 +282,18 @@ export function afterEach(block: HookBlock): any | void
 export function afterEach(name: string, block: HookBlock): any | void
 export function afterEach(
   nameOrBlock: string | HookBlock,
-  block?: HookBlock
+  block?: HookBlock,
 ): any | void {
   const [suite, fn] = hookPre(
     'afterEach',
     afterEach,
     nameOrBlock,
-    block
+    block,
   )
   /* c8 ignore start */
   if (!suite.pluginLoaded(AfterEachPlugin)) {
     const er = new Error(
-      '@tapjs/after-each plugin disabled, cannot call afterEach()'
+      '@tapjs/after-each plugin disabled, cannot call afterEach()',
     )
     Error.captureStackTrace(afterEach)
     throw er
@@ -316,9 +309,9 @@ export function afterEach(
  * a suite currently.
  */
 const getCurrentSuite = () =>
-  currentSuite && currentSuite.t !== rootSuite?.t
-    ? currentSuite.t
-    : undefined
+  currentSuite && currentSuite.t !== rootSuite?.t ?
+    currentSuite.t
+  : undefined
 
 /**
  * Get the current test.
@@ -382,7 +375,7 @@ export {
 export const mount = (t: TestBase) => {
   if (rootSuite) {
     const er = new Error(
-      'mocha globals already mounted on a tap test'
+      'mocha globals already mounted on a tap test',
     )
     Error.captureStackTrace(er, mount)
     throw er

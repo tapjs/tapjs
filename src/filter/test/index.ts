@@ -9,15 +9,15 @@ t.cleanSnapshot = s =>
 
 const run = async (
   opts: TestOpts,
-  setRunOnly: boolean | null = null
+  setRunOnly: boolean | null = null,
 ): Promise<string> => {
   const tt = new Test(opts)
   tt.runMain(() => {})
   t.equal(
     tt.runOnly,
-    process.env.TAP_ONLY
-      ? process.env.TAP_ONLY === '1'
-      : !!opts.runOnly
+    process.env.TAP_ONLY ?
+      process.env.TAP_ONLY === '1'
+    : !!opts.runOnly,
   )
   if (setRunOnly !== null) {
     tt.runOnly = setRunOnly
@@ -37,9 +37,9 @@ const run = async (
     tt.test('dig', async tt =>
       tt.test('dig', async tt =>
         tt.test('keep digging', async tt =>
-          tt.test('dig some more', async tt => tt.pass('found it'))
-        )
-      )
+          tt.test('dig some more', async tt => tt.pass('found it')),
+        ),
+      ),
     )
     tt.pass('woof')
   })
@@ -49,8 +49,8 @@ const run = async (
 
 t.test('grep', async t =>
   t.matchSnapshot(
-    await run({ name: 'grepper', grep: ['cat', 'purr'] })
-  )
+    await run({ name: 'grepper', grep: ['cat', 'purr'] }),
+  ),
 )
 
 t.test('grep, failSkip:true', async t =>
@@ -59,8 +59,8 @@ t.test('grep, failSkip:true', async t =>
       name: 'grepper',
       failSkip: true,
       grep: ['cat', 'purr'],
-    })
-  )
+    }),
+  ),
 )
 
 t.test('grep invert', async t =>
@@ -69,8 +69,8 @@ t.test('grep invert', async t =>
       name: 'grep invert',
       grep: /unicorn|dog/,
       grepInvert: true,
-    })
-  )
+    }),
+  ),
 )
 
 t.test('grep invert, failSkip:true', async t =>
@@ -80,14 +80,14 @@ t.test('grep invert, failSkip:true', async t =>
       grep: /unicorn|dog/,
       grepInvert: true,
       failSkip: true,
-    })
-  )
+    }),
+  ),
 )
 
 t.test('only', async t =>
   t.matchSnapshot(
-    await run({ name: 'only the lonely', runOnly: true })
-  )
+    await run({ name: 'only the lonely', runOnly: true }),
+  ),
 )
 
 t.test('only, failSkip: true', async t =>
@@ -96,16 +96,16 @@ t.test('only, failSkip: true', async t =>
       name: 'only the lonely',
       runOnly: true,
       failSkip: true,
-    })
-  )
+    }),
+  ),
 )
 
 t.test('only, but by setting t.runOnly', async t =>
-  t.matchSnapshot(await run({ name: 'only the lonely' }, true))
+  t.matchSnapshot(await run({ name: 'only the lonely' }, true)),
 )
 
 t.test('warn if using only() unnecessarily', async t =>
-  t.matchSnapshot(await run({ name: 'run it all' }))
+  t.matchSnapshot(await run({ name: 'run it all' })),
 )
 
 t.test('cli runner runs everything no matter what', async t =>
@@ -115,8 +115,8 @@ t.test('cli runner runs everything no matter what', async t =>
       context: Symbol.for('tap.isRunner'),
       grep: /unicorn|dog/,
       grepInvert: true,
-    })
-  )
+    }),
+  ),
 )
 
 t.test('get defaults from env', t => {

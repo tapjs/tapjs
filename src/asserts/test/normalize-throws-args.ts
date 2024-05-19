@@ -32,7 +32,7 @@ for (const [throwsArgs, expect] of cases) {
   t.test(JSON.stringify(throwsArgs), t => {
     t.strictSame(
       normalizeThrowsArgs(defaultMessage, throwsArgs),
-      expect
+      expect,
     )
     t.end()
   })

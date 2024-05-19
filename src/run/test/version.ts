@@ -10,7 +10,7 @@ import { version } from '../dist/esm/version.js'
 // reset it after every test. Use a fake intercept version instead.
 const originalEnv = { ...process.env }
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('basic version', async t => {
@@ -80,13 +80,13 @@ t.test('fallback if version not found', async t => {
     } else {
       await version([], config)
       const res = logs().map(
-        ({ args }: { args: string[] }) => args[0]
+        ({ args }: { args: string[] }) => args[0],
       )[0]
       t.match(res, tv)
     }
     await version(['versions'], config)
     const allVersions = logs().map(
-      ({ args }: { args: string[] }) => args[0]
+      ({ args }: { args: string[] }) => args[0],
     )[0]
     for (const b of broken) {
       t.notMatch(allVersions, `${b}: `)
@@ -96,20 +96,20 @@ t.test('fallback if version not found', async t => {
   }
 
   await t.test('nothing broken', t =>
-    runTest(t, /^[0-9]+\.[0-9+\.[0-9]+/)
+    runTest(t, /^[0-9]+\.[0-9+\.[0-9]+/),
   )
   broken.push('tap')
   await t.test('tap broken', t =>
-    runTest(t, /^@tapjs\/core@[0-9]+\.[0-9+\.[0-9]+/)
+    runTest(t, /^@tapjs\/core@[0-9]+\.[0-9+\.[0-9]+/),
   )
   broken.push('@tapjs/core')
   await t.test('@tapjs/core broken', t =>
-    runTest(t, /^@tapjs\/run@[0-9]+\.[0-9+\.[0-9]+/)
+    runTest(t, /^@tapjs\/run@[0-9]+\.[0-9+\.[0-9]+/),
   )
 
   broken.push('@tapjs/worker')
   await t.test('@tapjs/worker plugin broken', t =>
-    runTest(t, /^@tapjs\/run@[0-9]+\.[0-9+\.[0-9]+/)
+    runTest(t, /^@tapjs\/run@[0-9]+\.[0-9+\.[0-9]+/),
   )
 
   broken.push('@tapjs/run')

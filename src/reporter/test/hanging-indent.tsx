@@ -13,9 +13,9 @@ const str =
 
 t.matchSnapshot(
   render(<HangingIndent>{str}</HangingIndent>).lastFrame(),
-  'default settings'
+  'default settings',
 )
 t.matchSnapshot(
   render(<HangingIndent indent={3}>{str}</HangingIndent>).lastFrame(),
-  '3 space hang'
+  '3 space hang',
 )

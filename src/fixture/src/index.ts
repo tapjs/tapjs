@@ -59,7 +59,7 @@ export class TestFixtures {
    */
   fixture<T extends FixtureType>(
     type: T,
-    content: FixtureContent<T>
+    content: FixtureContent<T>,
   ) {
     return new Fixture(type, content)
   }
@@ -160,7 +160,7 @@ export class TestFixtures {
 
 export const plugin: TapPlugin<TestFixtures, TestFixturesOptions> = (
   t: TestBase,
-  opts: TestFixturesOptions
+  opts: TestFixturesOptions,
 ) => new TestFixtures(t, opts)
 
 /**

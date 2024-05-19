@@ -19,7 +19,7 @@ t.test('various throws', async t => {
     () => serialize({ registered: true } as unknown as CORE.TAP),
     {
       message: 'Cannot serialize TAP stream, already registered',
-    }
+    },
   )
 
   t.rejects(
@@ -29,7 +29,7 @@ t.test('various throws', async t => {
         proc: undefined,
       },
     }),
-    { message: 'Cannot serialize TAP stream, no process object' }
+    { message: 'Cannot serialize TAP stream, no process object' },
   )
 })
 

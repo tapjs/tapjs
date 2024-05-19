@@ -11,7 +11,7 @@ const run = async (
   asserts: CountsJSON,
   comments: string[] = [],
   timedOut: any = null,
-  bailedOut: string | boolean = false
+  bailedOut: string | boolean = false,
 ) => {
   const { SuiteSummary } = await t.mockImport<
     typeof import('../dist/esm/suite-summary.js')
@@ -41,42 +41,45 @@ const run = async (
 }
 
 t.test('1 passing of 1', t =>
-  run(t, { pass: 1, total: 1 }, { pass: 1, total: 1 })
+  run(t, { pass: 1, total: 1 }, { pass: 1, total: 1 }),
 )
 t.test('1 fail of 1', t =>
   run(
     t,
     { pass: 0, fail: 1, total: 1 },
-    { pass: 0, fail: 1, total: 1 }
-  )
+    { pass: 0, fail: 1, total: 1 },
+  ),
 )
 t.test('skip only', t =>
   run(
     t,
     { pass: 0, skip: 1, total: 10 },
-    { pass: 0, skip: 1, total: 99 }
-  )
+    { pass: 0, skip: 1, total: 99 },
+  ),
 )
 t.test('all the things', t =>
   run(
     t,
     { pass: 1, fail: 1, skip: 1, total: 3 },
-    { pass: 1, fail: 1, skip: 1, todo: 1, total: 4 }
-  )
+    { pass: 1, fail: 1, skip: 1, todo: 1, total: 4 },
+  ),
 )
 
 t.test('comments', t =>
-  run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, ['one', 'two'])
+  run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, [
+    'one',
+    'two',
+  ]),
 )
 
 t.test('timed out with signal', t =>
   run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, [], {
     signal: 'SIGALRM',
-  })
+  }),
 )
 
 t.test('timed out without signal', t =>
-  run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, [], {})
+  run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, [], {}),
 )
 
 t.test('bailed out for no raisin', t =>
@@ -86,8 +89,8 @@ t.test('bailed out for no raisin', t =>
     { pass: 1, fail: 2, skip: 14, total: 17 },
     [],
     false,
-    true
-  )
+    true,
+  ),
 )
 
 t.test('bailed out for with raisin', t =>
@@ -97,6 +100,6 @@ t.test('bailed out for with raisin', t =>
     { pass: 1, fail: 2, skip: 14, total: 17 },
     [],
     false,
-    'i have my raisins'
-  )
+    'i have my raisins',
+  ),
 )

@@ -18,6 +18,6 @@ for (const [defaultMessage, messageExtra, expect] of cases) {
     {
       defaultMessage,
       messageExtra,
-    }
+    },
   )
 }

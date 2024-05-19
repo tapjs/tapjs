@@ -7,7 +7,7 @@ import { resolve } from 'path'
 import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
 const bin = fileURLToPath(
-  await resolveImport('../dist/esm/index.js', import.meta.url)
+  await resolveImport('../dist/esm/index.js', import.meta.url),
 )
 const node = process.execPath
 
@@ -16,7 +16,7 @@ t.cleanSnapshot = s =>
     .replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
     .replace(
       /\n  ---\n(.|\n)*?\n  \.\.\.\n/g,
-      '\n  ---\n  {DIAGS}\n  ...\n'
+      '\n  ---\n  {DIAGS}\n  ...\n',
     )
     // node 16 puts this in the stack, node 18 doesn't
     .replace(/^\s*Function\.all$/gm, '')
@@ -41,13 +41,13 @@ const run = async (
   cwd: string,
   args: string[] = [],
   stdin?: string,
-  testEnv: Record<string, string | undefined> = {}
+  testEnv: Record<string, string | undefined> = {},
 ): Promise<Result> => {
   const env = Object.assign(
     Object.fromEntries(
-      Object.entries(process.env).filter(([k]) => !/TAP/.test(k))
+      Object.entries(process.env).filter(([k]) => !/TAP/.test(k)),
     ),
-    testEnv
+    testEnv,
   )
   for (const [k, v] of Object.entries(env)) {
     if (v === undefined) delete env[k]
@@ -80,7 +80,7 @@ const run = async (
         stdout: Buffer.concat(out).toString(),
         stderr: Buffer.concat(err).toString(),
       })
-    })
+    }),
   )
 }
 
@@ -245,12 +245,12 @@ save: test-failures.txt
     t.match(
       stdout,
       /^not ok [12] - failer.test.js # time=/m,
-      'failer failed'
+      'failer failed',
     )
     t.match(stdout, /^ok [12] - env.test.js # time=/m, 'env passed')
     t.equal(
       readFileSync(resolve(cwd, 'test-failures.txt'), 'utf8'),
-      'failer.test.js\n'
+      'failer.test.js\n',
     )
   })
 
@@ -261,7 +261,7 @@ save: test-failures.txt
       `
         import t from 'tap'
         t.pass('this is fine')
-      `
+      `,
     )
     const { code, signal, stdout, stderr } = await run(cwd)
     t.equal(code, 0)
@@ -285,7 +285,7 @@ t.test('run stdin only', async t => {
     `TAP version 14
 1..1
 ok 1 - this is standard input
-`
+`,
   )
   t.equal(code, 0)
   t.equal(signal, null)
@@ -348,7 +348,7 @@ coverage-map: map.mjs
       stderr,
       `No valid test files found matching "edit" "config"
 (Did you mean 'tap config edit'?)
-`
+`,
     )
   })
 
@@ -369,7 +369,7 @@ coverage-map: map.mjs
       undefined,
       {
         TAP_CHANGED: '1',
-      }
+      },
     )
     t.equal(code, 0)
     t.equal(stdout, 'No new tests to run\n')
@@ -383,7 +383,7 @@ coverage-map: map.mjs
       undefined,
       {
         TAP_CHANGED: '1',
-      }
+      },
     )
     t.equal(code, 1)
     t.equal(stdout, '')
@@ -427,7 +427,7 @@ coverage-map: map.js
     `TAP version 14
 1..1
 ok 1 - this is standard input
-`
+`,
   )
   t.equal(code, 0)
   t.equal(signal, null)
@@ -452,12 +452,12 @@ t.test('build before run if plugins mismatch', async t => {
   process.chdir(dir)
   t.rejects(
     run(['test.js'], {
-      globCwd: dir,
+      projectRoot: dir,
       pluginSignature: 'does not match',
       values: {},
       positionals: ['run', 'index.js'],
       get: () => undefined,
     } as unknown as LoadedConfig),
-    { message: 'expected', stack: 'x' }
+    { message: 'expected', stack: 'x' },
   )
 })

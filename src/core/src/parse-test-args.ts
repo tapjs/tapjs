@@ -21,7 +21,7 @@ export type TestArgs<T extends Base, O extends Opts = Opts> =
       name: string | number,
       extra: O,
       cb: false | ((t: T) => any),
-      defaultName?: string
+      defaultName?: string,
     ]
 
 /**

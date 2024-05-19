@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import t from 'tap'
 const bin = fileURLToPath(
-  new URL('../dist/esm/run.mjs', import.meta.url)
+  new URL('../dist/esm/run.mjs', import.meta.url),
 )
 t.test('runner just loads runner', t => {
   const proc = spawn(process.execPath, [

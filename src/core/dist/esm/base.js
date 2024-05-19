@@ -397,11 +397,11 @@ export class Base extends Minipass {
         this.start = hrtime.bigint();
         this.#started = true;
         // if it's null or an object, inherit from it.  otherwise, copy it.
-        const ctx = this.#context !== unsetContext ? this.#context :
-            ('context' in this.options
+        const ctx = this.#context !== unsetContext
+            ? this.#context
+            : ('context' in this.options
                 ? this.options.context
-                : this.parent?.context) ??
-                null;
+                : this.parent?.context) ?? null;
         this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
         this.hook.runInAsyncScope(this.main, this, cb);
     }

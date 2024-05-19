@@ -12,13 +12,13 @@ const separateLoadersThread = v[0] >= 20
 
 const base = fileURLToPath(import.meta.url)
 export const globalPreload = () =>
-  !separateLoadersThread
-    ? ''
-    : `
+  !separateLoadersThread ? '' : (
+    `
 const { createRequire } = getBuiltin('module')
 const require = createRequire(${JSON.stringify(base)})
 require('@esbuild-kit/cjs')
 `
+  )
 
 // otherwise, do it here
 if (!separateLoadersThread) {

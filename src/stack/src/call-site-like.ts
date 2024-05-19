@@ -81,7 +81,7 @@ export class CallSiteLike {
     if (cwd === undefined) {
       if (this.generated) {
         this.generated.fileName = this.#derelativize(
-          this.generated?.fileName
+          this.generated?.fileName,
         )
       }
     }
@@ -89,7 +89,7 @@ export class CallSiteLike {
     if (cwd !== undefined) {
       if (this.generated) {
         this.generated.fileName = this.#relativize(
-          this.generated?.fileName
+          this.generated?.fileName,
         )
       }
     }
@@ -98,7 +98,7 @@ export class CallSiteLike {
 
   constructor(
     e: Error | null,
-    c: NodeJS.CallSite | string | Compiled
+    c: NodeJS.CallSite | string | Compiled,
   ) {
     if (typeof c === 'string') {
       c = parseCallSiteLine(c)
@@ -156,7 +156,7 @@ export class CallSiteLike {
         const methodMatch = fname.match(methodRe) as [
           string,
           string,
-          string
+          string,
         ]
         if (methodMatch) {
           fname = methodMatch[1]
@@ -231,7 +231,7 @@ export class CallSiteLike {
           // if we're looking up actual call sites though.
           /* c8 ignore start */
           Math.max(0, this.lineNumber - 1),
-          Math.max(0, (this.columnNumber || 0) - 1)
+          Math.max(0, (this.columnNumber || 0) - 1),
           /* c8 ignore stop */
         )
         if (payload) {
@@ -297,26 +297,27 @@ export class CallSiteLike {
       this.generated.fileName !== this.fileName &&
       (isAbsolute(this.fileName) || this.fileName.startsWith('..'))
     const { fileName, lineNumber, columnNumber, generated } =
-      useGen && this.generated
-        ? {
-            fileName: this.#derelativize(this.generated.fileName),
-            lineNumber: this.generated.lineNumber,
-            columnNumber: this.generated.columnNumber,
-            generated: undefined,
-          }
-        : jsStyle
-        ? {
-            fileName: this.#derelativize(this.fileName),
-            lineNumber: this.lineNumber,
-            columnNumber: this.columnNumber,
-            generated: undefined,
-          }
-        : this
+      useGen && this.generated ?
+        {
+          fileName: this.#derelativize(this.generated.fileName),
+          lineNumber: this.generated.lineNumber,
+          columnNumber: this.generated.columnNumber,
+          generated: undefined,
+        }
+      : jsStyle ?
+        {
+          fileName: this.#derelativize(this.fileName),
+          lineNumber: this.lineNumber,
+          columnNumber: this.columnNumber,
+          generated: undefined,
+        }
+      : this
     const loc = { fileName, lineNumber, columnNumber, generated }
     for (const l of [loc, loc.generated]) {
       if (l?.fileName) {
-        l.fileName = jsStyle
-          ? this.#derelativize(l.fileName)
+        l.fileName =
+          jsStyle ?
+            this.#derelativize(l.fileName)
           : this.#relativize(l.fileName)
       }
     }

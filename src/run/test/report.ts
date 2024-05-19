@@ -7,8 +7,8 @@ import { resolve } from 'node:path'
 
 import t from 'tap'
 
-let globCwd = t.testdirName
-t.beforeEach(t => (globCwd = t.testdirName))
+let projectRoot = t.testdirName
+t.beforeEach(t => (projectRoot = t.testdirName))
 
 interface Summary {
   lines: { pct: number | 'Unknown' }
@@ -37,7 +37,7 @@ const validCoverageReports = new Set([
 ])
 class MockConfig {
   #coverageReport: string[]
-  globCwd: string = globCwd
+  projectRoot: string = projectRoot
   showFullCoverage?: boolean
   allowEmptyCoverage?: boolean
   allowIncompleteCoverage?: boolean
@@ -120,13 +120,13 @@ class MockReport {
     if (this.reporter.includes('html')) {
       await writeFile(
         resolve(this.reportsDirectory, 'index.html'),
-        'report'
+        'report',
       )
     }
     if (this.reporter.includes('lcov')) {
       await writeFile(
         resolve(this.reportsDirectory, 'lcov-report/index.html'),
-        'report'
+        'report',
       )
     }
     if (this.reporter.includes('text')) {
@@ -222,7 +222,7 @@ t.test('explicit report, full cov report explicit off', async t => {
   t.strictSame(
     logs.args(),
     [['summary']],
-    'show full coverage summary'
+    'show full coverage summary',
   )
   t.strictSame(comments.args(), [])
 })
@@ -244,7 +244,7 @@ t.test('run an html report', async t => {
       })
       const comments = t.capture(mockTap, 'comment')
       let openerRan = false
-      const htmlReport = resolve(globCwd, '.tap/report', file)
+      const htmlReport = resolve(projectRoot, '.tap/report', file)
       const { report } = await t.mockImport<
         typeof import('../dist/esm/report.js')
       >('../dist/esm/report.js', {
@@ -263,7 +263,7 @@ t.test('run an html report', async t => {
       else {
         const expect = `lcov report: ${resolve(
           t.testdirName,
-          '.tap/report/lcov.info'
+          '.tap/report/lcov.info',
         )}`
         t.strictSame(logs.args(), [[expect]])
       }
@@ -375,7 +375,7 @@ t.test('not full coverage', async t => {
   })
   const comments = t.capture(mockTap, 'comment')
   let openerRan = false
-  const htmlReport = resolve(globCwd, '.tap/report/index.html')
+  const htmlReport = resolve(projectRoot, '.tap/report/index.html')
   const { report } = await t.mockImport<
     typeof import('../dist/esm/report.js')
   >('../dist/esm/report.js', {
@@ -411,7 +411,7 @@ t.test('not full coverage, allowed', async t => {
   })
   const comments = t.capture(mockTap, 'comment')
   let openerRan = false
-  const htmlReport = resolve(globCwd, '.tap/report/index.html')
+  const htmlReport = resolve(projectRoot, '.tap/report/index.html')
   const { report } = await t.mockImport<
     typeof import('../dist/esm/report.js')
   >('../dist/esm/report.js', {

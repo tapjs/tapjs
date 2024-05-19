@@ -61,24 +61,20 @@ export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
         errorOrigin={errorOrigin}
       />
       <Diff diff={diff} />
-      {error ? (
+      {error ?
         <Text>
           {stringify({ error })
             .trimEnd()
             .replace(/^error:([^\n]*\n)?/, chalk.dim('error:$1'))}
         </Text>
-      ) : (
-        <></>
-      )}
-      {code ? (
+      : <></>}
+      {code ?
         <Text>
           {stringify({ code })
             .trimEnd()
             .replace(/^code:([^\n]*\n)?/, chalk.dim('code:$1'))}
         </Text>
-      ) : (
-        <></>
-      )}
+      : <></>}
       {!!Object.keys(otherDiags).length && (
         <Text dimColor>{stringify(otherDiags).trimEnd()}</Text>
       )}

@@ -64,7 +64,7 @@ export class AfterEach {
     loop(
       this.#parentOnAfterEach.map(f => () => f(this.#t.t)),
       cb,
-      onerr
+      onerr,
     )
   }
 }

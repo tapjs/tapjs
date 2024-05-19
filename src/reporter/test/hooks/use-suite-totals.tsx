@@ -27,16 +27,16 @@ t.test('suite totals', async t => {
     const { subtest: two } = tb.test('two', t => t.pass('fine'))
     const { subtest: tre } = tb.test('tre', () => {})
     const { subtest: fur } = tb.test('fur', t =>
-      t.pass('skip', { skip: true })
+      t.pass('skip', { skip: true }),
     )
     const { subtest: fiv } = tb.test('fiv', t =>
-      t.plan(0, 'no tests found')
+      t.plan(0, 'no tests found'),
     )
     const { subtest: six } = tb.test('six', t =>
-      t.pass('todo', { todo: true })
+      t.pass('todo', { todo: true }),
     )
     const { subtest: svn } = tb.test('svn', t =>
-      t.fail('todo', { todo: true })
+      t.fail('todo', { todo: true }),
     )
     const { subtest: eit } = tb.test('eit', t => t.pass('fine'))
     const { subtest: nin } = tb.test('nin', t => t.pass('nope'))

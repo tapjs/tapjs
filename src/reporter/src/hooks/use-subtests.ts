@@ -8,7 +8,7 @@ const FINSUBS = new Map<Base, Base[]>()
 
 export const useSubtests = (
   test: TestBase,
-  which: 'active' | 'finished' | 'all' = 'all'
+  which: 'active' | 'finished' | 'all' = 'all',
 ) => {
   const [tests, updateTests] = useState<Base[]>([])
   const cache = which === 'finished' ? FINSUBS : ALLSUBS
@@ -24,23 +24,23 @@ export const useSubtests = (
     cleanup => {
       if (which === 'active') {
         cleanup.push(
-          listenCleanup(test, 'subtestStart', updateActive)
+          listenCleanup(test, 'subtestStart', updateActive),
         )
         cleanup.push(listenCleanup(test, 'subtestEnd', updateActive))
       } else {
         cleanup.push(
-          listenCleanup(test, 'complete', () => cache.delete(test))
+          listenCleanup(test, 'complete', () => cache.delete(test)),
         )
         cleanup.push(
           listenCleanup(
             test,
             which === 'all' ? 'subtestStart' : 'subtestEnd',
-            addSub
-          )
+            addSub,
+          ),
         )
       }
     },
-    [test, tests, which]
+    [test, tests, which],
   )
   return tests
 }

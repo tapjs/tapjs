@@ -56,7 +56,7 @@ t.test('process some tap', t => {
   t.equal(tapStream.flowing, true)
 
   tapStream.write(
-    'ok 1 - this is fine\nok 2 - yes # SKIP\nnot ok 3 - fail\n'
+    'ok 1 - this is fine\nok 2 - yes # SKIP\nnot ok 3 - fail\n',
   )
   tapStream.end()
 })

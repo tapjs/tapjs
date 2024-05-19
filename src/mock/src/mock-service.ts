@@ -81,7 +81,7 @@ export type MockServiceResponse = MockServiceRequest & {
 }
 
 export const isMockServiceResponse = (
-  m: any
+  m: any,
 ): m is MockServiceResponse =>
   isMockServiceRequest(m) &&
   Object.keys(m).includes('response') &&
@@ -89,7 +89,7 @@ export const isMockServiceResponse = (
     typeof (m as MockServiceResponse).response === 'undefined')
 
 export const isMockServiceRequest = (
-  m: any
+  m: any,
 ): m is MockServiceRequest =>
   !!m &&
   typeof m === 'object' &&
@@ -156,8 +156,8 @@ export class MockService {
 
   static async handle(msg: any) {
     if (!isMockServiceRequest(msg)) return
-    return msg.action === 'resolve'
-      ? this.resolve(msg)
+    return msg.action === 'resolve' ?
+        this.resolve(msg)
       : this.load(msg)
   }
 
@@ -169,12 +169,10 @@ export class MockService {
     return this.get(k).resolve(req)
   }
   async resolve({ url, parentURL }: MockServiceResolveRequest) {
-    const resolvedURL = hasOwn(this.mocks, url)
-      ? url
-      : isRelativeRequire(url)
-      ? String(new URL(url, parentURL))
-      : isAbsolute(url)
-      ? String(pathToFileURL(url))
+    const resolvedURL =
+      hasOwn(this.mocks, url) ? url
+      : isRelativeRequire(url) ? String(new URL(url, parentURL))
+      : isAbsolute(url) ? String(pathToFileURL(url))
       : url
 
     if (!hasOwn(this.mocks, resolvedURL)) {
@@ -229,7 +227,7 @@ export class MockService {
   static async create(
     module: string,
     mocks: Record<string, any> = {},
-    caller: Function | ((...a: any[]) => any) = MockService.create
+    caller: Function | ((...a: any[]) => any) = MockService.create,
   ): Promise<MockService & { module: string | Promise<string> }> {
     const ms = new MockService(mockServiceCtorSymbol)
 
@@ -258,7 +256,7 @@ export class MockService {
       module,
       serviceKey,
       ms.key,
-      caller
+      caller,
     )
     resolved.then(s => (ms.module = s))
 

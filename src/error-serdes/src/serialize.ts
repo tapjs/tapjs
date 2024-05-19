@@ -74,7 +74,7 @@ export const serializeError = (er: unknown) => {
   if (typeof er === 'symbol') {
     return Buffer.from(
       String.fromCharCode(kInspectedSymbol) + String(er),
-      'utf8'
+      'utf8',
     )
   }
   try {
@@ -105,7 +105,7 @@ export const serializeError = (er: unknown) => {
     ) {
       return Buffer.from(
         String.fromCharCode(kCustomInspectedObject) + inspect(er),
-        'utf8'
+        'utf8',
       )
     }
   } catch {}
@@ -118,6 +118,6 @@ export const serializeError = (er: unknown) => {
   } catch {}
   return Buffer.from(
     String.fromCharCode(kInspectedError) + inspect(er),
-    'utf8'
+    'utf8',
   )
 }

@@ -18,22 +18,22 @@ import { install, uninstall } from './npm.js'
 const exists = (f: string) =>
   lstat(f).then(
     () => true,
-    () => false
+    () => false,
   )
 
 const detectGlobalInstall = async (
   args: string[],
-  project: string
+  project: string,
 ) => {
   // find the tap that will be loaded from the project root
   const activeRunner = String(
-    await resolveImport('@tapjs/run', import.meta.url)
+    await resolveImport('@tapjs/run', import.meta.url),
   )
   const projectRunner = String(
     await resolveImport('tap', resolve(project, 'x'))
       .then(projectTap => resolveImport('@tapjs/run', projectTap))
       .catch(() => resolveImport('@tapjs/run', project))
-      .catch(() => activeRunner)
+      .catch(() => activeRunner),
   )
   if (activeRunner !== projectRunner) {
     const f = fileURLToPath(activeRunner).split('node_modules')
@@ -43,7 +43,7 @@ const detectGlobalInstall = async (
       `${chalk.bold.red('global/local mixup!')}
 
 The tap plugin command must be run by the ${chalk.yellow(
-        'locally installed'
+        'locally installed',
       )} tap executable,
 and this appears to be running in a global install location at
 ${chalk.yellow(myNM)}
@@ -53,18 +53,18 @@ This will likely fail. Try:
     ${chalk.green(
       `npm exec tap plugin ${args
         .map(a => JSON.stringify(a))
-        .join(' ')}`
+        .join(' ')}`,
     )}
-`
+`,
     )
   }
 }
 
 export const plugin = async (
   args: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
-  await detectGlobalInstall(args, config.globCwd)
+  await detectGlobalInstall(args, config.projectRoot)
   switch (args[0]) {
     case 'add':
       return add(args.slice(1), config)
@@ -78,7 +78,7 @@ export const plugin = async (
       await list(args, config)
       return console.error(
         `(use 'tap plugin add ...' to add plugins, or ` +
-          `'tap plugin rm ...' to remove them)`
+          `'tap plugin rm ...' to remove them)`,
       )
     default:
       throw new Error(`Unknown plugin command: ${args[0]}`)
@@ -90,7 +90,7 @@ const add = async (args: string[], config: LoadedConfig) => {
 
   const { added, needInstall, needCleanup } = await getInstallSet(
     args,
-    config
+    config,
   )
 
   if (!added.size) {
@@ -123,7 +123,7 @@ const add = async (args: string[], config: LoadedConfig) => {
     // save the config change
     await config.editConfigFile(
       { plugin: [...pc] },
-      config.configFile
+      config.configFile,
     )
 
     console.log('successfully added plugin(s):')
@@ -142,7 +142,7 @@ const add = async (args: string[], config: LoadedConfig) => {
       if (installed && needCleanup.size) {
         console.error('attempting to clean up added packages')
         await uninstall([...needCleanup], config).catch(() =>
-          console.error(chalk.red('uninstall failed'))
+          console.error(chalk.red('uninstall failed')),
         )
       }
     }
@@ -201,7 +201,7 @@ const rm = async (args: string[], config: LoadedConfig) => {
     console.log(
       `npm rm ${[...needRemove]
         .map(p => JSON.stringify(p))
-        .join(' ')}`
+        .join(' ')}`,
     )
   }
 }

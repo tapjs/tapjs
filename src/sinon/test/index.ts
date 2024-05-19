@@ -6,7 +6,7 @@ const t = tap.applyPlugin(plugin)
 t.equal(
   tap.pluginLoaded(plugin),
   false,
-  'plugin not loaded by default'
+  'plugin not loaded by default',
 )
 //@ts-expect-error
 t.equal(tap.sinon, undefined, 'no sinon object on og root')

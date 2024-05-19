@@ -91,7 +91,7 @@ export class SnapshotProviderDefault implements SnapshotProvider {
       this.#snapshot = req(this.file)
     } catch (er) {
       throw new Error(
-        `Snapshot file not found: ${this.file}${envMsg}`
+        `Snapshot file not found: ${this.file}${envMsg}`,
       )
     }
   }

@@ -34,7 +34,7 @@ t.test('passing test results, details, no callsite', async t => {
   t.equal(
     notFinished.lastFrame(),
     '',
-    'no output if test not finished'
+    'no output if test not finished',
   )
   notFinished.unmount()
   tb.end()
@@ -51,7 +51,7 @@ t.test('show passing test result', async t => {
   t.equal(
     notFinished.lastFrame(),
     '',
-    'no output if test not finished'
+    'no output if test not finished',
   )
   notFinished.unmount()
   tb.end()

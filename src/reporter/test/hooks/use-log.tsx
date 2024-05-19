@@ -53,7 +53,7 @@ t.test('log some stuff, with a process, no comments', async t => {
       test={tb}
       config={{ get: () => false } as unknown as LoadedConfig}
       includeTests
-    />
+    />,
   )
   tb.pass('this is fine')
   tb.comment('before child test')
@@ -87,7 +87,7 @@ t.test('log some stuff, with a process, no comments', async t => {
     t.strictSame(
       result[i - 1],
       result[i].slice(0, result[i - 1].length),
-      'logs not overwritten'
+      'logs not overwritten',
     )
   }
 
@@ -109,7 +109,7 @@ t.test(
         test={tb}
         config={{ get: () => true } as unknown as LoadedConfig}
         includeTests
-      />
+      />,
     )
     tb.pass('this is fine')
     tb.comment('before child test')
@@ -141,7 +141,7 @@ t.test(
       t.strictSame(
         result[i - 1],
         result[i].slice(0, result[i - 1].length),
-        'logs not overwritten'
+        'logs not overwritten',
       )
     }
 
@@ -152,5 +152,5 @@ t.test(
       { type: 'console', text: 'a console error\n' },
       { type: 'test', text: 'child test' },
     ])
-  }
+  },
 )

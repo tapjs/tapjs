@@ -30,7 +30,7 @@ const pipe = (t: TAP, dest: Writable): false => {
  */
 export const handleReporter = async (
   t: TAP,
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   // figure out if we MUST use the 'tap' reporter
   const rf = config.get('reporter-file')
@@ -38,13 +38,15 @@ export const handleReporter = async (
     rf === '/dev/null' ? 'silent' : (config.get('reporter') as string)
   const isRawTap = process.env.TAP === '1'
   const out =
-    !rf ||
-    rf === '-' ||
-    rf === '/dev/stdout' ||
-    isRawTap ||
-    reporter === 'silent'
-      ? process.stdout
-      : createWriteStream(rf)
+    (
+      !rf ||
+      rf === '-' ||
+      rf === '/dev/stdout' ||
+      isRawTap ||
+      reporter === 'silent'
+    ) ?
+      process.stdout
+    : createWriteStream(rf)
 
   if (reporter === 'tap' || isRawTap) {
     return rawTap(t, out)
@@ -85,7 +87,7 @@ export const handleReporter = async (
   // load it relative to the cwd, so relative paths work.
   const from = pathToFileURL(resolve('x'))
   const mod = String(
-    await resolveImport(reporter, from).catch(() => '')
+    await resolveImport(reporter, from).catch(() => ''),
   )
 
   const imported =
@@ -113,8 +115,8 @@ export const handleReporter = async (
 
   console.error(
     `Could not load ${JSON.stringify(
-      reporter
-    )} reporter. Displaying raw TAP.`
+      reporter,
+    )} reporter. Displaying raw TAP.`,
   )
   return rawTap(t, out)
 }

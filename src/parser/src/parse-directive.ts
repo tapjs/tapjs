@@ -14,7 +14,7 @@ export type Directive = 'todo' | 'skip' | 'time'
  * on a TestPoint line.
  */
 export const parseDirective = (
-  line: string
+  line: string,
 ): [Directive, any] | false => {
   if (!line.trim()) return false
 
@@ -23,7 +23,7 @@ export const parseDirective = (
     .trim()
     .replace(/^duration_ms ([0-9.]+)$/, 'time=$1ms')
   const time = line.match(
-    /^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i
+    /^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i,
   )
   const t = time?.[1]
   const s = time?.[2]

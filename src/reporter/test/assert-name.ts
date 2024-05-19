@@ -10,9 +10,9 @@ t.equal(
     } as unknown as Result,
     {
       name: 'test name',
-    } as unknown as Base
+    } as unknown as Base,
   ),
-  'full > name'
+  'full > name',
 )
 
 t.equal(
@@ -22,9 +22,9 @@ t.equal(
     } as unknown as Result,
     {
       name: 'test name',
-    } as unknown as Base
+    } as unknown as Base,
   ),
-  'full > name'
+  'full > name',
 )
 
 t.equal(
@@ -35,9 +35,9 @@ t.equal(
     } as unknown as Result,
     {
       name: 'test name',
-    } as unknown as Base
+    } as unknown as Base,
   ),
-  'test name > full > name'
+  'test name > full > name',
 )
 
 t.equal(
@@ -48,9 +48,9 @@ t.equal(
     } as unknown as Result,
     {
       name: 'test name',
-    } as unknown as Base
+    } as unknown as Base,
   ),
-  'subtest name > full > name'
+  'subtest name > full > name',
 )
 
 t.equal(
@@ -61,9 +61,9 @@ t.equal(
     } as unknown as Result,
     {
       name: 'test name',
-    } as unknown as Base
+    } as unknown as Base,
   ),
-  'subtest name > full > name'
+  'subtest name > full > name',
 )
 
 t.equal(
@@ -74,7 +74,7 @@ t.equal(
     } as unknown as Result,
     {
       name: 'test name',
-    } as unknown as Base
+    } as unknown as Base,
   ),
-  'subtest name > full > name'
+  'subtest name > full > name',
 )

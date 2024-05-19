@@ -28,8 +28,8 @@ t.test('it has a name', t => {
   const p = new Parser({ name: 'root' })
   p.on('child', c =>
     c.on('child', (c: Parser) =>
-      t.equal(c.fullname, 'root > child > grandchild')
-    )
+      t.equal(c.fullname, 'root > child > grandchild'),
+    ),
   )
 
   p.end(
@@ -44,7 +44,7 @@ t.test('it has a name', t => {
 ok 1 - child
 1..1
 `,
-    'utf8'
+    'utf8',
   )
 })
 
@@ -80,7 +80,7 @@ t.test('takes a buffer just fine', function (t) {
   p.write(
     '6f6b2034202d20736f2063616c6c206d65206d61796265',
     'hex',
-    callme
+    callme,
   )
   p.write('Bail out! then call cb on next tick')
   p.write('bailouts make all writes ignored right away', bailcall)

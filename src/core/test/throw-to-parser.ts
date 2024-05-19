@@ -3,7 +3,7 @@ import { Base } from '../dist/esm/base.js'
 import { throwToParser } from '../dist/esm/throw-to-parser.js'
 
 t.test('already proxied', async t =>
-  t.equal(throwToParser(t.parser, undefined), undefined)
+  t.equal(throwToParser(t.parser, undefined), undefined),
 )
 
 t.test('emit TAP failure and close out plan', async t => {
@@ -23,7 +23,7 @@ not ok 2 - unhandled error
   ...
 
 1..2
-`
+`,
   )
 })
 
@@ -47,9 +47,9 @@ not ok 2 - thrown to parser
   ...
 
 1..2
-`
+`,
     )
-  }
+  },
 )
 
 t.test('emit TAP failure, have plan already', async t => {
@@ -71,7 +71,7 @@ not ok 2 - unhandled error
   actual: false
   ...
 # test count(2) != plan(3)
-`
+`,
   )
 })
 
@@ -91,7 +91,7 @@ t.test(
 ok 1 - this is fine
 not ok 2 - hoopie doopie
 # test count(2) != plan(3)
-`
+`,
     )
-  }
+  },
 )

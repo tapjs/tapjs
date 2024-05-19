@@ -29,21 +29,21 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
     exitCode ||
     (!!todo && failTodo) ||
     (isSkip && failSkip)
-  return isFail ? (
-    <Text backgroundColor="red" color="#fff" bold>
-      {' FAIL '}
-    </Text>
-  ) : !!todo ? (
-    <Text backgroundColor="#808" color="#fff" bold>
-      {' TODO '}
-    </Text>
-  ) : isSkip ? (
-    <Text backgroundColor="blue" color="#fff" bold>
-      {' SKIP '}
-    </Text>
-  ) : (
-    <Text backgroundColor="#0a0" color="#000" bold>
-      {' PASS '}
-    </Text>
+  return (
+    isFail ?
+      <Text backgroundColor="red" color="#fff" bold>
+        {' FAIL '}
+      </Text>
+    : !!todo ?
+      <Text backgroundColor="#808" color="#fff" bold>
+        {' TODO '}
+      </Text>
+    : isSkip ?
+      <Text backgroundColor="blue" color="#fff" bold>
+        {' SKIP '}
+      </Text>
+    : <Text backgroundColor="#0a0" color="#000" bold>
+        {' PASS '}
+      </Text>
   )
 }

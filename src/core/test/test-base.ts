@@ -45,12 +45,12 @@ t.test('TAP generation', t => {
                   ttt.end()
                 },
               },
-              tt.cb
+              tt.cb,
             )
             tt.end()
           },
         },
-        tcb
+        tcb,
       )
       rt.end()
     },
@@ -80,7 +80,7 @@ t.test('TAP generation', t => {
 ok 1 - parent # time={TIME}
 
 1..1
-`
+`,
     )
     t.end()
   })
@@ -103,7 +103,7 @@ t.test('diagnostic', t => {
             tt.end()
           },
         },
-        tcb
+        tcb,
       )
       rt.end()
     },
@@ -163,7 +163,7 @@ t.test('bailout', async t => {
       tb.bailout()
       t.matchSnapshot(await tb.concat(), 'child')
       t.matchSnapshot(await parent.concat(), 'parent')
-    }
+    },
   )
 
   t.end()
@@ -306,7 +306,7 @@ t.test('assertions after end', t => {
     tb.end()
     t.match(
       await tb.concat(),
-      '\nnot ok 2 - test assertion after end() was called\n'
+      '\nnot ok 2 - test assertion after end() was called\n',
     )
   })
   t.test('assertion after promise end', async t => {
@@ -317,7 +317,7 @@ t.test('assertions after end', t => {
     tb.end()
     t.match(
       await tb.concat(),
-      '\nnot ok 2 - test assertion after Promise resolution\n'
+      '\nnot ok 2 - test assertion after Promise resolution\n',
     )
   })
   t.test('assertion after plan end', async t => {
@@ -330,7 +330,7 @@ t.test('assertions after end', t => {
     tb.end()
     t.match(
       await tb.concat(),
-      '\nnot ok 2 - test assertion count exceeds plan\n'
+      '\nnot ok 2 - test assertion count exceeds plan\n',
     )
   })
   t.test('only report if not already failing', async t => {
@@ -359,7 +359,7 @@ t.test('capture at/stack for assertions', t => {
       `
         tb.fail('fail')
     -------^
-`
+`,
     )
     t.match(res, '  stack:')
     t.match(res, '  at:')
@@ -384,7 +384,7 @@ t.test('capture at/stack for assertions', t => {
       `
         const stack = new Error('trace').stack
     ------------------^
-`
+`,
     )
   })
   t.test('capture at and stack', async t => {
@@ -399,7 +399,7 @@ t.test('capture at/stack for assertions', t => {
       `
         tb.fail('capture at')
     -------^
-`
+`,
     )
   })
   t.test('no stack for todo test', async t => {
@@ -414,7 +414,7 @@ t.test('capture at/stack for assertions', t => {
       `
         tb.fail('capture at, no stack', { todo: true, diagnostic: true })
     -------^
-`
+`,
     )
   })
   t.test('no stack for passing test', async t => {
@@ -429,7 +429,7 @@ t.test('capture at/stack for assertions', t => {
       `
         tb.pass('capture at, no stack', { diagnostic: true })
     -------^
-`
+`,
     )
   })
   t.test('diagnostic defaults false for skip/todo', async t => {
@@ -454,7 +454,7 @@ t.test('push awaited assertion to top of queue', async t => {
 ok 1 - waiter callback
 ok 2 - waiting for waiter
 1..2
-`
+`,
   )
 })
 
@@ -466,12 +466,12 @@ t.test(
       t.waitOn(
         new Promise<void>(r => setTimeout(r)).then(() => {
           t.pass('this is fine')
-        })
+        }),
       )
     })
     tb.end()
     t.matchSnapshot(await tb.concat())
-  }
+  },
 )
 
 t.test('bail on fail', t => {
@@ -489,7 +489,7 @@ t.test('bail on fail', t => {
       `
           tb.fail('nope')
     ---------^
-`
+`,
     )
     t.notMatch(res, ' - this is fine')
   })
@@ -505,7 +505,7 @@ t.test('bail on fail', t => {
       `
         tb.fail('nope')
     -------^
-`
+`,
     )
     t.notMatch(res, ' - this is fine')
   })
@@ -532,7 +532,7 @@ t.test('bail on fail', t => {
     
     Bail out! nope
 Bail out! nope
-`
+`,
     )
   })
   t.end()
@@ -611,7 +611,7 @@ t.test('end stuff', t => {
       `
             throw new Error('nope')
     --------------^
-`
+`,
     )
   })
   t.test('multiple end failure', async t => {
@@ -633,12 +633,12 @@ t.test('end stuff', t => {
           t.end()
     --------^
           t.end()
-`
+`,
     )
     t.equal(
       res.split('test end() method called more than once').length,
       2,
-      'only warn one time'
+      'only warn one time',
     )
   })
   t.end()
@@ -719,7 +719,7 @@ t.test('processing edge cases', t => {
       `
           throw new Error('nope')
     ------------^
-`
+`,
     )
   })
   t.test('multiple parallel buffered tests', async t => {
@@ -736,21 +736,21 @@ t.test('processing edge cases', t => {
     async t => {
       const tb = new T({ name: 'root', jobs: 2 })
       tb.test('one', { buffered: true }, t =>
-        setTimeout(() => t.end())
+        setTimeout(() => t.end()),
       )
       tb.test('two', { buffered: true }, t =>
-        setTimeout(() => t.end())
+        setTimeout(() => t.end()),
       )
       tb.test('tre', { buffered: true }, t =>
-        setTimeout(() => t.end())
+        setTimeout(() => t.end()),
       )
       tb.test('for', { buffered: true }, t =>
-        setTimeout(() => t.end())
+        setTimeout(() => t.end()),
       )
       tb.bailout()
       tb.end()
       t.matchSnapshot(await tb.concat())
-    }
+    },
   )
   t.end()
 })
@@ -772,7 +772,7 @@ not ok 2 - timeout!
   ...
 
 1..2
-`
+`,
   )
 })
 
@@ -793,7 +793,7 @@ not ok 2 - timeout!
   ...
 
 1..2
-`
+`,
   )
 })
 
@@ -814,7 +814,7 @@ t.test('child test with rejected async method', async t => {
         ----------^
           })
           tb.end()
-`
+`,
   )
 })
 
@@ -832,7 +832,7 @@ t.test('child test with thrown string', async t => {
       ---
       tapCaught: returnedPromiseRejection
       ...
-`
+`,
   )
 })
 
@@ -851,7 +851,7 @@ t.test('child test with thrown other kind of thing', async t => {
       error: 7
       tapCaught: returnedPromiseRejection
       ...
-`
+`,
   )
 })
 
@@ -872,7 +872,7 @@ t.test('child test with throwing function', async t => {
         ----------^
           })
           tb.end()
-`
+`,
   )
 })
 
@@ -890,7 +890,7 @@ t.test('child test with non-error throw', async t => {
       ---
       tapCaught: testFunctionThrow
       ...
-`
+`,
   )
 })
 
@@ -925,8 +925,8 @@ t.test('subtest stuff', t => {
     t.matchSnapshot(
       out.replace(
         /stack: \|((?:.|\n)*?)(\n\s+at:)/g,
-        'stack: {STACK}$2'
-      )
+        'stack: {STACK}$2',
+      ),
     )
   })
   t.test('skipped sub', async t => {
@@ -962,7 +962,7 @@ t.test('threw stuff', t => {
     not ok 1 - nope
     
     1..1
-not ok 1 - child`
+not ok 1 - child`,
     )
   })
   t.test('threw after plan end', async t => {
@@ -982,7 +982,7 @@ not ok 2 - yolo
   ...
 
 1..2
-`
+`,
     )
   })
   t.test('threw no message, but has stack', async t => {
@@ -997,7 +997,7 @@ not ok 2 - yolo
 not ok 1 - Error: hello
   ---
   stack: |
-    Test.<anonymous> (test/test-base.ts:`
+    Test.<anonymous> (test/test-base.ts:`,
     )
   })
   t.test('no message of any kind', async t => {
@@ -1014,7 +1014,7 @@ not ok 1 - unhandled error
   ...
 
 1..1
-`
+`,
     )
   })
   t.end()
@@ -1038,7 +1038,7 @@ t.test('endAll', t => {
       `TAP version 14
 # Subtest: subtest
     not ok 1 - test unfinished
-`
+`,
     )
   })
   t.test('async sub in progress', async t => {
@@ -1050,7 +1050,7 @@ t.test('endAll', t => {
       `TAP version 14
 # Subtest: subtest
     not ok 1 - test unfinished
-`
+`,
     )
   })
   t.test('sub without endAll method', async t => {
@@ -1069,7 +1069,7 @@ t.test('endAll', t => {
     not ok 1 - test unfinished
     
     1..1
-not ok 1 - subtest`
+not ok 1 - subtest`,
     )
   })
   t.test('subs left in queue', async t => {
@@ -1086,7 +1086,7 @@ not ok 2 - child test left in queue: two
 not ok 3 - child test left in queue: tre
 not ok 4 - child test left in queue: for
 1..4
-`
+`,
     )
   })
   t.end()
@@ -1325,7 +1325,7 @@ t.test('child asserts and assertTotals', async t => {
       skip: 2,
       todo: 2,
       complete: 0,
-    })
+    }),
   )
 })
 
@@ -1380,7 +1380,7 @@ t.test('debug is inherited', async t => {
   const { subtest: wod } = tb.test(
     'without debug',
     { debug: false },
-    async () => {}
+    async () => {},
   )
   t.match(wd, { options: { debug: true } })
   t.match(wod, { options: { debug: false } })
@@ -1470,7 +1470,7 @@ t.test('failing silent unbuffered subtest', async t => {
     t.end()
   })
   tb.test('silent pass', { silent: true, buffered: false }, t =>
-    t.end()
+    t.end(),
   )
   tb.test('two', t => t.end())
   tb.end()
@@ -1485,22 +1485,22 @@ t.test('job id generation edge case', async t => {
   const tb = new T({ name: 'parent', jobs: 2 })
   const { subtest: one } = tb.test('one', async () => {})
   const { subtest: two } = tb.test('two', t =>
-    setTimeout(() => t.end(), 10)
+    setTimeout(() => t.end(), 10),
   )
   const { subtest: tre } = tb.test('tre', async () => {})
   const { subtest: fur } = tb.test('fur', t =>
-    setTimeout(() => t.end(), 10)
+    setTimeout(() => t.end(), 10),
   )
   const { subtest: fiv } = tb.test('fiv', async () => {})
   const { subtest: six } = tb.test('six', t =>
-    setTimeout(() => t.end(), 10)
+    setTimeout(() => t.end(), 10),
   )
   tb.end()
   await tb.concat()
   t.pass('this is fine')
   t.match(
     [one, two, tre, fur, fiv, six].map(
-      t => t && [t.name, t.options.childId, t.options.jobId]
+      t => t && [t.name, t.options.childId, t.options.jobId],
     ),
     [
       ['one', 1, Number],
@@ -1510,14 +1510,14 @@ t.test('job id generation edge case', async t => {
       ['fiv', 5, Number],
       ['six', 6, Number],
     ],
-    'all child tests created with jobId numbers'
+    'all child tests created with jobId numbers',
   )
   for (const sub of [one, two, tre, fur, fiv, six]) {
     t.ok(
       sub &&
         typeof sub.options.jobId === 'number' &&
         sub.options.jobId < 2,
-      'jobId less than parent.jobs'
+      'jobId less than parent.jobs',
     )
   }
 })
@@ -1677,7 +1677,7 @@ t.test('diagnostic is inherited', async t => {
   const { subtest: wod } = tb.test(
     'without diagnostic',
     { diagnostic: false },
-    async () => {}
+    async () => {},
   )
   t.match(wd, { options: { diagnostic: true } })
   t.match(wod, { options: { diagnostic: false } })

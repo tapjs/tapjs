@@ -20,16 +20,16 @@ export const ResultDetailList: FC<{
   const t = tests.filter(filter)
   const done = useIsDone(test)
 
-  return !done ? (
-    <></>
-  ) : (
-    <Box flexDirection="column">
-      {Banner ? <Banner /> : <></>}
-      {t.map((test, key) => (
-        <Box key={key} flexDirection="column" marginTop={1}>
-          <TestSummary test={test} details />
-        </Box>
-      ))}
-    </Box>
-  )
+  return !done ?
+      <></>
+    : <Box flexDirection="column">
+        {Banner ?
+          <Banner />
+        : <></>}
+        {t.map((test, key) => (
+          <Box key={key} flexDirection="column" marginTop={1}>
+            <TestSummary test={test} details />
+          </Box>
+        ))}
+      </Box>
 }

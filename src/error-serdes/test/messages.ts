@@ -17,7 +17,7 @@ t.equal(
       },
     },
   }),
-  false
+  false,
 )
 
 t.equal(
@@ -37,7 +37,7 @@ t.equal(
       },
     },
   }),
-  true
+  true,
 )
 
 //@ts-expect-error
@@ -58,5 +58,5 @@ t.equal(
       },
     },
   }),
-  false
+  false,
 )

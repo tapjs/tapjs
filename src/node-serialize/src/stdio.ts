@@ -4,7 +4,7 @@ import { locFromAt } from './loc-from-at.js'
 export const serializeStdio = (
   stream: TestStreamSerialize,
   process: NodeJS.Process,
-  which: 'stdout' | 'stderr'
+  which: 'stdout' | 'stderr',
 ) => {
   const write = (m: Buffer | string) => {
     const message = String(m)

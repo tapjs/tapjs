@@ -28,14 +28,12 @@ const Pass: FC<CountsJSON> = ({ pass }) => (
 )
 
 const Todo: FC<CountsJSON> = ({ todo = 0 }) =>
-  todo ? (
+  todo ?
     <Box flexDirection="column" alignItems="flex-end">
       <Text color="magenta">{todo} todo</Text>
       <Text> </Text>
     </Box>
-  ) : (
-    <></>
-  )
+  : <></>
 
 export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
   const suites = useSuiteTotals(test)
@@ -75,7 +73,7 @@ export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
         <BailedOut test={test} />
         <TimedOut test={test} />
       </Box>
-      {comments.length ? (
+      {comments.length ?
         <Box flexDirection="column" marginBottom={1}>
           {comments.map((c, key) => (
             <Text key={key} dimColor>
@@ -83,9 +81,7 @@ export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
             </Text>
           ))}
         </Box>
-      ) : (
-        <></>
-      )}
+      : <></>}
     </Box>
   )
 }

@@ -41,7 +41,7 @@ export class Waiter {
   constructor(
     promise: Promise<any | void>,
     cb: (w: Waiter) => any,
-    expectReject: boolean = false
+    expectReject: boolean = false,
   ) {
     this.cb = cb
     this.expectReject = !!expectReject

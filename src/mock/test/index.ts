@@ -150,8 +150,8 @@ t.test('createMock nested', t => {
       { fs },
       {
         fs: { statSync: () => 'mocked statSync' },
-      }
-    )
+      },
+    ),
   )
   t.match(mocked, { foo: ['mocked statSync', fs.Stats] })
   t.end()
@@ -188,13 +188,13 @@ t.test('cannot mock node builtins', async t => {
     `
             await t.mockImport('fs')
         ------------^
-`
+`,
   )
   t.match(
     result,
     `
             t.mockRequire('fs')
         ------^
-`
+`,
   )
 })

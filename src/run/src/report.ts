@@ -20,22 +20,21 @@ const reporterFiles = {
 
 export const report = async (
   args: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const rconf = config.get('coverage-report')
   // if there are args passed in, use that. The config is used if
   // calling this at the end of `tap run`
-  const reporter = args.length
-    ? args
-    : rconf && rconf.length
-    ? rconf
+  const reporter =
+    args.length ? args
+    : rconf && rconf.length ? rconf
     : ['text']
 
   // verify that we actually have coverage, otherwise don't even try
-  const tempDirectory = resolve(config.globCwd, '.tap/coverage')
+  const tempDirectory = resolve(config.projectRoot, '.tap/coverage')
   const ok = await readdir(tempDirectory).then(
     entries => !!entries.length,
-    () => false
+    () => false,
   )
   if (!ok) {
     tap().comment('No coverage generated')
@@ -50,7 +49,7 @@ export const report = async (
   const cwd = process.cwd()
   /* c8 ignore start */
   try {
-    process.chdir(config.globCwd)
+    process.chdir(config.projectRoot)
   } catch {}
   /* c8 ignore stop */
 
@@ -59,8 +58,8 @@ export const report = async (
     skipFull: !showFullCoverage,
     // no need to include/exclude, we already did that when we captured
     reporter,
-    reportsDirectory: resolve(config.globCwd, '.tap/report'),
-    tempDirectory: resolve(config.globCwd, '.tap/coverage'),
+    reportsDirectory: resolve(config.projectRoot, '.tap/report'),
+    tempDirectory: resolve(config.projectRoot, '.tap/coverage'),
     excludeNodeModules: true,
   })
 
@@ -75,8 +74,11 @@ export const report = async (
         r = new Report({
           skipFull: false,
           reporter,
-          reportsDirectory: resolve(config.globCwd, '.tap/report'),
-          tempDirectory: resolve(config.globCwd, '.tap/coverage'),
+          reportsDirectory: resolve(
+            config.projectRoot,
+            '.tap/report',
+          ),
+          tempDirectory: resolve(config.projectRoot, '.tap/coverage'),
           excludeNodeModules: true,
         })
       } else {
@@ -111,15 +113,18 @@ export const report = async (
   if (s) console.log(s)
   for (const [style, filename] of Object.entries(reporterFiles)) {
     if (reporter.includes(style)) {
-      const f = resolve(config.globCwd, '.tap/report', filename)
+      const f = resolve(config.projectRoot, '.tap/report', filename)
       console.log(`${style} report: ${f}`)
     }
   }
   if (reporter.includes('html')) {
-    opener(resolve(config.globCwd, '.tap/report/index.html'))
+    opener(resolve(config.projectRoot, '.tap/report/index.html'))
   } else if (reporter.includes('lcov')) {
     opener(
-      resolve(config.globCwd, '.tap/report/lcov-report/index.html')
+      resolve(
+        config.projectRoot,
+        '.tap/report/lcov-report/index.html',
+      ),
     )
   }
 
@@ -170,7 +175,7 @@ const isFullCoverage = (summary: Summary) =>
 
 const checkCoverage = async (
   report: Report,
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const cr = config.get('coverage-report')
   const comment = cr && !cr.includes('text')

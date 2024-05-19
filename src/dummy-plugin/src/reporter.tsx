@@ -24,7 +24,7 @@ export default (({ test, config }) => {
     <Box flexDirection="column">
       <Text>just a dummy reporter</Text>
       <Text>{test.fullname}</Text>
-      <Text>{config.globCwd}</Text>
+      <Text>{config.projectRoot}</Text>
       <Text>{JSON.stringify({ asserts, suites }, null, 2)}</Text>
     </Box>
   )

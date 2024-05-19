@@ -5,5 +5,5 @@ t.matchSnapshot(
   &a1
   a: 1
   cycle: *a1`),
-  'it parses yaml'
+  'it parses yaml',
 )

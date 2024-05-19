@@ -5,7 +5,7 @@ import { rimrafSync } from 'rimraf'
 import t from 'tap'
 const buildScriptURL = await resolveImport(
   '../scripts/build.mjs',
-  import.meta.url
+  import.meta.url,
 )
 if (!buildScriptURL) throw new Error('could not load build script')
 const buildScript = fileURLToPath(buildScriptURL)
@@ -13,8 +13,9 @@ const buildScript = fileURLToPath(buildScriptURL)
 import { readFileSync } from 'node:fs'
 import os from 'node:os'
 import { fileURLToPath } from 'node:url'
-const p = os.availableParallelism
-  ? os.availableParallelism()
+const p =
+  os.availableParallelism ?
+    os.availableParallelism()
   : os.cpus().length
 t.jobs = Math.max(1, Math.ceil(p / 2 || 1))
 
@@ -29,7 +30,7 @@ interface Result {
 const build = async (
   target: string,
   plugins: string[],
-  expectFail = false
+  expectFail = false,
 ) => {
   const cmd = `_TESTING_TEST_BUILD_TARGET_=${target} ${
     process.execPath
@@ -117,7 +118,7 @@ t.test(
 `,
     })
     t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
-  }
+  },
 )
 
 t.test('missing plugin', async t => {

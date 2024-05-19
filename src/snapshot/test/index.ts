@@ -47,7 +47,7 @@ t.test('just some basic snapshots', t => {
   t.matchSnapshot(null, 'null')
   t.resolveMatchSnapshot(
     Promise.resolve({ p: true }),
-    'resolve match'
+    'resolve match',
   )
   t.end()
 })
@@ -84,7 +84,7 @@ t.test('custom options', t => {
           'null',
       })
       t.end()
-    }
+    },
   )
 
   // verify they can be read and matched
@@ -104,7 +104,7 @@ t.test('custom options', t => {
       t.matchSnapshot([...'xyz'], 'array')
       t.matchSnapshot(null, 'null')
       t.end()
-    }
+    },
   )
 
   t.test(
@@ -146,7 +146,7 @@ t.test('custom options', t => {
           '{\n"foo": "bar",\n}',
       })
       t.end()
-    }
+    },
   )
 
   // verify that they can be read and matched
@@ -171,7 +171,7 @@ t.test('custom options', t => {
         t.end()
       })
       t.end()
-    }
+    },
   )
 
   t.test(
@@ -203,7 +203,7 @@ t.test('custom options', t => {
           '2',
       })
       t.end()
-    }
+    },
   )
 
   t.test(
@@ -224,7 +224,7 @@ t.test('custom options', t => {
         t.end()
       })
       t.end()
-    }
+    },
   )
 
   t.end()
@@ -243,10 +243,10 @@ t.test('resolveMatchSnapshot', async t => {
   t.notOk(
     await tt.resolveMatchSnapshot(() => {
       throw new Error('ok')
-    })
+    }),
   )
   t.notOk(
-    await tt.resolveMatchSnapshot(Promise.reject(new Error('ok')))
+    await tt.resolveMatchSnapshot(Promise.reject(new Error('ok'))),
   )
   t.end()
 })
@@ -273,7 +273,7 @@ t.test('set snapshot file', { saveFixture: true }, t => {
         t.end()
       })
       t.end()
-    }
+    },
   )
   t.end()
 })
@@ -375,11 +375,11 @@ t.test('curl f', t => {
   // https://github.com/tapjs/tapjs/issues/641
   t.matchSnapshot(
     ['line 1', 'line 2', 'line 3', 'line 4', ''].join('\r\n'),
-    'escape CRLF line endings'
+    'escape CRLF line endings',
   )
   t.matchSnapshot(
     ['line 1', 'line 2', 'line 3', 'line 4', ''].join('\\r\n'),
-    'do not get confused by the escape'
+    'do not get confused by the escape',
   )
   t.end()
 })
@@ -408,6 +408,6 @@ t.test('format snapshots inheriting and overriding', async t => {
 Object {
   "a": 1,
 }
-`
+`,
   )
 })

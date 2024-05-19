@@ -16,5 +16,5 @@ t.strictSame(
     ...tsDes,
     ...messages,
     constants,
-  })
+  }),
 )

@@ -7,5 +7,5 @@ const { default: jack } = await t.mockImport<
 t.matchSnapshot(jack.toJSON())
 t.throws(() =>
   //@ts-expect-error
-  jack.setConfigValues({ 'unknown key': ['invalid'] })
+  jack.setConfigValues({ 'unknown key': ['invalid'] }),
 )

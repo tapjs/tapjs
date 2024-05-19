@@ -19,5 +19,5 @@ t.matchSnapshot(
      },
    },
  }
-`)
+`),
 )

@@ -40,8 +40,8 @@ export const serialize = (tap: TAP): void => {
         inspect(JSON.parse(JSON.stringify(c)), {
           colors: true,
           depth: Infinity,
-        }) + '\n'
-      )
+        }) + '\n',
+      ),
     )
   } else {
     /* c8 ignore stop */
@@ -67,7 +67,7 @@ export const serialize = (tap: TAP): void => {
     tap,
     stream,
     subsMap,
-    diagsMap
+    diagsMap,
   )
 
   onAdd(tap)

@@ -8,7 +8,7 @@ export const useIsDone = (test: Base) => {
   let [done, setDone] = useState<boolean>(false)
   useLayoutEffect(
     () => listenCleanup(test, 'complete', () => setDone(true)),
-    [test]
+    [test],
   )
   return done
 }

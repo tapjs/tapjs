@@ -20,7 +20,7 @@ const getId = (): { (): number; current: number } => {
  */
 export const parse = (
   str: string,
-  options: ParserOptions
+  options: ParserOptions,
 ): EventLog => {
   const { flat = false } = options
   const ignore = ['line', 'pass', 'fail', 'todo', 'skip', 'result']
@@ -50,7 +50,7 @@ export const parse = (
  */
 export const stringify = (
   msg: EventLog,
-  { flat = false, indent = '', id = getId() }
+  { flat = false, indent = '', id = getId() },
 ): string => {
   const ind = flat ? '' : indent
   return (
@@ -109,29 +109,29 @@ export const stringify = (
               (res.ok ? '' : 'not ') +
               'ok' +
               (res.id ? ' ' + res.id : '') +
-              (res.name
-                ? ' - ' +
-                  esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
-                : '') +
-              (res.skip
-                ? ' # SKIP' +
-                  (res.skip === true ? '' : ' ' + esc(res.skip))
-                : '') +
-              (res.todo
-                ? ' # TODO' +
-                  (res.todo === true ? '' : ' ' + esc(res.todo))
-                : '') +
+              (res.name ?
+                ' - ' +
+                esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
+              : '') +
+              (res.skip ?
+                ' # SKIP' +
+                (res.skip === true ? '' : ' ' + esc(res.skip))
+              : '') +
+              (res.todo ?
+                ' # TODO' +
+                (res.todo === true ? '' : ' ' + esc(res.todo))
+              : '') +
               (res.time ? ' # time=' + res.time + 'ms' : '') +
               '\n' +
-              (res.diag
-                ? '  ---\n  ' +
-                  yaml
-                    .stringify(res.diag)
-                    .split('\n')
-                    .join('\n  ')
-                    .trim() +
-                  '\n  ...\n'
-                : '')
+              (res.diag ?
+                '  ---\n  ' +
+                yaml
+                  .stringify(res.diag)
+                  .split('\n')
+                  .join('\n  ')
+                  .trim() +
+                '\n  ...\n'
+              : '')
             )
 
           case 'extra':

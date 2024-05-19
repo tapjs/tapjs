@@ -132,10 +132,8 @@ const {
 /**
  * If the property exists, use it, otherwise treat it as a known undefined
  */
-export type Maybe<
-  T,
-  K extends symbol | number | string
-> = K extends keyof T ? T : T & { [k in K]: undefined }
+export type Maybe<T, K extends symbol | number | string> =
+  K extends keyof T ? T : T & { [k in K]: undefined }
 
 /**
  * Type to make TypeScript ok with accessing an unknown property,

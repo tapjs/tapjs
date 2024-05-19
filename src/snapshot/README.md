@@ -280,7 +280,7 @@ import t from 'tap'
 import { resolve } from 'node:path'
 
 t.matchSnapshot(
-  'this writes to ./tap-snapshots/test/snappy.js.test.cjs'
+  'this writes to ./tap-snapshots/test/snappy.js.test.cjs',
 )
 
 t.test('foo', async t => {
@@ -289,7 +289,7 @@ t.test('foo', async t => {
   // it'll always store it as the actual path.
   t.snapshotFile = new URL(
     '../tap-snapshots/foo.test.cjs',
-    import.meta.url
+    import.meta.url,
   )
   t.matchSnapshot('foo')
 })
@@ -298,7 +298,7 @@ t.test('bar', async t => {
   // this writes to ./test/tap-snapshots/bar.test.cjs'
   t.snapshotFile = new URL(
     '../tap-snapshots/bar.test.cjs',
-    import.meta.url
+    import.meta.url,
   )
   t.matchSnapshot('bar')
 })

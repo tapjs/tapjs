@@ -18,10 +18,13 @@ const allPkgs = [
   'tcompare',
 ]
 
-export const version = async (args: string[], config: LoadedConfig) =>
-  config.get('versions') || args[0] === 'versions'
-    ? printAllVersions()
-    : printTapVersion()
+export const version = async (
+  args: string[],
+  config: LoadedConfig,
+) =>
+  config.get('versions') || args[0] === 'versions' ?
+    printAllVersions()
+  : printTapVersion()
 
 export const getAllVersions = async () => {
   // find all packages anywhere named 'tap', '@tapjs/*', 'tap-*',
@@ -59,6 +62,6 @@ const printTapVersion = async () => {
   const rv = tryGetVersion('@tapjs/run')
   if (rv) return console.log(`@tapjs/run@${rv}`)
   throw new Error(
-    'Could not get version for tap, @tapjs/core, or @tapjs/run'
+    'Could not get version for tap, @tapjs/core, or @tapjs/run',
   )
 }

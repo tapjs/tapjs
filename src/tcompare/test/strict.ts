@@ -77,17 +77,17 @@ t.test('basic', t => {
   t.ok(strict(t, null, null), 'null is the same as itself')
   t.ok(
     strict(t, undefined, undefined),
-    'undefined is the same as itself'
+    'undefined is the same as itself',
   )
   t.ok(strict(t, 0, 0), 'numbers check out')
   t.ok(
     strict(t, 1 / 0, 1 / 0),
-    "it's a travesty that 1 / 0 = Infinity, but Infinities are equal"
+    "it's a travesty that 1 / 0 = Infinity, but Infinities are equal",
   )
   t.ok(strict(t, 'ok', 'ok'), 'strings check out')
   t.ok(
     strict(t, functionA, functionB),
-    'references to the same function are equal'
+    'references to the same function are equal',
   )
 
   // 4. buffers are compared by value
@@ -105,7 +105,7 @@ t.test('basic', t => {
   let rexpB = /^h[oe][wl][dl][oy]$/
   t.ok(
     strict(t, rexpA, rexpB),
-    'regexps are compared by their properties'
+    'regexps are compared by their properties',
   )
 
   // 8. loads of tests for objects
@@ -133,7 +133,7 @@ t.test('basic', t => {
   cyclicB.x = cyclicB
   t.ok(
     strict(t, cyclicA, cyclicB),
-    'can handle cyclic data structures'
+    'can handle cyclic data structures',
   )
 
   const y = {
@@ -208,14 +208,14 @@ t.test('basic', t => {
 
   t.ok(
     strict(t, heinous, awful),
-    'more complex objects also check out'
+    'more complex objects also check out',
   )
 
   awful.granular.self = heinous
   heinous.granular.self = awful
   t.ok(
     strict(t, heinous, awful),
-    'mutual recursion with otherwise identical structures fools deepEquals'
+    'mutual recursion with otherwise identical structures fools deepEquals',
   )
 
   /*
@@ -227,31 +227,31 @@ t.test('basic', t => {
   // 1. === does its job
   t.notOk(
     strict(t, 1 / 0, -1 / 0),
-    'opposite infinities are different'
+    'opposite infinities are different',
   )
   t.notOk(
     strict(t, 1, '1'),
-    'strict equality, no coercion between strings and numbers'
+    'strict equality, no coercion between strings and numbers',
   )
   t.notOk(strict(t, 'ok', 'nok'), 'different strings are different')
   t.notOk(
     strict(t, 0, '0'),
-    'strict equality, no coercion between strings and numbers'
+    'strict equality, no coercion between strings and numbers',
   )
   t.notOk(strict(t, undefined, null), 'so many kinds of nothingness!')
   t.notOk(
     strict(
       t,
       function nop() {},
-      function nop() {}
+      function nop() {},
     ),
-    'functions are only the same by reference'
+    'functions are only the same by reference',
   )
 
   // 2. one is an object, the other is not
   t.notOk(
     strict(t, undefined, {}),
-    "if both aren't objects, not the same"
+    "if both aren't objects, not the same",
   )
 
   // 3. null is an object
@@ -264,12 +264,12 @@ t.test('basic', t => {
   bufferB = Buffer.from('abcd')
   t.notOk(
     strict(t, bufferA, bufferB),
-    'Buffers are checked for length'
+    'Buffers are checked for length',
   )
   bufferB = Buffer.from('abd')
   t.notOk(
     strict(t, bufferA, bufferB),
-    'Buffers are also checked for value'
+    'Buffers are also checked for value',
   )
 
   // 5. dates
@@ -280,7 +280,7 @@ t.test('basic', t => {
   rexpB = /^(howdy|hello)$/
   t.notOk(
     strict(t, rexpA, rexpB),
-    'different regexps are not the same'
+    'different regexps are not the same',
   )
 
   // 7. arguments
@@ -302,7 +302,7 @@ t.test('basic', t => {
   const nullstructor = Object.create(null)
   t.notOk(
     strict(t, {}, nullstructor),
-    'Object.create(null).constructor === undefined'
+    'Object.create(null).constructor === undefined',
   )
 
   b = { b: 'b' }

@@ -10,18 +10,18 @@ const deCwd = <T extends any>(obj: T): T => {
   if (!obj) return obj
   if (typeof obj === 'string') {
     const i = obj.toUpperCase().indexOf(CWD)
-    return i === -1
-      ? obj
-      : ((
+    return i === -1 ? obj : (
+        ((
           obj.substring(0, i) +
           '{CWD}' +
           obj.substring(i + CWD.length)
         ).replace(/\\/g, '/') as T)
+      )
   }
   if (typeof obj !== 'object') return obj
   if (Array.isArray(obj)) return obj.map(v => deCwd(v)) as T
   return Object.fromEntries(
-    Object.entries(obj).map(([k, v]) => [k, deCwd(v)])
+    Object.entries(obj).map(([k, v]) => [k, deCwd(v)]),
   ) as T
 }
 
@@ -33,10 +33,10 @@ const nope = () => {
 
 class MockConfig {
   constructor(t: Test) {
-    this.globCwd = t.testdirName
+    this.projectRoot = t.testdirName
   }
 
-  globCwd: string
+  projectRoot: string
   pluginList: string[] = ['a', 'b', 'c']
   edited?: { plugin: string[] }
   configFile: string = '/path/to/.taprc'
@@ -559,19 +559,19 @@ t.test('print warning if not running in project', async t => {
   const logs = t.capture(console, 'log').args
 
   const config = new MockConfig(t)
-  config.globCwd = resolve('/project/dir')
+  config.projectRoot = resolve('/project/dir')
   resolveImport
   const mockTap = pathToFileURL(
-    resolve('/project/dir/node_modules/tap/index.js')
+    resolve('/project/dir/node_modules/tap/index.js'),
   )
   const mockProjectRun = pathToFileURL(
-    resolve('/project/dir/node_modules/@tapjs/run/index.js')
+    resolve('/project/dir/node_modules/@tapjs/run/index.js'),
   )
   const mockActiveRun = pathToFileURL(
-    resolve('/global/node_modules/@tapjs/run/index.js')
+    resolve('/global/node_modules/@tapjs/run/index.js'),
   )
   const mockRI = async (req: string | URL, f?: string | URL) => {
-    if (req === 'tap' && f === resolve(config.globCwd, 'x'))
+    if (req === 'tap' && f === resolve(config.projectRoot, 'x'))
       return mockTap
     if (req === '@tapjs/run' && f === mockTap) return mockProjectRun
     else if (req === '@tapjs/run') return mockActiveRun

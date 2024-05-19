@@ -23,7 +23,7 @@ t.test('show source with callsite and origin callsite', t => {
         at: originAt,
         source: 'origin source',
       }}
-    />
+    />,
   )
   t.matchSnapshot(app.lastFrame())
   t.end()
@@ -66,7 +66,7 @@ t.test('file not readable, fall back to source', t => {
         } as CallSiteLike
       }
       source={'diag source'}
-    />
+    />,
   )
   t.matchSnapshot(app.lastFrame())
   t.end()
@@ -86,7 +86,7 @@ t.test('get at from stack', t => {
     if (!loc) throw new Error('failed to get callsite')
     return [
       [loc.absoluteFileName, loc.lineNumber, loc.columnNumber].join(
-        ':'
+        ':',
       ),
       getStack(),
     ]

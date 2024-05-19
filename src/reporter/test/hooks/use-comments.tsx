@@ -44,6 +44,6 @@ t.test('show comments', async t => {
       '# before child test',
       '# before child test\n# comment while occupied',
       '# before child test\n# comment while occupied\n# after child test',
-    ]
+    ],
   )
 })

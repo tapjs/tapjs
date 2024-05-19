@@ -38,7 +38,7 @@ class T extends TestBase {
   test(
     name: string,
     extra: TestBaseOpts,
-    cb: (t: T) => any
+    cb: (t: T) => any,
   ): PromiseWithSubtest<T>
   test(name: string, cb: (t: T) => any): PromiseWithSubtest<T>
   test(extra: TestBaseOpts, cb: (t: T) => any): PromiseWithSubtest<T>
@@ -52,7 +52,7 @@ class T extends TestBase {
 // create a TestBase and an assertion plugin linked to it for testing
 const ta = (
   opts: TestBaseOpts = {},
-  aopts: AssertOptions = {}
+  aopts: AssertOptions = {},
 ): [T, Assertions] => {
   const t = new T(opts)
   return [t, plugin(t, aopts)]
@@ -73,7 +73,7 @@ t.test('compareOptions are inherited', t => {
         t.end()
       })
       t.end()
-    }
+    },
   )
   t.end()
 })
@@ -275,8 +275,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw new Error('nope')
         },
       },
-      'a'
-    )
+      'a',
+    ),
   )
   t.notOk(
     a.hasProp(
@@ -285,8 +285,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw 'yolo'
         },
       },
-      'a'
-    )
+      'a',
+    ),
   )
 
   //@ts-expect-error
@@ -304,8 +304,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw new Error('nope')
         },
       },
-      ['a']
-    )
+      ['a'],
+    ),
   )
   t.notOk(
     a.hasProps(
@@ -314,8 +314,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw 'yolo'
         },
       },
-      ['a']
-    )
+      ['a'],
+    ),
   )
 
   t.ok(a.hasOwnProp({ a: 1 }, 'a'))
@@ -328,8 +328,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw new Error('nope')
         },
       },
-      'a'
-    )
+      'a',
+    ),
   )
   t.notOk(
     a.hasOwnProp(
@@ -338,8 +338,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw 'yolo'
         },
       },
-      'a'
-    )
+      'a',
+    ),
   )
 
   //@ts-expect-error
@@ -357,8 +357,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw new Error('nope')
         },
       },
-      ['a']
-    )
+      ['a'],
+    ),
   )
   t.notOk(
     a.hasOwnProps(
@@ -367,8 +367,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw 'yolo'
         },
       },
-      ['a']
-    )
+      ['a'],
+    ),
   )
 
   //@ts-expect-error
@@ -386,8 +386,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw new Error('nope')
         },
       },
-      ['a']
-    )
+      ['a'],
+    ),
   )
   t.notOk(
     a.hasOwnPropsOnly(
@@ -396,8 +396,8 @@ t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
           throw 'yolo'
         },
       },
-      ['a']
-    )
+      ['a'],
+    ),
   )
 
   t.end()
@@ -409,25 +409,25 @@ t.test('throws, doesNotThrow', t => {
     a.throws(() => {
       throw new Error('ok')
     }),
-    { message: 'ok' }
+    { message: 'ok' },
   )
   t.ok(
     a.throws(function named() {
       throw new Error('ok')
-    })
+    }),
   )
   t.notOk(
     a.throws(
       () => {
         throw new Error('ok')
       },
-      { message: 'nope' }
-    )
+      { message: 'nope' },
+    ),
   )
   t.notOk(
     a.throws(() => {
       throw new Error('ok')
-    }, /^nope$/)
+    }, /^nope$/),
   )
   t.notOk(a.throws(() => {}))
 
@@ -436,8 +436,8 @@ t.test('throws, doesNotThrow', t => {
       () => {
         throw new Error('x', { cause: 'y' })
       },
-      { cause: 'y' }
-    )
+      { cause: 'y' },
+    ),
   )
 
   t.ok(a.doesNotThrow(() => {}))
@@ -445,52 +445,52 @@ t.test('throws, doesNotThrow', t => {
     a.doesNotThrow(() => {
       throw 'yo'
     }),
-    false
+    false,
   )
   t.equal(
     a.doesNotThrow(
       () => {
         throw 'yo'
       },
-      { skip: true }
+      { skip: true },
     ),
-    'yo'
+    'yo',
   )
   t.equal(
     a.doesNotThrow(
       () => {
         throw undefined
       },
-      { skip: true }
+      { skip: true },
     ),
-    true
+    true,
   )
   t.match(
     a.doesNotThrow(
       () => {
         throw new Error('ok')
       },
-      { skip: true }
+      { skip: true },
     ),
-    { message: 'ok' }
+    { message: 'ok' },
   )
   t.match(
     a.doesNotThrow(
       function n() {
         throw new Error('ok')
       },
-      { todo: true }
+      { todo: true },
     ),
-    { message: 'ok' }
+    { message: 'ok' },
   )
   t.match(
     a.throws(
       () => {
         throw Object.assign(new Error(''), { code: null, foo: 'bar' })
       },
-      { code: null, foo: 'bar' }
+      { code: null, foo: 'bar' },
     ),
-    { code: null, foo: 'bar' }
+    { code: null, foo: 'bar' },
   )
 
   t.end()
@@ -502,31 +502,31 @@ t.test('rejects', async t => {
     await a.rejects(async () => {
       throw new Error('ok')
     }),
-    { message: 'ok' }
+    { message: 'ok' },
   )
   t.equal(
     await a.rejects(async () => {
       throw undefined
     }),
-    true
+    true,
   )
   t.ok(
     await a.rejects(async function named() {
       throw new Error('ok')
-    })
+    }),
   )
   t.notOk(
     await a.rejects(
       async () => {
         throw new Error('ok')
       },
-      { message: 'nope' }
-    )
+      { message: 'nope' },
+    ),
   )
   t.notOk(
     await a.rejects(async () => {
       throw new Error('ok')
-    }, /^nope$/)
+    }, /^nope$/),
   )
   t.notOk(await a.rejects(async () => {}))
 
@@ -536,7 +536,7 @@ t.test('rejects', async t => {
   t.notOk(
     await a.rejects(Promise.reject(new Error('ok')), {
       message: 'nope',
-    })
+    }),
   )
   t.notOk(await a.rejects(Promise.reject(new Error('ok')), /^nope$/))
   t.notOk(await a.rejects(Promise.resolve()))
@@ -544,7 +544,7 @@ t.test('rejects', async t => {
   t.ok(
     await a.rejects(Promise.reject(new Error('x', { cause: 'y' })), {
       cause: 'y',
-    })
+    }),
   )
 
   //@ts-expect-error
@@ -555,25 +555,25 @@ t.test('rejects', async t => {
   t.ok(
     await a.rejects(() => {
       throw new Error('ok')
-    })
+    }),
   )
   t.match(
     await a.rejects(
       async () => {
         throw Object.assign(new Error(''), { code: null, foo: 'bar' })
       },
-      { code: null, foo: 'bar' }
+      { code: null, foo: 'bar' },
     ),
-    { code: null, foo: 'bar' }
+    { code: null, foo: 'bar' },
   )
   t.match(
     await a.rejects(
       Promise.reject(
-        Object.assign(new Error(''), { code: null, foo: 'bar' })
-      )
+        Object.assign(new Error(''), { code: null, foo: 'bar' }),
+      ),
     ),
     { code: null, foo: 'bar' },
-    { code: null, foo: 'bar' }
+    { code: null, foo: 'bar' },
   )
 })
 
@@ -584,31 +584,31 @@ t.test('resolves', async t => {
   t.ok(
     await a.resolves(async function n() {
       return 'hello'
-    })
+    }),
   )
 
   t.equal(await a.resolves(Promise.reject('hello')), false)
   t.equal(
     await a.resolves(Promise.reject('hello'), { skip: true }),
-    'hello'
+    'hello',
   )
   t.equal(
     await a.resolves(async () => {
       throw undefined
     }),
-    false
+    false,
   )
   t.equal(
     await a.resolves(async function n() {
       throw 'hello'
     }),
-    false
+    false,
   )
   t.equal(
     await a.resolves(() => {
       throw 'hello'
     }),
-    false
+    false,
   )
 
   t.equal(
@@ -616,27 +616,27 @@ t.test('resolves', async t => {
       async () => {
         throw undefined
       },
-      { skip: true }
+      { skip: true },
     ),
-    true
+    true,
   )
   t.equal(
     await a.resolves(
       async function n() {
         throw 'hello'
       },
-      { todo: true }
+      { todo: true },
     ),
-    'hello'
+    'hello',
   )
   t.equal(
     await a.resolves(
       () => {
         throw 'hello'
       },
-      { todo: true }
+      { todo: true },
     ),
-    'hello'
+    'hello',
   )
 
   //@ts-expect-error
@@ -650,32 +650,32 @@ t.test('resolveMatch', async t => {
   t.ok(
     await a.resolveMatch(async function n() {
       return 'hello'
-    }, 'hel')
+    }, 'hel'),
   )
   t.notOk(
-    await a.resolveMatch(Promise.resolve({ a: 1 }), { a: String })
+    await a.resolveMatch(Promise.resolve({ a: 1 }), { a: String }),
   )
 
   t.notOk(await a.resolveMatch(Promise.reject('hello'), 'hello'))
   t.notOk(
     await a.resolveMatch(async () => {
       throw 'hello'
-    }, 'hello')
+    }, 'hello'),
   )
   t.notOk(
     await a.resolveMatch(async () => {
       throw undefined
-    }, 'undefined')
+    }, 'undefined'),
   )
   t.notOk(
     await a.resolveMatch(async function n() {
       throw 'hello'
-    }, 'hello')
+    }, 'hello'),
   )
   t.notOk(
     await a.resolveMatch(() => {
       throw 'hello'
-    }, 'hello')
+    }, 'hello'),
   )
 
   //@ts-expect-error
@@ -711,7 +711,7 @@ t.test('rejects does not have to be awaited', async t => {
     new Promise((_, rej) => setTimeout(() => rej(new Error('ok')))),
     {
       message: 'ok',
-    }
+    },
   )
 })
 

@@ -18,7 +18,7 @@ t.equal(t.pluginLoaded(plugin), false, 'plugin not loaded by default')
 
 const originalEnv = { ...process.env }
 t.beforeEach(t =>
-  t.intercept(process, 'env', { value: { ...originalEnv } })
+  t.intercept(process, 'env', { value: { ...originalEnv } }),
 )
 
 t.test('without global injection', async t => {
@@ -44,7 +44,7 @@ t.test('without global injection', async t => {
       afterEach: Function,
       teardown: Function,
     },
-    'exported the things'
+    'exported the things',
   )
   t.match(
     globalThis,
@@ -64,7 +64,7 @@ t.test('without global injection', async t => {
       afterEach: undefined,
       teardown: undefined,
     },
-    'no globals injected'
+    'no globals injected',
   )
 })
 
@@ -91,7 +91,7 @@ t.test('with global injection', async t => {
       afterEach: Function,
       teardown: Function,
     },
-    'exported the things'
+    'exported the things',
   )
   const {
     describe,
@@ -127,6 +127,6 @@ t.test('with global injection', async t => {
       afterEach,
       teardown,
     },
-    'globals injected'
+    'globals injected',
   )
 })

@@ -20,7 +20,7 @@ import { processinfoCompletions } from './processinfo-completions.js'
 import { Watch } from './watch.js'
 
 const tapBin = fileURLToPath(
-  await resolveImport('../index.js', import.meta.url)
+  await resolveImport('../index.js', import.meta.url),
 )
 
 type NodeCallback = (er: Error | null, result: any) => void
@@ -154,19 +154,19 @@ export class Repl {
     input: NodeJS.ReadStream = process.stdin,
     output: NodeJS.WriteStream = process.stdout,
     processInfo: ProcessInfo = ProcessInfo.loadSync({
-      dir: resolve(config.globCwd, '.tap/processinfo'),
-    })
+      dir: resolve(config.projectRoot, '.tap/processinfo'),
+    }),
   ) {
     this.input = input
     this.output = output
     this.config = config
-    this.dir = resolve(config.globCwd, '.tap')
+    this.dir = resolve(config.projectRoot, '.tap')
     this.processInfo = processInfo
     this.saveFile =
       config.get('save') || resolve(this.dir, 'repl_failures')
 
     this.watch = new Watch(this.processInfo, () =>
-      this.#onWatchChange()
+      this.#onWatchChange(),
     )
 
     this.#piWatcher = watch(resolve(this.dir, 'processinfo'), options)
@@ -192,7 +192,7 @@ export class Repl {
           while (this.#queue.length && !this.proc) {
             const [input, d] = this.#queue[0] as [
               string,
-              Deferred<any>
+              Deferred<any>,
             ]
             this.#queue.shift()
             d.resolve(this.parseCommand(input))
@@ -205,11 +205,9 @@ export class Repl {
       completer: (input: string) => this.completer(input),
       /* c8 ignore stop */
       writer: res =>
-        res === undefined
-          ? ''
-          : typeof res === 'string'
-          ? res
-          : stringify(res),
+        res === undefined ? ''
+        : typeof res === 'string' ? res
+        : stringify(res),
       // we don't actually eval anything, save the CPU cycles
       useGlobal: true,
     })
@@ -224,7 +222,7 @@ export class Repl {
     mkdirpSync(this.dir)
     this.repl.setupHistory(
       resolve(this.dir, 'repl_history'),
-      () => {}
+      () => {},
     )
     /* c8 ignore stop */
 
@@ -249,11 +247,9 @@ export class Repl {
     if (!this.proc) return
     this.proc.kill(signal)
     const next =
-      signal === 'SIGINT'
-        ? 'SIGTERM'
-        : signal === 'SIGTERM'
-        ? 'SIGKILL'
-        : null
+      signal === 'SIGINT' ? 'SIGTERM'
+      : signal === 'SIGTERM' ? 'SIGKILL'
+      : null
     if (next) {
       setTimeout(() => this.#killProc(next), KILL_TIMEOUT)?.unref?.()
     }
@@ -364,7 +360,7 @@ export class Repl {
   async #spawn(
     cmd: string,
     args: string[],
-    options: SpawnOptions = {}
+    options: SpawnOptions = {},
   ) {
     /* c8 ignore start */
     if (this.proc) return 'command in progress, please wait'
@@ -386,14 +382,14 @@ export class Repl {
     }))
     return new Promise<any | void>(res => {
       proc.on('close', (code, signal) =>
-        res(this.#onSpawnClose(code, signal))
+        res(this.#onSpawnClose(code, signal)),
       )
     })
   }
 
   async #onSpawnClose(
     code: null | number,
-    signal: null | NodeJS.Signals
+    signal: null | NodeJS.Signals,
   ) {
     this.proc = undefined
     this.repl?.resume()
@@ -431,8 +427,9 @@ export class Repl {
     // If we have any args, then use a saveFile so that we don't
     // blow away our coverage and processinfo
     rimrafSync(this.saveFile)
-    const env = args.length
-      ? { TAP_CHANGED: '0', TAP_COVERAGE_ADD: '1' }
+    const env =
+      args.length ?
+        { TAP_CHANGED: '0', TAP_COVERAGE_ADD: '1' }
       : process.env
     return this.spawnTap(['run', ...args], { env })
   }
@@ -469,13 +466,10 @@ export class Repl {
 
   async toggleWatch(args: string[]) {
     const on =
-      args[0] === 'on'
-        ? true
-        : /* c8 ignore start */
-        args[1] === 'off'
-        ? false
-        : /* c8 ignore stop */
-          !this.watch.watching
+      args[0] === 'on' ? true
+      : /* c8 ignore start */
+      args[1] === 'off' ? false
+      : /* c8 ignore stop */ !this.watch.watching
     this.watch[on ? 'start' : 'close']()
     return this.showWatch()
   }
@@ -486,7 +480,7 @@ export class Repl {
     const { watchedFiles } = w
     const localFiles: string[] = []
     let deps: number = 0
-    const here = resolve(this.config.globCwd)
+    const here = resolve(this.config.projectRoot)
     for (const f of watchedFiles) {
       const rel = relative(here, f)
       if (
@@ -518,7 +512,7 @@ export class Repl {
       signal?: NodeJS.Signals | null
       runtime?: number
     },
-    showParent: boolean = false
+    showParent: boolean = false,
   ): PrintedProcessInfoNode {
     const args = [...node.execArgv, ...node.argv.slice(1)]
     const pin: PrintedProcessInfoNode = {
@@ -536,10 +530,10 @@ export class Repl {
           // nondeterministic
           /* c8 ignore start */
           .sort(({ date: a }, { date: b }) =>
-            a.localeCompare(b, 'en')
+            a.localeCompare(b, 'en'),
           )
           /* c8 ignore stop */
-          .map(c => [c.uuid, this.#printPIN(c)])
+          .map(c => [c.uuid, this.#printPIN(c)]),
       )
     }
     if (node.code !== null) pin.code = node.code
@@ -564,7 +558,7 @@ export class Repl {
           this.processInfo.externalIDs.get(id) ||
           this.processInfo.uuids.get(id)
         return [id, pin ? this.#printPIN(pin, true) : 'no data found']
-      })
+      }),
     )
   }
 

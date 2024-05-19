@@ -23,12 +23,12 @@ const { Log } = await t.mockImport<
     await import('../dist/esm/hooks/use-log.js'),
     {
       useLog: () => logs,
-    }
+    },
   ),
 })
 
 t.matchSnapshot(
-  render(<Log test={t} config={{} as LoadedConfig} />).lastFrame()
+  render(<Log test={t} config={{} as LoadedConfig} />).lastFrame(),
 )
 
 const tb = new Minimal({ name: 'ended' })
@@ -38,5 +38,5 @@ await tb.concat()
 t.equal(
   render(<Log test={tb} config={{} as LoadedConfig} />).lastFrame(),
   '',
-  'nothing to log if test is finished'
+  'nothing to log if test is finished',
 )

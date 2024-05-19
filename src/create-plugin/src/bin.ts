@@ -5,7 +5,7 @@ const index = fileURLToPath(new URL('./index.js', import.meta.url))
 const res = spawnSync(
   process.execPath,
   [...process.execArgv, '--no-warnings', index],
-  { stdio: 'inherit' }
+  { stdio: 'inherit' },
 )
 if (res.status) process.exit(res.status)
 if (res.signal) {

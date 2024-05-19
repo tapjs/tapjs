@@ -11,7 +11,7 @@ t.equal(
     at some-file:420:69
 `,
   }),
-  'error string'
+  'error string',
 )
 t.equal(
   messageFromError({
@@ -19,7 +19,7 @@ t.equal(
     at some-file:420:69
 `,
   }),
-  'nameless error string'
+  'nameless error string',
 )
 t.equal(messageFromError(123), 'unhandled error')
 t.equal(messageFromError({ error: 'err prop' }), 'err prop')
@@ -29,11 +29,11 @@ t.test('node errnoExceptions have coded messages', t => {
     new TypeError('blah'),
     {
       code: 'ERR_BLAH_DEE_BLOO',
-    }
+    },
   )
   er.stack = String(er.stack).replace(
     /^TypeError:/,
-    'TypeError [ERR_BLAH_DEE_BLOO]:'
+    'TypeError [ERR_BLAH_DEE_BLOO]:',
   )
   t.equal(messageFromError(er), 'blah')
   //@ts-ignore

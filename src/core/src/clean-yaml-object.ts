@@ -22,8 +22,9 @@ const hasOwn = (obj: { [k: string]: any }, key: string) =>
 export const cleanYamlObject = (object: { [k: string]: any }) => {
   const res = { ...object }
   if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
-    const st = Array.isArray(res.stack)
-      ? res.stack.map(s => String(s).trimEnd() + '\n').join('')
+    const st =
+      Array.isArray(res.stack) ?
+        res.stack.map(s => String(s).trimEnd() + '\n').join('')
       : String(res.stack)
     const p = stack.parseStack(st)
     res.at = p[0]
@@ -58,11 +59,13 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
         const endLine = Math.min(res.at.lineNumber + 2, lines.length)
         const line = lines[res.at.lineNumber - 1]
         const caret =
-          res.at.columnNumber &&
-          line &&
-          res.at.columnNumber <= line.length
-            ? ['-'.repeat(res.at.columnNumber - 1) + '^']
-            : []
+          (
+            res.at.columnNumber &&
+            line &&
+            res.at.columnNumber <= line.length
+          ) ?
+            ['-'.repeat(res.at.columnNumber - 1) + '^']
+          : []
         const context = lines
           .slice(startLine, res.at.lineNumber)
           .concat(caret)
@@ -94,7 +97,7 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
         'expected',
         'actual',
         w + '\n',
-        f + '\n'
+        f + '\n',
       ).replace(/^=+\n/, '')
     else if (
       f &&
@@ -119,7 +122,7 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
           'expected',
           'actual',
           ws,
-          fs
+          fs,
         ).replace(/^=+\n/, '')
       }
     }

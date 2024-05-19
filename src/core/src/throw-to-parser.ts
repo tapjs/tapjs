@@ -10,14 +10,14 @@ import { Extra } from './index.js'
  */
 export const throwToParser = (
   parser: Parser,
-  extra?: Extra | undefined | void
+  extra?: Extra | undefined | void,
 ) => {
   // if the throw was already proxied up for some reason, just give up
   if (!extra) return
   parser.write(
     `not ok ${parser.pointsSeen.size + 1} - ${
       extra.message || 'unhandled error'
-    }\n${diags(extra)}`
+    }\n${diags(extra)}`,
   )
   if (parser.planEnd === -1) {
     parser.write(`\n1..${parser.pointsSeen.size}\n`)

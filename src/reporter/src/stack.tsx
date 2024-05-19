@@ -59,7 +59,7 @@ export const Stack: FC<{ stack?: string }> = ({ stack }) => {
       removeRelativeGenerated(c.evalOrigin)
       return highlightFilename(
         c.toString(),
-        c.evalOrigin ? c.evalOrigin.fileName : c.fileName
+        c.evalOrigin ? c.evalOrigin.fileName : c.fileName,
       )
     })
 

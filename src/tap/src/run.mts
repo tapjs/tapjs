@@ -20,8 +20,8 @@ await import(
     await resolveImport(
       '@tapjs/run',
       await resolveImport('tap', pathToFileURL(resolve('x'))).catch(
-        () => import.meta.url
-      )
-    )
+        () => import.meta.url,
+      ),
+    ),
   )
 )

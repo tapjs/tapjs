@@ -23,7 +23,7 @@ for (const [dialect, Spawn, TestBase] of classes) {
         cwd: string,
         cmd: string,
         args: string[],
-        expect: string
+        expect: string,
       ][] = [
         [
           '/some/path',
@@ -152,7 +152,7 @@ for (const [dialect, Spawn, TestBase] of classes) {
 ok 1 - this is fine
 ok 2 - later maybe # TODO
 not ok 3 - y
-`
+`,
         )
         t.end()
       })
@@ -173,7 +173,7 @@ not ok 3 - y
         parent.end()
         t.equal(
           await s.concat(),
-          'TAP version 14\n1..0 # no tests found\n'
+          'TAP version 14\n1..0 # no tests found\n',
         )
 
         t.equal(
@@ -185,7 +185,7 @@ not ok 1 - timeout!
   ...
 
 1..1
-`
+`,
         )
         t.end()
       })
@@ -296,7 +296,7 @@ not ok 1 - timeout!
       s.main(async () => {
         t.equal(
           await s.concat(),
-          'TAP version 14\n1..0 # no tests found\n'
+          'TAP version 14\n1..0 # no tests found\n',
         )
         t.equal(s.options.skip, 'no tests found')
         t.match(s.results?.plan, {
@@ -323,7 +323,7 @@ not ok 1 - timeout!
 not ok 1 - test unfinished
 
 1..1
-`
+`,
         )
         t.end()
       })

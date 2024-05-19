@@ -8,7 +8,7 @@ import { dirname, resolve } from 'node:path'
 export const outputFile = (
   t: TAP,
   config: LoadedConfig,
-  hasReporter: boolean
+  hasReporter: boolean,
 ) => {
   const outputFile = config.get('output-file')
   if (outputFile) {

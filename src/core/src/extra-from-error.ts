@@ -15,7 +15,7 @@ const useful = (at: CallSiteLike | undefined) =>
 export const extraFromError = (
   er: any,
   extra?: Extra,
-  options?: BaseOpts
+  options?: BaseOpts,
 ) => {
   // the yaml module puts big stuff here, pluck it off
   // otherwise it's quite noisy when we throw as a result of
@@ -38,9 +38,9 @@ export const extraFromError = (
     extra ?? {},
     Object.fromEntries(
       Object.entries(options).filter(
-        ([k]) => !/^tapChild/.test(k) && !(k in (extra ?? {}))
-      )
-    )
+        ([k]) => !/^tapChild/.test(k) && !(k in (extra ?? {})),
+      ),
+    ),
   )
 
   if (!er || typeof er !== 'object') {

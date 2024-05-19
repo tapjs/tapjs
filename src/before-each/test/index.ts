@@ -98,7 +98,7 @@ t.test('rejected be fails relevant test', async t => {
     `
                   if (tt.name === 'fail') throw new Error('nope')
             ------------------------------------^
-`
+`,
   )
   t.strictSame(log, [
     ['root be', 'parent'],
@@ -138,7 +138,7 @@ t.test('throwing be fails relevant test', async t => {
     `
                   if (tt.name === 'fail') throw new Error('nope')
             ------------------------------------^
-`
+`,
   )
   t.strictSame(log, [
     ['root be', 'parent'],

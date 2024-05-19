@@ -8,7 +8,7 @@ const node = process.execPath
 export const runBefore = (
   t: TAP,
   argv: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   const before = config.get('before')
   if (before) {
@@ -22,9 +22,9 @@ export const runBefore = (
               res()
               if (code || signal) return
               return false
-            }
+            },
           )
-        })
+        }),
     )
     return resolve(before)
   }

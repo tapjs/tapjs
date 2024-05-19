@@ -23,19 +23,20 @@ process.env.TS_NODE_PROJECT = tsconfig
 
 // node version specific
 /* c8 ignore start */
-const tsNodeImport = useImport
-  ? [
+const tsNodeImport =
+  useImport ?
+    [
       '--import=' +
         (await resolveImport(
           '@isaacs/ts-node-temp-fork-for-pr-2009/import',
-          import.meta.url
+          import.meta.url,
         )),
     ]
   : [
       '--loader=' +
         (await resolveImport(
           '@isaacs/ts-node-temp-fork-for-pr-2009/esm',
-          import.meta.url
+          import.meta.url,
         )),
       '--no-warnings',
     ]
@@ -48,7 +49,7 @@ const res = spawnSync(
     resolve(__dirname, './build.mts'),
     ...process.argv.slice(2),
   ],
-  { stdio: 'inherit' }
+  { stdio: 'inherit' },
 )
 
 // indicates something extremely wrong

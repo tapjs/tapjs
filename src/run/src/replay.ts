@@ -7,7 +7,7 @@ import { executeTestSuite } from './execute-test-suite.js'
 
 export const replay = async (
   args: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   return executeTestSuite(
     args,
@@ -16,20 +16,20 @@ export const replay = async (
     t => t,
     () => {},
     async (t, file) => {
-      const name = relative(config.globCwd, file)
+      const name = relative(config.projectRoot, file)
       const filename = resolve(
-        config.globCwd,
+        config.projectRoot,
         '.tap/test-results',
-        name + '.tap'
+        name + '.tap',
       )
       const buffered = t.jobs > 1
       const opts: TapFileOpts = {
-        cwd: config.globCwd,
+        cwd: config.projectRoot,
         buffered,
         name,
         filename,
       }
       return t.sub<TapFile, TapFileOpts>(TapFile, opts, replay)
-    }
+    },
   )
 }

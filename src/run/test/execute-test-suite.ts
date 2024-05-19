@@ -53,7 +53,7 @@ t.test('after plugin always loaded', async t => {
 
   const fakeConfig = {
     get: (c: string) => (c === 'reporter' ? 'tap' : undefined),
-    globCwd: dir,
+    projectRoot: dir,
   } as unknown as LoadedConfig
 
   let applyPluginsCalled = false
@@ -80,9 +80,9 @@ t.test('after plugin always loaded', async t => {
           testFile: resolve(dir, 'test.js'),
           files: ['test.js'],
           hasReporter: false,
-        }
+        },
       )
-    }
+    },
   )
 
   t.equal(pipeCalled, true)
@@ -98,6 +98,6 @@ t.test('after plugin always loaded', async t => {
     `TAP version 14
 ok 1 - just an assertion so it has at least one
 1..1
-`
+`,
   )
 })

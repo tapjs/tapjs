@@ -23,7 +23,7 @@ export type CorrectModuleCtor = Omit<
 > & {
   new (
     id: string,
-    parent: CorrectModule | MockedModule
+    parent: CorrectModule | MockedModule,
   ): CorrectModule
   _cache: { [k: string]: CorrectModule }
 }
@@ -43,7 +43,7 @@ export class MockedModule extends CorrectModule {
   constructor(
     id: string,
     parent: CorrectModule | MockedModule,
-    mocker?: Mocker
+    mocker?: Mocker,
   ) {
     super(id, parent)
     this.filename ??= id
@@ -93,7 +93,7 @@ export class Mocker {
   constructor(
     parentFileName: string,
     fileName: string,
-    mocks: { [k: string]: any } = {}
+    mocks: { [k: string]: any } = {},
   ) {
     const require = createRequire(parentFileName)
     const filePath = require.resolve(fileName)
@@ -127,7 +127,7 @@ export class Mocker {
       p.filename = parentFileName
       p.loaded = true
       p.paths = [...walkUp(dirname(parentFileName))].map(path =>
-        resolve(path, 'node_modules')
+        resolve(path, 'node_modules'),
       )
     }
 
@@ -171,7 +171,7 @@ export class Mocker {
 export const mockRequire: (
   module: string,
   mocks?: { [k: string]: any },
-  caller?: Function | ((...a: any[]) => any)
+  caller?: Function | ((...a: any[]) => any),
 ) => any = (module, mocks = {}, caller = mockRequire) => {
   const needIgnoreTap = !stack.getIgnoredPackages().includes('@tapjs')
   if (needIgnoreTap) stack.addIgnoredPackage('@tapjs')

@@ -76,7 +76,7 @@ export interface SnapshotOptions {
 
 export const plugin: TapPlugin<SnapshotPlugin, SnapshotOptions> = (
   t: TestBase,
-  opts: SnapshotOptions = {}
+  opts: SnapshotOptions = {},
 ) => new SnapshotPlugin(t, opts)
 
 export class SnapshotPlugin {
@@ -152,7 +152,7 @@ export class SnapshotPlugin {
     return this.#compareOptions
   }
   set compareOptions(
-    cmt: Exclude<SnapshotOptions['compareOptions'], undefined>
+    cmt: Exclude<SnapshotOptions['compareOptions'], undefined>,
   ) {
     this.#compareOptions = cmt
     this.#t.options.compareOptions = cmt
@@ -182,7 +182,7 @@ export class SnapshotPlugin {
     return this.#formatSnapshot
   }
   set formatSnapshot(
-    format: SnapshotOptions['formatSnapshot'] | undefined
+    format: SnapshotOptions['formatSnapshot'] | undefined,
   ) {
     format ??= defaultFormatSnapshot(this.#compareOptions)
     this.#formatSnapshot = format
@@ -312,22 +312,22 @@ export class SnapshotPlugin {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'promise must resolve to match snapshot',
-      args
+      args,
     )
 
     let p!: Promise<T>
     try {
       p =
-        typeof fnOrPromise === 'function'
-          ? fnOrPromise()
-          : fnOrPromise
+        typeof fnOrPromise === 'function' ? fnOrPromise() : (
+          fnOrPromise
+        )
     } catch (er) {
       p = Promise.reject(er)
     }
 
     if (!isPromise(p)) {
       return this.#t.fail(
-        'no promise or async function provided to t.resolveMatchSnapshot'
+        'no promise or async function provided to t.resolveMatchSnapshot',
       )
     }
 
@@ -355,9 +355,9 @@ export class SnapshotPlugin {
     const args = argv.slice(2)
     const head = relative(cwd, resolve(main))
     const tail =
-      args.length === 0
-        ? ''
-        : '-' + args.join(' ').replace(/[^a-zA-Z0-9\._\-]/g, '-')
+      args.length === 0 ?
+        ''
+      : '-' + args.join(' ').replace(/[^a-zA-Z0-9\._\-]/g, '-')
     return resolve(cwd, 'tap-snapshots', head + tail + '.test.cjs')
   }
 }

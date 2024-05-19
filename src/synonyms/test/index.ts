@@ -11,7 +11,7 @@ t.applyPlugin(SynonymPlugin).test(ts => {
   ts.throws(
     //@ts-expect-error
     () => class extends ts.isDeeply {},
-    'should not be a class'
+    'should not be a class',
   )
   ts.end()
 })

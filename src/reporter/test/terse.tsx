@@ -32,7 +32,7 @@ t.test('no comments or passes', async t => {
     <Terse
       test={tb}
       config={{ get: () => false } as unknown as LoadedConfig}
-    />
+    />,
   )
   tb.go()
   await tb.concat()
@@ -45,7 +45,7 @@ t.test('yes comments and passes', async t => {
     <Terse
       test={tb}
       config={{ get: () => true } as unknown as LoadedConfig}
-    />
+    />,
   )
   tb.go()
   await tb.concat()

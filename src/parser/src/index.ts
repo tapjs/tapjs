@@ -116,11 +116,11 @@ export class Parser
   constructor(onComplete?: (results: FinalResults) => any)
   constructor(
     options?: ParserOptions,
-    onComplete?: (results: FinalResults) => any
+    onComplete?: (results: FinalResults) => any,
   )
   constructor(
     options?: ParserOptions | ((results: FinalResults) => any),
-    onComplete?: (results: FinalResults) => any
+    onComplete?: (results: FinalResults) => any,
   ) {
     if (typeof options === 'function') {
       onComplete = options
@@ -160,7 +160,7 @@ export class Parser
 
   tapError(
     error: Result | { tapError: string; [k: string]: any } | string,
-    line: string
+    line: string,
   ) {
     if (line) this.emit('line', line)
     this.ok = false
@@ -253,7 +253,7 @@ export class Parser
     if (this.parent)
       this.parent.emitExtra(
         data.replace(/\n$/, '').replace(/^/gm, '    ') + '\n',
-        true
+        true,
       )
     else if (!fromChild && (this.#current || this.#extraQueue.length))
       this.#extraQueue.push(['extra', data])
@@ -284,7 +284,7 @@ export class Parser
             tapError: 'plan end cannot be less than plan start',
             plan: { start, end },
           },
-          line
+          line,
         )
       else this.nonTap(line)
       return
@@ -303,11 +303,9 @@ export class Parser
       const seen = new Set()
       for (const [id, res] of this.pointsSeen.entries()) {
         const tapError =
-          id < start
-            ? 'id less than plan start'
-            : id > end
-            ? 'id greater than plan end'
-            : null
+          id < start ? 'id less than plan start'
+          : id > end ? 'id greater than plan end'
+          : null
         if (tapError) {
           seen.add(tapError)
           res.tapError = tapError
@@ -348,7 +346,7 @@ export class Parser
     /* c8 ignore start */
     if (!this.#current) {
       throw new Error(
-        'called processYamlish without a current test point'
+        'called processYamlish without a current test point',
       )
     }
     /* c8 ignore stop */
@@ -361,7 +359,7 @@ export class Parser
     } catch (er) {
       this.nonTap(
         this.#yind + '---\n' + yamlish + this.#yind + '...\n',
-        true
+        true,
       )
       return
     }
@@ -381,21 +379,21 @@ export class Parser
 
   write(
     chunk: string | Uint8Array | Buffer,
-    cb?: (...x: any[]) => any
-  ): boolean
-  write(
-    chunk: string | Uint8Array | Buffer,
-    encoding?: BufferEncoding
+    cb?: (...x: any[]) => any,
   ): boolean
   write(
     chunk: string | Uint8Array | Buffer,
     encoding?: BufferEncoding,
-    cb?: (...x: any[]) => any
+  ): boolean
+  write(
+    chunk: string | Uint8Array | Buffer,
+    encoding?: BufferEncoding,
+    cb?: (...x: any[]) => any,
   ): boolean
   write(
     chunk: string | Uint8Array | Buffer,
     encoding?: BufferEncoding | ((...a: any[]) => any),
-    cb?: (...x: any[]) => any
+    cb?: (...x: any[]) => any,
   ): boolean {
     if (this.aborted) {
       return false
@@ -435,17 +433,17 @@ export class Parser
   end(
     chunk?: string | Buffer | Uint8Array,
     encoding?: BufferEncoding,
-    cb?: (...a: any[]) => any
+    cb?: (...a: any[]) => any,
   ): this
   end(
     chunk?: string | Buffer | Uint8Array,
-    cb?: (...a: any[]) => any
+    cb?: (...a: any[]) => any,
   ): this
   end(cb?: (...a: any[]) => any): this
   end(
     chunk?: string | Buffer | Uint8Array | ((...a: any[]) => any),
     encoding?: BufferEncoding | ((...a: any[]) => any),
-    cb?: (...a: any[]) => any
+    cb?: (...a: any[]) => any,
   ): this {
     if (chunk && typeof chunk !== 'function') {
       if (typeof encoding === 'function') {
@@ -525,7 +523,7 @@ export class Parser
               res.plan.end +
               ')',
             false,
-            true
+            true,
           )
         }
       }
@@ -748,8 +746,9 @@ export class Parser
       /* c8 ignore stop */
     }
 
-    const y: string = dump
-      ? '  ---\n  ' + dump.split('\n').join('\n  ') + '\n  ...\n'
+    const y: string =
+      dump ?
+        '  ---\n  ' + dump.split('\n').join('\n  ') + '\n  ...\n'
       : '\n'
 
     const n = (this.count || 0) + 1 + (this.#current ? 1 : 0)
@@ -802,7 +801,7 @@ export class Parser
   emitComment(
     line: string,
     skipLine: boolean = false,
-    noDuplicate: boolean = false
+    noDuplicate: boolean = false,
   ) {
     if (line.trim().charAt(0) !== '#') line = '# ' + line
 
@@ -959,7 +958,7 @@ export class Parser
         +String(plan[1]),
         +String(plan[2]),
         unesc(plan[3] || '').trim(),
-        line
+        line,
       )
       return
     }

@@ -27,7 +27,7 @@ t.test('fallbacks', async t => {
       argv: [],
       cwd: '.',
       env: {},
-    }
+    },
   )
   t.end()
 })

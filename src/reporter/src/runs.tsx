@@ -7,15 +7,13 @@ import { TestSummary } from './test-summary.js'
 // show the tests currently running
 export const Runs: FC<{ test: TestBase }> = ({ test }) => {
   const t = useSubtests(test, 'active')
-  return !t.length ? (
-    <></>
-  ) : (
-    <Box flexDirection="column" marginTop={1}>
-      {t.map(test => (
-        <Box key={test.childId}>
-          <TestSummary test={test} />
-        </Box>
-      ))}
-    </Box>
-  )
+  return !t.length ?
+      <></>
+    : <Box flexDirection="column" marginTop={1}>
+        {t.map(test => (
+          <Box key={test.childId}>
+            <TestSummary test={test} />
+          </Box>
+        ))}
+      </Box>
 }

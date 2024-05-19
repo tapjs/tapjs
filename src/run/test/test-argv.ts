@@ -52,7 +52,7 @@ t.test('mix of loaders and imports', async t => {
       '--no-warnings',
       '--enable-source-maps',
       '--import=file://path/to/@tapjs/processinfo/import',
-    ]
+    ],
   )
 })
 
@@ -70,7 +70,7 @@ t.test('with --node-arg', async t => {
       '--import=file://path/to/@tapjs/processinfo/import',
       'a',
       'b',
-    ]
+    ],
   )
 })
 
@@ -85,7 +85,7 @@ t.test('all imports, no loader', async t => {
       '--import=file://path/to/has-import/import',
       '--enable-source-maps',
       '--import=file://path/to/@tapjs/processinfo/import',
-    ]
+    ],
   )
 })
 
@@ -101,6 +101,6 @@ t.test('no import support, only loader', async t => {
       '--no-warnings',
       '--enable-source-maps',
       '--loader=file://path/to/@tapjs/processinfo/loader',
-    ]
+    ],
   )
 })

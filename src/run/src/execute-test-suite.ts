@@ -27,7 +27,7 @@ import { readSave, writeSave } from './save-list.js'
 
 export const executeTestSuite = async <
   T extends TAP & ReturnType<typeof AfterPlugin>,
-  S extends (t: TAP & ReturnType<typeof AfterPlugin>) => T
+  S extends (t: TAP & ReturnType<typeof AfterPlugin>) => T,
 >(
   args: string[],
   config: LoadedConfig,
@@ -44,14 +44,14 @@ export const executeTestSuite = async <
 
   /**
    * called with the mutated tap, and each test file path, relative to
-   * config.globCwd
+   * config.projectRoot
    */
   execute: (
     t: T,
     testFile: string,
     files: string[],
-    hasReporter: boolean
-  ) => Promise<any>
+    hasReporter: boolean,
+  ) => Promise<any>,
 ) => {
   let base = tap({
     // special runner context so plugins can behave differently.
@@ -75,13 +75,12 @@ export const executeTestSuite = async <
   if (!files.length) {
     // see if we WOULD have gotten files, if not for the fact that they
     // are all unchanged.
-    const unpruned = config.get('changed')
-      ? await list(args, config, true)
-      : []
+    const unpruned =
+      config.get('changed') ? await list(args, config, true) : []
     if (args.length && !unpruned.length) {
       console.error(
         'No valid test files found matching ' +
-          args.map(a => JSON.stringify(a)).join(' ')
+          args.map(a => JSON.stringify(a)).join(' '),
       )
       if (
         args.length === 2 &&
@@ -146,18 +145,18 @@ export const executeTestSuite = async <
   const sorted = files.sort((a, b) => a.localeCompare(b, 'en'))
   for (const f of sorted) {
     const file =
-      f === '-' || f === '/dev/stdin'
-        ? '/dev/stdin'
-        : resolve(config.globCwd, f)
+      f === '-' || f === '/dev/stdin' ?
+        '/dev/stdin'
+      : resolve(config.projectRoot, f)
     const p = execute(t, file, sorted, hasReporter)
 
     testPromises.push(
-      !saveList.length
-        ? p
-        : p.then((results: FinalResults | null) => {
-            if (results?.ok && saveList.includes(f))
-              saveList.splice(saveList.indexOf(f), 1)
-          })
+      !saveList.length ? p : (
+        p.then((results: FinalResults | null) => {
+          if (results?.ok && saveList.includes(f))
+            saveList.splice(saveList.indexOf(f), 1)
+        })
+      ),
     )
   }
 

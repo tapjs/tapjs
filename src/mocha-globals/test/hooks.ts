@@ -34,10 +34,10 @@ describe(function functionNameForSuite() {
   before('suite before', async () => logs.push('suite before'))
   after('suite after', async () => logs.push('suite after'))
   beforeEach('suite beforeEach', async () =>
-    logs.push('suite beforeEach')
+    logs.push('suite beforeEach'),
   )
   afterEach('suite afterEach', async () =>
-    logs.push('suite afterEach')
+    logs.push('suite afterEach'),
   )
 
   it(function has_a_name() {

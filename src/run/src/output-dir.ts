@@ -7,14 +7,14 @@ import { dirname, resolve } from 'path'
 // Always write to .tap/test-results, plus the config if set
 export const outputDir = (t: TAP, config: LoadedConfig) => {
   const outputDir = config.get('output-dir')
-  const resultsDir = resolve(config.globCwd, '.tap/test-results')
+  const resultsDir = resolve(config.projectRoot, '.tap/test-results')
   t.on('spawn', subtest => pipes(subtest, resultsDir, outputDir))
 }
 
 const pipes = (
   subtest: Spawn,
   resultsDir: string,
-  outputDir?: string
+  outputDir?: string,
 ) => {
   if (outputDir && outputDir !== resultsDir) {
     pipeToDir(subtest, outputDir)
@@ -26,6 +26,6 @@ const pipeToDir = (subtest: Spawn, dir: string) => {
   const out = resolve(dir, subtest.name + '.tap')
   mkdirpSync(dirname(out))
   subtest.on('process', proc =>
-    proc.stdout.pipe(createWriteStream(out))
+    proc.stdout.pipe(createWriteStream(out)),
   )
 }

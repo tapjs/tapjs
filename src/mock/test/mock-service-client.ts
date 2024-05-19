@@ -12,12 +12,15 @@ const client = new MockServiceClient(port2)
 port1.on('message', msg => {
   requests.push(msg)
   // shuffle response times, and unref to test port refs
-  setTimeout(() => {
-    port1.postMessage({
-      ...msg,
-      response: 'response',
-    })
-  }, Math.floor(Math.random() * 50)).unref()
+  setTimeout(
+    () => {
+      port1.postMessage({
+        ...msg,
+        response: 'response',
+      })
+    },
+    Math.floor(Math.random() * 50),
+  ).unref()
 })
 const requests: MockServiceRequest[] = [
   { id: '1', action: 'resolve', url: 'blah', parentURL: 'bloo' },
@@ -33,11 +36,11 @@ t.test('ignore requests before starting', async t => {
   port1.postMessage({ noise: 'just some junk' })
   await Promise.all(
     requests.map(async req => {
-      const response = await (req.action === 'resolve'
-        ? client.resolve(req.url, req.parentURL)
-        : client.load(req.url))
+      const response = await (req.action === 'resolve' ?
+        client.resolve(req.url, req.parentURL)
+      : client.load(req.url))
       t.strictSame(response, null)
-    })
+    }),
   )
 })
 
@@ -47,10 +50,10 @@ t.test('handling requests once started', async t => {
   port1.postMessage({ noise: 'just some junk' })
   await Promise.all(
     requests.map(async req => {
-      const response = await (req.action === 'resolve'
-        ? client.resolve(req.url, req.parentURL)
-        : client.load(req.url))
+      const response = await (req.action === 'resolve' ?
+        client.resolve(req.url, req.parentURL)
+      : client.load(req.url))
       t.strictSame(response, 'response')
-    })
+    }),
   )
 })

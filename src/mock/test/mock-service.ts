@@ -16,7 +16,7 @@ import { serviceKey } from '../dist/esm/service-key.js'
 t.pass('this is fine')
 
 const __dirname = resolve(
-  fileURLToPath(new URL('.', import.meta.url))
+  fileURLToPath(new URL('.', import.meta.url)),
 )
 const __filename = resolve(fileURLToPath(import.meta.url))
 
@@ -41,7 +41,7 @@ t.test('isMockServiceResponse', t => {
           url: 'http://x',
           response: 'source',
         }),
-        true
+        true,
       )
       t.equal(
         isMSR({
@@ -51,7 +51,7 @@ t.test('isMockServiceResponse', t => {
           parentURL: 'http://y',
           response: undefined,
         }),
-        true
+        true,
       )
       t.equal(isMSR(false), false)
       t.end()
@@ -90,14 +90,14 @@ t.test('generate some mock imports', async t => {
       import path from 'path'
       export { path }
       import b from ${JSON.stringify(
-        String(pathToFileURL(resolve(t.testdirName, 'boo.mjs')))
+        String(pathToFileURL(resolve(t.testdirName, 'boo.mjs'))),
       )}
       export const boo = { boo: b.boo }
       export { abs } from ${JSON.stringify(abs)}
       import * as unmocked from './unmocked.mjs'
       export { unmocked }
       import * as url from ${JSON.stringify(
-        String(pathToFileURL(resolve(t.testdirName, 'url.mjs')))
+        String(pathToFileURL(resolve(t.testdirName, 'url.mjs'))),
       )}
       export { url }
     `,
@@ -119,8 +119,8 @@ t.test('generate some mock imports', async t => {
     'url.mjs': `
       export * from ${JSON.stringify(
         String(
-          pathToFileURL(resolve(t.testdirName, './unmocked.mjs'))
-        )
+          pathToFileURL(resolve(t.testdirName, './unmocked.mjs')),
+        ),
       )}
     `,
   })
@@ -143,7 +143,7 @@ t.test('generate some mock imports', async t => {
   t.equal(
     MSCJS.get(service.key),
     service,
-    'cjs service has same instances'
+    'cjs service has same instances',
   )
   const expect = new URL(mod, import.meta.url)
   expect.searchParams.set('tapmock', `${serviceKey}.${service.key}`)
@@ -199,7 +199,7 @@ t.test('generate some mock imports', async t => {
   t.equal(service.mocks, undefined)
   t.throws(
     () => MockService.get(service.key),
-    'unmocked, removed from instances'
+    'unmocked, removed from instances',
   )
 
   t.equal(
@@ -208,7 +208,7 @@ t.test('generate some mock imports', async t => {
       url: 'https://example.com',
       id: 'yolo',
     }),
-    undefined
+    undefined,
   )
   t.equal(
     await service.load({
@@ -216,7 +216,7 @@ t.test('generate some mock imports', async t => {
       url: 'tapmock://example.com',
       id: 'yolo',
     }),
-    undefined
+    undefined,
   )
   t.end()
 })
@@ -229,7 +229,7 @@ t.test('service methods direct tests', async t => {
         url: 'https://example.com',
         id: 'yolo',
       }),
-      undefined
+      undefined,
     )
     t.equal(
       await MS.handle({
@@ -238,7 +238,7 @@ t.test('service methods direct tests', async t => {
         parentURL: import.meta.url,
         id: 'yolo',
       }),
-      undefined
+      undefined,
     )
     t.equal(await MS.handle({ not: 'a service request' }), undefined)
   }
@@ -260,7 +260,7 @@ t.test('create with no mocks, nothing to resolve', async t => {
       url: './blah.mjs',
       parentURL: await service.module,
     }),
-    String(expect)
+    String(expect),
   )
 
   t.equal(
@@ -270,7 +270,7 @@ t.test('create with no mocks, nothing to resolve', async t => {
       url: './blah.mjs',
       parentURL: await service.module,
     }),
-    String(expect)
+    String(expect),
   )
 
   t.equal(
@@ -280,7 +280,7 @@ t.test('create with no mocks, nothing to resolve', async t => {
       url: './blah.mjs',
       parentURL: await service.module,
     }),
-    String(expect)
+    String(expect),
   )
 
   t.equal(
@@ -290,7 +290,7 @@ t.test('create with no mocks, nothing to resolve', async t => {
       url: './nonexistent.mjs',
       parentURL: await service.module,
     }),
-    undefined
+    undefined,
   )
   t.equal(
     await MockService.resolve({
@@ -299,7 +299,7 @@ t.test('create with no mocks, nothing to resolve', async t => {
       url: './nonexistent.mjs',
       parentURL: await service.module,
     }),
-    undefined
+    undefined,
   )
   t.equal(
     await MSCJS.resolve({
@@ -308,6 +308,6 @@ t.test('create with no mocks, nothing to resolve', async t => {
       url: './nonexistent.mjs',
       parentURL: await service.module,
     }),
-    undefined
+    undefined,
   )
 })

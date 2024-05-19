@@ -13,7 +13,7 @@ import { strict } from 'tcompare'
 const fileExists = async (p: string) =>
   stat(p).then(
     s => s.isFile(),
-    () => false
+    () => false,
   )
 
 const vimTag = '# v' + 'im: set filetype=yaml :'
@@ -34,7 +34,7 @@ const set = async (args: string[], config: LoadedConfig) => {
     Object.entries(valuesFromConfigFile).map(([k, v]) => [
       k,
       Array.isArray(v) ? [...v] : v,
-    ])
+    ]),
   )
 
   const allDefs = config.jack.toJSON()
@@ -151,8 +151,8 @@ const dump = async (config: LoadedConfig) => {
   const { values } = config
   const v = Object.fromEntries(
     Object.entries(values).filter(
-      ([_, v]) => !Array.isArray(v) || v.length
-    )
+      ([_, v]) => !Array.isArray(v) || v.length,
+    ),
   )
   logVim()
   logYaml(v)
@@ -161,7 +161,7 @@ const dump = async (config: LoadedConfig) => {
 // exported for testing
 export const firstOf = (
   a: (string | undefined)[],
-  def: string
+  def: string,
 ): string => {
   for (const i of a) if (i) return i
   return def
@@ -177,10 +177,14 @@ const edit = async (args: string[], config: LoadedConfig) => {
   const editor = firstOf(
     [process.env.VISUAL, process.env.EDITOR],
     /* c8 ignore start */
-    process.platform === 'win32' ? 'notepad.exe' : 'vim'
+    process.platform === 'win32' ? 'notepad.exe' : 'vim',
     /* c8 ignore stop */
   )
-  const tmp = resolve(config.globCwd, '.tap', 'config-edit-tmp.yaml')
+  const tmp = resolve(
+    config.projectRoot,
+    '.tap',
+    'config-edit-tmp.yaml',
+  )
   if (args[0] !== 'resume') {
     rimrafSync(tmp)
     mkdirpSync(dirname(tmp))
@@ -190,8 +194,8 @@ const edit = async (args: string[], config: LoadedConfig) => {
       .filter(([k]) => !fileDefs.has(k))
       .sort(([a], [b]) => a.localeCompare(b, 'en'))
       .map(([k, def]) => {
-        return !isEmpty(def.default)
-          ? yaml.stringify({ [k]: def.default }).trimEnd()
+        return !isEmpty(def.default) ?
+            yaml.stringify({ [k]: def.default }).trimEnd()
           : `${k}: ${def.type}${def.multiple ? '[]' : ''}`
       })
       .join('\n')
@@ -200,19 +204,19 @@ const edit = async (args: string[], config: LoadedConfig) => {
 # this is a yaml file containing tap configuration
 #
 # when you're done, the data will be written to ${rel}${
-      /\.json$/.test(rel)
-        ? '\n# (in the "tap" section of the json file)'
-        : ''
+      /\.json$/.test(rel) ?
+        '\n# (in the "tap" section of the json file)'
+      : ''
     }
 # if the config isn't valid, or if you quit without making changes,
 # then no changes will be made.
 #
 # Comments and empty lines will be removed.
 ${
-  Object.keys(valuesFromConfigFile).length
-    ? '#\n# Existing configs:\n\n' +
-      yaml.stringify(valuesFromConfigFile)
-    : ''
+  Object.keys(valuesFromConfigFile).length ?
+    '#\n# Existing configs:\n\n' +
+    yaml.stringify(valuesFromConfigFile)
+  : ''
 }
 # All available configuration options. See \`tap help\` for descriptions.
 #
@@ -260,7 +264,7 @@ ${allConfigs}
 
 export const config = async (
   args: string[],
-  config: LoadedConfig
+  config: LoadedConfig,
 ) => {
   if (!args.length) args = ['list']
   switch (args[0]) {

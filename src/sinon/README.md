@@ -70,7 +70,7 @@ t.test(
   },
   async t => {
     // t.sinon only has the configured setup here
-  }
+  },
 )
 ```
 
@@ -97,14 +97,14 @@ t.test(
     t.test('child test', t => {
       // etc.
     })
-  }
+  },
 )
 t.test(
   'second fake timers test',
   { sinon: { useFakeTimers: true } },
   t => {
     // etc.
-  }
+  },
 )
 
 // this, however, does not work:

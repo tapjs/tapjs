@@ -385,13 +385,13 @@ const useMyHook = emitter => {
     // these event handlers will be cleaned up properly now
     list.push(
       listenCleanup(emitter, 'first', f =>
-        updateFirsts(firsts.concat([f]))
-      )
+        updateFirsts(firsts.concat([f])),
+      ),
     )
     list.push(
       listenCleanup(emitter, 'second', f =>
-        updateSeconds(seconds.concat([f]))
-      )
+        updateSeconds(seconds.concat([f])),
+      ),
     )
   }, emitter)
 

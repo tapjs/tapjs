@@ -37,20 +37,20 @@ class Properties {
         ) {
           return ''
         } else if (typeof v === 'string') {
-          return v.includes('\n')
-            ? `<property name="${xmlEscape(k)}">${cdata(
-                v
+          return v.includes('\n') ?
+              `<property name="${xmlEscape(k)}">${cdata(
+                v,
               )}</property>`
             : `<property name="${xmlEscape(k)}" value="${xmlEscape(
-                v
+                v,
               )}" />`
         } else if (typeof v === 'number' || typeof v === 'boolean') {
           return `<property name="${xmlEscape(k)}" value="${xmlEscape(
-            String(v)
+            String(v),
           )}" />`
         } else {
           return `<property name="${xmlEscape(k)}">${cdata(
-            stringify(v)
+            stringify(v),
           )}</property>`
         }
       })
@@ -82,8 +82,9 @@ class Case {
     this.result = result
     const fn = result.fullname
     /* c8 ignore start */
-    this.classname = fn.endsWith(result.name)
-      ? fn
+    this.classname =
+      fn.endsWith(result.name) ?
+        fn
           .substring(0, fn.length - result.name.length)
           .replace(/>? $/, '')
           .trimEnd()
@@ -123,25 +124,25 @@ class Case {
         ...(tapError ? { tapError } : {}),
         /* c8 ignore stop */
         ...(diag || {}),
-      })
+      }),
     ).trimEnd()
     return `<testcase id="${this.result.id}" name="${xmlEscape(
-      name
+      name,
     )}" classname="${xmlEscape(this.classname)}"${
       time ? ` time="${seconds(time)}"` : ''
     }${file ? ` file="${xmlEscape(String(file))}"` : ''}${
       file && line ? ` line="${xmlEscape(String(line))}"` : ''
     }${
-      file && line && column
-        ? ` column="${xmlEscape(String(column))}"`
-        : ''
+      file && line && column ?
+        ` column="${xmlEscape(String(column))}"`
+      : ''
     }${
-      ok && !props
-        ? ' />'
-        : `>
+      ok && !props ? ' />' : (
+        `>
 ${!ok ? new Failure(this.result) : props}
 </testcase>
 `
+      )
     }`
   }
 }
@@ -186,11 +187,13 @@ class Suite {
       .map(s => s.skipped)
       .reduce(
         (a, b) => a + b,
-        this.results?.plan.skipAll ||
-          this.results?.skip ||
-          this.results?.todo
-          ? 1
-          : 0
+        (
+          this.results?.plan.skipAll ||
+            this.results?.skip ||
+            this.results?.todo
+        ) ?
+          1
+        : 0,
       )
   }
 
@@ -206,9 +209,9 @@ class Suite {
     }" failures="${this.failures}" assertions="${
       this.assertions
     }" skipped="${this.skipped}"${
-      this.results?.time
-        ? ` time="${seconds(this.results.time)}"`
-        : ''
+      this.results?.time ?
+        ` time="${seconds(this.results.time)}"`
+      : ''
     }>
 ${props}
 ${this.suites
@@ -232,7 +235,7 @@ class Suites extends Suite {
         ok: this.results?.ok,
         plan: this.results?.plan,
         bailout: this.results?.bailout,
-      })
+      }),
     )
     const id = new Date()
       .toISOString()
@@ -272,12 +275,12 @@ export class JUnit extends Minipass<string> {
 
   write(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): boolean
   write(chunk: any, encoding?: any, cb?: any): boolean {
     return this.parser.write(chunk, encoding, cb)
@@ -286,12 +289,12 @@ export class JUnit extends Minipass<string> {
   end(cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
-    cb?: (() => void) | undefined
+    cb?: (() => void) | undefined,
   ): this
   end(chunk?: any, encoding?: any, cb?: any): this {
     this.parser.end(chunk, encoding, cb)
