@@ -3,12 +3,16 @@ import t from 'tap'
 import { getInstalledVersion } from '../dist/esm/get-installed-version.js'
 
 const dir = t.testdir({
-  node_modules: {
-    foo: {
-      'package.json': JSON.stringify({ version: '1.2.3' }),
-    },
-    notjson: {
-      'package.json': 'hello',
+  '.tap': {
+    plugins: {
+      node_modules: {
+        foo: {
+          'package.json': JSON.stringify({ version: '1.2.3' }),
+        },
+        notjson: {
+          'package.json': 'hello',
+        },
+      },
     },
   },
 })

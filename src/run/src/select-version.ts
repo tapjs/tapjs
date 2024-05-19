@@ -14,7 +14,7 @@ const { version: coreVersion } = JSON.parse(
 let registry: string | undefined = undefined
 const getPackument = async (pkg: string, config: LoadedConfig) => {
   if (!registry) {
-    const regLookup = npmBg(['config', 'get', 'registry'], config)
+    const regLookup = npmBg(['config', 'get', 'registry'], config.projectRoot)
     if (regLookup.error) throw regLookup.error
     if (regLookup.status || regLookup.signal) {
       throw new Error(

@@ -219,13 +219,12 @@ export class Spawn extends Base {
         return throwToParser(this.parser, super.threw(er, extra));
     }
     static procName(cwd, command, args) {
-        return (command === process.execPath
-            ? basename(process.execPath) +
+        return (command === process.execPath ?
+            basename(process.execPath) +
                 ' ' +
                 args
-                    .map(a => a.indexOf(cwd) === 0
-                    ? './' +
-                        a.substring(cwd.length + 1).replace(/\\/g, '/')
+                    .map(a => a.indexOf(cwd) === 0 ?
+                    './' + a.substring(cwd.length + 1).replace(/\\/g, '/')
                     : a)
                     .join(' ')
                     .trim()

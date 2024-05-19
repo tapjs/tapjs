@@ -14,3 +14,4 @@
 /tap-snapshots
 /.tap
 /src/*/.tap
+/src/test/test-built/node_modules

@@ -1,13 +1,36 @@
 import { globSync } from 'glob'
 import { ConfigOptionBase, isConfigOption } from 'jackspeak'
-import { mkdirp, mkdirpSync } from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import { spawnSync } from 'node:child_process'
 import { readFileSync, symlinkSync, writeFileSync } from 'node:fs'
+import { lstat } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { basename, resolve } from 'node:path'
+import { basename, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolveImport } from 'resolve-import'
 import { rimrafSync } from 'rimraf'
+import { walkUp } from 'walk-up-path'
+
+const cwd = process.cwd()
+let projectRoot = cwd
+// try to find a .tap folder, package.json file, or .taprc
+for (const dir of walkUp(cwd)) {
+  const checks = await Promise.all(
+    ['.tap', '.taprc', '.git', 'package.json', 'node_modules'].map(
+      async x =>
+        lstat(x).then(
+          () => true,
+          () => false,
+        ),
+    ),
+  )
+  if (checks.find(x => x)) {
+    projectRoot = dir
+    break
+  }
+}
+const pluginDir = resolve(projectRoot, '.tap/plugins')
+const pluginNM = resolve(pluginDir, 'node_modules')
 
 if (typeof process.argv[2] !== 'string') {
   console.error('usage: generate-tap-test-class [...plugins]')
@@ -34,6 +57,13 @@ const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
 /* c8 ignore stop */
 
 const require = createRequire(dir)
+const dirNM = resolve(dir, 'node_modules')
+
+// link the node_modules so it can find all installed plugins
+rimrafSync(dirNM)
+mkdirp.sync(dir)
+mkdirp.sync(pluginNM)
+symlinkSync(relative(dir, resolve(pluginDir, 'node_modules')), dirNM)
 
 mkdirp.sync(resolve(dir, 'src'))
 mkdirp.sync(resolve(dir, 'scripts'))
@@ -423,11 +453,6 @@ writeFileSync(
   }),
 )
 
-// prevent tshy from creating this, then delete it
-// irrelevant in production, but causes nx problems in tapjs project
-const nm = resolve(dir, 'node_modules')
-mkdirpSync(resolve(nm, '@tapjs'))
-symlinkSync('../..', resolve(nm, '@tapjs/test-built'))
 const res = spawnSync('npm', ['run', 'prepare'], {
   shell: true,
   cwd: dir,
@@ -441,6 +466,5 @@ if (res.status !== 0 || res.signal !== null) {
   })
   process.exitCode = 1
 }
-rimrafSync(nm)
 
 export {}

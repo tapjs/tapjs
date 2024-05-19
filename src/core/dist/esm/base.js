@@ -242,9 +242,10 @@ export class Base extends Minipass {
         this.strict = !!options.strict;
         this.omitVersion = !!options.omitVersion;
         this.preserveWhitespace = options.preserveWhitespace !== false;
-        this.buffered = this.silent
-            ? options.buffered === undefined
-            : !!options.buffered;
+        this.buffered =
+            this.silent ?
+                options.buffered === undefined
+                : !!options.buffered;
         this.bailedOut = false;
         this.errors = [];
         this.parent = options.parent;
@@ -295,12 +296,9 @@ export class Base extends Minipass {
     }
     #onParserResult(res) {
         this.counts.total++;
-        const type = res.todo
-            ? 'todo'
-            : res.skip
-                ? 'skip'
-                : !res.ok
-                    ? 'fail'
+        const type = res.todo ? 'todo'
+            : res.skip ? 'skip'
+                : !res.ok ? 'fail'
                     : 'pass';
         this.counts[type]++;
         if (type === 'pass' && this.options.passes) {
@@ -397,10 +395,10 @@ export class Base extends Minipass {
         this.start = hrtime.bigint();
         this.#started = true;
         // if it's null or an object, inherit from it.  otherwise, copy it.
-        const ctx = this.#context !== unsetContext
-            ? this.#context
-            : ('context' in this.options
-                ? this.options.context
+        const ctx = this.#context !== unsetContext ?
+            this.#context
+            : ('context' in this.options ?
+                this.options.context
                 : this.parent?.context) ?? null;
         this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
         this.hook.runInAsyncScope(this.main, this, cb);

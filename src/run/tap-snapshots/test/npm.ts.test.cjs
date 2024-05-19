@@ -11,7 +11,7 @@ Array [
     "npm",
     Array [
       "--prefix",
-      "/path/to/project",
+      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "install",
       "--no-audit",
       "--loglevel=error",
@@ -21,7 +21,7 @@ Array [
       "b",
     ],
     Object {
-      "cwd": "/path/to/project",
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "env": Object {
         "ok": true,
       },
@@ -38,13 +38,13 @@ Array [
     "npm",
     Array [
       "--prefix",
-      "/path/to/project",
+      "{CWD}/.tap/fixtures/test-npm.ts",
       "config",
       "get",
       "registry",
     ],
     Object {
-      "cwd": "/path/to/project",
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts",
       "encoding": "utf8",
       "env": Object {
         "ok": true,
@@ -61,7 +61,7 @@ Array [
     "npm",
     Array [
       "--prefix",
-      "/path/to/project",
+      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "rm",
       "--no-audit",
       "--loglevel=error",
@@ -70,7 +70,7 @@ Array [
       "b",
     ],
     Object {
-      "cwd": "/path/to/project",
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "env": Object {
         "ok": true,
       },
@@ -87,7 +87,7 @@ Array [
     "npm",
     Array [
       "--prefix",
-      "/path/to/project",
+      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "install",
       "--no-audit",
       "--loglevel=error",
@@ -97,7 +97,7 @@ Array [
       "b",
     ],
     Object {
-      "cwd": "/path/to/project",
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "env": Object {
         "ok": true,
       },
@@ -114,13 +114,13 @@ Array [
     "npm",
     Array [
       "--prefix",
-      "/path/to/project",
+      "{CWD}/.tap/fixtures/test-npm.ts",
       "config",
       "get",
       "registry",
     ],
     Object {
-      "cwd": "/path/to/project",
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts",
       "encoding": "utf8",
       "env": Object {
         "ok": true,
@@ -137,7 +137,7 @@ Array [
     "npm",
     Array [
       "--prefix",
-      "/path/to/project",
+      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "rm",
       "--no-audit",
       "--loglevel=error",
@@ -146,7 +146,7 @@ Array [
       "b",
     ],
     Object {
-      "cwd": "/path/to/project",
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "env": Object {
         "ok": true,
       },

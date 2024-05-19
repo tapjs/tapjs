@@ -355,14 +355,11 @@ export class TestBase extends Base {
             // and even then, pretty hard to trigger, since it would mean
             // going several turns of the event loop and hitting it at just
             // the right time before the process quits.
-            const failMessage = this.#promiseEnded
-                ? 'test assertion after Promise resolution'
-                : this.#explicitEnded
-                    ? 'test assertion after end() was called'
-                    : this.#explicitPlan
-                        ? 'test assertion count exceeds plan'
-                        : /* c8 ignore start */
-                            'assertion after automatic end';
+            const failMessage = this.#promiseEnded ? 'test assertion after Promise resolution'
+                : this.#explicitEnded ?
+                    'test assertion after end() was called'
+                    : this.#explicitPlan ? 'test assertion count exceeds plan'
+                        : /* c8 ignore start */ 'assertion after automatic end';
             /* c8 ignore stop */
             const er = new Error(failMessage, {
                 cause: {
@@ -384,12 +381,9 @@ export class TestBase extends Base {
             delete extra.todo;
             ok = false;
         }
-        const diagnostic = typeof extra.diagnostic === 'boolean'
-            ? extra.diagnostic
-            : typeof this.diagnostic === 'boolean'
-                ? this.diagnostic
-                : extra.skip || extra.todo
-                    ? false
+        const diagnostic = typeof extra.diagnostic === 'boolean' ? extra.diagnostic
+            : typeof this.diagnostic === 'boolean' ? this.diagnostic
+                : extra.skip || extra.todo ? false
                     : !ok;
         if (diagnostic) {
             extra.diagnostic = true;
@@ -604,10 +598,8 @@ export class TestBase extends Base {
             ' ' +
             argv.slice(2).join(' ')).trim();
         const n = [
-            (this.parent
-                ? this.parent.fullname
-                : main === 'TAP'
-                    ? 'TAP'
+            (this.parent ? this.parent.fullname
+                : main === 'TAP' ? 'TAP'
                     : relative(cwd, main).replace(/\\/g, '/')).trim(),
         ];
         // tests will generally always have a name
@@ -790,8 +782,8 @@ export class TestBase extends Base {
         p.results = p.results || new FinalResults(true, p.parser);
         p.readyToProcess = true;
         const to = p.options.timeout;
-        const dur = to && p.passing()
-            ? Number(hrtime.bigint() - p.start) / 1e6
+        const dur = to && p.passing() ?
+            Number(hrtime.bigint() - p.start) / 1e6
             : null;
         if (dur && to && dur > to) {
             p.timeout();
@@ -918,9 +910,7 @@ export class TestBase extends Base {
                     // implicit end is this function right here.
                     this.#end(
                     /* c8 ignore start */
-                    this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined
-                    /* c8 ignore stop */
-                    );
+                    this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined);
                 }
                 else {
                     this.debug('await implicit end');
@@ -1038,12 +1028,10 @@ export class TestBase extends Base {
             });
         }
         if (this.results || this.ended) {
-            const msg = this.#promiseEnded
-                ? 'cannot create subtest after parent promise resolves'
-                : this.#explicitEnded
-                    ? 'subtest after parent test end()'
-                    : this.#explicitPlan
-                        ? 'test count exceeds plan'
+            const msg = this.#promiseEnded ?
+                'cannot create subtest after parent promise resolves'
+                : this.#explicitEnded ? 'subtest after parent test end()'
+                    : this.#explicitPlan ? 'test count exceeds plan'
                         : /* c8 ignore start */
                             'cannot create subtest after parent test ends';
             /* c8 ignore stop */
@@ -1147,8 +1135,8 @@ export class TestBase extends Base {
                 // error `Name: message` line.
                 /* c8 ignore start */
                 const f = `${er.name || 'Error'}: ${er.message}\n`;
-                const st = er.stack.startsWith(f)
-                    ? er.stack.substring(f.length)
+                const st = er.stack.startsWith(f) ?
+                    er.stack.substring(f.length)
                     : er.stack;
                 /* c8 ignore stop */
                 const p = stack.parseStack(st);

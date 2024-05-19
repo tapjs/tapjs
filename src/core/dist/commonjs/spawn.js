@@ -222,13 +222,12 @@ class Spawn extends base_js_1.Base {
         return (0, throw_to_parser_js_1.throwToParser)(this.parser, super.threw(er, extra));
     }
     static procName(cwd, command, args) {
-        return (command === process.execPath
-            ? (0, node_path_1.basename)(process.execPath) +
+        return (command === process.execPath ?
+            (0, node_path_1.basename)(process.execPath) +
                 ' ' +
                 args
-                    .map(a => a.indexOf(cwd) === 0
-                    ? './' +
-                        a.substring(cwd.length + 1).replace(/\\/g, '/')
+                    .map(a => a.indexOf(cwd) === 0 ?
+                    './' + a.substring(cwd.length + 1).replace(/\\/g, '/')
                     : a)
                     .join(' ')
                     .trim()

@@ -48,7 +48,7 @@ Object {
   },
   "no": "caret",
   "source": String(
-        'invalid callsite is fine'
+        'invalid callsite is fine',
       )
       const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
       nc.columnNumber = Infinity
@@ -152,7 +152,7 @@ Object {
   },
   "no": "caret",
   "source": String(
-        'invalid callsite is fine'
+        'invalid callsite is fine',
       )
       const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
       nc.columnNumber = Infinity

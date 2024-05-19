@@ -12,6 +12,8 @@ export const getInstalledVersion = (
 ) => {
   const pj = resolve(
     config.projectRoot,
+    '.tap',
+    'plugins',
     'node_modules',
     name,
     'package.json',

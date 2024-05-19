@@ -23,7 +23,7 @@ const deEnv = <T extends any>(o: T): T => {
 t.formatSnapshot = o => deEnv(o)
 
 // mocks for failing commands
-let npmMockPrefix = '/path/to/project'
+let npmMockPrefix = t.testdir()
 const mockFail = {
   'node:child_process': {
     spawnSync(cmd: string, args: string[], ___: SpawnSyncOptions) {
@@ -108,14 +108,14 @@ t.test('passing commands', async t => {
       mockPass,
     )
   t.test('random command', async t => {
-    const res = npmBg(['config', 'get', 'registry'], mockConfig)
+    const res = npmBg(['config', 'get', 'registry'], mockConfig.projectRoot)
     t.match(res, { status: 0, signal: null })
     t.matchSnapshot(passSpawn())
     t.strictSame(passFG(), [])
   })
   t.test('install', async t => {
     await npmFindCwd(mockConfig.projectRoot)
-    t.match(passSpawn(), [['npm', ['prefix']]])
+    t.match(passSpawn(), [])
     await install(['a', 'b'], mockConfig)
     t.strictSame(passSpawn(), [])
     t.matchSnapshot(passFG())
@@ -134,14 +134,14 @@ t.test('failing commands', async t => {
       mockFail,
     )
   t.test('random command', async t => {
-    const res = npmBg(['config', 'get', 'registry'], mockConfig)
+    const res = npmBg(['config', 'get', 'registry'], mockConfig.projectRoot)
     t.match(res, { status: 1, signal: 'SIGTERM' })
     t.matchSnapshot(failSpawn())
     t.strictSame(failFG(), [])
   })
   t.test('install', async t => {
     await npmFindCwd(mockConfig.projectRoot)
-    t.match(failSpawn(), [['npm', ['prefix']]])
+    t.match(failSpawn(), [])
     await t.rejects(install(['a', 'b'], mockConfig))
     t.strictSame(failSpawn(), [])
     t.matchSnapshot(failFG())
@@ -184,9 +184,10 @@ t.test('npm installs go to workspace root', async t => {
     mockConfig.projectRoot = resolve(
       t.testdir(testdir) + '/packages/test',
     )
-    t.equal(await npmFindCwd(mockConfig.projectRoot), t.testdirName)
+    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
+    t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     // call second time to cover caching
-    t.equal(await npmFindCwd(mockConfig.projectRoot), t.testdirName)
+    t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     t.strictSame(passSpawn(), [])
   })
   t.test('find from location of @tapjs/test dep', async t => {
@@ -204,7 +205,8 @@ t.test('npm installs go to workspace root', async t => {
         },
       }) + '/packages/test',
     )
-    t.equal(await npmFindCwd(mockConfig.projectRoot), t.testdirName)
+    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
+    t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     t.strictSame(passSpawn(), [])
   })
   t.test('find from npm prefix cmd', async t => {
@@ -219,8 +221,9 @@ t.test('npm installs go to workspace root', async t => {
     mockConfig.projectRoot = resolve(
       t.testdir(testdir) + '/packages/test',
     )
-    t.equal(await npmFindCwd(mockConfig.projectRoot), npmMockPrefix)
-    t.match(passSpawn(), [['npm', ['prefix']]])
+    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
+    t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
+    t.match(passSpawn(), [])
   })
   t.test('fall back to projectRoot', async t => {
     const { npmFindCwd } = await t.mockImport<
@@ -234,8 +237,8 @@ t.test('npm installs go to workspace root', async t => {
     npmMockPrefix = ''
     t.equal(
       await npmFindCwd(mockConfig.projectRoot),
-      mockConfig.projectRoot,
+      resolve(mockConfig.projectRoot, '.tap/plugins'),
     )
-    t.match(failSpawn(), [['npm', ['prefix']]])
+    t.match(failSpawn(), [])
   })
 })

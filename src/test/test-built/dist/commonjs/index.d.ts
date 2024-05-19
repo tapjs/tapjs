@@ -28,25 +28,22 @@ export declare const testFileExtensions: Set<string>;
  * Utility type to combine the array of plugins into a single combined
  * return type.
  */
-export type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> = P extends [
+export type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> = P extends ([
     infer H extends (t: TestBase, opts: any) => any,
     ...infer T extends ((t: TestBase, opts: any) => any)[]
-] ? ReturnType<H> & PluginResult<T> : {};
+]) ? ReturnType<H> & PluginResult<T> : {};
 /**
  * Utility type to get the second parameter of a function, used to
  * get the types of all plugin options.
  */
-export type SecondParam<T extends [any] | [any, any]> = T extends [
-    any,
-    infer S
-] ? S : unknown;
+export type SecondParam<T extends [any] | [any, any]> = T extends [any, infer S] ? S : unknown;
 /**
  * The union of the second parameters of all loaded plugin methods
  */
-export type PluginOpts<P extends ((t: TestBase, opts: any) => any)[]> = P extends [
+export type PluginOpts<P extends ((t: TestBase, opts: any) => any)[]> = P extends ([
     infer H extends (t: TestBase, opts: any) => any,
     ...infer T extends ((t: TestBase, opts: any) => any)[]
-] ? SecondParam<Parameters<H>> & PluginOpts<T> : {};
+]) ? SecondParam<Parameters<H>> & PluginOpts<T> : {};
 /**
  * Options that may be provided to `t.test()`. Extends
  * {@link @tapjs/core!index.Extra}, {@link @tapjs/core!base.BaseOpts},
