@@ -5,6 +5,16 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 19.0
+
+- Move auto-installed plugins to `.tap/plugins/node_modules`.
+  Previously, they were installed in the project's `node_modules`
+  folder directly.
+- Resolve path config values relative to the config file that
+  sets them. This effects `coverage-map`, `before`, and `after`
+  configs.
+- Maintain prototypes on objects extended with `t.createMock()`.
+
 ## 18.8
 
 - Allow `Error` objects to be matched on the `cause` property in
