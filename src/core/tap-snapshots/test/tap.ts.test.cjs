@@ -565,7 +565,7 @@ Object {
   "code": 1,
   "name": "throwBeforeRegister",
   "signal": null,
-  "stderr": "'not yet registered'\\n",
+  "stderr": "not yet registered",
   "stdout": "",
 }
 `
