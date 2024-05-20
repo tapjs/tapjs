@@ -8,7 +8,11 @@ import { Diff } from './diff.js'
 import { Source } from './source.js'
 import { Stack } from './stack.js'
 
-export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
+export const ResultDetails: FC<{
+  result: Result
+  seen?: unknown[]
+  heading?: string
+}> = ({ result, seen = [], heading }) => {
   if (!result.diag || typeof result.diag !== 'object') return <></>
   const {
     test,
@@ -16,9 +20,11 @@ export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
     at,
     source,
     location,
-    errorOrigin,
+    cause,
     error,
     code,
+    errorOrigin,
+    message,
     ...otherDiags
   } = result.diag
 
@@ -52,7 +58,14 @@ export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
   delete otherDiags.diff
 
   return (
-    <Box paddingLeft={4} flexDirection="column">
+    <Box paddingLeft={heading ? 0 : 4} flexDirection="column">
+      {heading ?
+        <Box flexDirection="column" paddingTop={1}>
+          <Text color="whiteBright" bold>
+            {heading}
+          </Text>
+        </Box>
+      : <></>}
       <Source
         stack={stack}
         location={location}
@@ -79,6 +92,21 @@ export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
         <Text dimColor>{stringify(otherDiags).trimEnd()}</Text>
       )}
       <Stack stack={stack} />
+      {cause !== undefined &&
+        (!!cause && typeof cause === 'object' ?
+          /* c8 ignore start - exceedingly unlikely */
+          seen.includes(cause) ?
+            '(circular)'
+          : /* c8 ignore stop */
+            <ResultDetails
+              heading={`Cause${cause.message ? `: ${cause.message}` : ''}`}
+              result={{
+                ...result,
+                diag: cause,
+              }}
+              seen={seen.concat(cause)}
+            />
+        : <Text dimColor>{stringify({ cause }).trimEnd()}</Text>)}
     </Box>
   )
 }

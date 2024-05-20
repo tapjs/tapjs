@@ -26,6 +26,34 @@ t.strictSame(
   'deleteIfEmpty fields',
 )
 
+t.matchOnly(
+  cleanYamlObject({
+    cause: new Error('result', {
+      cause: new Error('cause', { cause: 'ok' }),
+    }),
+  }),
+  {
+    cause: {
+      message: 'result',
+      stack: String,
+      at: {
+        fileName: 'test/clean-yaml-object.ts',
+        lineNumber: 31,
+        columnNumber: 12,
+        functionName: '<anonymous>',
+      },
+      source: String,
+      cause: {
+        message: 'cause',
+        stack: String,
+        at: Object,
+        source: String,
+        cause: 'ok',
+      },
+    },
+  },
+)
+
 t.test('callsite reporting', t => {
   const stack = captureString()
   const b = cleanYamlObject({

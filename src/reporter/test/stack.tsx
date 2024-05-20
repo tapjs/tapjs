@@ -72,3 +72,34 @@ t.test('dont show for nuthin', async t => {
   const app = render(<Stack stack={''} />)
   t.equal(app.lastFrame(), '')
 })
+
+t.test('internal only', async t => {
+  const app = render(
+    <Stack stack="node:path:1:2\nObject.openSync (node:fs:573:18)" />,
+  )
+  t.equal(app.lastFrame(), '')
+})
+
+t.test(
+  'show just the string if it does not look like a stack',
+  async t => {
+    const stack = `But men labor under a mistake. The better part of the man is soon plowed
+into the soil for compost. By a seeming fate, commonly called necessity, they
+are employed, as it says in an old book, laying up treasures which moth and
+rust will corrupt and thieves break through and steal. It is a fool's life,
+as they will find when they get to the end of it, if not before. It is said
+that Deucalion and Pyrrha created men by throwing stones over their heads
+behind them:
+
+Inde genus durum sumus, experiensque laborum, Et documenta damus qua simus
+origine nati.
+
+Or, as Raleigh rhymes it in his sonorous way,
+
+"From thence our kind hard-hearted is, enduring pain and care, Approving that
+our bodies of a stony nature are."
+`
+    const app = render(<Stack stack={stack} />)
+    t.matchSnapshot(app.lastFrame())
+  },
+)

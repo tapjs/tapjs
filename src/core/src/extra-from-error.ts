@@ -17,6 +17,7 @@ export const extraFromError = (
   extra?: Extra,
   options?: BaseOpts,
 ) => {
+
   // the yaml module puts big stuff here, pluck it off
   // otherwise it's quite noisy when we throw as a result of
   // trying to parse invalid tap diagnostics.
@@ -61,12 +62,16 @@ export const extraFromError = (
     }
     extra.at = at || st[0]
   } else if (typeof er.stack === 'string') {
-    // if we failed to capture it, but it has a stack, then that means
-    // that all of the stack frames were internal, because the error was
-    // generated from native code in a dep that tap ignores (or if not
-    // native code, then something else that escaped the async-hook-domain).
-    // A common cause of this is import() errors.
-    extra.stack = ''
+    if (er instanceof Error) {
+      // if we failed to capture it, but it has a stack, then that means
+      // that all of the stack frames were internal, because the error was
+      // generated from native code in a dep that tap ignores (or if not
+      // native code, then something else that escaped the async-hook-domain).
+      // A common cause of this is import() errors.
+      extra.stack = ''
+    } else {
+      extra.stack = er.stack
+    }
     extra.at = null
   }
 
@@ -75,8 +80,9 @@ export const extraFromError = (
   }
 
   // grab any other rando props
-  const { message: _, name: __, stack: ___, ...props } = er
+  const { message: _, name: __, stack: ___, cause, ...props } = er
   Object.assign(extra, props)
+  if (cause !== undefined) extra.cause = cause
 
   return extra
 }

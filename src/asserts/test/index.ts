@@ -440,6 +440,10 @@ t.test('throws, doesNotThrow', t => {
     ),
   )
 
+  t.notOk(a.error(new Error('x', {
+    cause: new Error('y'),
+  })))
+
   t.ok(a.doesNotThrow(() => {}))
   t.equal(
     a.doesNotThrow(() => {
@@ -748,5 +752,5 @@ not ok 11 - falsey non-error error
   for (const l of lines) {
     t.match(res, l)
   }
-  t.match(res, 'errorOrigin:', 'shows error origin')
+  t.match(res, 'cause:', 'shows error cause')
 })

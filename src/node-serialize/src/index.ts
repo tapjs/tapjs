@@ -1,4 +1,4 @@
-import type { TAP, TapPlugin } from '@tapjs/core'
+import type { TapPlugin, TAP } from '@tapjs/core'
 import { env } from '@tapjs/core'
 import { serialize } from './serialize.js'
 

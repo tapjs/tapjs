@@ -28,6 +28,7 @@ const stack = __importStar(require("@tapjs/stack"));
 const diff_1 = require("diff");
 const node_fs_1 = require("node:fs");
 const tcompare_1 = require("tcompare");
+const extra_from_error_js_1 = require("./extra-from-error.js");
 const tryReadFile = (path) => {
     try {
         return (0, node_fs_1.readFileSync)(path, 'utf8');
@@ -42,8 +43,10 @@ const hasOwn = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
  *
  * Looks up source, calculates diffs of actual/expected values, and so on.
  */
-const cleanYamlObject = (object) => {
-    const res = { ...object };
+const cleanYamlObject = (obj, seen = new Set()) => {
+    seen.add(obj);
+    const res = { ...obj };
+    seen.add(res);
     if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
         const st = Array.isArray(res.stack) ?
             res.stack.map(s => String(s).trimEnd() + '\n').join('')
@@ -57,8 +60,19 @@ const cleanYamlObject = (object) => {
         !res.stack.endsWith('\n')) {
         res.stack = res.stack.trimEnd() + '\n';
     }
+    /* c8 ignore start - old pre-Error.cause custom decorator */
     if (res.errorOrigin && typeof res.errorOrigin === 'object') {
-        res.errorOrigin = (0, exports.cleanYamlObject)(res.errorOrigin);
+        res.errorOrigin = (0, exports.cleanYamlObject)(res.errorOrigin, seen);
+    }
+    /* c8 ignore stop */
+    if (res.cause && typeof res.cause === 'object' && !seen.has(res.cause)) {
+        seen.add(res.cause);
+        const ex = (0, extra_from_error_js_1.extraFromError)(res.cause);
+        const clean = (0, exports.cleanYamlObject)(ex, seen);
+        res.cause = {
+            message: res.cause.message,
+            ...clean,
+        };
     }
     if (res.at &&
         res.at instanceof stack.CallSiteLike &&
@@ -149,6 +163,11 @@ const cleanYamlObject = (object) => {
         typeof res.filename === 'string' &&
         res.filename.includes('\n')) {
         res.filename = '<inline code>';
+    }
+    // always put cause at the end.
+    if (res.cause) {
+        const { cause, ...props } = res;
+        return { ...props, cause };
     }
     return res;
 };

@@ -2,6 +2,7 @@ import * as stack from '@tapjs/stack'
 import { createTwoFilesPatch } from 'diff'
 import { readFileSync } from 'node:fs'
 import { format, strict } from 'tcompare'
+import { extraFromError } from './extra-from-error.js'
 
 const tryReadFile = (path: string) => {
   try {
@@ -19,8 +20,10 @@ const hasOwn = (obj: { [k: string]: any }, key: string) =>
  *
  * Looks up source, calculates diffs of actual/expected values, and so on.
  */
-export const cleanYamlObject = (object: { [k: string]: any }) => {
-  const res = { ...object }
+export const cleanYamlObject = (obj: { [k: string]: any }, seen: Set<any> = new Set()) => {
+  seen.add(obj)
+  const res = { ...obj }
+  seen.add(res)
   if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
     const st =
       Array.isArray(res.stack) ?
@@ -38,8 +41,20 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
     res.stack = res.stack.trimEnd() + '\n'
   }
 
+  /* c8 ignore start - old pre-Error.cause custom decorator */
   if (res.errorOrigin && typeof res.errorOrigin === 'object') {
-    res.errorOrigin = cleanYamlObject(res.errorOrigin)
+    res.errorOrigin = cleanYamlObject(res.errorOrigin, seen)
+  }
+  /* c8 ignore stop */
+
+  if (res.cause && typeof res.cause === 'object' && !seen.has(res.cause)) {
+    seen.add(res.cause)
+    const ex = extraFromError(res.cause)
+    const clean = cleanYamlObject(ex, seen)
+    res.cause = {
+      message: res.cause.message,
+      ...clean,
+    }
   }
 
   if (
@@ -152,6 +167,11 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
     res.filename.includes('\n')
   ) {
     res.filename = '<inline code>'
+  }
+  // always put cause at the end.
+  if (res.cause) {
+    const { cause, ...props } = res
+    return { ...props, cause }
   }
 
   return res

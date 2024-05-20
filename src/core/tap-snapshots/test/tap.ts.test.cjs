@@ -238,6 +238,9 @@ Object {
             t.pass('not fine')
         ------^
           },
+      cause:
+        test: TAP
+        plan: 1
       ...
     
     

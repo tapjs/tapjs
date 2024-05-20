@@ -11,6 +11,11 @@ t.matchOnly(
   'basic error handling, captures stack and callsite',
 )
 
+t.matchOnly(extraFromError({ stack: 'just\nsome\nstring\n' }), {
+  stack: 'just\nsome\nstring\n',
+  at: null,
+})
+
 t.matchOnly(
   extraFromError('hello'),
   {
@@ -18,6 +23,25 @@ t.matchOnly(
   },
   'not an error',
 )
+
+const er = new Error('cause cycle a', {
+  cause: new Error('cause cycle b')
+})
+;(er.cause as Error).cause = er
+
+t.match(extraFromError(er), {
+  stack: String,
+  at: CallSiteLike,
+  cause: {
+    message: 'cause cycle b',
+    stack: String,
+    cause: {
+      message: 'cause cycle a',
+      stack: String,
+      cause: Object,
+    }
+  }
+}, 'recursion')
 
 t.matchOnly(
   extraFromError(

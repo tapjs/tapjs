@@ -1,4 +1,4 @@
-import { Base, TestBase } from '@tapjs/core'
+import { Base, TAP } from '@tapjs/core'
 import { DiagnosticData } from '@tapjs/error-serdes'
 import { TestMap } from './test-map.js'
 import { testNestedLocation } from './test-nested-location.js'
@@ -9,7 +9,7 @@ export const onAddFn = (
   subsMap: TestMap<Base[]>,
 ) => {
   const onAdd = (t: Base) => {
-    const tt = t as TestBase
+    const tt = t as TAP
     const subs: Base[] = []
     const diags: DiagnosticData[] = diagsMap.get(t) || []
     subsMap.set(t, subs)

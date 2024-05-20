@@ -8,6 +8,7 @@
     "prebuild": "rm -rf _site",
     "build": "eleventy",
     "postbuild": "bash scripts/after-build.sh",
+    "prepare": "npm run build",
     "test": "npm run build",
     "predeploy": "npm run build",
     "predeploy:prod": "npm run build",

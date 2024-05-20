@@ -6,6 +6,7 @@ import chalk from 'chalk'
 import { Box, Text } from 'ink'
 import { isAbsolute } from 'path'
 import React, { FC } from 'react'
+import { stringify } from 'tap-yaml'
 import { HangingIndent } from './hanging-indent.js'
 
 // only show generated callsite info if it's not ours
@@ -45,10 +46,16 @@ const highlightFilename = (s: string, f?: string | null) => {
   )
 }
 
+const isUseful = (c: CallSiteLike) =>
+  !!c.lineNumber || !!c.columnNumber || !!c.fileName
+
 export const Stack: FC<{ stack?: string }> = ({ stack }) => {
   if (!stack?.trim()) return <></>
 
-  const st = parseStack(stack)
+  const p = parseStack(stack)
+  if (!p.length) return <></>
+
+  const st = p
     .map(c => String(c))
     .join('\n')
     .replace(/\n+$/, '')
@@ -57,17 +64,28 @@ export const Stack: FC<{ stack?: string }> = ({ stack }) => {
       const c = new CallSiteLike(null, l)
       removeRelativeGenerated(c)
       removeRelativeGenerated(c.evalOrigin)
-      return highlightFilename(
-        c.toString(),
-        c.evalOrigin ? c.evalOrigin.fileName : c.fileName,
-      )
+      if (!isUseful(c)) return undefined
+      return c
     })
+    .filter(c => !!c)
+    .map(c =>
+      highlightFilename(
+        String(c),
+        c?.evalOrigin ? c?.evalOrigin.fileName : c?.fileName,
+      ),
+    )
+  // if nothing useful was found, just show the string
+  const showRaw = !st.length && { stack }
 
   return (
     <Box flexDirection="column">
-      {st.map((line, key) => (
-        <HangingIndent key={key}>{line}</HangingIndent>
-      ))}
+      {st.length ?
+        st.map((line, key) => (
+          <HangingIndent key={key}>{line}</HangingIndent>
+        ))
+      : showRaw ?
+        <Text dimColor>{stringify(showRaw).trimEnd()}</Text>
+      : /* c8 ignore next - impossible */ <></>}
     </Box>
   )
 }

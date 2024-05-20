@@ -1,1 +1,1 @@
-{"version":3,"file":"extra-from-error.d.ts","sourceRoot":"","sources":["../../src/extra-from-error.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,WAAW,CAAA;AACzC,OAAO,EAAE,KAAK,EAAE,MAAM,YAAY,CAAA;AAQlC;;GAEG;AACH,eAAO,MAAM,cAAc,OACrB,GAAG,UACC,KAAK,YACH,QAAQ,UAgEnB,CAAA"}
+{"version":3,"file":"extra-from-error.d.ts","sourceRoot":"","sources":["../../src/extra-from-error.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,WAAW,CAAA;AACzC,OAAO,EAAE,KAAK,EAAE,MAAM,YAAY,CAAA;AAQlC;;GAEG;AACH,eAAO,MAAM,cAAc,OACrB,GAAG,UACC,KAAK,YACH,QAAQ,UAsEnB,CAAA"}

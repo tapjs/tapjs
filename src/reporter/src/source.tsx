@@ -120,7 +120,7 @@ export const Source: FC<SourceOpts> = ({
               ' '.repeat(excess) +
                 '━'.repeat(numLen + at.columnNumber) +
                 chalk.bold('┛') +
-                ' '.repeat(len - (numLen + at.columnNumber) - 1),
+                ' '.repeat(len - (numLen + at.columnNumber) - 1 - excess),
             ),
           )
         : ''
@@ -135,7 +135,7 @@ export const Source: FC<SourceOpts> = ({
         context.push(...before, atLine, caret, ...after)
       }
       return (
-        <Box flexDirection="column">
+        <Box flexDirection="column" paddingTop={isErrorOrigin ? 1 : 0}>
           {context.map((l, key) => (
             <Text key={key}>{l}</Text>
           ))}

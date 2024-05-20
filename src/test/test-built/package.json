@@ -27,6 +27,7 @@
   "license": "BlueOak-1.0.0",
   "type": "module",
   "tshy": {
+    "selfLink": false,
     "main": true,
     "exports": {
       "./package.json": "./package.json",

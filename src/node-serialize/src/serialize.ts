@@ -21,7 +21,9 @@ if (!proc) {
 
 const { stdout } = proc
 
-export const serialize = (tap: TAP): void => {
+export const serialize = (
+  tap: TAP,
+): void => {
   if (tap.registered) {
     throw new Error('Cannot serialize TAP stream, already registered')
   }

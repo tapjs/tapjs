@@ -43,8 +43,8 @@ export type ErrorCodeMatch = {
   [k: string]: any
 }
 
-export type ErrorCauseMatch = {
-  cause: any
+export type ErrorCauseMatch<C extends {}> = {
+  cause: C
   [k: string]: any
 }
 
@@ -54,7 +54,7 @@ export type ErrorMatch =
   | ErrorMessageMatch
   | ErrorNameMatch
   | ErrorCodeMatch
-  | ErrorCauseMatch
+  | ErrorCauseMatch<{}>
   | RegExp
 
 export type ThrowsArgs =
@@ -1124,6 +1124,7 @@ export class Assertions {
         ] as MessageExtra),
       )
     }
+
     // ok, we got an error, that's a problem
     me[1].message = (er as Error)?.message || me[0]
     const { at, stack } = me[1]
@@ -1131,10 +1132,16 @@ export class Assertions {
     // put the error's origin on the object, but let the normal
     // diags parsing show us where the failed assertion happened,
     // or respect the at/stack added by another caller.
-    ex.errorOrigin = {
+    // iow, the "main" error is `t.error(...)`, but the "cause"
+    // callsite is whatever the error refers to.
+    const { cause } = ex
+    ex.cause = {
+      message: er.message || msg,
       at: ex.at,
       stack: ex.stack,
     }
+    if (cause !== undefined) ex.cause.cause = cause
+
     ex.at = at
     ex.stack = stack
     // always going to have *something* here.

@@ -3,9 +3,9 @@
  *
  * Looks up source, calculates diffs of actual/expected values, and so on.
  */
-export declare const cleanYamlObject: (object: {
+export declare const cleanYamlObject: (obj: {
     [k: string]: any;
-}) => {
+}, seen?: Set<any>) => {
     [x: string]: any;
 };
 /**
