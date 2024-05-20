@@ -2,7 +2,6 @@
   "neverConnectToCloud": true,
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
       "options": {
         "cacheableOperations": [
           "preversion",

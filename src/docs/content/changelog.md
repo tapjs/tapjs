@@ -14,6 +14,7 @@ eleventyNavigation:
   sets them. This effects `coverage-map`, `before`, and `after`
   configs.
 - Maintain prototypes on objects extended with `t.createMock()`.
+- Upgrade TypeScript to version 5.4
 
 ## 18.8
 

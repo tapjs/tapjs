@@ -110,8 +110,8 @@
     "rimraf": "^5.0.5",
     "sync-content": "^1.0.1",
     "tap-parser": "15.3.2",
-    "tshy": "^1.12.0",
-    "typescript": "5.2",
+    "tshy": "^1.14.0",
+    "typescript": "5.4",
     "walk-up-path": "^3.0.1"
   },
   "peerDependencies": {
