@@ -17,7 +17,6 @@ export const extraFromError = (
   extra?: Extra,
   options?: BaseOpts,
 ) => {
-
   // the yaml module puts big stuff here, pluck it off
   // otherwise it's quite noisy when we throw as a result of
   // trying to parse invalid tap diagnostics.
@@ -80,9 +79,17 @@ export const extraFromError = (
   }
 
   // grab any other rando props
-  const { message: _, name: __, stack: ___, cause, ...props } = er
+  const {
+    message: _,
+    stack: __,
+    name: ___,
+    cause,
+    errors,
+    ...props
+  } = er
   Object.assign(extra, props)
   if (cause !== undefined) extra.cause = cause
+  if (errors !== undefined) extra.errors = errors
 
   return extra
 }

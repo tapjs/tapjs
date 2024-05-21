@@ -57,10 +57,12 @@ export const extraFromError = (er, extra, options) => {
         extra.type = er.name;
     }
     // grab any other rando props
-    const { message: _, name: __, stack: ___, cause, ...props } = er;
+    const { message: _, stack: __, name: ___, cause, errors, ...props } = er;
     Object.assign(extra, props);
     if (cause !== undefined)
         extra.cause = cause;
+    if (errors !== undefined)
+        extra.errors = errors;
     return extra;
 };
 //# sourceMappingURL=extra-from-error.js.map

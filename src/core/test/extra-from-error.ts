@@ -17,6 +17,21 @@ t.matchOnly(extraFromError({ stack: 'just\nsome\nstring\n' }), {
 })
 
 t.matchOnly(
+  extraFromError(new AggregateError([
+    new Error('hello'),
+    new Error('world'),
+  ], 'aggregation')), {
+    errors: [
+      new Error('hello'),
+      new Error('world'),
+    ],
+    type: 'AggregateError',
+    stack: String,
+    at: CallSiteLike,
+  }
+)
+
+t.matchOnly(
   extraFromError('hello'),
   {
     error: 'hello',

@@ -39,14 +39,34 @@ export const cleanYamlObject = (obj, seen = new Set()) => {
         res.errorOrigin = cleanYamlObject(res.errorOrigin, seen);
     }
     /* c8 ignore stop */
-    if (res.cause && typeof res.cause === 'object' && !seen.has(res.cause)) {
+    if (res.cause &&
+        typeof res.cause === 'object' &&
+        !seen.has(res.cause)) {
         seen.add(res.cause);
+        const { message } = res.cause;
         const ex = extraFromError(res.cause);
         const clean = cleanYamlObject(ex, seen);
-        res.cause = {
-            message: res.cause.message,
-            ...clean,
-        };
+        if (message !== undefined)
+            clean.message = message;
+        res.cause = clean;
+    }
+    if (Array.isArray(res.errors)) {
+        const cleaned = [];
+        for (const e of res.errors) {
+            if (!!e && typeof e === 'object') {
+                seen.add(e);
+                const { message } = e;
+                const ex = extraFromError(e);
+                const clean = cleanYamlObject(ex, seen);
+                if (message !== undefined)
+                    clean.message = message;
+                cleaned.push(clean);
+            }
+            else {
+                cleaned.push(e);
+            }
+        }
+        res.errors = cleaned;
     }
     if (res.at &&
         res.at instanceof stack.CallSiteLike &&

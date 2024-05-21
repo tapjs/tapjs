@@ -54,6 +54,73 @@ t.matchOnly(
   },
 )
 
+t.matchOnly(
+  cleanYamlObject({
+    cause: new AggregateError(
+      [
+        'string',
+        { obj: 'that', is: 'not', an: 'Error' },
+        { message: 'hello' },
+        new Error('actual error'),
+        new SyntaxError('syns of the past'),
+      ],
+      'aggro',
+      {
+        cause: new Error('cause', { cause: 'ok' }),
+      },
+    ),
+  }),
+  {
+    cause: {
+      message: 'aggro',
+      stack: String,
+      type: 'AggregateError',
+      at: {
+        fileName: 'test/clean-yaml-object.ts',
+        lineNumber: Number,
+        columnNumber: Number,
+        functionName: '<anonymous>',
+      },
+      source: String,
+      cause: {
+        message: 'cause',
+        stack: String,
+        at: Object,
+        source: String,
+        cause: 'ok',
+      },
+      errors: [
+        'string',
+        { obj: 'that', is: 'not', an: 'Error' },
+        { message: 'hello' },
+        {
+          stack: String,
+          at: {
+            fileName: 'test/clean-yaml-object.ts',
+            lineNumber: Number,
+            columnNumber: Number,
+            functionName: '<anonymous>',
+          },
+          source: String,
+          message: 'actual error',
+        },
+        {
+          stack: String,
+          at: {
+            fileName: String,
+            lineNumber: Number,
+            columnNumber: Number,
+            functionName: '<anonymous>',
+          },
+          type: 'SyntaxError',
+          source: String,
+          message: 'syns of the past',
+        },
+      ],
+    },
+  },
+)
+
 t.test('callsite reporting', t => {
   const stack = captureString()
   const b = cleanYamlObject({

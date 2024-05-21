@@ -248,11 +248,12 @@ ec.js:18:3`,
         source: `import t from 'tap'
 const e = new Error('hello', {
 ----------^
-  cause: new Error('xyz', {
+  cause: new SyntaxError('xyz', {
     cause: {
 `,
         cause: {
           message: 'xyz',
+          type: 'SyntaxError',
           stack: 'ec.js:3:10\n',
           at: {
             fileName: 'ec.js',
@@ -261,7 +262,7 @@ const e = new Error('hello', {
           },
           source: `import t from 'tap'
 const e = new Error('hello', {
-  cause: new Error('xyz', {
+  cause: new SyntaxError('xyz', {
 ---------^
     cause: {
       some: 'stuff',
@@ -297,6 +298,136 @@ oh well
           },
         },
       },
+    },
+    time: null,
+    fullname: 'test name > fake result',
+  } as Result
+  t.matchSnapshot(
+    render(<ResultDetails result={res} />).lastFrame(),
+    'diags and details',
+  )
+  t.end()
+})
+
+t.test('aggregate error', async t => {
+  const res = {
+    ok: true,
+    name: 'fake result',
+    id: 1,
+    buffered: false,
+    skip: false,
+    previous: null,
+    plan: null,
+    diag: {
+      type: 'AggregateError',
+      tapCaught: 'returnedPromiseRejection',
+      errors: [
+        -{
+          stack: 'ae.js:9:17\n',
+          at: {
+            fileName: 'ae.js',
+            lineNumber: 9,
+            columnNumber: 17,
+          },
+          source: `
+      await Promise.any(
+        a.map(async c => {
+          throw new Error(String(c), {
+----------------^
+            cause: c === 5 ? new Error('five') : c,
+          })`,
+          cause: 1,
+          message: '1',
+        },
+        { message: true },
+        {
+          message: 'weird thing got in there somehow',
+        },
+        { message: 'hello', type: 'CustomError' },
+        {
+          stack: `ae.js:9:17\n`,
+          at: {
+            fileName: 'ae.js',
+            lineNumber: 9,
+            columnNumber: 17,
+          },
+          source: `
+      await Promise.any(
+        a.map(async c => {
+          throw new Error(String(c), {
+----------------^
+            cause: c === 5 ? new Error('five') : c,
+          })`,
+          cause: 2,
+          message: '2',
+        },
+        {
+          stack: 'ae.js:9:17',
+          at: {
+            fileName: 'ae.js',
+            lineNumber: 9,
+            columnNumber: 17,
+          },
+          source: `
+      await Promise.any(
+        a.map(async c => {
+          throw new Error(String(c), {
+----------------^
+            cause: c === 5 ? new Error('five') : c,
+          })`,
+          cause: 3,
+          message: '3',
+        },
+        {
+          stack: 'ae.js:9:17\n',
+          at: {
+            fileName: 'ae.js',
+            lineNumber: 9,
+            columnNumber: 17,
+          },
+          source: `
+      await Promise.any(
+        a.map(async c => {
+          throw new Error(String(c), {
+----------------^
+            cause: c === 5 ? new Error('five') : c,
+          })`,
+          cause: 4,
+          message: '4',
+        },
+        {
+          stack: 'ae.js:9:17\n',
+          at: {
+            fileName: 'ae.js',
+            lineNumber: 9,
+            columnNumber: 17,
+          },
+          source: `
+      await Promise.any(
+        a.map(async c => {
+          throw new Error(String(c), {
+----------------^
+            cause: c === 5 ? new Error('five') : c,
+          })`,
+          cause: {
+            stack: 'ae.js:10:30\n',
+            at: {
+              fileName: 'ae.js',
+              lineNumber: 10,
+              columnNumber: 30,
+            },
+            source: `
+        a.map(async c => {
+          throw new Error(String(c), {
+            cause: c === 5 ? new Error('five') : c,
+-----------------------------^
+          })
+        }),`,
+            message: 'five',
+          },
+          message: '5',
+        },
+      ],
     },
     time: null,
     fullname: 'test name > fake result',

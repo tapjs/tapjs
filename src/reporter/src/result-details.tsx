@@ -12,7 +12,8 @@ export const ResultDetails: FC<{
   result: Result
   seen?: unknown[]
   heading?: string
-}> = ({ result, seen = [], heading }) => {
+  flush?: boolean
+}> = ({ result, seen = [], heading, flush }) => {
   if (!result.diag || typeof result.diag !== 'object') return <></>
   const {
     test,
@@ -22,6 +23,7 @@ export const ResultDetails: FC<{
     location,
     cause,
     error,
+    errors,
     code,
     errorOrigin,
     message,
@@ -58,10 +60,10 @@ export const ResultDetails: FC<{
   delete otherDiags.diff
 
   return (
-    <Box paddingLeft={heading ? 0 : 4} flexDirection="column">
+    <Box paddingLeft={!!heading ? 0 : 4} flexDirection="column">
       {heading ?
-        <Box flexDirection="column" paddingTop={1}>
-          <Text color="whiteBright" bold>
+        <Box flexDirection="column" paddingTop={flush ? 0 : 1}>
+          <Text color="white" bold>
             {heading}
           </Text>
         </Box>
@@ -99,14 +101,66 @@ export const ResultDetails: FC<{
             '(circular)'
           : /* c8 ignore stop */
             <ResultDetails
-              heading={`Cause${cause.message ? `: ${cause.message}` : ''}`}
+              heading={`cause: ${
+                typeof cause.message === 'string' ?
+                  `${typeof cause.type === 'string' ? cause.type : 'Error'}: ${cause.message}`
+                : ''
+              }`}
+              flush={false}
               result={{
                 ...result,
                 diag: cause,
               }}
               seen={seen.concat(cause)}
             />
-        : <Text dimColor>{stringify({ cause }).trimEnd()}</Text>)}
+        : <Box paddingTop={1}>
+            <Text>
+              {chalk.white.bold('cause: ')}
+              {chalk.dim(stringify(cause).trimEnd())}
+            </Text>
+          </Box>)}
+      {(
+        errors !== undefined && Array.isArray(errors) && errors.length
+      ) ?
+        [
+          <Box flexDirection="column" key={-1} paddingTop={1}>
+            <Text color="white" bold>
+              errors: [
+            </Text>
+          </Box>,
+          ...errors.map((e, i) => (
+            <Box
+              key={i}
+              flexDirection="row"
+              paddingLeft={2}
+              paddingTop={+!!i}>
+              <Text color="white" bold>
+                {`- `}
+              </Text>
+              {!!e && typeof e === 'object' ?
+                <ResultDetails
+                  flush
+                  result={{
+                    ...result,
+                    diag: e,
+                  }}
+                  heading={`${
+                    typeof e.message === 'string' ?
+                      `${typeof e.type === 'string' ? e.type : 'Error'}: ${e.message}`
+                    : ''
+                  }`}
+                  seen={seen.concat(e)}
+                />
+              : <Text dimColor>{stringify(e).trimEnd()}</Text>}
+            </Box>
+          )),
+          <Box flexDirection="column" key={errors.length}>
+            <Text color="white" bold>
+              ]
+            </Text>
+          </Box>,
+        ]
+      : <></>}
     </Box>
   )
 }
