@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/snapshot",
-  "version": "1.2.22",
+  "version": "2.0.0",
   "description": "",
   "tshy": {
     "main": true,
@@ -41,11 +41,11 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "is-actual-promise": "^1.0.1",
-    "tcompare": "6.4.6",
+    "tcompare": "7.0.0",
     "trivial-deferred": "^2.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.5.4"
+    "@tapjs/core": "2.0.0"
   },
   "tap": {
     "typecheck": false,

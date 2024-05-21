@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/clock",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "a make believe clock for tests involving time",
   "tshy": {
     "main": true,
@@ -39,11 +39,11 @@
   },
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "1.1.22",
+    "@tapjs/after": "1.1.23",
     "clock-mock": "^2.0.2"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.5.4"
+    "@tapjs/core": "2.0.0"
   },
   "tap": {
     "typecheck": false

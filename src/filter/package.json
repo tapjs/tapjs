@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/filter",
-  "version": "1.2.22",
+  "version": "2.0.0",
   "description": "tap plugin providing t.only() and grep option",
   "tshy": {
     "main": true,
@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "peerDependencies": {
-    "@tapjs/core": "1.5.4"
+    "@tapjs/core": "2.0.0"
   },
   "tap": {
     "typecheck": false

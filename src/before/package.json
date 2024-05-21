@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/before",
-  "version": "1.1.22",
+  "version": "2.0.0",
   "description": "a built-in tap extension for t.before()",
   "tshy": {
     "main": true,
@@ -43,7 +43,7 @@
     "is-actual-promise": "^1.0.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.5.4"
+    "@tapjs/core": "2.0.0"
   },
   "tap": {
     "typecheck": false
