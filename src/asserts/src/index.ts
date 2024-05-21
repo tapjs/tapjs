@@ -48,6 +48,11 @@ export type ErrorCauseMatch<C extends {}> = {
   [k: string]: any
 }
 
+export type ErrorErrorsMatch<C extends {}> = {
+  errors: C[]
+  [k: string]: any
+}
+
 export type ErrorMatch =
   | Error
   | typeof Error
@@ -55,6 +60,7 @@ export type ErrorMatch =
   | ErrorNameMatch
   | ErrorCodeMatch
   | ErrorCauseMatch<{}>
+  | ErrorErrorsMatch<{}>
   | RegExp
 
 export type ThrowsArgs =

@@ -439,6 +439,14 @@ t.test('throws, doesNotThrow', t => {
       { cause: 'y' },
     ),
   )
+  t.ok(
+    a.throws(
+      () => {
+        throw new AggregateError(['x', 1], 'x')
+      },
+      { errors: ['x', 1] },
+    ),
+  )
 
   t.notOk(a.error(new Error('x', {
     cause: new Error('y'),
