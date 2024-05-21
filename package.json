@@ -50,7 +50,7 @@
     "ink": "^4.4.1",
     "ink-testing-library": "^3.0.0",
     "is-actual-promise": "^1.0.1",
-    "jackspeak": "^2.3.6",
+    "jackspeak": "^3.1.2",
     "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^8.6.7",
     "minimatch": "^9.0.1",
@@ -117,7 +117,7 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.5",
-    "glob": "^10.3.10",
+    "glob": "^10.3.16",
     "semver": "^7.6.0",
     "signal-exit": "4.1"
   },

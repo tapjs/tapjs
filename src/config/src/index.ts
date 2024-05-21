@@ -87,7 +87,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    */
   testFileExtensions: Set<string> = testFileExtensions
 
-  constructor(jack: Jack<C> = baseConfig) {
+  constructor(jack: Jack<C> = baseConfig as Jack<C>) {
     this.jack = jack
   }
 

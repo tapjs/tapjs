@@ -88,7 +88,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -107,7 +108,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: string[] | undefined;
         description?: string | undefined;
         hint?: string | undefined;
-        validate?: ((v: any) => v is string[]) | undefined;
+        validate?: ((v: unknown) => v is string[]) | undefined;
+        validOptions?: readonly string[] | undefined;
     } & {
         multiple: true;
         delim?: string | undefined;
@@ -123,7 +125,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -139,7 +142,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -154,7 +158,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -169,7 +174,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -185,7 +191,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -201,7 +208,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -217,7 +225,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -232,7 +241,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -247,7 +257,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: boolean | undefined;
         description?: string | undefined;
         hint?: undefined;
-        validate?: ((v: any) => v is boolean) | undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;
@@ -262,7 +273,8 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: string | undefined;
         description?: string | undefined;
         hint?: string | undefined;
-        validate?: ((v: any) => v is string) | undefined;
+        validate?: ((v: unknown) => v is string) | undefined;
+        validOptions?: readonly string[] | undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;

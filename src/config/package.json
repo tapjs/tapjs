@@ -40,13 +40,13 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "chalk": "^5.2.0",
-    "jackspeak": "^2.3.6",
-    "polite-json": "^4.0.1",
-    "walk-up-path": "^3.0.1",
     "@tapjs/core": "1.5.4",
     "@tapjs/test": "1.4.4",
-    "tap-yaml": "2.2.2"
+    "chalk": "^5.2.0",
+    "jackspeak": "^3.1.2",
+    "polite-json": "^4.0.1",
+    "tap-yaml": "2.2.2",
+    "walk-up-path": "^3.0.1"
   },
   "peerDependencies": {
     "@tapjs/core": "1.5.4",

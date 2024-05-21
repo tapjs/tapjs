@@ -404,9 +404,12 @@ t.test('extension has invalid field', async t => {
   })
   await t.rejects(TapConfig.load(), {
     message: 'Invalid value boolean for jobs, expected number',
-    source: resolve(dir, 'base-taprc.yml'),
-    field: 'jobs',
-    value: true,
+    cause: {
+      path: resolve(dir, 'base-taprc.yml'),
+      name: 'jobs',
+      found: true,
+      wanted: 'number',
+    },
     extendedFrom: ['base-taprc.yml', resolve(dir, '.taprc')],
   })
 })
