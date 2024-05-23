@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.5"
+    "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.6"
   },
   "peerDependencies": {
     "@tapjs/core": "2.0.0"
