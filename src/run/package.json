@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Command-line interface for the node-tap runner",
   "tshy": {
     "dialects": [
@@ -39,14 +39,14 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "1.1.23",
-    "@tapjs/before": "2.0.0",
-    "@tapjs/config": "3.0.0",
+    "@tapjs/after": "1.1.24",
+    "@tapjs/before": "2.0.1",
+    "@tapjs/config": "3.0.1",
     "@tapjs/processinfo": "^3.1.7",
-    "@tapjs/reporter": "2.0.0",
-    "@tapjs/spawn": "2.0.0",
-    "@tapjs/stdin": "2.0.0",
-    "@tapjs/test": "2.0.0",
+    "@tapjs/reporter": "2.0.1",
+    "@tapjs/spawn": "2.0.1",
+    "@tapjs/stdin": "2.0.1",
+    "@tapjs/test": "2.0.1",
     "c8": "^8.0.1",
     "chalk": "^5.3.0",
     "chokidar": "^3.6.0",
@@ -60,14 +60,14 @@
     "rimraf": "^5.0.5",
     "semver": "^7.6.0",
     "signal-exit": "^4.1.0",
-    "tap-parser": "16.0.0",
+    "tap-parser": "16.0.1",
     "tap-yaml": "2.2.2",
-    "tcompare": "7.0.0",
+    "tcompare": "7.0.1",
     "trivial-deferred": "^2.0.0",
     "which": "^4.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "2.0.0"
+    "@tapjs/core": "2.0.1"
   },
   "tap": {
     "typecheck": false,

@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/reporter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Pretty test output reporters for tap",
   "tshy": {
     "dialects": [
@@ -57,8 +57,8 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/config": "3.0.0",
-    "@tapjs/stack": "2.0.0",
+    "@tapjs/config": "3.0.1",
+    "@tapjs/stack": "2.0.1",
     "chalk": "^5.2.0",
     "ink": "^4.4.1",
     "minipass": "^7.0.4",
@@ -67,12 +67,12 @@
     "prismjs-terminal": "^1.2.3",
     "react": "^18.2.0",
     "string-length": "^6.0.0",
-    "tap-parser": "16.0.0",
+    "tap-parser": "16.0.1",
     "tap-yaml": "2.2.2",
-    "tcompare": "7.0.0"
+    "tcompare": "7.0.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "2.0.0"
+    "@tapjs/core": "2.0.1"
   },
   "tap": {
     "typecheck": false,

@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/asserts",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "tshy": {
     "main": true,
@@ -40,13 +40,13 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/stack": "2.0.0",
+    "@tapjs/stack": "2.0.1",
     "is-actual-promise": "^1.0.1",
-    "tcompare": "7.0.0",
+    "tcompare": "7.0.1",
     "trivial-deferred": "^2.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "2.0.0"
+    "@tapjs/core": "2.0.1"
   },
   "tap": {
     "coverage-map": "./map.js",
