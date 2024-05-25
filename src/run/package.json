@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Command-line interface for the node-tap runner",
   "tshy": {
     "dialects": [
