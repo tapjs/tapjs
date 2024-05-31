@@ -7,6 +7,9 @@ import { MockServiceClient } from './mock-service-client.js'
 
 let client: MockServiceClient
 
+let loadWorks = false
+let resolveWorks = false
+
 export const globalPreload: GlobalPreloadHook = ({ port }) => {
   // loader thread. connect client
   client = new MockServiceClient(port)
@@ -32,6 +35,10 @@ export const initialize = ({ port }: { port: MessagePort }): void => {
 }
 
 export const load: LoadHook = async (url, context, nextLoad) => {
+  if (!client && !loadWorks) {
+    return nextLoad(url, context)
+  }
+  loadWorks = true
   if (!client) {
     throw new Error(
       'initialize() or globalPreload() must be run prior to ' +
@@ -54,6 +61,10 @@ export const resolve: ResolveHook = async (
   context,
   nextResolve,
 ) => {
+  if (!client && !resolveWorks) {
+    return nextResolve(url, context)
+  }
+  resolveWorks = true
   if (!client) {
     throw new Error(
       'initialize() or globalPreload() must be run prior to ' +
