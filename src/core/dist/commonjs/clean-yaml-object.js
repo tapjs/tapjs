@@ -212,6 +212,7 @@ exports.deleteAlways = new Set([
     // only relevant if activated, a failedTodo or failedSkip will be added
     'failSkip',
     'failTodo',
+    'failOnly',
     // TODO: keys added by plugins, but referenced here
     // How can this list be adjusted by plugins?
     'grep',

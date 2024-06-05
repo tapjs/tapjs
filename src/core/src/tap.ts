@@ -110,6 +110,7 @@ class TAP extends Test {
       timeout,
       failTodo: envFlag('TAP_FAIL_TODO'),
       failSkip: envFlag('TAP_FAIL_SKIP'),
+      failOnly: envFlag('TAP_FAIL_ONLY'),
       passes: envFlag('TAP_PASSES'),
       // these are always set in our tests.
       /* c8 ignore start */
