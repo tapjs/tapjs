@@ -23,7 +23,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@esbuild-kit/cjs-loader": "^2.4.4",
     "@esbuild-kit/esm-loader": "^2.6.5",
-    "@tapjs/processinfo": "^3.1.7",
+    "@tapjs/processinfo": "^3.1.8",
     "@types/diff": "^5.0.9",
     "@types/ms": "^0.7.34",
     "@types/mustache": "^4.2.5",

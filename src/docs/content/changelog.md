@@ -13,6 +13,8 @@ eleventyNavigation:
 - Add support for a single string as the `tap` field in
   a `package.json` or the contents of a `.taprc` file, and treat
   it as the `extends` field.
+- Include `--before` and `--after` options in list of files when
+  detecting changes.
 
 ## 19.0
 
