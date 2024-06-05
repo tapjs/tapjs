@@ -6,6 +6,7 @@
     "main": true,
     "exports": {
       ".": "./src/index.ts",
+      "./generate-tap-test-class": "./src/build.mts",
       "./package.json": "./package.json",
       "./test-built": {
         "import": {
@@ -26,13 +27,12 @@
           "types": "./test-built/dist/commonjs/index.d.ts",
           "default": "./test-built/dist/commonjs/index.js"
         }
-      },
-      "./generate-tap-test-class": "./scripts/build.mjs"
+      }
     }
   },
   "type": "module",
   "bin": {
-    "generate-tap-test-class": "scripts/build.mjs"
+    "generate-tap-test-class": "dist/esm/build.mjs"
   },
   "main": "./dist/commonjs/index.js",
   "types": "./dist/commonjs/index.d.ts",
@@ -45,6 +45,12 @@
       "require": {
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./generate-tap-test-class": {
+      "import": {
+        "types": "./dist/esm/build.d.mts",
+        "default": "./dist/esm/build.mjs"
       }
     },
     "./package.json": "./package.json",
@@ -67,8 +73,7 @@
         "types": "./test-built/dist/commonjs/index.d.ts",
         "default": "./test-built/dist/commonjs/index.js"
       }
-    },
-    "./generate-tap-test-class": "./scripts/build.mjs"
+    }
   },
   "files": [
     "dist",
@@ -106,6 +111,7 @@
     "glob": "^10.3.16",
     "jackspeak": "^3.1.2",
     "mkdirp": "^3.0.0",
+    "package-json-from-dist": "^1.0.0",
     "resolve-import": "^1.4.5",
     "rimraf": "^5.0.5",
     "sync-content": "^1.0.1",

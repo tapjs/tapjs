@@ -5,8 +5,9 @@ import { spawnSync } from 'node:child_process'
 import { readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { lstat } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { basename, relative, resolve } from 'node:path'
+import { basename, dirname, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { findPackageJson } from 'package-json-from-dist'
 import { resolveImport } from 'resolve-import'
 import { rimrafSync } from 'rimraf'
 import { walkUp } from 'walk-up-path'
@@ -37,12 +38,13 @@ if (typeof process.argv[2] !== 'string') {
   process.exit(1)
 }
 
-const __dirname = resolve(fileURLToPath(import.meta.url), '..')
+const pj = findPackageJson(import.meta.url)
+const scriptsDir = resolve(dirname(pj), 'scripts')
 
-const templateFile = resolve(__dirname, './test-template.ts')
+const templateFile = resolve(scriptsDir, './test-template.ts')
 let template = readFileSync(templateFile, 'utf8')
 
-const defaultTarget = resolve(__dirname, '../test-built')
+const defaultTarget = resolve(scriptsDir, '../test-built')
 
 const sortedStrings = (s: string[]) =>
   s.sort((a, b) => a.localeCompare(b, 'en'))
@@ -56,7 +58,7 @@ const sortedMapValues = <T extends any>(m: Map<string, T>) =>
 const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
 /* c8 ignore stop */
 
-const require = createRequire(dir)
+const require = createRequire(dir + '/x')
 const dirNM = resolve(dir, 'node_modules')
 
 // link the node_modules so it can find all installed plugins
@@ -70,11 +72,11 @@ mkdirp.sync(resolve(dir, 'scripts'))
 const out = resolve(dir, 'src/index.ts')
 
 const copies = globSync(['LICENSE.md', 'package-template.json'], {
-  cwd: __dirname,
+  cwd: scriptsDir,
 })
 for (const f of copies) {
   const t = f === 'package-template.json' ? 'package.json' : f
-  writeFileSync(resolve(dir, t), readFileSync(resolve(__dirname, f)))
+  writeFileSync(resolve(dir, t), readFileSync(resolve(scriptsDir, f)))
 }
 
 const plugins = sortedStrings(process.argv.slice(2))
@@ -170,7 +172,7 @@ const pluginNames = await Promise.all(
     }
 
     try {
-      imp = await import(String(await resolveImport(p, dir)))
+      imp = await import(String(await resolveImport(p, dir + '/x')))
     } catch (er) {
       /* c8 ignore start */
       console.error(
@@ -453,13 +455,18 @@ writeFileSync(
   }),
 )
 
-const res = spawnSync('npm', ['run', 'prepare'], {
+const tshy = fileURLToPath(
+  await resolveImport('tshy', import.meta.url),
+)
+
+const res = spawnSync(process.execPath, [tshy], {
   shell: true,
   cwd: dir,
   stdio: 'inherit',
 })
+
 if (res.status !== 0 || res.signal !== null) {
-  console.error('`npm run prepare` failed', {
+  console.error('tap build failed', {
     code: res.status,
     signal: res.signal,
     ...(res.error && { error: res.error }),

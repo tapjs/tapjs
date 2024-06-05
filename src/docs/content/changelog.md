@@ -15,6 +15,8 @@ eleventyNavigation:
   it as the `extends` field.
 - Include `--before` and `--after` options in list of files when
   detecting changes.
+- Fully isolate plugin build process, so conflicting TS versions
+  don't cause problems.
 
 ## 19.0
 

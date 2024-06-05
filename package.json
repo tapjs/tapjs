@@ -118,6 +118,7 @@
   "dependencies": {
     "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.7",
     "glob": "^10.3.16",
+    "package-json-from-dist": "^1.0.0",
     "semver": "^7.6.0",
     "signal-exit": "4.1"
   },

@@ -17,7 +17,7 @@ const builtins = builtinNames.map(p => `@tapjs/${p}`)
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))
 
-const build = resolve(__dirname, '../src/test/scripts/build.mts')
+const build = resolve(__dirname, '../src/test/src/build.mts')
 
 const defaultPluginsFile = resolve(
   __dirname,

@@ -3,7 +3,7 @@ import { foregroundChild } from 'foreground-child'
 import { fileURLToPath } from 'node:url'
 import { resolveImport } from 'resolve-import'
 import { mainCommand } from './main-config.js'
-const tmbin = fileURLToPath(
+const tapBuildBin = fileURLToPath(
   await resolveImport(
     '@tapjs/test/generate-tap-test-class',
     import.meta.url,
@@ -18,7 +18,7 @@ export const build = async (args: string[], config: LoadedConfig) => {
     )
   }
 
-  const argv = [tmbin, ...config.pluginList]
+  const argv = [tapBuildBin, ...config.pluginList]
   return new Promise<void>((res, rej) => {
     foregroundChild(node, argv, {}, (code, signal) => {
       // if this is the main command, just terminate in the same way

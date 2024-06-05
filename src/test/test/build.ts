@@ -4,7 +4,7 @@ import { resolveImport } from 'resolve-import'
 import { rimrafSync } from 'rimraf'
 import t from 'tap'
 const buildScriptURL = await resolveImport(
-  '../scripts/build.mjs',
+  '../dist/esm/build.mjs',
   import.meta.url,
 )
 if (!buildScriptURL) throw new Error('could not load build script')
@@ -83,11 +83,7 @@ t.test(
       code: 0,
       signal: null,
       stderr: '',
-      stdout: `
-> @tapjs/test-built@0.0.0 prepare
-> tshy
-
-`,
+      stdout: '',
     })
     const built = readFileSync(resolve(dir, 'src/index.ts'), 'utf8')
     const sorted = plugins.sort((a, b) => a.localeCompare(b, 'en'))
@@ -97,11 +93,7 @@ t.test(
       code: 0,
       signal: null,
       stderr: '',
-      stdout: `
-> @tapjs/test-built@0.0.0 prepare
-> tshy
-
-`,
+      stdout: '',
     })
     t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
     const rsorted = plugins.sort((a, b) => a.localeCompare(b, 'en'))
@@ -111,11 +103,7 @@ t.test(
       code: 0,
       signal: null,
       stderr: '',
-      stdout: `
-> @tapjs/test-built@0.0.0 prepare
-> tshy
-
-`,
+      stdout: '',
     })
     t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
   },
@@ -332,10 +320,6 @@ t.test('disambiguate plugin names', async t => {
     code: 0,
     signal: null,
     stderr: '',
-    stdout: `
-> @tapjs/test-built@0.0.0 prepare
-> tshy
-
-`,
+    stdout: '',
   })
 })
