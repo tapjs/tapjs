@@ -1556,6 +1556,22 @@ t.test('failTodo', async t => {
   }
 })
 
+t.test('failOnly', async t => {
+  const tb = new T({ name: 'root', failOnly: true })
+  tb.test('empty', t => t.end())
+  tb.test('todo', { only: true }, t => t.end())
+  tb.test('todo message', { todo: 'message' }, t => t.end())
+  tb.end()
+  const res = clean(await tb.concat())
+  const expects = [
+    'ok 1 - empty # time={TIME}',
+    'not ok 2',
+  ]
+  for (const e of expects) {
+    t.match(res, e)
+  }
+})
+
 t.test('plan plus promise', async t => {
   const tb = new T({ name: 'root' })
   tb.test('parent', async t => {

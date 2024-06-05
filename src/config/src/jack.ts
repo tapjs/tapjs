@@ -518,6 +518,14 @@ export default jack({
       description: `Treat \`# SKIP\` assertions as failures`,
     },
 
+    'fail-only': {
+      description: `Fail any tests marked with \`{only: true }\`, for CI and
+                    other environments where you want to ensure that tests are
+                    not being skipped.
+
+                    Only relevant when the @tapjs/filter plugin is enabled.`,
+    },
+
     color: {
       short: 'c',
       description: 'Use colors (Default for TTY)',

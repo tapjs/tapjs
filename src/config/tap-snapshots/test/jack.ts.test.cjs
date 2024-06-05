@@ -160,6 +160,14 @@ Object {
     "multiple": true,
     "type": "string",
   },
+  "fail-only": Object {
+    "description": String(
+      Fail any tests marked with \`{only: true }\`, for CI and other environments where you want to ensure that tests are not being skipped.
+      
+      Only relevant when the @tapjs/filter plugin is enabled.
+    ),
+    "type": "boolean",
+  },
   "fail-skip": Object {
     "description": "Treat \`# SKIP\` assertions as failures",
     "type": "boolean",

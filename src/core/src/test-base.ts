@@ -522,6 +522,7 @@ export class TestBase extends Base<TestBaseEvents> {
       'passes',
       'failTodo',
       'failSkip',
+      'failOnly',
       'diagnostic',
     ] as const
     for (const k of inheritedFlags) {
@@ -586,9 +587,16 @@ export class TestBase extends Base<TestBaseEvents> {
       delete extra.skip
       ok = false
     }
+
     if (extra.todo && this.options.failTodo) {
       extra.failedTodo = extra.todo
       delete extra.todo
+      ok = false
+    }
+
+    if (extra.only && this.options.failOnly) {
+      extra.failedOnly = 'only:true tests not allowed'
+      delete extra.only
       ok = false
     }
 

@@ -17,6 +17,9 @@ eleventyNavigation:
   detecting changes.
 - Fully isolate plugin build process, so conflicting TS versions
   don't cause problems.
+- Add `--fail-only` flag to treat any `t.only()` or `{only:true}`
+  tests as failures. Useful for CI and other environments where
+  tests should not be skipped.
 
 ## 19.0
 

@@ -121,6 +121,11 @@ export interface BaseOpts extends Extra {
   failSkip?: boolean
 
   /**
+   * treat only:true tests as failures, default false
+   */
+  failOnly?: boolean
+
+  /**
    * The amount of time that this test took to complete.
    *
    * Typically, this is not set explicitly, but inferred from the actual

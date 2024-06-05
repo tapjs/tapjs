@@ -354,6 +354,7 @@ class TestBase extends base_js_1.Base {
             'passes',
             'failTodo',
             'failSkip',
+            'failOnly',
             'diagnostic',
         ];
         for (const k of inheritedFlags) {
@@ -408,6 +409,11 @@ class TestBase extends base_js_1.Base {
         if (extra.todo && this.options.failTodo) {
             extra.failedTodo = extra.todo;
             delete extra.todo;
+            ok = false;
+        }
+        if (extra.only && this.options.failOnly) {
+            extra.failedOnly = 'only:true tests not allowed';
+            delete extra.only;
             ok = false;
         }
         const diagnostic = typeof extra.diagnostic === 'boolean' ? extra.diagnostic
