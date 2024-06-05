@@ -15,3 +15,6 @@
 /.tap
 /src/*/.tap
 /src/test/test-built/node_modules
+
+# Local Netlify folder
+.netlify
