@@ -5,6 +5,12 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 19.1
+
+- Add `--browser`/`--no-browser` flag to control whether or not
+  html coverage reports are opened in the system's default web
+  browser.
+
 ## 19.0
 
 - Move auto-installed plugins to `.tap/plugins/node_modules`.
