@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/snapshot",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "tshy": {
     "main": true,
@@ -45,7 +45,7 @@
     "trivial-deferred": "^2.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "2.0.1"
+    "@tapjs/core": "2.1.0"
   },
   "tap": {
     "typecheck": false,
