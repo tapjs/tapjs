@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/fixture",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Tap plugin to provide t.testdir() and t.fixture()",
   "tshy": {
     "main": true,
@@ -44,7 +44,7 @@
     "rimraf": "^5.0.5"
   },
   "peerDependencies": {
-    "@tapjs/core": "2.1.0"
+    "@tapjs/core": "2.1.1"
   },
   "tap": {
     "typecheck": false,
