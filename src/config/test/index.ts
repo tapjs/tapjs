@@ -982,6 +982,7 @@ t.test('string config becomes extends value', async t => {
     })
     const conf = await TapConfig.load()
     t.equal(conf.get('bail'), true)
+    t.equal(conf.get('before'), resolve(t.testdirName, 'before.mjs'))
   }
 
   t.test('pj config', async t => {
@@ -993,14 +994,14 @@ t.test('string config becomes extends value', async t => {
         null,
         2,
       ),
-      'tap.yaml': 'bail: true',
+      'tap.yaml': 'bail: true\nbefore: ./before.mjs',
     })
     await runTest(t)
   })
   t.test('.taprc config', async t => {
     t.testdir({
       '.taprc': './tap.yaml',
-      'tap.yaml': 'bail: true',
+      'tap.yaml': 'bail: true\nbefore: ./before.mjs',
     })
     await runTest(t)
   })

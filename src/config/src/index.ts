@@ -238,7 +238,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       const p = yamlParse(
         await readFile(rc, 'utf8'),
       ) as OptionsResults<C>
-      return typeof p === 'string' ? { extends: p } : p
+      return this.resolvePathOptions(
+        typeof p === 'string' ? { extends: p } : p,
+        rc,
+      )
     } catch (er) {
       if (!silent) console.error('Error loading .taprc:', rc, er)
       return undefined
@@ -274,9 +277,27 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   async readPackageJsonConfig(
     pj: string,
   ): Promise<OptionsResults<C> | undefined> {
-    return (await this.readPackageJson(pj))?.tap as
-      | OptionsResults<C>
-      | undefined
+    return this.resolvePathOptions(
+      (await this.readPackageJson(pj))?.tap as
+        | OptionsResults<C>
+        | undefined,
+      pj,
+    )
+  }
+
+  resolvePathOptions(
+    conf: OptionsResults<C> | undefined,
+    file: string,
+  ): OptionsResults<C> | undefined {
+    if (conf) {
+      for (const p of pathOptions) {
+        const pc = conf[p]
+        if (typeof pc === 'string') {
+          Object.assign(conf, { [p]: resolve(dirname(file), pc) })
+        }
+      }
+    }
+    return conf
   }
 
   /**
@@ -373,14 +394,6 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     while (stack.length && stack[0]) {
       const [data, _, resolved] = stack[0]
       const { extends: ext, ...rest } = data
-      // root the glob and path type options
-      // if we pick up one of them, lose any others from other root dirs
-      const dir = dirname(resolved)
-      for (const k of pathOptions) {
-        if (typeof rest[k] === 'string') {
-          rest[k] = resolve(dir, rest[k])
-        }
-      }
       try {
         this.jack.setConfigValues(rest as OptionsResults<C>, resolved)
         stack.shift()
