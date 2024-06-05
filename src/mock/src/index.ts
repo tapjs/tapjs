@@ -132,7 +132,8 @@ export class TapMock {
    * Works with either ESM or CommonJS modules, but as with `import()` of
    * CommonJS modules, the `module.exports` value will be set as the
    * `default` property on the resolved object, making
-   * {@link @tapjs/mock!index.TapMock#mockRequire} somewhat more intuitive in those cases.
+   * {@link @tapjs/mock!index.TapMock#mockRequire} somewhat more intuitive in
+   * those cases.
    *
    * For type info, cast using `as typeof import(...)` or use the type
    * parameter, as TypeScript lacks a way to infer imports dynamically.
@@ -144,6 +145,30 @@ export class TapMock {
    *   typeof import('../my-thing.js')
    * >('../my-thing.js', {
    *   some: { tricky: 'mocks' },
+   * })
+   * ```
+   *
+   * Note: The terms "mock" and "import" are unfortunately very overloaded in
+   * the testing space. This is **not** "mock all imports of this module". It's
+   * "load this module, but with its imports mocked". The code of the target
+   * module is run normally, but its dependencies are injected with the
+   * supplied values, which is useful for triggering hard-to-reach error cases
+   * and other situations.
+   *
+   * It is also useful for just loading a fresh copy of a module in your tests,
+   * if for example your program behaves differently based on environment
+   * variables or other system settings. For example:
+   *
+   * ```ts
+   * t.test('windows behavior', async t => {
+   *   t.intercept(process, 'platform', { value: 'win32' })
+   *   const myThing = t.mockImport('../my-thing.js')
+   *   t.equal(myThing.separator, '\\')
+   * })
+   * t.test('posix behavior', async t => {
+   *   t.intercept(process, 'platform', { value: 'linux' })
+   *   const myThing = t.mockImport('../my-thing.js')
+   *   t.equal(myThing.separator, '/')
    * })
    * ```
    *
