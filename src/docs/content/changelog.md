@@ -10,6 +10,9 @@ eleventyNavigation:
 - Add `--browser`/`--no-browser` flag to control whether or not
   html coverage reports are opened in the system's default web
   browser.
+- Add support for a single string as the `tap` field in
+  a `package.json` or the contents of a `.taprc` file, and treat
+  it as the `extends` field.
 
 ## 19.0
 

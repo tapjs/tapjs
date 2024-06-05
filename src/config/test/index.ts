@@ -2,7 +2,7 @@ import * as core from '@tapjs/core'
 import { readFileSync } from 'fs'
 import { tmpdir } from 'os'
 import { resolve } from 'path'
-import t from 'tap'
+import t, { Test } from 'tap'
 import { TapConfig } from '../dist/esm/index.js'
 import jack from '../dist/esm/jack.js'
 
@@ -963,5 +963,45 @@ extends: '../a/.taprc'
     bail: true,
     'coverage-map': resolve(dir, 'b/foo.js'),
     reporter: 'spec',
+  })
+})
+
+t.test('string config becomes extends value', async t => {
+  const runTest = async (t: Test) => {
+    const cwd = process.cwd()
+    t.teardown(() => process.chdir(cwd))
+    process.chdir(t.testdirName)
+    const { TapConfig } = await t.mockImport<
+      typeof import('../dist/esm/index.js')
+    >('../dist/esm/index.js', {
+      '@tapjs/core': {
+        ...core,
+        cwd: t.testdirName,
+        env: {},
+      },
+    })
+    const conf = await TapConfig.load()
+    t.equal(conf.get('bail'), true)
+  }
+
+  t.test('pj config', async t => {
+    t.testdir({
+      'package.json': JSON.stringify(
+        {
+          tap: './tap.yaml',
+        },
+        null,
+        2,
+      ),
+      'tap.yaml': 'bail: true',
+    })
+    await runTest(t)
+  })
+  t.test('.taprc config', async t => {
+    t.testdir({
+      '.taprc': './tap.yaml',
+      'tap.yaml': 'bail: true',
+    })
+    await runTest(t)
   })
 })

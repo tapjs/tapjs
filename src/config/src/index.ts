@@ -235,9 +235,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     silent: boolean = false,
   ): Promise<OptionsResults<C> | undefined> {
     try {
-      return yamlParse(
+      const p = yamlParse(
         await readFile(rc, 'utf8'),
       ) as OptionsResults<C>
+      return typeof p === 'string' ? { extends: p } : p
     } catch (er) {
       if (!silent) console.error('Error loading .taprc:', rc, er)
       return undefined
@@ -254,7 +255,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     try {
       const res = jsonParse(await readFile(pj, 'utf8'))
       if (res && typeof res === 'object' && !Array.isArray(res)) {
-        return res as { tap?: OptionsResults<C> }
+        const r = res as {
+          tap?: string | OptionsResults<C> | { extends: string }
+        }
+        if (typeof r.tap === 'string') r.tap = { extends: r.tap }
+        return r as { tap?: OptionsResults<C> }
       }
     } catch (er) {
       if (!silent)
