@@ -58,6 +58,15 @@ Object {
     ),
     "type": "string",
   },
+  "browser": Object {
+    "default": true,
+    "description": String(
+      Open the coverage report in the system's web browser when an html report is generated (ie, when \`--coverage-report\` is either \`lcov\` or \`html\`).
+      
+      If set to false, then the html files will be generated, but not opened in a web browser automatically.
+    ),
+    "type": "boolean",
+  },
   "changed": Object {
     "description": String(
       Only run tests for files that have changed since the last run.
@@ -223,6 +232,10 @@ Object {
   "no-bail": Object {
     "description": "Do not bail out on first failure (default)",
     "short": "B",
+    "type": "boolean",
+  },
+  "no-browser": Object {
+    "description": "Do not automatically open html coverage reports in the system default web browser",
     "type": "boolean",
   },
   "no-color": Object {

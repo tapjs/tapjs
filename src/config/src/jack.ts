@@ -377,6 +377,19 @@ export default jack({
   })
 
   .flag({
+    browser: {
+      description: `Open the coverage report in the system's web browser when
+                    an html report is generated (ie, when \`--coverage-report\`
+                    is either \`lcov\` or \`html\`).
+
+                    If set to false, then the html files will be generated, but
+                    not opened in a web browser automatically.`,
+      default: true,
+    },
+    'no-browser': {
+      description: `Do not automatically open html coverage reports in the
+                    system default web browser`,
+    },
     'show-full-coverage': {
       description: `Show the \`100\` lines in the default \`text\` coverage
                     reporter for every file that has full coverage. Defaults to

@@ -29,6 +29,7 @@
   ],
   "scripts": {
     "prepare": "tshy",
+    "postprepare": "rm -rf XXX",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",

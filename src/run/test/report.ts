@@ -41,6 +41,7 @@ class MockConfig {
   showFullCoverage?: boolean
   allowEmptyCoverage?: boolean
   allowIncompleteCoverage?: boolean
+  browser?: boolean
   constructor(coverageReport: string[] = []) {
     this.#coverageReport = coverageReport
   }
@@ -54,6 +55,8 @@ class MockConfig {
         return this.allowEmptyCoverage
       case 'allow-incomplete-coverage':
         return this.allowIncompleteCoverage
+      case 'browser':
+        return this.browser !== false
       default:
         throw new Error('should only look up coverage configs')
     }
@@ -269,6 +272,69 @@ t.test('run an html report', async t => {
       }
       t.strictSame(comments.args(), [])
       t.equal(openerRan, true)
+      t.equal(readFileSync(htmlReport, 'utf8'), 'report')
+    })
+  }
+})
+
+t.test('run an html report, but no browser open', async t => {
+  const cases: [string, string][] = [
+    ['html', 'index.html'],
+    ['lcov', 'lcov-report/index.html'],
+  ]
+  for (const [style, file] of cases) {
+    t.test(style, async t => {
+      summary = summary100
+      t.testdir({
+        '.tap': {
+          coverage: {
+            'file.json': JSON.stringify({}),
+          },
+        },
+      })
+      const comments = t.capture(mockTap, 'comment')
+      let openerRan = false
+      const htmlReport = resolve(projectRoot, '.tap/report', file)
+      const { report } = await t.mockImport<
+        typeof import('../dist/esm/report.js')
+      >('../dist/esm/report.js', {
+        c8: { Report: MockReport },
+        '@tapjs/core': mockCore,
+        opener: (file: string) => {
+          t.equal(file, htmlReport)
+          openerRan = true
+        },
+        '../dist/esm/main-config.js': { mainCommand: 'report' },
+      })
+      const config = new MockConfig([])
+      config.browser = false
+      const logs = t.capture(console, 'log')
+      await report([style], config as unknown as LoadedConfig)
+      if (style === 'html')
+        t.strictSame(logs.args(), [
+          [
+            `html report: ${resolve(t.testdirName, '.tap/report/index.html')}`,
+          ],
+        ])
+      else {
+        const expect = [
+          [
+            `lcov report: ${resolve(
+              t.testdirName,
+              '.tap/report/lcov.info',
+            )}`,
+          ],
+          [
+            `html report: ${resolve(
+              t.testdirName,
+              '.tap/report/lcov-report/index.html',
+            )}`,
+          ],
+        ]
+        t.strictSame(logs.args(), expect)
+      }
+      t.strictSame(comments.args(), [])
+      t.equal(openerRan, false)
       t.equal(readFileSync(htmlReport, 'utf8'), 'report')
     })
   }

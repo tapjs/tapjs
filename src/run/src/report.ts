@@ -117,15 +117,20 @@ export const report = async (
       console.log(`${style} report: ${f}`)
     }
   }
-  if (reporter.includes('html')) {
-    opener(resolve(config.projectRoot, '.tap/report/index.html'))
-  } else if (reporter.includes('lcov')) {
-    opener(
+
+  const browser = config.get('browser')
+  const htmlReport =
+    reporter.includes('html') ?
+      resolve(config.projectRoot, '.tap/report/index.html')
+    : reporter.includes('lcov') ?
       resolve(
         config.projectRoot,
         '.tap/report/lcov-report/index.html',
-      ),
-    )
+      )
+    : undefined
+  if (htmlReport) {
+    if (browser) opener(htmlReport)
+    else console.log(`html report: ${htmlReport}`)
   }
 
   await checkCoverage(r, config)
