@@ -19,6 +19,7 @@
     { "path": "./src/asserts" },
     { "path": "./src/before" },
     { "path": "./src/before-each" },
+    { "path": "./src/chdir" },
     { "path": "./src/config" },
     { "path": "./src/core" },
     { "path": "./src/create-plugin" },
