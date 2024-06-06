@@ -7,6 +7,7 @@ exports.defaultPlugins = [
     '@tapjs/asserts',
     '@tapjs/before',
     '@tapjs/before-each',
+    '@tapjs/chdir',
     '@tapjs/filter',
     '@tapjs/fixture',
     '@tapjs/intercept',

@@ -1,0 +1,65 @@
+{
+  "name": "@tapjs/chdir",
+  "version": "1.0.0",
+  "description": "a built-in tap extension for t.chdir()",
+  "tshy": {
+    "main": true,
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
+  "type": "module",
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "tshy",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "author": "Isaac Z. Schlueter",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "@tapjs/after": "1.1.26"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "2.1.1"
+  },
+  "tap": {
+    "typecheck": false
+  },
+  "keywords": [
+    "tapjs plugin"
+  ],
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/intercept#readme",
+  "engines": {
+    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
+}

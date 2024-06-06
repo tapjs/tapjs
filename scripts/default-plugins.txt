@@ -3,6 +3,7 @@ after-each
 asserts
 before
 before-each
+chdir
 filter
 fixture
 intercept

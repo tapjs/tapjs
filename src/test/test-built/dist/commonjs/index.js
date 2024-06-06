@@ -35,6 +35,7 @@ const Plugin_afterEach = __importStar(require("@tapjs/after-each"));
 const Plugin_asserts = __importStar(require("@tapjs/asserts"));
 const Plugin_before = __importStar(require("@tapjs/before"));
 const Plugin_beforeEach = __importStar(require("@tapjs/before-each"));
+const Plugin_chdir = __importStar(require("@tapjs/chdir"));
 const Plugin_filter = __importStar(require("@tapjs/filter"));
 const Plugin_fixture = __importStar(require("@tapjs/fixture"));
 const Plugin_intercept = __importStar(require("@tapjs/intercept"));
@@ -101,6 +102,7 @@ const plugins = () => {
         Plugin_asserts.plugin,
         Plugin_before.plugin,
         Plugin_beforeEach.plugin,
+        Plugin_chdir.plugin,
         Plugin_filter.plugin,
         Plugin_fixture.plugin,
         Plugin_intercept.plugin,
@@ -263,6 +265,7 @@ exports.signature = `@tapjs/after
 @tapjs/asserts
 @tapjs/before
 @tapjs/before-each
+@tapjs/chdir
 @tapjs/filter
 @tapjs/fixture
 @tapjs/intercept

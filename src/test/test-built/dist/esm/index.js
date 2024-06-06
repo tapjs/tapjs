@@ -9,6 +9,7 @@ import * as Plugin_afterEach from "@tapjs/after-each";
 import * as Plugin_asserts from "@tapjs/asserts";
 import * as Plugin_before from "@tapjs/before";
 import * as Plugin_beforeEach from "@tapjs/before-each";
+import * as Plugin_chdir from "@tapjs/chdir";
 import * as Plugin_filter from "@tapjs/filter";
 import * as Plugin_fixture from "@tapjs/fixture";
 import * as Plugin_intercept from "@tapjs/intercept";
@@ -75,6 +76,7 @@ const plugins = () => {
         Plugin_asserts.plugin,
         Plugin_before.plugin,
         Plugin_beforeEach.plugin,
+        Plugin_chdir.plugin,
         Plugin_filter.plugin,
         Plugin_fixture.plugin,
         Plugin_intercept.plugin,
@@ -235,6 +237,7 @@ export const signature = `@tapjs/after
 @tapjs/asserts
 @tapjs/before
 @tapjs/before-each
+@tapjs/chdir
 @tapjs/filter
 @tapjs/fixture
 @tapjs/intercept

@@ -11,6 +11,7 @@ exports[`test/index.ts > TAP > get plugin list > must match snapshot 1`] = `
 @tapjs/asserts
 @tapjs/before
 @tapjs/before-each
+@tapjs/chdir
 @tapjs/filter
 @tapjs/fixture
 @tapjs/intercept

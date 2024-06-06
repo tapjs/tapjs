@@ -48,6 +48,7 @@
     "@tapjs/asserts": "2.0.3",
     "@tapjs/before": "2.0.3",
     "@tapjs/before-each": "2.0.3",
+    "@tapjs/chdir": "1.0.0",
     "@tapjs/core": "2.1.1",
     "@tapjs/filter": "2.0.3",
     "@tapjs/fixture": "2.0.3",
