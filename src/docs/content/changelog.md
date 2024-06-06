@@ -5,6 +5,11 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 19.2
+
+- Add `t.chdir(dir)` to change the working directory for the span
+  of a single test.
+
 ## 19.1
 
 - Add `--browser`/`--no-browser` flag to control whether or not
