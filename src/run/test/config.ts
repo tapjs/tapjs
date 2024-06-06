@@ -267,9 +267,7 @@ t.test('edit', t => {
         }),
       })
       const tmp = resolve(dir, '.tap', 'config-edit-tmp.yaml')
-      const origCwd = process.cwd()
-      process.chdir(dir)
-      t.teardown(() => process.chdir(origCwd))
+      t.chdir(dir)
 
       const mockConfig = {
         projectRoot: dir,

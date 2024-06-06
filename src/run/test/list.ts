@@ -61,9 +61,7 @@ t.test('list some test files', async t => {
       },
     },
   })
-  const cwd = process.cwd()
-  process.chdir(dir)
-  t.teardown(() => process.chdir(cwd))
+  t.chdir(dir)
   t.intercept(mainConfig.config, 'projectRoot', { value: dir })
 
   let saveList: string[] = []
@@ -243,7 +241,6 @@ t.test('filter changed files', async t => {
   const fixture = fileURLToPath(
     new URL('fixtures/project', import.meta.url),
   )
-  const cwd = process.cwd()
 
   const files = (dir: string): Record<string, Buffer> =>
     Object.fromEntries(
@@ -293,8 +290,7 @@ t.test('filter changed files', async t => {
     },
   })
 
-  process.chdir(dir)
-  t.teardown(() => process.chdir(cwd))
+  t.chdir(dir)
   t.intercept(mainConfig.config, 'projectRoot', { value: dir })
 
   const touch = (path: string, d: Date = new Date()) =>

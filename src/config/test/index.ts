@@ -866,16 +866,14 @@ t.test('load file from env.TAP_RCFILE', async t => {
     },
   })
 
-  const cwd = process.cwd()
-  t.afterEach(() => process.chdir(cwd))
   for (const rcfile of [
     'config.yml',
     'package.json',
     'config.json',
   ]) {
     for (const cwd of ['git', 'taprc', 'pj']) {
-      process.chdir(dir + '/cwds/' + cwd)
       t.test(`rcfile=${rcfile} cwd=${cwd}`, async t => {
+        t.chdir(dir + '/cwds/' + cwd)
         const { TapConfig } = await t.mockImport<
           typeof import('../dist/esm/index.js')
         >('../dist/esm/index.js', {
@@ -905,9 +903,7 @@ t.test(
 disable-coverage: true
 `,
     })
-    const cwd = process.cwd()
-    t.teardown(() => process.chdir(cwd))
-    process.chdir(dir)
+    t.chdir(dir)
     const { TapConfig } = await t.mockImport<
       typeof import('../dist/esm/index.js')
     >('../dist/esm/index.js')
@@ -944,9 +940,7 @@ extends: '../a/.taprc'
 `,
     },
   })
-  const cwd = process.cwd()
-  t.teardown(() => process.chdir(cwd))
-  process.chdir(dir)
+  t.chdir(dir)
   const { TapConfig } = await t.mockImport<
     typeof import('../dist/esm/index.js')
   >('../dist/esm/index.js', {
@@ -968,9 +962,7 @@ extends: '../a/.taprc'
 
 t.test('string config becomes extends value', async t => {
   const runTest = async (t: Test) => {
-    const cwd = process.cwd()
-    t.teardown(() => process.chdir(cwd))
-    process.chdir(t.testdirName)
+    t.chdir(t.testdirName)
     const { TapConfig } = await t.mockImport<
       typeof import('../dist/esm/index.js')
     >('../dist/esm/index.js', {

@@ -436,8 +436,6 @@ ok 1 - this is standard input
 })
 
 t.test('build before run if plugins mismatch', async t => {
-  const cwd = process.cwd()
-  t.teardown(() => process.chdir(cwd))
   const { run } = await t.mockImport<
     typeof import('../dist/esm/run.js')
   >('../dist/esm/run.js', {
@@ -449,7 +447,7 @@ t.test('build before run if plugins mismatch', async t => {
   const dir = t.testdir({
     'test.js': `import t from 'tap'; t.pass('this is fine')`,
   })
-  process.chdir(dir)
+  t.chdir(dir)
   t.rejects(
     run(['test.js'], {
       projectRoot: dir,

@@ -1,5 +1,5 @@
 import { plugin as TeardownPlugin } from '@tapjs/after'
-import { TapPlugin, TestBase, cwd } from '@tapjs/core'
+import { TapPlugin, TestBase, cwd, proc } from '@tapjs/core'
 
 /**
  * Implementation class providing the {@link @tapjs/intercept!Chdir#chdir}
@@ -7,13 +7,10 @@ import { TapPlugin, TestBase, cwd } from '@tapjs/core'
  */
 export class Chdir {
   #t: TestBase
-  #cwd: string
   #didTeardown: boolean = false
 
   constructor(t: TestBase) {
     this.#t = t
-    /* c8 ignore next - very rarely relevant */
-    this.#cwd = process?.cwd?.() || cwd
   }
 
   /**
@@ -21,9 +18,14 @@ export class Chdir {
    */
   chdir(dir: string): void {
     if (!this.#didTeardown && this.#t.t?.pluginLoaded(TeardownPlugin)) {
-      this.#t.t?.teardown(() => process.chdir(this.#cwd))
+      /* c8 ignore next - very rarely relevant */
+      const back = proc?.cwd?.() || cwd
+      this.#didTeardown = true
+      this.#t.t?.teardown(() => {
+        proc?.chdir?.(back)
+      })
     }
-    process.chdir(dir)
+    proc?.chdir?.(dir)
   }
 }
 
