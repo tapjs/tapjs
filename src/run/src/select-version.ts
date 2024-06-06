@@ -6,7 +6,10 @@ import { gt, satisfies } from 'semver'
 import { fileURLToPath } from 'url'
 import { npmBg } from './npm.js'
 
-const corePJ = await resolveImport('@tapjs/core/package.json')
+const corePJ = await resolveImport(
+  '@tapjs/core/package.json',
+  import.meta.url,
+)
 const { version: coreVersion } = JSON.parse(
   readFileSync(fileURLToPath(corePJ), 'utf8'),
 ) as { version: 'string' }
@@ -14,7 +17,10 @@ const { version: coreVersion } = JSON.parse(
 let registry: string | undefined = undefined
 const getPackument = async (pkg: string, config: LoadedConfig) => {
   if (!registry) {
-    const regLookup = npmBg(['config', 'get', 'registry'], config.projectRoot)
+    const regLookup = npmBg(
+      ['config', 'get', 'registry'],
+      config.projectRoot,
+    )
     if (regLookup.error) throw regLookup.error
     if (regLookup.status || regLookup.signal) {
       throw new Error(
