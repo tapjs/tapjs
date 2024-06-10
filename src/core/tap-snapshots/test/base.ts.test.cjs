@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/base.ts > TAP > basic instantiation > context after main 1`] = `
-Object {}
+Null Object {}
 `
 
 exports[`test/base.ts > TAP > basic instantiation > context before main 1`] = `
