@@ -11,7 +11,7 @@ import t from 'tap'
 
 t.test('using t.chdir() example', t => {
   const dir = t.testdir({
-    'some-file.txt': 'hello'
+    'some-file.txt': 'hello',
   })
   t.chdir(dir)
   t.equal(readFileSync('./some-file.txt', 'utf8'), 'hello')
@@ -23,7 +23,7 @@ t.test('using t.chdir() example', t => {
 // without this plugin, you'd have to do it this way:
 t.test('without t.chdir() example', t => {
   const dir = t.testdir({
-    'some-file.txt': 'hello'
+    'some-file.txt': 'hello',
   })
   const cwd = process.cwd()
   t.teardown(() => process.chdir(cwd))
@@ -35,6 +35,6 @@ t.test('without t.chdir() example', t => {
 
 ## API
 
-- `t.chdir(dir: string)` Change the process working directory to the
-  supplied path. When the test ends, the original dir is
-  restored, as long as the `@tapjs/after` plugin is not disabled.
+- `t.chdir(dir: string)` Change the process working directory to
+  the supplied path. When the test ends, the original dir is
+  restored.
