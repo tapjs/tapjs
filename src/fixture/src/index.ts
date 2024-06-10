@@ -7,7 +7,7 @@ import {
   TapPlugin,
   TestBase,
 } from '@tapjs/core'
-import { basename, dirname, relative, resolve } from 'node:path'
+import { basename, dirname, relative, resolve, sep } from 'node:path'
 import { rimraf, rimrafSync } from 'rimraf'
 import {
   Fixture,
@@ -81,8 +81,7 @@ export class TestFixtures {
   /**
    * Create a test directory, optionally filling it up with contents
    *
-   * If the `@tapjs/after` plugin is loaded, the testdir will be automatically
-   * deleted at the end of the test.
+   * The testdir will be automatically deleted at the end of the test.
    *
    * To _not_ delete the directory after the test, use the
    * `saveFixture: true` option when creating the test, or specify
@@ -100,12 +99,13 @@ export class TestFixtures {
       const { onEOF } = this.#t
       this.#t.onEOF = async () => {
         this.#t.onEOF = onEOF
-        if (relative(process.cwd(), dir) === '') {
+        const rel = relative(process.cwd(), dir)
+        if (rel === '' || rel === '..' || rel.startsWith(`..${sep}`)) {
           // cd out of it first, or else Windows fails with EBUSY every time
           process.chdir(dirname(dir))
         }
-        await rimraf(dir)
         await onEOF()
+        await rimraf(dir)
       }
     }
     return dir

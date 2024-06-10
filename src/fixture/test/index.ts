@@ -89,15 +89,21 @@ t.test('change testdirName', t => {
 })
 
 t.test('cd out of dir before deleting', t => {
-  let dir: string
-  t.test('chdir into testdir', t => {
-    process.chdir(t.testdir({}))
-    dir = t.testdirName
-    t.end()
-  })
-  t.test('got kicked up a level', t => {
-    t.equal(relative(dir, process.cwd()), '..')
-    t.end()
-  })
+  const subs = ['', 'a/b/c']
+  for (const sub of subs) {
+    t.test('subdir in testdir=' + sub, t => {
+      let dir: string
+      t.test('chdir into testdir', t => {
+        process.chdir(t.testdir({ a: { b: { c: {} } } }) + '/' + sub)
+        dir = t.testdirName
+        t.end()
+      })
+      t.test('got kicked up a level', t => {
+        t.equal(relative(dir, process.cwd()), '..')
+        t.end()
+      })
+      t.end()
+    })
+  }
   t.end()
 })
