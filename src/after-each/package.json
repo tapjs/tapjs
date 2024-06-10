@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/after-each",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "a built-in tap extension for t.afterEach()",
   "tshy": {
     "main": true,
@@ -43,7 +43,7 @@
     "function-loop": "^4.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "2.1.3"
+    "@tapjs/core": "2.1.4"
   },
   "tap": {
     "typecheck": false
