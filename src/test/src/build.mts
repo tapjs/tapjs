@@ -456,6 +456,9 @@ writeFileSync(
 )
 
 const escapeSpacesInFilePath = (filePath: string): string => {
+  if (process.platform === 'win32') {
+    return `"${filePath}"`;
+  }
   return filePath.replace(/(\s+)/g, '\\$1')
 }
 
