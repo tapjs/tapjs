@@ -455,11 +455,15 @@ writeFileSync(
   }),
 )
 
+const escapeSpacesInFilePath = (filePath: string): string => {
+  return filePath.replace(/(\s+)/g, '\\$1')
+}
+
 const tshy = fileURLToPath(
   await resolveImport('tshy', import.meta.url),
 )
 
-const res = spawnSync(process.execPath, [tshy], {
+const res = spawnSync(escapeSpacesInFilePath(process.execPath), [tshy], {
   shell: true,
   cwd: dir,
   stdio: 'inherit',
