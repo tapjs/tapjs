@@ -25,8 +25,11 @@ export const npmFindCwd = async (projectRoot: string): Promise<string> => {
  * Run an npm command in the background, returning the result
  */
 export const npmBg = (args: string[], npmCwd: string) => {
-  return spawnSync('npm', ['--prefix', npmCwd, ...args], {
-    env: npmFreeEnv,
+  return spawnSync('npm', args, {
+    env: {
+      ...npmFreeEnv,
+      npm_config_prefix: npmCwd,
+    },
     encoding: 'utf8',
     cwd: npmCwd,
     shell: true,
@@ -52,14 +55,14 @@ const npmFg = (
 ) => {
   return foregroundChild(
     'npm',
-    // will always have set npmCwd by now
-    /* c8 ignore start */
-    ['--prefix', npmCwd, ...args],
+    args,
     {
-      env: npmFreeEnv,
+      env: {
+        ...npmFreeEnv,
+        npm_config_prefix: npmCwd,
+      },
       cwd: npmCwd,
       shell: true,
-      /* c8 ignore stop */
     },
     cb,
   )

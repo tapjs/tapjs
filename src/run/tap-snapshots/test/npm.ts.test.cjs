@@ -10,8 +10,6 @@ Array [
   Array [
     "npm",
     Array [
-      "--prefix",
-      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "install",
       "--no-audit",
       "--loglevel=error",
@@ -37,8 +35,6 @@ Array [
   Array [
     "npm",
     Array [
-      "--prefix",
-      "{CWD}/.tap/fixtures/test-npm.ts",
       "config",
       "get",
       "registry",
@@ -60,8 +56,6 @@ Array [
   Array [
     "npm",
     Array [
-      "--prefix",
-      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "rm",
       "--no-audit",
       "--loglevel=error",
@@ -86,8 +80,6 @@ Array [
   Array [
     "npm",
     Array [
-      "--prefix",
-      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "install",
       "--no-audit",
       "--loglevel=error",
@@ -113,8 +105,6 @@ Array [
   Array [
     "npm",
     Array [
-      "--prefix",
-      "{CWD}/.tap/fixtures/test-npm.ts",
       "config",
       "get",
       "registry",
@@ -136,8 +126,6 @@ Array [
   Array [
     "npm",
     Array [
-      "--prefix",
-      "{CWD}/.tap/fixtures/test-npm.ts/.tap/plugins",
       "rm",
       "--no-audit",
       "--loglevel=error",

@@ -12,7 +12,11 @@ const deEnv = <T extends any>(o: T): T => {
   const { env, ...props } = o as Record<string, any>
   if (env) {
     const npmKeys = Object.keys(env).filter(k => /^npm/i.test(k))
-    t.strictSame(npmKeys, [], 'no npm keys in env')
+    t.strictSame(
+      npmKeys,
+      ['npm_config_prefix'],
+      'no extra npm keys in env',
+    )
   }
   return Object.fromEntries([
     ['env', { ok: true }],
@@ -108,7 +112,10 @@ t.test('passing commands', async t => {
       mockPass,
     )
   t.test('random command', async t => {
-    const res = npmBg(['config', 'get', 'registry'], mockConfig.projectRoot)
+    const res = npmBg(
+      ['config', 'get', 'registry'],
+      mockConfig.projectRoot,
+    )
     t.match(res, { status: 0, signal: null })
     t.matchSnapshot(passSpawn())
     t.strictSame(passFG(), [])
@@ -134,7 +141,10 @@ t.test('failing commands', async t => {
       mockFail,
     )
   t.test('random command', async t => {
-    const res = npmBg(['config', 'get', 'registry'], mockConfig.projectRoot)
+    const res = npmBg(
+      ['config', 'get', 'registry'],
+      mockConfig.projectRoot,
+    )
     t.match(res, { status: 1, signal: 'SIGTERM' })
     t.matchSnapshot(failSpawn())
     t.strictSame(failFG(), [])
@@ -184,7 +194,10 @@ t.test('npm installs go to workspace root', async t => {
     mockConfig.projectRoot = resolve(
       t.testdir(testdir) + '/packages/test',
     )
-    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
+    const expect = resolve(
+      t.testdirName,
+      'packages/test/.tap/plugins',
+    )
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     // call second time to cover caching
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
@@ -205,7 +218,10 @@ t.test('npm installs go to workspace root', async t => {
         },
       }) + '/packages/test',
     )
-    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
+    const expect = resolve(
+      t.testdirName,
+      'packages/test/.tap/plugins',
+    )
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     t.strictSame(passSpawn(), [])
   })
@@ -221,7 +237,10 @@ t.test('npm installs go to workspace root', async t => {
     mockConfig.projectRoot = resolve(
       t.testdir(testdir) + '/packages/test',
     )
-    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
+    const expect = resolve(
+      t.testdirName,
+      'packages/test/.tap/plugins',
+    )
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     t.match(passSpawn(), [])
   })

@@ -460,7 +460,6 @@ const tshy = fileURLToPath(
 )
 
 const res = spawnSync(process.execPath, [tshy], {
-  shell: true,
   cwd: dir,
   stdio: 'inherit',
 })

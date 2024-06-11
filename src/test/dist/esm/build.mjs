@@ -339,7 +339,6 @@ writeFileSync(out, swapTags(template, {
 }));
 const tshy = fileURLToPath(await resolveImport('tshy', import.meta.url));
 const res = spawnSync(process.execPath, [tshy], {
-    shell: true,
     cwd: dir,
     stdio: 'inherit',
 });
