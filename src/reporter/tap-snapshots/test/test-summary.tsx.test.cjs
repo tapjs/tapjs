@@ -11,7 +11,7 @@ exports[`test/test-summary.tsx > TAP > all the details > must match snapshot 1`]
  [1m[36m~[39m[22m skip msg [36mmessage[39m
  [1m[35m☐[39m[22m todo
  [1m[35m☐[39m[22m todo msg [35mmessage[39m
- [1m[31m✖[39m[22m nope
+ [1m[31m✖[39m[22m  nope
     [48;5;234m[2mtest/test-summary.tsx                                              [22m[49m
     [48;5;234m[38;2;143;165;209m74 [38;5;252mt[38;2;147;205;255m.[38;5;252mtest[38;2;147;205;255m([38;5;113m'all the details'[38;2;147;205;255m,[38;5;252m [38;2;121;192;255masync[38;5;252m t => [38;2;147;205;255m{[38;5;252m                          [39m[49m
     [48;5;234m[38;2;143;165;209m75 [38;5;252m  [38;2;121;192;255mconst[38;5;252m tb = [38;2;121;192;255mnew[38;5;252m Minimal[38;2;147;205;255m({[38;5;252m name: [38;5;113m'all the things'[38;5;252m [38;2;147;205;255m})[38;5;252m            [39m[49m
@@ -31,17 +31,17 @@ exports[`test/test-summary.tsx > TAP > all the things > must match snapshot 1`] 
  [1m[36m~[39m[22m skip msg [36mmessage[39m
  [1m[35m☐[39m[22m todo
  [1m[35m☐[39m[22m todo msg [35mmessage[39m
- [1m[31m✖[39m[22m nope [2mtest/test-summary.tsx:63:6[22m
+ [1m[31m✖[39m[22m  nope [2mtest/test-summary.tsx:63:6[22m
 `
 
 exports[`test/test-summary.tsx > TAP > failing test > must match snapshot 1`] = `
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m failer [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m expected failure [2mtest/test-summary.tsx:44:6[22m
+ [1m[31m✖[39m[22m  expected failure [2mtest/test-summary.tsx:44:6[22m
 `
 
 exports[`test/test-summary.tsx > TAP > failing test with details > must match snapshot 1`] = `
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m failer [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m expected failure
+ [1m[31m✖[39m[22m  expected failure
     [48;5;234m[2mtest/test-summary.tsx                                              [22m[49m
     [48;5;234m[38;2;143;165;209m49 [38;5;252m                                                                [39m[49m
     [48;5;234m[38;2;143;165;209m50 [38;5;252mt[38;2;147;205;255m.[38;5;252mtest[38;2;147;205;255m([38;5;113m'failing test with details'[38;2;147;205;255m,[38;5;252m [38;2;121;192;255masync[38;5;252m t => [38;2;147;205;255m{[38;5;252m                [39m[49m

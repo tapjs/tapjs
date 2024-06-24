@@ -45,7 +45,7 @@
     "@tapjs/core": "2.1.6",
     "@tapjs/test": "2.2.4",
     "chalk": "^5.2.0",
-    "jackspeak": "^3.1.2",
+    "jackspeak": "^3.4.0",
     "polite-json": "^5.0.0",
     "tap-yaml": "2.2.2",
     "walk-up-path": "^3.0.1"

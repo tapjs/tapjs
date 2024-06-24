@@ -7,7 +7,7 @@
 'use strict'
 exports[`test/base.tsx > TAP > no comments or passes > must match snapshot 1`] = `
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope [2mtest/fixtures/get-test.ts:17:54[22m
+ [1m[31m✖[39m[22m  nope [2mtest/fixtures/get-test.ts:17:54[22m
 [1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
  [1m[36m~[39m[22m skip
 [1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m fur [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
@@ -28,7 +28,7 @@ exports[`test/base.tsx > TAP > no comments or passes > must match snapshot 1`] =
 [48;2;255;255;255m                       [49m
 
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope
+ [1m[31m✖[39m[22m  nope
     [48;5;234m[2mtest/fixtures/get-test.ts                                            [22m[49m
     [48;5;234m[38;2;143;165;209m14 [38;5;252m      [38;2;121;192;255mawait[38;5;252m sleep[38;2;147;205;255m([38;5;113m64[38;2;147;205;255m)[38;5;252m                                             [39m[49m
     [48;5;234m[38;2;143;165;209m15 [38;5;252m      [38;2;215;95;255m[3m// children end out of order[23m[38;5;252m                                [39m[49m
@@ -62,7 +62,7 @@ exports[`test/base.tsx > TAP > no comments or passes > must match snapshot 1`] =
 
 exports[`test/base.tsx > TAP > yes comments and passes > must match snapshot 1`] = `
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope [2mtest/fixtures/get-test.ts:17:54[22m
+ [1m[31m✖[39m[22m  nope [2mtest/fixtures/get-test.ts:17:54[22m
 
 [31m[2m2>[22m[39m [2mtwo[22m
 # comment in two
@@ -91,7 +91,7 @@ exports[`test/base.tsx > TAP > yes comments and passes > must match snapshot 1`]
 [48;2;255;255;255m                       [49m
 
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope
+ [1m[31m✖[39m[22m  nope
     [48;5;234m[2mtest/fixtures/get-test.ts                                            [22m[49m
     [48;5;234m[38;2;143;165;209m14 [38;5;252m      [38;2;121;192;255mawait[38;5;252m sleep[38;2;147;205;255m([38;5;113m64[38;2;147;205;255m)[38;5;252m                                             [39m[49m
     [48;5;234m[38;2;143;165;209m15 [38;5;252m      [38;2;215;95;255m[3m// children end out of order[23m[38;5;252m                                [39m[49m

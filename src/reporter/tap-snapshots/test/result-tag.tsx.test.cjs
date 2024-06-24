@@ -6,15 +6,15 @@
  */
 'use strict'
 exports[`test/result-tag.tsx > TAP > fail, no diag > must match snapshot 1`] = `
- [1m[31m✖[39m[22m fake result
+ [1m[31m✖[39m[22m  fake result
 `
 
 exports[`test/result-tag.tsx > TAP > fail, with diag > must match snapshot 1`] = `
- [1m[31m✖[39m[22m fake result [2mtest/result-tag.tsx:62:17[22m
+ [1m[31m✖[39m[22m  fake result [2mtest/result-tag.tsx:62:17[22m
 `
 
 exports[`test/result-tag.tsx > TAP > fail, with diag and details > must match snapshot 1`] = `
- [1m[31m✖[39m[22m fake result
+ [1m[31m✖[39m[22m  fake result
     [48;5;234m[2mtest/result-tag.tsx                                            [22m[49m
     [48;5;234m[38;2;143;165;209m110 [38;5;252m      result=[38;2;147;205;255m{[38;5;252mgetRes[38;2;147;205;255m({[38;5;252m                                     [39m[49m
     [48;5;234m[38;2;143;165;209m111 [38;5;252m        ok: [38;5;113mfalse[38;2;147;205;255m,[38;5;252m                                         [39m[49m
@@ -36,7 +36,7 @@ exports[`test/result-tag.tsx > TAP > fail, with diag and details > must match sn
 `
 
 exports[`test/result-tag.tsx > TAP > fail, with diag, no line/column numbers > must match snapshot 1`] = `
- [1m[31m✖[39m[22m fake result [2mtest/result-tag.tsx[22m
+ [1m[31m✖[39m[22m  fake result [2mtest/result-tag.tsx[22m
 `
 
 exports[`test/result-tag.tsx > TAP > pass > must match snapshot 1`] = `

@@ -8,7 +8,7 @@
 exports[`test/result-detail-list.tsx > TAP > no banner > must match snapshot 1`] = `
 
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope
+ [1m[31m✖[39m[22m  nope
     [48;5;234m[2mtest/fixtures/get-test.ts                                            [22m[49m
     [48;5;234m[38;2;143;165;209m14 [38;5;252m      [38;2;121;192;255mawait[38;5;252m sleep[38;2;147;205;255m([38;5;113m64[38;2;147;205;255m)[38;5;252m                                             [39m[49m
     [48;5;234m[38;2;143;165;209m15 [38;5;252m      [38;2;215;95;255m[3m// children end out of order[23m[38;5;252m                                [39m[49m
@@ -38,7 +38,7 @@ exports[`test/result-detail-list.tsx > TAP > with banner > must match snapshot 1
 hello
 
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope
+ [1m[31m✖[39m[22m  nope
     [48;5;234m[2mtest/fixtures/get-test.ts                                            [22m[49m
     [48;5;234m[38;2;143;165;209m14 [38;5;252m      [38;2;121;192;255mawait[38;5;252m sleep[38;2;147;205;255m([38;5;113m64[38;2;147;205;255m)[38;5;252m                                             [39m[49m
     [48;5;234m[38;2;143;165;209m15 [38;5;252m      [38;2;215;95;255m[3m// children end out of order[23m[38;5;252m                                [39m[49m

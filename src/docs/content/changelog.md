@@ -5,6 +5,13 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 20.0
+
+- Bump minimum supported node version to 18.6.0
+- Upgrade dependencies. (Many updates were pending because they
+  require a higher node version, and thus waited for this
+  release.)
+
 ## 19.2
 
 - Add `t.chdir(dir)` to change the working directory for the span
