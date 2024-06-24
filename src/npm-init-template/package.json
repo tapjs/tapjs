@@ -1,6 +1,6 @@
 {
   "name": "npm-init-template",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Create 'npm init' packages easily with templates and prompts",
   "tshy": {
     "main": true,

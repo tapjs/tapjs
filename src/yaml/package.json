@@ -1,6 +1,6 @@
 {
   "name": "tap-yaml",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "Yaml handling for TAP parsers and generators",
   "tshy": {
     "main": true,

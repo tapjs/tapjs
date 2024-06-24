@@ -1,6 +1,6 @@
 {
   "name": "tap-parser",
-  "version": "16.0.1",
+  "version": "17.0.0",
   "description": "parse the test anything protocol",
   "tshy": {
     "main": true,
@@ -46,7 +46,7 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "events-to-array": "^2.0.3",
-    "tap-yaml": "2.2.2"
+    "tap-yaml": "3.0.0"
   },
   "tap": {
     "include": [
