@@ -138,9 +138,6 @@
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
   },
-  "engines": {
-    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
-  },
   "nx": {
     "implicitDependencies": [
       "!@tapjs/core",
@@ -161,5 +158,8 @@
       "!@tapjs/typescript",
       "!@tapjs/worker"
     ]
+  },
+  "engines": {
+    "node": ">= 18.6.0"
   }
 }

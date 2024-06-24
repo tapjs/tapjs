@@ -1,9 +1,17 @@
 import { readFileSync, writeFileSync } from 'fs'
+import { fileURLToPath } from 'url'
 const files = process.argv.slice(2)
+const root = JSON.parse(
+  readFileSync(
+    fileURLToPath(new URL('../package.json', import.meta.url)),
+    'utf8',
+  ),
+)
 
 const sortObj = o =>
-  o && Object.fromEntries(
-    Object.entries(o).sort(([a], [b]) => a.localeCompare(b, 'en'))
+  o &&
+  Object.fromEntries(
+    Object.entries(o).sort(([a], [b]) => a.localeCompare(b, 'en')),
   )
 
 for (const f of files) {
@@ -26,6 +34,7 @@ for (const f of files) {
     devDependencies,
     peerDependencies,
     tap,
+    engines: _,
     ...rest
   } = pkg
   writeFileSync(
@@ -50,9 +59,10 @@ for (const f of files) {
         peerDependencies: sortObj(peerDependencies),
         tap,
         ...rest,
+        engines: root.engines,
       },
       null,
-      2
-    ) + '\n'
+      2,
+    ) + '\n',
   )
 }

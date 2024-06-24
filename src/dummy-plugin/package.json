@@ -83,6 +83,11 @@
   },
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "@tapjs/reporter": "2.0.8",
+    "ink": "^4.4.1",
+    "react": "^18.2.0"
+  },
   "peerDependencies": {
     "@tapjs/core": "2.1.6"
   },
@@ -96,16 +101,11 @@
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },
-  "engines": {
-    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
   },
-  "dependencies": {
-    "@tapjs/reporter": "2.0.8",
-    "ink": "^4.4.1",
-    "react": "^18.2.0"
+  "engines": {
+    "node": ">= 18.6.0"
   }
 }

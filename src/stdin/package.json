@@ -54,11 +54,11 @@
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/stdin#readme",
-  "engines": {
-    "node": "16 >=16.17.0 || 18 >= 18.6.0 || >=20"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
+  },
+  "engines": {
+    "node": ">= 18.6.0"
   }
 }
