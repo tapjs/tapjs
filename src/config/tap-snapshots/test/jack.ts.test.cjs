@@ -17,6 +17,7 @@ Object {
       
       Relative \`after\` paths are resolved against the project config root, even if specified on the cli.
     ),
+    "hint": "module",
     "type": "string",
   },
   "allow-empty-coverage": Object {
@@ -56,6 +57,7 @@ Object {
       
       Relative \`before\` paths are resolved against the project config root, even if specified on the cli.
     ),
+    "hint": "module",
     "type": "string",
   },
   "browser": Object {
@@ -95,6 +97,7 @@ Object {
       
       Return an empty array [] to cover the set that would be pulled in by default. Ie, returning [] is equivalent to not using a coverage map at all.
     ),
+    "hint": "module",
     "type": "string",
   },
   "coverage-report": Object {
@@ -125,6 +128,7 @@ Object {
       - text-lcov
       - text-summary
     ),
+    "hint": "type",
     "multiple": true,
     "type": "string",
   },
@@ -157,6 +161,7 @@ Object {
       
       Note: folders named tap-snapshots, node_modules, or .git are ALWAYS excluded from the default test file set. If you wish to run tests in these folders, then name the test files on the command line as positional arguments.
     ),
+    "hint": "pattern",
     "multiple": true,
     "type": "string",
   },
@@ -178,6 +183,7 @@ Object {
   },
   "files": Object {
     "description": "Alternative way to specify test set rather than using positional arguments. Supported as an option so that test file arguments can be specified in .taprc and package.json files.",
+    "hint": "filename",
     "multiple": true,
     "type": "string",
   },
@@ -222,6 +228,7 @@ Object {
       
       The glob patterns are expanded without the \`dot\` option, so any file starting with a . will be ignored.
     ),
+    "hint": "pattern",
     "multiple": true,
     "type": "string",
   },
@@ -234,6 +241,7 @@ Object {
       
       Set --jobs=1 to disable parallelization entirely.
     ),
+    "hint": "n",
     "short": "j",
     "type": "number",
   },
@@ -262,6 +270,7 @@ Object {
   "node-arg": Object {
     "default": Array [],
     "description": "Pass an argument to Node binary in all child processes. Run \`node --help\` to see a list of all relevant arguments. This can be specified multiple times to pass multiple args to Node.",
+    "hint": "arg",
     "multiple": true,
     "type": "string",
   },
@@ -279,11 +288,13 @@ Object {
       
       Files will be created to match the folder structure and filenames of test files run, but with \`.tap\` appended to the filenames.
     ),
+    "hint": "dir",
     "short": "d",
     "type": "string",
   },
   "output-file": Object {
     "description": "Send the raw TAP output to the specified file. Reporter output will still be printed to stdout, but the file will contain the raw TAP for later replay or analysis.",
+    "hint": "filename",
     "short": "o",
     "type": "string",
   },
@@ -329,6 +340,7 @@ Object {
       
       Even if excluded, the runner will use some of these plugins in its own operation.
     ),
+    "hint": "module",
     "multiple": true,
     "type": "string",
   },
@@ -359,11 +371,13 @@ Object {
       - junit
       - tap
     ),
+    "hint": "reporter",
     "short": "R",
     "type": "string",
   },
   "reporter-arg": Object {
     "description": "Args to pass to command-line reporters. Ignored when using built-in reporters or module reporters.",
+    "hint": "arg",
     "multiple": true,
     "short": "r",
     "type": "string",
@@ -376,6 +390,7 @@ Object {
       
       If \`TAP=1\` is set in the environment, then raw TAP output is always written to stdout, because this is how test files communicate with the runner.
     ),
+    "hint": "file",
     "short": "f",
     "type": "string",
   },
@@ -389,11 +404,13 @@ Object {
       
       Its a good idea to .gitignore the file used for this purpose, as it will churn a lot.
     ),
+    "hint": "file",
     "short": "s",
     "type": "string",
   },
   "serial": Object {
     "description": "Mark all test files anywhere within the specified directory as serial tests, not to be run in parallel with any other test files.",
+    "hint": "dir",
     "multiple": true,
     "type": "string",
   },
@@ -414,6 +431,7 @@ Object {
   "test-arg": Object {
     "default": Array [],
     "description": "Pass an argument to test files spawned by the tap command line executable. This can be specified multiple times to pass multiple args to test scripts.",
+    "hint": "arg",
     "multiple": true,
     "type": "string",
   },
@@ -424,6 +442,7 @@ Object {
       
       If a value is not provided, such as \`--test-env=key\`, then the key is ensured to not be set in the environment. To set a key to the empty string, use --test-env=key=
     ),
+    "hint": "key=value",
     "multiple": true,
     "type": "string",
   },
@@ -434,6 +453,7 @@ Object {
       
       When a test process calls t.setTimeout(n) on the top-level tap object, it also updates this value for that specific process.
     ),
+    "hint": "n",
     "short": "t",
     "type": "number",
   },
