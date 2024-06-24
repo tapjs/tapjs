@@ -46,7 +46,7 @@
     "minimatch": "^9.0.1",
     "mkdirp": "^3.0.1",
     "mustache": "^4.2.0",
-    "read": "^2.1.0"
+    "read": "^3.0.1"
   },
   "tap": {
     "typecheck": false

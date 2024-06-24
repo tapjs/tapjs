@@ -6,7 +6,7 @@ import mustache from 'mustache'
 import { dirname, parse, relative, resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { parseArgs } from 'util'
-import { read, ReadOptions } from './read.js'
+import { read, Options as ReadOptions } from 'read'
 
 export type { read, ReadOptions }
 

@@ -73,7 +73,7 @@
     "prismjs-terminal": "^1.2.3",
     "react": "^18.2.0",
     "react-element-to-jsx-string": "^15.0.0",
-    "read": "^2.1.0",
+    "read": "^3.0.1",
     "resolve-import": "^1.4.5",
     "rimraf": "^5.0.5",
     "string-length": "^6.0.0",
