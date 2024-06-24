@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * The root TAP object singleton, the `t` you get when you
  * `import t from 'tap'`

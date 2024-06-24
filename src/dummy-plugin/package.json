@@ -20,42 +20,50 @@
     "./package.json": "./package.json",
     ".": {
       "import": {
+        "source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
       "require": {
+        "source": "./src/index.ts",
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
       }
     },
     "./loader": {
       "import": {
+        "source": "./src/loader.mts",
         "types": "./dist/esm/loader.d.mts",
         "default": "./dist/esm/loader.mjs"
       }
     },
     "./import": {
       "import": {
+        "source": "./src/import.mts",
         "types": "./dist/esm/import.d.mts",
         "default": "./dist/esm/import.mjs"
       }
     },
     "./reporter": {
       "import": {
+        "source": "./src/reporter.tsx",
         "types": "./dist/esm/reporter.d.ts",
         "default": "./dist/esm/reporter.js"
       },
       "require": {
+        "source": "./src/reporter.tsx",
         "types": "./dist/commonjs/reporter.d.ts",
         "default": "./dist/commonjs/reporter.js"
       }
     },
     "./load-reporter": {
       "import": {
+        "source": "./src/load-reporter.ts",
         "types": "./dist/esm/load-reporter.d.ts",
         "default": "./dist/esm/load-reporter.js"
       },
       "require": {
+        "source": "./src/load-reporter.ts",
         "types": "./dist/commonjs/load-reporter.d.ts",
         "default": "./dist/commonjs/load-reporter.js"
       }

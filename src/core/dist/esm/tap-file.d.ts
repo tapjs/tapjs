@@ -1,5 +1,3 @@
-/// <reference types="node" resolution-mode="require"/>
-/// <reference types="node" resolution-mode="require"/>
 /**
  * This is not very useful in many cases outside of the tap runner itself,
  * where it's used to replay previous stored test results.

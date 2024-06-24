@@ -1,5 +1,3 @@
-/// <reference types="node" resolution-mode="require"/>
-/// <reference types="node" resolution-mode="require"/>
 import type { Test } from '@tapjs/test';
 import { Minipass } from 'minipass';
 import { Readable } from 'node:stream';

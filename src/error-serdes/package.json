@@ -19,50 +19,60 @@
   "exports": {
     ".": {
       "import": {
+        "source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
       "require": {
+        "source": "./src/index.ts",
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
       }
     },
     "./ser": {
       "import": {
+        "source": "./src/serialize.ts",
         "types": "./dist/esm/serialize.d.ts",
         "default": "./dist/esm/serialize.js"
       },
       "require": {
+        "source": "./src/serialize.ts",
         "types": "./dist/commonjs/serialize.d.ts",
         "default": "./dist/commonjs/serialize.js"
       }
     },
     "./des": {
       "import": {
+        "source": "./src/deserialize.ts",
         "types": "./dist/esm/deserialize.d.ts",
         "default": "./dist/esm/deserialize.js"
       },
       "require": {
+        "source": "./src/deserialize.ts",
         "types": "./dist/commonjs/deserialize.d.ts",
         "default": "./dist/commonjs/deserialize.js"
       }
     },
     "./test-stream-deserialize": {
       "import": {
+        "source": "./src/test-stream-deserialize.ts",
         "types": "./dist/esm/test-stream-deserialize.d.ts",
         "default": "./dist/esm/test-stream-deserialize.js"
       },
       "require": {
+        "source": "./src/test-stream-deserialize.ts",
         "types": "./dist/commonjs/test-stream-deserialize.d.ts",
         "default": "./dist/commonjs/test-stream-deserialize.js"
       }
     },
     "./test-stream-serialize": {
       "import": {
+        "source": "./src/test-stream-serialize.ts",
         "types": "./dist/esm/test-stream-serialize.d.ts",
         "default": "./dist/esm/test-stream-serialize.js"
       },
       "require": {
+        "source": "./src/test-stream-serialize.ts",
         "types": "./dist/commonjs/test-stream-serialize.d.ts",
         "default": "./dist/commonjs/test-stream-serialize.js"
       }

@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { Base, TapBaseEvents } from './base.js';
 import { Worker as NodeWorker } from 'node:worker_threads';
 import { FinalResults } from 'tap-parser';

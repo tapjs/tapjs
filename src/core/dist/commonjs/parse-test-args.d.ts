@@ -16,5 +16,5 @@ export type TestArgs<T extends Base, O extends Opts = Opts> = [] | [name: string
 /**
  * Normalize the arguments provided to a subtest method
  */
-export declare const parseTestArgs: <T extends Base<import("./base.js").TapBaseEvents>, O extends Opts = Opts>(...args: TestArgs<T, O>) => O;
+export declare const parseTestArgs: <T extends Base, O extends Opts = Opts>(...args: TestArgs<T, O>) => O;
 //# sourceMappingURL=parse-test-args.d.ts.map

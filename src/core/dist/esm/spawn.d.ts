@@ -1,6 +1,3 @@
-/// <reference types="node" resolution-mode="require"/>
-/// <reference types="node" resolution-mode="require"/>
-/// <reference types="node" resolution-mode="require"/>
 import { Base, TapBaseEvents } from './base.js';
 import { WithExternalID } from '@tapjs/processinfo';
 import { ChildProcess, ChildProcessByStdio, IOType, SpawnOptions, StdioOptions } from 'node:child_process';

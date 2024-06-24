@@ -3,8 +3,6 @@
  *
  * @module
  */
-/// <reference types="node" />
-/// <reference types="node" />
 import { Domain } from 'async-hook-domain';
 import { AsyncResource } from 'async_hooks';
 import { Minipass } from 'minipass';

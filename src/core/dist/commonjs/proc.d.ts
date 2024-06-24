@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * grab some basic process stuff safely at startup
  *

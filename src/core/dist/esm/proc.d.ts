@@ -1,4 +1,3 @@
-/// <reference types="node" resolution-mode="require"/>
 /**
  * grab some basic process stuff safely at startup
  *

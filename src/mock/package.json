@@ -17,10 +17,12 @@
   "exports": {
     ".": {
       "import": {
+        "source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
       "require": {
+        "source": "./src/index.ts",
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
       }
@@ -28,12 +30,14 @@
     "./package.json": "./package.json",
     "./loader": {
       "import": {
+        "source": "./src/legacy-loader.mts",
         "types": "./dist/esm/legacy-loader.d.mts",
         "default": "./dist/esm/legacy-loader.mjs"
       }
     },
     "./import": {
       "import": {
+        "source": "./src/import.mts",
         "types": "./dist/esm/import.d.mts",
         "default": "./dist/esm/import.mjs"
       }
