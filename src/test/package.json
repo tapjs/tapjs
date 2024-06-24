@@ -120,7 +120,7 @@
     "rimraf": "^5.0.5",
     "sync-content": "^1.0.1",
     "tap-parser": "16.0.1",
-    "tshy": "1.16",
+    "tshy": "^1.16.1",
     "typescript": "^5.5.2",
     "walk-up-path": "^3.0.1"
   },

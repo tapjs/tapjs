@@ -57,7 +57,7 @@
     "minipass": "^7.0.4",
     "mkdirp": "^3.0.1",
     "opener": "^1.5.2",
-    "pacote": "^17.0.6",
+    "pacote": "^18.0.6",
     "resolve-import": "^1.4.5",
     "rimraf": "^5.0.5",
     "semver": "^7.6.0",
