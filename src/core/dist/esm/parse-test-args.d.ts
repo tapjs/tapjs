@@ -1,4 +1,4 @@
-import type { Base, BaseOpts } from './base.js';
+import type { Base, BaseOpts, TapBaseEvents } from './base.js';
 export type Opts = Exclude<BaseOpts, 'parent'> & {
     parent?: any;
 };
@@ -16,5 +16,5 @@ export type TestArgs<T extends Base, O extends Opts = Opts> = [] | [name: string
 /**
  * Normalize the arguments provided to a subtest method
  */
-export declare const parseTestArgs: <T extends Base, O extends Opts = Opts>(...args: TestArgs<T, O>) => O;
+export declare const parseTestArgs: <T extends Base<TapBaseEvents>, O extends Opts = Opts>(...args: TestArgs<T, O>) => O;
 //# sourceMappingURL=parse-test-args.d.ts.map

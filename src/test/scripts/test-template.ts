@@ -16,7 +16,12 @@ import {
 //{{PLUGIN IMPORT START}}
 //{{PLUGIN IMPORT END}}
 
-import type { ConfigSet, Jack } from 'jackspeak'
+import type {
+  ConfigSet,
+  ConfigSetFromMetaSet,
+  Jack,
+  ValidValue,
+} from 'jackspeak'
 import { isConfigOption } from 'jackspeak'
 import { inspect } from 'node:util'
 
@@ -175,7 +180,10 @@ const plugins = () => {
 /* c8 ignore start */
 isConfigOption
 const c = <T extends ConfigSet>(j: Jack<T>) => j
+const cs = c as unknown as ValidValue &
+  ConfigSetFromMetaSet<'boolean', false, { x: {} }>
 c
+cs
 /* c8 ignore stop */
 //{{PLUGINS CONFIG END}}
 

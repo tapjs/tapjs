@@ -208,6 +208,12 @@ export class SnapshotPlugin {
     }
   }
 
+  #builtTest?: TestBase & SnapshotPlugin
+  #bt() {
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      SnapshotPlugin)
+  }
+
   /**
    * In `--snapshot` mode, takes a snapshot of the object provided, and writes
    * to the snapshot file.
@@ -218,7 +224,7 @@ export class SnapshotPlugin {
    * @group Assertion Methods
    */
   matchSnapshot(found: any, ...[msg, extra]: MessageExtra): boolean {
-    this.#t.currentAssert = this.#t.t.matchSnapshot
+    this.#t.currentAssert = this.#bt().matchSnapshot
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('must match snapshot', args)
     const m = this.#t.fullname + ' > ' + me[0]
@@ -333,7 +339,7 @@ export class SnapshotPlugin {
 
     const d = new Deferred<boolean>()
     this.#t.waitOn(d.promise)
-    this.#t.currentAssert = this.#t.t.resolveMatchSnapshot
+    this.#t.currentAssert = this.#bt().resolveMatchSnapshot
     try {
       d.resolve(this.matchSnapshot(await p, ...me))
     } catch (er) {

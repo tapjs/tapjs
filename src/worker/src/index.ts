@@ -13,6 +13,11 @@ export type PromiseWithWorker = PromiseWithSubtest<Worker>
 export class WorkerPlugin {
   #t: TestBase
   #workerData?: any
+  #builtTest?: TestBase & WorkerPlugin
+  #bt() {
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      WorkerPlugin)
+  }
 
   /**
    * True if in the main thread. False when running in a worker thread
@@ -67,7 +72,7 @@ export class WorkerPlugin {
       options.name = name
     }
     options.filename = filename
-    return this.#t.sub(Worker, options, this.#t.t.worker)
+    return this.#t.sub(Worker, options, this.#bt().worker)
   }
 }
 

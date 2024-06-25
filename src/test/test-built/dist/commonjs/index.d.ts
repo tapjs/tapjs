@@ -15,7 +15,7 @@ import * as Plugin_spawn from "@tapjs/spawn";
 import * as Plugin_stdin from "@tapjs/stdin";
 import * as Plugin_typescript from "@tapjs/typescript";
 import * as Plugin_worker from "@tapjs/worker";
-import type { ConfigSet, Jack } from 'jackspeak';
+import type { ConfigSet, ConfigSetFromMetaSet, Jack, ValidValue } from 'jackspeak';
 /**
  * The set of file extensions that the tap runner will load
  * by default. Expaned into the `include` config values if they
@@ -78,7 +78,7 @@ export type PluginSet = [
  * objects exported by plugins.
  */
 export declare const execArgv: (values: ReturnType<ReturnType<typeof config>["parse"]>["values"]) => string[];
-export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & ConfigSetFromMetaSet<"boolean", false, {
     only: {
         type: string;
         short: string;
@@ -96,7 +96,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"string", true, {
+}> & ConfigSetFromMetaSet<"string", true, {
     grep: {
         type: string;
         multiple: boolean;
@@ -110,13 +110,13 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: string[] | undefined;
         description?: string;
         hint?: string | undefined;
-        validate?: ((v: unknown) => v is import("jackspeak").ValidValue<"string", true>) | undefined;
+        validate?: ((v: unknown) => v is ValidValue<"string", true>) | undefined;
         validOptions?: readonly string[] | undefined;
     } & {
         multiple: true;
         delim?: string | undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     invert: {
         type: string;
         short: string;
@@ -133,7 +133,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     "no-invert": {
         type: string;
         short: string;
@@ -150,7 +150,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     "filter-quietly": {
         type: string;
         description: string;
@@ -166,7 +166,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     "no-filter-quietly": {
         type: string;
         description: string;
@@ -182,7 +182,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     "save-fixture": {
         type: string;
         short: string;
@@ -199,7 +199,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     snapshot: {
         type: string;
         short: string;
@@ -216,7 +216,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     "snapshot-clean-cwd": {
         type: string;
         default: boolean;
@@ -233,7 +233,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     "no-snapshot-clean-cwd": {
         type: string;
         description: string;
@@ -249,7 +249,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+}> & ConfigSetFromMetaSet<"boolean", false, {
     typecheck: {
         type: string;
         description: string;
@@ -265,7 +265,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         multiple?: false | undefined;
         delim?: undefined;
     };
-}> & import("jackspeak").ConfigSetFromMetaSet<"string", false, {
+}> & ConfigSetFromMetaSet<"string", false, {
     tsconfig: {
         type: string;
         description: string;
@@ -275,7 +275,7 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         default?: string | undefined;
         description?: string;
         hint?: string | undefined;
-        validate?: ((v: unknown) => v is import("jackspeak").ValidValue<"string", false>) | undefined;
+        validate?: ((v: unknown) => v is ValidValue<"string", false>) | undefined;
         validOptions?: readonly string[] | undefined;
     } & {
         multiple?: false | undefined;

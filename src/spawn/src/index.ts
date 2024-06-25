@@ -61,9 +61,16 @@ export type PromiseWithSpawn = PromiseWithSubtest<Spawn>
 
 export class SpawnPlugin {
   #t: TestBase
+
   constructor(t: TestBase) {
     this.#t = t
   }
+
+  #builtTest?: TestBase & SpawnPlugin
+  #bt() {
+    return this.#builtTest ??= this.#t.t as unknown as TestBase & SpawnPlugin
+  }
+
   /**
    * Spawn a child process and parse its standard output as a subtest
    *
@@ -109,7 +116,7 @@ export class SpawnPlugin {
     }
     options.command = cmd
     options.args = args !== undefined ? args : []
-    return this.#t.sub(Spawn, options, this.#t.t.spawn)
+    return this.#t.sub(Spawn, options, this.#bt().spawn)
   }
 }
 

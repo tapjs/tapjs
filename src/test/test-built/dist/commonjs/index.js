@@ -125,7 +125,10 @@ const plugins = () => {
 // /* c8 ignore start */
 // isConfigOption
 // const c = <T extends ConfigSet>(j: Jack<T>) => j
+// const cs = c as unknown as ValidValue &
+//   ConfigSetFromMetaSet<'boolean', false, { x: {} }>
 // c
+// cs
 // /* c8 ignore stop */
 const execArgv = (values) => {
     const argv = [];

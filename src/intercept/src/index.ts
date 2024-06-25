@@ -282,6 +282,11 @@ export type InterceptResultsMethod = (() => InterceptResult[]) & {
  */
 export class Interceptor {
   #t: TestBase
+  #builtTest?: TestBase & Interceptor
+  #bt() {
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      Interceptor)
+  }
 
   constructor(t: TestBase) {
     this.#t = t
@@ -315,7 +320,7 @@ export class Interceptor {
       }
     }
     if (orig && !orig.configurable) {
-      throw notConfig('intercept property', prop, this.#t.t.intercept)
+      throw notConfig('intercept property', prop, this.#bt().intercept)
     }
 
     let restore: () => void
@@ -470,7 +475,7 @@ export class Interceptor {
   ): CaptureResultsMethod<T, M> {
     const prop = Object.getOwnPropertyDescriptor(obj, method)
     if (prop && !prop.configurable) {
-      throw notConfig('capture method', method, this.#t.t.capture)
+      throw notConfig('capture method', method, this.#bt().capture)
     }
 
     // if we don't have a prop we can restore by just deleting

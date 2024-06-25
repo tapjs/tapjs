@@ -1,4 +1,4 @@
-import type { Base, BaseOpts } from './base.js'
+import type { Base, BaseOpts, TapBaseEvents } from './base.js'
 
 import { TestOpts } from '@tapjs/test'
 
@@ -27,7 +27,10 @@ export type TestArgs<T extends Base, O extends Opts = Opts> =
 /**
  * Normalize the arguments provided to a subtest method
  */
-export const parseTestArgs = <T extends Base, O extends Opts = Opts>(
+export const parseTestArgs = <
+  T extends Base<TapBaseEvents>,
+  O extends Opts = Opts,
+>(
   ...args: TestArgs<T, O>
 ): O => {
   let name: string | null | undefined = undefined

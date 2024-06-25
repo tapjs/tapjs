@@ -104,6 +104,12 @@ export class TapMock {
     return mockedObject
   }
 
+  #builtTest?: TestBase & TapMock
+  #bt() {
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      TapMock)
+  }
+
   /**
    * Deprecated alias for {@link @tapjs/mock!index.TapMock#mockRequire}
    *
@@ -116,13 +122,14 @@ export class TapMock {
    */
   mock<T = any>(module: string, mocks: { [k: string]: any } = {}): T {
     /* c8 ignore start */
-    const at = stack.at(this.#t.t.mock)?.toJSON() || ''
+    const { mock: m } = this.#bt()
+    const at = stack.at(m)?.toJSON() || ''
     /* c8 ignore stop */
     console.error(
       't.mock() is now t.mockRequire(). Please update your tests.',
       at,
     )
-    return mockRequire(module, mocks, this.#t.t.mock) as T
+    return mockRequire(module, mocks, m) as T
   }
 
   /**
@@ -179,7 +186,7 @@ export class TapMock {
     mocks: Record<string, any> = {},
   ): Promise<T> {
     if (isBuiltin(module)) {
-      this.#t.t.currentAssert = this.mockImport
+      this.#t.t.currentAssert = this.#bt().mockImport
       this.#t.t.fail(
         'Node built-in modules cannot have their imports mocked',
       )
@@ -190,10 +197,11 @@ export class TapMock {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.unmock())
     }
+    const { mockImport } = this.#bt()
     const service = await MockService.create(
       module,
       mocks,
-      this.#t.t.mockImport,
+      mockImport,
     )
     this.#mocks.push(service)
     return Promise.resolve(service.module).then(s => import(s))
@@ -225,14 +233,15 @@ export class TapMock {
     mocks: Record<string, any> = {},
   ): T {
     if (isBuiltin(module)) {
-      this.#t.t.currentAssert = this.mockRequire
+      this.#t.t.currentAssert = this.#bt().mockRequire
       this.#t.t.fail(
         'Node built-in modules cannot have their imports mocked',
       )
       return {} as T
     }
     mocks = Object.assign({}, this.#allMock, mocks)
-    return mockRequire(module, mocks, this.#t.t.mockRequire) as T
+    const { mockRequire: mr } = this.#bt()
+    return mockRequire(module, mocks, mr) as T
   }
 
   /**

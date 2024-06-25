@@ -30,7 +30,12 @@ import * as Plugin_typescript from "@tapjs/typescript"
 import * as Plugin_worker from "@tapjs/worker"
 //{{PLUGIN IMPORT END}}
 
-import type { ConfigSet, Jack } from 'jackspeak'
+import type {
+  ConfigSet,
+  ConfigSetFromMetaSet,
+  Jack,
+  ValidValue,
+} from 'jackspeak'
 import { isConfigOption } from 'jackspeak'
 import { inspect } from 'node:util'
 
@@ -234,7 +239,10 @@ const plugins = () => {
 // /* c8 ignore start */
 // isConfigOption
 // const c = <T extends ConfigSet>(j: Jack<T>) => j
+// const cs = c as unknown as ValidValue &
+//   ConfigSetFromMetaSet<'boolean', false, { x: {} }>
 // c
+// cs
 // /* c8 ignore stop */
 export const execArgv = (
   values: ReturnType<ReturnType<typeof config>['parse']>['values']

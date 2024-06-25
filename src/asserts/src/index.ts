@@ -106,6 +106,11 @@ export class Assertions {
     this.#opts = compareOptions || {}
   }
 
+  #builtTest?: TestBase & Assertions
+  #bt() {
+    return this.#builtTest ??= this.#t.t as unknown as TestBase & Assertions
+  }
+
   #onBeforeEnd() {
     for (const [emitted, emitter, event, handler, msg, extra] of this
       .#pendingEmits) {
@@ -128,7 +133,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   ok(obj: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.ok
+    this.#t.currentAssert = this.#bt().ok
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
     return obj ? this.#t.pass(...me) : this.#t.fail(...me)
@@ -140,7 +145,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   notOk(obj: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.notOk
+    this.#t.currentAssert = this.#bt().notOk
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
     return !obj ? this.#t.pass(...me) : this.#t.fail(...me)
@@ -156,7 +161,7 @@ export class Assertions {
     wanted: T,
     ...[msg, extra]: MessageExtra
   ): found is T {
-    this.#t.currentAssert = this.#t.t.equal
+    this.#t.currentAssert = this.#bt().equal
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
     if (found === wanted) return this.#t.pass(...me)
@@ -184,7 +189,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   not(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.not
+    this.#t.currentAssert = this.#bt().not
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not be equal', args)
     if (found !== doNotWant) {
@@ -213,7 +218,7 @@ export class Assertions {
     klass: string | Function,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.type
+    this.#t.currentAssert = this.#bt().type
 
     const name =
       typeof klass === 'function' ?
@@ -279,7 +284,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   same(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.same
+    this.#t.currentAssert = this.#bt().same
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equivalent', args)
     const { match, diff } = same(found, wanted, this.#opts)
@@ -294,7 +299,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   notSame(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.notSame
+    this.#t.currentAssert = this.#bt().notSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not be equivalent', args)
     const { match } = same(found, doNotWant, this.#opts)
@@ -313,7 +318,7 @@ export class Assertions {
     wanted: T,
     ...[msg, extra]: MessageExtra
   ): found is T {
-    this.#t.currentAssert = this.#t.t.strictSame
+    this.#t.currentAssert = this.#bt().strictSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should be equivalent strictly',
@@ -336,7 +341,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.strictNotSame
+    this.#t.currentAssert = this.#bt().strictNotSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should not be equivalent strictly',
@@ -355,7 +360,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   has(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.has
+    this.#t.currentAssert = this.#bt().has
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should be equivalent',
@@ -374,7 +379,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   notHas(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.notHas
+    this.#t.currentAssert = this.#bt().notHas
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should not be equivalent',
@@ -393,7 +398,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   hasStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.hasStrict
+    this.#t.currentAssert = this.#bt().hasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should be equivalent strictly',
@@ -419,7 +424,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.notHasStrict
+    this.#t.currentAssert = this.#bt().notHasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should not be equivalent strictly',
@@ -437,7 +442,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   match(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.match
+    this.#t.currentAssert = this.#bt().match
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
     const { match: ok, diff } = match(found, wanted, this.#opts)
@@ -456,7 +461,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.notMatch
+    this.#t.currentAssert = this.#bt().notMatch
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
     const { match: ok } = match(found, doNotWant, this.#opts)
@@ -472,7 +477,7 @@ export class Assertions {
    * @group Assertion Methods
    */
   matchOnly(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = this.#t.t.matchOnly
+    this.#t.currentAssert = this.#bt().matchOnly
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
     const { match: ok, diff } = matchOnly(found, wanted, this.#opts)
@@ -492,7 +497,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.notMatchOnly
+    this.#t.currentAssert = this.#bt().notMatchOnly
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
     const { match: ok } = matchOnly(found, doNotWant, this.#opts)
@@ -512,7 +517,7 @@ export class Assertions {
     wanted: any,
     ...[msg, extra]: MessageExtra
   ) {
-    // this.#t.currentAssert = this.#t.t.matchOnlyStrict
+    // this.#t.currentAssert = this.#bt().matchOnlyStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
     const { match: ok, diff } = matchOnlyStrict(
@@ -536,7 +541,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    // this.#t.currentAssert = this.#t.t.notMatchOnlyStrict
+    // this.#t.currentAssert = this.#bt().notMatchOnlyStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
     const { match: ok } = matchOnlyStrict(
@@ -567,7 +572,7 @@ export class Assertions {
     wanted: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.matchStrict
+    this.#t.currentAssert = this.#bt().matchStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
     const { match: ok, diff } = matchStrict(found, wanted, this.#opts)
@@ -587,7 +592,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.notMatchStrict
+    this.#t.currentAssert = this.#bt().notMatchStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
     const { match: ok } = matchStrict(found, doNotWant, this.#opts)
@@ -607,7 +612,7 @@ export class Assertions {
     wanted: string | number | symbol,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.hasProp
+    this.#t.currentAssert = this.#bt().hasProp
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'specified property should be defined',
@@ -639,7 +644,7 @@ export class Assertions {
     wanted: string | number | symbol,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.hasOwnProp
+    this.#t.currentAssert = this.#bt().hasOwnProp
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'specified property should be defined own property',
@@ -671,7 +676,7 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.hasProps
+    this.#t.currentAssert = this.#bt().hasProps
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
@@ -719,7 +724,7 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.hasOwnProps
+    this.#t.currentAssert = this.#bt().hasOwnProps
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
@@ -767,7 +772,7 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = this.#t.t.hasOwnPropsOnly
+    this.#t.currentAssert = this.#bt().hasOwnPropsOnly
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
@@ -823,7 +828,7 @@ export class Assertions {
     fn: Function | (() => any),
     ...[wanted, msg, extra]: ThrowsArgs
   ): boolean | Error {
-    this.#t.currentAssert = this.#t.t.throws
+    this.#t.currentAssert = this.#bt().throws
     const args = [wanted, msg, extra] as ThrowsArgs
     const [w, m, e] = normalizeThrowsArgs(
       fn.name || 'expected to throw',
@@ -861,7 +866,7 @@ export class Assertions {
     fn: Function | (() => any),
     ...[msg, extra]: MessageExtra
   ): boolean | Error {
-    this.#t.currentAssert = this.#t.t.doesNotThrow
+    this.#t.currentAssert = this.#bt().doesNotThrow
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       fn.name || 'expect to not throw',
@@ -894,7 +899,7 @@ export class Assertions {
   ): Promise<boolean | Error> {
     const args = [wanted, msg, extra] as ThrowsArgs
     const [w, m, e] = normalizeThrowsArgs('expected to reject', args)
-    this.#t.currentAssert = this.#t.t.rejects
+    this.#t.currentAssert = this.#bt().rejects
     e.at = e.at || stack.at(this.#t.currentAssert)
 
     let p!: Promise<T>
@@ -950,7 +955,7 @@ export class Assertions {
     fnOrPromise: Promise<T> | (() => Promise<T>),
     ...[msg, extra]: MessageExtra
   ): Promise<boolean | Error> {
-    this.#t.currentAssert = this.#t.t.resolves
+    this.#t.currentAssert = this.#bt().resolves
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('expected to resolve', args)
     me[1].at = me[1].at || stack.at(this.#t.currentAssert)
@@ -1007,7 +1012,7 @@ export class Assertions {
       'expected to resolve and match provided pattern',
       args,
     )
-    this.#t.currentAssert = this.#t.t.resolveMatch
+    this.#t.currentAssert = this.#bt().resolveMatch
     me[1].at = me[1].at || stack.at(this.#t.currentAssert)
 
     let p!: Promise<T>
@@ -1063,8 +1068,8 @@ export class Assertions {
       `expect ${event} to be emitted`,
       args,
     )
-    me[1].at = me[1].at || stack.at(this.#t.t.emits)
-    me[1].stack = me[1].stack || stack.captureString(this.#t.t.emits)
+    me[1].at = me[1].at || stack.at(this.#bt().emits)
+    me[1].stack = me[1].stack || stack.captureString(this.#bt().emits)
     const d = new Deferred<void>()
     const handler = () => {
       pending[0] = true
@@ -1118,7 +1123,7 @@ export class Assertions {
   error(er: unknown, ...[msg, extra]: MessageExtra) {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(`should not error`, args)
-    this.#t.currentAssert = this.#t.t.error
+    this.#t.currentAssert = this.#bt().error
 
     if (er === undefined || er === null) return this.#t.pass(...me)
 

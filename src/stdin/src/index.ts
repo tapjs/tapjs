@@ -20,6 +20,13 @@ export class StdinPlugin {
   constructor(t: TestBase) {
     this.#t = t
   }
+
+  #builtTest?: TestBase & StdinPlugin
+  #bt() {
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      StdinPlugin)
+  }
+
   /**
    * Parse standard input as a child test
    *
@@ -42,7 +49,7 @@ export class StdinPlugin {
     return this.#t.sub(
       Stdin,
       parseTestArgs<Stdin>(name, extra, stdinCB),
-      this.#t.t.stdin,
+      this.#bt().stdin,
     )
   }
 }
