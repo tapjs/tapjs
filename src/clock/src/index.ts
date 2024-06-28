@@ -9,7 +9,6 @@ export * from 'clock-mock'
  */
 export class ClockPlugin {
   #t: TestBase
-  #didTeardown: boolean = false
   #clock?: Clock
   constructor(t: TestBase) {
     this.#t = t
@@ -24,7 +23,7 @@ export class ClockPlugin {
   get clock(): Clock {
     if (this.#clock) return this.#clock
     const clock = new Clock()
-    if (!this.#didTeardown && this.#t.t.pluginLoaded(TeardownPlugin)) {
+    if (this.#t.t.pluginLoaded(TeardownPlugin)) {
       this.#t.t.teardown(() => clock.exit())
     }
     return (this.#clock = clock)
