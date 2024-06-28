@@ -106,8 +106,9 @@ const add = async (args: string[], config: LoadedConfig) => {
   try {
     // install anything that needs to be installed
     if (needInstall.size) {
-      console.error('installing:', [...needInstall])
-      await install([...needInstall], config)
+      const ni = [...needInstall]
+      console.error('installing:', ni)
+      await install(ni, config)
       installed = true
     }
 
