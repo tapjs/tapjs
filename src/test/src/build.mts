@@ -61,11 +61,21 @@ const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
 const require = createRequire(dir + '/x')
 const dirNM = resolve(dir, 'node_modules')
 
-// link the node_modules so it can find all installed plugins
 rimrafSync(dirNM)
 mkdirp.sync(dir)
 mkdirp.sync(pluginNM)
+// link the node_modules so it can find all installed plugins
 symlinkSync(relative(dir, resolve(pluginDir, 'node_modules')), dirNM)
+// now link our @tapjs/core into the plugin env, to avoid duality
+const core = dirname(
+  fileURLToPath(
+    await resolveImport('@tapjs/core/package.json', import.meta.url),
+  ),
+)
+const pluginCore = resolve(pluginNM, '@tapjs/core')
+mkdirp.sync(pluginNM + '/@tapjs')
+rimrafSync(pluginCore)
+symlinkSync(core, pluginCore)
 
 mkdirp.sync(resolve(dir, 'src'))
 mkdirp.sync(resolve(dir, 'scripts'))
