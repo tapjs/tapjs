@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process'
-import { resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { resolveImport } from 'resolve-import'
 import { rimrafSync } from 'rimraf'
 import t from 'tap'
@@ -10,7 +10,7 @@ const buildScriptURL = await resolveImport(
 if (!buildScriptURL) throw new Error('could not load build script')
 const buildScript = fileURLToPath(buildScriptURL)
 
-import { readFileSync } from 'node:fs'
+import { lstatSync, readFileSync, readlinkSync } from 'node:fs'
 import os from 'node:os'
 import { fileURLToPath } from 'node:url'
 const p =
@@ -31,6 +31,7 @@ const build = async (
   target: string,
   plugins: string[],
   expectFail = false,
+  cwd = process.cwd(),
 ) => {
   const cmd = `_TESTING_TEST_BUILD_TARGET_=${target} ${
     process.execPath
@@ -39,6 +40,7 @@ const build = async (
     .join(' ')}`
   return new Promise<Result>((res, rej) => {
     const c = spawn(process.execPath, [buildScript, ...plugins], {
+      cwd,
       env: {
         ...process.env,
         _TESTING_TEST_BUILD_TARGET_: target,
@@ -64,18 +66,18 @@ const build = async (
   })
 }
 
-t.test(
-  'good plugins, sort order tests',
-  { saveFixture: true },
-  async t => {
+t.test('good plugins, sort order tests', async t => {
+  const plugins = [
+    // intentionally unsorted
+    '@tapjs/typescript',
+    '@tapjs/dummy-plugin',
+    '@tapjs/worker',
+    '@tapjs/asserts',
+  ]
+  let built: string
+  t.jobs = 3
+  t.test('unsorted', async t => {
     const dir = t.testdir()
-    const plugins = [
-      // intentionally unsorted
-      '@tapjs/typescript',
-      '@tapjs/dummy-plugin',
-      '@tapjs/worker',
-      '@tapjs/asserts',
-    ]
     const res = await build(dir, plugins)
     t.same(res, {
       target: dir,
@@ -85,7 +87,12 @@ t.test(
       stderr: '',
       stdout: '',
     })
-    const built = readFileSync(resolve(dir, 'src/index.ts'), 'utf8')
+    const result = readFileSync(resolve(dir, 'src/index.ts'), 'utf8')
+    built ??= result
+    t.equal(result, built)
+  })
+  t.test('sorted', async t => {
+    const dir = t.testdir()
     const sorted = plugins.sort((a, b) => a.localeCompare(b, 'en'))
     t.same(await build(dir, sorted), {
       target: dir,
@@ -95,7 +102,12 @@ t.test(
       stderr: '',
       stdout: '',
     })
-    t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
+    const result = readFileSync(resolve(dir, 'src/index.ts'), 'utf8')
+    built ??= result
+    t.equal(result, built)
+  })
+  t.test('rsorted', async t => {
+    const dir = t.testdir()
     const rsorted = plugins.sort((a, b) => a.localeCompare(b, 'en'))
     t.same(await build(dir, rsorted), {
       target: dir,
@@ -105,9 +117,11 @@ t.test(
       stderr: '',
       stdout: '',
     })
-    t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
-  },
-)
+    const result = readFileSync(resolve(dir, 'src/index.ts'), 'utf8')
+    built ??= result
+    t.equal(result, built)
+  })
+})
 
 t.test('missing plugin', async t => {
   const dir = t.testdir()
@@ -278,8 +292,15 @@ t.test('no plugins specified', async t => {
   })
 })
 
+// this one can't be parallelized, so un-buffer it
 t.test('disambiguate plugin names', async t => {
-  const dir = t.testdir({
+  const fixture = {
+    'package.json': JSON.stringify({
+      tap: {
+        plugin: ['plug-in', 'plugIn'],
+      },
+    }),
+    '.tap': { plugins: { node_modules: {} } },
     node_modules: {
       'plug-in': {
         'index.cjs': `exports.plugin = () => ({})`,
@@ -309,11 +330,28 @@ t.test('disambiguate plugin names', async t => {
       },
     },
     target: {},
-  })
+  } as const
+
+  const core = dirname(
+    fileURLToPath(
+      await resolveImport(
+        '@tapjs/core/package.json',
+        import.meta.url,
+      ),
+    ),
+  )
+  const pluginCore = resolve(
+    t.testdirName,
+    '.tap/plugins/node_modules/@tapjs/core',
+  )
+
+  t.testdir(fixture)
+  t.throws(() => lstatSync(pluginCore), { code: 'ENOENT' })
   const p1 = 'plug-in'
   const p2 = 'plugIn'
+  const dir = t.testdirName
   const target = resolve(dir, 'target')
-  const res = await build(target, [p1, p2])
+  const res = await build(target, [p1, p2], false, dir)
   t.same(res, {
     target,
     plugins: [p1, p2],
@@ -322,4 +360,5 @@ t.test('disambiguate plugin names', async t => {
     stderr: '',
     stdout: '',
   })
+  t.equal(readlinkSync(pluginCore), core)
 })

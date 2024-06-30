@@ -11,6 +11,8 @@ import { findPackageJson } from 'package-json-from-dist';
 import { resolveImport } from 'resolve-import';
 import { rimrafSync } from 'rimraf';
 import { walkUp } from 'walk-up-path';
+import { setPluginCoreLink } from './set-plugin-core-link.js';
+import { setPluginPackageJson } from './set-plugin-package-json.js';
 const cwd = process.cwd();
 let projectRoot = cwd;
 // try to find a .tap folder, package.json file, or .taprc
@@ -22,11 +24,15 @@ for (const dir of walkUp(cwd)) {
     }
 }
 const pluginDir = resolve(projectRoot, '.tap/plugins');
-const pluginNM = resolve(pluginDir, 'node_modules');
 if (typeof process.argv[2] !== 'string') {
     console.error('usage: generate-tap-test-class [...plugins]');
     process.exit(1);
 }
+// set up the plugin directory
+const core = dirname(fileURLToPath(await resolveImport('@tapjs/core/package.json', import.meta.url)));
+// link our @tapjs/core into the plugin env, to avoid duality
+setPluginCoreLink(pluginDir, core);
+setPluginPackageJson(pluginDir, core);
 const pj = findPackageJson(import.meta.url);
 const scriptsDir = resolve(dirname(pj), 'scripts');
 const templateFile = resolve(scriptsDir, './test-template.ts');
@@ -43,15 +49,8 @@ const require = createRequire(dir + '/x');
 const dirNM = resolve(dir, 'node_modules');
 rimrafSync(dirNM);
 mkdirp.sync(dir);
-mkdirp.sync(pluginNM);
 // link the node_modules so it can find all installed plugins
 symlinkSync(relative(dir, resolve(pluginDir, 'node_modules')), dirNM);
-// now link our @tapjs/core into the plugin env, to avoid duality
-const core = dirname(fileURLToPath(await resolveImport('@tapjs/core/package.json', import.meta.url)));
-const pluginCore = resolve(pluginNM, '@tapjs/core');
-mkdirp.sync(pluginNM + '/@tapjs');
-rimrafSync(pluginCore);
-symlinkSync(core, pluginCore);
 mkdirp.sync(resolve(dir, 'src'));
 mkdirp.sync(resolve(dir, 'scripts'));
 const out = resolve(dir, 'src/index.ts');
