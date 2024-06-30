@@ -173,8 +173,20 @@ const rm = async (args: string[], config: LoadedConfig) => {
     if (pc.includes(plugin)) {
       pc.splice(pc.indexOf(plugin), 1)
     }
-    // if it's not a file on disk, then we probably need to uninstall a pkg
-    if (!(await exists(plugin))) needRemove.add(plugin)
+
+    // if it's an installed plugin, remove it
+    if (
+      !(await exists(plugin)) &&
+      await exists(
+        resolve(
+          config.projectRoot,
+          '.tap/plugins/node_modules',
+          plugin,
+        ),
+      )
+    ) {
+      needRemove.add(plugin)
+    }
   }
 
   if (!removed.size) {
@@ -198,12 +210,7 @@ const rm = async (args: string[], config: LoadedConfig) => {
   console.log('successfully removed plugin(s):')
   console.log([...removed].join('\n'))
   if (needRemove.size) {
-    console.log('The following packages can likely be removed:')
-    console.log(
-      `npm rm ${[...needRemove]
-        .map(p => JSON.stringify(p))
-        .join(' ')}`,
-    )
+    await uninstall([...needRemove], config)
   }
 }
 

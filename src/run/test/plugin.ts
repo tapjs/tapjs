@@ -4,6 +4,7 @@ import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { resolveImport } from 'resolve-import'
+import * as npm from '../dist/esm/npm.js'
 
 const CWD = process.cwd().toUpperCase()
 const deCwd = <T extends any>(obj: T): T => {
@@ -113,8 +114,6 @@ t.test('remove plugin', async t => {
     t.strictSame(logs.args(), [
       ['successfully removed plugin(s):'],
       ['a'],
-      ['The following packages can likely be removed:'],
-      ['npm rm "a"'],
     ])
   })
 
@@ -192,6 +191,62 @@ t.test('remove plugin', async t => {
       ['successfully removed plugin(s):'],
       [p],
     ])
+  })
+
+  t.test('remove installed plugin', async t => {
+    t.testdir({
+      '.tap': {
+        plugins: {
+          node_modules: {
+            'my-plugin': {
+              'package.json': JSON.stringify({
+                name: 'my-plugin',
+                exports: {
+                  import: './index.mjs',
+                  require: './index.cjs',
+                },
+              }),
+              'index.mjs': 'export const plugin = () => ({})',
+              'index.cjs': 'exports.plugin = () => ({})',
+            },
+          },
+        },
+      },
+    })
+    const p = 'my-plugin'
+    let buildRan = false
+    const config = new MockConfig(t)
+    config.pluginList.push(p)
+    config.values.plugin.push(p)
+
+    let uninstalled: string[] = []
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
+      '../dist/esm/npm.js': t.createMock(npm, {
+        uninstall: (pkgs: string[]) => {
+          uninstalled = pkgs
+        },
+      }),
+      '../dist/esm/build.js': {
+        build: () => (buildRan = true),
+        'foreground-child': {
+          foregroundChild: nope,
+        },
+      },
+    })
+
+    await plugin(['rm', p], config.l)
+    t.strictSame(config.edited, {
+      plugin: ['a', 'b', 'c'],
+    })
+    t.strictSame(config.values.plugin, ['a', 'b', 'c'])
+    t.equal(buildRan, true)
+    t.strictSame(logs.args(), [
+      ['successfully removed plugin(s):'],
+      [p],
+    ])
+    t.strictSame(uninstalled, ['my-plugin'])
   })
 
   t.test('remove already missing plugin', async t => {

@@ -69,14 +69,14 @@ const npmFg = (
 }
 
 // suppress all non-essential npm output
-const quiet = ['--no-audit', '--loglevel=error', '--no-progress']
+const quiet = ['--silent', '--log-level=silent', '--no-audit', '--loglevel=error', '--no-progress', '--no-fund']
 
 export const install = async (
   pkgs: string[],
   config: LoadedConfig,
 ) => {
   const npmCwd = await npmFindCwd(config.projectRoot)
-  const args = ['install', ...quiet, '--save-dev', ...pkgs]
+  const args = ['install', ...quiet, '--save', ...pkgs]
   await new Promise<void>((res, rej) => {
     npmFg(args, npmCwd, (code, signal) => {
       // allow error exit to proceed
