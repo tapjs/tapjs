@@ -46,7 +46,7 @@
   "scripts": {
     "snap": "tap",
     "test": "tap",
-    "prepare": "tshy",
+    "prepare": "bash -c 'if [ -d src ]; then tshy; fi'",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
