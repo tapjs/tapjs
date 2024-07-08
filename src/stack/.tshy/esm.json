@@ -3,10 +3,12 @@
   "include": [
     "../src/**/*.ts",
     "../src/**/*.mts",
-    "../src/**/*.tsx"
+    "../src/**/*.tsx",
+    "../src/**/*.json"
   ],
   "exclude": [
-    ".././src/require-resolve-cjs.cts"
+    "../src/package.json",
+    "../src/require-resolve-cjs.cts"
   ],
   "compilerOptions": {
     "outDir": "../.tshy-build/esm"

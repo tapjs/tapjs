@@ -604,10 +604,12 @@ export class Base<
 
     // if it's null or an object, inherit from it.  otherwise, copy it.
     if (this.#context === unsetContext) {
-      const ctx =('context' in this.options ?
+      const ctx =
+        ('context' in this.options ?
           this.options.context
         : this.parent?.context) ?? null
-      this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx
+      this.#context =
+        typeof ctx === 'object' ? Object.create(ctx) : ctx
     }
 
     this.hook.runInAsyncScope(this.main, this, cb)

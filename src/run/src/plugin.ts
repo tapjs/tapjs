@@ -177,13 +177,13 @@ const rm = async (args: string[], config: LoadedConfig) => {
     // if it's an installed plugin, remove it
     if (
       !(await exists(plugin)) &&
-      await exists(
+      (await exists(
         resolve(
           config.projectRoot,
           '.tap/plugins/node_modules',
           plugin,
         ),
-      )
+      ))
     ) {
       needRemove.add(plugin)
     }

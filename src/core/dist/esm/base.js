@@ -399,7 +399,8 @@ export class Base extends Minipass {
             const ctx = ('context' in this.options ?
                 this.options.context
                 : this.parent?.context) ?? null;
-            this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
+            this.#context =
+                typeof ctx === 'object' ? Object.create(ctx) : ctx;
         }
         this.hook.runInAsyncScope(this.main, this, cb);
     }

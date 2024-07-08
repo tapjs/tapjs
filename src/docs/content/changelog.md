@@ -5,6 +5,11 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.0
+
+- Drop support for node versions prior to v20
+- Update many dependencies
+
 ## 20.0
 
 - Bump minimum supported node version to 18.6.0

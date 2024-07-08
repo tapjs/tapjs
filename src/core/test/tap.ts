@@ -60,7 +60,10 @@ const main = () => {
       .replace(/requests:\n( {6,}[^\n]+\n)+/g, '__REQUESTS__')
       .replace(/handles:\n( {6,}[^\n]+\n)+/g, '__HANDLES__')
       .replace(/(__REQUESTS__|__HANDLES__)+/g, '{{OPEN THINGS}}\n')
-      .replace(/^\s*node:internal[^\n]+\n\s*triggerUncaught[^\^]+\^\s*/, '')
+      .replace(
+        /^\s*node:internal[^\n]+\n\s*triggerUncaught[^\^]+\^\s*/,
+        '',
+      )
       .replace(/[\n\s]*\(Use .node --(.|\s)*$/, '')
 
   t.formatSnapshot = (res: Result) => {

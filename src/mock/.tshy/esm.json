@@ -3,11 +3,13 @@
   "include": [
     "../src/**/*.ts",
     "../src/**/*.mts",
-    "../src/**/*.tsx"
+    "../src/**/*.tsx",
+    "../src/**/*.json"
   ],
   "exclude": [
-    ".././src/hooks-url-cjs.cts",
-    ".././src/service-key-cjs.cts"
+    "../src/package.json",
+    "../src/hooks-url-cjs.cts",
+    "../src/service-key-cjs.cts"
   ],
   "compilerOptions": {
     "outDir": "../.tshy-build/esm"

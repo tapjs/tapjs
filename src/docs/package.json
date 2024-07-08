@@ -28,6 +28,6 @@
   },
   "private": true,
   "engines": {
-    "node": ">= 18.6.0"
+    "node": "20 || >=22"
   }
 }

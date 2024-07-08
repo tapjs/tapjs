@@ -108,7 +108,8 @@ export class Assertions {
 
   #builtTest?: TestBase & Assertions
   #bt() {
-    return this.#builtTest ??= this.#t.t as unknown as TestBase & Assertions
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      Assertions)
   }
 
   #onBeforeEnd() {

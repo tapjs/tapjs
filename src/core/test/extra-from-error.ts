@@ -17,18 +17,18 @@ t.matchOnly(extraFromError({ stack: 'just\nsome\nstring\n' }), {
 })
 
 t.matchOnly(
-  extraFromError(new AggregateError([
-    new Error('hello'),
-    new Error('world'),
-  ], 'aggregation')), {
-    errors: [
-      new Error('hello'),
-      new Error('world'),
-    ],
+  extraFromError(
+    new AggregateError(
+      [new Error('hello'), new Error('world')],
+      'aggregation',
+    ),
+  ),
+  {
+    errors: [new Error('hello'), new Error('world')],
     type: 'AggregateError',
     stack: String,
     at: CallSiteLike,
-  }
+  },
 )
 
 t.matchOnly(
@@ -40,23 +40,27 @@ t.matchOnly(
 )
 
 const er = new Error('cause cycle a', {
-  cause: new Error('cause cycle b')
+  cause: new Error('cause cycle b'),
 })
 ;(er.cause as Error).cause = er
 
-t.match(extraFromError(er), {
-  stack: String,
-  at: CallSiteLike,
-  cause: {
-    message: 'cause cycle b',
+t.match(
+  extraFromError(er),
+  {
     stack: String,
+    at: CallSiteLike,
     cause: {
-      message: 'cause cycle a',
+      message: 'cause cycle b',
       stack: String,
-      cause: Object,
-    }
-  }
-}, 'recursion')
+      cause: {
+        message: 'cause cycle a',
+        stack: String,
+        cause: Object,
+      },
+    },
+  },
+  'recursion',
+)
 
 t.matchOnly(
   extraFromError(

@@ -163,15 +163,24 @@ t.test('createMock array', t => {
 })
 
 t.test('createMock object with basic fields', t => {
-  const mocked = t.createMock({
-    a: 'original foo',
-    b: 'original bar',
-    c () { return 'original baz'},
-    d () { return 'original quz'}
-  }, {
-    a: 'mocked foo',
-    c () { return 'mocked baz' }
-  })
+  const mocked = t.createMock(
+    {
+      a: 'original foo',
+      b: 'original bar',
+      c() {
+        return 'original baz'
+      },
+      d() {
+        return 'original quz'
+      },
+    },
+    {
+      a: 'mocked foo',
+      c() {
+        return 'mocked baz'
+      },
+    },
+  )
   t.strictSame(mocked.a, 'mocked foo')
   t.strictSame(mocked.b, 'original bar')
   // @ts-expect-error type fixed in #952
@@ -181,15 +190,22 @@ t.test('createMock object with basic fields', t => {
 })
 
 t.test('createMock object with prototype', t => {
-  const mocked = t.createMock(new (class {
-    a = 'original foo'
-    b = 'original bar'
-    c () { return 'original baz'}
-    d () { return 'original quz'}
-  })(), {
-    a: 'mocked foo',
-    c: () => 'mocked baz',
-  })
+  const mocked = t.createMock(
+    new (class {
+      a = 'original foo'
+      b = 'original bar'
+      c() {
+        return 'original baz'
+      }
+      d() {
+        return 'original quz'
+      }
+    })(),
+    {
+      a: 'mocked foo',
+      c: () => 'mocked baz',
+    },
+  )
   t.strictSame(mocked.a, 'mocked foo')
   t.strictSame(mocked.b, 'original bar')
   // @ts-expect-error type fixed in #952
@@ -199,10 +215,15 @@ t.test('createMock object with prototype', t => {
 })
 
 t.skip('createMock class with encapsulated private field', t => {
-  const mocked = t.createMock(new (class {
-    #a = 'original vas'
-    getA() { return this.#a }
-  })(), {})
+  const mocked = t.createMock(
+    new (class {
+      #a = 'original vas'
+      getA() {
+        return this.#a
+      }
+    })(),
+    {},
+  )
   // @TODO: currently getP call will failed with
   // Cannot read private member #p from an object whose class did not declare it
   t.strictSame(mocked.getA(), 'original vas')
@@ -210,15 +231,26 @@ t.skip('createMock class with encapsulated private field', t => {
 })
 
 t.skip('createMock object with accessors', t => {
-  const mocked = t.createMock({ 
-    _a : 'original foo',
-    get a () { return this._a },
-    set a (v) { this._a = v }
-  }, {
-    _a: 'mocked foo',
-    get a() { return 'mocked getter foo'},
-    set a(value) { this._a = value }  
-  })
+  const mocked = t.createMock(
+    {
+      _a: 'original foo',
+      get a() {
+        return this._a
+      },
+      set a(v) {
+        this._a = v
+      },
+    },
+    {
+      _a: 'mocked foo',
+      get a() {
+        return 'mocked getter foo'
+      },
+      set a(value) {
+        this._a = value
+      },
+    },
+  )
 
   t.strictSame(mocked._a, 'mocked foo')
   t.strictSame(mocked.a, 'mocked getter foo')

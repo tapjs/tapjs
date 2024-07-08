@@ -28,7 +28,9 @@ export const setPluginPackageJson = (
     },
   }
   const pluginPkg = getPkg(pluginDir)
-  if (pluginPkg.devDependencies?.['@tapjs/core'] !== `file://${core}`) {
+  if (
+    pluginPkg.devDependencies?.['@tapjs/core'] !== `file://${core}`
+  ) {
     rmSync(resolve(pluginDir, 'package.json'), {
       recursive: true,
       force: true,

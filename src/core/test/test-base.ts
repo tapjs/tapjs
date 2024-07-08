@@ -1563,10 +1563,7 @@ t.test('failOnly', async t => {
   tb.test('todo message', { todo: 'message' }, t => t.end())
   tb.end()
   const res = clean(await tb.concat())
-  const expects = [
-    'ok 1 - empty # time={TIME}',
-    'not ok 2',
-  ]
+  const expects = ['ok 1 - empty # time={TIME}', 'not ok 2']
   for (const e of expects) {
     t.match(res, e)
   }

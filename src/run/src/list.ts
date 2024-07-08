@@ -2,7 +2,7 @@ import { LoadedConfig } from '@tapjs/config'
 import { ProcessInfo } from '@tapjs/processinfo'
 import { glob, Glob, IgnoreLike } from 'glob'
 import { resolve } from 'node:path'
-import type { Path, PathScurry } from 'path-scurry'
+import { type Path, type PathScurry } from 'path-scurry'
 import { mainCommand, values } from './main-config.js'
 import { readSave } from './save-list.js'
 

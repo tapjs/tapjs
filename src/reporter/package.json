@@ -19,28 +19,24 @@
     "./package.json": "./package.json",
     ".": {
       "import": {
-        "source": "./src/index.tsx",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       }
     },
     "./hooks": {
       "import": {
-        "source": "./src/hooks.ts",
         "types": "./dist/esm/hooks.d.ts",
         "default": "./dist/esm/hooks.js"
       }
     },
     "./components": {
       "import": {
-        "source": "./src/components.ts",
         "types": "./dist/esm/components.d.ts",
         "default": "./dist/esm/components.js"
       }
     },
     "./utils": {
       "import": {
-        "source": "./src/utils.ts",
         "types": "./dist/esm/utils.d.ts",
         "default": "./dist/esm/utils.js"
       }
@@ -94,7 +90,8 @@
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
   },
+  "module": "./dist/esm/index.js",
   "engines": {
-    "node": ">= 18.6.0"
+    "node": "20 || >=22"
   }
 }

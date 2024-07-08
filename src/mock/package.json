@@ -17,12 +17,10 @@
   "exports": {
     ".": {
       "import": {
-        "source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
       "require": {
-        "source": "./src/index.ts",
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
       }
@@ -30,14 +28,12 @@
     "./package.json": "./package.json",
     "./loader": {
       "import": {
-        "source": "./src/legacy-loader.mts",
         "types": "./dist/esm/legacy-loader.d.mts",
         "default": "./dist/esm/legacy-loader.mjs"
       }
     },
     "./import": {
       "import": {
-        "source": "./src/import.mts",
         "types": "./dist/esm/import.d.mts",
         "default": "./dist/esm/import.mjs"
       }
@@ -60,8 +56,8 @@
   "dependencies": {
     "@tapjs/after": "2.0.3",
     "@tapjs/stack": "3.0.0",
-    "resolve-import": "^1.4.5",
-    "walk-up-path": "^3.0.1"
+    "resolve-import": "^2.0.0",
+    "walk-up-path": "^4.0.0"
   },
   "peerDependencies": {
     "@tapjs/core": "3.0.3"
@@ -80,7 +76,8 @@
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
   },
+  "module": "./dist/esm/index.js",
   "engines": {
-    "node": ">= 18.6.0"
+    "node": "20 || >=22"
   }
 }

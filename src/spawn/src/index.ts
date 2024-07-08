@@ -68,7 +68,8 @@ export class SpawnPlugin {
 
   #builtTest?: TestBase & SpawnPlugin
   #bt() {
-    return this.#builtTest ??= this.#t.t as unknown as TestBase & SpawnPlugin
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
+      SpawnPlugin)
   }
 
   /**

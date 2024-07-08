@@ -320,7 +320,11 @@ export class Interceptor {
       }
     }
     if (orig && !orig.configurable) {
-      throw notConfig('intercept property', prop, this.#bt().intercept)
+      throw notConfig(
+        'intercept property',
+        prop,
+        this.#bt().intercept,
+      )
     }
 
     let restore: () => void

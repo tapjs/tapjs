@@ -13,7 +13,9 @@ const npmFreeEnv = Object.fromEntries(
 )
 
 let npmCwd: string | undefined = undefined
-export const npmFindCwd = async (projectRoot: string): Promise<string> => {
+export const npmFindCwd = async (
+  projectRoot: string,
+): Promise<string> => {
   if (!npmCwd) {
     npmCwd = resolve(projectRoot, '.tap/plugins')
     await mkdirp(npmCwd)
@@ -69,7 +71,14 @@ const npmFg = (
 }
 
 // suppress all non-essential npm output
-const quiet = ['--silent', '--log-level=silent', '--no-audit', '--loglevel=error', '--no-progress', '--no-fund']
+const quiet = [
+  '--silent',
+  '--log-level=silent',
+  '--no-audit',
+  '--loglevel=error',
+  '--no-progress',
+  '--no-fund',
+]
 
 export const install = async (
   pkgs: string[],

@@ -1,8 +1,8 @@
-import {readlinkSync} from 'fs'
-import {dirname, resolve} from 'path'
-import {resolveImport} from 'resolve-import'
+import { readlinkSync } from 'fs'
+import { dirname, resolve } from 'path'
+import { resolveImport } from 'resolve-import'
 import t from 'tap'
-import {fileURLToPath} from 'url'
+import { fileURLToPath } from 'url'
 import { setPluginCoreLink } from '../src/set-plugin-core-link.js'
 
 const core = dirname(
@@ -26,7 +26,7 @@ t.test('set core link if invalid link', t => {
       '@tapjs': {
         core: t.fixture('symlink', t.testdirName),
       },
-    }
+    },
   })
   setPluginCoreLink(dir, core)
   t.equal(readlinkSync(pc(dir)), core)
@@ -39,7 +39,7 @@ t.test('set core link if invalid link', t => {
       '@tapjs': {
         core: t.fixture('symlink', t.testdirName),
       },
-    }
+    },
   })
   setPluginCoreLink(dir, core)
   t.equal(readlinkSync(pc(dir)), core)
@@ -53,12 +53,12 @@ t.test('set core link if not a link', t => {
         core: {
           it: {
             is: {
-              a: 'dir'
-            }
-          }
-        }
+              a: 'dir',
+            },
+          },
+        },
       },
-    }
+    },
   })
   setPluginCoreLink(dir, core)
   t.equal(readlinkSync(pc(dir)), core)

@@ -448,9 +448,13 @@ t.test('throws, doesNotThrow', t => {
     ),
   )
 
-  t.notOk(a.error(new Error('x', {
-    cause: new Error('y'),
-  })))
+  t.notOk(
+    a.error(
+      new Error('x', {
+        cause: new Error('y'),
+      }),
+    ),
+  )
 
   t.ok(a.doesNotThrow(() => {}))
   t.equal(
