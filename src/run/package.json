@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Command-line interface for the node-tap runner",
   "tshy": {
     "dialects": [
@@ -44,7 +44,7 @@
     "@tapjs/before": "4.0.0",
     "@tapjs/config": "5.0.0",
     "@tapjs/processinfo": "^3.1.8",
-    "@tapjs/reporter": "4.0.0",
+    "@tapjs/reporter": "4.0.1",
     "@tapjs/spawn": "4.0.0",
     "@tapjs/stdin": "4.0.0",
     "@tapjs/test": "4.0.0",
