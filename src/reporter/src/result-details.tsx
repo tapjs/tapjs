@@ -60,7 +60,7 @@ export const ResultDetails: FC<{
   delete otherDiags.diff
 
   return (
-    <Box paddingLeft={!!heading ? 0 : 4} flexDirection="column">
+    <Box paddingLeft={!!heading ? 0 : 2} flexDirection="column">
       {heading ?
         <Box flexDirection="column" paddingTop={flush ? 0 : 1}>
           <Text color="white" bold>

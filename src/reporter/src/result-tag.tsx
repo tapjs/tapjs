@@ -18,10 +18,10 @@ export const ResultTag: FC<ResultOpts> = ({
 }) => {
   const showCallsite = !details
   const c =
-    result.skip ? '~'
-    : result.todo ? '☐'
+    result.skip ? '~ '
+    : result.todo ? '☐ '
     : !result.ok ? '✖'
-    : '✓'
+    : '✓ '
   const textc =
     result.skip ? 'cyan'
     : result.todo ? 'magenta'
@@ -34,7 +34,7 @@ export const ResultTag: FC<ResultOpts> = ({
   )
   let st = result.skip || result.todo || result.tapError
   const suff =
-    typeof st === 'string' ? <Text color={textc}>{st}</Text> : <></>
+    typeof st === 'string' ? <Text color={textc}> {st}</Text> : <></>
   const at = result.diag?.at
   const fileName = at?.fileName
   const callsite =
@@ -46,16 +46,28 @@ export const ResultTag: FC<ResultOpts> = ({
         : ''}
       </Text>
     : <></>
-  const name = assertName(result, test)
+  const name = assertName(result, test).trim()
+
+  const inline = name.length < 25 && !details
 
   return (
-    <Box flexDirection="column">
-      <Box gap={1} paddingLeft={1}>
-        {pref}
-        <Text>{name}</Text>
+    <Box flexDirection="column" gap={0}>
+      <Box>
+        <Box>
+          {pref}
+          <Text>{name}</Text>
+        </Box>
         {suff}
-        {callsite}
+        {inline ?
+          <>
+            <Text> </Text>
+            {callsite}
+          </>
+        : <></>}
       </Box>
+      {inline ?
+        <></>
+      : <Box paddingLeft={2}>{callsite}</Box>}
       {!!details && <ResultDetails result={result} />}
     </Box>
   )
