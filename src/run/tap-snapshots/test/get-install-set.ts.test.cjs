@@ -21,11 +21,7 @@ Array []
 `
 
 exports[`test/get-install-set.ts > TAP > plugin already built into tap > stderr 1`] = `
-Array [
-  Array [
-    "plugin already present: x",
-  ],
-]
+Array []
 `
 
 exports[`test/get-install-set.ts > TAP > plugin already built into tap > stdout 1`] = `

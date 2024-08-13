@@ -33,7 +33,6 @@ export const getInstallSet = async (
     // if we have a version installed, check if it's a match
     // already present
     if (pl.includes(name) && versionInstalled === versionWant) {
-      console.error('plugin already present: ' + plugin)
       continue
     }
 

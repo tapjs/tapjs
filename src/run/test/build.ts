@@ -33,6 +33,9 @@ t.test('build success, main command, allow fg exit', async t => {
   const { build } = await t.mockImport<
     typeof import('../dist/esm/build.js')
   >('../dist/esm/build.js', {
+    '../dist/esm/plugin.js': {
+      plugin: async () => {},
+    },
     '../dist/esm/main-config.js': {
       mainCommand: 'build',
     },
@@ -67,6 +70,9 @@ t.test('build failure, main command, allow fg exit', async t => {
     '../dist/esm/main-config.js': {
       mainCommand: 'build',
     },
+    '../dist/esm/plugin.js': {
+      plugin: async () => {},
+    },
     'foreground-child': {
       foregroundChild: (
         cmd: string,
@@ -98,6 +104,9 @@ t.test('build success, subcommand, cancel exit', async t => {
     '../dist/esm/main-config.js': {
       mainCommand: 'run',
     },
+    '../dist/esm/plugin.js': {
+      plugin: async () => {},
+    },
     'foreground-child': {
       foregroundChild: (
         cmd: string,
@@ -128,6 +137,9 @@ t.test('build fail, subcommand, fail with status', async t => {
   >('../dist/esm/build.js', {
     '../dist/esm/main-config.js': {
       mainCommand: 'run',
+    },
+    '../dist/esm/plugin.js': {
+      plugin: async () => {},
     },
     'foreground-child': {
       foregroundChild: (

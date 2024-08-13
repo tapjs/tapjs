@@ -609,6 +609,65 @@ t.test('adding plugins', async t => {
   })
 })
 
+t.test('adding plugins quietly', async t => {
+  const logs = t.capture(console, 'log')
+  const errs = t.capture(console, 'error')
+
+  t.test('fail if no name provided', async t => {
+    const config = new MockConfig(t)
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js')
+
+    t.rejects(plugin(['add'], config.l, true), {
+      message: 'no plugin name provided',
+    })
+  })
+
+  t.test('already present', async t => {
+    const config = new MockConfig(t)
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
+      '../dist/esm/get-install-set.js': {
+        getInstallSet: () => ({
+          added: new Set(),
+          needInstall: new Set(),
+          needCleanup: new Set(),
+        }),
+      },
+    })
+    await plugin(['add', 'a', 'b', 'c'], config.l, true)
+  })
+
+  t.test('add previously removed default plugin', async t => {
+    const config = new MockConfig(t)
+    config.values.plugin.push('!@tapjs/mock')
+    config.pluginList.push('!@tapjs/mock')
+    let buildRan = false
+    const { plugin } = await t.mockImport<
+      typeof import('../dist/esm/plugin.js')
+    >('../dist/esm/plugin.js', {
+      '../dist/esm/build.js': { build: () => (buildRan = true) },
+      'foreground-child': {
+        foregroundChild: nope,
+      },
+    })
+    await plugin(['add', '@tapjs/mock'], config.l, true)
+    t.equal(buildRan, true)
+    t.strictSame(config.values.plugin, ['a', 'b', 'c'])
+    t.strictSame(config.edited, { plugin: ['a', 'b', 'c'] })
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
+  })
+
+  t.test('nothing written to console', t => {
+    t.strictSame(logs(), [])
+    t.strictSame(errs(), [])
+    t.end()
+  })
+})
+
 t.test('print warning if not running in project', async t => {
   const errs = t.capture(console, 'error').args
   const logs = t.capture(console, 'log').args

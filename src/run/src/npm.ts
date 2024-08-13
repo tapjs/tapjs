@@ -18,7 +18,7 @@ export const npmFindCwd = async (
 ): Promise<string> => {
   if (!npmCwd) {
     npmCwd = resolve(projectRoot, '.tap/plugins')
-    await mkdirp(npmCwd)
+    await mkdirp(npmCwd + '/node_modules')
   }
   return npmCwd
 }
@@ -71,7 +71,7 @@ const npmFg = (
 }
 
 // suppress all non-essential npm output
-const quiet = [
+const quiet: string[] = [
   '--silent',
   '--log-level=silent',
   '--no-audit',

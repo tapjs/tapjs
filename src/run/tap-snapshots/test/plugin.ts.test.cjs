@@ -190,6 +190,14 @@ Array [
 ]
 `
 
+exports[`test/plugin.ts > TAP > adding plugins quietly > add previously removed default plugin > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/plugin.ts > TAP > adding plugins quietly > add previously removed default plugin > must match snapshot 2`] = `
+Array []
+`
+
 exports[`test/plugin.ts > TAP > list plugins > no args > must match snapshot 1`] = `
 Array [
   Array [

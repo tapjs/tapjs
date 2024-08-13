@@ -63,11 +63,12 @@ This will likely fail. Try:
 export const plugin = async (
   args: string[],
   config: LoadedConfig,
+  quiet = false,
 ) => {
   await detectGlobalInstall(args, config.projectRoot)
   switch (args[0]) {
     case 'add':
-      return add(args.slice(1), config)
+      return add(args.slice(1), config, quiet)
     case 'rm':
     case 'remove':
       return rm(args.slice(1), config)
@@ -85,7 +86,9 @@ export const plugin = async (
   }
 }
 
-const add = async (args: string[], config: LoadedConfig) => {
+const add = async (args: string[], config: LoadedConfig, quiet = false) => {
+  const error = quiet ? () => {} : console.error
+  const log = quiet ? () => {} : console.log
   if (!args.length) throw new Error('no plugin name provided')
 
   const { added, needInstall, needCleanup } = await getInstallSet(
@@ -94,11 +97,11 @@ const add = async (args: string[], config: LoadedConfig) => {
   )
 
   if (!added.size) {
-    console.log('nothing to do, all plugins already installed')
+    log('nothing to do, all plugins already installed')
     return
   }
 
-  console.error('adding plugins:', [...added])
+  error('adding plugins:', [...added])
 
   // roll back if it fails!
   let success = false
@@ -107,7 +110,7 @@ const add = async (args: string[], config: LoadedConfig) => {
     // install anything that needs to be installed
     if (needInstall.size) {
       const ni = [...needInstall]
-      console.error('installing:', ni)
+      error('installing:', ni)
       await install(ni, config)
       installed = true
     }
@@ -127,23 +130,23 @@ const add = async (args: string[], config: LoadedConfig) => {
       config.configFile,
     )
 
-    console.log('successfully added plugin(s):')
-    console.log([...added].join('\n'))
+    log('successfully added plugin(s):')
+    log([...added].join('\n'))
     success = true
   } catch (er) {
     if (er instanceof Error) {
-      console.error(chalk.red(er.message))
+      error(chalk.red(er.message))
     }
   } finally {
     if (!success) {
       process.exitCode = 1
       const what =
         needInstall.size && !installed ? 'install' : 'build'
-      console.error(chalk.red(`${what} failed`))
+      error(chalk.red(`${what} failed`))
       if (installed && needCleanup.size) {
-        console.error('attempting to clean up added packages')
+        error('attempting to clean up added packages')
         await uninstall([...needCleanup], config).catch(() =>
-          console.error(chalk.red('uninstall failed')),
+          error(chalk.red('uninstall failed')),
         )
       }
     }
