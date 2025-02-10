@@ -85,7 +85,7 @@
     "string-length": "^6.0.0",
     "strip-ansi-cjs": "npm:strip-ansi@^6.0.1",
     "sync-content": "^2.0.1",
-    "tap": "^18.0.0-0",
+    "tap": "^21.0.0-0",
     "trivial-deferred": "^2.0.0",
     "tshy": "^3.0.2",
     "tsx": "^4.16.2",

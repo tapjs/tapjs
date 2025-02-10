@@ -15,13 +15,9 @@ import { pathToFileURL } from 'node:url'
 
 import { resolveImport } from 'resolve-import'
 // import('@tapjs/run')
-await import(
-  String(
-    await resolveImport(
-      '@tapjs/run',
-      await resolveImport('tap', pathToFileURL(resolve('x'))).catch(
-        () => import.meta.url,
-      ),
-    ),
+// this is nicer with TLA, but that has some unfortunate side effects
+resolveImport('tap', pathToFileURL(resolve('x')))
+  .then(tap =>
+    resolveImport('@tapjs/run', tap).catch(() => import.meta.url),
   )
-)
+  .then(i => import(String(i)))
