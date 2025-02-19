@@ -5,9 +5,8 @@ import { resolve } from 'node:path'
 // This just adds the ts-node/esm loader
 // appease the import-deps test
 // import('@isaacs/ts-node-temp-fork-for-pr-2009')
-export const loader = '@isaacs/ts-node-temp-fork-for-pr-2009/esm'
-export const importLoader =
-  '@isaacs/ts-node-temp-fork-for-pr-2009/import'
+export const loader = '@tapjs/typescript/esm'
+export const importLoader = '@tapjs/typescript/import'
 
 // ts-node/esm should come AHEAD of other loaders in the args list,
 // otherwise any other resolve()'s won't be run
@@ -22,30 +21,48 @@ const fileExists = (path: string) => {
 }
 
 let didSet = false
+const nv = parseInt(process.versions.node, 10)
+
 export const plugin: TapPlugin<{}> = () => {
-  if (!didSet) {
-    if (env.TAP_TYPECHECK === '1') {
-      env.TS_NODE_TRANSPILE_ONLY = '0'
-    } else {
-      env.TS_NODE_TRANSPILE_ONLY = '1'
-    }
-    if (env.TAP_CWD && !env.TAP_TSCONFIG) {
-      for (const tsconfig of [
-        'tsconfig.tap.json',
-        'tsconfig.test.json',
-        'tsconfig.spec.json',
-        'tsconfig.json',
-      ]) {
-        if (fileExists(resolve(env.TAP_CWD, tsconfig))) {
-          env.TAP_TSCONFIG = tsconfig
-          break
-        }
+  if (didSet) return {}
+
+  didSet = true
+
+  if (nv < 22) {
+    // not supported on node versions < 22
+    process.env.TAP_TYPE_STRIP_ONLY = '0'
+  }
+
+  if (process.env.TAP_TYPE_STRIP_ONLY === '1') {
+    process.env.NODE_OPTIONS = `${
+      process.env.NODE_OPTIONS ?? ''
+    } --no-warnings ${
+      nv === 22 ? '--experimental-strip-types' : ''
+    }`.trim()
+    return {}
+  }
+
+  if (env.TAP_TYPECHECK === '1') {
+    env.TS_NODE_TRANSPILE_ONLY = '0'
+  } else {
+    env.TS_NODE_TRANSPILE_ONLY = '1'
+  }
+
+  if (env.TAP_CWD && !env.TAP_TSCONFIG) {
+    for (const tsconfig of [
+      'tsconfig.tap.json',
+      'tsconfig.test.json',
+      'tsconfig.spec.json',
+      'tsconfig.json',
+    ]) {
+      if (fileExists(resolve(env.TAP_CWD, tsconfig))) {
+        env.TAP_TSCONFIG = tsconfig
+        break
       }
     }
-    if (env.TAP_TSCONFIG && env.TAP_CWD) {
-      env.TS_NODE_PROJECT = resolve(env.TAP_CWD, env.TAP_TSCONFIG)
-    }
-    didSet = true
+  }
+  if (env.TAP_TSCONFIG && env.TAP_CWD) {
+    env.TS_NODE_PROJECT = resolve(env.TAP_CWD, env.TAP_TSCONFIG)
   }
   return {}
 }
@@ -143,5 +160,51 @@ export const config = {
                   - tsconfig.test.json
                   - tsconfig.spec.json
                   - tsconfig.json`,
+  },
+
+  /**
+   * flag
+   *
+   * Do not compile OR typecheck test files, and instead, opt into Node's
+   * built-in type stripping behavior.
+   *
+   * Note that this limits the TypeScript features that can be used, but it is
+   * the fastest and most responsive approach, because it does not require a
+   * build step of any kind.
+   *
+   * This flag supercedes `typecheck` and `tsconfig`, because no compilation is
+   * performed.
+   *
+   * Only supported on Node 22 and higher.
+   *
+   * On Node 22, adds the `--experimental-strip-types` flag. On Node 23 and
+   * higher, this is supported by default.
+   *
+   * Adds a `--no-warnings` flag on all Node versions, to avoid the prevalance
+   * of warnings about type stripping being an experimental feature.
+   *
+   * @group Configuration
+   */
+  'type-strip-only': {
+    type: 'boolean',
+    description: `Do not compile OR typecheck test files, and instead, opt into
+                  Node's built-in type stripping behavior.
+
+                  Note that this limits the TypeScript features that can be
+                  used, but it is the fastest and most responsive approach,
+                  because it does not require a build step of any kind.
+
+                  This flag supercedes \`typecheck\` and \`tsconfig\`, because
+                  no compilation is performed.
+
+                  Only supported on Node 22 and higher.
+
+                  On Node 22, adds the \`--experimental-strip-types\` flag. On
+                  Node 23 and higher, this is supported by default.
+
+                  Adds a \`--no-warnings\` flag on all Node versions, to avoid
+                  the prevalance of warnings about type stripping being an
+                  experimental feature.
+    `,
   },
 }

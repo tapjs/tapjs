@@ -6,7 +6,9 @@
     "main": true,
     "exports": {
       "./package.json": "./package.json",
-      ".": "./src/index.ts"
+      ".": "./src/index.ts",
+      "./esm": "./src/esm.mts",
+      "./import": "./src/import.mts"
     }
   },
   "type": "module",
@@ -22,6 +24,18 @@
       "require": {
         "types": "./dist/commonjs/index.d.ts",
         "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./esm": {
+      "import": {
+        "types": "./dist/esm/esm.d.mts",
+        "default": "./dist/esm/esm.mjs"
+      }
+    },
+    "./import": {
+      "import": {
+        "types": "./dist/esm/import.d.mts",
+        "default": "./dist/esm/import.mjs"
       }
     }
   },

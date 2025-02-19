@@ -28,6 +28,30 @@ Object {
     ),
     "type": "string",
   },
+  "type-strip-only": Object {
+    "description": String(
+      Do not compile OR typecheck test files, and instead, opt into
+                        Node's built-in type stripping behavior.
+      
+                        Note that this limits the TypeScript features that can be
+                        used, but it is the fastest and most responsive approach,
+                        because it does not require a build step of any kind.
+      
+                        This flag supercedes \`typecheck\` and \`tsconfig\`, because
+                        no compilation is performed.
+      
+                        Only supported on Node 22 and higher.
+      
+                        On Node 22, adds the \`--experimental-strip-types\` flag. On
+                        Node 23 and higher, this is supported by default.
+      
+                        Adds a \`--no-warnings\` flag on all Node versions, to avoid
+                        the prevalance of warnings about type stripping being an
+                        experimental feature.
+          
+    ),
+    "type": "boolean",
+  },
   "typecheck": Object {
     "description": String(
       Type-check test files, in addition to transpiling and running

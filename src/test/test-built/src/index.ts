@@ -310,6 +310,10 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
   if (!isConfigOption(config_Plugin_typescript_1, "string", false)) {
     throw new Error("Invalid config option 'tsconfig' defined in plugin: '@tapjs/typescript'")
   }
+  const config_Plugin_typescript_2 = Plugin_typescript.config["type-strip-only"]
+  if (!isConfigOption(config_Plugin_typescript_2, "boolean", false)) {
+    throw new Error("Invalid config option 'type-strip-only' defined in plugin: '@tapjs/typescript'")
+  }
   return jack
     .heading("From plugin: @tapjs/filter")
     .flag({ "only": config_Plugin_filter_0 })
@@ -327,6 +331,7 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
     .heading("From plugin: @tapjs/typescript")
     .flag({ "typecheck": config_Plugin_typescript_0 })
     .opt({ "tsconfig": config_Plugin_typescript_1 })
+    .flag({ "type-strip-only": config_Plugin_typescript_2 })
 }
 //{{PLUGINS CONFIG END}}
 
@@ -338,11 +343,11 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
 // // these are added with --loader, only if --import is unavailable
 // export const loaderFallbacks = []
 const preloaders = new Set<string>([
-  "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
+  "@tapjs/typescript/esm"
 ])
 
 const preimports = new Set<string>([
-  "@isaacs/ts-node-temp-fork-for-pr-2009/import"
+  "@tapjs/typescript/import"
 ])
 
 /**
@@ -362,7 +367,7 @@ export const loaders: string[] = [].sort(
  */
 export const importLoaders: string[] = [
   "@tapjs/mock/import",
-  "@isaacs/ts-node-temp-fork-for-pr-2009/import"
+  "@tapjs/typescript/import"
 ].sort(
   (a, b) => preimports.has(a) && !preimports.has(b) ? -1
     : !preimports.has(a) && preimports.has(b) ? 1
@@ -375,7 +380,7 @@ export const importLoaders: string[] = [
  */
 export const loaderFallbacks: string[] = [
   "@tapjs/mock/loader",
-  "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
+  "@tapjs/typescript/esm"
 ].sort(
   (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1

@@ -281,6 +281,22 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & Co
         multiple?: false | undefined;
         delim?: undefined;
     };
+}> & ConfigSetFromMetaSet<"boolean", false, {
+    "type-strip-only": {
+        type: string;
+        description: string;
+    } & {
+        type: "boolean";
+        short?: string | undefined;
+        default?: boolean | undefined;
+        description?: string;
+        hint?: undefined;
+        validate?: ((v: unknown) => v is boolean) | undefined;
+        validOptions?: undefined;
+    } & {
+        multiple?: false | undefined;
+        delim?: undefined;
+    };
 }>>;
 /**
  * The set of `loader` strings exported by plugins. If a plugin exports

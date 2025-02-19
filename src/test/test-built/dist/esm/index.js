@@ -167,6 +167,10 @@ export const config = (jack) => {
     if (!isConfigOption(config_Plugin_typescript_1, "string", false)) {
         throw new Error("Invalid config option 'tsconfig' defined in plugin: '@tapjs/typescript'");
     }
+    const config_Plugin_typescript_2 = Plugin_typescript.config["type-strip-only"];
+    if (!isConfigOption(config_Plugin_typescript_2, "boolean", false)) {
+        throw new Error("Invalid config option 'type-strip-only' defined in plugin: '@tapjs/typescript'");
+    }
     return jack
         .heading("From plugin: @tapjs/filter")
         .flag({ "only": config_Plugin_filter_0 })
@@ -183,7 +187,8 @@ export const config = (jack) => {
         .flag({ "no-snapshot-clean-cwd": config_Plugin_snapshot_2 })
         .heading("From plugin: @tapjs/typescript")
         .flag({ "typecheck": config_Plugin_typescript_0 })
-        .opt({ "tsconfig": config_Plugin_typescript_1 });
+        .opt({ "tsconfig": config_Plugin_typescript_1 })
+        .flag({ "type-strip-only": config_Plugin_typescript_2 });
 };
 //{{PLUGINS CONFIG END}}
 //{{LOADERS START}}
@@ -194,10 +199,10 @@ export const config = (jack) => {
 // // these are added with --loader, only if --import is unavailable
 // export const loaderFallbacks = []
 const preloaders = new Set([
-    "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
+    "@tapjs/typescript/esm"
 ]);
 const preimports = new Set([
-    "@isaacs/ts-node-temp-fork-for-pr-2009/import"
+    "@tapjs/typescript/import"
 ]);
 /**
  * The set of `loader` strings exported by plugins. If a plugin exports
@@ -213,7 +218,7 @@ export const loaders = [].sort((a, b) => preloaders.has(a) && !preloaders.has(b)
  */
 export const importLoaders = [
     "@tapjs/mock/import",
-    "@isaacs/ts-node-temp-fork-for-pr-2009/import"
+    "@tapjs/typescript/import"
 ].sort((a, b) => preimports.has(a) && !preimports.has(b) ? -1
     : !preimports.has(a) && preimports.has(b) ? 1
         : 0);
@@ -223,7 +228,7 @@ export const importLoaders = [
  */
 export const loaderFallbacks = [
     "@tapjs/mock/loader",
-    "@isaacs/ts-node-temp-fork-for-pr-2009/esm"
+    "@tapjs/typescript/esm"
 ].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
     : !preloaders.has(a) && preloaders.has(b) ? 1
         : 0);
