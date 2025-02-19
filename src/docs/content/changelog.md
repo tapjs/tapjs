@@ -5,6 +5,13 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.1
+
+- Add support for using node's `--experimental-strip-types` (or
+  just, rely on that being on by default) and do not compile
+  TypeScript tests, using the new `--type-strip-only` config
+  flag.
+
 ## 21.0
 
 - Drop support for node versions prior to v20
