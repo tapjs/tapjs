@@ -60,6 +60,13 @@ Object {
     "hint": "module",
     "type": "string",
   },
+  "branches": Object {
+    "default": 100,
+    "description": "what % of branches must be covered?",
+    "hint": "n",
+    "type": "number",
+    "validate": Function validate(n),
+  },
   "browser": Object {
     "default": true,
     "description": String(
@@ -187,6 +194,13 @@ Object {
     "multiple": true,
     "type": "string",
   },
+  "functions": Object {
+    "default": 100,
+    "description": "what % of functions must be covered?",
+    "hint": "n",
+    "type": "number",
+    "validate": Function validate(n),
+  },
   "help": Object {
     "description": "show this help banner",
     "short": "h",
@@ -244,6 +258,13 @@ Object {
     "hint": "n",
     "short": "j",
     "type": "number",
+  },
+  "lines": Object {
+    "default": 100,
+    "description": "what % of lines must be covered?",
+    "hint": "n",
+    "type": "number",
+    "validate": Function validate(n),
   },
   "no-bail": Object {
     "description": "Do not bail out on first failure (default)",
@@ -427,6 +448,13 @@ Object {
       When running \`tap report text --no-show-full-coverage\`, explicitly requesting a text report and also explicitly requesting that full coverage text report *not* be shown, then a summary report will be printed instead of the full text report.
     ),
     "type": "boolean",
+  },
+  "statements": Object {
+    "default": 100,
+    "description": "what % of statements must be covered?",
+    "hint": "n",
+    "type": "number",
+    "validate": Function validate(n),
   },
   "test-arg": Object {
     "default": Array [],

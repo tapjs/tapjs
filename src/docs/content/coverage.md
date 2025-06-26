@@ -16,7 +16,7 @@ judge of test completeness. Code coverage is thus the "test for
 the tests", verifying that the tests are in fact testing the
 code. Nothing is perfect, and it is of course possible to write
 bad tests with full code coverage, but _lacking_ test coverage
-virtually gaurantees that tests are inadequate.
+virtually guarantees that tests are inadequate.
 
 As the saying goes, seatbelts don't make you immortal, but
 they're still a good idea.
@@ -32,14 +32,41 @@ generated. If it is incomplete, or if no coverage is generated at
 all, then a report is printed and the process exits with an error
 status code.
 
+If 100% coverage is not possible, you can set minimum code
+coverage thresholds for statements, branches, functions, and
+lines. The default will be 100 for any coverage threshold that is
+not set explicitly.
+
+Minimum coverage can be set via configuration files:
+
+```yaml
+statements: 90
+branches: 90
+functions: 90
+lines: 90
+```
+
+Minimum coverage can be set via command line switches:
+
+```bash
+tap --statements=90 --branches=90 --functions=90 --lines=90
+```
+
+In the following example, functions and lines will have the
+default of 100 because they are not explicitly set.
+
+```bash
+tap --statements=90 --branches=90
+```
+
 ## Reporting Coverage
 
 Tap uses essentially the same strategy as
-[C8](https://www.npmjs.com/package/c8), but instead of
-generating coverage information for _all_ JavaScript that passes
-through the interpreter, it only saves coverage for the files
-that are part of your program. This saves a considerable amount
-of disk space and, more importantly, processing time.
+[C8](https://www.npmjs.com/package/c8), but instead of generating
+coverage information for _all_ JavaScript that passes through the
+interpreter, it only saves coverage for the files that are part
+of your program. This saves a considerable amount of disk space
+and, more importantly, processing time.
 
 To generate coverage reports, tap uses the C8 `Reporter` class.
 Thus, any [istanbul

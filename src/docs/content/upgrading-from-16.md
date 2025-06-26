@@ -1,12 +1,12 @@
 ---
-title: Upgrading to tap 18 from tap v16 and before
+title: Upgrading from tap v16 and before
 eleventyNavigation:
   order: 495
   key: Upgrading
 ---
 
-Tap version 18 is a major overhaul, and some configuration needs to be
-updated when upgrading from versions 16 and before.
+Tap version 18 was a major overhaul, and some configuration needs
+to be updated when upgrading from versions 16 and before.
 
 The [changelog](./changelog.md) covers much of the details, but
 this is intended to be a more deliberate guide for users
@@ -24,8 +24,8 @@ replace that with just `/.tap`.
 In tap 16, a top-level function `tap.mochaGlobals()` would dump
 the various mocha-like interfaces onto the global object.
 
-In tap 18, these are provided by the optional [`@tapjs/mocha-globals`
-plugin](./plugins/mocha-globals.md).
+In tap 18, these are provided by the optional
+[`@tapjs/mocha-globals` plugin](./plugins/mocha-globals.md).
 
 To use it, add the plugin:
 
@@ -63,6 +63,9 @@ In tap v18, this interface has changed:
 
 - Coverage is enabled by default, and checked
 - Missing or incomplete coverage is treated as an error
+- Coverage is considered incomplete when it does not meet minimum
+  coverage thresholds
+  - The default minimum coverage threshold is 100%
 
 You can get the v16 style `--no-cov` behavior by doing:
 
@@ -89,7 +92,8 @@ To generate a coverage report after the fact, you can run `tap
 report [type]`.
 
 To replay the entire previous test run without actually running
-tests (ie, just report the results again), you can run `tap replay`.
+tests (ie, just report the results again), you can run `tap
+replay`.
 
 ## `test-regexp`, `test-ignore` RegExp -> `include`, `exclude` globs
 

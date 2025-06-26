@@ -41,6 +41,10 @@ class MockConfig {
   showFullCoverage?: boolean
   allowEmptyCoverage?: boolean
   allowIncompleteCoverage?: boolean
+  statements: number = 100
+  branches: number = 100
+  functions: number = 100
+  lines: number = 100
   browser?: boolean
   constructor(coverageReport: string[] = []) {
     this.#coverageReport = coverageReport
@@ -57,6 +61,14 @@ class MockConfig {
         return this.allowIncompleteCoverage
       case 'browser':
         return this.browser !== false
+      case 'statements':
+        return this.statements
+      case 'branches':
+        return this.branches
+      case 'functions':
+        return this.functions
+      case 'lines':
+        return this.lines
       default:
         throw new Error('should only look up coverage configs')
     }
@@ -75,6 +87,12 @@ const summary50: Summary = {
   functions: { pct: 'Unknown' },
   statements: { pct: 50 },
   branches: { pct: 50 },
+}
+const summary95: Summary = {
+  lines: { pct: 95 },
+  functions: { pct: 95 },
+  statements: { pct: 95 },
+  branches: { pct: 95 },
 }
 const summary100: Summary = {
   lines: { pct: 100 },
@@ -383,6 +401,7 @@ t.test('no coverage files generated, allowed', async t => {
 })
 
 t.test('no coverage summary generated', async t => {
+  const { exitCode } = process
   summary = summaryZero
   t.testdir({
     '.tap': {
@@ -402,7 +421,7 @@ t.test('no coverage summary generated', async t => {
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [['No coverage generated']])
   t.equal(process.exitCode, 1)
-  process.exitCode = 0
+  if (t.passing()) process.exitCode = exitCode
 })
 
 t.test('no coverage summary generated, allowed', async t => {
@@ -461,6 +480,41 @@ t.test('not full coverage', async t => {
   t.equal(openerRan, true)
   t.equal(readFileSync(htmlReport, 'utf8'), 'report')
   t.equal(process.exitCode, 1)
+  process.exitCode = 0
+})
+
+t.test('coverage meets minimum thresholds', async t => {
+  summary = summary95
+  t.testdir({
+    '.tap': {
+      coverage: { 'file.json': '{}' },
+    },
+  })
+  const comments = t.capture(mockTap, 'comment')
+  let openerRan = false
+  const htmlReport = resolve(projectRoot, '.tap/report/index.html')
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/report.js')
+  >('../dist/esm/report.js', {
+    c8: { Report: MockReport },
+    '@tapjs/core': mockCore,
+    opener: (file: string) => {
+      t.equal(file, htmlReport)
+      openerRan = true
+    },
+  })
+  const config = new MockConfig([])
+  config.statements = 90
+  config.branches = 90
+  config.functions = 90
+  config.lines = 90
+  const logs = t.capture(console, 'log')
+  await report(['html'], config as unknown as LoadedConfig)
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [])
+  t.equal(openerRan, true)
+  t.equal(readFileSync(htmlReport, 'utf8'), 'report')
+  t.equal(process.exitCode, 0)
   process.exitCode = 0
 })
 

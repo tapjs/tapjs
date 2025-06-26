@@ -187,12 +187,12 @@ const checkCoverage = async (report: Report, config: LoadedConfig) => {
     return
   }
 
-  // TODO: make levels configurable, just *default* to 100
-  // only comment it if not using the text reporter, because that makes
-  // it pretty obvious where the shortcomings are already.
+  // TODO: Only comment lack of coverage if not using the text reporter, 
+  // because that makes it pretty obvious where the shortcomings are already.
   for (const th of thresholds) {
     const coverage = Number(summary[th].pct) || 0
-    if (coverage < 100) {
+    const minCoverage = Number(config.get(th))
+    if (coverage < minCoverage) {
       if (comment) {
         t.comment(`ERROR: incomplete ${th} coverage (${coverage}%)`)
       }
@@ -200,7 +200,7 @@ const checkCoverage = async (report: Report, config: LoadedConfig) => {
     }
   }
   if (success === false) {
-    t.debug('run/report exit=1 coverage not 100', summary)
+    t.debug(`run/report exit=1 coverage is incomplete`, summary)
     if (!config.get('allow-incomplete-coverage')) {
       process.exitCode = 1
     }

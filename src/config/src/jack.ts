@@ -484,6 +484,53 @@ export default jack({
     },
   })
 
+  .num({
+    statements: {
+      description: `what % of statements must be covered?`,
+      hint: 'n',
+      validate: (n: unknown) => { 
+        if (typeof n !== 'number' || n < 0 || n > 100) {
+          throw new Error('Coverage percentage must be between 0 and 100')
+        }
+        return true
+      },
+      default: 100
+    },
+    branches: {
+      description: `what % of branches must be covered?`,
+      hint: 'n',
+      validate: (n: unknown) => { 
+        if (typeof n !== 'number' || n < 0 || n > 100) {
+          throw new Error('Coverage percentage must be between 0 and 100')
+        }
+        return true
+      },
+      default: 100
+    },
+    lines: {
+      description: `what % of lines must be covered?`,
+      hint: 'n',
+      validate: (n: unknown) => { 
+        if (typeof n !== 'number' || n < 0 || n > 100) {
+          throw new Error('Coverage percentage must be between 0 and 100')
+        }
+        return true
+      },
+      default: 100
+    },
+    functions: {
+      description: `what % of functions must be covered?`,
+      hint: 'n',
+      validate: (n: unknown) => { 
+        if (typeof n !== 'number' || n < 0 || n > 100) {
+          throw new Error('Coverage percentage must be between 0 and 100')
+        }
+        return true
+      },
+      default: 100
+    }
+  })
+
   .flag({
     bail: {
       short: 'b',
