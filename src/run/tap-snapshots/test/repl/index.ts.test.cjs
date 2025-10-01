@@ -44,7 +44,7 @@ Object {
       [ 'finish' ],
       [ 'close' ]
     ]
-    \\u001b[?25h
+    
   ),
 }
 `
@@ -83,15 +83,15 @@ TAP> r
 TAP version 14
 1..1
 
-[?25hcode: null
+code: null
 signal: {SIGNAL}
 
-TAP> list
+list
 foo.test.mjs
-[?25hcode: 0
+code: 0
 signal: null
 
-TAP> [?25h
+[?25h
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > normal run > must match snapshot 1`] = `
@@ -105,10 +105,10 @@ ok 1 - foo.test.mjs # time={TIME}
 
 # { total: 1, pass: 1 }
 # time={TIME}
-[?25hcode: 0
+code: 0
 signal: null
 
-TAP> [?25h
+[?25h
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > run changed > must match snapshot 1`] = `
@@ -124,18 +124,18 @@ Object {
     
     # { total: 1, pass: 1 }
     # time={TIME}
-    \\u001b[?25hcode: 0
+    code: 0
     signal: null
     
-    TAP> \\u001b[?25h
+    \\u001b[?25h
   ),
   "unchanged": String(
     TAP> n
     No new tests to run
-    \\u001b[?25hcode: 0
+    code: 0
     signal: null
     
-    TAP> \\u001b[?25h
+    \\u001b[?25h
   ),
 }
 `
@@ -145,7 +145,7 @@ TAP> f?
 f
 - foo.test.mjs
 
-TAP> TAP version 14
+TAP version 14
 1..1
 # Subtest: foo.test.mjs
     ok 1 - should be equal
@@ -154,10 +154,10 @@ ok 1 - foo.test.mjs # time={TIME}
 
 # { total: 1, pass: 1 }
 # time={TIME}
-[?25hcode: 0
+code: 0
 signal: null
 
-TAP> [?25h
+[?25h
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > show watch > must match snapshot 1`] = `

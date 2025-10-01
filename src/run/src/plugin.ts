@@ -86,7 +86,11 @@ export const plugin = async (
   }
 }
 
-const add = async (args: string[], config: LoadedConfig, quiet = false) => {
+const add = async (
+  args: string[],
+  config: LoadedConfig,
+  quiet = false,
+) => {
   const error = quiet ? () => {} : console.error
   const log = quiet ? () => {} : console.log
   if (!args.length) throw new Error('no plugin name provided')

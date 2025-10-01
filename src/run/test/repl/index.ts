@@ -452,7 +452,7 @@ foo.test.mjs:
     )
     const piFiles = readdirSync(resolve(dir, '.tap/processinfo'))
     t.equal(piFiles.length, 1)
-    const uuid = basename(piFiles[0], '.json')
+    const uuid = basename(String(piFiles[0]), '.json')
     const byUuid = await run(dir, [], `i ${uuid}\n`)
     t.strictSame(
       res.stdout.split(/[\r\n]+/).slice(2),
@@ -504,6 +504,15 @@ cp.test.mjs:
     const res = await run(dir, [], 'f?\nf\n')
     t.match(res, { code: 0, signal: null })
     t.matchSnapshot(res.stdout)
+  })
+
+  t.test('list files', async t => {
+    const res = await run(dir, [], 'list\n')
+    const out = res.stdout.replace(/ /g, '')
+    t.match(out, 'foo.test.mjs')
+    t.match(out, 'cp.test.mjs')
+    t.match(out, 'code:0')
+    t.match(out, 'signal:null')
   })
 
   t.test('run a coverage report', async t => {

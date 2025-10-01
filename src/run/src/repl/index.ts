@@ -248,8 +248,10 @@ export class Repl {
     this.proc.kill(signal)
     const next =
       signal === 'SIGINT' ? 'SIGTERM'
-      : signal === 'SIGTERM' ? 'SIGKILL'
+      : /* c8 ignore start */
+      signal === 'SIGTERM' ? 'SIGKILL'
       : null
+    /* c8 ignore stop */
     if (next) {
       setTimeout(() => this.#killProc(next), KILL_TIMEOUT)?.unref?.()
     }
@@ -365,7 +367,7 @@ export class Repl {
     /* c8 ignore start */
     if (this.proc) return 'command in progress, please wait'
     /* c8 ignore stop */
-    this.repl?.pause()
+    try { this.repl?.pause() } catch {}
     // inherit environment except what is specified, if anything
     // delete anything specified as undefined
     const env = { ...process.env, ...(options.env || {}) }
@@ -392,9 +394,11 @@ export class Repl {
     signal: null | NodeJS.Signals,
   ) {
     this.proc = undefined
-    this.repl?.resume()
-    this.#setRawMode(true)
-    this.showCursor()
+    try {
+      this.repl?.resume()
+      this.#setRawMode(true)
+      this.showCursor()
+    } catch {}
     if (this.#haveChanges && (await this.watch.validateChanges())) {
       // A change occurred while the process was running, and we've validated
       // that it wasn't made irrelevant by the test eventually running that
