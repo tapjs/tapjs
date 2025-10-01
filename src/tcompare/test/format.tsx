@@ -32,6 +32,7 @@ const cleanNodeNames = (str: string) =>
     // tight formatting
     .replace(/"name":"AssertionError",/g, '')
     .replace(/"domain":null,/g, '')
+    .replace(/\s*"diff":\s*"simple",/g, '')
 
 t.test('gnarly object, many points of view', t => {
   const k: { [k: string]: any } = { a: 1 }
