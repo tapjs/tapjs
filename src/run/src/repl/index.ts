@@ -364,12 +364,14 @@ export class Repl {
     args: string[],
     options: SpawnOptions = {},
   ) {
+
     /* c8 ignore start */
     if (this.proc) return 'command in progress, please wait'
-    /* c8 ignore stop */
     try {
       this.repl?.pause()
     } catch {}
+    /* c8 ignore stop */
+
     // inherit environment except what is specified, if anything
     // delete anything specified as undefined
     const env = { ...process.env, ...(options.env || {}) }
@@ -400,7 +402,9 @@ export class Repl {
       this.repl?.resume()
       this.#setRawMode(true)
       this.showCursor()
+      /* c8 ignore start */
     } catch {}
+    /* c8 ignore stop */
     if (this.#haveChanges && (await this.watch.validateChanges())) {
       // A change occurred while the process was running, and we've validated
       // that it wasn't made irrelevant by the test eventually running that

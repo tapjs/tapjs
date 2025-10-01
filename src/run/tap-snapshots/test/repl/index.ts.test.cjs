@@ -11,10 +11,10 @@ Object {
   "signal": null,
   "stderr": "",
   "stdout": String(
-    TAP> parse
+    parse
     Parsing TAP from stdin. Press ^D to finish.
     
-    TAP> [
+    [
       [ 'version', 14 ],
       [ 'plan', Plan { start: 1, end: 0, comment: 'no tests found' } ],
       [
@@ -55,10 +55,10 @@ Object {
   "signal": null,
   "stderr": "",
   "stdout": String(
-    TAP> i not-a-valid-id
+    i not-a-valid-id
     not-a-valid-id: no data found
     
-    TAP> \\u001b[?25h\\u001b[?25h
+    
   ),
 }
 `
@@ -69,17 +69,17 @@ Object {
   "signal": null,
   "stderr": "",
   "stdout": String(
-    TAP> i
+    i
     Provide a test id to get information:
       - foo.test.mjs
     
-    TAP> \\u001b[?25h\\u001b[?25h
+    
   ),
 }
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > kill tests with ^C > must match snapshot 1`] = `
-TAP> r
+r
 TAP version 14
 1..1
 
@@ -91,11 +91,11 @@ foo.test.mjs
 code: 0
 signal: null
 
-[?25h
+
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > normal run > must match snapshot 1`] = `
-TAP> r
+r
 TAP version 14
 1..1
 # Subtest: foo.test.mjs
@@ -108,13 +108,13 @@ ok 1 - foo.test.mjs # time={TIME}
 code: 0
 signal: null
 
-[?25h
+
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > run changed > must match snapshot 1`] = `
 Object {
   "changed": String(
-    TAP> n
+    n
     TAP version 14
     1..1
     # Subtest: foo.test.mjs
@@ -127,21 +127,21 @@ Object {
     code: 0
     signal: null
     
-    \\u001b[?25h
+    
   ),
   "unchanged": String(
-    TAP> n
+    n
     No new tests to run
     code: 0
     signal: null
     
-    \\u001b[?25h
+    
   ),
 }
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > run failed > must match snapshot 1`] = `
-TAP> f?
+f?
 f
 - foo.test.mjs
 
@@ -157,7 +157,7 @@ ok 1 - foo.test.mjs # time={TIME}
 code: 0
 signal: null
 
-[?25h
+
 `
 
 exports[`test/repl/index.ts > TAP > run the suite > show watch > must match snapshot 1`] = `

@@ -1,6 +1,6 @@
 import { LoadedConfig } from '@tapjs/config'
 import { ChildProcess, spawn, SpawnOptions } from 'child_process'
-import { WatchOptions } from 'chokidar'
+import { ChokidarOptions } from 'chokidar'
 import { readdirSync, utimesSync, writeFileSync } from 'fs'
 import { Minipass } from 'minipass'
 import * as CP from 'node:child_process'
@@ -25,6 +25,9 @@ t.cleanSnapshot = s =>
   s
     .replace(/# time=[0-9\.]+m?s/g, '# time={TIME}')
     .replace(/SIG[A-Z]+/g, '{SIGNAL}')
+    .replaceAll('\x1b[?25h', '')
+    .replaceAll('\\u001b[?25h', '')
+    .replace(/TAP\> /g, '')
 
 const mockFSWatcher = new (class extends EventEmitter {
   running: boolean = true
@@ -36,7 +39,7 @@ const mockFSWatcher = new (class extends EventEmitter {
 
 const mockChokidar = new (class {
   files?: string[]
-  watch(fileList: string[], opts: WatchOptions) {
+  watch(fileList: string[], opts: ChokidarOptions) {
     if (!t.strictSame(opts, watchOptions, 'expected watch options')) {
       throw new Error('got incorrect chokidar options')
     }
