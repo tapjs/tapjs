@@ -30,12 +30,12 @@ export const plugin: TapPlugin<{}> = () => {
 
   if (nv < 22) {
     // not supported on node versions < 22
-    process.env.TAP_TYPE_STRIP_ONLY = '0'
+    env.TAP_TYPE_STRIP_ONLY = '0'
   }
 
-  if (process.env.TAP_TYPE_STRIP_ONLY === '1') {
-    process.env.NODE_OPTIONS = `${
-      process.env.NODE_OPTIONS ?? ''
+  if (env.TAP_TYPE_STRIP_ONLY === '1') {
+    env.NODE_OPTIONS = `${
+      env.NODE_OPTIONS ?? ''
     } --no-warnings ${
       nv === 22 ? '--experimental-strip-types' : ''
     }`.trim()
