@@ -86,7 +86,7 @@
     "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
@@ -109,7 +109,7 @@
     "@tapjs/stdin": "4.0.1",
     "@tapjs/typescript": "3.1.0",
     "@tapjs/worker": "4.0.1",
-    "glob": "11",
+    "glob": "^11.0.3",
     "jackspeak": "^4.0.1",
     "mkdirp": "^3.0.0",
     "package-json-from-dist": "^1.0.0",
@@ -117,8 +117,8 @@
     "rimraf": "^6.0.0",
     "sync-content": "^2.0.1",
     "tap-parser": "18.0.0",
-    "tshy": "^3.0.2",
-    "typescript": "5.5",
+    "tshy": "^3.0.3",
+    "typescript": "5.9",
     "walk-up-path": "^4.0.0"
   },
   "peerDependencies": {

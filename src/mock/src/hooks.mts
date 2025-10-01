@@ -1,13 +1,13 @@
 // hooks for legacy-loader.ts and loader.ts
 
-import { GlobalPreloadHook, LoadHook, ResolveHook } from 'node:module'
+import { LoadHook, ResolveHook } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { MessagePort } from 'node:worker_threads'
 import { MockServiceClient } from './mock-service-client.js'
 
 let client: MockServiceClient
 
-export const globalPreload: GlobalPreloadHook = ({ port }) => {
+export const globalPreload = ({ port }: { port: MessagePort }) => {
   // loader thread. connect client
   client = new MockServiceClient(port)
   const serviceModuleCJS = JSON.stringify(

@@ -1,5 +1,6 @@
 import { Base, TAP } from '@tapjs/core'
 import {
+  DiagnosticData,
   FailData,
   PassData,
   TestStreamSerialize,

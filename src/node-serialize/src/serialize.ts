@@ -3,6 +3,7 @@
 
 import { Base, TAP } from '@tapjs/core'
 import {
+  DiagnosticData,
   TestStreamDeserialize,
   TestStreamSerialize,
 } from '@tapjs/error-serdes'

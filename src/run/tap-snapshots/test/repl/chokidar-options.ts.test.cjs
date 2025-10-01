@@ -8,10 +8,8 @@
 exports[`test/repl/chokidar-options.ts > TAP > must match snapshot 1`] = `
 Object {
   "atomic": true,
-  "disableGlobbing": true,
   "followSymlinks": true,
   "ignorePermissionErrors": true,
   "persistent": false,
-  "useFsEvents": false,
 }
 `

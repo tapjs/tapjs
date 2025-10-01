@@ -1,4 +1,5 @@
 import { findSourceMap, SourceMap } from 'module'
+import type { SourceMapping } from 'module'
 import { isAbsolute, relative, resolve } from 'path'
 import { fileURLToPath } from 'url'
 import {
@@ -213,10 +214,7 @@ export class CallSiteLike {
     ) {
       // Passing an object that isn't an actual Error object to
       // findSourceMap causes problems in node 16
-      /* c8 ignore start */
-      const sme = e && e instanceof Error ? e : undefined
-      /* c8 ignore stop */
-      this.#sourceMap = findSourceMap(this.#fileName, sme)
+      this.#sourceMap = findSourceMap(this.#fileName)
       if (this.#sourceMap && typeof this.lineNumber === 'number') {
         // SourceMap.findEntry doesn't actually return the line/column
         // number, despite the property names, but rather the zero-indexed
@@ -233,7 +231,7 @@ export class CallSiteLike {
           Math.max(0, this.lineNumber - 1),
           Math.max(0, (this.columnNumber || 0) - 1),
           /* c8 ignore stop */
-        )
+        ) as undefined | SourceMapping
         if (payload) {
           const offset: [number, number] = [
             this.lineNumber - payload.generatedLine,

@@ -34,13 +34,13 @@
     "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "author": "Isaac Z. Schlueter <i@izs.me>",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "yaml": "^2.4.1",
+    "yaml": "^2.8.1",
     "yaml-types": "^0.4.0"
   },
   "tap": {

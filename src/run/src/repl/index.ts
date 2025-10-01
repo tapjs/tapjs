@@ -367,7 +367,9 @@ export class Repl {
     /* c8 ignore start */
     if (this.proc) return 'command in progress, please wait'
     /* c8 ignore stop */
-    try { this.repl?.pause() } catch {}
+    try {
+      this.repl?.pause()
+    } catch {}
     // inherit environment except what is specified, if anything
     // delete anything specified as undefined
     const env = { ...process.env, ...(options.env || {}) }

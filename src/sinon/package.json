@@ -34,14 +34,14 @@
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/after": "3.0.1",
-    "sinon": "^18.0.0"
+    "sinon": "^21.0.0"
   },
   "peerDependencies": {
     "@tapjs/core": "4.0.1"

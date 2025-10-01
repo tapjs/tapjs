@@ -70,14 +70,14 @@
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@tapjs/reporter": "4.0.2",
-    "ink": "^5.0.1",
+    "ink": "^5.2.1",
     "react": "^18.2.0"
   },
   "peerDependencies": {

@@ -13,6 +13,7 @@ import {
   PassData,
   PlanData,
   StringData,
+  DiagnosticData,
 } from './messages.js'
 import { serializeError } from './serialize.js'
 export * from './messages.js'

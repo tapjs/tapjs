@@ -25,6 +25,14 @@ import {
 import { walkUp } from 'walk-up-path'
 import baseConfig from './jack.js'
 
+export type OptionsSubset<T extends ConfigSet> = {
+  [k in keyof OptionsResults<T>]?: OptionsResults<T>[k]
+}
+
+export type ConfigFileData<T extends ConfigSet> = OptionsSubset<T> & {
+  extends?: string
+}
+
 export type { baseConfig }
 
 export type PathOptions = 'coverage-map' | 'before' | 'after'
@@ -80,14 +88,14 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   /**
    * values read from the config file, if loaded
    */
-  valuesFromConfigFile?: OptionsResults<C>
+  valuesFromConfigFile?: OptionsSubset<C>
 
   /**
    * The file extensions that tap knows how to load, updated by plugins
    */
   testFileExtensions: Set<string> = testFileExtensions
 
-  constructor(jack: Jack<C> = baseConfig as Jack<C>) {
+  constructor(jack: Jack<C> = baseConfig as unknown as Jack<C>) {
     this.jack = jack
   }
 
@@ -162,7 +170,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * create it.
    */
   async editConfigFile(
-    data: OptionsResults<C>,
+    data: OptionsSubset<C>,
     configFile = this.configFile,
     overwrite: boolean = false,
   ) {
@@ -192,11 +200,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * Edit a yaml .taprc file
    */
   async editYAMLConfig(
-    data: OptionsResults<C>,
+    data: OptionsSubset<C>,
     configFile: string,
     overwrite: boolean = false,
   ) {
-    const src: OptionsResults<C> =
+    const src: OptionsSubset<C> =
       (await this.readYAMLConfig(configFile, true)) || {}
     return writeFile(
       configFile,
@@ -211,17 +219,15 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * Edit the `"tap"` section of a package.json file
    */
   async editPackageJsonConfig(
-    data: OptionsResults<C>,
+    data: OptionsSubset<C>,
     configFile: string,
     overwrite: boolean = false,
   ) {
     const pj: any =
       (await this.readPackageJson(configFile, true)) || {}
     const { tap = {} } = pj
-    const src = (
-      tap && typeof tap === 'object' && !Array.isArray(tap) ?
-        tap
-      : {}) as OptionsResults<C>
+    const src: OptionsSubset<C> =
+      tap && typeof tap === 'object' && !Array.isArray(tap) ? tap : {}
     pj.tap = overwrite ? data : Object.assign(src, data)
     if (undefined === pj[kIndent]) pj[kIndent] = 2
     return writeFile(configFile, jsonStringify(pj))
@@ -233,13 +239,15 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   async readYAMLConfig(
     rc: string,
     silent: boolean = false,
-  ): Promise<OptionsResults<C> | undefined> {
+  ): Promise<ConfigFileData<C> | undefined> {
     try {
-      const p = yamlParse(
-        await readFile(rc, 'utf8'),
-      ) as OptionsResults<C>
+      const p = yamlParse(await readFile(rc, 'utf8')) as
+        | string
+        | ConfigFileData<C>
       return this.resolvePathOptions(
-        typeof p === 'string' ? { extends: p } : p,
+        typeof p === 'string' ?
+          ({ extends: p } as ConfigFileData<C>)
+        : p,
         rc,
       )
     } catch (er) {
@@ -276,7 +284,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    */
   async readPackageJsonConfig(
     pj: string,
-  ): Promise<OptionsResults<C> | undefined> {
+  ): Promise<OptionsSubset<C> | undefined> {
     return this.resolvePathOptions(
       (await this.readPackageJson(pj))?.tap as
         | OptionsResults<C>
@@ -286,9 +294,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   }
 
   resolvePathOptions(
-    conf: OptionsResults<C> | undefined,
+    conf: ConfigFileData<C> | undefined,
     file: string,
-  ): OptionsResults<C> | undefined {
+  ): OptionsSubset<C> | undefined {
     if (conf) {
       for (const p of pathOptions) {
         const pc = conf[p]
@@ -411,7 +419,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   async loadConfigFile(): Promise<
     this & {
       configFile: string
-      valuesFromConfigFile: OptionsResults<C>
+      valuesFromConfigFile: OptionsSubset<C>
     }
   > {
     // start from cwd, walk up until we find a .git

@@ -45,7 +45,7 @@
     "prepare": "bash -c 'if [ -d src ]; then tshy; fi'",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc"
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
@@ -55,7 +55,7 @@
     "@tapjs/stack": "4.0.0",
     "@tapjs/test": "4.0.1",
     "async-hook-domain": "^4.0.1",
-    "diff": "^5.2.0",
+    "diff": "^8.0.2",
     "is-actual-promise": "^1.0.1",
     "minipass": "^7.0.4",
     "signal-exit": "4.1",

@@ -10,8 +10,7 @@
 // test.
 
 import { ProcessInfo } from '@tapjs/processinfo'
-import { watch } from 'chokidar'
-import type { FSWatcher } from 'node:fs'
+import { watch, FSWatcher } from 'chokidar'
 import { options } from './chokidar-options.js'
 
 export class Watch {
@@ -69,7 +68,7 @@ export class Watch {
       this.watchedFiles = files
       if (this.fileWatcher) this.fileWatcher.close()
       this.fileWatcher = watch(this.watchedFiles, options)
-      this.fileWatcher.on('all', (ev: string) => {
+      this.fileWatcher?.on('all', (ev: string) => {
         // don't care about adds here, we already know what files
         // we care about.
         if (ev === 'add') return

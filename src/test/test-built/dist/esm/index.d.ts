@@ -15,7 +15,7 @@ import * as Plugin_spawn from "@tapjs/spawn";
 import * as Plugin_stdin from "@tapjs/stdin";
 import * as Plugin_typescript from "@tapjs/typescript";
 import * as Plugin_worker from "@tapjs/worker";
-import type { ConfigSet, ConfigSetFromMetaSet, Jack, ValidValue } from 'jackspeak';
+import type { ConfigSet, Jack } from 'jackspeak';
 /**
  * The set of file extensions that the tap runner will load
  * by default. Expaned into the `include` config values if they
@@ -78,25 +78,16 @@ export type PluginSet = [
  * objects exported by plugins.
  */
 export declare const execArgv: (values: ReturnType<ReturnType<typeof config>["parse"]>["values"]) => string[];
-export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & ConfigSetFromMetaSet<"boolean", false, {
+export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & {
     only: {
         type: string;
         short: string;
         description: string;
         nodeArgs: (v: boolean) => string[];
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"string", true, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    only: import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     grep: {
         type: string;
         multiple: boolean;
@@ -104,200 +95,92 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & Co
         short: string;
         description: string;
         nodeArgs: (value: string[]) => string[];
-    } & {
-        type: "string";
-        short?: string | undefined;
-        default?: string[] | undefined;
-        description?: string;
-        hint?: string | undefined;
-        validate?: ((v: unknown) => v is ValidValue<"string", true>) | undefined;
-        validOptions?: readonly string[] | undefined;
-    } & {
-        multiple: true;
-        delim?: string | undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"string", true, readonly string[] | undefined>;
+} & {
+    grep: import("jackspeak").ConfigOption<"string", true, readonly string[] | undefined>;
+} & {
     invert: {
         type: string;
         short: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    invert: import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     "no-invert": {
         type: string;
         short: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "no-invert": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     "filter-quietly": {
         type: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "filter-quietly": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     "no-filter-quietly": {
         type: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "no-filter-quietly": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     "save-fixture": {
         type: string;
         short: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "save-fixture": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     snapshot: {
         type: string;
         short: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    snapshot: import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     "snapshot-clean-cwd": {
         type: string;
         default: boolean;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "snapshot-clean-cwd": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     "no-snapshot-clean-cwd": {
         type: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "no-snapshot-clean-cwd": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     typecheck: {
         type: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"string", false, {
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    typecheck: import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
     tsconfig: {
         type: string;
         description: string;
-    } & {
-        type: "string";
-        short?: string | undefined;
-        default?: string | undefined;
-        description?: string;
-        hint?: string | undefined;
-        validate?: ((v: unknown) => v is ValidValue<"string", false>) | undefined;
-        validOptions?: readonly string[] | undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}> & ConfigSetFromMetaSet<"boolean", false, {
+    } & import("jackspeak").ConfigOption<"string", false, readonly string[] | undefined>;
+} & {
+    tsconfig: import("jackspeak").ConfigOption<"string", false, readonly string[] | undefined>;
+} & {
     "type-strip-only": {
         type: string;
         description: string;
-    } & {
-        type: "boolean";
-        short?: string | undefined;
-        default?: boolean | undefined;
-        description?: string;
-        hint?: undefined;
-        validate?: ((v: unknown) => v is boolean) | undefined;
-        validOptions?: undefined;
-    } & {
-        multiple?: false | undefined;
-        delim?: undefined;
-    };
-}>>;
+    } & import("jackspeak").ConfigOption<"boolean", false, undefined>;
+} & {
+    "type-strip-only": import("jackspeak").ConfigOption<"boolean", false, undefined>;
+}>;
 /**
  * The set of `loader` strings exported by plugins. If a plugin exports
  * `preload = true`, then it will be sorted to the start of this list, so

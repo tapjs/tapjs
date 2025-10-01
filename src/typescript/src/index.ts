@@ -34,9 +34,7 @@ export const plugin: TapPlugin<{}> = () => {
   }
 
   if (env.TAP_TYPE_STRIP_ONLY === '1') {
-    env.NODE_OPTIONS = `${
-      env.NODE_OPTIONS ?? ''
-    } --no-warnings ${
+    env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} --no-warnings ${
       nv === 22 ? '--experimental-strip-types' : ''
     }`.trim()
     return {}

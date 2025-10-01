@@ -1,5 +1,5 @@
 import { globSync } from 'glob'
-import { ConfigOptionBase, isConfigOption } from 'jackspeak'
+import { ConfigOption, isConfigOption } from 'jackspeak'
 import { mkdirp } from 'mkdirp'
 import { spawnSync } from 'node:child_process'
 import { readFileSync, symlinkSync, writeFileSync } from 'node:fs'
@@ -126,7 +126,7 @@ const configs = new Map<
 type PluginExport = {
   plugin?: (...a: any[]) => any
   config?: {
-    [k: string]: ConfigOptionBase<
+    [k: string]: ConfigOption<
       'string' | 'number' | 'boolean',
       boolean
     >

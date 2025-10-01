@@ -34,7 +34,7 @@
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
-    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@tapjs/core": "4.0.1",
     "@tapjs/test": "4.0.1",
-    "chalk": "^5.2.0",
+    "chalk": "^5.6.2",
     "jackspeak": "^4.0.1",
     "polite-json": "^5.0.0",
     "tap-yaml": "4.0.0",

@@ -159,7 +159,7 @@ export class Fixture<T extends FixtureType> {
       for (const [name, fixture] of Object.entries(f.content))
         Fixture.make(`${abs}/${name}`, fixture, symlinks)
     } else if (isFileF(f)) {
-      writeFileSync(abs, f.content)
+      writeFileSync(abs, f.content as string)
       /* c8 ignore start */
     } else {
       // already validated above, impossible here

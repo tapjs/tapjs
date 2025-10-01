@@ -6,7 +6,7 @@
 export declare const cleanYamlObject: (obj: {
     [k: string]: any;
 }, seen?: Set<any>) => {
-    [x: string]: any;
+    [k: string]: any;
 };
 /**
  * Properties that are *always* removed from the diagnostics, either because

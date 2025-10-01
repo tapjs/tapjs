@@ -16,12 +16,12 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@11ty/eleventy-navigation": "^0.3.5",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "cheerio": "^1.0.0-rc.12",
+    "@11ty/eleventy-navigation": "^1.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "cheerio": "^1.1.2",
     "eleventy-plugin-toc": "^1.1.5",
     "markdown-it": "^14.1.0",
-    "markdown-it-anchor": "^9.0.1"
+    "markdown-it-anchor": "^9.2.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
