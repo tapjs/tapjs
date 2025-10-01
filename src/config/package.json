@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/config",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Utility loading and managing tap configuration",
   "tshy": {
     "main": true,
@@ -40,17 +40,17 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/core": "4.0.1",
-    "@tapjs/test": "4.0.1",
+    "@tapjs/core": "4.0.2",
+    "@tapjs/test": "4.0.2",
     "chalk": "^5.6.2",
     "jackspeak": "^4.0.1",
     "polite-json": "^5.0.0",
-    "tap-yaml": "4.0.0",
+    "tap-yaml": "4.0.1",
     "walk-up-path": "^4.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.0.1",
-    "@tapjs/test": "4.0.1"
+    "@tapjs/core": "4.0.2",
+    "@tapjs/test": "4.0.2"
   },
   "tap": {
     "typecheck": false,
