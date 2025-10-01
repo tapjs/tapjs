@@ -61,6 +61,7 @@ declare global {
     export type TapFileEvents = items.TapFileEvents
     export type TapFileOpts = items.TapFileOpts
     export type TapBaseEvents = items.TapBaseEvents
+    export type Test = items.Test
     export type TestBase = items.TestBase
     export type TestBaseEvents = items.TestBaseEvents
     export type TestBaseOpts = items.TestBaseOpts
