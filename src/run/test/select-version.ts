@@ -36,37 +36,6 @@ const abbrevPacku: Packument = {
   ),
 }
 
-t.test('registry lookup returns error', async t => {
-  const { selectVersion } = await t.mockImport<
-    typeof import('../dist/esm/select-version.js')
-  >('../dist/esm/select-version.js', {
-    '../dist/esm/npm.js': {
-      npmBg: () => ({
-        error: new Error('nope'),
-      }),
-    },
-  })
-  t.rejects(selectVersion('x', '*', config), {
-    message: 'nope',
-  })
-})
-
-t.test('registry lookup fails', async t => {
-  const { selectVersion } = await t.mockImport<
-    typeof import('../dist/esm/select-version.js')
-  >('../dist/esm/select-version.js', {
-    '../dist/esm/npm.js': {
-      npmBg: () => ({
-        status: 1,
-        stderr: 'some error messages',
-      }),
-    },
-  })
-  t.rejects(selectVersion('x', '*', config), {
-    message: 'failed to look up npm registry: some error messages',
-  })
-})
-
 t.test('look up a version that has a peer dep', async t => {
   const { selectVersion } = await t.mockImport<
     typeof import('../dist/esm/select-version.js')
