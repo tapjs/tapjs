@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tapjs/tap-yaml.git"
+    "url": "git+https://github.com/tapjs/tapjs.git"
   },
   "keywords": [
     "tap",
