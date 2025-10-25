@@ -85,7 +85,7 @@
     "test",
     "testing"
   ],
-  "license": "ISC",
+  "license": "BlueOak-1.0.0",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
     "snap": "node bin/run.js -M coverage-map.js",
