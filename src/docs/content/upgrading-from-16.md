@@ -63,6 +63,8 @@ In tap v18, this interface has changed:
 
 - Coverage is enabled by default, and checked
 - Missing or incomplete coverage is treated as an error
+- Coverage is considered incomplete when it does not meet minimum coverage thresholds
+  - The default minimum coverage threshold is 100%
 
 You can get the v16 style `--no-cov` behavior by doing:
 
