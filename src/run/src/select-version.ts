@@ -4,7 +4,6 @@ import pacote from 'pacote'
 import { resolveImport } from 'resolve-import'
 import { gt, satisfies } from 'semver'
 import { fileURLToPath } from 'url'
-import { npmBg } from './npm.js'
 
 const corePJ = await resolveImport(
   '@tapjs/core/package.json',
@@ -13,24 +12,6 @@ const corePJ = await resolveImport(
 const { version: coreVersion } = JSON.parse(
   readFileSync(fileURLToPath(corePJ), 'utf8'),
 ) as { version: 'string' }
-
-let registry: string | undefined = undefined
-const getPackument = async (pkg: string, config: LoadedConfig) => {
-  if (!registry) {
-    const regLookup = npmBg(
-      ['config', 'get', 'registry'],
-      config.projectRoot,
-    )
-    if (regLookup.error) throw regLookup.error
-    if (regLookup.status || regLookup.signal) {
-      throw new Error(
-        'failed to look up npm registry: ' + regLookup.stderr.trim(),
-      )
-    }
-    registry = regLookup.stdout.trim()
-  }
-  return await pacote.packument(pkg, { registry })
-}
 
 /**
  * Select the highest version acceptable, preferring @latest and non-pre
@@ -42,9 +23,9 @@ const getPackument = async (pkg: string, config: LoadedConfig) => {
 export const selectVersion = async (
   name: string,
   range: string = '',
-  config: LoadedConfig,
+  _config: LoadedConfig,
 ) => {
-  const packu = await getPackument(name, config)
+  const packu = await pacote.packument(name)
   let acceptable: string | undefined = undefined
   let acceptablePre: string | undefined = undefined
   for (const [ver, mani] of Object.entries(packu.versions)) {
