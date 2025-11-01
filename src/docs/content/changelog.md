@@ -11,6 +11,8 @@ eleventyNavigation:
   just, rely on that being on by default) and do not compile
   TypeScript tests, using the new `--type-strip-only` config
   flag.
+- Relativize `argv` values when calculating the `t.fullname`
+  value, field used in snapshot keys and files.
 
 ## 21.0
 
