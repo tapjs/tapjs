@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/intercept",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "a built-in tap extension for t.intercept() and t.capture()",
   "tshy": {
     "main": true,
@@ -40,11 +40,11 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "3.0.2",
-    "@tapjs/stack": "4.0.1"
+    "@tapjs/after": "3.0.3",
+    "@tapjs/stack": "4.0.2"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.0.2"
+    "@tapjs/core": "4.0.3"
   },
   "tap": {
     "typecheck": false

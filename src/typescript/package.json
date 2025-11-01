@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/typescript",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "a built-in tap extension that adds typescript support",
   "tshy": {
     "main": true,
@@ -57,7 +57,7 @@
     "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.7"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.0.2"
+    "@tapjs/core": "4.0.3"
   },
   "tap": {
     "typecheck": false
