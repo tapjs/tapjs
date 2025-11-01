@@ -847,9 +847,14 @@ export class TestBase extends Base<TestBaseEvents> {
     const main = (
       mainScript('TAP') +
       ' ' +
-      argv.map(s => {
-        return s.startsWith(cwd) ? relative(cwd, s).replace(/\\/g, '/') : s
-      }).slice(2).join(' ')
+      argv
+        .map(s =>
+          s.startsWith(cwd) ?
+            relative(cwd, s).replace(/\\/g, '/')
+          : s,
+        )
+        .slice(2)
+        .join(' ')
     ).trim()
     const n: string[] = [
       (this.parent ? this.parent.fullname

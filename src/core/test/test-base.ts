@@ -1722,7 +1722,7 @@ t.test('argv in test fullname is relativized', async t => {
   >('../src/test-base.js', {
     '../src/proc.js': t.createMock(await import('../src/proc.js'), {
       argv: [process.execPath, 'x.js', '/a/b/c\\d.js'],
-      cwd: '/a/b'
+      cwd: '/a/b',
     }),
   })
   const tb = new TestBase({ name: 'TAP' })

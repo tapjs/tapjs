@@ -602,9 +602,12 @@ export class TestBase extends Base {
     get fullname() {
         const main = (mainScript('TAP') +
             ' ' +
-            argv.map(s => {
-                return s.startsWith(cwd) ? relative(cwd, s).replace(/\\/g, '/') : s;
-            }).slice(2).join(' ')).trim();
+            argv
+                .map(s => s.startsWith(cwd) ?
+                relative(cwd, s).replace(/\\/g, '/')
+                : s)
+                .slice(2)
+                .join(' ')).trim();
         const n = [
             (this.parent ? this.parent.fullname
                 : main === 'TAP' ? 'TAP'

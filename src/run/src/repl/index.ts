@@ -364,7 +364,6 @@ export class Repl {
     args: string[],
     options: SpawnOptions = {},
   ) {
-
     /* c8 ignore start */
     if (this.proc) return 'command in progress, please wait'
     try {

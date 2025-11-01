@@ -9,3 +9,5 @@
 /tap-snapshots
 /src/*/test/**/fixture
 /src/*/test/**/fixtures
+/src/*/.tap
+/src/*/LICENSE*
