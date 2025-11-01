@@ -1715,3 +1715,16 @@ t.test('can set context in async before hook', async t => {
     t.end()
   })
 })
+
+t.test('argv in test fullname is relativized', async t => {
+  const { TestBase } = await t.mockImport<
+    typeof import('../src/test-base.js')
+  >('../src/test-base.js', {
+    '../src/proc.js': t.createMock(await import('../src/proc.js'), {
+      argv: [process.execPath, 'x.js', '/a/b/c\\d.js'],
+      cwd: '/a/b'
+    }),
+  })
+  const tb = new TestBase({ name: 'TAP' })
+  t.match(tb.fullname, / c\/d\.js > TAP$/)
+})
