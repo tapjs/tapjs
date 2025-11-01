@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/create-plugin",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
   "tshy": {
     "dialects": [
@@ -33,7 +33,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/core": "4.0.3",
+    "@tapjs/core": "4.0.4",
     "npm-init-template": "4.0.2",
     "resolve-import": "2"
   },
