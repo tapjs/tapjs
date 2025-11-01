@@ -1,6 +1,6 @@
 import type { TapPlugin, TestBase } from '@tapjs/core'
 import {
-  argv,
+  argvRelative,
   cwd,
   env,
   mainScript,
@@ -358,7 +358,7 @@ export class SnapshotPlugin {
     }
     // get name from main file and args
     const main = mainScript()
-    const args = argv.slice(2)
+    const args = argvRelative.slice(2)
     const head = relative(cwd, resolve(main))
     const tail =
       args.length === 0 ?

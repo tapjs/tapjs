@@ -17,6 +17,10 @@ export declare const argv: string[];
  */
 export declare const cwd: string;
 /**
+ * Relativized argv, for use in snapshot filenames and test.fullname
+ */
+export declare const argvRelative: string[];
+/**
  * A reference to `process.env`, if available.
  */
 export declare const env: NodeJS.ProcessEnv;

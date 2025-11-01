@@ -3,6 +3,7 @@
  *
  * @module
  */
+import { relative } from 'node:path';
 /**
  * A reference to the global `process` object, if available
  */
@@ -16,6 +17,10 @@ export const argv = proc?.argv || [];
  * updated if `process.chdir()` is called.
  */
 export const cwd = proc?.cwd?.() || '.';
+/**
+ * Relativized argv, for use in snapshot filenames and test.fullname
+ */
+export const argvRelative = argv.map(s => s.startsWith(cwd) ? relative(cwd, s).replace(/\\/g, '/') : s);
 /**
  * A reference to `process.env`, if available.
  */

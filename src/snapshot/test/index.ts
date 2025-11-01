@@ -9,6 +9,7 @@ import { Test } from '@tapjs/test'
 import { readFileSync } from 'fs'
 import { basename, resolve } from 'path'
 import { pathToFileURL } from 'url'
+import { argvRelative } from '@tapjs/core'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 t.matchSnapshot(config, 'config')
@@ -362,10 +363,10 @@ t.test('snapshots that do not match', t => {
 
 t.test('snapshot filename includes args', t => {
   t.teardown(() => {
-    process.argv.pop()
-    process.argv.pop()
+    argvRelative.pop()
+    argvRelative.pop()
   })
-  process.argv.push('some', 'args')
+  argvRelative.push('some', 'args')
   const tt = new Test({ name: 'snappy file maker' })
   t.equal(basename(tt.snapshotFile), 'index.ts-some-args.test.cjs')
   t.end()

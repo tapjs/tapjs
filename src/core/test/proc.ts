@@ -1,9 +1,11 @@
 import t from 'tap'
-import { argv, cwd, env, proc } from '../dist/esm/proc.js'
+import { argv, argvRelative, cwd, env, proc } from '../src/proc.js'
+import { relative } from 'node:path'
 t.equal(proc, process)
 t.equal(argv, process.argv)
 t.equal(cwd, process.cwd())
 t.equal(env, process.env)
+t.equal(argvRelative[1], relative(cwd, String(argv[1])))
 
 t.test('fallbacks', async t => {
   const process_ = process

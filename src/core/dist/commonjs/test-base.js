@@ -641,12 +641,7 @@ class TestBase extends base_js_1.Base {
     get fullname() {
         const main = ((0, main_script_js_1.mainScript)('TAP') +
             ' ' +
-            proc_js_1.argv
-                .map(s => s.startsWith(proc_js_1.cwd) ?
-                (0, node_path_1.relative)(proc_js_1.cwd, s).replace(/\\/g, '/')
-                : s)
-                .slice(2)
-                .join(' ')).trim();
+            proc_js_1.argvRelative.slice(2).join(' ')).trim();
         const n = [
             (this.parent ? this.parent.fullname
                 : main === 'TAP' ? 'TAP'

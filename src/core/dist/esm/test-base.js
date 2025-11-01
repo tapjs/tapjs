@@ -10,7 +10,7 @@ import { Base } from './base.js';
 import { esc } from './esc.js';
 import { extraFromError } from './extra-from-error.js';
 import { mainScript } from './main-script.js';
-import { argv, cwd } from './proc.js';
+import { argvRelative, cwd } from './proc.js';
 import { TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
@@ -602,12 +602,7 @@ export class TestBase extends Base {
     get fullname() {
         const main = (mainScript('TAP') +
             ' ' +
-            argv
-                .map(s => s.startsWith(cwd) ?
-                relative(cwd, s).replace(/\\/g, '/')
-                : s)
-                .slice(2)
-                .join(' ')).trim();
+            argvRelative.slice(2).join(' ')).trim();
         const n = [
             (this.parent ? this.parent.fullname
                 : main === 'TAP' ? 'TAP'

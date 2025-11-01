@@ -13,7 +13,7 @@ import { Base, BaseOpts } from './base.js'
 import { esc } from './esc.js'
 import { extraFromError } from './extra-from-error.js'
 import { mainScript } from './main-script.js'
-import { argv, cwd } from './proc.js'
+import { argvRelative, cwd } from './proc.js'
 import { Spawn } from './spawn.js'
 import { Stdin } from './stdin.js'
 import { Result, TestPoint } from './test-point.js'
@@ -847,14 +847,7 @@ export class TestBase extends Base<TestBaseEvents> {
     const main = (
       mainScript('TAP') +
       ' ' +
-      argv
-        .map(s =>
-          s.startsWith(cwd) ?
-            relative(cwd, s).replace(/\\/g, '/')
-          : s,
-        )
-        .slice(2)
-        .join(' ')
+      argvRelative.slice(2).join(' ')
     ).trim()
     const n: string[] = [
       (this.parent ? this.parent.fullname

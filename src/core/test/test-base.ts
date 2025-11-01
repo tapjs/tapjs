@@ -1721,7 +1721,7 @@ t.test('argv in test fullname is relativized', async t => {
     typeof import('../src/test-base.js')
   >('../src/test-base.js', {
     '../src/proc.js': t.createMock(await import('../src/proc.js'), {
-      argv: [process.execPath, 'x.js', '/a/b/c\\d.js'],
+      argvRelative: [process.execPath, 'x.js', 'c\\d.js'],
       cwd: '/a/b',
     }),
   })
