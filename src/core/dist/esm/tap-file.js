@@ -42,8 +42,7 @@ export class TapFile extends Base {
         ;
         this.tapStream.on('error', er => {
             ;
-            er.tapCaught =
-                this.caughtName;
+            er.tapCaught = this.caughtName;
             this.threw(er);
         });
         if (this.options.timeout) {

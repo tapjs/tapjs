@@ -87,8 +87,7 @@ const validPlugin = (p) => !!p &&
     (p.config === undefined ||
         (!!p.config && typeof p.config === 'object')) &&
     (p.loader === undefined || typeof p.loader === 'string') &&
-    (p.importLoader === undefined ||
-        typeof p.importLoader === 'string') &&
+    (p.importLoader === undefined || typeof p.importLoader === 'string') &&
     (p.preload === undefined || typeof p.preload === 'boolean');
 const pluginNames = await Promise.all(plugins.map(async (p) => {
     // this also verifies that all plugins can be loaded, or it'll blow

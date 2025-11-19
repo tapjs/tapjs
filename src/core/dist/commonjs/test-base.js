@@ -55,8 +55,7 @@ const waiter_js_1 = require("./waiter.js");
 const implicit_end_sigil_js_1 = require("./implicit-end-sigil.js");
 const normalize_message_extra_js_1 = require("./normalize-message-extra.js");
 const VERSION = 'TAP version 14\n';
-const queueEmpty = (t) => t.queue.length === 0 ||
-    (t.queue.length === 1 && t.queue[0] === VERSION);
+const queueEmpty = (t) => t.queue.length === 0 || (t.queue.length === 1 && t.queue[0] === VERSION);
 /**
  * Sigil to put in the queue to signal the end of all things
  */
@@ -368,8 +367,7 @@ class TestBase extends base_js_1.Base {
             'diagnostic',
         ];
         for (const k of inheritedFlags) {
-            if (extra[k] === undefined &&
-                typeof this.options[k] === 'boolean') {
+            if (extra[k] === undefined && typeof this.options[k] === 'boolean') {
                 extra[k] = this.options[k];
             }
         }
@@ -396,8 +394,7 @@ class TestBase extends base_js_1.Base {
             // going several turns of the event loop and hitting it at just
             // the right time before the process quits.
             const failMessage = this.#promiseEnded ? 'test assertion after Promise resolution'
-                : this.#explicitEnded ?
-                    'test assertion after end() was called'
+                : this.#explicitEnded ? 'test assertion after end() was called'
                     : this.#explicitPlan ? 'test assertion count exceeds plan'
                         : /* c8 ignore start */ 'assertion after automatic end';
             /* c8 ignore stop */
@@ -827,9 +824,7 @@ class TestBase extends base_js_1.Base {
         p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
         p.readyToProcess = true;
         const to = p.options.timeout;
-        const dur = to && p.passing() ?
-            Number(node_process_1.hrtime.bigint() - p.start) / 1e6
-            : null;
+        const dur = to && p.passing() ? Number(node_process_1.hrtime.bigint() - p.start) / 1e6 : null;
         if (dur && to && dur > to) {
             p.timeout();
         }
@@ -1180,9 +1175,7 @@ class TestBase extends base_js_1.Base {
                 // error `Name: message` line.
                 /* c8 ignore start */
                 const f = `${er.name || 'Error'}: ${er.message}\n`;
-                const st = er.stack.startsWith(f) ?
-                    er.stack.substring(f.length)
-                    : er.stack;
+                const st = er.stack.startsWith(f) ? er.stack.substring(f.length) : er.stack;
                 /* c8 ignore stop */
                 const p = stack.parseStack(st);
                 extra.at = p[0] || null;
@@ -1198,7 +1191,9 @@ class TestBase extends base_js_1.Base {
             }
         }
         if (this.#occupied && this.#occupied instanceof waiter_js_1.Waiter) {
-            this.#occupied.abort(Object.assign(new Error('error thrown while awaiting Promise'), { thrown: er }));
+            this.#occupied.abort(Object.assign(new Error('error thrown while awaiting Promise'), {
+                thrown: er,
+            }));
             this.#occupied = null;
         }
         if (!proxy) {

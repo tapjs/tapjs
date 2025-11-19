@@ -1,5 +1,5 @@
 import { parseTestArgs } from './parse-test-args.js';
-import { TestBase, } from './test-base.js';
+import { TestBase } from './test-base.js';
 /**
  * A very minimal Test class with no plugins, which can be used in tap tests.
  *

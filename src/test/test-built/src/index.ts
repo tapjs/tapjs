@@ -66,10 +66,7 @@ const copyToString = (v: Function) => ({
     toString: () => 'function toString() { [native code] }',
   }),
 })
-const copyFunction = <
-  Ext extends BuiltPlugins,
-  Opts extends TestOpts,
->(
+const copyFunction = <Ext extends BuiltPlugins, Opts extends TestOpts>(
   t: Test<Ext, Opts>,
   plug: Plug<Opts>,
   v: Function,
@@ -104,9 +101,7 @@ const copyFunction = <
  * Utility type to combine the array of plugins into a single combined
  * return type.
  */
-export type PluginResult<
-  P extends ((t: TestBase, opts: any) => any)[],
-> =
+export type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> =
   P extends (
     [
       infer H extends (t: TestBase, opts: any) => any,
@@ -154,9 +149,7 @@ export type SecondParam<T extends [any] | [any, any]> =
 /**
  * The union of the second parameters of all loaded plugin methods
  */
-export type PluginOpts<
-  P extends ((t: TestBase, opts: any) => any)[],
-> =
+export type PluginOpts<P extends ((t: TestBase, opts: any) => any)[]> =
   P extends (
     [
       infer H extends (t: TestBase, opts: any) => any,
@@ -180,10 +173,7 @@ let plugins_: PluginSet
  * Type that is the array of all plugin functions loaded
  */
 //{{PLUGINS CODE START}}
-// export type PluginSet = (
-//   | TapPlugin<any>
-//   | TapPlugin<any, TestBaseOpts>
-// )[]
+// export type PluginSet = (TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]
 // const plugins = () => {
 //   if (plugins_) return plugins_
 //   return (plugins_ = [])
@@ -429,10 +419,7 @@ export type TTest<P extends PluginSet = PluginSet> = TestBase &
  */
 export interface BuiltPlugins extends PluginResult<PluginSet> {}
 
-const applyPlugins = <
-  Ext extends BuiltPlugins,
-  Opts extends TestOpts,
->(
+const applyPlugins = <Ext extends BuiltPlugins, Opts extends TestOpts>(
   base: Test<Ext, Opts>,
   plugs: (TapPlugin<any, Opts> | TapPlugin<any>)[] = plugins() as (
     | TapPlugin<any>
@@ -531,9 +518,7 @@ const applyPlugins = <
   const top = {
     t,
     get pluginLoaded() {
-      return <T extends any = any>(
-        plugin: (t: any, opts?: any) => T,
-      ) => {
+      return <T extends any = any>(plugin: (t: any, opts?: any) => T) => {
         return plugs.includes(plugin)
       }
     },
@@ -673,9 +658,7 @@ export class Test<
     plugin: TapPlugin<B, O>,
   ): Test<Ext & B, Opts & O> & Ext & B {
     if (this.printedOutput) {
-      throw new Error(
-        'Plugins must be applied prior to any test output',
-      )
+      throw new Error('Plugins must be applied prior to any test output')
     }
 
     if (this.#pluginSet.includes(plugin as TapPlugin<B, Opts>)) {
@@ -758,11 +741,9 @@ export class Test<
     ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext> {
     const extra = parseTestArgs<Test<Ext, Opts> & Ext, Opts>(...args)
-    return this.sub(
-      this.#Class,
-      extra,
-      this.test,
-    ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
+    return this.sub(this.#Class, extra, this.test) as PromiseWithSubtest<
+      Test<Ext, Opts> & Ext
+    >
   }
 
   /**
@@ -791,11 +772,9 @@ export class Test<
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext> {
     const extra = parseTestArgs<Test<Ext, Opts> & Ext, Opts>(...args)
     extra.todo = true
-    return this.sub(
-      this.#Class,
-      extra,
-      this.todo,
-    ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
+    return this.sub(this.#Class, extra, this.todo) as PromiseWithSubtest<
+      Test<Ext, Opts> & Ext
+    >
   }
 
   /**
@@ -824,10 +803,8 @@ export class Test<
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext> {
     const extra = parseTestArgs<Test<Ext, Opts> & Ext, Opts>(...args)
     extra.skip = true
-    return this.sub(
-      this.#Class,
-      extra,
-      this.skip,
-    ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
+    return this.sub(this.#Class, extra, this.skip) as PromiseWithSubtest<
+      Test<Ext, Opts> & Ext
+    >
   }
 }

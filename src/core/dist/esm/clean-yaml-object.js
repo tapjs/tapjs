@@ -39,9 +39,7 @@ export const cleanYamlObject = (obj, seen = new Set()) => {
         res.errorOrigin = cleanYamlObject(res.errorOrigin, seen);
     }
     /* c8 ignore stop */
-    if (res.cause &&
-        typeof res.cause === 'object' &&
-        !seen.has(res.cause)) {
+    if (res.cause && typeof res.cause === 'object' && !seen.has(res.cause)) {
         seen.add(res.cause);
         const { message } = res.cause;
         const ex = extraFromError(res.cause);
@@ -113,10 +111,7 @@ export const cleanYamlObject = (obj, seen = new Set()) => {
         const w = res.wanted;
         if (typeof f === 'string' && typeof w === 'string')
             res.diff = createTwoFilesPatch('expected', 'actual', w + '\n', f + '\n').replace(/^=+\n/, '');
-        else if (f &&
-            w &&
-            typeof f === 'object' &&
-            typeof w === 'object') {
+        else if (f && w && typeof f === 'object' && typeof w === 'object') {
             const s = strict(f, w);
             if (!s.match) {
                 res.diff = s.diff;

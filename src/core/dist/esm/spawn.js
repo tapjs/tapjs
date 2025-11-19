@@ -153,8 +153,7 @@ export class Spawn extends Base {
             this.results.plan.skipAll &&
             !code &&
             !signal) {
-            this.options.skip =
-                this.results.plan.skipReason || 'no tests found';
+            this.options.skip = this.results.plan.skipReason || 'no tests found';
         }
         if (code || signal) {
             if (this.results) {

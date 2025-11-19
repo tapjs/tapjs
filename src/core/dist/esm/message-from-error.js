@@ -17,8 +17,7 @@ export const messageFromError = (er) => {
             const lines = stack.trim().split('\n');
             const line = String(lines[0]);
             return (name && line.startsWith(nc) ? line.substring(nc.length)
-                : ncCode && line.startsWith(ncCode) ?
-                    line.substring(ncCode.length)
+                : ncCode && line.startsWith(ncCode) ? line.substring(ncCode.length)
                     : line);
         }
     }

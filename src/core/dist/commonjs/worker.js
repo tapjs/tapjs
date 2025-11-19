@@ -67,9 +67,7 @@ class Worker extends base_js_1.Base {
         this.worker.on('exit', () => this.#onworkerexit());
         this.worker.on('message', msg => {
             const m = msg;
-            if (m &&
-                m.key === this.#childKey &&
-                m.child === this.#childId) {
+            if (m && m.key === this.#childKey && m.child === this.#childId) {
                 this.setTimeout(m.setTimeout);
                 return;
             }

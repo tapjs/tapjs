@@ -88,8 +88,7 @@ class TAP extends test_1.Test {
             name: 'TAP',
             diagnostic: envFlag('TAP_DIAG'),
             bail: envFlag('TAP_BAIL'),
-            debug: envFlag('TAP_DEBUG') ||
-                /\btap\b/i.test(proc_js_1.env['NODE_DEBUG'] || ''),
+            debug: envFlag('TAP_DEBUG') || /\btap\b/i.test(proc_js_1.env['NODE_DEBUG'] || ''),
             omitVersion: envFlag('TAP_OMIT_VERSION'),
             preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
             timeout,

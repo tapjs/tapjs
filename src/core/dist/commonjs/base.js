@@ -247,9 +247,7 @@ class Base extends minipass_1.Minipass {
         this.omitVersion = !!options.omitVersion;
         this.preserveWhitespace = options.preserveWhitespace !== false;
         this.buffered =
-            this.silent ?
-                options.buffered === undefined
-                : !!options.buffered;
+            this.silent ? options.buffered === undefined : !!options.buffered;
         this.bailedOut = false;
         this.errors = [];
         this.parent = options.parent;
@@ -403,8 +401,7 @@ class Base extends minipass_1.Minipass {
             const ctx = ('context' in this.options ?
                 this.options.context
                 : this.parent?.context) ?? null;
-            this.#context =
-                typeof ctx === 'object' ? Object.create(ctx) : ctx;
+            this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx;
         }
         this.hook.runInAsyncScope(this.main, this, cb);
     }
