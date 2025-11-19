@@ -62,7 +62,7 @@
     "@tapjs/test": "4.0.5",
     "@tapjs/typescript": "3.1.4",
     "@tapjs/worker": "4.0.5",
-    "resolve-import": "2"
+    "resolve-import": "^2.1.1"
   },
   "tap": {
     "typecheck": false,
