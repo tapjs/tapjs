@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/mocha-globals",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "",
   "tshy": {
     "main": true,
@@ -40,15 +40,15 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/after": "3.0.5",
-    "@tapjs/after-each": "4.0.5",
-    "@tapjs/before": "4.0.5",
-    "@tapjs/before-each": "4.0.5",
+    "@tapjs/after": "3.0.6",
+    "@tapjs/after-each": "4.0.6",
+    "@tapjs/before": "4.0.6",
+    "@tapjs/before-each": "4.0.6",
     "@tapjs/stack": "4.0.2",
     "is-actual-promise": "^1.0.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.0.5"
+    "@tapjs/core": "4.0.6"
   },
   "tap": {
     "typecheck": false

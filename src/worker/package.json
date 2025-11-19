@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/worker",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "a built-in tap extension for t.worker()",
   "tshy": {
     "main": true,
@@ -40,7 +40,7 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "peerDependencies": {
-    "@tapjs/core": "4.0.5"
+    "@tapjs/core": "4.0.6"
   },
   "tap": {
     "typecheck": false
