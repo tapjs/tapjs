@@ -79,14 +79,7 @@ export const extraFromError = (
   }
 
   // grab any other rando props
-  const {
-    message: _,
-    stack: __,
-    name: ___,
-    cause,
-    errors,
-    ...props
-  } = er
+  const { message: _, stack: __, name: ___, cause, errors, ...props } = er
   Object.assign(extra, props)
   if (cause !== undefined) extra.cause = cause
   if (errors !== undefined) extra.errors = errors

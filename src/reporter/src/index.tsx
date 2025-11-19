@@ -36,10 +36,7 @@ export interface TapReportOpts {
 }
 
 export type Reporter = FC<TapReportOpts>
-export const types: Record<
-  string,
-  Reporter | typeof Minipass<string>
-> = {}
+export const types: Record<string, Reporter | typeof Minipass<string>> = {}
 export const addType = (
   name: string,
   report: Reporter | typeof Minipass<string>,

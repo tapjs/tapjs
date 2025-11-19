@@ -51,11 +51,7 @@ const isError = (obj: any): obj is Error =>
 
 const getCtors = (obj: any) => {
   const ctors: Function[] = []
-  for (
-    let cur = obj;
-    cur !== null;
-    cur = Object.getPrototypeOf(cur)
-  ) {
+  for (let cur = obj; cur !== null; cur = Object.getPrototypeOf(cur)) {
     const desc = Object.getOwnPropertyDescriptor(cur, 'constructor')
     const value = desc?.value
     if (typeof value === 'function') {
@@ -98,11 +94,7 @@ export const serializeError = (er: unknown) => {
   } catch {}
   /* c8 ignore stop */
   try {
-    if (
-      er !== null &&
-      er !== undefined &&
-      kCustomInspect in (er as {})
-    ) {
+    if (er !== null && er !== undefined && kCustomInspect in (er as {})) {
       return Buffer.from(
         String.fromCharCode(kCustomInspectedObject) + inspect(er),
         'utf8',
@@ -111,10 +103,7 @@ export const serializeError = (er: unknown) => {
   } catch {}
   try {
     const serialized = serialize(er)
-    return Buffer.concat([
-      Buffer.from([kSerializedObject]),
-      serialized,
-    ])
+    return Buffer.concat([Buffer.from([kSerializedObject]), serialized])
   } catch {}
   return Buffer.from(
     String.fromCharCode(kInspectedError) + inspect(er),

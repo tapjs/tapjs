@@ -8,8 +8,7 @@ import t from 'tap'
 // this is just verifying that when provided with a test file, we
 // evaluate the saved .tap results.
 
-t.cleanSnapshot = s =>
-  s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
+t.cleanSnapshot = s => s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
 
 t.test('replay a saved test result', async t => {
   const mockTap = new Minimal({ name: 'mock TAP' }) as unknown as TAP

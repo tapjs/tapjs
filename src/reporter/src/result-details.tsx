@@ -119,9 +119,7 @@ export const ResultDetails: FC<{
               {chalk.dim(stringify(cause).trimEnd())}
             </Text>
           </Box>)}
-      {(
-        errors !== undefined && Array.isArray(errors) && errors.length
-      ) ?
+      {errors !== undefined && Array.isArray(errors) && errors.length ?
         [
           <Box flexDirection="column" key={-1} paddingTop={1}>
             <Text color="white" bold>

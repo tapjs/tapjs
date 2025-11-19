@@ -6,8 +6,7 @@ export const HangingIndent: FC<{ indent?: number } & TextProps> = ({
   children,
   ...props
 }) => (
-  <Transform
-    transform={(o, i) => (i === 0 ? o : ' '.repeat(indent) + o)}>
+  <Transform transform={(o, i) => (i === 0 ? o : ' '.repeat(indent) + o)}>
     <Text {...props}>{children}</Text>
   </Transform>
 )

@@ -42,8 +42,7 @@ import type { TestBase, TestBaseOpts } from './test-base.js'
 export type TapPlugin<
   B extends Object,
   O extends TestBaseOpts | any = unknown,
-> =
-  unknown extends O ? (t: TestBase) => B : (t: TestBase, opts: O) => B
+> = unknown extends O ? (t: TestBase) => B : (t: TestBase, opts: O) => B
 
 /**
  * The extra info passed to assertions.

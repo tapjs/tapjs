@@ -78,11 +78,7 @@ export class SpawnPlugin {
    * @group Subtest Methods
    */
   spawn(cmd: string): PromiseWithSpawn
-  spawn(
-    cmd: string,
-    options: SpawnOpts,
-    name?: string,
-  ): PromiseWithSpawn
+  spawn(cmd: string, options: SpawnOpts, name?: string): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],

@@ -165,9 +165,7 @@ ok 1 - child
     t.test(name, t => {
       const test = runTest(tap)
       t.test('no args', t => test(t, []))
-      t.test('b w', t =>
-        test(t, ['-b', '-w', '--ignore-all-whitespace']),
-      )
+      t.test('b w', t => test(t, ['-b', '-w', '--ignore-all-whitespace']))
       t.test('t', t => test(t, ['-t', '--tap', '-f', '--no-flat']))
       t.test('flat', t => test(t, ['-B', '-f', '--flat', '-o']))
       t.test('flat tap', t => test(t, ['-t', '--flat']))

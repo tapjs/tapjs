@@ -6,10 +6,7 @@ import { TapFile } from './tap-file.js'
  * Options that may be provided to the {@link @tapjs/core!stdin.Stdin} class
  */
 export interface StdinOpts extends BaseOpts {
-  tapStream?:
-    | NodeJS.ReadableStream
-    | Minipass<Buffer>
-    | Minipass<string>
+  tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
 }
 
 /**

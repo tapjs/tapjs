@@ -31,11 +31,7 @@ t.test('passing test results, details, no callsite', async t => {
   const tb = new Minimal({ name: 'passer' })
   tb.pass('this is fine')
   const notFinished = render(<TestResultsList test={tb} />)
-  t.equal(
-    notFinished.lastFrame(),
-    '',
-    'no output if test not finished',
-  )
+  t.equal(notFinished.lastFrame(), '', 'no output if test not finished')
   notFinished.unmount()
   tb.end()
   await tb.concat()
@@ -48,11 +44,7 @@ t.test('show passing test result', async t => {
   const tb = new Minimal({ name: 'passer', passes: true })
   tb.pass('this is fine')
   const notFinished = render(<TestResultsList test={tb} />)
-  t.equal(
-    notFinished.lastFrame(),
-    '',
-    'no output if test not finished',
-  )
+  t.equal(notFinished.lastFrame(), '', 'no output if test not finished')
   notFinished.unmount()
   tb.end()
   await tb.concat()

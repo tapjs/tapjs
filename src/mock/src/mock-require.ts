@@ -21,10 +21,7 @@ export type CorrectModuleCtor = Omit<
   typeof Module,
   'new' | 'prototype'
 > & {
-  new (
-    id: string,
-    parent: CorrectModule | MockedModule,
-  ): CorrectModule
+  new (id: string, parent: CorrectModule | MockedModule): CorrectModule
   _cache: { [k: string]: CorrectModule }
 }
 

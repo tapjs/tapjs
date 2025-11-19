@@ -14,9 +14,7 @@ const node = process.execPath
 
 export const build = async (args: string[], config: LoadedConfig) => {
   if (args.length !== 0) {
-    throw new TypeError(
-      'build command does not take positional arguments',
-    )
+    throw new TypeError('build command does not take positional arguments')
   }
 
   await plugin(['add', ...config.pluginList], config, true)

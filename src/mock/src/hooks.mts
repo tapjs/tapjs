@@ -11,9 +11,7 @@ export const globalPreload = ({ port }: { port: MessagePort }) => {
   // loader thread. connect client
   client = new MockServiceClient(port)
   const serviceModuleCJS = JSON.stringify(
-    fileURLToPath(
-      new URL('../commonjs/mock-service.js', import.meta.url),
-    ),
+    fileURLToPath(new URL('../commonjs/mock-service.js', import.meta.url)),
   )
   const base = JSON.stringify(fileURLToPath(import.meta.url))
   return `
@@ -49,11 +47,7 @@ export const load: LoadHook = async (url, context, nextLoad) => {
     : nextLoad(url, context)
 }
 
-export const resolve: ResolveHook = async (
-  url,
-  context,
-  nextResolve,
-) => {
+export const resolve: ResolveHook = async (url, context, nextResolve) => {
   if (!client) {
     throw new Error(
       'initialize() or globalPreload() must be run prior to ' +

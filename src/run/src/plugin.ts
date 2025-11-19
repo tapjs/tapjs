@@ -21,10 +21,7 @@ const exists = (f: string) =>
     () => false,
   )
 
-const detectGlobalInstall = async (
-  args: string[],
-  project: string,
-) => {
+const detectGlobalInstall = async (args: string[], project: string) => {
   // find the tap that will be loaded from the project root
   const activeRunner = String(
     await resolveImport('@tapjs/run', import.meta.url),
@@ -51,9 +48,7 @@ ${chalk.yellow(myNM)}
 This will likely fail. Try:
 
     ${chalk.green(
-      `npm exec tap plugin ${args
-        .map(a => JSON.stringify(a))
-        .join(' ')}`,
+      `npm exec tap plugin ${args.map(a => JSON.stringify(a)).join(' ')}`,
     )}
 `,
     )
@@ -129,10 +124,7 @@ const add = async (
     await build([], config)
 
     // save the config change
-    await config.editConfigFile(
-      { plugin: [...pc] },
-      config.configFile,
-    )
+    await config.editConfigFile({ plugin: [...pc] }, config.configFile)
 
     log('successfully added plugin(s):')
     log([...added].join('\n'))
@@ -144,8 +136,7 @@ const add = async (
   } finally {
     if (!success) {
       process.exitCode = 1
-      const what =
-        needInstall.size && !installed ? 'install' : 'build'
+      const what = needInstall.size && !installed ? 'install' : 'build'
       error(chalk.red(`${what} failed`))
       if (installed && needCleanup.size) {
         error('attempting to clean up added packages')
@@ -185,11 +176,7 @@ const rm = async (args: string[], config: LoadedConfig) => {
     if (
       !(await exists(plugin)) &&
       (await exists(
-        resolve(
-          config.projectRoot,
-          '.tap/plugins/node_modules',
-          plugin,
-        ),
+        resolve(config.projectRoot, '.tap/plugins/node_modules', plugin),
       ))
     ) {
       needRemove.add(plugin)

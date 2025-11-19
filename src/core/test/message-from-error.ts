@@ -25,12 +25,9 @@ t.equal(messageFromError(123), 'unhandled error')
 t.equal(messageFromError({ error: 'err prop' }), 'err prop')
 
 t.test('node errnoExceptions have coded messages', t => {
-  const er: NodeJS.ErrnoException = Object.assign(
-    new TypeError('blah'),
-    {
-      code: 'ERR_BLAH_DEE_BLOO',
-    },
-  )
+  const er: NodeJS.ErrnoException = Object.assign(new TypeError('blah'), {
+    code: 'ERR_BLAH_DEE_BLOO',
+  })
   er.stack = String(er.stack).replace(
     /^TypeError:/,
     'TypeError [ERR_BLAH_DEE_BLOO]:',

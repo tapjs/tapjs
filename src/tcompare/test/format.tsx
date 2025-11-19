@@ -16,10 +16,7 @@ const cleanNodeNames = (str: string) =>
     .replace(/<ref \*[0-9]+> /g, '')
     .replace(/\[Circular \*[0-9]+\]/g, '[Circular]')
     // remove node 10's ERR_ASSERTION litter
-    .replace(
-      /\s+"name": "AssertionError \[ERR_ASSERTION\]",\n/g,
-      '\n',
-    )
+    .replace(/\s+"name": "AssertionError \[ERR_ASSERTION\]",\n/g, '\n')
     .replace(/AssertionError \[ERR_ASSERTION\]/g, 'AssertionError')
     // remove enumerable domain:null field
     .replace(/\s+"domain": null,\n/g, '\n')

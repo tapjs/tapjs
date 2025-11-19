@@ -15,12 +15,9 @@ t.test('various throws', async t => {
   const { serialize } = await t.mockImport<
     typeof import('../src/serialize.js')
   >('../src/serialize.js')
-  t.throws(
-    () => serialize({ registered: true } as unknown as CORE.TAP),
-    {
-      message: 'Cannot serialize TAP stream, already registered',
-    },
-  )
+  t.throws(() => serialize({ registered: true } as unknown as CORE.TAP), {
+    message: 'Cannot serialize TAP stream, already registered',
+  })
 
   t.rejects(
     t.mockImport('../src/serialize.js', {

@@ -66,18 +66,11 @@ const mockRepl = new (class extends EventEmitter {
   }
 })()
 
-const mockSpawn = (
-  cmd: string,
-  args: string[],
-  options: SpawnOptions,
-) => {
+const mockSpawn = (cmd: string, args: string[], options: SpawnOptions) => {
   t.equal(options.stdio, 'inherit')
   t.equal(options.env?._TAP_REPL, '1')
   let exited = false
-  const exit = (
-    code: number | null,
-    signal: NodeJS.Signals | null,
-  ) => {
+  const exit = (code: number | null, signal: NodeJS.Signals | null) => {
     if (!exited) {
       exited = true
       proc.emit('close', code, signal)
@@ -220,10 +213,7 @@ t.test('show help', async t => {
   t.equal(await r.parseCommand('cls'), '\u001b[2J\u001b[H')
   t.equal(await r.parseCommand(''), undefined)
 
-  t.equal(
-    await r.parseCommand('f?'),
-    'no failed tests from previous runs',
-  )
+  t.equal(await r.parseCommand('f?'), 'no failed tests from previous runs')
 
   let spawnTapCalled: any = false
   //@ts-ignore
@@ -420,10 +410,7 @@ coverage-map: map.js
 
     for (const fc of ['r', 'u', 'n', 'f']) {
       const i = `${fc} fo`
-      t.strictSame(r.completer(i), [
-        [`${i}o.mjs`, `${i}o.test.mjs`],
-        i,
-      ])
+      t.strictSame(r.completer(i), [[`${i}o.mjs`, `${i}o.test.mjs`], i])
       const j = `${fc} foo.t`
       t.strictSame(r.completer(j), [[`${j}est.mjs `], j])
     }
@@ -520,20 +507,13 @@ cp.test.mjs:
 
   t.test('run a coverage report', async t => {
     const res = await run(dir, ['c'], '')
-    t.match(
-      res.stdout.replace(/ /g, ''),
-      '\nfoo.mjs|100|100|100|100|\n',
-    )
+    t.match(res.stdout.replace(/ /g, ''), '\nfoo.mjs|100|100|100|100|\n')
   })
 
   t.test('show watch', async t => {
     t.cleanSnapshot = s =>
       s.replace(/dependency files watched: [0-9]+/g, '{DEP FILES}')
-    const res = await run(
-      dir,
-      [],
-      'w\nw\nw?\nw on\nw on\nw?\nw off\nw?\n',
-    )
+    const res = await run(dir, [], 'w\nw\nw?\nw on\nw on\nw?\nw off\nw?\n')
     t.match(res, { code: 0, signal: null })
     t.matchSnapshot(res.stdout)
   })

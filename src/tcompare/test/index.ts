@@ -15,20 +15,14 @@ t.matchSnapshot(compare.hasStrict(obj, expect), 'hasStrict')
 t.matchSnapshot(compare.match(obj, expect), 'match')
 t.matchSnapshot(compare.matchOnly(obj, expect), 'matchOnly')
 t.matchSnapshot(compare.matchStrict(obj, expect), 'matchStrict')
-t.matchSnapshot(
-  compare.matchOnlyStrict(obj, expect),
-  'matchOnlyStrict',
-)
+t.matchSnapshot(compare.matchOnlyStrict(obj, expect), 'matchOnlyStrict')
 t.matchSnapshot(compare.format(obj, opt), 'format opt')
 t.matchSnapshot(compare.same(obj, expect, opt), 'same opt')
 t.matchSnapshot(compare.strict(obj, expect, opt), 'strict opt')
 t.matchSnapshot(compare.has(obj, expect, opt), 'has opt')
 t.matchSnapshot(compare.hasStrict(obj, expect, opt), 'hasStrict opt')
 t.matchSnapshot(compare.match(obj, expect, opt), 'match opt')
-t.matchSnapshot(
-  compare.matchStrict(obj, expect, opt),
-  'matchStrict opt',
-)
+t.matchSnapshot(compare.matchStrict(obj, expect, opt), 'matchStrict opt')
 t.matchSnapshot(compare.matchOnly(obj, expect, opt), 'matchOnly opt')
 t.matchSnapshot(
   compare.matchOnlyStrict(obj, expect, opt),
@@ -57,18 +51,12 @@ t.matchSnapshot(
   'MatchOnlyStrict',
 )
 t.matchSnapshot(new compare.Format(obj, opt).print(), 'Format')
-t.matchSnapshot(
-  new compare.Same(obj, { expect, ...opt }).print(),
-  'Same',
-)
+t.matchSnapshot(new compare.Same(obj, { expect, ...opt }).print(), 'Same')
 t.matchSnapshot(
   new compare.Strict(obj, { expect, ...opt }).print(),
   'Strict',
 )
-t.matchSnapshot(
-  new compare.Has(obj, { expect, ...opt }).print(),
-  'Has',
-)
+t.matchSnapshot(new compare.Has(obj, { expect, ...opt }).print(), 'Has')
 t.matchSnapshot(
   new compare.HasStrict(obj, { expect, ...opt }).print(),
   'HasStrict',

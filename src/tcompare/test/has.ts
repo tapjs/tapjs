@@ -182,15 +182,11 @@ t.test('complex object', t => {
 })
 
 t.test('errors', t => {
-  const er: Error & { code?: number; signal?: string } = new Error(
-    'foo',
-  )
+  const er: Error & { code?: number; signal?: string } = new Error('foo')
   er.code = 1
   er.signal = 'blerg'
   t.ok(has(t, er, { code: 1 }))
-  const er2: Error & { code?: number; signal?: string } = new Error(
-    'foo',
-  )
+  const er2: Error & { code?: number; signal?: string } = new Error('foo')
   er2.signal = 'blerg'
   t.ok(has(t, er, er2))
   t.ok(has(t, er, new Error('foo')))

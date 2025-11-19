@@ -39,9 +39,8 @@ const highlightFilename = (s: string, f?: string | null) => {
   split.pop()
   return (
     <Text>
-      {split
-        .map(s => `${chalk.dim(s)}${chalk.yellowBright(f)}`)
-        .join('') + chalk.dim(last)}
+      {split.map(s => `${chalk.dim(s)}${chalk.yellowBright(f)}`).join('') +
+        chalk.dim(last)}
     </Text>
   )
 }

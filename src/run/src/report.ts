@@ -18,10 +18,7 @@ const reporterFiles = {
   lcovonly: 'lcov.info',
 }
 
-export const report = async (
-  args: string[],
-  config: LoadedConfig,
-) => {
+export const report = async (args: string[], config: LoadedConfig) => {
   const rconf = config.get('coverage-report')
   // if there are args passed in, use that. The config is used if
   // calling this at the end of `tap run`
@@ -74,10 +71,7 @@ export const report = async (
         r = new Report({
           skipFull: false,
           reporter,
-          reportsDirectory: resolve(
-            config.projectRoot,
-            '.tap/report',
-          ),
+          reportsDirectory: resolve(config.projectRoot, '.tap/report'),
           tempDirectory: resolve(config.projectRoot, '.tap/coverage'),
           excludeNodeModules: true,
         })
@@ -123,10 +117,7 @@ export const report = async (
     reporter.includes('html') ?
       resolve(config.projectRoot, '.tap/report/index.html')
     : reporter.includes('lcov') ?
-      resolve(
-        config.projectRoot,
-        '.tap/report/lcov-report/index.html',
-      )
+      resolve(config.projectRoot, '.tap/report/lcov-report/index.html')
     : undefined
   if (htmlReport) {
     if (browser) opener(htmlReport)
@@ -171,17 +162,12 @@ const thresholds: (keyof Summary)[] = [
 ]
 
 const isEmptyCoverage = (summary: Summary) =>
-  Math.max(...thresholds.map(th => Number(summary[th].pct) || 0)) ===
-  0
+  Math.max(...thresholds.map(th => Number(summary[th].pct) || 0)) === 0
 
 const isFullCoverage = (summary: Summary) =>
-  Math.min(...thresholds.map(th => Number(summary[th].pct) || 0)) ===
-  100
+  Math.min(...thresholds.map(th => Number(summary[th].pct) || 0)) === 100
 
-const checkCoverage = async (
-  report: Report,
-  config: LoadedConfig,
-) => {
+const checkCoverage = async (report: Report, config: LoadedConfig) => {
   const cr = config.get('coverage-report')
   const comment = cr && !cr.includes('text')
   const summary = await getSummary(report)

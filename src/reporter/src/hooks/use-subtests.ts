@@ -23,9 +23,7 @@ export const useSubtests = (
   useCleanup(
     cleanup => {
       if (which === 'active') {
-        cleanup.push(
-          listenCleanup(test, 'subtestStart', updateActive),
-        )
+        cleanup.push(listenCleanup(test, 'subtestStart', updateActive))
         cleanup.push(listenCleanup(test, 'subtestEnd', updateActive))
       } else {
         cleanup.push(

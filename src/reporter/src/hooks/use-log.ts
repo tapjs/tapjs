@@ -97,9 +97,7 @@ export const useLog = (
         // completing, just the other stuff.
         if (includeTests) {
           cleanup.push(
-            listenCleanup(test, 'complete', () =>
-              appendLog({ test }),
-            ),
+            listenCleanup(test, 'complete', () => appendLog({ test })),
           )
         }
 

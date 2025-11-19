@@ -18,10 +18,7 @@ const allPkgs = [
   'tcompare',
 ]
 
-export const version = async (
-  args: string[],
-  config: LoadedConfig,
-) =>
+export const version = async (args: string[], config: LoadedConfig) =>
   config.get('versions') || args[0] === 'versions' ?
     printAllVersions()
   : printTapVersion()

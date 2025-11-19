@@ -106,8 +106,7 @@ export class SnapshotPlugin {
     const p = t.parent && SnapshotPlugin.#refs.get(t.parent)
     const pp = p && p.#provider
     const pf = p && p.snapshotFile
-    this.#provider =
-      opts.snapshotProvider || pp || SnapshotProviderDefault
+    this.#provider = opts.snapshotProvider || pp || SnapshotProviderDefault
 
     if (typeof opts.writeSnapshot === 'boolean') {
       this.writeSnapshot = opts.writeSnapshot
@@ -196,8 +195,7 @@ export class SnapshotPlugin {
     return this.#snapshot.file
   }
   set snapshotFile(f: string | URL) {
-    const p =
-      this.#t.parent && SnapshotPlugin.#refs.get(this.#t.parent)
+    const p = this.#t.parent && SnapshotPlugin.#refs.get(this.#t.parent)
     if (f instanceof URL || f.startsWith('file://')) {
       f = fileURLToPath(f)
     }
@@ -243,8 +241,7 @@ export class SnapshotPlugin {
         }
       }
       const format =
-        this.#formatSnapshot ||
-        defaultFormatSnapshot(this.#compareOptions)
+        this.#formatSnapshot || defaultFormatSnapshot(this.#compareOptions)
       found = format(found)
       if (typeof found !== 'string') {
         found = defaultFormatSnapshot(this.#compareOptions)(found)
@@ -323,10 +320,7 @@ export class SnapshotPlugin {
 
     let p!: Promise<T>
     try {
-      p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : (
-          fnOrPromise
-        )
+      p = typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
     } catch (er) {
       p = Promise.reject(er)
     }

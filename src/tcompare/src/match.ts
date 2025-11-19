@@ -34,11 +34,7 @@ export class Match extends Has {
       : typeof pattern === 'symbol' ? false
         // ok, Match-specific stuff
       : pattern instanceof RegExp ? pattern.test('' + obj)
-      : (
-        typeof obj === 'string' &&
-        typeof pattern === 'string' &&
-        pattern
-      ) ?
+      : typeof obj === 'string' && typeof pattern === 'string' && pattern ?
         obj.indexOf(pattern) !== -1
       : obj instanceof Date && typeof pattern === 'string' ?
         obj.getTime() === new Date(pattern).getTime()

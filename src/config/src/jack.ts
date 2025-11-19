@@ -370,9 +370,7 @@ export default jack({
 
                     Built-in coverage reporters:
 
-                    ${coverageReporters
-                      .map(r => `- ${r}`)
-                      .join('\n')}`,
+                    ${coverageReporters.map(r => `- ${r}`).join('\n')}`,
     },
   })
 
@@ -795,8 +793,7 @@ export default jack({
     },
 
     'omit-whitespace': {
-      description:
-        'Prune empty lines out of the output from child tests',
+      description: 'Prune empty lines out of the output from child tests',
     },
     'no-omit-whitespace': {
       description: `Preserve extra empty lines in the output.`,

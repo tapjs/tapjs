@@ -5,10 +5,7 @@ import { TapFile, TapFileOpts } from '@tapjs/core'
 import { relative, resolve } from 'node:path'
 import { executeTestSuite } from './execute-test-suite.js'
 
-export const replay = async (
-  args: string[],
-  config: LoadedConfig,
-) => {
+export const replay = async (args: string[], config: LoadedConfig) => {
   return executeTestSuite(
     args,
     config,

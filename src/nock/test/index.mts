@@ -5,11 +5,7 @@ import tap, { Test } from 'tap'
 import { plugin } from '../dist/esm/index.js'
 const t = tap.applyPlugin(plugin)
 
-t.equal(
-  tap.pluginLoaded(plugin),
-  false,
-  'plugin not loaded on og root',
-)
+t.equal(tap.pluginLoaded(plugin), false, 'plugin not loaded on og root')
 //@ts-expect-error
 t.equal(tap.nock, undefined, 'no nock object on og root')
 
@@ -90,20 +86,17 @@ t.test('cleans scopes in teardown', async t => {
     t.same(body, { helloFrom: 'parent' })
   }, 'parent scope works')
 
-  await t.test(
-    'child test with completely different scope',
-    async t => {
-      t.nock('http://x.y')
-        .persist() // we want the scope to persist so this child test doesn't fail the parent
-        .get('/')
-        .reply(200, { hello: 'world' })
+  await t.test('child test with completely different scope', async t => {
+    t.nock('http://x.y')
+      .persist() // we want the scope to persist so this child test doesn't fail the parent
+      .get('/')
+      .reply(200, { hello: 'world' })
 
-      const res = await fetch('http://x.y')
-      t.equal(res.status, 200, 'nock scope works')
-      const body = await res.json()
-      t.same(body, { hello: 'world' })
-    },
-  )
+    const res = await fetch('http://x.y')
+    t.equal(res.status, 200, 'nock scope works')
+    const body = await res.json()
+    t.same(body, { hello: 'world' })
+  })
 
   // nock throws ENETUNREACH if no scopes are active, if any are it throws ERR_NOCK_NO_MATCH
   await t.rejects(

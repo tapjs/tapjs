@@ -126,10 +126,7 @@ t.test('timeout', t => {
   setTimeout(() => {}, 100)
   w.main(async () => {
     parent.end()
-    t.equal(
-      await w.concat(),
-      'TAP version 14\n1..0 # no tests found\n',
-    )
+    t.equal(await w.concat(), 'TAP version 14\n1..0 # no tests found\n')
     t.equal(
       await parent.concat(),
       `TAP version 14

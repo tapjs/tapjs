@@ -44,13 +44,14 @@ t.test('globalPreload', async t => {
     }
   }
   let client: MockMockClient | undefined = undefined
-  const hooks = await t.mockImport<
-    typeof import('../dist/esm/hooks.mjs')
-  >('../dist/esm/hooks.mjs', {
-    '../dist/esm/mock-service-client.js': {
-      MockServiceClient: MockMockClient,
+  const hooks = await t.mockImport<typeof import('../dist/esm/hooks.mjs')>(
+    '../dist/esm/hooks.mjs',
+    {
+      '../dist/esm/mock-service-client.js': {
+        MockServiceClient: MockMockClient,
+      },
     },
-  })
+  )
   t.equal(client, undefined, 'no client until initialized')
   const message = (hook: 'load' | 'resolve') =>
     'initialize() or globalPreload() must be run prior to ' +
@@ -138,13 +139,14 @@ t.test('initialize', async t => {
     }
   }
   let client: MockMockClient | undefined = undefined
-  const hooks = await t.mockImport<
-    typeof import('../dist/esm/hooks.mjs')
-  >('../dist/esm/hooks.mjs', {
-    '../dist/esm/mock-service-client.js': {
-      MockServiceClient: MockMockClient,
+  const hooks = await t.mockImport<typeof import('../dist/esm/hooks.mjs')>(
+    '../dist/esm/hooks.mjs',
+    {
+      '../dist/esm/mock-service-client.js': {
+        MockServiceClient: MockMockClient,
+      },
     },
-  })
+  )
   t.equal(client, undefined, 'no client until initialized')
   const message = (hook: 'load' | 'resolve') =>
     'initialize() or globalPreload() must be run prior to ' +
@@ -296,42 +298,39 @@ t.test('mockImport with full absolute path', async t => {
   })
 })
 
-t.test(
-  'mockImport through proxy with full absolute path',
-  async t => {
-    const path = resolve(t.testdirName, 'bar.mjs')
-    const dir = t.testdir({
-      'file.mjs': `
+t.test('mockImport through proxy with full absolute path', async t => {
+  const path = resolve(t.testdirName, 'bar.mjs')
+  const dir = t.testdir({
+    'file.mjs': `
       import f, { bar } from ${JSON.stringify(path)}
       export const foo = f
       export { bar } from ${JSON.stringify(path)}
       export const fooBar = 'foo ' + bar
     `,
-      'bar.mjs': `
+    'bar.mjs': `
       export * from './foo.mjs'
       import f from './foo.mjs'
       export default f
     `,
-      'foo.mjs': `
+    'foo.mjs': `
       export const bar = 'bar'
       export default 'original foo'
     `,
-    })
-    const rel = './' + relative(__dirname, dir) + '/'
-    const mocked = await t.mockImport(rel + 'file.mjs', {
-      [rel + 'foo.mjs']: {
-        default: 'mocked foo',
-        bar: 'mocked bar',
-      },
-    })
-    t.strictSame(mocked, {
-      __proto__: null,
-      foo: 'mocked foo',
+  })
+  const rel = './' + relative(__dirname, dir) + '/'
+  const mocked = await t.mockImport(rel + 'file.mjs', {
+    [rel + 'foo.mjs']: {
+      default: 'mocked foo',
       bar: 'mocked bar',
-      fooBar: 'foo mocked bar',
-    })
-  },
-)
+    },
+  })
+  t.strictSame(mocked, {
+    __proto__: null,
+    foo: 'mocked foo',
+    bar: 'mocked bar',
+    fooBar: 'foo mocked bar',
+  })
+})
 
 t.test('mockImport with full file:// url', async t => {
   const url = pathToFileURL(resolve(t.testdirName, 'foo.mjs'))

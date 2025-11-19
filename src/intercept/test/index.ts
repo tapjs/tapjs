@@ -455,9 +455,7 @@ t.test('capture', t => {
     const res = i.capture(obj, 'a')
     t.equal(obj.a(), undefined)
 
-    t.match(res(), [
-      { receiver: obj, returned: undefined, threw: false },
-    ])
+    t.match(res(), [{ receiver: obj, returned: undefined, threw: false }])
     res.restore()
     t.equal(obj.a(), 1)
     t.strictSame(res(), [])

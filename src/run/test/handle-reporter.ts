@@ -12,8 +12,7 @@ import { FC } from 'react'
 import { resolveImport } from 'resolve-import'
 import t from 'tap'
 
-const reporterCalled: [string | FC<TapReportOpts>, TestBase, any][] =
-  []
+const reporterCalled: [string | FC<TapReportOpts>, TestBase, any][] = []
 
 const env = { ...process.env }
 for (const k of Object.keys(env)) {
@@ -95,8 +94,7 @@ t.test('force TAP output', async t => {
     // have to manually end the pipe because it's stdout allegedly
     tb.on('end', () => stdout.end())
     const config = {
-      get: (key: string) =>
-        key === 'reporter-file' ? undefined : 'tap',
+      get: (key: string) => (key === 'reporter-file' ? undefined : 'tap'),
     } as unknown as LoadedConfig
     t.equal(await handleReporter(tb as TAP, config), false)
     tb.pass('this is fine')
@@ -160,8 +158,7 @@ t.test('force TAP output', async t => {
 t.test('builtin reporter', async t => {
   const tb = new Minimal({ name: 'base reporter' })
   const config = {
-    get: (key: string) =>
-      key === 'reporter-file' ? undefined : 'base',
+    get: (key: string) => (key === 'reporter-file' ? undefined : 'base'),
   } as unknown as LoadedConfig
   t.equal(await handleReporter(tb as TAP, config), true)
   t.strictSame(reporterCalled, [['base', tb, config]])
@@ -211,8 +208,7 @@ t.test('silent because -R/dev/null', async t => {
     },
   )
   const config = {
-    get: (key: string) =>
-      key === 'reporter-file' ? '/dev/null' : 'json',
+    get: (key: string) => (key === 'reporter-file' ? '/dev/null' : 'json'),
   } as unknown as LoadedConfig
   t.equal(await handleReporter(tb as unknown as TAP, config), true)
   t.strictSame(reporterCalled, [])

@@ -77,11 +77,7 @@ t.test('takes a buffer just fine', function (t) {
   p.write('ok 1 i just met you\n')
   p.write('ok and this is crazy\n')
   p.write('ok 3 - but heres my number\n')
-  p.write(
-    '6f6b2034202d20736f2063616c6c206d65206d61796265',
-    'hex',
-    callme,
-  )
+  p.write('6f6b2034202d20736f2063616c6c206d65206d61796265', 'hex', callme)
   p.write('Bail out! then call cb on next tick')
   p.write('bailouts make all writes ignored right away', bailcall)
   process.nextTick(function () {

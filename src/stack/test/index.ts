@@ -325,11 +325,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       const unfiltered2 = parseStack(stack)
         .map(c => String(c) + '\n')
         .join('')
-      t.equal(
-        unfiltered2,
-        unfiltered,
-        'unfiltered when filter turned off',
-      )
+      t.equal(unfiltered2, unfiltered, 'unfiltered when filter turned off')
       setFilterIgnoredPackages(true)
       t.equal(getFilterIgnoredPackages(), true, 'filter on again')
 
@@ -390,11 +386,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
     t.test('parseStack with Error object noise', t => {
       const stack = String(new Error('trace').stack)
       const headless = stack.split('\n').slice(1).join('\n')
-      t.match(
-        parseStack(stack),
-        parseStack(headless),
-        'head is removed',
-      )
+      t.match(parseStack(stack), parseStack(headless), 'head is removed')
       t.end()
     })
 

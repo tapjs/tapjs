@@ -1,9 +1,5 @@
 import t from 'tap'
-import {
-  config,
-  plugin,
-  SnapshotProvider,
-} from '../dist/esm/index.js'
+import { config, plugin, SnapshotProvider } from '../dist/esm/index.js'
 
 import { Test } from '@tapjs/test'
 import { readFileSync } from 'fs'
@@ -46,10 +42,7 @@ t.test('just some basic snapshots', t => {
   t.matchSnapshot(/xyz/, 'regexp')
   t.matchSnapshot([...'xyz'], 'array')
   t.matchSnapshot(null, 'null')
-  t.resolveMatchSnapshot(
-    Promise.resolve({ p: true }),
-    'resolve match',
-  )
+  t.resolveMatchSnapshot(Promise.resolve({ p: true }), 'resolve match')
   t.end()
 })
 
@@ -141,8 +134,7 @@ t.test('custom options', t => {
           '/xyz/',
         'test/index.ts > TAP > custom options > js format > array':
           '[\n"x",\n"y",\n"z",\n]',
-        'test/index.ts > TAP > custom options > js format > null':
-          'null',
+        'test/index.ts > TAP > custom options > js format > null': 'null',
         'test/index.ts > TAP > custom options > js format > child > obj':
           '{\n"foo": "bar",\n}',
       })
@@ -194,10 +186,8 @@ t.test('custom options', t => {
       })
       saveAll()
       t.strictSame(testSnapshotProviderStore.get('nonstring'), {
-        'test/index.ts > TAP > custom options > non-string > first':
-          '0',
-        'test/index.ts > TAP > custom options > non-string > second':
-          '1',
+        'test/index.ts > TAP > custom options > non-string > first': '0',
+        'test/index.ts > TAP > custom options > non-string > second': '1',
         'test/index.ts > TAP > custom options > non-string > string':
           'xyz',
         'test/index.ts > TAP > custom options > non-string > child > obj':
@@ -246,9 +236,7 @@ t.test('resolveMatchSnapshot', async t => {
       throw new Error('ok')
     }),
   )
-  t.notOk(
-    await tt.resolveMatchSnapshot(Promise.reject(new Error('ok'))),
-  )
+  t.notOk(await tt.resolveMatchSnapshot(Promise.reject(new Error('ok'))))
   t.end()
 })
 

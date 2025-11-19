@@ -49,12 +49,8 @@ export class Synonyms {
         writable: true,
       })
     }
-    Object.defineProperties(
-      this,
-      Object.fromEntries(methods.entries()),
-    )
+    Object.defineProperties(this, Object.fromEntries(methods.entries()))
   }
 }
 
-export const plugin: TapPlugin<Synonyms> = (t: TestBase) =>
-  new Synonyms(t)
+export const plugin: TapPlugin<Synonyms> = (t: TestBase) => new Synonyms(t)

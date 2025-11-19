@@ -79,9 +79,7 @@ t.test('fallback if version not found', async t => {
       })
     } else {
       await version([], config)
-      const res = logs().map(
-        ({ args }: { args: string[] }) => args[0],
-      )[0]
+      const res = logs().map(({ args }: { args: string[] }) => args[0])[0]
       t.match(res, tv)
     }
     await version(['versions'], config)
@@ -95,9 +93,7 @@ t.test('fallback if version not found', async t => {
     t.match(allVersions, '\nplugins:\n')
   }
 
-  await t.test('nothing broken', t =>
-    runTest(t, /^[0-9]+\.[0-9+\.[0-9]+/),
-  )
+  await t.test('nothing broken', t => runTest(t, /^[0-9]+\.[0-9+\.[0-9]+/))
   broken.push('tap')
   await t.test('tap broken', t =>
     runTest(t, /^@tapjs\/core@[0-9]+\.[0-9+\.[0-9]+/),

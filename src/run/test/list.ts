@@ -336,8 +336,7 @@ t.test('filter changed files', async t => {
   const { list } = await t.mockImport<
     typeof import('../dist/esm/list.js')
   >('../dist/esm/list.js', mocks)
-  const sort = (a: string[]) =>
-    a.sort((a, b) => a.localeCompare(b, 'en'))
+  const sort = (a: string[]) => a.sort((a, b) => a.localeCompare(b, 'en'))
 
   t.test('gutcheck, works without changed', async t => {
     t.intercept(mainConfig.values, 'changed', { value: false })

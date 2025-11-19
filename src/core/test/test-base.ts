@@ -147,24 +147,21 @@ t.test('bailout', async t => {
     t.matchSnapshot(await parent.concat(), 'parent')
   })
 
-  t.test(
-    'bail passed to parent, child ended, no results yet',
-    async t => {
-      const parent = new TestBase({ name: 'parent' })
-      const tb = new TestBase({ name: 'bailer', parent })
-      tb.pass('pass')
-      const { onEOF } = tb
-      tb.onEOF = async () => {
-        await new Promise<void>(res => setTimeout(res))
-        tb.onEOF = onEOF
-        return tb.onEOF()
-      }
-      tb.end()
-      tb.bailout()
-      t.matchSnapshot(await tb.concat(), 'child')
-      t.matchSnapshot(await parent.concat(), 'parent')
-    },
-  )
+  t.test('bail passed to parent, child ended, no results yet', async t => {
+    const parent = new TestBase({ name: 'parent' })
+    const tb = new TestBase({ name: 'bailer', parent })
+    tb.pass('pass')
+    const { onEOF } = tb
+    tb.onEOF = async () => {
+      await new Promise<void>(res => setTimeout(res))
+      tb.onEOF = onEOF
+      return tb.onEOF()
+    }
+    tb.end()
+    tb.bailout()
+    t.matchSnapshot(await tb.concat(), 'child')
+    t.matchSnapshot(await parent.concat(), 'parent')
+  })
 
   t.end()
 })
@@ -458,21 +455,18 @@ ok 2 - waiting for waiter
   )
 })
 
-t.test(
-  'push awaited assertion to top if ended implicitly',
-  async t => {
-    const tb = new T({ name: 'waiter push' })
-    tb.test('child test', async t => {
-      t.waitOn(
-        new Promise<void>(r => setTimeout(r)).then(() => {
-          t.pass('this is fine')
-        }),
-      )
-    })
-    tb.end()
-    t.matchSnapshot(await tb.concat())
-  },
-)
+t.test('push awaited assertion to top if ended implicitly', async t => {
+  const tb = new T({ name: 'waiter push' })
+  tb.test('child test', async t => {
+    t.waitOn(
+      new Promise<void>(r => setTimeout(r)).then(() => {
+        t.pass('this is fine')
+      }),
+    )
+  })
+  tb.end()
+  t.matchSnapshot(await tb.concat())
+})
 
 t.test('bail on fail', t => {
   t.test('while occupied', async t => {
@@ -731,27 +725,16 @@ t.test('processing edge cases', t => {
     tb.end()
     t.matchSnapshot(await tb.concat())
   })
-  t.test(
-    'multiple parallel buffered tests, then bailout',
-    async t => {
-      const tb = new T({ name: 'root', jobs: 2 })
-      tb.test('one', { buffered: true }, t =>
-        setTimeout(() => t.end()),
-      )
-      tb.test('two', { buffered: true }, t =>
-        setTimeout(() => t.end()),
-      )
-      tb.test('tre', { buffered: true }, t =>
-        setTimeout(() => t.end()),
-      )
-      tb.test('for', { buffered: true }, t =>
-        setTimeout(() => t.end()),
-      )
-      tb.bailout()
-      tb.end()
-      t.matchSnapshot(await tb.concat())
-    },
-  )
+  t.test('multiple parallel buffered tests, then bailout', async t => {
+    const tb = new T({ name: 'root', jobs: 2 })
+    tb.test('one', { buffered: true }, t => setTimeout(() => t.end()))
+    tb.test('two', { buffered: true }, t => setTimeout(() => t.end()))
+    tb.test('tre', { buffered: true }, t => setTimeout(() => t.end()))
+    tb.test('for', { buffered: true }, t => setTimeout(() => t.end()))
+    tb.bailout()
+    tb.end()
+    t.matchSnapshot(await tb.concat())
+  })
   t.end()
 })
 
@@ -923,10 +906,7 @@ t.test('subtest stuff', t => {
     tb.end()
     const out = await tb.concat()
     t.matchSnapshot(
-      out.replace(
-        /stack: \|((?:.|\n)*?)(\n\s+at:)/g,
-        'stack: {STACK}$2',
-      ),
+      out.replace(/stack: \|((?:.|\n)*?)(\n\s+at:)/g, 'stack: {STACK}$2'),
     )
   })
   t.test('skipped sub', async t => {
@@ -1469,9 +1449,7 @@ t.test('failing silent unbuffered subtest', async t => {
     t.fail('nope', { stack: '', at: null })
     t.end()
   })
-  tb.test('silent pass', { silent: true, buffered: false }, t =>
-    t.end(),
-  )
+  tb.test('silent pass', { silent: true, buffered: false }, t => t.end())
   tb.test('two', t => t.end())
   tb.end()
   t.matchSnapshot(await tb.concat())
@@ -1649,8 +1627,7 @@ t.test('every combination of awaiting, async, plan, end()', t => {
       for (const aw of [true, false]) {
         t.test(`end=${end} await=${aw} plan=${p}`, async t => {
           if (p) t.plan(1)
-          if (aw)
-            await t.resolves(new Promise<void>(r => setTimeout(r)))
+          if (aw) await t.resolves(new Promise<void>(r => setTimeout(r)))
           else t.resolves(new Promise<void>(r => setTimeout(r)))
           if (end) t.end()
         })

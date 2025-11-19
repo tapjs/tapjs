@@ -59,8 +59,7 @@ t.test('coverage-map config must be a module', async t => {
   await t.rejects(
     getCoverageMap({
       projectRoot: dir,
-      get: (cfg: string) =>
-        cfg === 'coverage-map' ? 'map.js' : false,
+      get: (cfg: string) => (cfg === 'coverage-map' ? 'map.js' : false),
     } as unknown as LoadedConfig),
   )
 })
@@ -73,8 +72,7 @@ t.test('map must be a function', async t => {
   await t.rejects(
     getCoverageMap({
       projectRoot: dir,
-      get: (cfg: string) =>
-        cfg === 'coverage-map' ? 'map.js' : false,
+      get: (cfg: string) => (cfg === 'coverage-map' ? 'map.js' : false),
     } as unknown as LoadedConfig),
   )
 })
@@ -98,7 +96,6 @@ t.test('map must return string, string[], or null', async t => {
   t.strictSame(map('arr'), ['a', 'b'])
   t.equal(map('null'), null)
   t.throws(() => map('other'), {
-    message:
-      /^Coverage map .* must return string, string\[\], or null/,
+    message: /^Coverage map .* must return string, string\[\], or null/,
   })
 })

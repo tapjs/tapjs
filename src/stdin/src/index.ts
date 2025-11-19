@@ -36,10 +36,7 @@ export class StdinPlugin {
   stdin(name: string): PromiseWithStdin
   stdin(name: string, extra: StdinOpts): PromiseWithStdin
   stdin(extra: StdinOpts): PromiseWithStdin
-  stdin(
-    name?: string | StdinOpts,
-    extra?: StdinOpts,
-  ): PromiseWithStdin {
+  stdin(name?: string | StdinOpts, extra?: StdinOpts): PromiseWithStdin {
     if (name && typeof name === 'object') {
       extra = name
       name = undefined

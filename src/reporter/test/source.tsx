@@ -85,9 +85,7 @@ t.test('get at from stack', t => {
     const loc = at(getStackAndLocation)
     if (!loc) throw new Error('failed to get callsite')
     return [
-      [loc.absoluteFileName, loc.lineNumber, loc.columnNumber].join(
-        ':',
-      ),
+      [loc.absoluteFileName, loc.lineNumber, loc.columnNumber].join(':'),
       getStack(),
     ]
   }

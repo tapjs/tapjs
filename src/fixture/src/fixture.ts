@@ -1,10 +1,5 @@
 import { mkdirpSync } from 'mkdirp'
-import {
-  linkSync,
-  statSync,
-  symlinkSync,
-  writeFileSync,
-} from 'node:fs'
+import { linkSync, statSync, symlinkSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'path'
 
 export type FixtureType = 'file' | 'dir' | 'link' | 'symlink'
@@ -49,9 +44,7 @@ const validateDirContents = (
     ) {
       const r = v as Record<string, FixtureDirContent>
       if (seen.has(r)) {
-        throw new Error(
-          'cycle detected in t.fixture contents at ' + f,
-        )
+        throw new Error('cycle detected in t.fixture contents at ' + f)
       }
       seen.add(r)
       validateDirContents(r, seen)
@@ -59,10 +52,9 @@ const validateDirContents = (
   }
 }
 
-const assertValidContent: (
-  type: FixtureType,
-  content: any,
-) => void = <T extends FixtureType>(
+const assertValidContent: (type: FixtureType, content: any) => void = <
+  T extends FixtureType,
+>(
   type: T,
   content: any,
 ): asserts content is FixtureContent<T> => {
@@ -79,9 +71,7 @@ const assertValidContent: (
         !Buffer.isBuffer(content) &&
         !(content instanceof Uint8Array)
       ) {
-        throw new TypeError(
-          'file fixture must have string/buffer content',
-        )
+        throw new TypeError('file fixture must have string/buffer content')
       }
       break
     case 'link':
@@ -110,14 +100,11 @@ const rawToType = (f: FixtureDirContent): FixtureType => {
   throw new Error('invalid fixture type: ' + f)
 }
 
-const rawToFixture = (
-  f: FixtureDirContent,
-): Fixture<GetType<typeof f>> =>
+const rawToFixture = (f: FixtureDirContent): Fixture<GetType<typeof f>> =>
   f instanceof Fixture ? f : new Fixture(rawToType(f), f)
 
-const isSymlinkF = (
-  f: Fixture<FixtureType>,
-): f is Fixture<'symlink'> => f.type === 'symlink'
+const isSymlinkF = (f: Fixture<FixtureType>): f is Fixture<'symlink'> =>
+  f.type === 'symlink'
 const isLinkF = (f: Fixture<FixtureType>): f is Fixture<'link'> =>
   f.type === 'link'
 const isDirF = (f: Fixture<FixtureType>): f is Fixture<'dir'> =>
@@ -170,11 +157,7 @@ export class Fixture<T extends FixtureType> {
     // create all those symlinks we were asked for
     if (isRoot) {
       for (const [abs, target] of Object.entries(symlinks)) {
-        symlinkSync(
-          target,
-          abs,
-          isDir(abs, target) ? 'junction' : 'file',
-        )
+        symlinkSync(target, abs, isDir(abs, target) ? 'junction' : 'file')
       }
     }
   }

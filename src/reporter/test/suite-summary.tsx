@@ -44,18 +44,10 @@ t.test('1 passing of 1', t =>
   run(t, { pass: 1, total: 1 }, { pass: 1, total: 1 }),
 )
 t.test('1 fail of 1', t =>
-  run(
-    t,
-    { pass: 0, fail: 1, total: 1 },
-    { pass: 0, fail: 1, total: 1 },
-  ),
+  run(t, { pass: 0, fail: 1, total: 1 }, { pass: 0, fail: 1, total: 1 }),
 )
 t.test('skip only', t =>
-  run(
-    t,
-    { pass: 0, skip: 1, total: 10 },
-    { pass: 0, skip: 1, total: 99 },
-  ),
+  run(t, { pass: 0, skip: 1, total: 10 }, { pass: 0, skip: 1, total: 99 }),
 )
 t.test('all the things', t =>
   run(
@@ -66,10 +58,7 @@ t.test('all the things', t =>
 )
 
 t.test('comments', t =>
-  run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, [
-    'one',
-    'two',
-  ]),
+  run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, ['one', 'two']),
 )
 
 t.test('timed out with signal', t =>

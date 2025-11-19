@@ -13,9 +13,7 @@ const npmFreeEnv = Object.fromEntries(
 )
 
 let npmCwd: string | undefined = undefined
-export const npmFindCwd = async (
-  projectRoot: string,
-): Promise<string> => {
+export const npmFindCwd = async (projectRoot: string): Promise<string> => {
   if (!npmCwd) {
     npmCwd = resolve(projectRoot, '.tap/plugins')
     await mkdirp(npmCwd + '/node_modules')
@@ -80,10 +78,7 @@ const quiet: string[] = [
   '--no-fund',
 ]
 
-export const install = async (
-  pkgs: string[],
-  config: LoadedConfig,
-) => {
+export const install = async (pkgs: string[], config: LoadedConfig) => {
   const npmCwd = await npmFindCwd(config.projectRoot)
   const args = ['install', ...quiet, '--save', ...pkgs]
   await new Promise<void>((res, rej) => {
@@ -105,10 +100,7 @@ export const install = async (
   })
 }
 
-export const uninstall = async (
-  pkgs: string[],
-  config: LoadedConfig,
-) => {
+export const uninstall = async (pkgs: string[], config: LoadedConfig) => {
   const args = ['rm', ...quiet, ...pkgs]
   const npmCwd = await npmFindCwd(config.projectRoot)
   await new Promise<void>(res =>

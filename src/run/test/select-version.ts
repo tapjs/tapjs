@@ -16,10 +16,7 @@ const esbkPacku: Packument = JSON.parse(
 
 // shuffle version order so that we exercise the newIfGt check
 const abbrevPacku_: Packument = JSON.parse(
-  readFileSync(
-    new URL('./fixtures/abbrev.json', import.meta.url),
-    'utf8',
-  ),
+  readFileSync(new URL('./fixtures/abbrev.json', import.meta.url), 'utf8'),
 )
 const abbrevPacku: Packument = {
   ...abbrevPacku_,

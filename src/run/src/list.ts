@@ -15,9 +15,7 @@ const alwaysExcludeNames = [
   'tap-snapshots',
 ]
 
-const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join(
-  '|',
-)})/**`
+const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join('|')})/**`
 
 const defaultInclude =
   '**/{' +
@@ -74,9 +72,7 @@ export const list = async (
           : Promise.all(
               args.map(async a => {
                 if (a === '-' || a === '/dev/stdin') return a
-                const st = await scurry.cwd
-                  .resolve(resolve(a))
-                  .lstat()
+                const st = await scurry.cwd.resolve(resolve(a)).lstat()
                 if (st) return st
                 // from process cwd, because it's a cli positional
                 return glob(a, { absolute: true })
@@ -84,20 +80,13 @@ export const list = async (
             ))
         ).reduce(
           (
-            set: (
-              | string
-              | Path
-              | Promise<Path | undefined>
-              | undefined
-            )[],
+            set: (string | Path | Promise<Path | undefined> | undefined)[],
             entry: string | Path | string[],
           ) => {
             // stat the glob results a second time, even though we know
             // that they exist, because we need their stat info later.
             if (Array.isArray(entry)) {
-              set.push(
-                ...entry.map(e => scurry.cwd.resolve(e).lstat()),
-              )
+              set.push(...entry.map(e => scurry.cwd.resolve(e).lstat()))
             } else if (entry === '-' || entry === '/dev/stdin') {
               set.push(entry)
             } else {

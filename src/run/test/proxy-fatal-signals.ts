@@ -23,8 +23,7 @@ t.test('proxy fatal signals to child test processes', async t => {
   const procKills: [string, string][] = []
   const procTerms: string[] = []
   const emitProc = (c: Minimal) => {
-    if ((c as unknown as Spawn).proc)
-      throw new Error('already have proc')
+    if ((c as unknown as Spawn).proc) throw new Error('already have proc')
     const proc = {
       kill: (signal: NodeJS.Signals) => {
         procKills.push([c.name, signal])

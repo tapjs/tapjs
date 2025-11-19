@@ -51,11 +51,7 @@ export const cleanYamlObject = (
   }
   /* c8 ignore stop */
 
-  if (
-    res.cause &&
-    typeof res.cause === 'object' &&
-    !seen.has(res.cause)
-  ) {
+  if (res.cause && typeof res.cause === 'object' && !seen.has(res.cause)) {
     seen.add(res.cause)
     const { message } = res.cause
     const ex = extraFromError(res.cause)
@@ -137,12 +133,7 @@ export const cleanYamlObject = (
         w + '\n',
         f + '\n',
       ).replace(/^=+\n/, '')
-    else if (
-      f &&
-      w &&
-      typeof f === 'object' &&
-      typeof w === 'object'
-    ) {
+    else if (f && w && typeof f === 'object' && typeof w === 'object') {
       const s = strict(f, w)
       if (!s.match) {
         res.diff = s.diff

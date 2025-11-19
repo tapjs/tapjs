@@ -7,26 +7,27 @@ import React from 'react'
 import t from 'tap'
 import { getTest } from './fixtures/get-test.js'
 
-const { Base } = await t.mockImport<
-  typeof import('../dist/esm/base.js')
->('../dist/esm/base.js', {
-  chalk,
-  '../dist/esm/ms.js': {
-    ms: () => '{TIME}',
-  },
-  '../dist/hooks/use-test-time.js': {
-    useTestTime: () => {
-      return 123
+const { Base } = await t.mockImport<typeof import('../dist/esm/base.js')>(
+  '../dist/esm/base.js',
+  {
+    chalk,
+    '../dist/esm/ms.js': {
+      ms: () => '{TIME}',
+    },
+    '../dist/hooks/use-test-time.js': {
+      useTestTime: () => {
+        return 123
+      },
+    },
+    '../dist/esm/stack.js': {
+      Stack: () => (
+        <Box>
+          <Text>{'XXX mock stack XXX'}</Text>
+        </Box>
+      ),
     },
   },
-  '../dist/esm/stack.js': {
-    Stack: () => (
-      <Box>
-        <Text>{'XXX mock stack XXX'}</Text>
-      </Box>
-    ),
-  },
-})
+)
 
 t.test('no comments or passes', async t => {
   const tb = getTest()

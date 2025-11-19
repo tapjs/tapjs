@@ -4,9 +4,7 @@ import reactElementToJsxString from './react-element-to-jsx-string.js'
 
 // can't use buf.toString('ascii') because that unmasks high bytes
 const bufToAscii = (buf: Buffer) =>
-  buf
-    .map(c => (c <= 0x20 || c >= 0x7f ? '.'.charCodeAt(0) : c))
-    .toString()
+  buf.map(c => (c <= 0x20 || c >= 0x7f ? '.'.charCodeAt(0) : c)).toString()
 
 export type StyleType = 'pretty' | 'js' | 'tight'
 
@@ -167,8 +165,7 @@ const pretty: Style = {
   errorHead: (er, cls) => {
     // assertion errors sometimes generate WACKY stuff
     return (
-      cls === 'AssertionError' && er.generatedMessage ?
-        er.name + ' {\n'
+      cls === 'AssertionError' && er.generatedMessage ? er.name + ' {\n'
       : !(er instanceof Error) ?
         `${(er as Error).name || '(no name)'}: ${
           (er as Error).message || '(no message)'
@@ -329,8 +326,7 @@ const tight: Style = {
   mapEntrySep: () => '],',
   circular: node => `*${node.id}`,
   nodeId: id => `&${id} `,
-  errorEmpty: (er, cls) =>
-    `new ${cls}(${JSON.stringify(er.message)})`,
+  errorEmpty: (er, cls) => `new ${cls}(${JSON.stringify(er.message)})`,
   errorHead: (er, cls) =>
     `Object.assign(new ${cls}(${
       er.message ? JSON.stringify(er.message) : ''

@@ -38,9 +38,7 @@ t.test('watch some files', async t => {
       ['one', {}],
       ['two', {}],
     ]),
-    externalIDsChanged: async (
-      f: (id: string, n: any) => boolean,
-    ) => {
+    externalIDsChanged: async (f: (id: string, n: any) => boolean) => {
       if (f('one', pi.files.get('one'))) {
         return new Set([pi.files.get('one')])
       } else {

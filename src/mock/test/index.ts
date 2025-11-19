@@ -66,9 +66,7 @@ t.test('deprecated t.mock alias', t => {
   t.strictSame(mocked, { foo: 'mocked foo' })
   t.match(logs(), [
     {
-      args: [
-        't.mock() is now t.mockRequire(). Please update your tests.',
-      ],
+      args: ['t.mock() is now t.mockRequire(). Please update your tests.'],
     },
   ])
   t.end()

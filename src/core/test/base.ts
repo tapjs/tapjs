@@ -3,8 +3,7 @@ import t from 'tap'
 import { Base } from '../dist/esm/base.js'
 import { Minimal } from '../dist/esm/minimal.js'
 
-t.cleanSnapshot = s =>
-  s.replace(/# time=[0-9\.]+m?s/, '# time={TIME}')
+t.cleanSnapshot = s => s.replace(/# time=[0-9\.]+m?s/, '# time={TIME}')
 
 t.test('basic instantiation', t => {
   const b = new Base({})

@@ -18,10 +18,7 @@ import {
   parse as jsonParse,
   stringify as jsonStringify,
 } from 'polite-json'
-import {
-  parse as yamlParse,
-  stringify as yamlStringify,
-} from 'tap-yaml'
+import { parse as yamlParse, stringify as yamlStringify } from 'tap-yaml'
 import { walkUp } from 'walk-up-path'
 import baseConfig from './jack.js'
 
@@ -176,8 +173,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   ) {
     // we'll always have a config file by the time we get here
     /* c8 ignore start */
-    if (!configFile)
-      throw new Error('cannot edit without a configFile')
+    if (!configFile) throw new Error('cannot edit without a configFile')
     /* c8 ignore stop */
     // also set the fields
     await this.loadConfigData(data, configFile)
@@ -223,8 +219,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     configFile: string,
     overwrite: boolean = false,
   ) {
-    const pj: any =
-      (await this.readPackageJson(configFile, true)) || {}
+    const pj: any = (await this.readPackageJson(configFile, true)) || {}
     const { tap = {} } = pj
     const src: OptionsSubset<C> =
       tap && typeof tap === 'object' && !Array.isArray(tap) ? tap : {}
@@ -245,9 +240,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         | string
         | ConfigFileData<C>
       return this.resolvePathOptions(
-        typeof p === 'string' ?
-          ({ extends: p } as ConfigFileData<C>)
-        : p,
+        typeof p === 'string' ? ({ extends: p } as ConfigFileData<C>) : p,
         rc,
       )
     } catch (er) {
@@ -273,8 +266,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         return r as { tap?: OptionsResults<C> }
       }
     } catch (er) {
-      if (!silent)
-        console.error('Error loading package.json:', pj, er)
+      if (!silent) console.error('Error loading package.json:', pj, er)
     }
     return undefined
   }
@@ -436,10 +428,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         env.TAP_CWD = p
         if (envRC) break
         const file = resolve(p, '.taprc')
-        return this.loadConfigData(
-          await this.readYAMLConfig(file),
-          file,
-        )
+        return this.loadConfigData(await this.readYAMLConfig(file), file)
       } else if (entries.includes('package.json')) {
         this.projectRoot = p
         env.TAP_CWD = p

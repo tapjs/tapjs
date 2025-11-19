@@ -52,9 +52,7 @@ t.test('failing test with details', async t => {
   tb.fail('expected failure')
   tb.end()
   await tb.concat()
-  t.matchSnapshot(
-    render(<TestSummary details test={tb} />).lastFrame(),
-  )
+  t.matchSnapshot(render(<TestSummary details test={tb} />).lastFrame())
 })
 
 t.test('all the things', async t => {
@@ -81,8 +79,6 @@ t.test('all the details', async t => {
   tb.pass('todo msg', { todo: 'message' })
   tb.end()
   await tb.concat()
-  t.matchSnapshot(
-    render(<TestSummary details test={tb} />).lastFrame(),
-  )
+  t.matchSnapshot(render(<TestSummary details test={tb} />).lastFrame())
   t.end()
 })

@@ -90,8 +90,7 @@ export const Source: FC<SourceOpts> = ({
         theme: 'moria',
         padding: 0,
         /* c8 ignore start */
-        maxWidth:
-          process.stdout.columns && process.stdout.columns - 5,
+        maxWidth: process.stdout.columns && process.stdout.columns - 5,
         /* c8 ignore stop */
       }).split('\n')
       const lastLine = lines[lines.length - 1]
@@ -106,8 +105,7 @@ export const Source: FC<SourceOpts> = ({
       const before = lines.slice(startLine, at.lineNumber - 1)
       const after = lines.slice(at.lineNumber, endLine)
       const len = Math.min(...before.map(l => stringLength(l)))
-      const msg =
-        (isErrorOrigin ? 'error origin: ' : '') + at.fileName
+      const msg = (isErrorOrigin ? 'error origin: ' : '') + at.fileName
       const title = chalk.bgAnsi256(234).dim(msg.padEnd(len))
       const caret =
         (
@@ -120,9 +118,7 @@ export const Source: FC<SourceOpts> = ({
               ' '.repeat(excess) +
                 '━'.repeat(numLen + at.columnNumber) +
                 chalk.bold('┛') +
-                ' '.repeat(
-                  len - (numLen + at.columnNumber) - 1 - excess,
-                ),
+                ' '.repeat(len - (numLen + at.columnNumber) - 1 - excess),
             ),
           )
         : ''
@@ -137,9 +133,7 @@ export const Source: FC<SourceOpts> = ({
         context.push(...before, atLine, caret, ...after)
       }
       return (
-        <Box
-          flexDirection="column"
-          paddingTop={isErrorOrigin ? 1 : 0}>
+        <Box flexDirection="column" paddingTop={isErrorOrigin ? 1 : 0}>
           {context.map((l, key) => (
             <Text key={key}>{l}</Text>
           ))}

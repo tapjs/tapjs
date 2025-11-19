@@ -54,8 +54,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const map = await getCoverageMap(config)
 
   const covExcludeFiles: (string | undefined)[] = []
-  let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined =
-    undefined
+  let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined = undefined
 
   // always exclude the root node_modules from coverage. we don't report
   // on it, and it just takes up space in the .tap/coverage data.
@@ -148,10 +147,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
         if (files.length === 1) return t.stdinOnly()
         else return t.stdin()
       }
-      const name = relative(config.projectRoot, file).replace(
-        /\\/g,
-        '/',
-      )
+      const name = relative(config.projectRoot, file).replace(/\\/g, '/')
       const mapped = map(name)
       let coveredFiles: null | string[] =
         mapped === null ? null : (
@@ -167,9 +163,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       }
       const _TAPJS_PROCESSINFO_COVERAGE_ =
         coveredFiles === null ? '0' : '1'
-      const _TAPJS_PROCESSINFO_COV_FILES_ = (coveredFiles || []).join(
-        '\n',
-      )
+      const _TAPJS_PROCESSINFO_COV_FILES_ = (coveredFiles || []).join('\n')
       const buffered = !testIsSerial(file) && t.jobs > 1
       const args = [...argv, file, ...testArgs]
       // support stuff like `tap <(...)` or raw .tap files.

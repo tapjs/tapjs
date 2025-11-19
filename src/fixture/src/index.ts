@@ -57,10 +57,7 @@ export class TestFixtures {
    *
    * @group Spies, Mocks, and Fixtures
    */
-  fixture<T extends FixtureType>(
-    type: T,
-    content: FixtureContent<T>,
-  ) {
+  fixture<T extends FixtureType>(type: T, content: FixtureContent<T>) {
     return new Fixture(type, content)
   }
 
@@ -100,11 +97,7 @@ export class TestFixtures {
       this.#t.onEOF = async () => {
         this.#t.onEOF = onEOF
         const rel = relative(process.cwd(), dir)
-        if (
-          rel === '' ||
-          rel === '..' ||
-          rel.startsWith(`..${sep}`)
-        ) {
+        if (rel === '' || rel === '..' || rel.startsWith(`..${sep}`)) {
           // cd out of it first, or else Windows fails with EBUSY every time
           process.chdir(dirname(dir))
         }
@@ -183,7 +176,6 @@ export const config = {
   'save-fixture': {
     type: 'boolean',
     short: 'F',
-    description:
-      'Do not clean up fixtures created with `t.testdir()`',
+    description: 'Do not clean up fixtures created with `t.testdir()`',
   },
 }

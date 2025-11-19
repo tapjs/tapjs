@@ -1,9 +1,6 @@
 import { Minipass } from 'minipass'
 import { DefaultSerializer } from 'v8'
-import {
-  kSerializedSizeHeader,
-  kV8HeaderLength,
-} from './constants.js'
+import { kSerializedSizeHeader, kV8HeaderLength } from './constants.js'
 import {
   FailData,
   isMessageFail,
@@ -56,10 +53,7 @@ export class TestStreamSerialize extends Minipass<Buffer> {
 
   #write(item: Message) {
     let originalError: undefined | (Error & { cause?: any })
-    if (
-      isMessageFail(item) &&
-      item.data.details.error !== undefined
-    ) {
+    if (isMessageFail(item) && item.data.details.error !== undefined) {
       originalError = item.data.details.error
       Object.assign(item.data.details, {
         error: serializeError(originalError),

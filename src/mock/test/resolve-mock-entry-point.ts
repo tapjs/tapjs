@@ -11,9 +11,8 @@ t.equal(
     'mock-key',
     () => {},
   ),
-  String(
-    await resolveImport('../dist/esm/hooks.mjs', import.meta.url),
-  ) + '?tapmock=service-key.mock-key',
+  String(await resolveImport('../dist/esm/hooks.mjs', import.meta.url)) +
+    '?tapmock=service-key.mock-key',
 )
 
 t.equal(

@@ -3,10 +3,7 @@ import { resolve } from 'path'
 import t from 'tap'
 import { locFromAt } from '../src/loc-from-at.js'
 
-const foo = (): [
-  ReturnType<typeof at>,
-  ReturnType<typeof locFromAt>,
-] => {
+const foo = (): [ReturnType<typeof at>, ReturnType<typeof locFromAt>] => {
   return [at(bar), locFromAt(bar)]
 }
 

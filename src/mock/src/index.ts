@@ -24,10 +24,7 @@ export class TapMock {
     TapMock.#refs.set(t, this)
     // inherit #allMock
     const p = t.parent && TapMock.#refs.get(t.parent)
-    this.#allMock = Object.assign(
-      Object.create(null),
-      p ? p.#allMock : {},
-    )
+    this.#allMock = Object.assign(Object.create(null), p ? p.#allMock : {})
   }
 
   /**
@@ -77,8 +74,7 @@ export class TapMock {
         .map(([k, v]) => {
           if (k in overrides) {
             const bobj = !!v && typeof v === 'object'
-            const oobj =
-              !!overrides[k] && typeof overrides[k] === 'object'
+            const oobj = !!overrides[k] && typeof overrides[k] === 'object'
             if (oobj && bobj) {
               return [k, this.createMock(v, overrides[k])]
             } else {
@@ -95,10 +91,7 @@ export class TapMock {
     ) as MockedObject<B, O>
 
     if (Object.getPrototypeOf(bases) !== Object.prototype) {
-      Object.setPrototypeOf(
-        mockedObject,
-        Object.getPrototypeOf(bases),
-      )
+      Object.setPrototypeOf(mockedObject, Object.getPrototypeOf(bases))
     }
 
     return mockedObject
@@ -106,8 +99,7 @@ export class TapMock {
 
   #builtTest?: TestBase & TapMock
   #bt() {
-    return (this.#builtTest ??= this.#t.t as unknown as TestBase &
-      TapMock)
+    return (this.#builtTest ??= this.#t.t as unknown as TestBase & TapMock)
   }
 
   /**
@@ -198,11 +190,7 @@ export class TapMock {
       this.#t.t.teardown(() => this.unmock())
     }
     const { mockImport } = this.#bt()
-    const service = await MockService.create(
-      module,
-      mocks,
-      mockImport,
-    )
+    const service = await MockService.create(module, mocks, mockImport)
     this.#mocks.push(service)
     return Promise.resolve(service.module).then(s => import(s))
   }
@@ -297,8 +285,7 @@ export type MockedObject<B, O> =
     O extends Function ? O
     : O extends { [k: string]: any } ?
       {
-        [k in keyof B]: k extends keyof O ? MockedObject<B[k], O[k]>
-        : B[k]
+        [k in keyof B]: k extends keyof O ? MockedObject<B[k], O[k]> : B[k]
       }
     : O
   : O
@@ -316,5 +303,4 @@ export const importLoader = '@tapjs/mock/import'
 /**
  * plugin method that instantiates {@link @tapjs/mock!index.TapMock}
  */
-export const plugin: TapPlugin<TapMock> = (t: TestBase) =>
-  new TapMock(t)
+export const plugin: TapPlugin<TapMock> = (t: TestBase) => new TapMock(t)

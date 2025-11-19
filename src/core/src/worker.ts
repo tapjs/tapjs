@@ -113,11 +113,7 @@ export class Worker extends Base<WorkerEvents> {
         child: string
         setTimeout: number
       }
-      if (
-        m &&
-        m.key === this.#childKey &&
-        m.child === this.#childId
-      ) {
+      if (m && m.key === this.#childKey && m.child === this.#childId) {
         this.setTimeout(m.setTimeout)
         return
       }
@@ -196,8 +192,7 @@ export class Worker extends Base<WorkerEvents> {
 
   comment(...args: any[]) {
     const body = format(...args)
-    const message =
-      ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
+    const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
     // it's almost impossible to send a message that will arrive
     // AFTER the stdout closes, as this only happens when the worker
     // thread closes, but it is theoretically possible, since messages

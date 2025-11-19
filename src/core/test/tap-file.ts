@@ -9,14 +9,8 @@ t.cleanSnapshot = s =>
     .replace(/# time=[^\n]+/, '# time={TIME}')
     .replace(/lineNumber: \d+/g, 'lineNumber: ##')
     .replace(/columnNumber: \d+/g, 'columnNumber: ##')
-    .replace(
-      /(typename|methodname|functionname|toplevel): [^\n]+\n/gi,
-      '',
-    )
-    .replace(
-      /test[\\\/]tap-file.ts:\d+:\d+/g,
-      'test/tap-file.ts:##:##',
-    )
+    .replace(/(typename|methodname|functionname|toplevel): [^\n]+\n/gi, '')
+    .replace(/test[\\\/]tap-file.ts:\d+:\d+/g, 'test/tap-file.ts:##:##')
 
 t.test('replay a tap file', t => {
   const content = `TAP version 14
@@ -49,9 +43,7 @@ t.test('replay a tap stream', t => {
 ok 1 - this is fine
 1..1
 `
-  const tapStream = new Minipass<string>({ encoding: 'utf8' }).end(
-    content,
-  )
+  const tapStream = new Minipass<string>({ encoding: 'utf8' }).end(content)
   const tf = new TapFile({
     tapStream,
   })
@@ -94,9 +86,6 @@ t.test('name is not .. path', t => {
   const rel = resolve('x.tap')
   const abs = resolve('/absolute/path.tap')
   t.equal(TapFile.getName(undefined, rel, process.cwd()), 'x')
-  t.equal(
-    TapFile.getName(undefined, abs, process.cwd()),
-    '/absolute/path',
-  )
+  t.equal(TapFile.getName(undefined, abs, process.cwd()), '/absolute/path')
   t.end()
 })

@@ -119,8 +119,7 @@ const get = async (args: string[], config: LoadedConfig) => {
 const list = async (args: string[], config: LoadedConfig) => {
   const { valuesFromConfigFile, values } = config
   const filter = ([k, v]: [string, any]) =>
-    (!Array.isArray(v) || v.length) &&
-    (!args.length || args.includes(k))
+    (!Array.isArray(v) || v.length) && (!args.length || args.includes(k))
   const fileEntries = Object.entries(valuesFromConfigFile)
     .filter(filter)
     .sort(([a], [b]) => a.localeCompare(b, 'en'))
@@ -180,11 +179,7 @@ const edit = async (args: string[], config: LoadedConfig) => {
     process.platform === 'win32' ? 'notepad.exe' : 'vim',
     /* c8 ignore stop */
   )
-  const tmp = resolve(
-    config.projectRoot,
-    '.tap',
-    'config-edit-tmp.yaml',
-  )
+  const tmp = resolve(config.projectRoot, '.tap', 'config-edit-tmp.yaml')
   if (args[0] !== 'resume') {
     rimrafSync(tmp)
     mkdirpSync(dirname(tmp))
@@ -214,8 +209,7 @@ const edit = async (args: string[], config: LoadedConfig) => {
 # Comments and empty lines will be removed.
 ${
   Object.keys(valuesFromConfigFile).length ?
-    '#\n# Existing configs:\n\n' +
-    yaml.stringify(valuesFromConfigFile)
+    '#\n# Existing configs:\n\n' + yaml.stringify(valuesFromConfigFile)
   : ''
 }
 # All available configuration options. See \`tap help\` for descriptions.
@@ -262,10 +256,7 @@ ${allConfigs}
   console.log(`wrote changes to ${rel}`)
 }
 
-export const config = async (
-  args: string[],
-  config: LoadedConfig,
-) => {
+export const config = async (args: string[], config: LoadedConfig) => {
   if (!args.length) args = ['list']
   switch (args[0]) {
     case 'dump':

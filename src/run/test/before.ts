@@ -25,11 +25,7 @@ t.test('have before config, adds before that spawns', async t => {
     typeof import('../dist/esm/before.js')
   >('../dist/esm/before.js', {
     'foreground-child': {
-      foregroundChild: (
-        cmd: string,
-        args: string[],
-        cb: () => any,
-      ) => {
+      foregroundChild: (cmd: string, args: string[], cb: () => any) => {
         foregroundChildCalled = true
         t.equal(cmd, process.execPath)
         t.strictSame(args, expectArgs.concat(resolve('before.js')))

@@ -121,8 +121,7 @@ this:
     <h1>Hello, {{name}}!</h1>
     <p>Good luck on {{quest}}.</p>
     <p>
-      The average flight velocity of an unladen sparrow is {{ sparrow
-      }}.
+      The average flight velocity of an unladen sparrow is {{ sparrow }}.
     </p>
   </body>
 </html>
@@ -148,8 +147,7 @@ loaded with its name relative to the templates folder.
     <h1>Hello, {{name}}!</h1>
     <p>Good luck on {{quest}}.</p>
     <p>
-      The average flight velocity of an unladen sparrow is {{ sparrow
-      }}.
+      The average flight velocity of an unladen sparrow is {{ sparrow }}.
     </p>
 
     <p>Your `package.json` file is:</p>

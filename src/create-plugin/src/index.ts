@@ -37,10 +37,7 @@ const pkgName = (s: string) => {
     const sp = s.split('/')
     const ns = String(sp[0])
     return (
-      '@' +
-      slugify(ns.substring(1)) +
-      '/' +
-      slugify(sp.slice(1).join('/'))
+      '@' + slugify(ns.substring(1)) + '/' + slugify(sp.slice(1).join('/'))
     )
   }
   const base = basename(s)

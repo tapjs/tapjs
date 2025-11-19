@@ -28,10 +28,7 @@ ok 2 - child test
 `)
 
 t.strictSame(
-  results.map(({ name, closingTestPoint }) => [
-    name,
-    closingTestPoint,
-  ]),
+  results.map(({ name, closingTestPoint }) => [name, closingTestPoint]),
   [
     ['this is fine', false],
     ['test point in subtest', false],
@@ -40,10 +37,7 @@ t.strictSame(
 )
 
 t.match(
-  children.map(({ name, closingTestPoint }) => [
-    name,
-    closingTestPoint,
-  ]),
+  children.map(({ name, closingTestPoint }) => [name, closingTestPoint]),
   [
     ['child test', { closingTestPoint: true }],
     ['child subtest', { closingTestPoint: true }],

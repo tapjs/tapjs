@@ -16,9 +16,7 @@ export const resolveMockEntryPoint = async (
     // but the experience if it throws here is unhelpful.
     /* c8 ignore start */
     if (typeof res === 'string') {
-      const er = new TypeError(
-        'node builtins cannot be mock imported',
-      )
+      const er = new TypeError('node builtins cannot be mock imported')
       Error.captureStackTrace(er, caller)
       throw er
     }

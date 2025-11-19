@@ -46,9 +46,7 @@ t.test('track the things', async t => {
   t.matchOnly(
     {
       diags,
-      subsMap: [...subsMap.values()].map(subs =>
-        subs.map(s => s.name),
-      ),
+      subsMap: [...subsMap.values()].map(subs => subs.map(s => s.name)),
       diagsMap: [...diagsMap.values()],
     },
     {

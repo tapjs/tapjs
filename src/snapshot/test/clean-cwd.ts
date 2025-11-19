@@ -12,9 +12,7 @@ t.test('short CWDs are not a problem', async t => {
     },
     url: t.createMock(nodeUrl, {
       pathToFileURL: (path: string): URL =>
-        path === s ?
-          new URL('file:///x')
-        : nodeUrl.pathToFileURL(path),
+        path === s ? new URL('file:///x') : nodeUrl.pathToFileURL(path),
     }),
   })
   t.capture(process, 'cwd', () => s)

@@ -35,8 +35,7 @@ export type PassDataDetails = ResultsDataDetails & {
 export interface FailDataDetails extends ResultsDataDetails {
   error: Error & { cause?: any }
 }
-export interface FailDataDetailsSerialized
-  extends ResultsDataDetails {
+export interface FailDataDetailsSerialized extends ResultsDataDetails {
   error: Buffer
 }
 
@@ -111,8 +110,6 @@ const hasDetails = (m: Message): m is MessagePass | MessageFail =>
   !!(m as MessagePass | MessageFail).data.details
 export const isMessageFail = (m: Message): m is MessageFail => {
   return (
-    m.type === 'test:fail' &&
-    hasDetails(m) &&
-    'error' in m.data.details
+    m.type === 'test:fail' && hasDetails(m) && 'error' in m.data.details
   )
 }

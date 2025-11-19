@@ -25,10 +25,7 @@ export const TestLogLine: FC<TestLog> = ({ test, previous }) => (
   </Box>
 )
 
-export const ConsoleLogLine: FC<ConsoleLog> = ({
-  text,
-  previous,
-}) => (
+export const ConsoleLogLine: FC<ConsoleLog> = ({ text, previous }) => (
   <Box paddingTop={!!previous && !isConsoleLog(previous) ? 1 : 0}>
     <Text>{text.trimEnd()}</Text>
   </Box>

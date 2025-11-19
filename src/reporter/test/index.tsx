@@ -176,49 +176,46 @@ t.test('render with Ink piped to a stream', async t => {
   t.equal(registered, true)
 })
 
-t.test(
-  'render with known stream report type to a stream',
-  async t => {
-    const output = new Minipass<any>({ objectMode: true })
-    class JUnit {
-      pipe(dest: any) {
-        t.equal(dest, output)
-        reportPiped = true
-        return dest
-      }
+t.test('render with known stream report type to a stream', async t => {
+  const output = new Minipass<any>({ objectMode: true })
+  class JUnit {
+    pipe(dest: any) {
+      t.equal(dest, output)
+      reportPiped = true
+      return dest
     }
-    const { report } = await t.mockImport<
-      typeof import('../dist/esm/index.js')
-    >('../dist/esm/index.js', {
-      ink: t.createMock(INK, {
-        render,
-      }),
-      '../dist/esm/junit.js': {
-        JUnit,
-      },
-      minipass: { Minipass, isStream: () => true },
-    })
-    let registered = false
-    let tapPiped = false
-    let reportPiped = false
-    const mockTap = {
-      register: () => (registered = true),
-      on: () => {},
-      pipe: (dest: any) => {
-        tapPiped = true
-        t.type(dest, JUnit)
-        return dest
-      },
-    }
-    const mockConfig = {}
-    await report(
-      'junit',
-      mockTap as unknown as TAP,
-      mockConfig as unknown as LoadedConfig,
-      output as unknown as Writable,
-    )
-    t.equal(registered, true)
-    t.equal(tapPiped, true)
-    t.equal(reportPiped, true)
-  },
-)
+  }
+  const { report } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
+    ink: t.createMock(INK, {
+      render,
+    }),
+    '../dist/esm/junit.js': {
+      JUnit,
+    },
+    minipass: { Minipass, isStream: () => true },
+  })
+  let registered = false
+  let tapPiped = false
+  let reportPiped = false
+  const mockTap = {
+    register: () => (registered = true),
+    on: () => {},
+    pipe: (dest: any) => {
+      tapPiped = true
+      t.type(dest, JUnit)
+      return dest
+    },
+  }
+  const mockConfig = {}
+  await report(
+    'junit',
+    mockTap as unknown as TAP,
+    mockConfig as unknown as LoadedConfig,
+    output as unknown as Writable,
+  )
+  t.equal(registered, true)
+  t.equal(tapPiped, true)
+  t.equal(reportPiped, true)
+})

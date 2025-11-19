@@ -1,8 +1,5 @@
 import { Base } from '@tapjs/core'
-import {
-  DiagnosticData,
-  TestStreamSerialize,
-} from '@tapjs/error-serdes'
+import { DiagnosticData, TestStreamSerialize } from '@tapjs/error-serdes'
 import { format } from 'util'
 import { locFromAt } from './loc-from-at.js'
 import { TestMap } from './test-map.js'

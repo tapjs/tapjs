@@ -110,24 +110,16 @@ I am a sojourner in civilized life again.`
 
   const app = render(
     <Diff
-      diff={createTwoFilesPatch(
-        'expected',
-        'actual',
-        expected,
-        actual,
-      )}
+      diff={createTwoFilesPatch('expected', 'actual', expected, actual)}
     />,
   )
   t.matchSnapshot(app.lastFrame())
 })
 
 t.test('ansi escape codes', async t => {
-  const expected = new Error(
-    `Oh \x1b[1mdeary \x1b[2mdeary \x1b[0mdear.`,
-    {
-      cause: 'foo',
-    },
-  )
+  const expected = new Error(`Oh \x1b[1mdeary \x1b[2mdeary \x1b[0mdear.`, {
+    cause: 'foo',
+  })
   const actual = new Error(`Oh deary deary dear.`, { cause: 'bar' })
 
   const app = render(

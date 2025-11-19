@@ -19,11 +19,8 @@ export const globalPreload: GlobalPreloadHook = ({ port }) => {
 export const load: LoadHook = async (url, context, nextLoad) =>
   nextLoad(url, context)
 
-export const resolve: ResolveHook = async (
-  url,
-  context,
-  nextResolve,
-) => nextResolve(url, context)
+export const resolve: ResolveHook = async (url, context, nextResolve) =>
+  nextResolve(url, context)
 
 // arguments are whatever data is passed in via Module.register() in import.mts
 export const initialize = async () => {}

@@ -1,9 +1,5 @@
 import t from 'tap'
-import {
-  Assertions,
-  AssertOptions,
-  plugin,
-} from '../dist/esm/index.js'
+import { Assertions, AssertOptions, plugin } from '../dist/esm/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 
 import { EventEmitter } from 'node:events'
@@ -28,8 +24,7 @@ class T extends TestBase {
     super(opts)
     //@ts-ignore
     this.t = plugin(this, opts as AssertOptions)
-    this.t.pluginLoaded = (p: TapPlugin<any, any>) =>
-      this.pluginLoaded(p)
+    this.t.pluginLoaded = (p: TapPlugin<any, any>) => this.pluginLoaded(p)
     if (!this.parent) this.runMain(() => {})
   }
   pluginLoaded(p: TapPlugin<any, any>) {
@@ -668,9 +663,7 @@ t.test('resolveMatch', async t => {
       return 'hello'
     }, 'hel'),
   )
-  t.notOk(
-    await a.resolveMatch(Promise.resolve({ a: 1 }), { a: String }),
-  )
+  t.notOk(await a.resolveMatch(Promise.resolve({ a: 1 }), { a: String }))
 
   t.notOk(await a.resolveMatch(Promise.reject('hello'), 'hello'))
   t.notOk(

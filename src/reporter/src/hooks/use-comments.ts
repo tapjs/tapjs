@@ -11,9 +11,7 @@ const log = new Map<Base, string[]>()
 
 export const useComments = (test: Base) => {
   const comments_ = log.get(test) || []
-  const [comments, updateComments] = useState<string[]>([
-    ...comments_,
-  ])
+  const [comments, updateComments] = useState<string[]>([...comments_])
   if (!log.has(test)) log.set(test, comments_)
 
   useLayoutEffect(

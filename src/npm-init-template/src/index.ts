@@ -256,9 +256,7 @@ export class Init {
       const p = parse(f)
       const isMustache = p.ext === '.mustache'
       const tf =
-        !isMustache ?
-          resolve(target, f)
-        : resolve(target, p.dir, p.name)
+        !isMustache ? resolve(target, f) : resolve(target, p.dir, p.name)
       if (
         exc.some(p => minimatch(relative(target, tf), p)) ||
         !inc.some(p => minimatch(relative(target, tf), p))
@@ -276,12 +274,7 @@ export class Init {
         promises.push(
           this.#write(
             tf,
-            mustache.render(
-              template,
-              this.values,
-              partials,
-              settings,
-            ),
+            mustache.render(template, this.values, partials, settings),
           ),
         )
       }

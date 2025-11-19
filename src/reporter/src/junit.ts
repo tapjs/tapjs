@@ -29,21 +29,12 @@ class Properties {
     /* c8 ignore stop */
     const body = Object.entries(this.data)
       .map(([k, v]) => {
-        if (
-          v === undefined ||
-          v === null ||
-          v === '' ||
-          v === false
-        ) {
+        if (v === undefined || v === null || v === '' || v === false) {
           return ''
         } else if (typeof v === 'string') {
           return v.includes('\n') ?
-              `<property name="${xmlEscape(k)}">${cdata(
-                v,
-              )}</property>`
-            : `<property name="${xmlEscape(k)}" value="${xmlEscape(
-                v,
-              )}" />`
+              `<property name="${xmlEscape(k)}">${cdata(v)}</property>`
+            : `<property name="${xmlEscape(k)}" value="${xmlEscape(v)}" />`
         } else if (typeof v === 'number' || typeof v === 'boolean') {
           return `<property name="${xmlEscape(k)}" value="${xmlEscape(
             String(v),
@@ -209,9 +200,7 @@ class Suite {
     }" failures="${this.failures}" assertions="${
       this.assertions
     }" skipped="${this.skipped}"${
-      this.results?.time ?
-        ` time="${seconds(this.results.time)}"`
-      : ''
+      this.results?.time ? ` time="${seconds(this.results.time)}"` : ''
     }>
 ${props}
 ${this.suites
@@ -287,10 +276,7 @@ export class JUnit extends Minipass<string> {
   }
 
   end(cb?: (() => void) | undefined): this
-  end(
-    chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined,
-  ): this
+  end(chunk: Minipass.ContiguousData, cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,

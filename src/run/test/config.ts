@@ -204,10 +204,7 @@ t.test('set', async t => {
   })
 
   t.test('save something', async t => {
-    await config(
-      ['set', 'y=z', 'unknown=value', 'x=false'],
-      mockConfig,
-    )
+    await config(['set', 'y=z', 'unknown=value', 'x=false'], mockConfig)
     t.strictSame(exits(), [])
     t.matchSnapshot(join(errs()))
     t.matchSnapshot(join(logs()))
@@ -314,15 +311,12 @@ t.test('edit', t => {
         'node:child_process': cp,
       })
 
-      t.test(
-        'edit resume fails without a file there already',
-        async t => {
-          await t.rejects(config(['edit', 'resume'], mockConfig))
-          t.strictSame(exits(), [[1]])
-          t.matchSnapshot(join(errs()))
-          t.strictSame(logs(), [])
-        },
-      )
+      t.test('edit resume fails without a file there already', async t => {
+        await t.rejects(config(['edit', 'resume'], mockConfig))
+        t.strictSame(exits(), [[1]])
+        t.matchSnapshot(join(errs()))
+        t.strictSame(logs(), [])
+      })
 
       t.test('fail if the edit fails', async t => {
         t.test('code', async t => {
@@ -373,10 +367,7 @@ t.test('edit', t => {
           { code: 'ENOENT' },
           'tmp file removed',
         )
-        t.matchSnapshot(
-          readFileSync(configFile, 'utf8'),
-          'config edited',
-        )
+        t.matchSnapshot(readFileSync(configFile, 'utf8'), 'config edited')
       })
 
       t.test('edit without an existing config', async t => {
@@ -395,10 +386,7 @@ t.test('edit', t => {
           { code: 'ENOENT' },
           'tmp file removed',
         )
-        t.matchSnapshot(
-          readFileSync(configFile, 'utf8'),
-          'config edited',
-        )
+        t.matchSnapshot(readFileSync(configFile, 'utf8'), 'config edited')
       })
     })
   }

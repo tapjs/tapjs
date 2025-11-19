@@ -19,8 +19,7 @@ export const getCoverageMap = async (config: LoadedConfig) => {
     )
   })) as CoverageMapFn | { default: CoverageMapFn }
   /* c8 ignore start */
-  const map =
-    typeof mapModule === 'object' ? mapModule.default : mapModule
+  const map = typeof mapModule === 'object' ? mapModule.default : mapModule
   /* c8 ignore stop */
 
   if (typeof map !== 'function') {

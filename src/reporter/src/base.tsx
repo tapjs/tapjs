@@ -9,15 +9,11 @@ import { SuiteSummary } from './suite-summary.js'
 const bannerWords = '  🌈 TEST COMPLETE 🌈  '
 const Banner: FC<{}> = () => (
   <Box flexDirection="column" marginTop={1}>
-    <Text backgroundColor="#fff">
-      {' '.repeat(bannerWords.length)}
-    </Text>
+    <Text backgroundColor="#fff">{' '.repeat(bannerWords.length)}</Text>
     <Text bold color="black" backgroundColor="#fff">
       {bannerWords}
     </Text>
-    <Text backgroundColor="#fff">
-      {' '.repeat(bannerWords.length)}
-    </Text>
+    <Text backgroundColor="#fff">{' '.repeat(bannerWords.length)}</Text>
   </Box>
 )
 

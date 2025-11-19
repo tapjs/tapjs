@@ -103,8 +103,7 @@ class TAP extends Test {
       diagnostic: envFlag('TAP_DIAG'),
       bail: envFlag('TAP_BAIL'),
       debug:
-        envFlag('TAP_DEBUG') ||
-        /\btap\b/i.test(env['NODE_DEBUG'] || ''),
+        envFlag('TAP_DEBUG') || /\btap\b/i.test(env['NODE_DEBUG'] || ''),
       omitVersion: envFlag('TAP_OMIT_VERSION'),
       preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
       timeout,
@@ -249,10 +248,7 @@ class TAP extends Test {
     } = { expired: this.name, signal: null },
   ) {
     const occ = this.occupied
-    const extra = Object.assign(
-      getTimeoutExtra(options.signal),
-      options,
-    )
+    const extra = Object.assign(getTimeoutExtra(options.signal), options)
     super.timeout(extra)
     if (occ) this.emit('timeout', extra)
     // don't stick around
@@ -365,8 +361,7 @@ const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
   /* c8 ignore start */
   const handles = (p._getActiveHandles() || []).filter(
     /* c8 ignore stop */
-    h =>
-      h !== proc?.stdout && h !== proc?.stdin && h !== proc?.stderr,
+    h => h !== proc?.stdout && h !== proc?.stdin && h !== proc?.stderr,
   )
   const requests = p._getActiveRequests()
 

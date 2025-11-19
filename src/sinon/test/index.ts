@@ -3,11 +3,7 @@ import { plugin } from '../dist/esm/index.js'
 
 const t = tap.applyPlugin(plugin)
 
-t.equal(
-  tap.pluginLoaded(plugin),
-  false,
-  'plugin not loaded by default',
-)
+t.equal(tap.pluginLoaded(plugin), false, 'plugin not loaded by default')
 //@ts-expect-error
 t.equal(tap.sinon, undefined, 'no sinon object on og root')
 

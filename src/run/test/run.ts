@@ -151,9 +151,7 @@ t.test('fail to find all named test files', async t => {
 
     '.git': {},
   })
-  const { code, signal, stdout, stderr } = await run(cwd, [
-    'blah.test.js',
-  ])
+  const { code, signal, stdout, stderr } = await run(cwd, ['blah.test.js'])
   t.equal(code, 1, 'fail because no valid files')
   t.equal(signal, null)
   t.matchSnapshot(stderr, '')
@@ -338,10 +336,7 @@ coverage-map: map.mjs
   })
 
   t.test('did you mean to edit the config?', async t => {
-    const { code, stdout, stderr } = await run(cwd, [
-      'edit',
-      'config',
-    ])
+    const { code, stdout, stderr } = await run(cwd, ['edit', 'config'])
     t.equal(code, 1)
     t.equal(stdout, '')
     t.equal(
@@ -377,14 +372,9 @@ coverage-map: map.mjs
   })
 
   t.test('invalid arg, no changed', async t => {
-    const { code, stdout, stderr } = await run(
-      cwd,
-      ['blah'],
-      undefined,
-      {
-        TAP_CHANGED: '1',
-      },
-    )
+    const { code, stdout, stderr } = await run(cwd, ['blah'], undefined, {
+      TAP_CHANGED: '1',
+    })
     t.equal(code, 1)
     t.equal(stdout, '')
     t.equal(stderr, 'No valid test files found matching "blah"\n')
@@ -436,13 +426,14 @@ ok 1 - this is standard input
 })
 
 t.test('build before run if plugins mismatch', async t => {
-  const { run } = await t.mockImport<
-    typeof import('../dist/esm/run.js')
-  >('../dist/esm/run.js', {
-    '../dist/esm/build.js': {
-      build: () => Promise.reject(new Error('expected')),
+  const { run } = await t.mockImport<typeof import('../dist/esm/run.js')>(
+    '../dist/esm/run.js',
+    {
+      '../dist/esm/build.js': {
+        build: () => Promise.reject(new Error('expected')),
+      },
     },
-  })
+  )
 
   const dir = t.testdir({
     'test.js': `import t from 'tap'; t.pass('this is fine')`,

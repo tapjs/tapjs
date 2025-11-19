@@ -12,9 +12,7 @@ const versionLine = /Node\.js v\d+\.\d+\.\d+/
 t.cleanSnapshot = s =>
   s
     .split('\n')
-    .filter(
-      l => !loaderLine.test(l) && !versionLine.test(l) && l.trim(),
-    )
+    .filter(l => !loaderLine.test(l) && !versionLine.test(l) && l.trim())
     .join('\n')
     .replace(
       /file:\/\/.*?test\/fixture\/index\.mjs:[0-9]+$/gm,
@@ -24,10 +22,7 @@ t.cleanSnapshot = s =>
     .replace(/\n+$/, '')
 
 const node = process.execPath
-const fixture = resolve(
-  dirname(fileURLToPath(import.meta.url)),
-  'fixture',
-)
+const fixture = resolve(dirname(fileURLToPath(import.meta.url)), 'fixture')
 const script = resolve(fixture, 'index.mjs')
 
 const respond = async (
@@ -61,8 +56,7 @@ const bridgeKeeper = async (
   })
 
   const { stdin, stdout, stderr } = p
-  if (!stdin || !stdout || !stderr)
-    throw new Error('did not open stdio??')
+  if (!stdin || !stdout || !stderr) throw new Error('did not open stdio??')
 
   const out: Buffer[] = []
   stdout.on('data', c => {

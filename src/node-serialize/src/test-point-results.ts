@@ -35,9 +35,7 @@ export const testPointResults = (
         cause: fe,
         code: 'ERR_TEST_FAILURE',
         failureType: 'testCodeFailure',
-        stack: expandStack(
-          res.diag?.stack ?? t.options.stack,
-        ).trimEnd(),
+        stack: expandStack(res.diag?.stack ?? t.options.stack).trimEnd(),
       }),
     },
   }

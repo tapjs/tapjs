@@ -35,9 +35,7 @@ const mockFail = {
         status: 1,
         signal: 'SIGTERM',
         stdout:
-          args[0] === 'prefix' && cmd === 'npm' ?
-            npmMockPrefix
-          : 'stdout',
+          args[0] === 'prefix' && cmd === 'npm' ? npmMockPrefix : 'stdout',
         stderr: 'stderr',
       }
     },
@@ -72,9 +70,7 @@ const mockPass = {
         status: 0,
         signal: null,
         stdout:
-          args[0] === 'prefix' && cmd === 'npm' ?
-            npmMockPrefix
-          : 'stdout',
+          args[0] === 'prefix' && cmd === 'npm' ? npmMockPrefix : 'stdout',
         stderr: 'stderr',
       }
     },
@@ -106,11 +102,9 @@ const mockConfig = {
 } as unknown as LoadedConfig
 
 t.test('passing commands', async t => {
-  const { npmBg, install, uninstall, npmFindCwd } =
-    await t.mockImport<typeof import('../dist/esm/npm.js')>(
-      '../dist/esm/npm.js',
-      mockPass,
-    )
+  const { npmBg, install, uninstall, npmFindCwd } = await t.mockImport<
+    typeof import('../dist/esm/npm.js')
+  >('../dist/esm/npm.js', mockPass)
   t.test('random command', async t => {
     const res = npmBg(
       ['config', 'get', 'registry'],
@@ -135,11 +129,9 @@ t.test('passing commands', async t => {
 })
 
 t.test('failing commands', async t => {
-  const { npmBg, install, uninstall, npmFindCwd } =
-    await t.mockImport<typeof import('../dist/esm/npm.js')>(
-      '../dist/esm/npm.js',
-      mockFail,
-    )
+  const { npmBg, install, uninstall, npmFindCwd } = await t.mockImport<
+    typeof import('../dist/esm/npm.js')
+  >('../dist/esm/npm.js', mockFail)
   t.test('random command', async t => {
     const res = npmBg(
       ['config', 'get', 'registry'],
@@ -191,13 +183,8 @@ t.test('npm installs go to workspace root', async t => {
     const { npmFindCwd } = await t.mockImport<
       typeof import('../dist/esm/npm.js')
     >('../dist/esm/npm.js', mockPass)
-    mockConfig.projectRoot = resolve(
-      t.testdir(testdir) + '/packages/test',
-    )
-    const expect = resolve(
-      t.testdirName,
-      'packages/test/.tap/plugins',
-    )
+    mockConfig.projectRoot = resolve(t.testdir(testdir) + '/packages/test')
+    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     // call second time to cover caching
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
@@ -218,10 +205,7 @@ t.test('npm installs go to workspace root', async t => {
         },
       }) + '/packages/test',
     )
-    const expect = resolve(
-      t.testdirName,
-      'packages/test/.tap/plugins',
-    )
+    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     t.strictSame(passSpawn(), [])
   })
@@ -234,13 +218,8 @@ t.test('npm installs go to workspace root', async t => {
     delete testdir.node_modules['@tapjs'].test['index.js']
     //@ts-ignore
     delete testdir.node_modules.tap['index.js']
-    mockConfig.projectRoot = resolve(
-      t.testdir(testdir) + '/packages/test',
-    )
-    const expect = resolve(
-      t.testdirName,
-      'packages/test/.tap/plugins',
-    )
+    mockConfig.projectRoot = resolve(t.testdir(testdir) + '/packages/test')
+    const expect = resolve(t.testdirName, 'packages/test/.tap/plugins')
     t.equal(await npmFindCwd(mockConfig.projectRoot), expect)
     t.match(passSpawn(), [])
   })
@@ -250,9 +229,7 @@ t.test('npm installs go to workspace root', async t => {
     >('../dist/esm/npm.js', mockFail)
     //@ts-ignore
     delete testdir.node_modules['@tapjs']['index.js']
-    mockConfig.projectRoot = resolve(
-      t.testdir(testdir) + '/packages/test',
-    )
+    mockConfig.projectRoot = resolve(t.testdir(testdir) + '/packages/test')
     npmMockPrefix = ''
     t.equal(
       await npmFindCwd(mockConfig.projectRoot),

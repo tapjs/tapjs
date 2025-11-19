@@ -36,8 +36,7 @@ export class MarkdownStream extends Minipass<string> {
 
     const msg =
       typeof skip === 'string' ? `<span color="cyan">${skip}</span>`
-      : typeof todo === 'string' ?
-        `<span color="magenta">${todo}</span>`
+      : typeof todo === 'string' ? `<span color="magenta">${todo}</span>`
       : ''
 
     const { source, diff, ...extra } = diag || {}
@@ -46,14 +45,11 @@ export class MarkdownStream extends Minipass<string> {
     /* c8 ignore stop */
     const srcLang = file ? parse(file).ext.substring(1) : ''
     const srcPre =
-      source ?
-        `\n\n\`\`\`${srcLang}\n${source.trimEnd()}\n\`\`\``
-      : ''
+      source ? `\n\n\`\`\`${srcLang}\n${source.trimEnd()}\n\`\`\`` : ''
     const ymlExtra = stringify(extra).trimEnd()
     const preExtra =
       ymlExtra === '{}' ? '' : `\n\n\`\`\`yaml\n${ymlExtra}\n\`\`\``
-    const preDiff =
-      diff ? `\n\n\`\`\`diff\n${diff.trimEnd()}\n\`\`\`` : ''
+    const preDiff = diff ? `\n\n\`\`\`diff\n${diff.trimEnd()}\n\`\`\`` : ''
     const b = (preDiff + srcPre + preExtra)
       .replace(/^/gm, '    ')
       .replace(/\n    \n/g, '\n\n')
@@ -80,8 +76,7 @@ export class MarkdownStream extends Minipass<string> {
     const file = diag.at?.fileName || diag.at?.file || diag.file
     /* c8 ignore stop */
     const srcLang = file ? parse(file).ext.substring(1) : ''
-    const srcPre =
-      source ? `\n\n\`\`\`${srcLang}\n${source}\n\`\`\`` : ''
+    const srcPre = source ? `\n\n\`\`\`${srcLang}\n${source}\n\`\`\`` : ''
     const fn = summary.fullname || summary.name
     delete summary.fullname
     delete summary.name
@@ -106,10 +101,7 @@ export class MarkdownStream extends Minipass<string> {
   }
 
   end(cb?: (() => void) | undefined): this
-  end(
-    chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined,
-  ): this
+  end(chunk: Minipass.ContiguousData, cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,

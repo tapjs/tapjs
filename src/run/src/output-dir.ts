@@ -11,11 +11,7 @@ export const outputDir = (t: TAP, config: LoadedConfig) => {
   t.on('spawn', subtest => pipes(subtest, resultsDir, outputDir))
 }
 
-const pipes = (
-  subtest: Spawn,
-  resultsDir: string,
-  outputDir?: string,
-) => {
+const pipes = (subtest: Spawn, resultsDir: string, outputDir?: string) => {
   if (outputDir && outputDir !== resultsDir) {
     pipeToDir(subtest, outputDir)
   }
@@ -25,7 +21,5 @@ const pipes = (
 const pipeToDir = (subtest: Spawn, dir: string) => {
   const out = resolve(dir, subtest.name + '.tap')
   mkdirpSync(dirname(out))
-  subtest.on('process', proc =>
-    proc.stdout.pipe(createWriteStream(out)),
-  )
+  subtest.on('process', proc => proc.stdout.pipe(createWriteStream(out)))
 }

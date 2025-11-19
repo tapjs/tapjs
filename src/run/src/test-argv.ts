@@ -10,8 +10,7 @@ import module from 'node:module'
 import { resolveImport } from 'resolve-import'
 
 // if we have Module.register(), then use --import wherever possible
-const useImport = !!(module as { register?: (...a: any) => any })
-  .register
+const useImport = !!(module as { register?: (...a: any) => any }).register
 
 const testModule = String(
   await resolveImport('@tapjs/test', import.meta.url),
@@ -23,9 +22,7 @@ const resolveLoaders = (loaders: string[]) =>
       String(await resolveImport(loader, testModule)),
     ),
   )
-const importScripts = await resolveLoaders(
-  useImport ? importLoaders : [],
-)
+const importScripts = await resolveLoaders(useImport ? importLoaders : [])
 const loaderScripts = await resolveLoaders(
   useImport ? loaders : loaderFallbacks,
 )

@@ -71,5 +71,4 @@ export class Before {
 /**
  * Plugin method that creates the {@link @tapjs/before!Before} instance
  */
-export const plugin: TapPlugin<Before> = (t: TestBase) =>
-  new Before(t)
+export const plugin: TapPlugin<Before> = (t: TestBase) => new Before(t)

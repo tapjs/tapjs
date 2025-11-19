@@ -8,24 +8,25 @@ import React from 'react'
 import t from 'tap'
 import { logs } from './fixtures/logs.js'
 
-const { Log } = await t.mockImport<
-  typeof import('../dist/esm/log.js')
->('../dist/esm/log.js', {
-  chalk,
-  '../dist/esm/test-summary.js': {
-    TestSummary: ({ test }: { test: { name: string } }) => (
-      <Box>
-        <Text>XXX test summary {test.name} XXX</Text>
-      </Box>
+const { Log } = await t.mockImport<typeof import('../dist/esm/log.js')>(
+  '../dist/esm/log.js',
+  {
+    chalk,
+    '../dist/esm/test-summary.js': {
+      TestSummary: ({ test }: { test: { name: string } }) => (
+        <Box>
+          <Text>XXX test summary {test.name} XXX</Text>
+        </Box>
+      ),
+    },
+    '../dist/esm/hooks/use-log.js': t.createMock(
+      await import('../dist/esm/hooks/use-log.js'),
+      {
+        useLog: () => logs,
+      },
     ),
   },
-  '../dist/esm/hooks/use-log.js': t.createMock(
-    await import('../dist/esm/hooks/use-log.js'),
-    {
-      useLog: () => logs,
-    },
-  ),
-})
+)
 
 t.matchSnapshot(
   render(<Log test={t} config={{} as LoadedConfig} />).lastFrame(),

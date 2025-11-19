@@ -45,16 +45,10 @@ const Ctx: FC<{ line: string }> = ({ line }) => {
   const f = line.match(/^(\@\@.*?\@\@)( .*)$/)
   return f ?
       <Box>
-        <Text
-          bold
-          backgroundColor={theme.ctx.bg}
-          color={theme.ctx.fg}>
+        <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.fg}>
           {f[1]}
         </Text>
-        <Text
-          bold
-          backgroundColor={theme.ctx.bg}
-          color={theme.ctx.extra}>
+        <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.extra}>
           {f[2]}
         </Text>
       </Box>
@@ -87,9 +81,7 @@ export const Diff: FC<{ diff: string }> = ({ diff = '' }) => {
       if (line.length > width) {
         width = Math.min(maxLen, line.length)
       }
-      return (
-        line !== '\\ No newline at end of file' && !/^\=+$/.test(line)
-      )
+      return line !== '\\ No newline at end of file' && !/^\=+$/.test(line)
     })
   return (
     <Box flexDirection="column">

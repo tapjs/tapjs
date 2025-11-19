@@ -38,12 +38,7 @@ export const printMessagesFn = (
     if (!results)
       throw new Error('printing results before test completion')
     /* c8 ignore stop */
-    for (const type of [
-      'passes',
-      'skips',
-      'todos',
-      'failures',
-    ] as const) {
+    for (const type of ['passes', 'skips', 'todos', 'failures'] as const) {
       for (const res of results[type] ?? []) {
         if (res.closingTestPoint) continue
         stream.enqueue(testPointMessageData(res, t))

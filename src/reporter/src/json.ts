@@ -33,9 +33,7 @@ export class Case {
     this.result = result
   }
   get failures() {
-    return this.result.ok && !this.result.skip && !this.result.todo ?
-        0
-      : 1
+    return this.result.ok && !this.result.skip && !this.result.todo ? 0 : 1
   }
   get skipped() {
     return this.result.skip || this.result.todo ? 1 : 0
@@ -161,10 +159,7 @@ export class JSONReport extends Minipass<string> {
   }
 
   end(cb?: (() => void) | undefined): this
-  end(
-    chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined,
-  ): this
+  end(chunk: Minipass.ContiguousData, cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,
@@ -205,10 +200,8 @@ export class JSONStream extends Minipass<string> {
 
   suiteStart(s: Suite) {
     super.write(
-      JSON.stringify([
-        'start',
-        { name: s.name, level: s.parser.level },
-      ]) + '\n',
+      JSON.stringify(['start', { name: s.name, level: s.parser.level }]) +
+        '\n',
     )
   }
 
@@ -239,10 +232,7 @@ export class JSONStream extends Minipass<string> {
   }
 
   end(cb?: (() => void) | undefined): this
-  end(
-    chunk: Minipass.ContiguousData,
-    cb?: (() => void) | undefined,
-  ): this
+  end(chunk: Minipass.ContiguousData, cb?: (() => void) | undefined): this
   end(
     chunk: Minipass.ContiguousData,
     encoding?: Minipass.Encoding | undefined,

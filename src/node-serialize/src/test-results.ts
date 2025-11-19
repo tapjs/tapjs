@@ -31,9 +31,7 @@ export const testResults = (
   }
 
   const skip =
-    results.plan.skipAll ?
-      results.plan.skipReason || true
-    : t.options.skip
+    results.plan.skipAll ? results.plan.skipReason || true : t.options.skip
   if (skip) p.skip = skip
   const todo = t.options.todo
   if (todo) p.todo = todo
@@ -55,9 +53,7 @@ export const testResults = (
           /* c8 ignore start */
           failures: results.failures.map(f => f.name || f.tapError),
           stack:
-            t.options.stack ?
-              expandStack(t.options.stack)
-            : undefined,
+            t.options.stack ? expandStack(t.options.stack) : undefined,
           /* c8 ignore stop */
         }),
       },

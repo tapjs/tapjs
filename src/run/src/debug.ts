@@ -16,13 +16,9 @@ export const debug = async (_: string[], config: LoadedConfig) => {
     '@isaacs/ts-node-temp-fork-for-pr-2009',
     'typescript',
   ]
-  const { stdout: _stdout, ...npmLS } = spawnSync(
-    'npm',
-    ['ls', ...pkgs],
-    {
-      encoding: 'utf8',
-    },
-  )
+  const { stdout: _stdout, ...npmLS } = spawnSync('npm', ['ls', ...pkgs], {
+    encoding: 'utf8',
+  })
   const { values } = config
   const configDump = Object.fromEntries(
     Object.entries(values).filter(
@@ -30,8 +26,7 @@ export const debug = async (_: string[], config: LoadedConfig) => {
     ),
   )
   /* c8 ignore start */
-  const shell =
-    process.platform === 'win32' ? 'powershell' : '/bin/sh'
+  const shell = process.platform === 'win32' ? 'powershell' : '/bin/sh'
   const envCmd =
     process.platform === 'win32' ?
       "$([Environment]::OSVersion.VersionString)\n$(('x86', 'x64')[[Environment]::Is64BitOperatingSystem])"

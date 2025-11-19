@@ -34,11 +34,7 @@ t.test('should handle dates', t => {
   t.notOk(match(t, new Date('1972-08-01'), undefined))
   t.ok(match(t, new Date('1972-08-01'), new Date('1972-08-01')))
   t.ok(
-    match(
-      t,
-      { x: new Date('1972-08-01') },
-      { x: new Date('1972-08-01') },
-    ),
+    match(t, { x: new Date('1972-08-01') }, { x: new Date('1972-08-01') }),
   )
   t.end()
 })

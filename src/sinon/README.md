@@ -90,15 +90,11 @@ For example:
 
 ```js
 // ok, works fine
-t.test(
-  'fake timers test one',
-  { sinon: { useFakeTimers: true } },
-  t => {
-    t.test('child test', t => {
-      // etc.
-    })
-  },
-)
+t.test('fake timers test one', { sinon: { useFakeTimers: true } }, t => {
+  t.test('child test', t => {
+    // etc.
+  })
+})
 t.test(
   'second fake timers test',
   { sinon: { useFakeTimers: true } },

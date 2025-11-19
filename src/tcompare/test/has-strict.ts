@@ -28,14 +28,8 @@ t.test('iterables match one another', t => {
   const b = new And(1, 2)
   const arr = [1, 2]
   t.ok(hasStrict(t, a, b), 'iterables match one another')
-  t.notOk(
-    hasStrict(t, a, arr),
-    'iterable does not strictly match array',
-  )
-  t.notOk(
-    hasStrict(t, arr, b),
-    'array does not strictly match iterable',
-  )
+  t.notOk(hasStrict(t, a, arr), 'iterable does not strictly match array')
+  t.notOk(hasStrict(t, arr, b), 'array does not strictly match iterable')
   t.end()
 })
 

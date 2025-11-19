@@ -64,10 +64,7 @@ t.test('reporter from env or config', t => {
       typeof import('../dist/esm/index.js')
     >('../dist/esm/index.js', {
       ...m,
-      '../dist/esm/jack.js': await t.mockImport(
-        '../dist/esm/jack.js',
-        m,
-      ),
+      '../dist/esm/jack.js': await t.mockImport('../dist/esm/jack.js', m),
     })
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
@@ -87,10 +84,7 @@ t.test('reporter from env or config', t => {
       typeof import('../dist/esm/index.js')
     >('../dist/esm/index.js', {
       ...m,
-      '../dist/esm/jack.js': await t.mockImport(
-        '../dist/esm/jack.js',
-        m,
-      ),
+      '../dist/esm/jack.js': await t.mockImport('../dist/esm/jack.js', m),
     })
     t.equal((await TapConfig.load()).get('reporter'), 'base')
   })
@@ -174,29 +168,26 @@ t.test('home defaults to . if not in env', async t => {
   t.equal(tc.configFile, resolve(dir, 'where/the/heart/is/.taprc'))
 })
 
-t.test(
-  'default config file in in project root with .git',
-  async t => {
-    const dir = t.testdir({
-      proj: {
-        '.git': {},
-        nested: {
-          sub: {
-            directory: {},
-          },
+t.test('default config file in in project root with .git', async t => {
+  const dir = t.testdir({
+    proj: {
+      '.git': {},
+      nested: {
+        sub: {
+          directory: {},
         },
       },
-    })
+    },
+  })
 
-    const { TapConfig } = await t.mockImport('../dist/esm/index.js', {
-      '@tapjs/core': t.createMock(core, {
-        cwd: resolve(dir, 'proj/nested/sub/directory'),
-      }),
-    })
-    const tc = await TapConfig.load()
-    t.equal(tc.configFile, resolve(dir, 'proj/.taprc'))
-  },
-)
+  const { TapConfig } = await t.mockImport('../dist/esm/index.js', {
+    '@tapjs/core': t.createMock(core, {
+      cwd: resolve(dir, 'proj/nested/sub/directory'),
+    }),
+  })
+  const tc = await TapConfig.load()
+  t.equal(tc.configFile, resolve(dir, 'proj/.taprc'))
+})
 
 t.test('use first config file found in walkup', async t => {
   const dir = t.testdir({
@@ -327,11 +318,7 @@ this
   const tc = await TapConfig.load()
   t.not(tc.get('reporter'), 'blargggg')
   t.match(errs, [
-    [
-      'Error loading package.json:',
-      String,
-      { name: 'JSONParseError' },
-    ],
+    ['Error loading package.json:', String, { name: 'JSONParseError' }],
   ])
 })
 
@@ -802,14 +789,11 @@ t.test('cannot write config file with unrecognized name', async t => {
     }),
   })
   const tc = await TapConfig.load()
-  await t.rejects(
-    tc.editConfigFile({ reporter: 'x' }, 'some-file.txt'),
-    {
-      message:
-        'unrecognized config file type, must be named ' +
-        '.taprc or package.json: some-file.txt',
-    },
-  )
+  await t.rejects(tc.editConfigFile({ reporter: 'x' }, 'some-file.txt'), {
+    message:
+      'unrecognized config file type, must be named ' +
+      '.taprc or package.json: some-file.txt',
+  })
 })
 
 t.test('addFields', async t => {
@@ -866,11 +850,7 @@ t.test('load file from env.TAP_RCFILE', async t => {
     },
   })
 
-  for (const rcfile of [
-    'config.yml',
-    'package.json',
-    'config.json',
-  ]) {
+  for (const rcfile of ['config.yml', 'package.json', 'config.json']) {
     for (const cwd of ['git', 'taprc', 'pj']) {
       t.test(`rcfile=${rcfile} cwd=${cwd}`, async t => {
         t.chdir(dir + '/cwds/' + cwd)

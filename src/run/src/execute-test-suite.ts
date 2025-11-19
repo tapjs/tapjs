@@ -132,8 +132,7 @@ export const executeTestSuite = async <
 
   t.jobs = Math.max(1, Math.min(values.jobs, files.length))
   const stdinOnly =
-    files.length === 1 &&
-    (files[0] === '-' || files[0] === '/dev/stdin')
+    files.length === 1 && (files[0] === '-' || files[0] === '/dev/stdin')
 
   if (!stdinOnly) {
     t.teardown(() => report([], config))

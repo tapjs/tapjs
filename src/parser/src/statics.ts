@@ -18,10 +18,7 @@ const getId = (): { (): number; current: number } => {
 /**
  * Parse a TAP text stream into a log of all the events encountered
  */
-export const parse = (
-  str: string,
-  options: ParserOptions,
-): EventLog => {
+export const parse = (str: string, options: ParserOptions): EventLog => {
   const { flat = false } = options
   const ignore = ['line', 'pass', 'fail', 'todo', 'skip', 'result']
   if (flat) ignore.push('assert', 'child', 'plan', 'complete')
@@ -95,9 +92,7 @@ export const stringify = (
             return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
 
           case 'bailout':
-            return (
-              'Bail out!' + (item[1] ? ' ' + esc(item[1]) : '') + '\n'
-            )
+            return 'Bail out!' + (item[1] ? ' ' + esc(item[1]) : '') + '\n'
 
           case 'assert':
             const res = item[1]
@@ -110,26 +105,19 @@ export const stringify = (
               'ok' +
               (res.id ? ' ' + res.id : '') +
               (res.name ?
-                ' - ' +
-                esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
+                ' - ' + esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
               : '') +
               (res.skip ?
-                ' # SKIP' +
-                (res.skip === true ? '' : ' ' + esc(res.skip))
+                ' # SKIP' + (res.skip === true ? '' : ' ' + esc(res.skip))
               : '') +
               (res.todo ?
-                ' # TODO' +
-                (res.todo === true ? '' : ' ' + esc(res.todo))
+                ' # TODO' + (res.todo === true ? '' : ' ' + esc(res.todo))
               : '') +
               (res.time ? ' # time=' + res.time + 'ms' : '') +
               '\n' +
               (res.diag ?
                 '  ---\n  ' +
-                yaml
-                  .stringify(res.diag)
-                  .split('\n')
-                  .join('\n  ')
-                  .trim() +
+                yaml.stringify(res.diag).split('\n').join('\n  ').trim() +
                 '\n  ...\n'
               : '')
             )

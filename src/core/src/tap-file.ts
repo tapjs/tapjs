@@ -19,10 +19,7 @@ export interface TapFileOpts extends BaseOpts {
   /**
    * Optionally provide a stream of content to treat as the file's TAP data
    */
-  tapStream?:
-    | NodeJS.ReadableStream
-    | Minipass<Buffer>
-    | Minipass<string>
+  tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
   /**
    * The file to read, required if tapStream not provided
    */
@@ -46,10 +43,7 @@ export class TapFile extends Base<TapFileEvents> {
   emitName: string = 'tapFile'
   cwd?: string
   filename?: string
-  tapStream?:
-    | NodeJS.ReadableStream
-    | Minipass<Buffer>
-    | Minipass<string>
+  tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
   constructor(options: TapFileOpts) {
     const { filename, tapStream, cwd = procCwd } = options
     const name = TapFile.getName(options.name, filename, cwd)
@@ -61,11 +55,7 @@ export class TapFile extends Base<TapFileEvents> {
     this.tapStream?.pause()
   }
 
-  static getName(
-    name?: string,
-    filename?: string,
-    cwd: string = procCwd,
-  ) {
+  static getName(name?: string, filename?: string, cwd: string = procCwd) {
     if (name) return name
     if (!filename) return 'file input'
     const rel = relative(cwd, filename)
@@ -83,8 +73,7 @@ export class TapFile extends Base<TapFileEvents> {
       throw new Error('either tapStream or filename must be provided')
     }
     ;(this.tapStream as Minipass<Buffer>).on('error', er => {
-      ;(er as Error & { tapCaught: string }).tapCaught =
-        this.caughtName
+      ;(er as Error & { tapCaught: string }).tapCaught = this.caughtName
       this.threw(er)
     })
     if (this.options.timeout) {

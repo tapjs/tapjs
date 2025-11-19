@@ -53,10 +53,7 @@ t.test('make a test, do some stuff with it', async t => {
     // to TestBase, and replace with declared props. Might not be possible.
     // For now, just document the weirdness with this test, and leave it as an
     // edge case unlikely to ever matter.
-    t.strictSame(
-      Object.getOwnPropertyDescriptor(ttd, 'foo'),
-      undefined,
-    )
+    t.strictSame(Object.getOwnPropertyDescriptor(ttd, 'foo'), undefined)
 
     t.strictSame(ttd.dummyConfig, {
       flag: false,

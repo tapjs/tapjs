@@ -58,9 +58,7 @@ export function describe(
     throw er
   }
   if (!currentSuite) {
-    const er = new Error(
-      `must import 'tap' before calling describe()`,
-    )
+    const er = new Error(`must import 'tap' before calling describe()`)
     Error.captureStackTrace(er, describe)
     throw er
   }
@@ -180,10 +178,7 @@ const hookPre = (
       if (name) suite.comment(`${hook}: ${name}`)
       return fn()
     },
-  ] as [
-    Exclude<ReturnType<typeof getCurrentSuite>, undefined>,
-    HookBlock,
-  ]
+  ] as [Exclude<ReturnType<typeof getCurrentSuite>, undefined>, HookBlock]
 }
 
 /**
@@ -252,12 +247,7 @@ export function beforeEach(
   nameOrBlock: string | HookBlock,
   block?: HookBlock,
 ): any | void {
-  const [suite, fn] = hookPre(
-    'beforeEach',
-    beforeEach,
-    nameOrBlock,
-    block,
-  )
+  const [suite, fn] = hookPre('beforeEach', beforeEach, nameOrBlock, block)
   /* c8 ignore start */
   if (!suite.pluginLoaded(BeforeEachPlugin)) {
     const er = new Error(
@@ -284,12 +274,7 @@ export function afterEach(
   nameOrBlock: string | HookBlock,
   block?: HookBlock,
 ): any | void {
-  const [suite, fn] = hookPre(
-    'afterEach',
-    afterEach,
-    nameOrBlock,
-    block,
-  )
+  const [suite, fn] = hookPre('afterEach', afterEach, nameOrBlock, block)
   /* c8 ignore start */
   if (!suite.pluginLoaded(AfterEachPlugin)) {
     const er = new Error(
@@ -374,9 +359,7 @@ export {
  */
 export const mount = (t: TestBase) => {
   if (rootSuite) {
-    const er = new Error(
-      'mocha globals already mounted on a tap test',
-    )
+    const er = new Error('mocha globals already mounted on a tap test')
     Error.captureStackTrace(er, mount)
     throw er
   }

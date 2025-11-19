@@ -4,8 +4,7 @@ import { plugin } from '../dist/esm/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 
-t.cleanSnapshot = s =>
-  s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
+t.cleanSnapshot = s => s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
 
 t.test('basic behavior', async t => {
   const tapStream = new Minipass<string>({ encoding: 'utf8' })

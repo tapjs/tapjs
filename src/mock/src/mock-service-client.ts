@@ -13,8 +13,7 @@ const getId = () => randomBytes(8).toString('hex')
 export class MockServiceClient {
   #port: MessagePort
   #started: boolean = false
-  #requests: Map<string, (res: MockServiceResponse) => void> =
-    new Map()
+  #requests: Map<string, (res: MockServiceResponse) => void> = new Map()
 
   constructor(port: MessagePort) {
     this.#port = port

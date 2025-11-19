@@ -21,10 +21,7 @@ t.test('if no output-dir, do nothing special', async t => {
       projectRoot: t.testdir(),
     } as unknown as LoadedConfig,
   )
-  tt.emit(
-    'spawn',
-    Object.assign(new EventEmitter(), { name: 'yolo' }),
-  )
+  tt.emit('spawn', Object.assign(new EventEmitter(), { name: 'yolo' }))
   t.strictSame(
     mkdirpCalled,
     [resolve(t.testdirName, '.tap/test-results')],

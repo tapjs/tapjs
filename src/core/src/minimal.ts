@@ -1,9 +1,5 @@
 import { parseTestArgs, TestArgs } from './parse-test-args.js'
-import {
-  PromiseWithSubtest,
-  TestBase,
-  TestBaseOpts,
-} from './test-base.js'
+import { PromiseWithSubtest, TestBase, TestBaseOpts } from './test-base.js'
 
 /**
  * A very minimal Test class with no plugins, which can be used in tap tests.
@@ -31,10 +27,7 @@ export class Minimal extends TestBase {
     extra: TestBaseOpts,
     cb: (t: Minimal) => any,
   ): PromiseWithSubtest<Minimal>
-  test(
-    name: string,
-    cb: (t: Minimal) => any,
-  ): PromiseWithSubtest<Minimal>
+  test(name: string, cb: (t: Minimal) => any): PromiseWithSubtest<Minimal>
   test(
     extra: TestBaseOpts,
     cb: (t: Minimal) => any,

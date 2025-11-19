@@ -64,12 +64,7 @@ export const serialize = (tap: TAP): void => {
 
   const onAdd = onAddFn(comment, diagsMap, subsMap)
 
-  const printMessages = printMessagesFn(
-    tap,
-    stream,
-    subsMap,
-    diagsMap,
-  )
+  const printMessages = printMessagesFn(tap, stream, subsMap, diagsMap)
 
   onAdd(tap)
   tap.on('complete', () => {

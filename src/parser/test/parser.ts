@@ -8,13 +8,7 @@ import { FinalResults } from '../dist/esm/final-results.js'
 import { Parser } from '../dist/esm/index.js'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-const ignore = [
-  'pipe',
-  'unpipe',
-  'prefinish',
-  'finish',
-  'newListener',
-]
+const ignore = ['pipe', 'unpipe', 'prefinish', 'finish', 'newListener']
 
 t.jobs = 8
 const tapFiles = fs

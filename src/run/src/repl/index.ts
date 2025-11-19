@@ -25,8 +25,7 @@ const tapBin = fileURLToPath(
 
 type NodeCallback = (er: Error | null, result: any) => void
 
-const KILL_TIMEOUT =
-  Number(process.env._TAP_REPL_KILL_TIMEOUT) || 2000
+const KILL_TIMEOUT = Number(process.env._TAP_REPL_KILL_TIMEOUT) || 2000
 
 /**
  * A {@link
@@ -165,9 +164,7 @@ export class Repl {
     this.saveFile =
       config.get('save') || resolve(this.dir, 'repl_failures')
 
-    this.watch = new Watch(this.processInfo, () =>
-      this.#onWatchChange(),
-    )
+    this.watch = new Watch(this.processInfo, () => this.#onWatchChange())
 
     this.#piWatcher = watch(resolve(this.dir, 'processinfo'), options)
     this.#piWatcher.on('all', () => this.#piReload())
@@ -190,10 +187,7 @@ export class Repl {
         this.parseCommand(input).then((res?: any) => {
           cb(null, res)
           while (this.#queue.length && !this.proc) {
-            const [input, d] = this.#queue[0] as [
-              string,
-              Deferred<any>,
-            ]
+            const [input, d] = this.#queue[0] as [string, Deferred<any>]
             this.#queue.shift()
             d.resolve(this.parseCommand(input))
           }
@@ -220,10 +214,7 @@ export class Repl {
     // ignore the callback, it's best-effort
     /* c8 ignore start */
     mkdirpSync(this.dir)
-    this.repl.setupHistory(
-      resolve(this.dir, 'repl_history'),
-      () => {},
-    )
+    this.repl.setupHistory(resolve(this.dir, 'repl_history'), () => {})
     /* c8 ignore stop */
 
     this.input.on('end', () => this.#onInputEnd())
@@ -359,11 +350,7 @@ export class Repl {
     return usage
   }
 
-  async #spawn(
-    cmd: string,
-    args: string[],
-    options: SpawnOptions = {},
-  ) {
+  async #spawn(cmd: string, args: string[], options: SpawnOptions = {}) {
     /* c8 ignore start */
     if (this.proc) return 'command in progress, please wait'
     try {
@@ -392,10 +379,7 @@ export class Repl {
     })
   }
 
-  async #onSpawnClose(
-    code: null | number,
-    signal: null | NodeJS.Signals,
-  ) {
+  async #onSpawnClose(code: null | number, signal: null | NodeJS.Signals) {
     this.proc = undefined
     try {
       this.repl?.resume()
@@ -503,8 +487,9 @@ export class Repl {
       }
     }
     const res: Record<string, any> = {
-      [`${localFiles.length} local files being watched`]:
-        localFiles.sort((a, b) => a.localeCompare(b, 'en')),
+      [`${localFiles.length} local files being watched`]: localFiles.sort(
+        (a, b) => a.localeCompare(b, 'en'),
+      ),
       'dependency files watched': deps,
     }
 
@@ -538,9 +523,7 @@ export class Repl {
         [...node.children]
           // nondeterministic
           /* c8 ignore start */
-          .sort(({ date: a }, { date: b }) =>
-            a.localeCompare(b, 'en'),
-          )
+          .sort(({ date: a }, { date: b }) => a.localeCompare(b, 'en'))
           /* c8 ignore stop */
           .map(c => [c.uuid, this.#printPIN(c)]),
       )

@@ -4,9 +4,7 @@
 import { Base } from '@tapjs/core'
 
 const kSerializationKey = Symbol.for('@tapjs/node-serialize.key')
-const getKey = (
-  t: Base & { [kSerializationKey]?: string },
-): string => {
+const getKey = (t: Base & { [kSerializationKey]?: string }): string => {
   const k = t[kSerializationKey]
   if (k) return k
   const n = String(Math.random())

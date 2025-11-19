@@ -17,10 +17,7 @@ const getPkg = (pluginDir: string) => {
  * and it'll make sure that the plugin dir has a package.json
  * that depends on the symlink we're about to create.
  */
-export const setPluginPackageJson = (
-  pluginDir: string,
-  core: string,
-) => {
+export const setPluginPackageJson = (pluginDir: string, core: string) => {
   const pluginPJ = resolve(pluginDir, 'package.json')
   const pkg = {
     devDependencies: {
@@ -28,9 +25,7 @@ export const setPluginPackageJson = (
     },
   }
   const pluginPkg = getPkg(pluginDir)
-  if (
-    pluginPkg.devDependencies?.['@tapjs/core'] !== `file://${core}`
-  ) {
+  if (pluginPkg.devDependencies?.['@tapjs/core'] !== `file://${core}`) {
     rmSync(resolve(pluginDir, 'package.json'), {
       recursive: true,
       force: true,

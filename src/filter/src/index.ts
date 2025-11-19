@@ -123,9 +123,7 @@ export class Filter {
       const match = this.#grepInvert ? !m : m
       if (!match) {
         if (!this.#filterQuietly) {
-          opts.skip = `filter${
-            this.#grepInvert ? ' out' : ''
-          }: ${pattern}`
+          opts.skip = `filter${this.#grepInvert ? ' out' : ''}: ${pattern}`
         }
         shouldSkipChild(opts)
         return true
@@ -145,10 +143,7 @@ export class Filter {
       return true
     }
     if (opts.only && !this.#runOnly) {
-      this.#t.comment(
-        '%j has `only` set but all tests run',
-        extra.name,
-      )
+      this.#t.comment('%j has `only` set but all tests run', extra.name)
     }
     if (typeof opts.runOnly === 'undefined') {
       opts.runOnly = this.#runOnly
@@ -168,10 +163,7 @@ export class Filter {
     cb: (t: Test) => any,
   ): PromiseWithSubtest<Test>
   only(name: string, cb: (t: Test) => any): PromiseWithSubtest<Test>
-  only(
-    extra: TestOpts,
-    cb: (t: Test) => any,
-  ): PromiseWithSubtest<Test>
+  only(extra: TestOpts, cb: (t: Test) => any): PromiseWithSubtest<Test>
   only(cb: (t: Test) => any): PromiseWithSubtest<Test>
   only(...args: TestArgs<Test>): PromiseWithSubtest<Test> {
     const extra = parseTestArgs(...args)
@@ -253,8 +245,7 @@ export const config = {
   invert: {
     type: 'boolean',
     short: 'i',
-    description:
-      'Invert the matches to --grep patterns. (Like grep -v)',
+    description: 'Invert the matches to --grep patterns. (Like grep -v)',
   },
 
   /**
@@ -267,8 +258,7 @@ export const config = {
   'no-invert': {
     type: 'boolean',
     short: 'I',
-    description:
-      'Do not invert the matches to --grep patterns. (default)',
+    description: 'Do not invert the matches to --grep patterns. (default)',
   },
 
   /**

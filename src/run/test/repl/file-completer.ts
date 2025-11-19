@@ -26,10 +26,7 @@ t.test('file completions', t => {
 
   t.strictSame(fileCompleter([], 'x '), [['x cat/', 'x chat/'], 'x '])
   t.strictSame(fileCompleter(['ca'], 'x ca'), [['x cat/'], 'x ca'])
-  t.strictSame(fileCompleter(['ch'], 'x  ch'), [
-    ['x  chat/'],
-    'x  ch',
-  ])
+  t.strictSame(fileCompleter(['ch'], 'x  ch'), [['x  chat/'], 'x  ch'])
   t.strictSame(fileCompleter(['cat/d'], 'x  cat/d'), [
     ['x  cat/dog/', 'x  cat/doop'],
     'x  cat/d',
@@ -46,10 +43,7 @@ t.test('file completions', t => {
     ['x  cat/dog/'],
     'x  cat/dog',
   ])
-  t.strictSame(fileCompleter(['x'], 'x x'), [
-    ['x cat/', 'x chat/'],
-    'x x',
-  ])
+  t.strictSame(fileCompleter(['x'], 'x x'), [['x cat/', 'x chat/'], 'x x'])
   t.strictSame(fileCompleter(['x/y/z/a/b/c'], 'x x/y/z/a/b/c'), [
     [],
     'x x/y/z/a/b/c',

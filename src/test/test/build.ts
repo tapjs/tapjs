@@ -14,9 +14,7 @@ import { lstatSync, readFileSync, readlinkSync } from 'node:fs'
 import os from 'node:os'
 import { fileURLToPath } from 'node:url'
 const p =
-  os.availableParallelism ?
-    os.availableParallelism()
-  : os.cpus().length
+  os.availableParallelism ? os.availableParallelism() : os.cpus().length
 t.jobs = Math.max(1, Math.ceil(p / 2 || 1))
 
 interface Result {
@@ -35,9 +33,7 @@ const build = async (
 ) => {
   const cmd = `_TESTING_TEST_BUILD_TARGET_=${target} ${
     process.execPath
-  } ${[buildScript, ...plugins]
-    .map(a => JSON.stringify(a))
-    .join(' ')}`
+  } ${[buildScript, ...plugins].map(a => JSON.stringify(a)).join(' ')}`
   return new Promise<Result>((res, rej) => {
     const c = spawn(process.execPath, [buildScript, ...plugins], {
       cwd,
@@ -145,8 +141,7 @@ t.test('invalid plugin', async t => {
     node_modules: {
       plugin: {
         'index.cjs': 'exports.pullGrin = () => console.log("yolo")',
-        'index.mjs':
-          'export const pullGrin = () => console.log("yolo")',
+        'index.mjs': 'export const pullGrin = () => console.log("yolo")',
         'package.json': JSON.stringify({
           name: 'bad-plugin',
           exports: {
@@ -334,10 +329,7 @@ t.test('disambiguate plugin names', async t => {
 
   const core = dirname(
     fileURLToPath(
-      await resolveImport(
-        '@tapjs/core/package.json',
-        import.meta.url,
-      ),
+      await resolveImport('@tapjs/core/package.json', import.meta.url),
     ),
   )
   const pluginCore = resolve(

@@ -39,11 +39,7 @@ t.test('ctor usage', t => {
 
   const s = new compare.Same(true, { expect: false })
   t.matchSnapshot(s.print())
-  t.equal(
-    s.memoDiff,
-    s.print(),
-    'printing multiple times is memoized',
-  )
+  t.equal(s.memoDiff, s.print(), 'printing multiple times is memoized')
 
   t.throws(
     () =>
@@ -218,11 +214,7 @@ t.test('should handle dates', function (t) {
   t.notOk(same(t, new Date('1972-08-01'), undefined))
   t.ok(same(t, new Date('1972-08-01'), new Date('1972-08-01')))
   t.ok(
-    same(
-      t,
-      { x: new Date('1972-08-01') },
-      { x: new Date('1972-08-01') },
-    ),
+    same(t, { x: new Date('1972-08-01') }, { x: new Date('1972-08-01') }),
   )
   t.end()
 })
@@ -443,9 +435,7 @@ t.test('should notice different Buffers', function (t) {
   var shortb = Buffer.from([0, 1])
   var longb = Buffer.alloc(320)
   for (var i = 0; i < 160; i++) longb.writeUInt16LE(i, i * 2)
-  t.notOk(
-    same(t, { x: { y: { z: shortb } } }, { x: { y: { z: longb } } }),
-  )
+  t.notOk(same(t, { x: { y: { z: shortb } } }, { x: { y: { z: longb } } }))
   t.end()
 })
 
@@ -640,10 +630,7 @@ t.test('hidden props and getters', t => {
   const two = new Hidden(1)
   t.ok(same(t, one, two), 'own props only')
   t.ok(same(t, one, two, { includeGetters: true }), 'include getters')
-  t.notOk(
-    same(t, one, two, { includeEnumerable: true }),
-    'all enumerable',
-  )
+  t.notOk(same(t, one, two, { includeEnumerable: true }), 'all enumerable')
   t.end()
 })
 

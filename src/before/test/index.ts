@@ -8,10 +8,7 @@ t.cleanSnapshot = s =>
     .replace(/lineNumber: [0-9]+/, 'lineNumber: ##')
     .replace(/columnNumber: [0-9]+/, 'columnNumber: ##')
     .replace(/# time=[0-9\.]+m?s$/gm, '# time={TIME}')
-    .replace(
-      /stack: [|>]-?\n(.|\n)+\n  at:/g,
-      'stack: {STACK}\n  at:',
-    )
+    .replace(/stack: [|>]-?\n(.|\n)+\n  at:/g, 'stack: {STACK}\n  at:')
     .replace(/lineNumber: \d+/, 'lineNumber: ##')
     .replace(/columnNumber: \d+/, 'columnNumber: ##')
 

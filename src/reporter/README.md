@@ -196,8 +196,8 @@ Create a colorized diff from a patch string.
 
 ```jsx
 <HangingIndent indent={4}>
-  Some very long string, which might wrap to multiple lines. Every
-  line after the first is indented.
+  Some very long string, which might wrap to multiple lines. Every line
+  after the first is indented.
 </HangingIndent>
 ```
 
@@ -237,10 +237,7 @@ test processes.
 <ResultDetailList
   test={tap}
   filter={t =>
-    !!t.counts.fail ||
-    !!t.counts.skip ||
-    !!t.counts.todo ||
-    !t.parser.ok
+    !!t.counts.fail || !!t.counts.skip || !!t.counts.todo || !t.parser.ok
   }
   Banner={
     <Box>

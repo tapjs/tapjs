@@ -20,8 +20,7 @@ const Tag: FC<{
   includeTests: boolean
 }> = ({ test, config, includeTests = true }) => {
   const log = useLog(test, config, includeTests).map(entry => {
-    if (isTestLog(entry))
-      return { type: 'test', text: entry.test.name }
+    if (isTestLog(entry)) return { type: 'test', text: entry.test.name }
     else if (isStdioLog(entry))
       return {
         type: entry.fd ? 'stdio' : 'comment',
@@ -100,57 +99,54 @@ t.test('log some stuff, with a process, no comments', async t => {
   ])
 })
 
-t.test(
-  'log some stuff, without a process, with comments',
-  async t => {
-    const tb = new Minimal({ name: 'logger' })
-    const app = render(
-      <Tag
-        test={tb}
-        config={{ get: () => true } as unknown as LoadedConfig}
-        includeTests
-      />,
-    )
+t.test('log some stuff, without a process, with comments', async t => {
+  const tb = new Minimal({ name: 'logger' })
+  const app = render(
+    <Tag
+      test={tb}
+      config={{ get: () => true } as unknown as LoadedConfig}
+      includeTests
+    />,
+  )
+  tb.pass('this is fine')
+  tb.comment('before child test')
+  tb.test('child test', async tb => {
     tb.pass('this is fine')
-    tb.comment('before child test')
-    tb.test('child test', async tb => {
-      tb.pass('this is fine')
-      tb.parser.write('\nThis is not tap\n')
-      tb.fail('not quite as fine')
-      console.log('a console.log')
-      tb.comment('child comment')
-      tb.pass('will be fine', { todo: true })
-      tb.pass('dont care if its fine', { skip: true })
-      tb.pass('this is fine also')
-      console.error('a console error')
-      tb.fail('second fail')
-    })
-    tb.comment('after child test')
-    tb.end()
-    await tb.concat()
+    tb.parser.write('\nThis is not tap\n')
+    tb.fail('not quite as fine')
+    console.log('a console.log')
+    tb.comment('child comment')
+    tb.pass('will be fine', { todo: true })
+    tb.pass('dont care if its fine', { skip: true })
+    tb.pass('this is fine also')
+    console.error('a console error')
+    tb.fail('second fail')
+  })
+  tb.comment('after child test')
+  tb.end()
+  await tb.concat()
 
-    // re-render so that we trigger the useEffect cleanup functions
-    app.rerender(<Box></Box>)
-    app.unmount()
+  // re-render so that we trigger the useEffect cleanup functions
+  app.rerender(<Box></Box>)
+  app.unmount()
 
-    const result = reduce(app.frames)
-      .filter(f => f.trim())
-      .map(j => JSON.parse(j))
+  const result = reduce(app.frames)
+    .filter(f => f.trim())
+    .map(j => JSON.parse(j))
 
-    for (let i = 1; i < result.length; i++) {
-      t.strictSame(
-        result[i - 1],
-        result[i].slice(0, result[i - 1].length),
-        'logs not overwritten',
-      )
-    }
+  for (let i = 1; i < result.length; i++) {
+    t.strictSame(
+      result[i - 1],
+      result[i].slice(0, result[i - 1].length),
+      'logs not overwritten',
+    )
+  }
 
-    t.strictSame(result[result.length - 1], [
-      { type: 'stdio', fd: 1, text: 'This is not tap\n' },
-      { type: 'console', text: 'a console.log\n' },
-      { type: 'comment', fd: 0, text: '# child comment\n' },
-      { type: 'console', text: 'a console error\n' },
-      { type: 'test', text: 'child test' },
-    ])
-  },
-)
+  t.strictSame(result[result.length - 1], [
+    { type: 'stdio', fd: 1, text: 'This is not tap\n' },
+    { type: 'console', text: 'a console.log\n' },
+    { type: 'comment', fd: 0, text: '# child comment\n' },
+    { type: 'console', text: 'a console error\n' },
+    { type: 'test', text: 'child test' },
+  ])
+})

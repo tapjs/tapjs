@@ -126,9 +126,7 @@ const buildIgnoredPackages = () => {
  * exported for testing, no real purpose, but also no harm in looking
  */
 export const getIgnoredPackagesRE = () =>
-  !dirty ? ignoredPackagesRE : (
-    (ignoredPackagesRE = buildIgnoredPackages())
-  )
+  !dirty ? ignoredPackagesRE : (ignoredPackagesRE = buildIgnoredPackages())
 
 let ignoredPackagesRE: RegExp | undefined = buildIgnoredPackages()
 let filterIgnoredPackages = true
@@ -332,9 +330,7 @@ export const captureError = (
 
   // if we didn't clean the header cleanly, then sweep the stack for
   // any weird junk it might contain
-  return cleanHead ? cleaned : (
-      cleaned.filter(c => !isErrorStackHead(c))
-    )
+  return cleanHead ? cleaned : cleaned.filter(c => !isErrorStackHead(c))
 }
 
 /**

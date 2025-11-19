@@ -111,10 +111,7 @@ t.test('remove plugin', async t => {
     t.strictSame(config.edited, { plugin: ['b', 'c'] })
     t.strictSame(config.values.plugin, ['b', 'c'])
     t.equal(buildRan, true)
-    t.strictSame(logs.args(), [
-      ['successfully removed plugin(s):'],
-      ['a'],
-    ])
+    t.strictSame(logs.args(), [['successfully removed plugin(s):'], ['a']])
   })
 
   t.test('remove builtin default plugin', async t => {
@@ -137,12 +134,7 @@ t.test('remove plugin', async t => {
     t.strictSame(config.edited, {
       plugin: ['a', 'b', 'c', '!@tapjs/mock'],
     })
-    t.strictSame(config.values.plugin, [
-      'a',
-      'b',
-      'c',
-      '!@tapjs/mock',
-    ])
+    t.strictSame(config.values.plugin, ['a', 'b', 'c', '!@tapjs/mock'])
     t.equal(buildRan, true)
     t.strictSame(logs.args(), [
       ['successfully removed plugin(s):'],
@@ -187,10 +179,7 @@ t.test('remove plugin', async t => {
     })
     t.strictSame(config.values.plugin, ['a', 'b', 'c'])
     t.equal(buildRan, true)
-    t.strictSame(logs.args(), [
-      ['successfully removed plugin(s):'],
-      [p],
-    ])
+    t.strictSame(logs.args(), [['successfully removed plugin(s):'], [p]])
   })
 
   t.test('remove installed plugin', async t => {
@@ -242,10 +231,7 @@ t.test('remove plugin', async t => {
     })
     t.strictSame(config.values.plugin, ['a', 'b', 'c'])
     t.equal(buildRan, true)
-    t.strictSame(logs.args(), [
-      ['successfully removed plugin(s):'],
-      [p],
-    ])
+    t.strictSame(logs.args(), [['successfully removed plugin(s):'], [p]])
     t.strictSame(uninstalled, ['my-plugin'])
   })
 

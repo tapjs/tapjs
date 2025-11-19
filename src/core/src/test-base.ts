@@ -21,12 +21,7 @@ import { Waiter } from './waiter.js'
 import { Worker } from './worker.js'
 
 import { IMPLICIT } from './implicit-end-sigil.js'
-import {
-  Extra,
-  MessageExtra,
-  TapBaseEvents,
-  TapFile,
-} from './index.js'
+import { Extra, MessageExtra, TapBaseEvents, TapFile } from './index.js'
 import { normalizeMessageExtra } from './normalize-message-extra.js'
 
 const VERSION = 'TAP version 14\n'
@@ -54,8 +49,7 @@ export interface TestBaseOpts extends BaseOpts {
 }
 
 const queueEmpty = <T extends TestBase>(t: T) =>
-  t.queue.length === 0 ||
-  (t.queue.length === 1 && t.queue[0] === VERSION)
+  t.queue.length === 0 || (t.queue.length === 1 && t.queue[0] === VERSION)
 
 /**
  * Sigil to put in the queue to signal the end of all things
@@ -369,8 +363,7 @@ export class TestBase extends Base<TestBaseEvents> {
    */
   comment(...args: any[]) {
     const body = format(...args)
-    const message =
-      ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
+    const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
 
     if (this.results || this.ended || this.#awaitingEnd) {
       // the fallback to console.log is a bit weird,
@@ -399,9 +392,7 @@ export class TestBase extends Base<TestBaseEvents> {
    *
    * @group Internal Machinery
    */
-  timeout(
-    options: Extra & { expired?: string } = { expired: this.name },
-  ) {
+  timeout(options: Extra & { expired?: string } = { expired: this.name }) {
     options.expired = options.expired || this.name
     if (this.#occupied && this.#occupied instanceof Base) {
       this.#occupied.timeout(options)
@@ -506,9 +497,7 @@ export class TestBase extends Base<TestBaseEvents> {
   get currentAssert() {
     return this.#currentAssert
   }
-  set currentAssert(
-    fn: undefined | Function | ((...a: any[]) => any),
-  ) {
+  set currentAssert(fn: undefined | Function | ((...a: any[]) => any)) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
     }
@@ -526,10 +515,7 @@ export class TestBase extends Base<TestBaseEvents> {
       'diagnostic',
     ] as const
     for (const k of inheritedFlags) {
-      if (
-        extra[k] === undefined &&
-        typeof this.options[k] === 'boolean'
-      ) {
+      if (extra[k] === undefined && typeof this.options[k] === 'boolean') {
         extra[k] = this.options[k]
       }
     }
@@ -565,8 +551,7 @@ export class TestBase extends Base<TestBaseEvents> {
       // the right time before the process quits.
       const failMessage =
         this.#promiseEnded ? 'test assertion after Promise resolution'
-        : this.#explicitEnded ?
-          'test assertion after end() was called'
+        : this.#explicitEnded ? 'test assertion after end() was called'
         : this.#explicitPlan ? 'test assertion count exceeds plan'
         : /* c8 ignore start */ 'assertion after automatic end'
       /* c8 ignore stop */
@@ -799,9 +784,7 @@ export class TestBase extends Base<TestBaseEvents> {
         this.debug('multi-end')
         if (!this.#multiEndThrew) {
           this.#multiEndThrew = true
-          const er = new Error(
-            'test end() method called more than once',
-          )
+          const er = new Error('test end() method called more than once')
           Error.captureStackTrace(er, this.#currentAssert || this.end)
           er.cause = {
             test: this.name,
@@ -818,8 +801,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
     if (this.#planEnd === -1 && !this.#doingStdinOnly) {
       this.debug('END(%s) implicit plan', this.name, this.count)
-      const c =
-        this.count === 0 && !this.parent ? 'no tests found' : ''
+      const c = this.count === 0 && !this.parent ? 'no tests found' : ''
       this.plan(this.count, c, IMPLICIT)
     } else if (!this.ended && this.#planEnd !== -1) {
       const count = this.#endingAllSub ? this.count - 1 : this.count
@@ -999,16 +981,10 @@ export class TestBase extends Base<TestBaseEvents> {
     if (!this.#occupied && this.queue.length) {
       this.#process()
     } else if (this.idle) {
-      this.debug(
-        'idle after #process',
-        this.#awaitingEnd,
-        this.#occupied,
-      )
+      this.debug('idle after #process', this.#awaitingEnd, this.#occupied)
       if (this.#awaitingEnd) {
         this.debug('awaited end in process', this.#awaitingEnd)
-        this.#end(
-          this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined,
-        )
+        this.#end(this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined)
       }
       // the root tap runner uses this event to know when it is safe to
       // automatically end.
@@ -1054,20 +1030,13 @@ export class TestBase extends Base<TestBaseEvents> {
     p.readyToProcess = true
     const to = p.options.timeout
     const dur =
-      to && p.passing() ?
-        Number(hrtime.bigint() - p.start) / 1e6
-      : null
+      to && p.passing() ? Number(hrtime.bigint() - p.start) / 1e6 : null
     if (dur && to && dur > to) {
       p.timeout()
     } else {
       p.setTimeout(0)
     }
-    this.debug(
-      '%s.#onBufferedEnd',
-      this.name,
-      p.name,
-      p.results.bailout,
-    )
+    this.debug('%s.#onBufferedEnd', this.name, p.name, p.results.bailout)
     p.options.tapChildBuffer = p.output || ''
     p.options.stack = ''
     if (p.time) p.options.time = p.time
@@ -1449,9 +1418,7 @@ export class TestBase extends Base<TestBaseEvents> {
         /* c8 ignore start */
         const f = `${er.name || 'Error'}: ${er.message}\n`
         const st =
-          er.stack.startsWith(f) ?
-            er.stack.substring(f.length)
-          : er.stack
+          er.stack.startsWith(f) ? er.stack.substring(f.length) : er.stack
         /* c8 ignore stop */
         const p = stack.parseStack(st)
         extra.at = p[0] || null
@@ -1467,10 +1434,9 @@ export class TestBase extends Base<TestBaseEvents> {
     }
     if (this.#occupied && this.#occupied instanceof Waiter) {
       this.#occupied.abort(
-        Object.assign(
-          new Error('error thrown while awaiting Promise'),
-          { thrown: er },
-        ),
+        Object.assign(new Error('error thrown while awaiting Promise'), {
+          thrown: er,
+        }),
       )
       this.#occupied = null
     }

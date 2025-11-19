@@ -28,10 +28,7 @@ const pipe = (t: TAP, dest: Writable): false => {
  * stderr of any spawned child processes, and this function returns true
  * to indicate that stdio should be piped.
  */
-export const handleReporter = async (
-  t: TAP,
-  config: LoadedConfig,
-) => {
+export const handleReporter = async (t: TAP, config: LoadedConfig) => {
   // figure out if we MUST use the 'tap' reporter
   const rf = config.get('reporter-file')
   const reporter =
@@ -86,12 +83,9 @@ export const handleReporter = async (
   // ok, not one of those, check to see if we can import it
   // load it relative to the cwd, so relative paths work.
   const from = pathToFileURL(resolve('x'))
-  const mod = String(
-    await resolveImport(reporter, from).catch(() => ''),
-  )
+  const mod = String(await resolveImport(reporter, from).catch(() => ''))
 
-  const imported =
-    mod && (await import(mod).catch(() => null))?.default
+  const imported = mod && (await import(mod).catch(() => null))?.default
   if (imported) {
     if (typeof imported === 'function') {
       // either react or stream

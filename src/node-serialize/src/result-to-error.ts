@@ -3,11 +3,7 @@
 // because that is the string the node --test reporter shows.
 
 import { Base } from '@tapjs/core'
-import {
-  CallSiteLike,
-  CallSiteLikeJSON,
-  expandStack,
-} from '@tapjs/stack'
+import { CallSiteLike, CallSiteLikeJSON, expandStack } from '@tapjs/stack'
 import { Result, TapError } from 'tap-parser'
 import { locFromCallSite } from './loc-from-callsite.js'
 import { prettyDiff } from './pretty-diff.js'
@@ -31,8 +27,7 @@ export const resultToError = (
     passes: _,
     ...diag
   } = result.diag || {}
-  const at: CallSiteLike | CallSiteLikeJSON =
-    diag.at ?? test?.options.at
+  const at: CallSiteLike | CallSiteLikeJSON = diag.at ?? test?.options.at
   const lfa = !!at ? locFromCallSite(at) : undefined
   const stack =
     diagStack ||

@@ -129,9 +129,7 @@ export class Format {
     this.idCounter = 0
     this.idMap = this.parent ? this.parent.idMap : new Map()
     const style =
-      this.parent ?
-        this.parent.style
-      : styles[options.style || 'pretty']
+      this.parent ? this.parent.style : styles[options.style || 'pretty']
     if (!style) {
       throw new TypeError(`unknown style: ${options.style}`)
     }
@@ -215,9 +213,7 @@ export class Format {
 
   isArray(): boolean {
     return (
-      Array.isArray(this.object) ||
-      this.isArguments() ||
-      this.isIterable()
+      Array.isArray(this.object) || this.isArguments() || this.isIterable()
     )
   }
 
@@ -273,8 +269,7 @@ export class Format {
       typeof s === 'object' &&
       (typeof s.pipe === 'function' || // readable
         typeof s.pipeTo === 'function' || // whatwg readable
-        (typeof s.write === 'function' &&
-          typeof s.end === 'function')) // writable
+        (typeof s.write === 'function' && typeof s.end === 'function')) // writable
     )
   }
 
@@ -438,10 +433,7 @@ export class Format {
       // check to see if it's a key on the Symbol global.
       // return Symbol.iterator, not Symbol(Symbol.iterator)
       const symKey = key.substring('Symbol.'.length, s.length - 1)
-      if (
-        symKey &&
-        Symbol[symKey as keyof SymbolConstructor] === sym
-      ) {
+      if (symKey && Symbol[symKey as keyof SymbolConstructor] === sym) {
         return `Symbol.${symKey}`
       }
     }
@@ -898,9 +890,7 @@ export class Format {
       }
     })
     return this.sort ?
-        ent.sort((a, b) =>
-          String(a[0]).localeCompare(String(b[0]), 'en'),
-        )
+        ent.sort((a, b) => String(a[0]).localeCompare(String(b[0]), 'en'))
       : ent
   }
 

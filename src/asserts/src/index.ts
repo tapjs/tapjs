@@ -81,10 +81,8 @@ export type ExpectedEmit = [
 const objects = (...a: any[]): boolean =>
   !a.some(o => !o || typeof o !== 'object')
 
-const hasOwn = <T extends {}>(
-  obj: T,
-  key: string | number | symbol,
-) => Object.prototype.hasOwnProperty.call(obj, key)
+const hasOwn = <T extends {}>(obj: T, key: string | number | symbol) =>
+  Object.prototype.hasOwnProperty.call(obj, key)
 
 export class Assertions {
   #t: TestBase
@@ -214,11 +212,7 @@ export class Assertions {
    *
    * @group Assertion Methods
    */
-  type(
-    obj: any,
-    klass: string | Function,
-    ...[msg, extra]: MessageExtra
-  ) {
+  type(obj: any, klass: string | Function, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#bt().type
 
     const name =
@@ -321,10 +315,7 @@ export class Assertions {
   ): found is T {
     this.#t.currentAssert = this.#bt().strictSame
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra(
-      'should be equivalent strictly',
-      args,
-    )
+    const me = normalizeMessageExtra('should be equivalent strictly', args)
     const { match, diff } = strict(found, wanted, this.#opts)
     if (match) return this.#t.pass(...me)
     Object.assign(me[1], { diff })
@@ -420,11 +411,7 @@ export class Assertions {
    *
    * @group Assertion Methods
    */
-  notHasStrict(
-    found: any,
-    doNotWant: any,
-    ...[msg, extra]: MessageExtra
-  ) {
+  notHasStrict(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#bt().notHasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -457,11 +444,7 @@ export class Assertions {
    *
    * @group Assertion Methods
    */
-  notMatch(
-    found: any,
-    doNotWant: any,
-    ...[msg, extra]: MessageExtra
-  ) {
+  notMatch(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#bt().notMatch
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
@@ -493,11 +476,7 @@ export class Assertions {
    *
    * @group Assertion Methods
    */
-  notMatchOnly(
-    found: any,
-    doNotWant: any,
-    ...[msg, extra]: MessageExtra
-  ) {
+  notMatchOnly(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#bt().notMatchOnly
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
@@ -513,19 +492,11 @@ export class Assertions {
    *
    * @group Assertion Methods
    */
-  matchOnlyStrict(
-    found: any,
-    wanted: any,
-    ...[msg, extra]: MessageExtra
-  ) {
+  matchOnlyStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     // this.#t.currentAssert = this.#bt().matchOnlyStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
-    const { match: ok, diff } = matchOnlyStrict(
-      found,
-      wanted,
-      this.#opts,
-    )
+    const { match: ok, diff } = matchOnlyStrict(found, wanted, this.#opts)
     if (ok) return this.#t.pass(...me)
     Object.assign(me[1], { diff })
     return this.#t.fail(...me)
@@ -545,11 +516,7 @@ export class Assertions {
     // this.#t.currentAssert = this.#bt().notMatchOnlyStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
-    const { match: ok } = matchOnlyStrict(
-      found,
-      doNotWant,
-      this.#opts,
-    )
+    const { match: ok } = matchOnlyStrict(found, doNotWant, this.#opts)
     if (!ok) return this.#t.pass(...me)
     Object.assign(me[1], { found, doNotWant })
     return this.#t.fail(...me)
@@ -568,11 +535,7 @@ export class Assertions {
    *
    * @group Assertion Methods
    */
-  matchStrict(
-    found: any,
-    wanted: any,
-    ...[msg, extra]: MessageExtra
-  ) {
+  matchStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#bt().matchStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
@@ -685,10 +648,7 @@ export class Assertions {
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
-      return this.#t.fail(
-        'property list must be iterable object',
-        me[1],
-      )
+      return this.#t.fail('property list must be iterable object', me[1])
     }
     for (const prop of wanted) {
       if (!['string', 'number', 'symbol'].includes(typeof prop)) {
@@ -733,10 +693,7 @@ export class Assertions {
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
-      return this.#t.fail(
-        'property list must be iterable object',
-        me[1],
-      )
+      return this.#t.fail('property list must be iterable object', me[1])
     }
     for (const prop of wanted) {
       if (!['string', 'number', 'symbol'].includes(typeof prop)) {
@@ -781,10 +738,7 @@ export class Assertions {
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
-      return this.#t.fail(
-        'property list must be iterable object',
-        me[1],
-      )
+      return this.#t.fail('property list must be iterable object', me[1])
     }
     const seen = new Set<string | symbol | number>()
     for (const prop of wanted) {
@@ -905,10 +859,7 @@ export class Assertions {
 
     let p!: Promise<T>
     try {
-      p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : (
-          fnOrPromise
-        )
+      p = typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
     } catch (er) {
       p = Promise.reject(er)
     }
@@ -963,10 +914,7 @@ export class Assertions {
 
     let p!: Promise<T>
     try {
-      p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : (
-          fnOrPromise
-        )
+      p = typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
     } catch (er) {
       p = Promise.reject(er)
     }
@@ -1018,10 +966,7 @@ export class Assertions {
 
     let p!: Promise<T>
     try {
-      p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : (
-          fnOrPromise
-        )
+      p = typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
     } catch (er) {
       p = Promise.reject(er)
     }
@@ -1065,10 +1010,7 @@ export class Assertions {
     ...[msg, extra]: MessageExtra
   ): Promise<void> {
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra(
-      `expect ${event} to be emitted`,
-      args,
-    )
+    const me = normalizeMessageExtra(`expect ${event} to be emitted`, args)
     me[1].at = me[1].at || stack.at(this.#bt().emits)
     me[1].stack = me[1].stack || stack.captureString(this.#bt().emits)
     const d = new Deferred<void>()
@@ -1076,13 +1018,7 @@ export class Assertions {
       pending[0] = true
       d.resolve()
     }
-    const pending: ExpectedEmit = [
-      false,
-      emitter,
-      event,
-      handler,
-      ...me,
-    ]
+    const pending: ExpectedEmit = [false, emitter, event, handler, ...me]
     this.#pendingEmits.push(pending)
     if (emitter instanceof EventEmitter) {
       emitter.once(event, handler)

@@ -27,8 +27,9 @@ t.test('mung until no good', async t => {
   t.strictSame(
     munged,
     Object.assign(Object.create(null), {
-      [String(pathToFileURL(resolve(t.testdirName, 'relative.js')))]:
-        { default: 'just a string' },
+      [String(pathToFileURL(resolve(t.testdirName, 'relative.js')))]: {
+        default: 'just a string',
+      },
       [String(pathToFileURL(resolve('/path/to/absolute')))]: {
         default: 'absolute',
       },

@@ -80,17 +80,13 @@ export type MockServiceResponse = MockServiceRequest & {
   response: string | undefined
 }
 
-export const isMockServiceResponse = (
-  m: any,
-): m is MockServiceResponse =>
+export const isMockServiceResponse = (m: any): m is MockServiceResponse =>
   isMockServiceRequest(m) &&
   Object.keys(m).includes('response') &&
   (typeof (m as MockServiceResponse).response === 'string' ||
     typeof (m as MockServiceResponse).response === 'undefined')
 
-export const isMockServiceRequest = (
-  m: any,
-): m is MockServiceRequest =>
+export const isMockServiceRequest = (m: any): m is MockServiceRequest =>
   !!m &&
   typeof m === 'object' &&
   ((m.action === 'resolve' && typeof m.parentURL === 'string') ||
@@ -156,9 +152,7 @@ export class MockService {
 
   static async handle(msg: any) {
     if (!isMockServiceRequest(msg)) return
-    return msg.action === 'resolve' ?
-        this.resolve(msg)
-      : this.load(msg)
+    return msg.action === 'resolve' ? this.resolve(msg) : this.load(msg)
   }
 
   static async resolve(req: MockServiceResolveRequest) {
@@ -232,9 +226,7 @@ export class MockService {
     const ms = new MockService(mockServiceCtorSymbol)
 
     /* c8 ignore start */
-    const needIgnoreTap = !stack
-      .getIgnoredPackages()
-      .includes('@tapjs')
+    const needIgnoreTap = !stack.getIgnoredPackages().includes('@tapjs')
     if (needIgnoreTap) stack.addIgnoredPackage('@tapjs')
     const at = stack.at(caller)
     if (needIgnoreTap) stack.removeIgnoredPackage('@tapjs')

@@ -5,10 +5,7 @@ import { readFileSync } from 'fs'
 import { relative } from 'path'
 import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
-const binURL = await resolveImport(
-  '../dist/esm/index.js',
-  import.meta.url,
-)
+const binURL = await resolveImport('../dist/esm/index.js', import.meta.url)
 const bin = fileURLToPath(binURL)
 
 const corePkg = JSON.parse(
@@ -21,8 +18,7 @@ const { version: coreVersion } = corePkg
 
 class MockInit {
   constructor(from: string) {
-    if (!from.startsWith(binURL + '?'))
-      throw new Error('wrong from url')
+    if (!from.startsWith(binURL + '?')) throw new Error('wrong from url')
   }
   build() {
     didBuild = true
@@ -190,10 +186,7 @@ t.test('actually build and verify', async t => {
       t.equal(code, 0)
       t.equal(signal, null)
       t.strictSame(
-        [
-          Buffer.concat(out).toString(),
-          Buffer.concat(err).toString(),
-        ],
+        [Buffer.concat(out).toString(), Buffer.concat(err).toString()],
         [
           `Plugin package name: (@fixtures/test-index.ts-actually-build-and-verify) Plugin description: Run npm install? (Yes) Run git init? (Yes) Folder to create in? (.tap/fixtures/test-index.ts-actually-build-and-verify) 
 Done!

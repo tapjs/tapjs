@@ -27,8 +27,10 @@ export const getInstallSet = async (
   const needInstall = new Set<string>()
   const needCleanup = new Set<string>()
   for (const plugin of args) {
-    const { name, versionInstalled, versionWant } =
-      await analyzePluginArg(plugin, config)
+    const { name, versionInstalled, versionWant } = await analyzePluginArg(
+      plugin,
+      config,
+    )
 
     // if we have a version installed, check if it's a match
     // already present

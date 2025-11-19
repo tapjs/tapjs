@@ -126,10 +126,7 @@ const configs = new Map<
 type PluginExport = {
   plugin?: (...a: any[]) => any
   config?: {
-    [k: string]: ConfigOption<
-      'string' | 'number' | 'boolean',
-      boolean
-    >
+    [k: string]: ConfigOption<'string' | 'number' | 'boolean', boolean>
   } & { nodeArgs?: (value: any) => string[] }
   loader?: string
   importLoader?: string
@@ -145,8 +142,7 @@ const validPlugin = (p: any): p is PluginExport =>
   (p.config === undefined ||
     (!!p.config && typeof p.config === 'object')) &&
   (p.loader === undefined || typeof p.loader === 'string') &&
-  (p.importLoader === undefined ||
-    typeof p.importLoader === 'string') &&
+  (p.importLoader === undefined || typeof p.importLoader === 'string') &&
   (p.preload === undefined || typeof p.preload === 'boolean')
 
 const pluginNames = await Promise.all(
@@ -267,8 +263,7 @@ const pluginNames = await Promise.all(
 
 const pluginImport = plugins
   .map(
-    (p, i) =>
-      `import * as ${pluginNames[i]} from ${JSON.stringify(p)}\n`,
+    (p, i) => `import * as ${pluginNames[i]} from ${JSON.stringify(p)}\n`,
   )
   .join('')
 
@@ -441,10 +436,7 @@ const swapTag = (src: string, tag: string, code: string): string => {
   )
 }
 
-const swapTags = (
-  src: string,
-  tags: { [k: string]: string },
-): string => {
+const swapTags = (src: string, tags: { [k: string]: string }): string => {
   let res = src
   for (const [tag, code] of Object.entries(tags)) {
     res = swapTag(res, tag, code)
@@ -465,9 +457,7 @@ writeFileSync(
   }),
 )
 
-const tshy = fileURLToPath(
-  await resolveImport('tshy', import.meta.url),
-)
+const tshy = fileURLToPath(await resolveImport('tshy', import.meta.url))
 
 const res = spawnSync(process.execPath, [tshy], {
   cwd: dir,

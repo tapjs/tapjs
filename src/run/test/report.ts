@@ -222,11 +222,7 @@ t.test('explicit report, full cov report explicit off', async t => {
   config.showFullCoverage = false
   const logs = t.capture(console, 'log')
   await report(['text'], config as unknown as LoadedConfig)
-  t.strictSame(
-    logs.args(),
-    [['summary']],
-    'show full coverage summary',
-  )
+  t.strictSame(logs.args(), [['summary']], 'show full coverage summary')
   t.strictSame(comments.args(), [])
 })
 

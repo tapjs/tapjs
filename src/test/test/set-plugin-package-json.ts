@@ -63,13 +63,10 @@ t.test('merge pj if valid', async t => {
     }),
   })
   setPluginPackageJson(dir, core)
-  t.strictSame(
-    JSON.parse(readFileSync(dir + '/package.json', 'utf8')),
-    {
-      ...expect,
-      dependencies: { asdf: '*' },
-    },
-  )
+  t.strictSame(JSON.parse(readFileSync(dir + '/package.json', 'utf8')), {
+    ...expect,
+    dependencies: { asdf: '*' },
+  })
 })
 
 t.test('merge pj if valid, but invalid @tapjs/core', async t => {
@@ -83,15 +80,12 @@ t.test('merge pj if valid, but invalid @tapjs/core', async t => {
     }),
   })
   setPluginPackageJson(dir, core)
-  t.strictSame(
-    JSON.parse(readFileSync(dir + '/package.json', 'utf8')),
-    {
-      ...expect,
-      devDependencies: {
-        ...expect.devDependencies,
-        foo: '*',
-      },
-      dependencies: { asdf: '*' },
+  t.strictSame(JSON.parse(readFileSync(dir + '/package.json', 'utf8')), {
+    ...expect,
+    devDependencies: {
+      ...expect.devDependencies,
+      foo: '*',
     },
-  )
+    dependencies: { asdf: '*' },
+  })
 })

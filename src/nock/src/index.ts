@@ -56,8 +56,7 @@ export class TapNock {
         return nock.disableNetConnect()
       },
       snapshot: (
-        options: NockRecorderOptionsMaybe &
-          NockRecorderLoadOptions = {},
+        options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {},
       ) => tn.#snapshot(options),
     })
   }
@@ -210,5 +209,4 @@ export class TapNock {
 /**
  * Plugin method that instantiates a {@link @tapjs/nock!index.TapNock}
  */
-export const plugin: TapPlugin<TapNock> = (t: TestBase) =>
-  new TapNock(t)
+export const plugin: TapPlugin<TapNock> = (t: TestBase) => new TapNock(t)

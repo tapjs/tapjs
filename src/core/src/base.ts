@@ -349,8 +349,7 @@ export class Base<
    */
   #context: any = unsetContext
   get context() {
-    if (this.#context === unsetContext)
-      this.#context = Object.create(null)
+    if (this.#context === unsetContext) this.#context = Object.create(null)
     return this.#context
   }
   set context(c: any) {
@@ -442,9 +441,7 @@ export class Base<
     this.omitVersion = !!options.omitVersion
     this.preserveWhitespace = options.preserveWhitespace !== false
     this.buffered =
-      this.silent ?
-        options.buffered === undefined
-      : !!options.buffered
+      this.silent ? options.buffered === undefined : !!options.buffered
     this.bailedOut = false
     this.errors = []
     this.parent = options.parent
@@ -608,8 +605,7 @@ export class Base<
         ('context' in this.options ?
           this.options.context
         : this.parent?.context) ?? null
-      this.#context =
-        typeof ctx === 'object' ? Object.create(ctx) : ctx
+      this.#context = typeof ctx === 'object' ? Object.create(ctx) : ctx
     }
 
     this.hook.runInAsyncScope(this.main, this, cb)
@@ -791,10 +787,7 @@ export class Base<
    *
    * @group Internal Machinery
    */
-  emit<Event extends keyof Events>(
-    ev: Event,
-    ...data: Events[Event]
-  ) {
+  emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]) {
     const ret = super.emit(ev, ...data)
     if (ev === 'end') {
       this.ondone()

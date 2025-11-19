@@ -279,9 +279,7 @@ Example of using a separate snapshot file for subtests:
 import t from 'tap'
 import { resolve } from 'node:path'
 
-t.matchSnapshot(
-  'this writes to ./tap-snapshots/test/snappy.js.test.cjs',
-)
+t.matchSnapshot('this writes to ./tap-snapshots/test/snappy.js.test.cjs')
 
 t.test('foo', async t => {
   // this writes to ./test/tap-snapshots/foo.test.cjs'

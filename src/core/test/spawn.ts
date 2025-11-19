@@ -255,10 +255,7 @@ not ok 1 - timeout!
     t.test('no tests', t => {
       const s = new Spawn({
         command: process.execPath,
-        args: [
-          '-e',
-          'console.log("TAP version 14\\n1..0 # no tests")',
-        ],
+        args: ['-e', 'console.log("TAP version 14\\n1..0 # no tests")'],
         stdio: 'pipe',
       })
       t.strictSame(s.stdio, ['pipe', 'pipe', 'pipe', 'ipc'])

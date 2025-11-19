@@ -13,10 +13,7 @@ const readLink = (pluginCore: string) => {
   } catch {}
 }
 
-export const setPluginCoreLink = (
-  pluginDir: string,
-  core: string,
-) => {
+export const setPluginCoreLink = (pluginDir: string, core: string) => {
   const pluginNM = resolve(pluginDir, 'node_modules')
   const pluginCore = resolve(pluginNM, '@tapjs/core')
   const target = readLink(pluginCore)

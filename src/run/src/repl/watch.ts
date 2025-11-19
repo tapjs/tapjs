@@ -52,8 +52,7 @@ export class Watch {
     }
 
     // if the number of files changed, definitely dirty
-    let filesDirty: boolean =
-      files.length !== this.watchedFiles.length
+    let filesDirty: boolean = files.length !== this.watchedFiles.length
     if (!filesDirty) {
       for (const f of this.processInfo.files.keys()) {
         if (!this.watchedFiles.includes(f)) {

@@ -5,18 +5,6 @@
     "src/*"
   ],
   "type": "module",
-  "prettier": {
-    "experimentalTernaries": true,
-    "semi": false,
-    "printWidth": 70,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",

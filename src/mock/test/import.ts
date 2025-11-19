@@ -17,10 +17,7 @@ await t.mockImport('../dist/esm/import.mjs', {
       registered = true
       t.equal(String(url), String(loader), 'register loader')
       const u = new URL(data.parentURL)
-      t.ok(
-        u.searchParams.get('tapmock'),
-        'has ?tapmock because mocked',
-      )
+      t.ok(u.searchParams.get('tapmock'), 'has ?tapmock because mocked')
       u.search = ''
       t.equal(String(u), String(importer), 'parentURL is importer')
       t.hasStrict(

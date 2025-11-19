@@ -13,18 +13,14 @@ export type Directive = 'todo' | 'skip' | 'time'
  * Parse a "directive", the bit that follows the `#` character
  * on a TestPoint line.
  */
-export const parseDirective = (
-  line: string,
-): [Directive, any] | false => {
+export const parseDirective = (line: string): [Directive, any] | false => {
   if (!line.trim()) return false
 
   line = line
     .replace(OPEN_BRACE_EOL, '')
     .trim()
     .replace(/^duration_ms ([0-9.]+)$/, 'time=$1ms')
-  const time = line.match(
-    /^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i,
-  )
+  const time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
   const t = time?.[1]
   const s = time?.[2]
   if (typeof t === 'string') {

@@ -97,10 +97,7 @@ export class CallSiteLike {
     if (this.evalOrigin) this.evalOrigin.cwd = cwd
   }
 
-  constructor(
-    e: Error | null,
-    c: NodeJS.CallSite | string | Compiled,
-  ) {
+  constructor(e: Error | null, c: NodeJS.CallSite | string | Compiled) {
     if (typeof c === 'string') {
       c = parseCallSiteLine(c)
     }
@@ -131,8 +128,7 @@ export class CallSiteLike {
         this.evalOrigin = new CallSiteLike(e, c.evalOrigin)
       }
 
-      this.lineNumber =
-        c.lineNumber === undefined ? null : c.lineNumber
+      this.lineNumber = c.lineNumber === undefined ? null : c.lineNumber
       this.columnNumber =
         c.columnNumber === undefined ? null : c.columnNumber
       const fileName = c.fileName
@@ -453,8 +449,7 @@ export class CallSiteLike {
       ) {
         const gen: Record<string, string | number> = {}
         gen.fileName = f
-        if (generated.lineNumber)
-          gen.lineNumber = generated.lineNumber
+        if (generated.lineNumber) gen.lineNumber = generated.lineNumber
         if (generated.columnNumber)
           gen.columnNumber = generated.columnNumber
         if (Object.keys(gen).length > 0) {

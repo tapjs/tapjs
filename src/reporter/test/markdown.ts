@@ -2,9 +2,7 @@ import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 
 const tapData = readFileSync(
-  fileURLToPath(
-    new URL('./fixtures/example-tap.tap', import.meta.url),
-  ),
+  fileURLToPath(new URL('./fixtures/example-tap.tap', import.meta.url)),
   'utf8',
 )
 

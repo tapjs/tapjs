@@ -8,12 +8,8 @@ const notConfig = (
   caller: ((...a: any[]) => any) | Function,
 ) => {
   const s =
-    typeof property === 'string' ?
-      `'${property}'`
-    : property.toString()
-  const er = new Error(
-    `Cannot ${m} ${s}, defined {configurable:false}`,
-  )
+    typeof property === 'string' ? `'${property}'` : property.toString()
+  const er = new Error(`Cannot ${m} ${s}, defined {configurable:false}`)
   Error.captureStackTrace(er, caller)
   return er
 }
@@ -320,11 +316,7 @@ export class Interceptor {
       }
     }
     if (orig && !orig.configurable) {
-      throw notConfig(
-        'intercept property',
-        prop,
-        this.#bt().intercept,
-      )
+      throw notConfig('intercept property', prop, this.#bt().intercept)
     }
 
     let restore: () => void
@@ -550,10 +542,7 @@ export class Interceptor {
     const calls: CaptureResult<F>[] = []
     const args = () => calls.map(({ args }) => args)
     return Object.assign(
-      function wrapped(
-        this: Receiver<F>,
-        ...args: OverloadParams<F>
-      ) {
+      function wrapped(this: Receiver<F>, ...args: OverloadParams<F>) {
         const res: CaptureResultBase<F> = {
           receiver: this,
           args,

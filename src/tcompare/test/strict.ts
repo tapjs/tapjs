@@ -75,10 +75,7 @@ t.test('basic', t => {
 
   // 1. === gets the job done
   t.ok(strict(t, null, null), 'null is the same as itself')
-  t.ok(
-    strict(t, undefined, undefined),
-    'undefined is the same as itself',
-  )
+  t.ok(strict(t, undefined, undefined), 'undefined is the same as itself')
   t.ok(strict(t, 0, 0), 'numbers check out')
   t.ok(
     strict(t, 1 / 0, 1 / 0),
@@ -103,10 +100,7 @@ t.test('basic', t => {
   // 6. regexps are compared by their properties
   const rexpA = /^h[oe][wl][dl][oy]$/
   let rexpB = /^h[oe][wl][dl][oy]$/
-  t.ok(
-    strict(t, rexpA, rexpB),
-    'regexps are compared by their properties',
-  )
+  t.ok(strict(t, rexpA, rexpB), 'regexps are compared by their properties')
 
   // 8. loads of tests for objects
   t.ok(strict(t, {}, {}), 'bare objects check out')
@@ -131,10 +125,7 @@ t.test('basic', t => {
   cyclicA.x = cyclicA
   const cyclicB: { [k: string]: any } = {}
   cyclicB.x = cyclicB
-  t.ok(
-    strict(t, cyclicA, cyclicB),
-    'can handle cyclic data structures',
-  )
+  t.ok(strict(t, cyclicA, cyclicB), 'can handle cyclic data structures')
 
   const y = {
     v: {
@@ -206,10 +197,7 @@ t.test('basic', t => {
   z.v.v.v.v.v.v.v.v.v.v.v.v.v.v.v.v = z
   t.ok(strict(t, y, z), 'deeply recursive data structures also work')
 
-  t.ok(
-    strict(t, heinous, awful),
-    'more complex objects also check out',
-  )
+  t.ok(strict(t, heinous, awful), 'more complex objects also check out')
 
   awful.granular.self = heinous
   heinous.granular.self = awful
@@ -225,10 +213,7 @@ t.test('basic', t => {
    */
 
   // 1. === does its job
-  t.notOk(
-    strict(t, 1 / 0, -1 / 0),
-    'opposite infinities are different',
-  )
+  t.notOk(strict(t, 1 / 0, -1 / 0), 'opposite infinities are different')
   t.notOk(
     strict(t, 1, '1'),
     'strict equality, no coercion between strings and numbers',
@@ -249,10 +234,7 @@ t.test('basic', t => {
   )
 
   // 2. one is an object, the other is not
-  t.notOk(
-    strict(t, undefined, {}),
-    "if both aren't objects, not the same",
-  )
+  t.notOk(strict(t, undefined, {}), "if both aren't objects, not the same")
 
   // 3. null is an object
   t.notOk(strict(t, {}, null), 'null is of type object')
@@ -262,10 +244,7 @@ t.test('basic', t => {
 
   // 4. buffers are compared by both byte length (for speed) and value
   bufferB = Buffer.from('abcd')
-  t.notOk(
-    strict(t, bufferA, bufferB),
-    'Buffers are checked for length',
-  )
+  t.notOk(strict(t, bufferA, bufferB), 'Buffers are checked for length')
   bufferB = Buffer.from('abd')
   t.notOk(
     strict(t, bufferA, bufferB),
@@ -278,10 +257,7 @@ t.test('basic', t => {
 
   // 6. regexps
   rexpB = /^(howdy|hello)$/
-  t.notOk(
-    strict(t, rexpA, rexpB),
-    'different regexps are not the same',
-  )
+  t.notOk(strict(t, rexpA, rexpB), 'different regexps are not the same')
 
   // 7. arguments
   const outer = (function (..._: any[]) {

@@ -4,8 +4,7 @@ import { config, plugin } from '../dist/esm/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
-t.cleanSnapshot = s =>
-  s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
+t.cleanSnapshot = s => s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
 
 const run = async (
   opts: TestOpts,
@@ -15,9 +14,7 @@ const run = async (
   tt.runMain(() => {})
   t.equal(
     tt.runOnly,
-    process.env.TAP_ONLY ?
-      process.env.TAP_ONLY === '1'
-    : !!opts.runOnly,
+    process.env.TAP_ONLY ? process.env.TAP_ONLY === '1' : !!opts.runOnly,
   )
   if (setRunOnly !== null) {
     tt.runOnly = setRunOnly
@@ -48,9 +45,7 @@ const run = async (
 }
 
 t.test('grep', async t =>
-  t.matchSnapshot(
-    await run({ name: 'grepper', grep: ['cat', 'purr'] }),
-  ),
+  t.matchSnapshot(await run({ name: 'grepper', grep: ['cat', 'purr'] })),
 )
 
 t.test('grep, failSkip:true', async t =>
@@ -85,9 +80,7 @@ t.test('grep invert, failSkip:true', async t =>
 )
 
 t.test('only', async t =>
-  t.matchSnapshot(
-    await run({ name: 'only the lonely', runOnly: true }),
-  ),
+  t.matchSnapshot(await run({ name: 'only the lonely', runOnly: true })),
 )
 
 t.test('only, failSkip: true', async t =>

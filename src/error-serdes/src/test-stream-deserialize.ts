@@ -1,9 +1,6 @@
 import { Minipass } from 'minipass'
 import { DefaultDeserializer } from 'v8'
-import {
-  kSerializedSizeHeader,
-  kV8HeaderLength,
-} from './constants.js'
+import { kSerializedSizeHeader, kV8HeaderLength } from './constants.js'
 import { deserializeError } from './deserialize.js'
 import { Message } from './messages.js'
 export * from './messages.js'
@@ -55,18 +52,13 @@ export class TestStreamDeserialize extends Minipass<
         break
       }
       const des = new DefaultDeserializer(
-        buf.subarray(
-          kSerializedSizeHeader,
-          size + kSerializedSizeHeader,
-        ),
+        buf.subarray(kSerializedSizeHeader, size + kSerializedSizeHeader),
       )
       buf = buf.subarray(size + kSerializedSizeHeader)
       des.readHeader()
       const item = des.readValue()
       if (item?.data?.details?.error) {
-        item.data.details.error = deserializeError(
-          item.data.details.error,
-        )
+        item.data.details.error = deserializeError(item.data.details.error)
       }
 
       //@ts-ignore
@@ -99,8 +91,7 @@ export class TestStreamDeserialize extends Minipass<
     // just affordance for TS's persnicketiness
     /* c8 ignore start */
     const ret =
-      chunk === undefined || typeof chunk === 'function' ?
-        super.end(chunk)
+      chunk === undefined || typeof chunk === 'function' ? super.end(chunk)
       : typeof encoding === 'function' ? super.end(chunk, encoding)
       : super.end(chunk, encoding, cb)
     /* c8 ignore stop */

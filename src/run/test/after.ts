@@ -25,11 +25,7 @@ t.test('have after config, adds after that spawns', async t => {
     typeof import('../dist/esm/after.js')
   >('../dist/esm/after.js', {
     'foreground-child': {
-      foregroundChild: (
-        cmd: string,
-        args: string[],
-        cb: () => any,
-      ) => {
+      foregroundChild: (cmd: string, args: string[], cb: () => any) => {
         foregroundChildCalled = true
         t.equal(cmd, process.execPath)
         t.strictSame(args, expectArgs.concat(resolve('after.js')))

@@ -46,10 +46,7 @@ export interface Pragmas {
 
 // TODO: declare event signatures
 
-export class Parser
-  extends EventEmitter
-  implements NodeJS.WritableStream
-{
+export class Parser extends EventEmitter implements NodeJS.WritableStream {
   #child: Parser | null = null
   #current: Result | null = null
   #extraQueue: [string, string][] = []
@@ -195,8 +192,7 @@ export class Parser
     }
 
     if (resId && this.pointsSeen.has(res.id)) {
-      res.tapError =
-        'test point id ' + resId + ' appears multiple times'
+      res.tapError = 'test point id ' + resId + ' appears multiple times'
       /* c8 ignore start */
       res.previous = this.pointsSeen.get(res.id) || null
       /* c8 ignore stop */
@@ -206,8 +202,7 @@ export class Parser
     }
 
     if (this.#child) {
-      if (!this.#child.closingTestPoint)
-        this.#child.closingTestPoint = res
+      if (!this.#child.closingTestPoint) this.#child.closingTestPoint = res
       this.emitResult()
       // can only bail out here in the case of a child with broken diags
       // anything else would have bailed out already.
@@ -345,9 +340,7 @@ export class Parser
   processYamlish() {
     /* c8 ignore start */
     if (!this.#current) {
-      throw new Error(
-        'called processYamlish without a current test point',
-      )
+      throw new Error('called processYamlish without a current test point')
     }
     /* c8 ignore stop */
     const yamlish = this.#yamlish
@@ -465,8 +458,7 @@ export class Parser
 
     if (this.syntheticBailout && this.level === 0) {
       this.syntheticBailout = false
-      const reason =
-        this.bailedOut === true ? '' : ' ' + this.bailedOut
+      const reason = this.bailedOut === true ? '' : ' ' + this.bailedOut
       this.emit('line', 'Bail out!' + reason + '\n')
     }
 
@@ -517,11 +509,7 @@ export class Parser
         // but don't repeat these comments if they're already present.
         if (res.plan.end !== res.count) {
           this.emitComment(
-            'test count(' +
-              res.count +
-              ') != plan(' +
-              res.plan.end +
-              ')',
+            'test count(' + res.count + ') != plan(' + res.plan.end + ')',
             false,
             true,
           )
@@ -853,11 +841,7 @@ export class Parser
     // This allows omitting even parsing the version if the test is
     // an indented child test.  Several parsers get upset when they
     // see an indented version field.
-    if (
-      this.omitVersion &&
-      lineTypes.version.test(line) &&
-      !this.#yind
-    ) {
+    if (this.omitVersion && lineTypes.version.test(line) && !this.#yind) {
       return
     }
 
@@ -884,8 +868,7 @@ export class Parser
     }
 
     // just a \n, emit only if we care about whitespace
-    const validLine =
-      this.preserveWhitespace || line.trim() || this.#yind
+    const validLine = this.preserveWhitespace || line.trim() || this.#yind
     if (line === '\n') return validLine && this.emit('line', line)
 
     // buffered subtest with diagnostics

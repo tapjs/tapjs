@@ -15,9 +15,7 @@ import { serviceKey } from '../dist/esm/service-key.js'
 
 t.pass('this is fine')
 
-const __dirname = resolve(
-  fileURLToPath(new URL('.', import.meta.url)),
-)
+const __dirname = resolve(fileURLToPath(new URL('.', import.meta.url)))
 const __filename = resolve(fileURLToPath(import.meta.url))
 
 //@ts-ignore
@@ -118,9 +116,7 @@ t.test('generate some mock imports', async t => {
     `,
     'url.mjs': `
       export * from ${JSON.stringify(
-        String(
-          pathToFileURL(resolve(t.testdirName, './unmocked.mjs')),
-        ),
+        String(pathToFileURL(resolve(t.testdirName, './unmocked.mjs'))),
       )}
     `,
   })

@@ -71,9 +71,7 @@ export class Same extends Format {
     this.parent = options.parent || null
     this.expect = options.expect
     if (!this.style.diffable) {
-      throw new Error(
-        `"${options.style}" style not appropriate for diffs`,
-      )
+      throw new Error(`"${options.style}" style not appropriate for diffs`)
     }
 
     if (options.diffContext) {
@@ -98,12 +96,10 @@ export class Same extends Format {
     const b = this.expect
     return (
       typeof a === 'function' && typeof b === 'function' ?
-        a === b ||
-          (a.name === b.name && a.toString() === b.toString())
+        a === b || (a.name === b.name && a.toString() === b.toString())
       : typeof a === 'symbol' || typeof b === 'symbol' ?
         typeof a === typeof b && a.toString() === b.toString()
-      : typeof a !== 'object' && typeof b !== 'object' && a == b ?
-        true
+      : typeof a !== 'object' && typeof b !== 'object' && a == b ? true
       : a === b ? true
       : a instanceof Date && b instanceof Date ?
         a.getTime() === b.getTime()
@@ -129,8 +125,7 @@ export class Same extends Format {
       : this.isMap() && !new Format(b).isMap() ? false
       : this.isArray() && !new Format(b).isArray() ? false
       : Buffer.isBuffer(a) && Buffer.isBuffer(b) ? a.equals(b)
-      : a instanceof RegExp && b instanceof RegExp ?
-        this.regexpSame(a, b)
+      : a instanceof RegExp && b instanceof RegExp ? this.regexpSame(a, b)
       : 'COMPLEX'
     ) // might still be a deeper mismatch, of course
   }
@@ -349,15 +344,12 @@ export class Same extends Format {
 
     // they don't match as JSX strings, but if we would consider the objects
     // to be equivalent, then still treat it as a match.
-    const subDiff = new (this.constructor as typeof Same)(
-      this.object,
-      {
-        ...this.options,
-        expect: this.expect,
-        parent: this.parent || undefined,
-        reactString: false,
-      },
-    )
+    const subDiff = new (this.constructor as typeof Same)(this.object, {
+      ...this.options,
+      expect: this.expect,
+      parent: this.parent || undefined,
+      reactString: false,
+    })
     subDiff.print()
     if (!subDiff.match) {
       this.unmatch()

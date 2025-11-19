@@ -14,14 +14,10 @@ export const deserializeError = (error: Buffer) => {
   switch (error[0]) {
     case kSerializedError: {
       // serialized Error
-      const { properties, constructor } = deserialize(
-        error.subarray(1),
-      )
+      const { properties, constructor } = deserialize(error.subarray(1))
       const ctor = errors[constructor as keyof typeof errors]
       if ('cause' in properties && 'value' in properties.cause) {
-        properties.cause.value = deserializeError(
-          properties.cause.value,
-        )
+        properties.cause.value = deserializeError(properties.cause.value)
       }
       return Object.create(ctor.prototype, properties)
     }
@@ -33,9 +29,7 @@ export const deserializeError = (error: Buffer) => {
     }
     case kInspectedSymbol: {
       return Symbol.for(
-        error
-          .subarray(1 + 'Symbol('.length, error.length - 1)
-          .toString(),
+        error.subarray(1 + 'Symbol('.length, error.length - 1).toString(),
       )
     }
     case kCustomInspectedObject: {

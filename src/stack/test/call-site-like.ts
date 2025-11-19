@@ -4,9 +4,7 @@ import { CallSiteLike as CSLCJS } from '../dist/commonjs/index.js'
 import { CallSiteLike as CSLMJS } from '../dist/esm/index.js'
 import { callSiteStack } from './fixtures/eval-call-site.js'
 
-const __dirname = resolve(
-  fileURLToPath(new URL('.', import.meta.url)),
-)
+const __dirname = resolve(fileURLToPath(new URL('.', import.meta.url)))
 const cwd = resolve(__dirname, '..')
 
 t.options.compareOptions = { style: 'js' }
@@ -69,11 +67,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       c.generated.fileName = String(
         pathToFileURL(c.generated.fileName as string),
       )
-      t.equal(
-        c.toString(true),
-        ts,
-        'same toString(true) when file url',
-      )
+      t.equal(c.toString(true), ts, 'same toString(true) when file url')
       t.end()
     })
 
@@ -105,10 +99,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
     })
 
     t.test('turn tap stack into js stack, absolute path', t => {
-      const c = new CallSiteLike(
-        null,
-        '/a/b/c:1:2 (/a/b/c.ts:420:69)',
-      )
+      const c = new CallSiteLike(null, '/a/b/c:1:2 (/a/b/c.ts:420:69)')
       t.equal(c.fileName, '/a/b/c.ts')
       t.equal(c.generated?.fileName, '/a/b/c')
       const j = c.toString(true)
@@ -127,10 +118,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
     t.test(
       'turn pretty stack into tap stack, relative external path',
       t => {
-        const c = new CallSiteLike(
-          null,
-          '/a/b/c:1:2 (/a/b/d/c.ts:420:69)',
-        )
+        const c = new CallSiteLike(null, '/a/b/c:1:2 (/a/b/d/c.ts:420:69)')
         t.equal(c.fileName, '/a/b/d/c.ts')
         t.equal(c.generated?.fileName, '/a/b/c')
         const j = c.toString(true)
@@ -158,10 +146,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       c.cwd = cwd
       t.equal(c.cwd, cwd)
       t.equal(c.fileName, 'test/fixtures/capture.ts')
-      t.equal(
-        c.absoluteFileName,
-        resolve(cwd, 'test/fixtures/capture.ts'),
-      )
+      t.equal(c.absoluteFileName, resolve(cwd, 'test/fixtures/capture.ts'))
       t.equal(c.generated, undefined)
       t.matchOnly(c.toJSON(), {
         fileName: 'test/fixtures/capture.ts',
@@ -452,20 +437,13 @@ for (const [dialect, CallSiteLike] of Object.entries({
       t.equal(c.cwd, c.evalOrigin?.cwd, 'eo has same cwd initially')
       c.cwd = dirname(__dirname)
       t.equal(c.cwd, c.evalOrigin?.cwd, 'eo has same cwd after set')
-      t.equal(
-        c.absoluteFileName,
-        null,
-        'no filename, no abs filename',
-      )
+      t.equal(c.absoluteFileName, null, 'no filename, no abs filename')
       t.end()
     })
 
     t.test('relativizing path outside of cwd returns abs', t => {
       const p = resolve('/a/b/c')
-      const c = new CallSiteLike(
-        null,
-        `    at Type.method (${p}:420:69)`,
-      )
+      const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
       c.cwd = process.cwd()
       t.equal(c.fileName, p)
       t.equal(c.absoluteFileName, p)
@@ -474,10 +452,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
 
     t.test('use typeName as functionName if needed', t => {
       const p = resolve('/a/b/c')
-      const c = new CallSiteLike(
-        null,
-        `    at Type.method (${p}:420:69)`,
-      )
+      const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
       // missing functionName only happens when loading from an actual
       // CallSite object, so simulate it here for convenience
       c.functionName = null
@@ -487,10 +462,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
 
     t.test('<anonymous> method name', t => {
       const p = resolve('/a/b/c')
-      const c = new CallSiteLike(
-        null,
-        `    at Type.method (${p}:420:69)`,
-      )
+      const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
       // missing functionName only happens when loading from an actual
       // CallSite object, so simulate it here for convenience
       c.functionName = null
