@@ -10,7 +10,9 @@ echo "tapjs bootstrap $(uname -a)" >&2
 # install all the dev deps from the root package
 npm install --no-workspaces
 # https://github.com/netlify/cli/issues/6731
-find node_modules -name npm-shrinkwrap.json | xargs rm
+find node_modules -name npm-shrinkwrap.json | while read WRAP; do
+  rm "$WRAP"
+done
 git checkout package-lock.json
 npm install --no-workspaces
 
