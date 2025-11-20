@@ -40,5 +40,6 @@ jobs:
           TAP_TYPECHECK: '0'
           TAP_TIMEOUT: '0'
           TAP_COLOR: '1'
+          TAP_REPORTER: 'dot'
         run: |
-          npm test -ws --color=always -- -Rdot
+          npm test -ws --color=always
