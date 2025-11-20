@@ -16,7 +16,7 @@ judge of test completeness. Code coverage is thus the "test for
 the tests", verifying that the tests are in fact testing the
 code. Nothing is perfect, and it is of course possible to write
 bad tests with full code coverage, but _lacking_ test coverage
-virtually gaurantees that tests are inadequate.
+virtually guarantees that tests are inadequate.
 
 As the saying goes, seatbelts don't make you immortal, but
 they're still a good idea.
@@ -31,6 +31,32 @@ test failure. If code coverage is complete, no coverage report is
 generated. If it is incomplete, or if no coverage is generated at
 all, then a report is printed and the process exits with an error
 status code.
+
+For those of you who do not wish to subscribe to the 100% coverage or
+fail philosophy, you can set minimum code coverage thresholds
+for statements, branches, functions, and lines. The default will be 100
+for any coverage threshold that is not set explicitly.
+
+Minimum coverage can be set via configuration files:
+
+```
+statements: 90
+branches: 90
+functions: 90
+lines: 90
+```
+
+Minimum coverage can be set via command line switches:
+
+```.shell
+tap --statements=90 --branches=90 --functions=90 --lines=90
+```
+
+In the following example, functions and lines will have the
+default of 100 because they are not explicitly set.
+```.shell
+tap --statements=90 --branches=90
+```
 
 ## Reporting Coverage
 
