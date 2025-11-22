@@ -358,6 +358,7 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     if (
+      diags &&
       typeof diags.duration_ms === 'number' &&
       this.#current.time === null
     ) {
