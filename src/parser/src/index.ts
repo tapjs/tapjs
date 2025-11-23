@@ -349,6 +349,7 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     let diags: any
     try {
       diags = yaml.parse(yamlish)
+      if (!diags) return
     } catch (er) {
       this.nonTap(
         this.#yind + '---\n' + yamlish + this.#yind + '...\n',
