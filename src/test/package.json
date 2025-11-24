@@ -35,6 +35,7 @@
     "generate-tap-test-class": "dist/esm/build.mjs"
   },
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     ".": {
@@ -128,13 +129,18 @@
     "typecheck": false,
     "coverage-map": "map.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/test"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/test#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "tapjs plugin"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
   "nx": {
     "implicitDependencies": [
       "!@tapjs/core",
@@ -156,7 +162,6 @@
       "!@tapjs/worker"
     ]
   },
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }

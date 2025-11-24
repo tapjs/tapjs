@@ -15,6 +15,7 @@
   "bin": {
     "tap-run": "dist/esm/index.js"
   },
+  "module": "./dist/esm/index.js",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -75,6 +76,15 @@
     "typecheck": false,
     "coverage-map": "map.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/run"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/run#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "tapjs",
     "runner",
@@ -83,11 +93,6 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }

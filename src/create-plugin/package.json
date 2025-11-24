@@ -40,15 +40,20 @@
   "tap": {
     "typecheck": false
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/create-plugin"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/create-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "tapjs plugin"
   ],
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
   },
   "engines": {
     "node": "20 || >=22"

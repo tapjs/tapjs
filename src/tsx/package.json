@@ -13,6 +13,7 @@
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
@@ -61,10 +62,18 @@
   "tap": {
     "typecheck": false
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/tsx"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/tsx#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "tapjs plugin"
   ],
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }

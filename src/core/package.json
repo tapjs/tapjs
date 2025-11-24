@@ -12,6 +12,7 @@
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
@@ -69,9 +70,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/core"
   },
-  "module": "./dist/esm/index.js",
+  "homepage": "https://github.com/tapjs/tapjs/src/core#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "engines": {
     "node": "20 || >=22"
   }

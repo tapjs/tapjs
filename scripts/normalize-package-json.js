@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
+import { dirname, relative } from 'path'
 const files = process.argv.slice(2)
 const root = JSON.parse(
   readFileSync(
@@ -16,6 +17,7 @@ const sortObj = o =>
 
 for (const f of files) {
   const pkg = JSON.parse(readFileSync(f, 'utf8'))
+  const rel = dirname(relative(process.cwd(), f))
   const {
     name,
     version,
@@ -26,6 +28,7 @@ for (const f of files) {
     bin,
     main,
     types,
+    module,
     exports,
     files,
     scripts,
@@ -35,6 +38,9 @@ for (const f of files) {
     peerDependencies,
     tap,
     engines: _,
+    repository: __,
+    homepage: ___,
+    bugs: ____,
     ...rest
   } = pkg
   writeFileSync(
@@ -48,6 +54,7 @@ for (const f of files) {
         type,
         bin,
         main,
+        module,
         types,
         exports,
         files,
@@ -58,6 +65,15 @@ for (const f of files) {
         devDependencies: sortObj(devDependencies),
         peerDependencies: sortObj(peerDependencies),
         tap,
+        repository: {
+          type: 'git',
+          url: 'git@github.com:tapjs/tapjs',
+          path: rel,
+        },
+        homepage: `https://github.com/tapjs/tapjs/${rel}#readme`,
+        bugs: {
+          url: 'https://github.com/tapjs/tapjs/issues',
+        },
         ...rest,
         engines: root.engines,
       },

@@ -27,6 +27,15 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/docs"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/docs#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "private": true,
   "engines": {
     "node": "20 || >=22"

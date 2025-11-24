@@ -14,6 +14,7 @@
     "tap": "dist/esm/run.mjs"
   },
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
@@ -68,7 +69,15 @@
     "typecheck": false,
     "coverage-map": "map.js"
   },
-  "homepage": "http://www.node-tap.org/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/tap"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/tap#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "assert",
     "tap",
@@ -82,11 +91,6 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }

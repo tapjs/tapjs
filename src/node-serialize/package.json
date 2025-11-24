@@ -11,6 +11,7 @@
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     ".": {
@@ -53,6 +54,15 @@
     "typecheck": false,
     "coverage-map": "map.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/node-serialize"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/node-serialize#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "v8",
     "error",
@@ -66,11 +76,6 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }

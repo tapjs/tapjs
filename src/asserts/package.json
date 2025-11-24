@@ -11,6 +11,7 @@
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
@@ -52,17 +53,21 @@
     "coverage-map": "./map.js",
     "typecheck": false
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/asserts"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/asserts#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "tapjs plugin"
   ],
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }

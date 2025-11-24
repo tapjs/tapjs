@@ -14,6 +14,7 @@
     "tap-parser": "bin/cmd.cjs"
   },
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
@@ -53,16 +54,20 @@
     "coverage-map": "map.js",
     "typecheck": false
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tapjs/tapjs",
+    "path": "src/parser"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/parser#readme",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
   "keywords": [
     "tap",
     "test",
     "parser"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tapjs.git"
-  },
-  "module": "./dist/esm/index.js",
   "engines": {
     "node": "20 || >=22"
   }
