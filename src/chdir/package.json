@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/chdir",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "a built-in tap extension for t.chdir()",
   "tshy": {
     "main": true,
@@ -41,7 +41,7 @@
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",
   "peerDependencies": {
-    "@tapjs/core": "4.1.0"
+    "@tapjs/core": "4.2.0"
   },
   "tap": {
     "typecheck": false

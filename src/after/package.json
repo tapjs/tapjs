@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/after",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "a built-in tap extension for t.after() and t.teardown()",
   "tshy": {
     "main": true,
@@ -44,7 +44,7 @@
     "is-actual-promise": "^1.0.1"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.1.0"
+    "@tapjs/core": "4.2.0"
   },
   "tap": {
     "typecheck": false
