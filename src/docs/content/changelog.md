@@ -5,6 +5,11 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.2
+
+- Add support for fetching and building when a private npm
+  registry is in use.
+
 ## 21.1
 
 - Add support for using node's `--experimental-strip-types` (or
