@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:tapjs/tapjs",
+    "url": "git+ssh://git@github.com:tapjs/tapjs",
     "path": "src/stack"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/stack#readme",
