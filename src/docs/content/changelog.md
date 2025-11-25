@@ -5,6 +5,12 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.3
+
+- Add coverage-limit options `statements`, `branches`, `lines`,
+  and `functions`, to enforce a minimum limit less than 100%
+  coverage.
+
 ## 21.2
 
 - Add support for fetching and building when a private npm
