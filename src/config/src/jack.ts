@@ -217,6 +217,26 @@ export default jack({
     and positional arguments.`,
   )
 
+  .heading('tap node-options', 3, { pre: true })
+  .description(
+    `Print the set of loaders and other node arguments in use, so that
+    tests can be run as a "normal" node program more easily, even if they
+    rely on import mocking, TypeScript, or other loader-provided behaviors.
+
+    For example:
+
+    \`\`\`
+    NODE_OPTIONS="$(tap node-options)" node test/some.test.js
+
+    # or, even:
+
+    export NODE_OPTIONS="$(tap node-options)"
+    node test/some.test.js
+    node test/other.test.js
+    \`\`\`
+    `
+  )
+
   .heading('tap debug', 3, { pre: true })
   .description(
     `Output various debugging information, useful when posting issues

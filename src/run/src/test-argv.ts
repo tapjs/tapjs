@@ -8,6 +8,7 @@ import {
 } from '@tapjs/test'
 import module from 'node:module'
 import { resolveImport } from 'resolve-import'
+import { argvToNodeOptions, nodeOptionsToArgv } from 'node-options-to-argv'
 
 // if we have Module.register(), then use --import wherever possible
 const useImport = !!(module as { register?: (...a: any) => any }).register
@@ -48,12 +49,20 @@ const always = [
 ]
 
 // used by the `tap node-options` command
-export const nodeOptions = (config: LoadedConfig) => [
-  ...always,
-  ...execArgv(config.values),
-]
+// include the current NODE_OPTIONS and execArgv, and remove any
+// duplicates.
+export const nodeOptions = (config: LoadedConfig) =>
+  argvToNodeOptions([
+    ...new Set([
+      ...process.execArgv,
+      ...nodeOptionsToArgv(process.env.NODE_OPTIONS ?? ''),
+      ...always,
+      ...execArgv(config.values),
+    ]),
+  ])
 
 export const testArgv = (config: LoadedConfig) => [
-  ...nodeOptions(config),
+  ...always,
+  ...execArgv(config.values),
   ...(config.get('node-arg') || []),
 ]

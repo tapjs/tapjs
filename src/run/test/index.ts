@@ -97,7 +97,7 @@ t.test('node-options', async t => {
   const logs = t.capture(console, 'log').args
   await t.mockImport('../dist/esm/index.js', {
     '../dist/esm/test-argv.js': {
-      nodeOptions: () => ['a " b', 'c d', 'e'],
+      nodeOptions: () => '"a \\" b" "c d" "e"',
     },
   })
   t.strictSame(logs(), [['"a \\" b" "c d" "e"']])

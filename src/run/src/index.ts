@@ -32,12 +32,7 @@ switch (mainCommand) {
     break
 
   case 'node-options':
-    console.log(
-      (await import('./test-argv.js'))
-        .nodeOptions(config)
-        .map(o => `"${o.replace(/"/g, '\\"')}"`)
-        .join(' '),
-    )
+    console.log((await import('./test-argv.js')).nodeOptions(config))
     break
 
   case 'run':

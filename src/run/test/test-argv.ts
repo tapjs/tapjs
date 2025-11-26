@@ -54,7 +54,7 @@ t.test('mix of loaders and imports', async t => {
 })
 
 t.test('with --node-arg', async t => {
-  const { testArgv } = await t.mockImport<
+  const { testArgv, nodeOptions } = await t.mockImport<
     typeof import('../dist/esm/test-argv.js')
   >('../dist/esm/test-argv.js', mocks)
   t.strictSame(
@@ -69,6 +69,21 @@ t.test('with --node-arg', async t => {
       'b',
     ],
   )
+
+  const expectOptions =
+    /"--import=file:\/\/path\/to\/blah\/import" "--loader=file:\/\/path\/to\/no-import\/loader" "--no-warnings" "--import=file:\/\/path\/to\/@tapjs\/processinfo\/import"$/
+  t.test('nodeOptions with existing NODE_OPTIONS', async t => {
+    t.intercept(process, 'env', { value: { NODE_OPTIONS: '--foo=bar' } })
+    const no = nodeOptions({ values: {} } as unknown as LoadedConfig)
+    t.match(no, /--foo=bar/)
+    t.match(no, expectOptions)
+  })
+  t.test('nodeOptions withOut existing NODE_OPTIONS', async t => {
+    t.intercept(process, 'env', { value: {} })
+    const no = nodeOptions({ values: {} } as unknown as LoadedConfig)
+    t.notMatch(no, /--foo=bar/)
+    t.match(no, expectOptions)
+  })
 })
 
 t.test('all imports, no loader', async t => {
