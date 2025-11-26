@@ -18,6 +18,10 @@ useful thing to be able to do, because being able to isolate the
 source of a problem is a powerful tool when debugging, and the
 whole point of tests is to find and fix problems.
 
+Of course, if you rely on functionality provided by loaders, then
+this is not as easy. But even with that caveat, tap endeavors to
+make your test environment as "normal" as possible.
+
 ## Loaders
 
 If you write your tests in [TypeScript](./plugins/typescript.md),

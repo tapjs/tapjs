@@ -14,27 +14,36 @@ Software testing is a software and user experience design
 challenge that balances on the intersection of many conflicting
 demands.
 
-Node-tap is based on [my](http://izs.me) opinions about how a
-test framework should work, and what it should let you do. I do
-_not_ have any opinion about whether or not you share those
-opinions. If you do share them, you will probably enjoy this test
-library.
+Node-tap is based on [my opinions about how a test framework
+should
+work](https://blog.izs.me/2023/09/software-testing-assertion-styles/),
+and what it should empower you to do. I do _not_ have any opinion
+about whether or not you share those opinions. If you do share
+them, you will probably enjoy this test library.
 
 Here are the design principles that shape this test framework.
 
-### Test files are "normal" programs
+### Test files are "normal" programs (mostly)
 
 Any TAP test can be run directly as a plain old JavaScript
-program. Of course, if it's written in TypeScript, you'll
-have to run it with a TypeScript loader, but otherwise, they
-should be just like normal programs that run in a normal
-environment.
+program [(with some caveats)](/environment/).
+
+Of course, if the test is written in
+[TypeScript](/plugins/typescript/), or if it relies on [mocking
+imports](/plugins/mock/), then you may have to run it with a
+loader because that's the only way to do certain things in Node.
+But otherwise, they should be just like normal programs that run
+in a normal environment, to the greatest degree possible. The
+more tests diverge from the real platform, the more difficult
+they are to reason about.
 
 The [runner](/cli) is a good way to run tests, but it's optional.
 Tests don't execute in a special simulated memory space with
 injected globals, and so on. Because each test runs in its own
 process, there's no chance of tests becoming dependent on one
 another's leaked globals or causing other confusing situations.
+The runner is essentially just looking at the output, and
+summarizing it in a report.
 
 ### Tests should fun and helpful
 
@@ -119,12 +128,13 @@ isn't very useful. It should be just enough to know what happened
 and easily diagnose any problems, and otherwise fairly quiet.
 
 TAP tries to show you exactly what you need to see, and nothing
-else. Low information output has been trimmed down as much as possible.
-Coverage information is only shown when it has something relevant
-to say. Stack traces have noisy internals trimmed out, so it's
-easier to see exactly where in _your_ code the problem happened.
-Source maps are always enabled, because you need to know where
-the actual code is, not just which built artifact failed.
+else. Low information output has been trimmed down as much as
+possible. Coverage information is only shown when it has
+something relevant to say. Stack traces have noisy internals
+trimmed out, so it's easier to see exactly where in _your_ code
+the problem happened. Source maps are always enabled, because you
+need to know where the actual code is, not just which built
+artifact failed.
 
 And if the default reporter isn't terse enough for your liking,
 try `tap -Rterse`.
@@ -143,8 +153,8 @@ should make either case easy.
 ### Test reporting should be useful, extensible, and accessible
 
 The [raw test output](./tap-format.md) is machine-parseable and
-human-intelligible, and the reporter consumes that test output
-to turn it into a [pretty summarized report](/reporter.md). This
+human-intelligible, and the reporter consumes that test output to
+turn it into a [pretty summarized report](/reporter.md). This
 means that test data can be stored and parsed later, dug into for
 additional details, and so on.
 
