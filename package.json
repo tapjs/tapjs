@@ -103,7 +103,10 @@
     "postv": "npm run deploy:docs",
     "pj": "node scripts/normalize-package-json.js src/*/package.json"
   },
-  "repository": "https://github.com/tapjs/tapjs",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tapjs/tapjs.git"
+  },
   "license": "BlueOak-1.0.0",
   "engines": {
     "node": "20 || >=22"

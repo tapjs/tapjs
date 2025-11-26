@@ -59,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:tapjs/tapjs",
+    "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/config"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/config#readme",

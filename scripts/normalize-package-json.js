@@ -67,7 +67,7 @@ for (const f of files) {
         tap,
         repository: {
           type: 'git',
-          url: 'git+ssh://git@github.com:tapjs/tapjs',
+          url: 'git+ssh://git@github.com/tapjs/tapjs.git',
           path: rel,
         },
         homepage: `https://github.com/tapjs/tapjs/${rel}#readme`,
