@@ -34,7 +34,9 @@ export const plugin: TapPlugin<{}> = () => {
   }
 
   if (env.TAP_TYPE_STRIP_ONLY === '1') {
-    env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} --no-warnings ${
+    // this stopped being a warning in node v24
+    const nw = nv <= 23 ? '--no-warnings ' : ''
+    env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} ${nw}${
       nv === 22 ? '--experimental-strip-types' : ''
     }`.trim()
     return {}
@@ -200,9 +202,9 @@ export const config = {
                   On Node 22, adds the \`--experimental-strip-types\` flag. On
                   Node 23 and higher, this is supported by default.
 
-                  Adds a \`--no-warnings\` flag on all Node versions, to avoid
-                  the prevalance of warnings about type stripping being an
-                  experimental feature.
+                  Adds a \`--no-warnings\` flag on Node versions 22 and 23, to
+                  avoid warnings about type stripping being an experimental
+                  feature.
     `,
   },
 }

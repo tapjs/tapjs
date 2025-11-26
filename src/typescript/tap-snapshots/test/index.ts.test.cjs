@@ -45,9 +45,9 @@ Object {
                         On Node 22, adds the \`--experimental-strip-types\` flag. On
                         Node 23 and higher, this is supported by default.
       
-                        Adds a \`--no-warnings\` flag on all Node versions, to avoid
-                        the prevalance of warnings about type stripping being an
-                        experimental feature.
+                        Adds a \`--no-warnings\` flag on Node versions 22 and 23, to
+                        avoid warnings about type stripping being an experimental
+                        feature.
           
     ),
     "type": "boolean",

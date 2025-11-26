@@ -162,4 +162,20 @@ t.test('type strip only', async t => {
     )
     t.equal(process.env.TAP_TYPE_STRIP_ONLY, '1', 'tso enabled')
   })
+
+  t.test('supported without no-warning flag on 24', async t => {
+    t.intercept(process.versions, 'node', { value: 24 })
+    process.env.NODE_OPTIONS = 'hello'
+    const { plugin } =
+      await t.mockImport<typeof import('../src/index.js')>(
+        '../src/index.js',
+      )
+    t.strictSame(plugin({} as unknown as core.TestBase), {})
+    t.equal(
+      process.env.NODE_OPTIONS,
+      `hello`.trim(),
+      'updated node options',
+    )
+    t.equal(process.env.TAP_TYPE_STRIP_ONLY, '1', 'tso enabled')
+  })
 })
