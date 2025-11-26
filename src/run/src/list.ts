@@ -129,6 +129,10 @@ export const list = async (
 
   const files = [...entries].map(p =>
     typeof p === 'string' ? p : p.relativePosix(),
+  ).sort(
+    config.get('shuffle') ?
+      () => Math.random() - 0.5
+    : (a, b) => a.localeCompare(b, 'en'),
   )
   if (mainCommand === 'list') {
     if (foundEntries) {
@@ -145,6 +149,7 @@ export const list = async (
       }
     }
   }
+
   return files
 }
 

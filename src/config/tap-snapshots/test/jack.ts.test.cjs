@@ -453,6 +453,14 @@ Object {
     ),
     "type": "boolean",
   },
+  "shuffle": Object {
+    "description": String(
+      Deliberately randomize the order of test files.
+      
+      Note that test ordering is already nondeterministic, due to tests running in parallel, but this shuffles them even more, to ensure that there is virtually no way any tests can come to rely on one another's behavior.
+    ),
+    "type": "boolean",
+  },
   "statements": Object {
     "default": 100,
     "description": "What % of statements must be covered?",

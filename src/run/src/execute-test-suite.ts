@@ -141,7 +141,11 @@ export const executeTestSuite = async <
 
   outputFile(t, config, hasReporter)
 
-  const sorted = files.sort((a, b) => a.localeCompare(b, 'en'))
+  const sorted = files.sort(
+    config.get('shuffle') ?
+      () => Math.random() - 0.5
+    : (a, b) => a.localeCompare(b, 'en'),
+  )
   for (const f of sorted) {
     const file =
       f === '-' || f === '/dev/stdin' ?

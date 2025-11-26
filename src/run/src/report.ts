@@ -187,7 +187,7 @@ const checkCoverage = async (report: Report, config: LoadedConfig) => {
     return
   }
 
-  // TODO: Only comment lack of coverage if not using the text reporter, 
+  // TODO: Only comment lack of coverage if not using the text reporter,
   // because that makes it pretty obvious where the shortcomings are already.
   for (const th of thresholds) {
     const coverage = Number(summary[th].pct) || 0

@@ -808,6 +808,16 @@ export default jack({
                     config root, even if specified on the cli.`,
     },
   })
+  .flag({
+    shuffle: {
+      description: `Deliberately randomize the order of test files.
+
+                    Note that test ordering is already nondeterministic, due
+                    to tests running in parallel, but this shuffles them even
+                    more, to ensure that there is virtually no way any tests
+                    can come to rely on one another's behavior.`,
+    },
+  })
 
 
   .heading('Tracking Output for Later Consumption')

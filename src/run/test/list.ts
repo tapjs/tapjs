@@ -87,9 +87,11 @@ t.test('list some test files', async t => {
       .split('\n')
       .sort((a: string, b: string) => a.localeCompare(b, 'en'))
 
-  t.test('no args, find files normally', async t => {
+  const unsortedLog = () => logs.args()[0]?.[0].trim().split('\n')
+
+  t.test('no args, find files normally, print sorted', async t => {
     await list([], mainConfig.config)
-    t.strictSame(sortedLog(), [
+    t.strictSame(unsortedLog(), [
       'foo.spec.mts',
       'src/index.spec.js',
       'src/test.js',
@@ -137,6 +139,28 @@ t.test('list some test files', async t => {
       mainConfig.config,
     )
     t.strictSame(sortedLog(), ['-', '/dev/stdin', 'src/test.spec.js'])
+  })
+
+  t.test('shuffle the list', async t => {
+    const orig = mainConfig.config.get
+    t.capture(
+      mainConfig.config,
+      'get',
+      (k: Parameters<typeof mainConfig.config.get>[0]) => {
+        if (k === 'shuffle') return true
+        return orig.call(mainConfig.config, k)
+      },
+    )
+    await list(['src/*.spec.js', 'test/*.*js'], mainConfig.config)
+    const log = unsortedLog()
+    const sorted = [
+      'src/index.spec.js',
+      'src/test.spec.js',
+      'test/foo.cjs',
+      'test/foo.mjs',
+    ]
+    t.strictSame(new Set(log), new Set(sorted), 'got expected values')
+    t.notSame(log, sorted, 'values should not be sorted')
   })
 
   t.test('use default include if not in config', async t => {
