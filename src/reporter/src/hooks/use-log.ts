@@ -72,6 +72,7 @@ export const useLog = (
     updateLogs(newLogs)
   }
   const tests = useSubtests(test, 'all')
+  const [parsersSeen, updateParsersSeen] = useState<Parser[]>([])
 
   useCleanup(
     cleanup => {
@@ -118,8 +119,8 @@ export const useLog = (
         if (config.get('comments')) {
           const onChild = (p: Parser) => {
             cleanup.push(listenCleanup(p, 'child', onChild))
-            cleanup.push(
-              listenCleanup(p, 'comment', c => {
+            if (!parsersSeen.includes(p)) {
+              p.on('comment', c => {
                 // just a precaution, we don't actually listen in time
                 // to get these, because we're not hooking onto the parser
                 // until it's already been emitted.
@@ -131,8 +132,9 @@ export const useLog = (
                   fd: 0,
                   text: c,
                 })
-              }),
-            )
+              })
+              updateParsersSeen([...parsersSeen, p])
+            }
           }
           onChild(test.parser)
         }
