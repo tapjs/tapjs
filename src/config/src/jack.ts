@@ -267,7 +267,7 @@ export default jack({
     `,
   )
 
-  .heading('Basic Options')
+  .heading('Plugins and Reporters')
   .optList({
     plugin: {
       hint: 'module',
@@ -388,6 +388,23 @@ export default jack({
       description: `Do not automatically open html coverage reports in the
                     system default web browser`,
     },
+  })
+
+  .heading('Coverage Options')
+  .description(
+    `Tap is opinionated about coverage. Code coverage is good, and full
+     coverage is ideal. Coverage increases the confidence that you have in
+     your tests, and allows them to work for you more reliably.
+
+     However, of course, we live in the real world, and sometimes regrettable
+     compromises must be made.
+
+     Coverage tracking and enforcement should only be reduced or disabled when
+     test coverage is being tracked and monitored by some other mechanism.
+    `
+  )
+
+  .flag({
     'show-full-coverage': {
       description: `Show the \`100\` lines in the default \`text\` coverage
                     reporter for every file that has full coverage. Defaults to
@@ -450,11 +467,7 @@ export default jack({
 
                     If coverage is generated, but incomplete, then the process
                     will exit in error, unless \`allow-incomplete-coverage\`
-                    is also set.
-
-                    WARNING: tests that do not produce coverage are
-                    untrustworthy. This should only be used when coverage is
-                    being generated and tracked by some other mechanism.`,
+                    is also set.`,
     },
     'allow-incomplete-coverage': {
       description: `Suppress the error exit if the test run produces incomplete
@@ -464,11 +477,7 @@ export default jack({
                     generated.
 
                     If no coverage is generated, then the process will exit in
-                    error, unless \`allow-empty-coverage\` is also set.
-
-                    WARNING: tests that produce incomplete coverage are
-                    untrustworthy. This should only be used when coverage is
-                    being generated and tracked by some other mechanism.`,
+                    error, unless \`allow-empty-coverage\` is also set.`,
     },
     'disable-coverage': {
       description: `Do not generate code coverage information for the test run.
@@ -476,17 +485,13 @@ export default jack({
                     This will always result in a \`# No coverage generated\`
                     message being printed. If this flag is set, then
                     \`--allow-empty-coverage\` will default to \`true\`,
-                    because we do not expect to get any coverage.
-
-                    WARNING: tests that do not produce coverage are
-                    untrustworthy. This should only be used when coverage is
-                    being generated and tracked by some other mechanism.`,
+                    because we do not expect to get any coverage.`,
     },
   })
 
   .num({
     statements: {
-      description: `what % of statements must be covered?`,
+      description: `What % of statements must be covered?`,
       hint: 'n',
       validate: (n: unknown) => { 
         if (typeof n !== 'number' || n < 0 || n > 100) {
@@ -497,7 +502,7 @@ export default jack({
       default: 100
     },
     branches: {
-      description: `what % of branches must be covered?`,
+      description: `What % of branches must be covered?`,
       hint: 'n',
       validate: (n: unknown) => { 
         if (typeof n !== 'number' || n < 0 || n > 100) {
@@ -508,7 +513,7 @@ export default jack({
       default: 100
     },
     lines: {
-      description: `what % of lines must be covered?`,
+      description: `What % of lines must be covered?`,
       hint: 'n',
       validate: (n: unknown) => { 
         if (typeof n !== 'number' || n < 0 || n > 100) {
@@ -519,7 +524,7 @@ export default jack({
       default: 100
     },
     functions: {
-      description: `what % of functions must be covered?`,
+      description: `What % of functions must be covered?`,
       hint: 'n',
       validate: (n: unknown) => { 
         if (typeof n !== 'number' || n < 0 || n > 100) {
@@ -531,16 +536,8 @@ export default jack({
     }
   })
 
+  .heading('Test Runner Output Details')
   .flag({
-    bail: {
-      short: 'b',
-      description: 'Bail out on first failure',
-    },
-    'no-bail': {
-      short: 'B',
-      description: 'Do not bail out on first failure (default)',
-    },
-
     comments: {
       description: 'Print all tap comments to process.stderr',
     },
@@ -553,6 +550,43 @@ export default jack({
       by default.
 
       Note: this usually makes test output QUITE noisy.`,
+    },
+    color: {
+      short: 'c',
+      description: 'Use colors (Default for TTY)',
+    },
+    'no-color': {
+      short: 'C',
+      description: 'Do not use colors (Default for non-TTY)',
+    },
+  })
+  .flag({
+    diag: {
+      description: `Set to show diagnostics by default for both passing and
+                    failing tests. If not set, then diagnostics are printed by
+                    default for failing tests, and not for passing tests.`,
+    },
+    'no-diag': {
+      description: `Do not show diagnostics by default for passing or failing
+                    tests. If not set, then diagnostics are printed by default
+                    for failing tests, and not for passing tests.`,
+    },
+  })
+
+  .heading('Controlling Which Tests Run, and How')
+  .description(
+    `These configuration options tell the runner which test suites to include
+     in the test run, what counts as a "failure", and so on.
+     `
+  )
+  .flag({
+    bail: {
+      short: 'b',
+      description: 'Bail out on first failure',
+    },
+    'no-bail': {
+      short: 'B',
+      description: 'Do not bail out on first failure (default)',
     },
 
     'fail-todo': {
@@ -570,57 +604,6 @@ export default jack({
 
                     Only relevant when the @tapjs/filter plugin is enabled.`,
     },
-
-    color: {
-      short: 'c',
-      description: 'Use colors (Default for TTY)',
-    },
-    'no-color': {
-      short: 'C',
-      description: 'Do not use colors (Default for non-TTY)',
-    },
-
-    changed: {
-      short: 'n',
-      description: `Only run tests for files that have changed since the last
-                    run.
-
-                    If no prior test run data exists, then all default files
-                    are run, as if --changed was not specified.`,
-    },
-  })
-
-  .opt({
-    save: {
-      short: 's',
-      hint: 'file',
-      description: `If <file> exists, then it should be a line- delimited list
-                    of test files to run. If <file> is not present, then all
-                    command-line positional arguments are run.
-
-                    After the set of test files are run, any failed test files
-                    are written back to the save file.
-
-                    This way, repeated runs with -s<file> will re-run failures
-                    until all the failures are passing, and then once again run
-                    all tests.
-
-                    Its a good idea to .gitignore the file used for this
-                    purpose, as it will churn a lot.`,
-    },
-  })
-
-  .flag({
-    diag: {
-      description: `Set to show diagnostics by default for both passing and
-                    failing tests. If not set, then diagnostics are printed by
-                    default for failing tests, and not for passing tests.`,
-    },
-    'no-diag': {
-      description: `Do not show diagnostics by default for passing or failing
-                    tests. If not set, then diagnostics are printed by default
-                    for failing tests, and not for passing tests.`,
-    },
   })
 
   .num({
@@ -637,90 +620,14 @@ export default jack({
     },
   })
 
-  .optList({
-    files: {
-      hint: 'filename',
-      description: `Alternative way to specify test set rather than using
-                    positional arguments. Supported as an option so that
-                    test file arguments can be specified in .taprc and
-                    package.json files.`,
-    },
-  })
+  .flag({
+    changed: {
+      short: 'n',
+      description: `Only run tests for files that have changed since the last
+                    run.
 
-  .heading('Test Running Options')
-  .description(
-    `Tap runs multiple test files in parallel. This generally
-     results in a speedier test run, but can also cause problems if
-     your test files are not designed to be independent from one
-     another.
-
-     The \`before\` module, if specified, will always run before any tests,
-     and the \`after\` module will be loaded after the entire test run is
-     complete.
-    `,
-  )
-
-  .num({
-    jobs: {
-      hint: 'n',
-      short: 'j',
-      default: jobs,
-      description: `Run up to \`n\` test files in parallel.
-
-                    By default, this will be set based on the number of CPUs
-                    on the system.
-
-                    Set --jobs=1 to disable parallelization entirely.`,
-    },
-  })
-
-  .opt({
-    before: {
-      hint: 'module',
-      description: `A node program to be run before test files are executed.
-
-                    Exiting with a non-zero status code or a signal will fail
-                    the test run and exit the process in error.
-
-                    Relative \`before\` paths are resolved against the project
-                    config root, even if specified on the cli.`,
-    },
-
-    after: {
-      hint: 'module',
-      description: `A node program to be executed after tests are finished.
-
-                    This will be run even if a test in the series fails with
-                    a bailout, but it will *not* be run if a --before script
-                    fails.
-
-                    Exiting with a non-zero status code or a signal will fail
-                    the test run and exit the process in error.
-
-                    Relative \`after\` paths are resolved against the project
-                    config root, even if specified on the cli.`,
-    },
-
-    'output-file': {
-      hint: 'filename',
-      short: 'o',
-      description: `Send the raw TAP output to the specified file. Reporter
-                    output will still be printed to stdout, but the file will
-                    contain the raw TAP for later replay or analysis.`,
-    },
-
-    'output-dir': {
-      hint: 'dir',
-      short: 'd',
-      description: `Send the raw TAP output to the specified directory. A
-                    separate .tap file will be created for each test file that
-                    is run. Reporter output will still be printed to stdout,
-                    but the files will contain the raw TAP for later replay or
-                    analysis.
-
-                    Files will be created to match the folder structure and
-                    filenames of test files run, but with \`.tap\` appended to
-                    the filenames.`,
+                    If no prior test run data exists, then all default files
+                    are run, as if --changed was not specified.`,
     },
   })
 
@@ -793,14 +700,135 @@ export default jack({
                     wish to run tests in these folders, then name the test
                     files on the command line as positional arguments.`,
     },
+  })
 
+  .opt({
+    save: {
+      short: 's',
+      hint: 'file',
+      description: `If <file> exists, then it should be a line- delimited list
+                    of test files to run. If <file> is not present, then all
+                    command-line positional arguments are run.
+
+                    After the set of test files are run, any failed test files
+                    are written back to the save file.
+
+                    This way, repeated runs with -s<file> will re-run failures
+                    until all the failures are passing, and then once again run
+                    all tests.
+
+                    Its a good idea to .gitignore the file used for this
+                    purpose, as it will churn a lot.`,
+    },
+  })
+  .optList({
+    files: {
+      hint: 'filename',
+      description: `Alternative way to specify test set rather than using
+                    positional arguments. Supported as an option so that
+                    test file arguments can be specified in .taprc and
+                    package.json files.`,
+    },
+  })
+
+  .heading('Test Suite Order and Parallelism')
+  .description(
+    `Tap runs multiple test files in parallel. This generally
+     results in a speedier test run, but can also cause problems if
+     your test files are not designed to be independent from one
+     another.
+
+     The \`before\` module, if specified, will always run before any tests,
+     and the \`after\` module will be loaded after the entire test run is
+     complete.
+    `,
+  )
+  .num({
+    jobs: {
+      hint: 'n',
+      short: 'j',
+      default: jobs,
+      description: `Run up to \`n\` test files in parallel.
+
+                    By default, this will be set based on the number of CPUs
+                    on the system.
+
+                    Set --jobs=1 to disable parallelization entirely.`,
+    },
+  })
+
+  .optList({
     serial: {
       hint: 'dir',
       description: `Mark all test files anywhere within the specified
                     directory as serial tests, not to be run in parallel with
                     any other test files.`,
     },
+  })
 
+  .opt({
+    before: {
+      hint: 'module',
+      description: `A node program to be run before test files are executed.
+
+                    Exiting with a non-zero status code or a signal will fail
+                    the test run and exit the process in error.
+
+                    Relative \`before\` paths are resolved against the project
+                    config root, even if specified on the cli.`,
+    },
+
+    after: {
+      hint: 'module',
+      description: `A node program to be executed after tests are finished.
+
+                    This will be run even if a test in the series fails with
+                    a bailout, but it will *not* be run if a --before script
+                    fails.
+
+                    Exiting with a non-zero status code or a signal will fail
+                    the test run and exit the process in error.
+
+                    Relative \`after\` paths are resolved against the project
+                    config root, even if specified on the cli.`,
+    },
+  })
+
+
+  .heading('Tracking Output for Later Consumption')
+  .description(
+    `It is sometimes useful to send raw TAP data to another TAP-consuming
+     program. Note that the most recent test results are always stored in
+     the \`.tap/test-results\` folder for use with \`tap replay\`.
+    `
+  )
+  .opt({
+    'output-file': {
+      hint: 'filename',
+      short: 'o',
+      description: `Send the raw TAP output to the specified file. Reporter
+                    output will still be printed to stdout, but the file will
+                    contain the raw TAP for later replay or analysis.`,
+    },
+
+    'output-dir': {
+      hint: 'dir',
+      short: 'd',
+      description: `Send the raw TAP output to the specified directory. A
+                    separate .tap file will be created for each test file that
+                    is run. Reporter output will still be printed to stdout,
+                    but the files will contain the raw TAP for later replay or
+                    analysis.
+
+                    Files will be created to match the folder structure and
+                    filenames of test files run, but with \`.tap\` appended to
+                    the filenames.`,
+    },
+  })
+
+  .heading('Arguments and Environment')
+
+  .optList({
     'test-arg': {
       hint: 'arg',
       description: `Pass an argument to test files spawned by the tap command
@@ -830,7 +858,7 @@ export default jack({
     },
   })
 
-  .heading('Other Options')
+  .heading('Other Miscellaneous Options')
   .flag({
     debug: { description: 'Turn on debug mode (very noisy)' },
 
@@ -843,7 +871,7 @@ export default jack({
       description: 'Prune empty lines out of the output from child tests',
     },
     'no-omit-whitespace': {
-      description: `Preserve extra empty lines in the output.`,
+      description: `Preserve extra empty lines in the output. (default)`,
     },
 
     versions: {

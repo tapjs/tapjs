@@ -27,8 +27,6 @@ Object {
       The \`# No coverage generated\` message will still be printed.
       
       If coverage is generated, but incomplete, then the process will exit in error, unless \`allow-incomplete-coverage\` is also set.
-      
-      WARNING: tests that do not produce coverage are untrustworthy. This should only be used when coverage is being generated and tracked by some other mechanism.
     ),
     "type": "boolean",
   },
@@ -39,8 +37,6 @@ Object {
       The coverage report showing missing coverage will still be generated.
       
       If no coverage is generated, then the process will exit in error, unless \`allow-empty-coverage\` is also set.
-      
-      WARNING: tests that produce incomplete coverage are untrustworthy. This should only be used when coverage is being generated and tracked by some other mechanism.
     ),
     "type": "boolean",
   },
@@ -62,7 +58,7 @@ Object {
   },
   "branches": Object {
     "default": 100,
-    "description": "what % of branches must be covered?",
+    "description": "What % of branches must be covered?",
     "hint": "n",
     "type": "number",
     "validate": Function validate(n),
@@ -152,8 +148,6 @@ Object {
       Do not generate code coverage information for the test run.
       
       This will always result in a \`# No coverage generated\` message being printed. If this flag is set, then \`--allow-empty-coverage\` will default to \`true\`, because we do not expect to get any coverage.
-      
-      WARNING: tests that do not produce coverage are untrustworthy. This should only be used when coverage is being generated and tracked by some other mechanism.
     ),
     "type": "boolean",
   },
@@ -196,7 +190,7 @@ Object {
   },
   "functions": Object {
     "default": 100,
-    "description": "what % of functions must be covered?",
+    "description": "What % of functions must be covered?",
     "hint": "n",
     "type": "number",
     "validate": Function validate(n),
@@ -261,7 +255,7 @@ Object {
   },
   "lines": Object {
     "default": 100,
-    "description": "what % of lines must be covered?",
+    "description": "What % of lines must be covered?",
     "hint": "n",
     "type": "number",
     "validate": Function validate(n),
@@ -285,7 +279,7 @@ Object {
     "type": "boolean",
   },
   "no-omit-whitespace": Object {
-    "description": "Preserve extra empty lines in the output.",
+    "description": "Preserve extra empty lines in the output. (default)",
     "type": "boolean",
   },
   "node-arg": Object {
@@ -451,7 +445,7 @@ Object {
   },
   "statements": Object {
     "default": 100,
-    "description": "what % of statements must be covered?",
+    "description": "What % of statements must be covered?",
     "hint": "n",
     "type": "number",
     "validate": Function validate(n),
