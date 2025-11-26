@@ -5,6 +5,19 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.4
+
+- Add `tap node-options` command to dump the various loader
+  settings for use in a `NODE_OPTIONS` environment variable, so
+  that tests can be run outside of the runner more easily.
+- Add the `--shuffle` option, to run tests in a random order.
+- Fix a bug where `--comments` were only showing the _first_
+  comment in any given subtest, instead of all of them.
+- Type stripping is no longer a warning on node 24, so remove the
+  `--no-warnings` flag in that case.
+- Organize configuration descriptions into more reasonable
+  categories in the `tap --help` output.
+
 ## 21.3
 
 - Add coverage-limit options `statements`, `branches`, `lines`,
