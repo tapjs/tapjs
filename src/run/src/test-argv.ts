@@ -47,8 +47,13 @@ const always = [
   pi,
 ]
 
-export const testArgv = (config: LoadedConfig) => [
+// used by the `tap node-options` command
+export const nodeOptions = (config: LoadedConfig) => [
   ...always,
   ...execArgv(config.values),
+]
+
+export const testArgv = (config: LoadedConfig) => [
+  ...nodeOptions(config),
   ...(config.get('node-arg') || []),
 ]

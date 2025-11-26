@@ -31,6 +31,15 @@ switch (mainCommand) {
     ;(await import('./replay.js')).replay(args, config)
     break
 
+  case 'node-options':
+    console.log(
+      (await import('./test-argv.js'))
+        .nodeOptions(config)
+        .map(o => `"${o.replace(/"/g, '\\"')}"`)
+        .join(' '),
+    )
+    break
+
   case 'run':
     ;(await import('./run.js')).run(args, config)
     break

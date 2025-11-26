@@ -30,6 +30,7 @@ const commands = new Set([
   'replay',
   'config',
   'debug',
+  'node-options',
 ])
 
 if (!commands.has(mainCommand)) {
