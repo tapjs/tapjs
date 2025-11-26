@@ -36,6 +36,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   /* c8 ignore start */
   const testArgs: string[] = values['test-arg'] || []
   const testEnv: string[] = values['test-env'] || []
+  const covExcludeOpt: string[] = values['coverage-exclude'] || []
   /* c8 ignore stop */
   process.env._TAPJS_PROCESSINFO_CWD_ = config.projectRoot
   process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
@@ -53,7 +54,11 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const saveList = await readSave(config)
   const map = await getCoverageMap(config)
 
-  const covExcludeFiles: (string | undefined)[] = []
+  const covExcludeFiles: string[] = await glob(covExcludeOpt, {
+    cwd: config.projectRoot,
+    absolute: true,
+  })
+
   let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined = undefined
 
   // always exclude the root node_modules from coverage. we don't report
@@ -119,8 +124,10 @@ export const run = async (args: string[], config: LoadedConfig) => {
       // have to register before doing before/after because otherwise
       // that will trigger a pipe to stdout.
       t.register()
-      covExcludeFiles.push(runBefore(t, argv, config))
-      covExcludeFiles.push(runAfter(t, argv, config))
+      const rb = runBefore(t, argv, config)
+      if (rb) covExcludeFiles.push(rb)
+      const ra = runAfter(t, argv, config)
+      if (ra) covExcludeFiles.push(ra)
 
       // don't delete old coverage if only running subset of suites
       if (!config.get('changed') && !saveList.length) {
@@ -134,7 +141,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     async (t, file, files, hasReporter) => {
       if (!_TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_) {
         _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_ = [
-          ...covExcludeFiles.filter(f => typeof f === 'string'),
+          ...covExcludeFiles,
           ...files.map(f => resolve(config.projectRoot, f)),
         ].join('\n')
       }

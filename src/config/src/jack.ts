@@ -457,6 +457,21 @@ export default jack({
     },
   })
 
+  .optList({
+    'coverage-exclude': {
+      hint: 'pattern',
+      description: `A glob pattern relative to the project root, identifying
+                    files that should be excluded from coverage tracking.
+
+                    Note, this should identify the files that you want to not
+                    be coverage-tracked, not the *tests* that would provide
+                    coverage. To prevent a single *test* from providing
+                    coverage, use a \`--coverage-map=<module>\` module that
+                    returns \`null\` for the test in question.
+                   `,
+    }
+  })
+
   .flag({
     'allow-empty-coverage': {
       description: `Suppress the error exit if the test run produces no

@@ -136,6 +136,41 @@ t.test('run with --before and --after', async t => {
   t.matchSnapshot(stdout)
 })
 
+t.test('run with --coverage-exclude', async t => {
+  const cwd = t.testdir({
+    // put it in a timeout so that it can potentially
+    // interleave inappropriately with the tests themselves
+    'before.js': `
+      export default () => console.log('before')
+    `,
+    'after.js': `
+      export default () => console.log('after')
+    `,
+    'test.js': `
+      import b from './before.js'
+      import a from './after.js'
+      b()
+      console.log('TAP version 14')
+      console.log('1..1')
+      console.log('ok')
+      console.error(process.env._TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_)
+      a()
+    `,
+    '.taprc': `
+coverage-exclude:
+  - 'before.*'
+    `,
+    '.git': {},
+  })
+  const { code, signal, stdout, stderr } = await run(cwd, ['test.js'])
+  t.equal(code, 1, 'fail tests, because no coverage')
+  t.equal(signal, null, 'no killer signals')
+  t.notMatch(stderr, 'after.js\n')
+  t.match(stderr, 'before.js\n')
+  t.match(stderr, 'test.js\n')
+  t.matchSnapshot(stdout)
+})
+
 t.test('fail to find all named test files', async t => {
   const cwd = t.testdir({
     'bar.test.js': `

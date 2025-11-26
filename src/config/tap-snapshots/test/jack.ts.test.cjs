@@ -90,6 +90,16 @@ Object {
     "description": "Print all tap comments to process.stderr",
     "type": "boolean",
   },
+  "coverage-exclude": Object {
+    "description": String(
+      A glob pattern relative to the project root, identifying files that should be excluded from coverage tracking.
+      
+      Note, this should identify the files that you want to not be coverage-tracked, not the *tests* that would provide coverage. To prevent a single *test* from providing coverage, use a \`--coverage-map=<module>\` module that returns \`null\` for the test in question.
+    ),
+    "hint": "pattern",
+    "multiple": true,
+    "type": "string",
+  },
   "coverage-map": Object {
     "description": String(
       Provide a path to a node module (esm or cjs) that default exports a single function. That function takes a test file as an argument, and returns an array of files to instrument with coverage when that file is run.

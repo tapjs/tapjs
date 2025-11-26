@@ -53,6 +53,22 @@ after
 
 `
 
+exports[`test/run.ts > TAP > run with --coverage-exclude > must match snapshot 1`] = `
+TAP version 14
+1..1
+# Subtest: test.js
+    before
+    1..1
+    ok
+    after
+ok 1 - test.js # time={TIME}
+
+# No coverage generated
+# { total: 1, pass: 1 }
+# time={TIME}
+
+`
+
 exports[`test/run.ts > TAP > save test failures > fix the failure > must match snapshot 1`] = `
 TAP version 14
 1..1
