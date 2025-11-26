@@ -151,15 +151,26 @@ t.test('list some test files', async t => {
         return orig.call(mainConfig.config, k)
       },
     )
-    await list(['src/*.spec.js', 'test/*.*js'], mainConfig.config)
-    const log = unsortedLog()
-    const sorted = [
-      'src/index.spec.js',
-      'src/test.spec.js',
-      'test/foo.cjs',
-      'test/foo.mjs',
-    ]
-    t.strictSame(new Set(log), new Set(sorted), 'got expected values')
+
+    // it MAY end up sorted once, randomly, but likely not 10 times in a row
+    let log: string[] = []
+    let sorted: string[] = []
+    for (let i = 0; i < 10; i++) {
+      await list(['src/*.spec.js', 'test/*.*js'], mainConfig.config)
+      log = unsortedLog()
+      sorted = [
+        'src/index.spec.js',
+        'src/test.spec.js',
+        'test/foo.cjs',
+        'test/foo.mjs',
+      ]
+      t.strictSame(new Set(log), new Set(sorted), 'got expected values')
+      for (let l = 0; l < log.length; l++) {
+        if (sorted[l] !== log[l]) {
+          break
+        }
+      }
+    }
     t.notSame(log, sorted, 'values should not be sorted')
   })
 

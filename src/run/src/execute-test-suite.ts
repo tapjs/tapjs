@@ -141,17 +141,12 @@ export const executeTestSuite = async <
 
   outputFile(t, config, hasReporter)
 
-  const sorted = files.sort(
-    config.get('shuffle') ?
-      () => Math.random() - 0.5
-    : (a, b) => a.localeCompare(b, 'en'),
-  )
-  for (const f of sorted) {
+  for (const f of files) {
     const file =
       f === '-' || f === '/dev/stdin' ?
         '/dev/stdin'
       : resolve(config.projectRoot, f)
-    const p = execute(t, file, sorted, hasReporter)
+    const p = execute(t, file, files, hasReporter)
 
     testPromises.push(
       !saveList.length ? p : (

@@ -127,13 +127,13 @@ export const list = async (
     await pruneUnchanged(scurry, entries)
   }
 
-  const files = [...entries].map(p =>
-    typeof p === 'string' ? p : p.relativePosix(),
-  ).sort(
-    config.get('shuffle') ?
-      () => Math.random() - 0.5
-    : (a, b) => a.localeCompare(b, 'en'),
-  )
+  const files = [...entries]
+    .map(p => (typeof p === 'string' ? p : p.relativePosix()))
+    .sort(
+      config.get('shuffle') ?
+        () => Math.random() - 0.5
+      : (a, b) => a.localeCompare(b, 'en'),
+    )
   if (mainCommand === 'list') {
     if (foundEntries) {
       // don't report an error if we found something but it's just not new
