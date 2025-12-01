@@ -234,7 +234,7 @@ export default jack({
     node test/some.test.js
     node test/other.test.js
     \`\`\`
-    `
+    `,
   )
 
   .heading('tap debug', 3, { pre: true })
@@ -421,7 +421,7 @@ export default jack({
 
      Coverage tracking and enforcement should only be reduced or disabled when
      test coverage is being tracked and monitored by some other mechanism.
-    `
+    `,
   )
 
   .flag({
@@ -489,7 +489,7 @@ export default jack({
                     coverage, use a \`--coverage-map=<module>\` module that
                     returns \`null\` for the test in question.
                    `,
-    }
+    },
   })
 
   .flag({
@@ -528,47 +528,47 @@ export default jack({
     statements: {
       description: `What % of statements must be covered?`,
       hint: 'n',
-      validate: (n: unknown) => { 
+      validate: (n: unknown) => {
         if (typeof n !== 'number' || n < 0 || n > 100) {
           throw new Error('Coverage percentage must be between 0 and 100')
         }
         return true
       },
-      default: 100
+      default: 100,
     },
     branches: {
       description: `What % of branches must be covered?`,
       hint: 'n',
-      validate: (n: unknown) => { 
+      validate: (n: unknown) => {
         if (typeof n !== 'number' || n < 0 || n > 100) {
           throw new Error('Coverage percentage must be between 0 and 100')
         }
         return true
       },
-      default: 100
+      default: 100,
     },
     lines: {
       description: `What % of lines must be covered?`,
       hint: 'n',
-      validate: (n: unknown) => { 
+      validate: (n: unknown) => {
         if (typeof n !== 'number' || n < 0 || n > 100) {
           throw new Error('Coverage percentage must be between 0 and 100')
         }
         return true
       },
-      default: 100
+      default: 100,
     },
     functions: {
       description: `What % of functions must be covered?`,
       hint: 'n',
-      validate: (n: unknown) => { 
+      validate: (n: unknown) => {
         if (typeof n !== 'number' || n < 0 || n > 100) {
           throw new Error('Coverage percentage must be between 0 and 100')
         }
         return true
       },
-      default: 100
-    }
+      default: 100,
+    },
   })
 
   .heading('Test Runner Output Details')
@@ -612,7 +612,7 @@ export default jack({
   .description(
     `These configuration options tell the runner which test suites to include
      in the test run, what counts as a "failure", and so on.
-     `
+     `,
   )
   .flag({
     bail: {
@@ -839,13 +839,12 @@ export default jack({
     },
   })
 
-
   .heading('Tracking Output for Later Consumption')
   .description(
     `It is sometimes useful to send raw TAP data to another TAP-consuming
      program. Note that the most recent test results are always stored in
      the \`.tap/test-results\` folder for use with \`tap replay\`.
-    `
+    `,
   )
   .opt({
     'output-file': {

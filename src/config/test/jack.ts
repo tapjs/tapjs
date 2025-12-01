@@ -11,12 +11,7 @@ t.throws(() =>
 )
 
 t.test('coverage threshold validation', async t => {
-  const coverageSettings = [
-    'statements',
-    'branches',
-    'functions',
-    'lines'
-  ]
+  const coverageSettings = ['statements', 'branches', 'functions', 'lines']
   for (const setting of coverageSettings) {
     t.throws(() => {
       const conf = jack.parse([`--${setting}=invalid`])
