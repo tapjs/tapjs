@@ -5,6 +5,16 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.5
+
+- Always include a proper diff when the various deep equality
+  testing functions do not print differently. Especially, this
+  means that the output for `undefined` and `null` will be
+  meaningfully distinguishable from missing properties in these
+  cases. When objects differ *only* by object identity, a comment
+  is appended to the diff to indicate this.
+
+
 ## 21.4
 
 - Add `tap node-options` command to dump the various loader
