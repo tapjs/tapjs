@@ -1,11 +1,18 @@
 import t, { Test } from 'tap'
-import { MatchStrict } from '../dist/esm/index.js'
+import { matchStrict } from '../dist/esm/index.js'
 
 const match = (t: Test, a: any, b: any) => {
-  const m = new MatchStrict(a, { expect: b })
-  t.matchSnapshot(m.print())
+  const m = matchStrict(a, b)
+  if (!m.match) {
+    t.matchSnapshot(m.diff)
+    t.not(m.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   return m.match
 }
+
 
 t.test('only specified fields must be present', t => {
   t.ok(match(t, { a: 1, b: 2 }, { a: Number }))

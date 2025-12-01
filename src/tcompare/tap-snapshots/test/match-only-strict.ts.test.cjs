@@ -16,10 +16,6 @@ exports[`test/match-only-strict.ts > TAP > only specified fields must be present
 `
 
 exports[`test/match-only-strict.ts > TAP > only specified fields must be present > must match snapshot 2`] = `
-
-`
-
-exports[`test/match-only-strict.ts > TAP > only specified fields must be present > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -30,7 +26,7 @@ exports[`test/match-only-strict.ts > TAP > only specified fields must be present
 
 `
 
-exports[`test/match-only-strict.ts > TAP > only specified fields must be present > must match snapshot 4`] = `
+exports[`test/match-only-strict.ts > TAP > only specified fields must be present > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,4 @@

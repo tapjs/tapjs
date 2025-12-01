@@ -36,26 +36,19 @@ exports[`test/same.tsx > TAP > array is not the same as object > must match snap
 `
 
 exports[`test/same.tsx > TAP > array-likes > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+-Ayyr [
++Array [
+   1,
+   2,
+   3,
+ ]
 
 `
 
 exports[`test/same.tsx > TAP > array-likes > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > array-likes > must match snapshot 3`] = `
-
-`
-
-exports[`test/same.tsx > TAP > array-likes > must match snapshot 4`] = `
-
-`
-
-exports[`test/same.tsx > TAP > array-likes > must match snapshot 5`] = `
-
-`
-
-exports[`test/same.tsx > TAP > array-likes > must match snapshot 6`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -98,6 +91,248 @@ exports[`test/same.tsx > TAP > arrays extra and missing > must match snapshot 2`
 +  4,
 +  5,
  ]
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+--Infinity
++Infinity
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 10`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-undefined
++null
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 11`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-null
++undefined
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 12`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Buffer <6162 6364  abcd>
++Buffer <6162 63  abc>
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 13`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Buffer <6162 64  abd>
++Buffer <6162 63  abc>
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 14`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-2001-01-12T00:00:00.000Z
++2001-01-11T00:00:00.000Z
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 15`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-/^(howdy|hello)$/
++/^h[oe][wl][dl][oy]$/
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 16`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+-Array [
++Arguments [
+   1,
+   2,
+   3,
+ ]
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 17`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+-Arguments [
++Array [
+   1,
+   2,
+   3,
+ ]
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 18`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Object {}
++Array []
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 19`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Null Object {}
++Object {}
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-"1"
++1
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 20`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "b": "b",
++  "a": "a",
+ }
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 21`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "c": undefined,
+ }
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 22`] = `
+--- expected
++++ actual
+@@ -1,6 +1,5 @@
+ EventEmitter {
+   "_events": Null Object {
+-    "data": Function ondata(data),
+   },
+-  "_eventsCount": 2,
++  "_eventsCount": 1,
+ }
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 23`] = `
+--- expected
++++ actual
+@@ -1,18 +1,18 @@
+ &ref_1 Object {
+   "granular": Object {
+     "stuff": Array [
+       0,
+       1,
+-      3,
++      2,
+     ],
+     "self": Object {
+       "granular": Object {
+         "stuff": Array [
+           0,
+           1,
+-          2,
++          3,
+         ],
+-<*ref_1>      },
++<*ref_undefined>      },
+     },
+   },
+ }
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-"nok"
++"ok"
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-"0"
++0
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 5`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-null
++undefined
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,2 +1,1 @@
+ Function nop()
+-/* object identities differ */
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 7`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Object {}
++undefined
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 8`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-null
++Object {}
+
+`
+
+exports[`test/same.tsx > TAP > basic > must match snapshot 9`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Object {}
++null
 
 `
 
@@ -258,10 +493,6 @@ exports[`test/same.tsx > TAP > diffing strings > must match snapshot 1`] = `
 `
 
 exports[`test/same.tsx > TAP > diffing strings > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > diffing strings > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,28 +1,1 @@
@@ -297,7 +528,7 @@ exports[`test/same.tsx > TAP > diffing strings > must match snapshot 3`] = `
 
 `
 
-exports[`test/same.tsx > TAP > diffing strings > must match snapshot 4`] = `
+exports[`test/same.tsx > TAP > diffing strings > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,28 @@
@@ -333,10 +564,6 @@ exports[`test/same.tsx > TAP > diffing strings > must match snapshot 4`] = `
 
 `
 
-exports[`test/same.tsx > TAP > diffing strings > must match snapshot 5`] = `
-
-`
-
 exports[`test/same.tsx > TAP > diffs of errors with \\n in the message > must match snapshot 1`] = `
 --- expected
 +++ actual
@@ -363,19 +590,7 @@ exports[`test/same.tsx > TAP > diffs of errors with \\n in the message > must ma
 
 `
 
-exports[`test/same.tsx > TAP > empty arrays match > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > empty arrays match > must match snapshot 2`] = `
-
-`
-
 exports[`test/same.tsx > TAP > errors > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > errors > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -384,7 +599,7 @@ exports[`test/same.tsx > TAP > errors > must match snapshot 2`] = `
 
 `
 
-exports[`test/same.tsx > TAP > errors > must match snapshot 3`] = `
+exports[`test/same.tsx > TAP > errors > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,4 @@
@@ -396,15 +611,7 @@ exports[`test/same.tsx > TAP > errors > must match snapshot 3`] = `
 
 `
 
-exports[`test/same.tsx > TAP > errors > must match snapshot 4`] = `
-
-`
-
-exports[`test/same.tsx > TAP > errors > must match snapshot 5`] = `
-
-`
-
-exports[`test/same.tsx > TAP > errors > must match snapshot 6`] = `
+exports[`test/same.tsx > TAP > errors > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,3 @@
@@ -417,7 +624,7 @@ exports[`test/same.tsx > TAP > errors > must match snapshot 6`] = `
 
 `
 
-exports[`test/same.tsx > TAP > errors > must match snapshot 7`] = `
+exports[`test/same.tsx > TAP > errors > must match snapshot 4`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -428,41 +635,38 @@ exports[`test/same.tsx > TAP > errors > must match snapshot 7`] = `
 
 `
 
-exports[`test/same.tsx > TAP > flexible about key order and types > must match snapshot 1`] = `
-
-`
-
 exports[`test/same.tsx > TAP > hidden props and getters > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > hidden props and getters > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > hidden props and getters > must match snapshot 3`] = `
 --- expected
 +++ actual
-@@ -1,2 +1,3 @@
+@@ -1,3 +1,3 @@
  Hidden {
+-  "baseValue": 1,
 +  "baseValue": 0,
  }
 
 `
 
-exports[`test/same.tsx > TAP > inherited fields will satisfy ownprop expects > must match snapshot 1`] = `
-
-`
-
 exports[`test/same.tsx > TAP > iterables match one another > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,4 +1,4 @@
+-Array [
++And [
+   1,
+   2,
+ ]
 
 `
 
 exports[`test/same.tsx > TAP > iterables match one another > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > iterables match one another > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,4 +1,4 @@
+-And [
++Array [
+   1,
+   2,
+ ]
 
 `
 
@@ -482,26 +686,110 @@ exports[`test/same.tsx > TAP > iterator that doesnt play nice > must match snaps
 `
 
 exports[`test/same.tsx > TAP > map > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+ Map {
+   5 => Object {
+-    "a": "1",
++    "a": 1,
+   },
+ }
 
 `
 
 exports[`test/same.tsx > TAP > map > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+ Map {
+   5 => Object {
+-    "a": "1",
++    "a": 1,
+   },
+ }
 
 `
 
 exports[`test/same.tsx > TAP > map > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+ Map {
+   5 => Object {
+-    "a": "1",
++    "a": 1,
+   },
+ }
 
 `
 
 exports[`test/same.tsx > TAP > map > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,22 +1,10 @@
+-Array [
+-  Array [
+-    1,
+-    2,
+-  ],
+-  Array [
+-    3,
+-    4,
+-  ],
+-  Array [
+-    5,
+-    Object {
+-      "a": 1,
+-    },
+-  ],
+-  Array [
+-    Object {
+-      "a": 1,
+-    },
+-    6,
+-  ],
+-]
++Map {
++  1 => 2,
++  3 => 4,
++  5 => Object {
++    "a": 1,
++  },
++  Object {
++    "a": 1,
++  } => 6,
++}
 
 `
 
 exports[`test/same.tsx > TAP > map > must match snapshot 5`] = `
+--- expected
++++ actual
+@@ -1,6 +1,5 @@
+ Map {
+   Object {
+     "a": 1,
+-    "b": 2,
+   } => 6,
+ }
 
 `
 
 exports[`test/same.tsx > TAP > map > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,9 +1,8 @@
+ Map {
+   5 => Object {
+-    "a": 1,
++    "a": "1",
+   },
+   Object {
+     "a": 1,
+-    "b": 2,
+   } => 6,
+ }
 
 `
 
@@ -590,22 +878,6 @@ exports[`test/same.tsx > TAP > maps extra and missing > must match snapshot 2`] 
 
 `
 
-exports[`test/same.tsx > TAP > NaN matches NaN > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > null is as shallow as you'd expect > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > null is as shallow as you'd expect > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > null is as shallow as you'd expect > must match snapshot 3`] = `
-
-`
-
 exports[`test/same.tsx > TAP > obj cycles, expect does not > must match snapshot 1`] = `
 --- expected
 +++ actual
@@ -623,10 +895,6 @@ exports[`test/same.tsx > TAP > obj cycles, expect does not > must match snapshot
 `
 
 exports[`test/same.tsx > TAP > pojos extra and missing > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > pojos extra and missing > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,2 @@
@@ -636,7 +904,7 @@ exports[`test/same.tsx > TAP > pojos extra and missing > must match snapshot 2`]
 
 `
 
-exports[`test/same.tsx > TAP > pojos extra and missing > must match snapshot 3`] = `
+exports[`test/same.tsx > TAP > pojos extra and missing > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,2 +1,3 @@
@@ -647,14 +915,6 @@ exports[`test/same.tsx > TAP > pojos extra and missing > must match snapshot 3`]
 `
 
 exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,9 @@
@@ -671,11 +931,7 @@ exports[`test/same.tsx > TAP > properly handle circular data structures > must m
 
 `
 
-exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 4`] = `
-
-`
-
-exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 5`] = `
+exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -688,7 +944,7 @@ exports[`test/same.tsx > TAP > properly handle circular data structures > must m
 
 `
 
-exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 6`] = `
+exports[`test/same.tsx > TAP > properly handle circular data structures > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -705,7 +961,7 @@ exports[`test/same.tsx > TAP > properly handle circular data structures > must m
 exports[`test/same.tsx > TAP > react > array nesting relevant when not using react strings > must match snapshot 1`] = `
 --- expected
 +++ actual
-@@ -1,23 +1,12 @@
+@@ -1,23 +1,15 @@
  {
    "props": {
      "children": {
@@ -728,9 +984,12 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -      ],
 +      "$$typeof": Symbol.for("react.element"),
 +      "type": "img",
++      "key": null,
++      "ref": null,
 +      "props": {
 +        "src": "foo",
 +      },
++      "_owner": null,
 +      "_store": {},
      },
    },
@@ -741,7 +1000,7 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 exports[`test/same.tsx > TAP > react > array nesting relevant when not using react strings > must match snapshot 2`] = `
 --- expected
 +++ actual
-@@ -1,23 +1,12 @@
+@@ -1,23 +1,15 @@
  Object {
    "props": Object {
      "children": Object {
@@ -764,9 +1023,12 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 -      ],
 +      "$$typeof": Symbol.for(react.element),
 +      "type": "img",
++      "key": null,
++      "ref": null,
 +      "props": Object {
 +        "src": "foo",
 +      },
++      "_owner": null,
 +      "_store": Object {},
      },
    },
@@ -775,10 +1037,6 @@ exports[`test/same.tsx > TAP > react > array nesting relevant when not using rea
 `
 
 exports[`test/same.tsx > TAP > react > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > react > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -789,31 +1047,50 @@ exports[`test/same.tsx > TAP > react > must match snapshot 2`] = `
 
 `
 
-exports[`test/same.tsx > TAP > react > must match snapshot 3`] = `
-
-`
-
-exports[`test/same.tsx > TAP > react > must match snapshot 4`] = `
-
-`
-
-exports[`test/same.tsx > TAP > same arrays match > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > same shouldn't care about key order recursively and types > must match snapshot 1`] = `
+exports[`test/same.tsx > TAP > react > must match snapshot 2`] = `
 
 `
 
 exports[`test/same.tsx > TAP > set > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,4 +1,3 @@
+ Set {
+   1,
+-  2,
+ }
 
 `
 
 exports[`test/same.tsx > TAP > set > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+ Set {
+   1,
+-  6,
+-  2,
++  3,
++  5,
+ }
 
 `
 
 exports[`test/same.tsx > TAP > set > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,9 +1,9 @@
+-Array [
++Set {
+   1,
+   2,
+   3,
+   4,
+   Object {
+     "a": 1,
+   },
+-]
++}
 
 `
 
@@ -843,10 +1120,6 @@ exports[`test/same.tsx > TAP > set > must match snapshot 5`] = `
 `
 
 exports[`test/same.tsx > TAP > set > must match snapshot 6`] = `
-
-`
-
-exports[`test/same.tsx > TAP > set > must match snapshot 7`] = `
 --- expected
 +++ actual
 @@ -1,9 +1,9 @@
@@ -898,27 +1171,7 @@ exports[`test/same.tsx > TAP > sets extra and missing > must match snapshot 2`] 
 
 `
 
-exports[`test/same.tsx > TAP > should handle arguments > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle arguments > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle arguments > must match snapshot 3`] = `
-
-`
-
 exports[`test/same.tsx > TAP > should handle bigint > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle bigint > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle bigint > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -945,36 +1198,24 @@ exports[`test/same.tsx > TAP > should handle dates > must match snapshot 2`] = `
 
 `
 
-exports[`test/same.tsx > TAP > should handle dates > must match snapshot 3`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle dates > must match snapshot 4`] = `
-
-`
-
 exports[`test/same.tsx > TAP > should handle functions > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,3 +1,4 @@
+ function a() {
+-        return a;
++        //@ts-expect-error
++        return b;
+     }
 
 `
 
 exports[`test/same.tsx > TAP > should handle functions > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle functions > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
 -Function fnB(a)
 +Function fnA(a)
-
-`
-
-exports[`test/same.tsx > TAP > should handle functions > must match snapshot 4`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle functions > must match snapshot 5`] = `
 
 `
 
@@ -993,26 +1234,6 @@ exports[`test/same.tsx > TAP > should handle RegExps > must match snapshot 2`] =
 @@ -1,1 +1,1 @@
 -/[a]/g
 +/[a]/i
-
-`
-
-exports[`test/same.tsx > TAP > should handle RegExps > must match snapshot 3`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should handle RegExps > must match snapshot 4`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should match empty Buffers > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should match similar Buffers > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > should match similar Buffers > must match snapshot 2`] = `
 
 `
 
@@ -1063,10 +1284,12 @@ exports[`test/same.tsx > TAP > should notice objects with different keys > must 
 `
 
 exports[`test/same.tsx > TAP > should notice objects with different shapes > must match snapshot 1`] = `
-
-`
-
-exports[`test/same.tsx > TAP > shouldn't care about key order and types > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "b": undefined,
+ }
 
 `
 
@@ -1088,10 +1311,57 @@ exports[`test/same.tsx > TAP > simple diff nested in object > must match snapsho
 `
 
 exports[`test/same.tsx > TAP > symbology > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,4 +1,3 @@
+ Object {
+   "a": Symbol(a),
+ }
+-/* object identities differ */
+
+`
+
+exports[`test/same.tsx > TAP > symbology > must match snapshot 10`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": Symbol(a),
++  "a": "Symbol(a)",
+ }
+
+`
+
+exports[`test/same.tsx > TAP > symbology > must match snapshot 11`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": Symbol.for(a),
++  "a": "Symbol(a)",
+ }
+
+`
+
+exports[`test/same.tsx > TAP > symbology > must match snapshot 12`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": Function Symbol(),
++  "a": "Symbol(a)",
+ }
 
 `
 
 exports[`test/same.tsx > TAP > symbology > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": Symbol.for(a),
++  "a": Symbol(a),
+ }
 
 `
 
@@ -1150,15 +1420,25 @@ exports[`test/same.tsx > TAP > symbology > must match snapshot 7`] = `
 
 `
 
-exports[`test/same.tsx > TAP > the same number matches > must match snapshot 1`] = `
+exports[`test/same.tsx > TAP > symbology > must match snapshot 8`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": Function Symbol(),
++  "a": Symbol(a),
+ }
 
 `
 
-exports[`test/same.tsx > TAP > the same number matches > must match snapshot 2`] = `
-
-`
-
-exports[`test/same.tsx > TAP > the same number matches > must match snapshot 3`] = `
+exports[`test/same.tsx > TAP > symbology > must match snapshot 9`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": "Symbol(a)",
++  "a": Symbol(a),
+ }
 
 `
 
@@ -1213,50 +1493,126 @@ exports[`test/same.tsx > TAP > tricky mismatched nesting > must match snapshot 3
 
 `
 
-exports[`test/same.tsx > TAP > undefined and null are Close Enough > must match snapshot 1`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,2 +1,3 @@
+ Object {
++  "a": undefined,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > undefined and null are Close Enough > must match snapshot 2`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 10`] = `
+--- expected
++++ actual
+@@ -1,2 +1,3 @@
+ Object {
++  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > undefined and null are Close Enough > must match snapshot 3`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 11`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > undefined is the same as itself > must match snapshot 1`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 12`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "b": null,
++  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > undefined is the same as itself > must match snapshot 2`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "a": undefined,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > undefined is the same as itself > must match snapshot 3`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "b": undefined,
++  "a": undefined,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > valueOf > must match snapshot 1`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,2 +1,3 @@
+ Object {
++  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > valueOf > must match snapshot 2`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 5`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > valueOf > must match snapshot 3`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "b": null,
++  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > valueOf > must match snapshot 4`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 7`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": undefined,
++  "a": null,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > valueOf > must match snapshot 5`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 8`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "a": undefined,
+ }
 
 `
 
-exports[`test/same.tsx > TAP > valueOf > must match snapshot 6`] = `
+exports[`test/same.tsx > TAP > undefined, null, missing > must match snapshot 9`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "b": undefined,
+ }
 
 `

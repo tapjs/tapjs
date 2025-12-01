@@ -4,7 +4,13 @@ import * as compare from '../dist/esm/index.js'
 
 const hasStrict = (t: Test, a: any, b: any) => {
   const h = compare.hasStrict(a, b)
-  t.matchSnapshot(h.diff)
+  if (!h.match) {
+    t.matchSnapshot(h.diff)
+    t.not(h.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   return h.match
 }
 

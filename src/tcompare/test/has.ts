@@ -3,6 +3,13 @@ import { has as compareHas, Has } from '../dist/esm/index.js'
 
 const has = (t: Test, a: any, b: any) => {
   const h = compareHas(a, b)
+  if (!h.match) {
+    t.matchSnapshot(h.diff)
+    t.not(h.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   t.matchSnapshot(h.diff)
   return h.match
 }

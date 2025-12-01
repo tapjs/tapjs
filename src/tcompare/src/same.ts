@@ -1,5 +1,4 @@
 import { createTwoFilesPatch } from 'diff'
-
 import { Format, FormatOptions } from './format.js'
 
 const arrayFrom = (obj: any) => {
@@ -27,6 +26,16 @@ export interface SameOptions extends FormatOptions {
    * @default 10
    */
   diffContext?: number
+  /**
+   * Set to true to differentiate between undefined and missing
+   * @internal
+   */
+  notFound?: boolean
+  /**
+   * Set to true to differentiate between undefined and missing
+   * @internal
+   */
+  expectNotFound?: boolean
 }
 
 /**
@@ -94,8 +103,11 @@ export class Same extends Format {
   test() {
     const a = this.object
     const b = this.expect
+    const so = this.options as SameOptions
     return (
-      typeof a === 'function' && typeof b === 'function' ?
+      so.notFound ? !!so.expectNotFound
+      : so.expectNotFound ? a === undefined
+      : typeof a === 'function' && typeof b === 'function' ?
         a === b || (a.name === b.name && a.toString() === b.toString())
       : typeof a === 'symbol' || typeof b === 'symbol' ?
         typeof a === typeof b && a.toString() === b.toString()
@@ -155,9 +167,10 @@ export class Same extends Format {
     }).print()
   }
 
-  simplePrintExpect() {
+  simplePrintExpect(options: FormatOptions = {}) {
     return new Format(this.expect, {
       ...this.options,
+      ...options,
       seen: this.seenExpect,
     }).print()
   }
@@ -223,6 +236,22 @@ export class Same extends Format {
     }
     /* c8 ignore stop */
 
+    if (!this.parent && !this.match && this.memoExpect === this.memo) {
+      const me1 = this.memoExpect
+      const m1 = this.memo
+      // fall back to more verbose JS style to try to get SOME kind of diff
+      // This is needed when functions match on name and args, but have
+      // a different .toString() result.
+      this.memoExpect = this.simplePrintExpect({ style: 'js' })
+      this.memo = this.simplePrint(this.object, { style: 'js' })
+      if (this.memo === this.memoExpect) {
+        // well, that didn't work either. Just add a comment explaining.
+        this.memoExpect = me1
+        this.memo = m1
+        this.memoExpect += '\n/* object identities differ */'
+      }
+    }
+
     if (this.parent || this.match || this.memoExpect === this.memo) {
       return (this.memoDiff = '')
     }
@@ -256,7 +285,7 @@ export class Same extends Format {
       {
         expect: this.childExpect(expectKey),
         ...options,
-      },
+      } as SameOptions,
       cls,
     )
   }
@@ -392,10 +421,16 @@ export class Same extends Format {
     if (obj === this.expect) {
       return fromSuper
     }
-    return fromSuper.concat(
-      this.getPojoKeys(this.expect).filter(k => k in obj),
-    )
+    const pk = [
+      ...new Set(
+        fromSuper.concat(
+          this.getPojoKeys(this.expect).filter(k => k in obj),
+        ),
+      ),
+    ]
+    return pk
   }
+
   printPojoHead() {
     const h = this.style.pojoHead(this.getClass())
 
@@ -407,31 +442,32 @@ export class Same extends Format {
     this.memo += t
     this.memoExpect += t
   }
+
   printPojoBody() {
     const objEnt = new Map(this.getPojoEntries(this.object))
     const expEnt = new Map(this.getPojoEntries(this.expect))
     for (const [key, val] of objEnt.entries()) {
-      if (!expEnt.has(key)) {
-        this.unmatch()
-      }
       this.printPojoEntry(key, val, false)
     }
     for (const key of expEnt.keys()) {
       if (objEnt.has(key)) {
+        // already covered
         continue
       }
-      this.unmatch()
       this.printPojoEntry(key, undefined, true)
     }
   }
 
   printPojoEntry(key: any, val: any, notFound?: boolean) {
-    const child = this.child(val, { key })
+    const expectNotFound =
+      !hasOwnProperty.call(this.expect, key) &&
+      this.expect[key] === undefined
+    const child = this.child(val, { key, notFound, expectNotFound })
     child.print()
     if (!notFound) {
       this.memo += child.memo
     }
-    if (notFound || hasOwnProperty.call(this.expect, key)) {
+    if (!expectNotFound) {
       this.memoExpect += child.memoExpect
     }
   }

@@ -14,7 +14,3 @@ exports[`test/match-only.ts > TAP > only specified fields must be present > must
  }
 
 `
-
-exports[`test/match-only.ts > TAP > only specified fields must be present > must match snapshot 2`] = `
-
-`

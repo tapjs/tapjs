@@ -41,7 +41,7 @@ exports[`test/clean-yaml-object.ts > TAP > callsite reporting > must match snaps
 exports[`test/clean-yaml-object.ts > TAP > callsite reporting > no caret 1`] = `
 Object {
   "at": Object {
-    "columnNumber": null,
+    "columnNumber": Infinity,
     "fileName": "test/clean-yaml-object.ts",
     "lineNumber": ##,
     "typeName": "Test",
@@ -129,14 +129,14 @@ exports[`test/clean-yaml-object.ts > TAP > callsite reporting with error origin 
 exports[`test/clean-yaml-object.ts > TAP > callsite reporting with error origin > no caret 1`] = `
 Object {
   "at": Object {
-    "columnNumber": null,
+    "columnNumber": Infinity,
     "fileName": "test/clean-yaml-object.ts",
     "lineNumber": ##,
     "typeName": "Test",
   },
   "errorOrigin": Object {
     "at": Object {
-      "columnNumber": null,
+      "columnNumber": Infinity,
       "fileName": "test/clean-yaml-object.ts",
       "lineNumber": ##,
       "typeName": "Test",

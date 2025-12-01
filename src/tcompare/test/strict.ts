@@ -1,10 +1,17 @@
 import EventEmitter from 'node:events'
 import t, { Test } from 'tap'
 import { strict as compareStrict } from '../dist/esm/index.js'
+import { inspect } from 'node:util'
 
 const strict = (t: Test, a: any, b: any) => {
   const s = compareStrict(a, b)
-  t.matchSnapshot(s.diff)
+  if (!s.match) {
+    t.matchSnapshot(s.diff)
+    t.not(s.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   return s.match
 }
 
@@ -389,5 +396,24 @@ t.test('iterables match one another', t => {
   t.ok(strict(t, a, b), 'iterables match one another')
   t.notOk(strict(t, a, arr), 'iterable does not strictly match array')
   t.notOk(strict(t, arr, b), 'array does not strictly match iterable')
+  t.end()
+})
+
+t.test('undefined, null, missing', t => {
+  const cases: [obj: any, exp: any, ok: boolean][] = [
+    [{ a: undefined }, {}, false],
+    [{}, { a: undefined }, false],
+    [{ a: undefined }, { b: undefined }, false],
+    [{ a: null }, {}, false],
+    [{}, { a: null }, false],
+    [{ a: null }, { b: null }, false],
+    [{ a: null }, { a: undefined }, false],
+    [{}, {}, true],
+    [{ a: undefined }, { a: undefined }, true],
+    [{ a: null }, { a: null }, true],
+  ]
+  for (const [obj, exp, ok] of cases) {
+    t.equal(strict(t, obj, exp), ok, inspect({ obj, exp, ok }))
+  }
   t.end()
 })

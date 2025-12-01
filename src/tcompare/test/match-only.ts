@@ -1,9 +1,15 @@
 import t, { Test } from 'tap'
-import { MatchOnly } from '../dist/esm/index.js'
+import * as compare from '../dist/esm/index.js'
 
 const match = (t: Test, a: any, b: any) => {
-  const m = new MatchOnly(a, { expect: b })
-  t.matchSnapshot(m.print())
+  const m = compare.matchOnly(a, b)
+  if (!m.match) {
+    t.matchSnapshot(m.diff)
+    t.not(m.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   return m.match
 }
 

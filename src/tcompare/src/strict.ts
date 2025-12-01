@@ -1,5 +1,5 @@
 import { Format } from './format.js'
-import { Same } from './same.js'
+import { Same, SameOptions } from './same.js'
 /**
  * The same as {@link tcompare!same.Same}, but without type coercion
  */
@@ -10,6 +10,11 @@ export class Strict extends Same {
     const st = super.test()
     return (
       st === false ? false
+      : (
+        (this.options as SameOptions).notFound !==
+        (this.options as SameOptions).expectNotFound
+      ) ?
+        false
       : a === b ? true
       : a !== a ? b !== b
       : typeof a !== 'object' || typeof b !== 'object' ? false

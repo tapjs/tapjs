@@ -2,6 +2,9 @@ import React from 'react'
 import t, { Test } from 'tap'
 import type { FormatOptions } from '../dist/esm/index.js'
 import * as compare from '../dist/esm/index.js'
+import { inspect } from 'node:util'
+
+import './strict.js'
 
 const same = (
   t: Test,
@@ -10,7 +13,13 @@ const same = (
   options: FormatOptions & { diffContext?: number } = {},
 ) => {
   const s = compare.same(a, b, options)
-  t.matchSnapshot(s.diff)
+  if (!s.match) {
+    t.matchSnapshot(s.diff)
+    t.not(s.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   return s.match
 }
 
@@ -626,10 +635,14 @@ t.test('hidden props and getters', t => {
   Object.defineProperty(Base.prototype, 'baseValue', {
     enumerable: true,
   })
+
   const one = new Hidden(1)
   const two = new Hidden(1)
+
   t.ok(same(t, one, two), 'own props only')
+
   t.ok(same(t, one, two, { includeGetters: true }), 'include getters')
+
   t.notOk(same(t, one, two, { includeEnumerable: true }), 'all enumerable')
   t.end()
 })
@@ -808,5 +821,24 @@ t.test('valueOf', t => {
   t.ok(same(t, data, new DataWrap()), 'data to wrap')
   t.ok(same(t, new DataWrap(), data), 'wrap to data')
   t.ok(same(t, new DataWrap(), new DataWrap()), 'wrap to wrap')
+  t.end()
+})
+
+t.test('undefined, null, missing', t => {
+  const cases: [obj: any, exp: any, ok: boolean][] = [
+    [{ a: undefined }, {}, true],
+    [{}, { a: undefined }, false],
+    [{ a: undefined }, { b: undefined }, false],
+    [{ a: null }, {}, false],
+    [{}, { a: null }, false],
+    [{ a: null }, { b: null }, false],
+    [{ a: null }, { a: undefined }, true],
+    [{}, {}, true],
+    [{ a: undefined }, { a: undefined }, true],
+    [{ a: null }, { a: null }, true],
+  ]
+  for (const [obj, exp, ok] of cases) {
+    t.equal(same(t, obj, exp), ok, inspect({ obj, exp, ok }))
+  }
   t.end()
 })

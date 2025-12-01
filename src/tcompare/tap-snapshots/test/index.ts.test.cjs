@@ -308,7 +308,7 @@ Object {
     "arrayHead": Function arrayHead(_),
     "arrayTail": Function arrayTail(),
     "bufferBody": Function bufferBody(buf),
-    "bufferChunkSize": null,
+    "bufferChunkSize": Infinity,
     "bufferEmpty": Function bufferEmpty(),
     "bufferEnd": Function bufferEnd(),
     "bufferHead": Function bufferHead(),

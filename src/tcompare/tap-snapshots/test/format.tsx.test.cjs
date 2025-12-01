@@ -51,6 +51,24 @@ AggregateError: aggregated errors {
 }
 `
 
+exports[`test/format.tsx > TAP > format Infinity and -Infinity correctly > js style 1`] = `
+{
+  "pos": Infinity,
+  "neg": -Infinity,
+}
+`
+
+exports[`test/format.tsx > TAP > format Infinity and -Infinity correctly > normal style 1`] = `
+Object {
+  "pos": Infinity,
+  "neg": -Infinity,
+}
+`
+
+exports[`test/format.tsx > TAP > format Infinity and -Infinity correctly > tight style 1`] = `
+{"pos":Infinity,"neg":-Infinity,}
+`
+
 exports[`test/format.tsx > TAP > format iterable > must match snapshot 1`] = `
 And [
   And [

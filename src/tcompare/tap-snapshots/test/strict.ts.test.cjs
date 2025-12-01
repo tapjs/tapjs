@@ -6,10 +6,6 @@
  */
 'use strict'
 exports[`test/strict.ts > TAP > array-likes > must match snapshot 1`] = `
-
-`
-
-exports[`test/strict.ts > TAP > array-likes > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -23,121 +19,15 @@ exports[`test/strict.ts > TAP > array-likes > must match snapshot 2`] = `
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+--Infinity
++Infinity
 
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 10`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 11`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 12`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 13`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 14`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 15`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 16`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 17`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 18`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 19`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 2`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 20`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--"1"
-+1
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 21`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--"nok"
-+"ok"
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 22`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--"0"
-+0
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 23`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--null
-+undefined
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 24`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 25`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--Object {}
-+undefined
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 26`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--null
-+Object {}
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 27`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--Object {}
-+null
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 28`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -146,7 +36,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 28`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 29`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 11`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -155,11 +45,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 29`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 3`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 30`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 12`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -168,7 +54,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 30`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 31`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 13`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -177,7 +63,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 31`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 32`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 14`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -186,7 +72,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 32`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 33`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 15`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -195,15 +81,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 33`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 34`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 35`] = `
-
-`
-
-exports[`test/strict.ts > TAP > basic > must match snapshot 36`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 16`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -216,7 +94,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 36`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 37`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 17`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -229,7 +107,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 37`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 38`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 18`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -238,7 +116,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 38`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 39`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 19`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -247,11 +125,16 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 39`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 4`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-"1"
++1
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 40`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 20`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -262,11 +145,17 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 40`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 41`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 21`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "c": undefined,
+ }
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 42`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 22`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -280,7 +169,7 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 42`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 43`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 23`] = `
 --- expected
 +++ actual
 @@ -1,18 +1,18 @@
@@ -308,35 +197,70 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 43`] = `
 
 `
 
-exports[`test/strict.ts > TAP > basic > must match snapshot 44`] = `
+exports[`test/strict.ts > TAP > basic > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-"nok"
++"ok"
+
+`
+
+exports[`test/strict.ts > TAP > basic > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-"0"
++0
 
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 5`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-null
++undefined
 
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,2 +1,1 @@
+ Function nop()
+-/* object identities differ */
 
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 7`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Object {}
++undefined
 
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 8`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-null
++Object {}
 
 `
 
 exports[`test/strict.ts > TAP > basic > must match snapshot 9`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-Object {}
++null
 
 `
 
 exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 1`] = `
-
-`
-
-exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -348,7 +272,7 @@ exports[`test/strict.ts > TAP > iterables match one another > must match snapsho
 
 `
 
-exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 3`] = `
+exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -361,22 +285,14 @@ exports[`test/strict.ts > TAP > iterables match one another > must match snapsho
 `
 
 exports[`test/strict.ts > TAP > map > must match snapshot 1`] = `
-
-`
-
-exports[`test/strict.ts > TAP > map > must match snapshot 10`] = `
 --- expected
 +++ actual
-@@ -1,9 +1,8 @@
+@@ -1,5 +1,5 @@
  Map {
    5 => Object {
--    "a": 1,
-+    "a": "1",
+-    "a": "1",
++    "a": 1,
    },
-   Object {
-     "a": 1,
--    "b": 2,
-   } => 6,
  }
 
 `
@@ -408,31 +324,6 @@ exports[`test/strict.ts > TAP > map > must match snapshot 3`] = `
 `
 
 exports[`test/strict.ts > TAP > map > must match snapshot 4`] = `
---- expected
-+++ actual
-@@ -1,5 +1,5 @@
- Map {
-   5 => Object {
--    "a": "1",
-+    "a": 1,
-   },
- }
-
-`
-
-exports[`test/strict.ts > TAP > map > must match snapshot 5`] = `
-
-`
-
-exports[`test/strict.ts > TAP > map > must match snapshot 6`] = `
-
-`
-
-exports[`test/strict.ts > TAP > map > must match snapshot 7`] = `
-
-`
-
-exports[`test/strict.ts > TAP > map > must match snapshot 8`] = `
 --- expected
 +++ actual
 @@ -1,22 +1,10 @@
@@ -471,7 +362,7 @@ exports[`test/strict.ts > TAP > map > must match snapshot 8`] = `
 
 `
 
-exports[`test/strict.ts > TAP > map > must match snapshot 9`] = `
+exports[`test/strict.ts > TAP > map > must match snapshot 5`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -484,23 +375,24 @@ exports[`test/strict.ts > TAP > map > must match snapshot 9`] = `
 
 `
 
-exports[`test/strict.ts > TAP > NaN > must match snapshot 1`] = `
+exports[`test/strict.ts > TAP > map > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,9 +1,8 @@
+ Map {
+   5 => Object {
+-    "a": 1,
++    "a": "1",
+   },
+   Object {
+     "a": 1,
+-    "b": 2,
+   } => 6,
+ }
 
 `
 
 exports[`test/strict.ts > TAP > set > must match snapshot 1`] = `
-
-`
-
-exports[`test/strict.ts > TAP > set > must match snapshot 2`] = `
-
-`
-
-exports[`test/strict.ts > TAP > set > must match snapshot 3`] = `
-
-`
-
-exports[`test/strict.ts > TAP > set > must match snapshot 4`] = `
 --- expected
 +++ actual
 @@ -1,4 +1,3 @@
@@ -511,7 +403,7 @@ exports[`test/strict.ts > TAP > set > must match snapshot 4`] = `
 
 `
 
-exports[`test/strict.ts > TAP > set > must match snapshot 5`] = `
+exports[`test/strict.ts > TAP > set > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -525,11 +417,7 @@ exports[`test/strict.ts > TAP > set > must match snapshot 5`] = `
 
 `
 
-exports[`test/strict.ts > TAP > set > must match snapshot 6`] = `
-
-`
-
-exports[`test/strict.ts > TAP > set > must match snapshot 7`] = `
+exports[`test/strict.ts > TAP > set > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,9 +1,9 @@
@@ -548,18 +436,17 @@ exports[`test/strict.ts > TAP > set > must match snapshot 7`] = `
 `
 
 exports[`test/strict.ts > TAP > symbology > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,4 +1,3 @@
+ Object {
+   "a": Symbol(a),
+ }
+-/* object identities differ */
 
 `
 
 exports[`test/strict.ts > TAP > symbology > must match snapshot 2`] = `
-
-`
-
-exports[`test/strict.ts > TAP > symbology > must match snapshot 3`] = `
-
-`
-
-exports[`test/strict.ts > TAP > symbology > must match snapshot 4`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -570,7 +457,7 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 4`] = `
 
 `
 
-exports[`test/strict.ts > TAP > symbology > must match snapshot 5`] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -581,7 +468,7 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 5`] = `
 
 `
 
-exports[`test/strict.ts > TAP > symbology > must match snapshot 6`] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 4`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -592,7 +479,7 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 6`] = `
 
 `
 
-exports[`test/strict.ts > TAP > symbology > must match snapshot 7`] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 5`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -603,7 +490,7 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 7`] = `
 
 `
 
-exports[`test/strict.ts > TAP > symbology > must match snapshot 8`] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 6`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -614,13 +501,86 @@ exports[`test/strict.ts > TAP > symbology > must match snapshot 8`] = `
 
 `
 
-exports[`test/strict.ts > TAP > symbology > must match snapshot 9`] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 7`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
  Object {
 -  "a": Function Symbol(),
 +  "a": "Symbol(a)",
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,2 +1,3 @@
+ Object {
++  "a": undefined,
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "a": undefined,
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "b": undefined,
++  "a": undefined,
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,2 +1,3 @@
+ Object {
++  "a": null,
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 5`] = `
+--- expected
++++ actual
+@@ -1,3 +1,2 @@
+ Object {
+-  "a": null,
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "b": null,
++  "a": null,
+ }
+
+`
+
+exports[`test/strict.ts > TAP > undefined, null, missing > must match snapshot 7`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ Object {
+-  "a": undefined,
++  "a": null,
  }
 
 `

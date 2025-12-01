@@ -488,3 +488,11 @@ t.test('format aggregate errors and causes', t => {
   t.matchSnapshot(format(er))
   t.end()
 })
+
+t.test('format Infinity and -Infinity correctly', t => {
+  const x = { pos: Infinity, neg: -Infinity }
+  t.matchSnapshot(format(x), 'normal style')
+  t.matchSnapshot(format(x, { style: 'js' }), 'js style')
+  t.matchSnapshot(format(x, { style: 'tight' }), 'tight style')
+  t.end()
+})

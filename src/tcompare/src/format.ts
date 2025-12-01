@@ -452,7 +452,10 @@ export class Format {
   }
 
   printNumber(): void {
-    this.memo += JSON.stringify(this.object)
+    this.memo +=
+      isFinite(this.object) ?
+        JSON.stringify(this.object)
+      : String(this.object)
   }
 
   printStart(): void {

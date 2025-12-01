@@ -3,9 +3,16 @@ import * as compare from '../dist/esm/index.js'
 
 const match = (t: Test, a: any, b: any) => {
   const m = compare.match(a, b)
-  t.matchSnapshot(m.diff)
+  if (!m.match) {
+    t.matchSnapshot(m.diff)
+    t.not(m.diff, '', 'should not have empty diff with mismatch', {
+      obj: a,
+      exp: b,
+    })
+  }
   return m.match
 }
+
 
 t.test("shouldn't care about key order and types", t => {
   t.ok(match(t, { a: 1, b: 2 }, { b: 2, a: '1' }))
