@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/tsx",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Alternative to @tapjs/typescript. Load typescript using tsx instead of ts-node.",
   "tshy": {
     "main": true,
@@ -57,7 +57,7 @@
     "tsx": "^4.20.6"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.4.0"
+    "@tapjs/core": "4.4.1"
   },
   "tap": {
     "typecheck": false
