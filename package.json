@@ -54,7 +54,7 @@
     "opener": "^1.5.2",
     "package-json-from-dist": "^1.0.1",
     "pacote": "^21.0.4",
-    "pagefind": "^1.0.4",
+    "pagefind": "^1.4.0",
     "patch-console": "^2.0.0",
     "path-scurry": "^2.0.0",
     "polite-json": "^5.0.0",
