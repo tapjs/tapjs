@@ -41,7 +41,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "foreground-child": "^3.1.1",
+    "foreground-child": "^4.0.0",
     "minimatch": "^10.0.1",
     "mkdirp": "^3.0.1",
     "mustache": "^4.2.0",
