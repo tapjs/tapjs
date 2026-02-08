@@ -11,7 +11,7 @@ import { resolve } from 'node:path'
 import type { Writable } from 'node:stream'
 import { pathToFileURL } from 'node:url'
 import { resolveImport } from 'resolve-import'
-import which from 'which'
+import { which } from '@isaacs/which'
 
 const rawTap = (t: TAP, out: Writable) => pipe(t, out)
 const pipe = (t: TAP, dest: Writable): false => {

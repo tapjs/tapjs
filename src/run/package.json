@@ -41,6 +41,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
+    "@isaacs/which": "^7.0.3",
     "@tapjs/after": "3.3.1",
     "@tapjs/before": "4.3.1",
     "@tapjs/config": "5.4.1",
@@ -67,8 +68,7 @@
     "tap-parser": "18.3.0",
     "tap-yaml": "4.3.0",
     "tcompare": "9.3.0",
-    "trivial-deferred": "^2.0.0",
-    "which": "^5.0.0"
+    "trivial-deferred": "^2.0.0"
   },
   "peerDependencies": {
     "@tapjs/core": "4.4.1"

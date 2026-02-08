@@ -13,7 +13,6 @@ const match = (t: Test, a: any, b: any) => {
   return m.match
 }
 
-
 t.test('only specified fields must be present', t => {
   t.ok(match(t, { a: 1, b: 2 }, { a: Number }))
   t.ok(match(t, { a: 1, b: 2 }, { a: Number, b: 2 }))

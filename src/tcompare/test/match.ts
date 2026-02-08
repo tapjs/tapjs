@@ -13,7 +13,6 @@ const match = (t: Test, a: any, b: any) => {
   return m.match
 }
 
-
 t.test("shouldn't care about key order and types", t => {
   t.ok(match(t, { a: 1, b: 2 }, { b: 2, a: '1' }))
   t.end()

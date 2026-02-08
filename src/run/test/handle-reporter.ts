@@ -49,7 +49,7 @@ const mockCP = t.createMock(CP, {
   },
 })
 
-import which from 'which'
+import { which } from '@isaacs/which'
 
 import * as FS from 'node:fs'
 let fileWriteStream: FS.WriteStream | undefined = undefined
@@ -76,8 +76,10 @@ const { handleReporter } = await t.mockImport<
   './fixtures/custom-stream-reporter/index.js': await import(
     './fixtures/custom-stream-reporter/index.js'
   ),
-  which: (path: string) =>
-    path === 'test-exe-reporter' ? `/bin/${path}` : which(path),
+  '@isaacs/which': {
+    which: async (path: string) =>
+      path === 'test-exe-reporter' ? `/bin/${path}` : which(path),
+  },
 })
 
 t.beforeEach(() => {
