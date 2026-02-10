@@ -41,7 +41,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@isaacs/which": "^7.0.3",
+    "@isaacs/which": "^7.0.4",
     "@tapjs/after": "3.3.1",
     "@tapjs/before": "4.3.1",
     "@tapjs/config": "5.4.1",
@@ -54,7 +54,7 @@
     "chalk": "^5.6.2",
     "chokidar": "^4.0.2",
     "foreground-child": "^4.0.0",
-    "glob": "^13.0.0",
+    "glob": "^13.0.2",
     "minipass": "^7.0.4",
     "mkdirp": "^3.0.1",
     "node-options-to-argv": "^1.0.0",

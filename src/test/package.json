@@ -110,7 +110,7 @@
     "@tapjs/stdin": "4.3.1",
     "@tapjs/typescript": "3.5.1",
     "@tapjs/worker": "4.3.1",
-    "glob": "^13.0.0",
+    "glob": "^13.0.2",
     "jackspeak": "^4.2.3",
     "mkdirp": "^3.0.0",
     "package-json-from-dist": "^1.0.0",
