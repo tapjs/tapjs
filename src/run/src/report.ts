@@ -114,7 +114,7 @@ export const report = async (args: string[], config: LoadedConfig) => {
 
   const browser = config.get('browser')
   const htmlReport =
-    reporter.includes('html') ?
+    reporter.includes('html') || reporter.includes('html-spa') ?
       resolve(config.projectRoot, '.tap/report/index.html')
     : reporter.includes('lcov') ?
       resolve(config.projectRoot, '.tap/report/lcov-report/index.html')
