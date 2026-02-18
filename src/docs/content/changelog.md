@@ -5,6 +5,13 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.6
+
+- Use synchronous loader hooks on Node versions that support
+  them, rather than relying on the threaded async loaders.
+- Use the minified synchronous `resolveImport` everywhere instead
+  of the async version.
+
 ## 21.5
 
 - Always include a proper diff when the various deep equality
@@ -13,7 +20,6 @@ eleventyNavigation:
   meaningfully distinguishable from missing properties in these
   cases. When objects differ *only* by object identity, a comment
   is appended to the diff to indicate this.
-
 
 ## 21.4
 
