@@ -8,7 +8,9 @@ const { register, registerHooks } = MODULE as {
   registerHooks?: typeof MODULE.registerHooks
 }
 
-if (registerHooks) {
+// node v22 had some weird behavior with the sync Load hook returning
+// undefined for builtin modules.
+if (registerHooks && !String(globalThis.process?.version).startsWith('v22.')) {
   // instantiate MockService, and create load/resolve sync hooks that
   // use the service directly, not through a client.
   registerHooks({

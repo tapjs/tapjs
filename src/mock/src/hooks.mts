@@ -41,7 +41,7 @@ export const load: LoadHook = async (url, context, nextLoad) => {
   return source ?
       {
         format: 'module',
-        source: `${source}`,
+        source,
         shortCircuit: true,
       }
     : nextLoad(url, context)
