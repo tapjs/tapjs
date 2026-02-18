@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/core",
-  "version": "4.5.0",
+  "version": "4.5.1",
   "description": "pluggable core of node-tap",
   "tshy": {
     "main": true,
@@ -54,7 +54,7 @@
   "dependencies": {
     "@tapjs/processinfo": "^3.1.9",
     "@tapjs/stack": "4.3.0",
-    "@tapjs/test": "4.4.0",
+    "@tapjs/test": "4.4.1",
     "async-hook-domain": "^4.0.1",
     "diff": "^8.0.2",
     "is-actual-promise": "^1.0.1",
