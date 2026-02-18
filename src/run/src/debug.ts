@@ -2,12 +2,12 @@
 // to the tapjs repo.
 import { LoadedConfig } from '@tapjs/config'
 import { execSync, spawnSync } from 'child_process'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { stringify } from 'tap-yaml'
 import { getAllVersions } from './version.js'
 
 export const debug = async (_: string[], config: LoadedConfig) => {
-  const tap = String(await resolveImport('tap', import.meta.url))
+  const tap = String(resolveImportSync('tap', import.meta.url))
   const versions = await getAllVersions()
   const pkgs = [
     'tap',

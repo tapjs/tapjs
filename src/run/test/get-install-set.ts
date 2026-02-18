@@ -75,7 +75,7 @@ t.test('plugin exists, but wrong version', async t => {
     typeof import('../dist/esm/get-install-set.js')
   >('../dist/esm/get-install-set.js', {
     '../dist/esm/pkg-exists.js': {
-      pkgExists: async () => true,
+      pkgExists: () => true,
     },
     '../dist/esm/analyze-plugin-arg.js': {
       analyzePluginArg: async () => ({
@@ -108,7 +108,7 @@ t.test('plugin not installed', async t => {
     typeof import('../dist/esm/get-install-set.js')
   >('../dist/esm/get-install-set.js', {
     '../dist/esm/pkg-exists.js': {
-      pkgExists: async () => false,
+      pkgExists: () => false,
     },
     '../dist/esm/analyze-plugin-arg.js': {
       analyzePluginArg: async () => ({
@@ -141,7 +141,7 @@ t.test('cannot resolve version', async t => {
     typeof import('../dist/esm/get-install-set.js')
   >('../dist/esm/get-install-set.js', {
     '../dist/esm/pkg-exists.js': {
-      pkgExists: async () => false,
+      pkgExists: () => false,
     },
     '../dist/esm/analyze-plugin-arg.js': {
       analyzePluginArg: async () => ({

@@ -1,11 +1,11 @@
 import { LoadedConfig } from '@tapjs/config'
 import { readFileSync } from 'fs'
 import pacote from 'pacote'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { gt, satisfies } from 'semver'
 import { fileURLToPath } from 'url'
 
-const corePJ = await resolveImport(
+const corePJ = resolveImportSync(
   '@tapjs/core/package.json',
   import.meta.url,
 )

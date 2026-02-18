@@ -3,7 +3,7 @@
 // Putting it here in this module prevents a cycle that makes it
 // annoying to load units in the tests for this package.
 
-import { LoadedConfig, TapConfig } from '@tapjs/config'
+import { type LoadedConfig, TapConfig } from '@tapjs/config'
 export const config: LoadedConfig = await TapConfig.load()
 export const { values, positionals } = config.parse()
 

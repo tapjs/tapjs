@@ -66,7 +66,7 @@ export const getInstallSet = async (
     ) {
       needInstall.add(`${name}@${versionWant}`)
       // only rollback if it wasn't there to begin with
-      if (!(await pkgExists(name))) {
+      if (!pkgExists(name)) {
         needCleanup.add(name)
       }
     }

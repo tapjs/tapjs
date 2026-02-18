@@ -1,9 +1,9 @@
 import { spawn } from 'node:child_process'
 import { dirname, resolve } from 'node:path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { rimrafSync } from 'rimraf'
 import t from 'tap'
-const buildScriptURL = await resolveImport(
+const buildScriptURL = resolveImportSync(
   '../dist/esm/build.mjs',
   import.meta.url,
 )
@@ -329,7 +329,7 @@ t.test('disambiguate plugin names', async t => {
 
   const core = dirname(
     fileURLToPath(
-      await resolveImport('@tapjs/core/package.json', import.meta.url),
+      resolveImportSync('@tapjs/core/package.json', import.meta.url),
     ),
   )
   const pluginCore = resolve(

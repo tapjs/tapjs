@@ -3,7 +3,7 @@ import t from 'tap'
 import { createPatch } from 'diff'
 import { globSync } from 'glob'
 import { dirname } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { fileURLToPath } from 'url'
 import * as cjs from '../dist/commonjs/index.js'
 import * as mjs from '../dist/esm/index.js'
@@ -350,7 +350,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.notMatch(noGlobDiff, /node_modules.glob/)
       t.notMatch(noGlobDiff, /node_modules.diff/)
 
-      const globNM = fileURLToPath(await resolveImport('glob'))
+      const globNM = fileURLToPath(resolveImportSync('glob'))
         .toLowerCase()
         .replace(/(node_modules.glob).*$/, '$1')
       t.match(expandStack(unfiltered).toLowerCase(), globNM)

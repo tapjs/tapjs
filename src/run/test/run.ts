@@ -4,10 +4,10 @@ import t from 'tap'
 import { LoadedConfig } from '@tapjs/config'
 import { readFileSync, statSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { fileURLToPath } from 'url'
 const bin = fileURLToPath(
-  await resolveImport('../dist/esm/index.js', import.meta.url),
+  resolveImportSync('../dist/esm/index.js', import.meta.url),
 )
 const node = process.execPath
 

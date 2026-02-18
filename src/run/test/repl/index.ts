@@ -10,11 +10,11 @@ import { ReplOptions } from 'node:repl'
 import { ReadStream, WriteStream } from 'node:tty'
 import { fileURLToPath } from 'node:url'
 import { basename } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import t from 'tap'
 import { options as watchOptions } from '../../dist/esm/repl/chokidar-options.js'
 const bin = fileURLToPath(
-  await resolveImport('../../dist/esm/index.js', import.meta.url),
+  resolveImportSync('../../dist/esm/index.js', import.meta.url),
 )
 
 // just run tests in raw TAP mode

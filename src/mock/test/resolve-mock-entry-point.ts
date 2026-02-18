@@ -1,4 +1,4 @@
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import t from 'tap'
 
 import { resolveMockEntryPoint } from '../src/resolve-mock-entry-point.js'
@@ -11,7 +11,7 @@ t.equal(
     'mock-key',
     () => {},
   ),
-  String(await resolveImport('../dist/esm/hooks.mjs', import.meta.url)) +
+  String(resolveImportSync('../dist/esm/hooks.mjs', import.meta.url)) +
     '?tapmock=service-key.mock-key',
 )
 
@@ -23,6 +23,6 @@ t.equal(
     'mock-key',
     () => {},
   ),
-  String(await resolveImport('@tapjs/synonyms', import.meta.url)) +
+  String(resolveImportSync('@tapjs/synonyms', import.meta.url)) +
     '?tapmock=service-key.mock-key',
 )

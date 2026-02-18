@@ -1,11 +1,11 @@
 import type { LoadedConfig } from '@tapjs/config'
 import { foregroundChild } from 'foreground-child'
 import { fileURLToPath } from 'node:url'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { mainCommand } from './main-config.js'
 import { plugin } from './plugin.js'
 const tapBuildBin = fileURLToPath(
-  await resolveImport(
+  resolveImportSync(
     '@tapjs/test/generate-tap-test-class',
     import.meta.url,
   ),

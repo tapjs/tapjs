@@ -8,7 +8,7 @@ import { createRequire } from 'node:module';
 import { basename, dirname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { findPackageJson } from 'package-json-from-dist';
-import { resolveImport } from 'resolve-import';
+import { resolveImportSync } from 'resolve-import/resolve-import-sync';
 import { rimrafSync } from 'rimraf';
 import { walkUp } from 'walk-up-path';
 import { setPluginCoreLink } from './set-plugin-core-link.js';
@@ -24,12 +24,14 @@ for (const dir of walkUp(cwd)) {
     }
 }
 const pluginDir = resolve(projectRoot, '.tap/plugins');
+/* c8 ignore start - actually is tested, but can't collect coverage */
 if (typeof process.argv[2] !== 'string') {
     console.error('usage: generate-tap-test-class [...plugins]');
     process.exit(1);
 }
+/* c8 ignore stop */
 // set up the plugin directory
-const core = dirname(fileURLToPath(await resolveImport('@tapjs/core/package.json', import.meta.url)));
+const core = dirname(fileURLToPath(resolveImportSync('@tapjs/core/package.json', import.meta.url)));
 // link our @tapjs/core into the plugin env, to avoid duality
 setPluginCoreLink(pluginDir, core);
 setPluginPackageJson(pluginDir, core);
@@ -82,7 +84,9 @@ const signatureCode = `export const signature = \`${signature}\`
 const configs = new Map();
 const validPlugin = (p) => !!p &&
     typeof p === 'object' &&
+    /* c8 ignore start */
     !!(p.plugin || p.loader || p.importLoader || p.config) &&
+    /* c8 ignore stop */
     (p.plugin === undefined || typeof p.plugin === 'function') &&
     (p.config === undefined ||
         (!!p.config && typeof p.config === 'object')) &&
@@ -96,9 +100,9 @@ const pluginNames = await Promise.all(plugins.map(async (p) => {
     let req;
     try {
         req = require(p);
+        /* c8 ignore start */
     }
     catch (er) {
-        /* c8 ignore start */
         console.error(`'${p}' does not appear to be a tap plugin. Could not load ` +
             `module with require().`, er instanceof Error ? er.message : er);
         /* c8 ignore start */
@@ -115,7 +119,7 @@ const pluginNames = await Promise.all(plugins.map(async (p) => {
         process.exit(1);
     }
     try {
-        imp = await import(String(await resolveImport(p, dir + '/x')));
+        imp = await import(String(resolveImportSync(p, dir + '/x')));
     }
     catch (er) {
         /* c8 ignore start */
@@ -341,7 +345,7 @@ writeFileSync(out, swapTags(template, {
     LOADERS: pluginLoaders,
     'FILE TYPES': testFileExtensionsCode,
 }));
-const tshy = fileURLToPath(await resolveImport('tshy', import.meta.url));
+const tshy = fileURLToPath(resolveImportSync('tshy', import.meta.url));
 const res = spawnSync(process.execPath, [tshy], {
     cwd: dir,
     stdio: 'inherit',

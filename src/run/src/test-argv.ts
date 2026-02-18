@@ -7,20 +7,20 @@ import {
   loaders,
 } from '@tapjs/test'
 import module from 'node:module'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { argvToNodeOptions, nodeOptionsToArgv } from 'node-options-to-argv'
 
 // if we have Module.register(), then use --import wherever possible
 const useImport = !!(module as { register?: (...a: any) => any }).register
 
 const testModule = String(
-  await resolveImport('@tapjs/test', import.meta.url),
+  resolveImportSync('@tapjs/test', import.meta.url),
 )
 
 const resolveLoaders = (loaders: string[]) =>
   Promise.all(
     loaders.map(async loader =>
-      String(await resolveImport(loader, testModule)),
+      String(resolveImportSync(loader, testModule)),
     ),
   )
 const importScripts = await resolveLoaders(useImport ? importLoaders : [])
@@ -30,11 +30,11 @@ const loaderScripts = await resolveLoaders(
 
 const pi =
   useImport ?
-    `--import=${await resolveImport(
+    `--import=${resolveImportSync(
       '@tapjs/processinfo/import',
       import.meta.url,
     )}`
-  : `--loader=${await resolveImport(
+  : `--loader=${resolveImportSync(
       '@tapjs/processinfo/loader',
       import.meta.url,
     )}`

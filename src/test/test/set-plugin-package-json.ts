@@ -1,13 +1,13 @@
 import { readFileSync } from 'fs'
 import { dirname } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import t from 'tap'
 import { fileURLToPath } from 'url'
 import { setPluginPackageJson } from '../src/set-plugin-package-json.js'
 
 const core = dirname(
   fileURLToPath(
-    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    resolveImportSync('@tapjs/core/package.json', import.meta.url),
   ),
 )
 const expect = {

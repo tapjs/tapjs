@@ -9,7 +9,7 @@ import { readFileSync, statSync } from 'node:fs'
 import { relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { FC } from 'react'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import t from 'tap'
 
 const reporterCalled: [string | FC<TapReportOpts>, TestBase, any][] = []
@@ -219,7 +219,7 @@ t.test('silent because -R/dev/null', async t => {
 })
 
 t.test('custom react reporter', async t => {
-  const u = await resolveImport(
+  const u = resolveImportSync(
     './fixtures/custom-react-reporter/index.js',
     import.meta.url,
   )
@@ -239,7 +239,7 @@ t.test('custom react reporter', async t => {
 t.test('custom stream reporter', async t => {
   const stdout = new Minipass<string>({ encoding: 'utf8' })
   t.intercept(process, 'stdout', { value: stdout })
-  const u = await resolveImport(
+  const u = resolveImportSync(
     './fixtures/custom-stream-reporter/index.js',
     import.meta.url,
   )
@@ -279,7 +279,7 @@ t.test('custom stream reporter to file', async t => {
       },
     },
   })
-  const u = await resolveImport(
+  const u = resolveImportSync(
     './fixtures/custom-stream-reporter/index.js',
     import.meta.url,
   )

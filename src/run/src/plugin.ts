@@ -3,14 +3,11 @@ import { LoadedConfig } from '@tapjs/config'
 // load core so that the Test class is ready
 import '@tapjs/core'
 import { defaultPlugins } from '@tapjs/test'
-
 import chalk from 'chalk'
-
 import { lstat } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { resolveImport } from 'resolve-import'
-
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { build } from './build.js'
 import { getInstallSet } from './get-install-set.js'
 import { install, uninstall } from './npm.js'
@@ -21,17 +18,27 @@ const exists = (f: string) =>
     () => false,
   )
 
+const tryResolveImport = (m: string | URL, from: string | URL) => {
+  try {
+    return resolveImportSync(m, from)
+  } catch {}
+}
+
 const detectGlobalInstall = async (args: string[], project: string) => {
   // find the tap that will be loaded from the project root
   const activeRunner = String(
-    await resolveImport('@tapjs/run', import.meta.url),
+    resolveImportSync('@tapjs/run', import.meta.url),
   )
+  const projectTap = tryResolveImport('tap', resolve(project, 'x'))
   const projectRunner = String(
-    await resolveImport('tap', resolve(project, 'x'))
-      .then(projectTap => resolveImport('@tapjs/run', projectTap))
-      .catch(() => resolveImport('@tapjs/run', project))
-      .catch(() => activeRunner),
+    projectTap ?
+      tryResolveImport('@tapjs/run', projectTap)
+    : /* c8 ignore start */
+      tryResolveImport('@tapjs/run', project) ?? activeRunner,
+    /* c8 ignore stop */
   )
+
+  /* c8 ignore start */
   if (activeRunner !== projectRunner) {
     const f = fileURLToPath(activeRunner).split('node_modules')
     f.pop()
@@ -53,6 +60,7 @@ This will likely fail. Try:
 `,
     )
   }
+  /* c8 ignore stop */
 }
 
 export const plugin = async (

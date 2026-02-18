@@ -3,7 +3,7 @@ import t, { Test } from 'tap'
 import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import * as npm from '../dist/esm/npm.js'
 
 const CWD = process.cwd().toUpperCase()
@@ -660,7 +660,6 @@ t.test('print warning if not running in project', async t => {
 
   const config = new MockConfig(t)
   config.projectRoot = resolve('/project/dir')
-  resolveImport
   const mockTap = pathToFileURL(
     resolve('/project/dir/node_modules/tap/index.js'),
   )
@@ -670,19 +669,19 @@ t.test('print warning if not running in project', async t => {
   const mockActiveRun = pathToFileURL(
     resolve('/global/node_modules/@tapjs/run/index.js'),
   )
-  const mockRI = async (req: string | URL, f?: string | URL) => {
+  const mockRISync = (req: string | URL, f?: string | URL) => {
     if (req === 'tap' && f === resolve(config.projectRoot, 'x'))
       return mockTap
     if (req === '@tapjs/run' && f === mockTap) return mockProjectRun
     else if (req === '@tapjs/run') return mockActiveRun
-    return resolveImport(req, f)
+    return resolveImportSync(req, f)
   }
 
   const { plugin } = await t.mockImport<
     typeof import('../dist/esm/plugin.js')
   >('../dist/esm/plugin.js', {
-    'resolve-import': {
-      resolveImport: mockRI,
+    'resolve-import/resolve-import-sync': {
+      resolveImportSync: mockRISync,
     },
   })
 

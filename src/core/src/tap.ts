@@ -180,6 +180,7 @@ class TAP extends Test {
     this.hook.onDestroy = () => rootDomain.destroy()
   }
 
+  /* c8 ignore start */
   onbail(reason?: string) {
     if (registered) {
       this.debug('bailout, exit 1')
@@ -192,6 +193,7 @@ class TAP extends Test {
       proc?.exit(1)
     }
   }
+  /* c8 ignore stop */
 
   /**
    * Just the normal Minipass.pipe method, but automatically registers
@@ -250,7 +252,9 @@ class TAP extends Test {
     const occ = this.occupied
     const extra = Object.assign(getTimeoutExtra(options.signal), options)
     super.timeout(extra)
+    /* c8 ignore start */
     if (occ) this.emit('timeout', extra)
+    /* c8 ignore stop */
     // don't stick around
     // this is just a defense if the SIGALRM signal is caught, since
     // we'll exit forcibly anyway.
@@ -303,6 +307,7 @@ const maybeAutoend = () => {
 
 // SIGALRM means being forcibly killed due to timeout
 const registerTimeoutListener = (t: TAP) => {
+  /* c8 ignore start */
   const oe: Handler = (_, sig) => {
     if (sig === 'SIGALRM' && !didProcessTimeout) {
       onProcessTimeout(t, sig)
@@ -310,6 +315,7 @@ const registerTimeoutListener = (t: TAP) => {
       return true
     }
   }
+  /* c8 ignore stop */
   onExit(oe)
   const onMessage = (
     msg:
@@ -444,11 +450,14 @@ const onProcessTimeout = (
   }
   // defer to print the timeout failure before termination
   setTimeout(() => alarmKill())
+  /* c8 ignore stop */
 }
 
 const alarmKill = () => {
   // can only kill in main thread, worker threads will be terminated
+  /* c8 ignore start */
   if (!isMainThread) return
+  /* c8 ignore stop */
 
   // SIGALRM isn't supported everywhere,
   // and we won't be able to catch it on windows anyway.

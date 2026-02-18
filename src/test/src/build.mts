@@ -8,7 +8,7 @@ import { createRequire } from 'node:module'
 import { basename, dirname, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { findPackageJson } from 'package-json-from-dist'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { rimrafSync } from 'rimraf'
 import { walkUp } from 'walk-up-path'
 import { setPluginCoreLink } from './set-plugin-core-link.js'
@@ -34,15 +34,17 @@ for (const dir of walkUp(cwd)) {
 }
 const pluginDir = resolve(projectRoot, '.tap/plugins')
 
+/* c8 ignore start - actually is tested, but can't collect coverage */
 if (typeof process.argv[2] !== 'string') {
   console.error('usage: generate-tap-test-class [...plugins]')
   process.exit(1)
 }
+/* c8 ignore stop */
 
 // set up the plugin directory
 const core = dirname(
   fileURLToPath(
-    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    resolveImportSync('@tapjs/core/package.json', import.meta.url),
   ),
 )
 // link our @tapjs/core into the plugin env, to avoid duality
@@ -137,7 +139,9 @@ type PluginExport = {
 const validPlugin = (p: any): p is PluginExport =>
   !!p &&
   typeof p === 'object' &&
+  /* c8 ignore start */
   !!(p.plugin || p.loader || p.importLoader || p.config) &&
+  /* c8 ignore stop */
   (p.plugin === undefined || typeof p.plugin === 'function') &&
   (p.config === undefined ||
     (!!p.config && typeof p.config === 'object')) &&
@@ -154,8 +158,8 @@ const pluginNames = await Promise.all(
 
     try {
       req = require(p)
-    } catch (er) {
       /* c8 ignore start */
+    } catch (er) {
       console.error(
         `'${p}' does not appear to be a tap plugin. Could not load ` +
           `module with require().`,
@@ -178,7 +182,7 @@ const pluginNames = await Promise.all(
     }
 
     try {
-      imp = await import(String(await resolveImport(p, dir + '/x')))
+      imp = await import(String(resolveImportSync(p, dir + '/x')))
     } catch (er) {
       /* c8 ignore start */
       console.error(
@@ -457,7 +461,7 @@ writeFileSync(
   }),
 )
 
-const tshy = fileURLToPath(await resolveImport('tshy', import.meta.url))
+const tshy = fileURLToPath(resolveImportSync('tshy', import.meta.url))
 
 const res = spawnSync(process.execPath, [tshy], {
   cwd: dir,

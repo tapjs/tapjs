@@ -1,13 +1,13 @@
 import { readlinkSync } from 'fs'
 import { dirname, resolve } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import t from 'tap'
 import { fileURLToPath } from 'url'
 import { setPluginCoreLink } from '../src/set-plugin-core-link.js'
 
 const core = dirname(
   fileURLToPath(
-    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    resolveImportSync('@tapjs/core/package.json', import.meta.url),
   ),
 )
 

@@ -10,7 +10,7 @@ import { WriteStream } from 'node:tty'
 import { resolve } from 'node:path'
 import type { Writable } from 'node:stream'
 import { pathToFileURL } from 'node:url'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import'
 import { which } from '@isaacs/which'
 
 const rawTap = (t: TAP, out: Writable) => pipe(t, out)
@@ -83,7 +83,12 @@ export const handleReporter = async (t: TAP, config: LoadedConfig) => {
   // ok, not one of those, check to see if we can import it
   // load it relative to the cwd, so relative paths work.
   const from = pathToFileURL(resolve('x'))
-  const mod = String(await resolveImport(reporter, from).catch(() => ''))
+  let mod: string
+  try {
+    mod = String(resolveImportSync(reporter, from))
+  } catch {
+    mod = ''
+  }
 
   const imported = mod && (await import(mod).catch(() => null))?.default
   if (imported) {

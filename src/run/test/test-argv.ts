@@ -32,8 +32,8 @@ const mocksAllImport = {
 }
 
 t.mockAll({
-  'resolve-import': {
-    resolveImport: async (s: string) => new URL(s, 'file://path/to/'),
+  'resolve-import/resolve-import-sync': {
+    resolveImportSync: (s: string) => new URL(s, 'file://path/to/'),
   },
   module: {
     register: () => {},

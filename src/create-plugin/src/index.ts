@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 import { readFileSync } from 'node:fs'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { randomInt } from 'node:crypto'
 import { basename, dirname } from 'node:path'
 import { Init } from 'npm-init-template'
 
 const corePkg = JSON.parse(
   readFileSync(
-    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    resolveImportSync('@tapjs/core/package.json', import.meta.url),
     'utf8',
   ),
 ) as typeof import('@tapjs/core/package.json')

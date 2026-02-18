@@ -3,14 +3,14 @@ import t from 'tap'
 import { spawn } from 'child_process'
 import { readFileSync } from 'fs'
 import { relative } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { fileURLToPath } from 'url'
-const binURL = await resolveImport('../dist/esm/index.js', import.meta.url)
+const binURL = resolveImportSync('../dist/esm/index.js', import.meta.url)
 const bin = fileURLToPath(binURL)
 
 const corePkg = JSON.parse(
   readFileSync(
-    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    resolveImportSync('@tapjs/core/package.json', import.meta.url),
     'utf8',
   ),
 )

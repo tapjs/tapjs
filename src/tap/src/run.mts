@@ -13,11 +13,15 @@ import { pathToFileURL } from 'node:url'
 // able to run tap without `npm exec` or `npm run-script`,
 // so may as well make it do the right thing.
 
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 // import('@tapjs/run')
-// this is nicer with TLA, but that has some unfortunate side effects
-resolveImport('tap', pathToFileURL(resolve('x')))
-  .then(tap =>
-    resolveImport('@tapjs/run', tap).catch(() => import.meta.url),
-  )
-  .then(i => import(String(i)))
+const tap = resolveImportSync('tap', pathToFileURL(resolve('x')))
+let run: URL | string
+try {
+  run = resolveImportSync('@tapjs/run', tap)
+  /* c8 ignore start */
+} catch {
+  run = import.meta.url
+}
+/* c8 ignore stop */
+import(String(run))

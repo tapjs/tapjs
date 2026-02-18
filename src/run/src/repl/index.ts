@@ -9,7 +9,7 @@ import { isAbsolute, relative, resolve } from 'node:path'
 import type { REPLServer } from 'node:repl'
 import { start } from 'node:repl'
 import { fileURLToPath } from 'node:url'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { rimrafSync } from 'rimraf'
 import { stringify } from 'tap-yaml'
 import { Deferred } from 'trivial-deferred'
@@ -20,7 +20,7 @@ import { processinfoCompletions } from './processinfo-completions.js'
 import { Watch } from './watch.js'
 
 const tapBin = fileURLToPath(
-  await resolveImport('../index.js', import.meta.url),
+  resolveImportSync('../index.js', import.meta.url),
 )
 
 type NodeCallback = (er: Error | null, result: any) => void

@@ -1,11 +1,11 @@
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import t from 'tap'
 
-const importer = await resolveImport(
+const importer = resolveImportSync(
   '../dist/esm/import.mjs',
   import.meta.url,
 )
-const loader = await resolveImport(
+const loader = resolveImportSync(
   '../dist/esm/loader.mjs',
   import.meta.url,
 )
