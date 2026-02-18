@@ -114,11 +114,11 @@
     "jackspeak": "^4.2.3",
     "mkdirp": "^3.0.0",
     "package-json-from-dist": "^1.0.0",
-    "resolve-import": "^2.1.1",
+    "resolve-import": "^2.4.0",
     "rimraf": "^6.0.0",
     "sync-content": "^2.0.4",
     "tap-parser": "18.3.0",
-    "tshy": "3.2",
+    "tshy": "^3.3.2",
     "typescript": "5.9",
     "walk-up-path": "^4.0.0"
   },

@@ -61,7 +61,7 @@
     "opener": "^1.5.2",
     "pacote": "^21.0.4",
     "path-scurry": "^2.0.0",
-    "resolve-import": "^2.0.0",
+    "resolve-import": "^2.4.0",
     "rimraf": "^6.0.0",
     "semver": "^7.7.2",
     "signal-exit": "^4.1.0",

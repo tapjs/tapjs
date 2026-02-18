@@ -24,7 +24,7 @@ import type { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack'
 import * as stack from '@tapjs/stack'
 import { randomBytes } from 'crypto'
 import { dirname, isAbsolute } from 'path'
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 import { isRelativeRequire } from 'resolve-import/is-relative-require'
 import { pathToFileURL } from 'url'
 import { MessagePort } from 'worker_threads'
@@ -132,37 +132,38 @@ export class MockService {
   // pass in the main-thread end of the loader port set, and respond
   // appropriately to messages we can handle
   /* c8 ignore start */
-  static async listen(port: MessagePort) {
+  static listen(port: MessagePort) {
     this.#port = port
-    port.on('message', async msg => {
-      /* c8 ignore stop */
-      /* c8 ignore start */
+    port.on('message', msg => {
       if (!isMockServiceRequest(msg)) return
-      /* c8 ignore stop */
-      const r = await this.handle(msg).catch(e => console.error(e))
+      let r: undefined | ReturnType<typeof this.handle> = undefined
+      try {
+        r = this.handle(msg)
+      } catch (e) {
+        console.error(e)
+      }
       // typescript handles 'void' weirdly
       const response = r === undefined ? undefined : r
       const msr: MockServiceResponse = { ...msg, response }
       port.postMessage(msr)
-      /* c8 ignore start */
     })
     port.unref()
   }
   /* c8 ignore stop */
 
-  static async handle(msg: any) {
+  static handle(msg: any) {
     if (!isMockServiceRequest(msg)) return
     return msg.action === 'resolve' ? this.resolve(msg) : this.load(msg)
   }
 
-  static async resolve(req: MockServiceResolveRequest) {
+  static resolve(req: Omit<MockServiceResolveRequest, 'id'>) {
     const { parentURL } = req
     const p = new URL(parentURL)
     const [sk, k] = (p.searchParams.get('tapmock') || '').split('.')
     if (sk !== serviceKey || !k) return
     return this.get(k).resolve(req)
   }
-  async resolve({ url, parentURL }: MockServiceResolveRequest) {
+  resolve({ url, parentURL }: Omit<MockServiceResolveRequest, 'id'>) {
     const resolvedURL =
       hasOwn(this.mocks, url) ? url
       : isRelativeRequire(url) ? String(new URL(url, parentURL))
@@ -184,10 +185,19 @@ export class MockService {
       // that as the indicator that its builtin deps might need to be mocked.
       // For now, it's just a known design limitation, because that's a bit
       // tricky to get right.
-      let mocker = await resolveImport(url, parentURL).catch(() => {})
-      // we can't resolve it, but maybe someone else can.
+      let mocker: URL | string
+      try {
+        mocker = resolveImportSync(url, parentURL)
+      } catch {
+        // we can't resolve it, but maybe someone else can.
+        return
+      }
+
+      /* c8 ignore start */
       // if RI gives us a string, then it's a builtin, do nothing
-      if (!mocker || typeof mocker !== 'object') return
+      if (typeof mocker !== 'object') return
+      /* c8 ignore stop */
+
       mocker.searchParams.set('tapmock', `${serviceKey}.${this.key}`)
       return String(mocker)
     }
@@ -197,7 +207,7 @@ export class MockService {
     return String(mockRes)
   }
 
-  static async load(req: MockServiceLoadRequest) {
+  static load(req: Omit<MockServiceLoadRequest, 'id'>) {
     const { url } = req
     if (!url.startsWith(`tapmock://${serviceKey}.`)) return
     /* c8 ignore start */
@@ -209,7 +219,7 @@ export class MockService {
     /* c8 ignore stop */
     return this.get(key).load(req)
   }
-  async load({ url }: MockServiceLoadRequest) {
+  load({ url }: Omit<MockServiceLoadRequest, 'id'>) {
     if (!url.startsWith('tapmock://')) return
     const u = new URL(url)
     const key = u.host
@@ -218,11 +228,11 @@ export class MockService {
     return buildSrc(this, mockURL)
   }
 
-  static async create(
+  static create(
     module: string,
     mocks: Record<string, any> = {},
     caller: Function | ((...a: any[]) => any) = MockService.create,
-  ): Promise<MockService & { module: string | Promise<string> }> {
+  ): MockService & { module: string | Promise<string> } {
     const ms = new MockService(mockServiceCtorSymbol)
 
     /* c8 ignore start */
@@ -235,10 +245,10 @@ export class MockService {
     if (!path) {
       throw new Error('could not get current call site')
     }
-    /* c8 ignore stop */
 
     // tell the loader hooks thread that it's ok to start using it now.
     this.#port?.postMessage({ start: true })
+    /* c8 ignore stop */
 
     const dir = dirname(path)
     const url = pathToFileURL(path)

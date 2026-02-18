@@ -1,4 +1,4 @@
-import { resolveImport } from 'resolve-import'
+import { resolveImportSync } from 'resolve-import/resolve-import-sync'
 
 export const resolveMockEntryPoint = async (
   url: URL,
@@ -11,7 +11,7 @@ export const resolveMockEntryPoint = async (
   if (module.startsWith('./') || module.startsWith('../')) {
     mockedModuleURL = new URL(module, url)
   } else {
-    const res = (await resolveImport(module, url)) as URL
+    const res = (resolveImportSync(module, url)) as URL
     // caught at the exposed API, defense in depth only
     // but the experience if it throws here is unhelpful.
     /* c8 ignore start */

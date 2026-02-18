@@ -35,7 +35,7 @@
   "dependencies": {
     "@tapjs/core": "4.4.1",
     "npm-init-template": "4.3.1",
-    "resolve-import": "^2.1.1"
+    "resolve-import": "^2.4.0"
   },
   "tap": {
     "typecheck": false

@@ -190,7 +190,7 @@ export class TapMock {
       this.#t.t.teardown(() => this.unmock())
     }
     const { mockImport } = this.#bt()
-    const service = await MockService.create(module, mocks, mockImport)
+    const service = MockService.create(module, mocks, mockImport)
     this.#mocks.push(service)
     return Promise.resolve(service.module).then(s => import(s))
   }
