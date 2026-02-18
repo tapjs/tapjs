@@ -181,7 +181,6 @@ t.test('createMock object with basic fields', t => {
   )
   t.strictSame(mocked.a, 'mocked foo')
   t.strictSame(mocked.b, 'original bar')
-  // @ts-expect-error type fixed in #952
   t.strictSame(mocked.c(), 'mocked baz')
   t.strictSame(mocked.d(), 'original quz')
   t.end()
@@ -206,56 +205,8 @@ t.test('createMock object with prototype', t => {
   )
   t.strictSame(mocked.a, 'mocked foo')
   t.strictSame(mocked.b, 'original bar')
-  // @ts-expect-error type fixed in #952
   t.strictSame(mocked.c(), 'mocked baz')
   t.strictSame(mocked.d(), 'original quz')
-  t.end()
-})
-
-t.skip('createMock class with encapsulated private field', t => {
-  const mocked = t.createMock(
-    new (class {
-      #a = 'original vas'
-      getA() {
-        return this.#a
-      }
-    })(),
-    {},
-  )
-  // @TODO: currently getP call will failed with
-  // Cannot read private member #p from an object whose class did not declare it
-  t.strictSame(mocked.getA(), 'original vas')
-  t.end()
-})
-
-t.skip('createMock object with accessors', t => {
-  const mocked = t.createMock(
-    {
-      _a: 'original foo',
-      get a() {
-        return this._a
-      },
-      set a(v) {
-        this._a = v
-      },
-    },
-    {
-      _a: 'mocked foo',
-      get a() {
-        return 'mocked getter foo'
-      },
-      set a(value) {
-        this._a = value
-      },
-    },
-  )
-
-  t.strictSame(mocked._a, 'mocked foo')
-  t.strictSame(mocked.a, 'mocked getter foo')
-  // @TODO: currently a = overrides a totally without setter
-  // mocked.a = 'mocked setter for'
-  // t.strictSame(mocked._a, 'mocked setter for')
-  // t.strictSame(mocked.a, 'mocked setter for')
   t.end()
 })
 
