@@ -4,7 +4,6 @@
  *
  * @module
  */
-export * from './tap-file.js';
 export * from './base.js';
 export * from './counts.js';
 export * from './extra-from-error.js';
@@ -17,8 +16,10 @@ export * from './proc.js';
 export * from './spawn.js';
 export * from './stdin.js';
 export * from './tap-dir.js';
+export * from './tap-file.js';
 export * from './test-base.js';
 export * from './test-point.js';
+export * from './use-sync-hooks.js';
 export * from './waiter.js';
 export * from './worker.js';
 // do it in this weird way to keep prettier from moving tap.js

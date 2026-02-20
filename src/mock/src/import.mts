@@ -1,16 +1,9 @@
 import { MessageChannel } from 'node:worker_threads'
 import { MockService } from './mock-service.js'
+import { registerHooks } from '@tapjs/core'
+import { register } from 'node:module'
 
-import * as MODULE from 'node:module'
-
-const { register, registerHooks } = MODULE as {
-  register: typeof MODULE.register
-  registerHooks?: typeof MODULE.registerHooks
-}
-
-// node v22 had some weird behavior with the sync Load hook returning
-// undefined for builtin modules.
-if (registerHooks && !String(globalThis.process?.version).startsWith('v22.')) {
+if (registerHooks) {
   // instantiate MockService, and create load/resolve sync hooks that
   // use the service directly, not through a client.
   registerHooks({

@@ -12,7 +12,8 @@ const loader = resolveImportSync(
 let registered = false
 let serviceStarted = false
 await t.mockImport('../dist/esm/import.mjs', {
-  'node:module': {
+  'node:module': t.createMock(await import('node:module'), {
+    registerHooks: undefined,
     register: (url: URL | string, data: any) => {
       registered = true
       t.equal(String(url), String(loader), 'register loader')
@@ -29,13 +30,13 @@ await t.mockImport('../dist/esm/import.mjs', {
         'register data',
       )
     },
-  },
-  worker_threads: {
+  }),
+  worker_threads: t.createMock(await import('node:worker_threads'), {
     MessageChannel: class {
       port1 = 'PORT 1'
       port2 = 'PORT 2'
     },
-  },
+  }),
   '../dist/esm/mock-service.js': {
     MockService: {
       listen: (port: any) => {
