@@ -47,7 +47,7 @@ const mockFail = {
       ___: SpawnOptions,
       cb: Cleanup,
     ) {
-      cb(1, 'SIGTERM')
+      cb(1, 'SIGTERM', {})
     },
   },
 }
@@ -82,7 +82,7 @@ const mockPass = {
       ___: SpawnOptions,
       cb: Cleanup,
     ) {
-      cb(0, null)
+      cb(0, null, {})
     },
   },
 }
@@ -237,4 +237,24 @@ t.test('npm installs go to workspace root', async t => {
     )
     t.match(failSpawn(), [])
   })
+})
+
+t.test('uses the correct npm exe for the platform', async t => {
+  const expect = {
+    win32: 'npm.cmd',
+    posix: 'npm',
+  }
+  for (const [platform, exe] of Object.entries(expect)) {
+    t.test(platform, async t => {
+      t.intercept(process, 'platform', { value: platform })
+      t.equal(
+        (
+          await t.mockImport<typeof import('../src/npm.js')>(
+            '../src/npm.js',
+          )
+        ).npmExe,
+        exe,
+      )
+    })
+  }
 })

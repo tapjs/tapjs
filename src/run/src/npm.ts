@@ -21,18 +21,21 @@ export const npmFindCwd = async (projectRoot: string): Promise<string> => {
   return npmCwd
 }
 
+// exported for testing
+export const npmExe = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+
 /**
  * Run an npm command in the background, returning the result
  */
 export const npmBg = (args: string[], npmCwd: string) => {
-  return spawnSync('npm', args, {
+  return spawnSync(npmExe, args, {
     env: {
       ...npmFreeEnv,
       npm_config_prefix: npmCwd,
     },
     encoding: 'utf8',
     cwd: npmCwd,
-    shell: true,
+    shell: false,
   })
 }
 
@@ -54,7 +57,7 @@ const npmFg = (
     | undefined,
 ) => {
   return foregroundChild(
-    'npm',
+    npmExe,
     args,
     {
       env: {
@@ -62,7 +65,7 @@ const npmFg = (
         npm_config_prefix: npmCwd,
       },
       cwd: npmCwd,
-      shell: true,
+      shell: false,
     },
     cb,
   )

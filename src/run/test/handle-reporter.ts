@@ -339,7 +339,7 @@ t.test('custom cli program reporter', async t => {
       t.strictSame(reporterCalled, [], 'did not use @tapjs/reporter')
       const cmd = '/bin/test-exe-reporter'
       const opt = {
-        shell: true,
+        shell: false,
         stdio: ['pipe', 'inherit', 'inherit'],
       }
       t.strictSame(spawnCalled, [[cmd, args, opt]], 'spawn called')
@@ -377,7 +377,7 @@ t.test('custom cli program reporter to file', async t => {
       t.strictSame(reporterCalled, [], 'did not use @tapjs/reporter')
       const cmd = '/bin/test-exe-reporter'
       const opt = {
-        shell: true,
+        shell: false,
         stdio: ['pipe', 'pipe', 'inherit'],
       }
       t.strictSame(spawnCalled, [[cmd, args, opt]], 'spawn called')

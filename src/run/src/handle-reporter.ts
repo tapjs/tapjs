@@ -73,7 +73,7 @@ export const handleReporter = async (t: TAP, config: LoadedConfig) => {
     const exe = await which(reporter)
     const rargs = config.get('reporter-arg') || []
     const proc = spawn(exe, rargs, {
-      shell: true,
+      shell: false,
       stdio,
     })
     if (proc.stdout) proc.stdout.pipe(out)
