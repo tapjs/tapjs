@@ -9,7 +9,8 @@
       ".": "./src/index.ts",
       "./loader": "./src/loader.mts",
       "./import": "./src/import.mts"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",

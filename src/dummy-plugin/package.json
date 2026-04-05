@@ -11,7 +11,8 @@
       "./import": "./src/import.mts",
       "./reporter": "./src/reporter.tsx",
       "./load-reporter": "./src/load-reporter.ts"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",

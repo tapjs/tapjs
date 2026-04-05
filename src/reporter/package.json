@@ -12,7 +12,8 @@
       "./hooks": "./src/hooks.ts",
       "./components": "./src/components.ts",
       "./utils": "./src/utils.ts"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "module": "./dist/esm/index.js",

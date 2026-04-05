@@ -11,7 +11,8 @@
       "./test-stream-deserialize": "./src/test-stream-deserialize.ts",
       "./test-stream-serialize": "./src/test-stream-serialize.ts",
       "./package.json": "./package.json"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",

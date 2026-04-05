@@ -28,7 +28,8 @@
           "default": "./test-built/dist/commonjs/index.js"
         }
       }
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "bin": {

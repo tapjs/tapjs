@@ -8,7 +8,8 @@
     ],
     "exports": {
       "./package.json": "./package.json"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "bin": {

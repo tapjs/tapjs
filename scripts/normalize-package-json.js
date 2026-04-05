@@ -50,7 +50,10 @@ for (const f of files) {
         name,
         version,
         description,
-        tshy,
+        tshy: tshy ? {
+          ...tshy,
+          selfLink: false,
+        } : undefined,
         type,
         bin,
         main,

@@ -9,7 +9,8 @@
     "exports": {
       "./package.json": "./package.json",
       ".": "./src/index.ts"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "bin": {

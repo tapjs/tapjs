@@ -9,7 +9,8 @@
       "./package.json": "./package.json",
       "./loader": "./src/legacy-loader.mts",
       "./import": "./src/import.mts"
-    }
+    },
+    "selfLink": false
   },
   "type": "module",
   "main": "./dist/commonjs/index.js",

@@ -2,6 +2,9 @@
   "name": "@tapjs/docs",
   "version": "4.4.0",
   "description": "The content for https://node-tap.org",
+  "tshy": {
+    "selfLink": false
+  },
   "type": "commonjs",
   "scripts": {
     "start": "eleventy --serve",
