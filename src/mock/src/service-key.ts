@@ -1,5 +1,8 @@
-import { createRequire } from "node:module"
-//@ts-ignore
-const require = createRequire(import.meta.url)
-const serviceKeyCJS = require('../commonjs/service-key.js')
-export const { serviceKey } = serviceKeyCJS as { serviceKey: string }
+import { randomBytes } from 'crypto'
+
+const kServiceKey = Symbol.for('@tapjs/mock.ServiceKey')
+const g = globalThis as typeof globalThis & {
+  [kServiceKey]: string
+}
+export const serviceKey = (g[kServiceKey] =
+  g[kServiceKey] ?? randomBytes(8).toString('hex'))
