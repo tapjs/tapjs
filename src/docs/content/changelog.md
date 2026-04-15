@@ -5,6 +5,13 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.7
+
+- Add the ability to put configuration in `config/taprc`, and
+  warn about config files (including a `package.json` file with a
+  `"tap"` section) that is seen but ignored.
+- Add `config` docs page.
+
 ## 21.6
 
 - Use synchronous loader hooks on Node versions that support
