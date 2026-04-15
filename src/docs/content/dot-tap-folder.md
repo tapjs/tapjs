@@ -92,8 +92,8 @@ When generating coverage reports, the files generated go in here.
 | `lcov`                     | `.tap/report/lcov.info`, `.tap/report/lcov-report/index.html` |
 | `clover`                   | `.tap/report/clover.xml`                                      |
 | `cobertura`                | `.tap/report/cobertura-coverage.xml`                          |
-| `json`                     | `.tap/report/coverage-final.json                              |
-| `json-summary`             | `.tap/report/coverage-summary.json                            |
+| `json`                     | `.tap/report/coverage-final.json`                             |
+| `json-summary`             | `.tap/report/coverage-summary.json`                           |
 | `lcovonly`                 | `.tap/report/lcov.info`                                       |
 
 ## `.tap/fixtures`
