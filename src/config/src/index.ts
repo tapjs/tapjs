@@ -21,6 +21,7 @@ import {
 import { parse as yamlParse, stringify as yamlStringify } from 'tap-yaml'
 import { walkUp } from 'walk-up-path'
 import baseConfig from './jack.js'
+import chalk from 'chalk'
 
 export type OptionsSubset<T extends ConfigSet> = {
   [k in keyof OptionsResults<T>]?: OptionsResults<T>[k]
@@ -91,6 +92,14 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * The file extensions that tap knows how to load, updated by plugins
    */
   testFileExtensions: Set<string> = testFileExtensions
+
+  /**
+   * The configuration files that were seen in the search. This is used
+   * to warn about configuration files that are ignored, because some
+   * other file takes priority, for example if you have a `"tap"` section
+   * in package.json, but a `.taprc` file takes precedence.
+   */
+  #configFilesIgnored = new Set<string>()
 
   constructor(jack: Jack<C> = baseConfig as unknown as Jack<C>) {
     this.jack = jack
@@ -179,7 +188,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     await this.loadConfigData(data, configFile)
     if (this.values) Object.assign(this.values, data)
     const b = basename(configFile)
-    if (b === '.taprc') {
+    if (b === '.taprc' || b === 'taprc') {
       return this.editYAMLConfig(data, configFile, overwrite)
     } else if (b === 'package.json') {
       return this.editPackageJsonConfig(data, configFile, overwrite)
@@ -341,7 +350,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * Load some configuration fields from a config file
    */
   async loadConfigData(
-    data: any,
+    data: unknown,
     configFile: string,
   ): Promise<
     this & {
@@ -355,7 +364,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     }
     return Object.assign(this, {
       configFile,
-      valuesFromConfigFile: data || {},
+      valuesFromConfigFile: (data as OptionsResults<C>) || {},
     })
   }
 
@@ -379,6 +388,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         const extension = await this.readDepConfig(resolved)
         if (!extension) break
 
+        this.#configFilesIgnored.delete(resolved)
         stack.unshift([extension, ext, resolved])
         file = resolved
         data = extension
@@ -421,41 +431,68 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const isPJ = envRC && basename(envRC) === 'package.json'
 
     for (const p of walkUp(cwd)) {
-      const entries = await readdir(p).catch(() => null)
-      if (!entries) break
-      if (entries.includes('.taprc')) {
+      const entries = await readdir(p).catch(() => {})
+      if (!entries) {
+        break
+      }
+      const hasDotTaprc = entries.includes('.taprc')
+      const hasConfigTaprc =
+        entries.includes('config') &&
+        (await exists(resolve(p, 'config/taprc')))
+      const hasDotGit = entries.includes('.git')
+      const hasPkg = entries.includes('package.json')
+      const pj = hasPkg ? resolve(p, 'package.json') : undefined
+      const foundRoot =
+        hasDotTaprc ||
+        hasConfigTaprc ||
+        hasDotGit ||
+        hasPkg
+
+      if (foundRoot) {
+        // these all indicate the project root, even if they might not
+        // have a config file to read. If we're getting it from the env
+        // then there's nothing else to do. In that case, we don't warn
+        // about overlooked files, because presumably the user is setting
+        // the env config file location deliberately.
         this.projectRoot = p
-        env.TAP_CWD = p
         if (envRC) break
-        const file = resolve(p, '.taprc')
-        return this.loadConfigData(await this.readYAMLConfig(file), file)
-      } else if (entries.includes('package.json')) {
-        this.projectRoot = p
-        env.TAP_CWD = p
-        if (envRC) break
-        const file = resolve(p, 'package.json')
-        return this.loadConfigData(
-          await this.readPackageJsonConfig(file),
-          file,
-        )
-      } else if (entries.includes('.git')) {
-        // this just sets the default config file, even though we didn't
-        // get anything from it, so `tap plugin <add|rm>` knows where to
-        // write the resulting config to.
-        env.TAP_CWD = p
-        this.projectRoot = p
-        if (envRC) break
-        return Object.assign(this, {
-          configFile: resolve(p, '.taprc'),
-          valuesFromConfigFile: {},
-        })
+
+        const pkgConfigData =
+          pj ? await this.readPackageJsonConfig(pj) : undefined
+
+        const file =
+          hasDotTaprc ? resolve(p, '.taprc')
+          : pkgConfigData ? pj
+          : hasConfigTaprc ? resolve(p, 'config/taprc')
+          : undefined
+
+        if (hasDotTaprc) {
+          this.#configFilesIgnored.add(resolve(p, '.taprc'))
+        }
+        if (hasConfigTaprc) {
+          this.#configFilesIgnored.add(resolve(p, 'config/taprc'))
+        }
+        if (pj && pkgConfigData) {
+          this.#configFilesIgnored.add(pj)
+        }
+
+        if (file) {
+          return this.loadConfigData(
+            file === pj ? pkgConfigData : await this.readYAMLConfig(file),
+            file,
+          )
+        } else {
+          // ok we got to the project root, but no file found.
+          // use .taprc by default, because despite being most cluttery,
+          // it's also the easiest to notice and not overlook.
+          break
+        }
       } else if (relative(home, p) === '') {
-        env.TAP_CWD = cwd
-        this.projectRoot = cwd
         // got to ~, just use cwd
         break
       }
     }
+    env.TAP_CWD = this.projectRoot
 
     return envRC ?
         this.loadConfigData(
@@ -465,7 +502,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
           envRC,
         )
       : Object.assign(this, {
-          configFile: resolve(cwd, '.taprc'),
+          configFile: resolve(this.projectRoot, '.taprc'),
           valuesFromConfigFile: {},
         })
   }
@@ -541,6 +578,18 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return this
   }
 
+  warnIgnoredConfigFiles(this: TapConfig<C> & { configFile: string }) {
+    this.#configFilesIgnored.delete(this.configFile)
+    if (this.#configFilesIgnored.size) {
+      console.error(chalk.yellow.bold('WARNING'), 'ignored tap config found')
+      console.error(`Using tap config:\n  ${chalk.bold(this.configFile)}`)
+      console.error(chalk.yellow('Ignored config'))
+      for (const f of this.#configFilesIgnored) {
+        console.error(`  ${chalk.yellow.bold(f)}`)
+      }
+    }
+  }
+
   /**
    * cache of the loaded config
    */
@@ -557,6 +606,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const d = await c.loadColor()
     const e = d.loadReporter()
     const f = e.parse()
+    f.warnIgnoredConfigFiles()
     return (this.#loaded = f)
   }
 }

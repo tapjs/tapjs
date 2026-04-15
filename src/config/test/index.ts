@@ -1,7 +1,7 @@
 import * as core from '@tapjs/core'
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { tmpdir } from 'os'
-import { resolve } from 'path'
+import { dirname, resolve } from 'path'
 import t, { Test } from 'tap'
 import { TapConfig } from '../dist/esm/index.js'
 import jack from '../dist/esm/jack.js'
@@ -977,4 +977,108 @@ t.test('string config becomes extends value', async t => {
     })
     await runTest(t)
   })
+})
+
+t.test('other config locations', async t => {
+  const locs = [
+    'config/taprc',
+    '.taprc',
+    'proj/config/taprc',
+    'proj/.taprc',
+  ]
+  for (const loc of locs) {
+    t.test(loc, async t => {
+      const dir = t.testdir({
+        '.git': {},
+        config: {},
+        proj: {
+          config: {},
+        },
+      })
+      const expect = resolve(dir, loc)
+      writeFileSync(expect, 'lines: 10\n')
+      const cwd = resolve(dir, 'proj')
+      t.chdir(cwd)
+      const { TapConfig } = await t.mockImport<
+        typeof import('../dist/esm/index.js')
+      >('../dist/esm/index.js', {
+        '@tapjs/core': {
+          ...core,
+          cwd,
+          env: {
+            HOME: dirname(dir),
+          },
+        },
+      })
+      const conf = await TapConfig.load()
+      t.equal(conf.configFile, expect)
+      t.equal(conf.get('lines'), 10)
+    })
+  }
+})
+
+t.test('ignored config warning', async t => {
+  const cwd = t.testdir({
+    '.git': {},
+    'package.json': JSON.stringify({ tap: { lines: 0 } }),
+    '.taprc': 'lines: 99\n',
+    config: {
+      taprc: 'lines: 1\n',
+    },
+  })
+  t.chdir(cwd)
+  const args = t.capture(console, 'error', () => {}).args
+  const { TapConfig } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
+    '@tapjs/core': {
+      ...core,
+      cwd,
+      env: {
+        HOME: dirname(cwd),
+      },
+    },
+  })
+  const conf = await TapConfig.load()
+  t.equal(conf.get('lines'), 99)
+  t.match(args(), [
+    ['WARNING', 'ignored tap config found'],
+    [/^Using tap config:\n  .*\.taprc$/],
+    ['Ignored config'],
+    [/^  .*config.taprc$/],
+    [/^  .*package\.json$/],
+  ])
+})
+
+t.test('no ignore if extended', async t => {
+  const cwd = t.testdir({
+    '.git': {},
+    'package.json': JSON.stringify({ tap: { lines: 0 } }),
+    '.taprc': 'lines: 99\nextends: "./config/taprc"\n',
+    config: {
+      taprc: 'lines: 1\nreporter: spec\n',
+    },
+  })
+  t.chdir(cwd)
+  const args = t.capture(console, 'error', () => {}).args
+  const { TapConfig } = await t.mockImport<
+    typeof import('../dist/esm/index.js')
+  >('../dist/esm/index.js', {
+    '@tapjs/core': {
+      ...core,
+      cwd,
+      env: {
+        HOME: dirname(cwd),
+      },
+    },
+  })
+  const conf = await TapConfig.load()
+  t.equal(conf.get('lines'), 99)
+  t.equal(conf.get('reporter'), 'spec')
+  t.match(args(), [
+    ['WARNING', 'ignored tap config found'],
+    [/^Using tap config:\n  .*\.taprc$/],
+    ['Ignored config'],
+    [/^  .*package\.json$/],
+  ])
 })

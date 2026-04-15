@@ -255,15 +255,28 @@ export default jack({
     `If a \`TAP_RCFILE\` value is set in the process environment, then that
      will be the initial location that tap looks for configuration values.
 
-     If that's not set, then tap will look for configuration data first in a
-     .taprc file in the project root, and then in the "tap" object in the
-     project package.json file. ('Project root' means the nearest folder at or
-     above the current working directory containing package.json, .taprc, or
-     .git.)
+     If that environment variable is not set, then tap walk up the directory
+     tree seeking a project root. A "project root" is the nearest
+     folder containing either a valid configuration file, or
+     a \`package.json\` file, or \`.git\` folder. If tap reaches the root
+     of the file system, or the \`$HOME\` directory, then it will use the
+     current working directory as the project root.
 
-     The config object may set any of the following fields, as well as the
+     The following locations are inspected for configuration at each step
+     in the directory traversal, in decreasing priority order:
+
+     - ./.taprc
+     - ./package.json (if it contains a \`"tap"\` object)
+     - ./config/taprc
+
+     The config file may set any of the following fields, as well as the
      special "extends" field, which may specify either a package name or
      file name, relative to the config file that references it.
+
+     If a configuration file is found, but not used because a higher priority
+     file found, then a warning will be printed. (If the file was used because
+     it's the target of an \`extends\` field, then it will not be considered
+     "ignored", and no warning will be printed about it.)
 
      If the "extends" field resolves to a file on disk, then that will be read
      as the base configuration object. (It may also extend yet another config
