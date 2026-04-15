@@ -42,7 +42,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me>",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "yaml": "^2.8.1",
+    "yaml": "^2.8.3",
     "yaml-types": "^0.4.0"
   },
   "tap": {

@@ -26,7 +26,7 @@
     "eleventy-plugin-toc": "^1.1.5",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
-    "netlify-cli": "^23.11.1",
+    "netlify-cli": "^24.11.2",
     "pagefind": "^1.4.0"
   },
   "repository": {
