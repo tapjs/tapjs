@@ -152,10 +152,10 @@ t.test('list some test files', async t => {
       },
     )
 
-    // it MAY end up sorted once, randomly, but likely not 10 times in a row
+    // it MAY end up sorted once, randomly, but likely not 100 times in a row
     let log: string[] = []
     let sorted: string[] = []
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 100; i++) {
       await list(['src/*.spec.js', 'test/*.*js'], mainConfig.config)
       log = unsortedLog()
       sorted = [
