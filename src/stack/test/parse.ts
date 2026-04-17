@@ -56,10 +56,11 @@ const cases = [
   '    at Object.[some (weird) [<symbolism>]] [as foo] (__dirname/generate-parse-fixture.js:420:69)',
   '    at Foo.get stringStack (test/fixtures/eval-call-site.ts:17:33)',
   '    at Object.a (s) d [f] (__dirname/generate-parse-fixture.js:420:69)',
+  '    at async node:internal/modules/esm/loader:123:456',
 ]
 
 for (const c of cases) {
-  const d = c.replace(/^\s+at /, '')
+  const d = c.replace(/^\s+at /, '').replace(/^async /, '')
   t.test(d, t => {
     const cp = parseCallSiteLine(c)
     t.matchSnapshot(cp)

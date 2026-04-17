@@ -350,6 +350,15 @@ Object {
 }
 `
 
+exports[`test/parse.ts > TAP > node:internal/modules/esm/loader:123:456 > must match snapshot 1`] = `
+Object {
+  "columnNumber": 456,
+  "fileName": "node:internal/modules/esm/loader",
+  "lineNumber": 123,
+  [Symbol(compiled call site line)]: true,
+}
+`
+
 exports[`test/parse.ts > TAP > Object.[foo] (__dirname/generate-parse-fixture.js:420:69) > must match snapshot 1`] = `
 Object {
   "columnNumber": 69,

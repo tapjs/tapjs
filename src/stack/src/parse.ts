@@ -99,7 +99,7 @@ export const parseCallSiteLine = (line: string): Compiled => {
 }
 
 const parseCallSiteLine_ = (line: string): Compiled => {
-  line = line.replace(/^\s+at /, '')
+  line = line.replace(/^\s+at (async )?/, '')
 
   // just a lineref, nothing else:
   const bm = line.match(bareLineRefRe) as
