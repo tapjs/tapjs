@@ -73,7 +73,7 @@ for (const f of files) {
           url: 'git+ssh://git@github.com/tapjs/tapjs.git',
           path: rel,
         },
-        homepage: `https://github.com/tapjs/tapjs/${rel}#readme`,
+        homepage: `https://github.com/tapjs/tapjs/tree/main/${rel}#readme`,
         bugs: {
           url: 'https://github.com/tapjs/tapjs/issues',
         },

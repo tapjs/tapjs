@@ -93,7 +93,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/dummy-plugin"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/dummy-plugin#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/dummy-plugin#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

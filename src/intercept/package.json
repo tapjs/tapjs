@@ -56,7 +56,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/intercept"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/intercept#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/intercept#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

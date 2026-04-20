@@ -50,7 +50,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/stack"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/stack#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/stack#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

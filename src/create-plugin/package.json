@@ -46,7 +46,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/create-plugin"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/create-plugin#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/create-plugin#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

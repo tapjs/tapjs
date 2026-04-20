@@ -69,7 +69,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/typescript"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/typescript#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/typescript#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

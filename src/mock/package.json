@@ -73,7 +73,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/mock"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/mock#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/mock#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

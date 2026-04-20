@@ -60,7 +60,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/mocha-globals"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/mocha-globals#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/mocha-globals#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

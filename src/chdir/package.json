@@ -52,7 +52,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/chdir"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/chdir#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/chdir#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

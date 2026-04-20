@@ -55,7 +55,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/before-each"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/before-each#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/before-each#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

@@ -59,7 +59,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/asserts"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/asserts#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/asserts#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

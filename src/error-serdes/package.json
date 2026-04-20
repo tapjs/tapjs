@@ -99,7 +99,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/error-serdes"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/error-serdes#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/error-serdes#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

@@ -57,7 +57,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/fixture"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/fixture#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/fixture#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

@@ -56,7 +56,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/npm-init-template"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/npm-init-template#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/npm-init-template#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

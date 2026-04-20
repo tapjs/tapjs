@@ -56,7 +56,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/sinon"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/sinon#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/sinon#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

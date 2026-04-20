@@ -135,7 +135,7 @@
     "url": "git+ssh://git@github.com/tapjs/tapjs.git",
     "path": "src/test"
   },
-  "homepage": "https://github.com/tapjs/tapjs/src/test#readme",
+  "homepage": "https://github.com/tapjs/tapjs/tree/main/src/test#readme",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },
