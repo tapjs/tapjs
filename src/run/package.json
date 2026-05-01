@@ -46,7 +46,7 @@
     "@tapjs/after": "3.3.7",
     "@tapjs/before": "4.3.7",
     "@tapjs/config": "5.6.1",
-    "@tapjs/processinfo": "^3.1.9",
+    "@tapjs/processinfo": "^3.1.10",
     "@tapjs/reporter": "4.4.7",
     "@tapjs/spawn": "4.3.7",
     "@tapjs/stdin": "4.3.7",
