@@ -52,7 +52,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "license": "BlueOak-1.0.0",
   "dependencies": {
-    "@tapjs/processinfo": "^3.1.10",
+    "@tapjs/processinfo": "^3.1.11",
     "@tapjs/stack": "4.3.3",
     "@tapjs/test": "4.4.6",
     "async-hook-domain": "^4.0.1",
