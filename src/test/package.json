@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/test",
-  "version": "4.4.6",
+  "version": "4.4.7",
   "description": "the pluggable Test class for node-tap",
   "tshy": {
     "main": true,
@@ -95,22 +95,22 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@isaacs/ts-node-temp-fork-for-pr-2009": "^10.9.7",
-    "@tapjs/after": "3.3.8",
-    "@tapjs/after-each": "4.3.8",
-    "@tapjs/asserts": "4.3.8",
-    "@tapjs/before": "4.3.8",
-    "@tapjs/before-each": "4.3.8",
-    "@tapjs/chdir": "3.3.8",
-    "@tapjs/filter": "4.3.8",
-    "@tapjs/fixture": "4.3.8",
-    "@tapjs/intercept": "4.3.8",
-    "@tapjs/mock": "4.4.6",
-    "@tapjs/node-serialize": "4.3.8",
-    "@tapjs/snapshot": "4.3.8",
-    "@tapjs/spawn": "4.3.8",
-    "@tapjs/stdin": "4.3.8",
-    "@tapjs/typescript": "3.5.8",
-    "@tapjs/worker": "4.3.8",
+    "@tapjs/after": "3.3.9",
+    "@tapjs/after-each": "4.3.9",
+    "@tapjs/asserts": "4.3.9",
+    "@tapjs/before": "4.3.9",
+    "@tapjs/before-each": "4.3.9",
+    "@tapjs/chdir": "3.3.9",
+    "@tapjs/filter": "4.3.9",
+    "@tapjs/fixture": "4.3.9",
+    "@tapjs/intercept": "4.3.9",
+    "@tapjs/mock": "4.4.7",
+    "@tapjs/node-serialize": "4.3.9",
+    "@tapjs/snapshot": "4.3.9",
+    "@tapjs/spawn": "4.3.9",
+    "@tapjs/stdin": "4.3.9",
+    "@tapjs/typescript": "3.5.9",
+    "@tapjs/worker": "4.3.9",
     "glob": "^13.0.2",
     "jackspeak": "^4.2.3",
     "mkdirp": "^3.0.0",
@@ -124,7 +124,7 @@
     "walk-up-path": "^4.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.5.6"
+    "@tapjs/core": "4.5.7"
   },
   "tap": {
     "typecheck": false,
