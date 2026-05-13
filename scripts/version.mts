@@ -405,8 +405,9 @@ const publish = (names: string[], pre: boolean = false) => {
   // ok, this is the commit we want, it's all tagged and good to go
   git('push', 'origin', '--follow-tags')
   for (const pv of pvs) {
-    // delete the remote tags if it doesn't work
+    // delete the tags if it doesn't work, remote and local
     rollbacks.push(() => git('push', 'origin', `:${pv}`))
+    rollbacks.push(() => git('tag', '-d', pv))
   }
   // push worked, try to publish, skip any private packages
   const pn = names.filter(n => !manifests[n].private)
