@@ -11,6 +11,10 @@ eleventyNavigation:
   warn about config files (including a `package.json` file with a
   `"tap"` section) that is seen but ignored.
 - Add `config` docs page.
+- Update import loaders to use module.registerHooks, and the
+  forked ts-node to just ignore all warnings that would emit on
+  node 26. (A cleaner TS solution will come in a future update,
+  but may require breaking changes.)
 
 ## 21.6
 
