@@ -35,12 +35,21 @@ export const plugin: TapPlugin<{}> = () => {
 
   if (env.TAP_TYPE_STRIP_ONLY === '1') {
     // this stopped being a warning in node v24
-    const nw = nv <= 23 ? '--no-warnings ' : ''
+    const nw = nv <= 23 || nv >= 26 ? '--no-warnings ' : ''
     env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} ${nw}${
       nv === 22 ? '--experimental-strip-types' : ''
     }`.trim()
     return {}
   }
+
+  // node version 26 started spamming the stderr with warnings
+  // about ts-node's module.register() usage. For now, just turn
+  // that off.
+  /* v8 ignore start */
+  if (nv >= 26) {
+    env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} --no-warnings`.trim()
+  }
+  /* v8 ignore stop */
 
   if (env.TAP_TYPECHECK === '1') {
     env.TS_NODE_TRANSPILE_ONLY = '0'

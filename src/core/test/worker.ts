@@ -44,7 +44,7 @@ t.test('spawn something', t => {
     }) + '/file.js'
   const w = new Worker({
     filename,
-    env: { x: 'y' },
+    env: { NODE_OPTIONS: '--no-warnings', x: 'y' },
   })
   t.equal(w.worker, null)
   w.on('preprocess', options => {
@@ -55,6 +55,7 @@ t.test('spawn something', t => {
       stdout: true,
       env: {
         x: 'y',
+        NODE_OPTIONS: '--no-warnings',
         TAP_CHILD_ID: '99',
         TAP: '1',
         TAP_BAIL: '0',
