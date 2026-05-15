@@ -155,7 +155,7 @@ t.test('list some test files', async t => {
     // it MAY end up sorted once, randomly, but likely not 100 times in a row
     let log: string[] = []
     let sorted: string[] = []
-    for (let i = 0; i < 100; i++) {
+    OUTER: for (let i = 0; i < 100; i++) {
       await list(['src/*.spec.js', 'test/*.*js'], mainConfig.config)
       log = unsortedLog()
       sorted = [
@@ -167,7 +167,7 @@ t.test('list some test files', async t => {
       t.strictSame(new Set(log), new Set(sorted), 'got expected values')
       for (let l = 0; l < log.length; l++) {
         if (sorted[l] !== log[l]) {
-          break
+          break OUTER
         }
       }
     }
