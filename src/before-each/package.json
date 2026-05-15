@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/before-each",
-  "version": "4.3.9",
+  "version": "4.3.10",
   "description": "a built-in tap extension for t.beforeEach()",
   "tshy": {
     "main": true,
@@ -45,7 +45,7 @@
     "function-loop": "^4.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.5.7"
+    "@tapjs/core": "4.5.8"
   },
   "tap": {
     "typecheck": false
