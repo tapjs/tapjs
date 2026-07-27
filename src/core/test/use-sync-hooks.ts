@@ -17,8 +17,8 @@ t.test('no sync hooks on v24.11.0', async t => {
   t.equal(ush.registerHooks, undefined)
 })
 
-t.test('use sync hooks on v24.11.1', async t => {
-  t.intercept(process, 'version', { value: 'v24.11.1' })
+t.test('use sync hooks on v24.13.1', async t => {
+  t.intercept(process, 'version', { value: 'v24.13.1' })
   const ush = await t.mockImport<
     typeof import('../src/use-sync-hooks.js')
   >('../src/use-sync-hooks.js', mock)

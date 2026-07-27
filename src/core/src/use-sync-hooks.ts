@@ -21,6 +21,6 @@ const nodeVersion = (min: [number, number, number]) => {
 }
 
 export const registerHooks =
-  !!MODULE.registerHooks && nodeVersion([24, 11, 1]) ?
+  !!MODULE.registerHooks && nodeVersion([24, 13, 1]) ?
     MODULE.registerHooks
   : undefined

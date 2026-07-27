@@ -15,7 +15,7 @@ const nodeVersion = (min) => {
         (nv[0] === min[0] && nv[1] > min[1]) ||
         (nv[0] === min[0] && nv[1] === min[1] && nv[2] >= min[2]));
 };
-export const registerHooks = !!MODULE.registerHooks && nodeVersion([24, 11, 1]) ?
+export const registerHooks = !!MODULE.registerHooks && nodeVersion([24, 13, 1]) ?
     MODULE.registerHooks
     : undefined;
 //# sourceMappingURL=use-sync-hooks.js.map
