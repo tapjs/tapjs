@@ -98,13 +98,13 @@ export const isMockServiceRequest = (m: any): m is MockServiceRequest =>
 // it's loaded from the commonjs globalPreload, or just a cjs test
 const kInstances = Symbol.for(`${serviceKey}.instances`)
 const g = globalThis as typeof globalThis & {
-  [kInstances]?: Map<string, MockService>
+  [kInstances]?: Map<string, MockService | null>
 }
 
 // this gets called at startup before coverage is initiated,
 // so it never covers the second case where it isn't already set.
 /* c8 ignore start */
-const instances = g[kInstances] || new Map<string, MockService>()
+const instances = g[kInstances] || new Map<string, MockService | null>()
 /* c8 ignore stop */
 g[kInstances] = instances
 
@@ -161,7 +161,7 @@ export class MockService {
     const p = new URL(parentURL)
     const [sk, k] = (p.searchParams.get('tapmock') || '').split('.')
     if (sk !== serviceKey || !k) return
-    return this.get(k).resolve(req)
+    return this.get(k)?.resolve(req)
   }
   resolve({ url, parentURL }: Omit<MockServiceResolveRequest, 'id'>) {
     const resolvedURL =
@@ -217,7 +217,7 @@ export class MockService {
     /* c8 ignore start */
     if (!key) return
     /* c8 ignore stop */
-    return this.get(key).load(req)
+    return this.get(key)?.load(req)
   }
   load({ url }: Omit<MockServiceLoadRequest, 'id'>) {
     if (!url.startsWith('tapmock://')) return
@@ -283,13 +283,14 @@ export class MockService {
       [sym]?: MockService
     }
     delete g[sym]
-    instances.delete(this.key)
+    // setting to null means it USED to be mocked, but is no longer
+    instances.set(this.key, null)
     this.mocks = undefined
   }
 
   static get(key: string) {
     const i = instances.get(key)
-    if (!i) {
+    if (i === undefined) {
       throw new Error('mock service instance key not found')
     }
     return i

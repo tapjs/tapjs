@@ -193,10 +193,7 @@ t.test('generate some mock imports', async t => {
   })
   service.unmock()
   t.equal(service.mocks, undefined)
-  t.throws(
-    () => MockService.get(service.key),
-    'unmocked, removed from instances',
-  )
+  t.equal(MockService.get(service.key), null,'unmocked, removed from instances')
 
   t.equal(
     await service.load({
