@@ -30,6 +30,7 @@ ok 1 - /dev/stdin # time={TIME}
 # Subtest: env.test.js
     ok 1 - should match pattern
     1..1
+    # time={TIME}
 ok 2 - env.test.js # time={TIME}
 
 # { total: 2, pass: 2 }
@@ -75,6 +76,7 @@ TAP version 14
 # Subtest: failer.test.js
     ok 1 - this is fine
     1..1
+    # time={TIME}
 ok 1 - failer.test.js # time={TIME}
 
 # { total: 1, pass: 1 }
@@ -88,6 +90,7 @@ TAP version 14
 # Subtest: env.test.js
     ok 1 - should match pattern
     1..1
+    # time={TIME}
 ok 1 - env.test.js # time={TIME}
 
 # { total: 1, pass: 1 }

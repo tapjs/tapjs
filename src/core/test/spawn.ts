@@ -239,7 +239,11 @@ not ok 1 - timeout!
       s.main(async () => {
         parent.end()
         // messages can occur out of order from stdio
-        const found = new Set((await s.concat()).trim().split('\n'))
+        const raw = (await s.concat()).trim()
+        t.match(raw, /# time=[0-9.]+ms/, 'child TAP includes duration')
+        const found = new Set(
+          raw.split('\n').filter(l => !/^# time=/.test(l)),
+        )
         const wanted = new Set([
           `# this is {"a":{"formatted":"message"}}`,
           `# { but: { 'this is': [ 'just', 'an', 'object' ] } }`,

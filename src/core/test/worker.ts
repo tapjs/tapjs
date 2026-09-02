@@ -185,7 +185,9 @@ t.test('other ipc becomes comments', t => {
   w.main(async () => {
     parent.end()
     // messages can occur out of order from stdio
-    const found = new Set((await w.concat()).trim().split('\n'))
+    const raw = (await w.concat()).trim()
+    t.match(raw, /# time=[0-9.]+ms/, 'child TAP includes duration')
+    const found = new Set(raw.split('\n').filter(l => !/^# time=/.test(l)))
     const wanted = new Set([
       `# this is {"a":{"formatted":"message"}}`,
       `# { but: { 'this is': [ 'just', 'an', 'object' ] } }`,

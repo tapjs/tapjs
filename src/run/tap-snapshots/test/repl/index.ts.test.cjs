@@ -101,6 +101,7 @@ TAP version 14
 # Subtest: foo.test.mjs
     ok 1 - should be equal
     1..1
+    # time={TIME}
 ok 1 - foo.test.mjs # time={TIME}
 
 # { total: 1, pass: 1 }
@@ -120,6 +121,7 @@ Object {
     # Subtest: foo.test.mjs
         ok 1 - should be equal
         1..1
+        # time={TIME}
     ok 1 - foo.test.mjs # time={TIME}
     
     # { total: 1, pass: 1 }
@@ -150,6 +152,7 @@ TAP version 14
 # Subtest: foo.test.mjs
     ok 1 - should be equal
     1..1
+    # time={TIME}
 ok 1 - foo.test.mjs # time={TIME}
 
 # { total: 1, pass: 1 }

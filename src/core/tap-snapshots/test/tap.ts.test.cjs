@@ -15,6 +15,7 @@ Object {
     TAP version 14
     Bail out! cannot proceed
     Bail out! cannot proceed
+    # time={TIME}
     
   ),
 }
@@ -31,6 +32,7 @@ Object {
     ok 1 - this is fine
     Bail out! do not continue
     Bail out! do not continue
+    # time={TIME}
     
   ),
 }
@@ -77,6 +79,7 @@ Object {
     ok 1 - child test # time={TIME}
     
     1..1
+    # time={TIME}
     
   ),
 }
@@ -92,6 +95,7 @@ Object {
     TAP version 14
     ok 1 - make sure, really
     1..1
+    # time={TIME}
     
   ),
 }
@@ -142,6 +146,7 @@ Object {
   "stdout": String(
     TAP version 14
     1..0
+    # time={TIME}
     
   ),
 }
@@ -176,6 +181,7 @@ Object {
       ...
     
     1..1
+    # time={TIME}
     
   ),
 }
@@ -191,6 +197,7 @@ Object {
     TAP version 14
     ok 1 - this is fine
     1..1
+    # time={TIME}
     
   ),
 }
@@ -210,6 +217,7 @@ Object {
     ok 2 - 4
     ok 3 - 5
     1..3
+    # time={TIME}
     
   ),
 }
@@ -249,6 +257,7 @@ Object {
     TAP version 14
     1..1
     ok 1 - fine
+    # time={TIME}
     
   ),
 }
@@ -287,6 +296,7 @@ Object {
       ...
     
     # test count(1) != plan(99)
+    # time={TIME}
     
   ),
 }
@@ -302,6 +312,7 @@ Object {
     TAP version 14
     ok 1 - this is fine
     1..1
+    # time={TIME}
     
   ),
 }
@@ -317,6 +328,7 @@ Object {
     TAP version 14
     ok 1 - fine
     1..1
+    # time={TIME}
     
   ),
 }
@@ -338,10 +350,12 @@ Object {
         t.pass('this is fine')
         ok 1 - this is fine
         1..1
+        # time={TIME}
     ok 1 - node -e      const t = require('tap')     t.setTimeout(12345)     // give the message time to land     setTimeout(() => {}, 100)     t.pass('this is fine') # time={TIME}
     
     ok 2 - updated timeout
     1..2
+    # time={TIME}
     
   ),
 }
@@ -358,10 +372,12 @@ Object {
     # Subtest: <worker> node -e <inline code>
         ok 1 - this is fine
         1..1
+        # time={TIME}
     ok 1 - <worker> node -e <inline code> # time={TIME}
     
     ok 2 - updated timeout
     1..2
+    # time={TIME}
     
   ),
 }
@@ -377,6 +393,7 @@ Object {
     TAP version 14
     ok 1 - this is fine
     1..1
+    # time={TIME}
     
   ),
 }
@@ -417,6 +434,7 @@ Object {
   "stdout": String(
     TAP version 14
     1..0
+    # time={TIME}
     
   ),
 }
@@ -433,6 +451,7 @@ Object {
     ok 1 - fine
     1..1
     teardown running
+    # time={TIME}
     
   ),
 }
@@ -481,6 +500,7 @@ Object {
     ok 1 - x
     1..1
     # error thrown in teardown
+    # time={TIME}
     
   ),
 }
@@ -496,6 +516,7 @@ Object {
     TAP version 14
     ok 1 - fine
     1..1
+    # time={TIME}
     
   ),
 }
@@ -543,6 +564,7 @@ Object {
     TAP version 14
     ok 1 - x
     1..1
+    # time={TIME}
     
   ),
 }
@@ -558,6 +580,7 @@ Object {
     TAP version 14
     ok 1 - x
     1..1
+    # time={TIME}
     
   ),
 }
@@ -603,6 +626,7 @@ Object {
       ...
     
     1..2
+    # time={TIME}
     
   ),
 }
@@ -624,6 +648,7 @@ Object {
       ...
     
     1..2
+    # time={TIME}
     
   ),
 }
@@ -646,6 +671,7 @@ Object {
       ...
     
     1..2
+    # time={TIME}
     
   ),
 }
@@ -668,6 +694,7 @@ Object {
       ...
     
     1..2
+    # time={TIME}
     
   ),
 }
@@ -707,6 +734,7 @@ Object {
       ...
     
     1..1
+    # time={TIME}
     
   ),
 }
@@ -746,6 +774,7 @@ Object {
       ...
     
     1..1
+    # time={TIME}
     
   ),
 }
@@ -815,6 +844,7 @@ Object {
       ...
     
     1..1
+    # time={TIME}
     
   ),
 }

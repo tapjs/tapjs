@@ -13,10 +13,13 @@ export const useTestTime = (
       test.time ? null : (
         setInterval(() => updateTime(Date.now() - start), interval)
       )
-    const maybeCT = () => (i === null ? null : clearTimeout(i))
-    const cleanup = listenCleanup(test, 'complete', maybeCT)
+    const onComplete = () => {
+      if (i !== null) clearTimeout(i)
+      if (test.time) updateTime(test.time)
+    }
+    const cleanup = listenCleanup(test, 'complete', onComplete)
     return () => {
-      maybeCT()
+      if (i !== null) clearTimeout(i)
       cleanup()
     }
   }, [test.time])

@@ -219,12 +219,13 @@ class TAP extends Test {
   }
 
   #oncomplete(results: FinalResults) {
-    // only print this added info in the root test, otherwise
-    // it's a bit extraneous.
+    // counts are only useful on the process-root TAP instance.
+    // always emit # time= so spawned TAP is saved in .tap/test-results
+    // and replay can report the original duration.
     if (!env.TAP_CHILD_ID) {
       this.comment(this.counts.toJSON())
-      this.comment(`time=${this.time}ms`)
     }
+    this.comment(`time=${this.time}ms`)
 
     if (registered && proc && !results.ok) {
       this.debug('TAP results not ok, setting exitCode', results)

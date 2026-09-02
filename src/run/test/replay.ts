@@ -18,6 +18,7 @@ t.test('replay a saved test result', async t => {
         'test.js.tap': `TAP version 14
 ok 1 - this is fine
 1..1
+# time=12.5ms
 `,
       },
     },
@@ -51,5 +52,11 @@ t.pass('this is fine')
 
   await replay([], mockConfig)
   mockTap.end()
-  t.matchSnapshot(await mockTap.concat())
+  const output = await mockTap.concat()
+  t.match(
+    output,
+    /ok 1 - test\.js # time=12\.5ms/,
+    'replay reports the saved duration',
+  )
+  t.matchSnapshot(output)
 })

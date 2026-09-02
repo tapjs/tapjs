@@ -12,6 +12,28 @@ t.cleanSnapshot = s =>
     .replace(/(typename|methodname|functionname|toplevel): [^\n]+\n/gi, '')
     .replace(/test[\\\/]tap-file.ts:\d+:\d+/g, 'test/tap-file.ts:##:##')
 
+t.test('replay uses the saved # time= comment', async t => {
+  const parent = new Minimal({
+    name: 'parent',
+  })
+  const tapStream = new Minipass<string>({ encoding: 'utf8' }).end(
+    `TAP version 14
+ok 1 - this is fine
+1..1
+# time=12.5ms
+`,
+  )
+  const { subtest } = parent.sub<TapFile, TapFileOpts>(TapFile, {
+    tapStream,
+    parent,
+  })
+  parent.end()
+  t.ok(subtest, 'got tap file subtest')
+  await parent.concat()
+  t.equal(subtest?.time, 12.5)
+  t.end()
+})
+
 t.test('replay a tap file', t => {
   const content = `TAP version 14
 ok 1 - this is fine
