@@ -10,6 +10,7 @@ TAP version 14
 # Subtest: test.js
     ok 1 - this is fine
     1..1
+    # time={TIME}
 ok 1 - test.js # time={TIME}
 
 1..1
