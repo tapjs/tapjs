@@ -5,6 +5,11 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 21.8
+
+- Keep the `time` tag on stored test results, so that `tap
+  replay` can report the actual time a subtest took to run.
+
 ## 21.7
 
 - Add the ability to put configuration in `config/taprc`, and
