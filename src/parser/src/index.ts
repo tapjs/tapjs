@@ -56,6 +56,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
   #yamlish: string = ''
   #yind: string = ''
   #sawVersion: boolean = false
+  #writing: number = 0
+  #finishEmitted: boolean = false
 
   aborted: boolean = false
   bail: boolean = false
@@ -410,14 +412,19 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
       encoding = undefined
     }
 
-    this.buffer += chunk
-    do {
-      const match = this.buffer.match(/^.*\r?\n/)
-      if (!match) break
+    this.#writing++
+    try {
+      this.buffer += chunk
+      do {
+        const match = this.buffer.match(/^.*\r?\n/)
+        if (!match) break
 
-      this.buffer = this.buffer.substring(match[0].length)
-      this.parse(match[0])
-    } while (this.buffer.length)
+        this.buffer = this.buffer.substring(match[0].length)
+        this.parse(match[0])
+      } while (this.buffer.length)
+    } finally {
+      this.#writing--
+    }
 
     if (cb) process.nextTick(cb)
 
@@ -496,9 +503,19 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     this.emitComplete(skipAll)
+    this.#maybeEmitFinish()
     if (cb) process.nextTick(cb)
 
     return this
+  }
+
+  // Node's Writable.toWeb treats a 'finish' emitted while write() is
+  // still on the stack as an unexpected close (AbortError). See #1045.
+  #maybeEmitFinish() {
+    if (this.#writing || this.#finishEmitted) return
+    this.#finishEmitted = true
+    this.emit('finish')
+    this.emit('close')
   }
 
   emitComplete(skipAll: boolean) {
@@ -518,8 +535,6 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
       }
 
       this.emit('complete', this.results)
-      this.emit('finish')
-      this.emit('close')
     }
   }
 
