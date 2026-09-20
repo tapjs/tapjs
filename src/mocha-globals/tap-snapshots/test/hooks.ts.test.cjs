@@ -8,7 +8,6 @@
 exports[`test/hooks.ts > TAP > must match snapshot 1`] = `
 Array [
   "root before",
-  "root beforeEach",
   "suite before",
   "root beforeEach",
   "suite beforeEach",
@@ -31,7 +30,5 @@ Array [
   "suite afterEach",
   "root afterEach",
   "suite after",
-  "root afterEach",
-  "root beforeEach",
 ]
 `

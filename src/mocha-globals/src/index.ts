@@ -106,6 +106,10 @@ export function it(
 
   const opts: TestBaseOpts = {
     at: at(it),
+    // Distinguishes mocha it() tests from describe() suites so
+    // beforeEach/afterEach can skip nested describes. Stripped from
+    // TAP YAML by @tapjs/core clean-yaml-object (/^tapMochaTest/).
+    tapMochaTest: true,
   }
   if (!block) {
     opts.todo = true
@@ -234,10 +238,9 @@ export function after(
 }
 
 /**
- * Run a function before each test within the suite, and before
- * all child suites and tests.
- *
- * Equivalent to t.beforeEach()
+ * Run a function before each `it()` test within the suite,
+ * including tests in nested suites. Does not run for nested
+ * `describe()` blocks.
  *
  * Alias: setup()
  */
@@ -257,14 +260,13 @@ export function beforeEach(
     throw er
   }
   /* c8 ignore stop */
-  suite.beforeEach(fn)
+  suite.beforeEach(t => mochaEachHook(t, fn))
 }
 
 /**
- * Run a function after each test within the suite, and after
- * all child suites and tests.
- *
- * Equivalent to t.afterEach()
+ * Run a function after each `it()` test within the suite,
+ * including tests in nested suites. Does not run for nested
+ * `describe()` blocks.
  *
  * Alias: teardown()
  */
@@ -284,7 +286,17 @@ export function afterEach(
     throw er
   }
   /* c8 ignore stop */
-  suite.afterEach(fn)
+  suite.afterEach(t => mochaEachHook(t, fn))
+}
+
+/**
+ * Mocha beforeEach/afterEach should wrap `it()` tests only.
+ * Nested `describe()` suites are also tap child tests, so skip
+ * those here. See https://github.com/tapjs/tapjs/issues/1008
+ */
+const mochaEachHook = (t: { options: TestBaseOpts }, fn: HookBlock) => {
+  if (!t.options.tapMochaTest) return
+  return fn()
 }
 
 /**
