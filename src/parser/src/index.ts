@@ -511,11 +511,27 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
 
   // Node's Writable.toWeb treats a 'finish' emitted while write() is
   // still on the stack as an unexpected close (AbortError). See #1045.
+  // Child parsers are never passed to toWeb; keep their finish/close
+  // synchronous so event logs stay stable.
   #maybeEmitFinish() {
-    if (this.#writing || this.#finishEmitted) return
+    if (this.#finishEmitted) return
+    if (this.#writing && !this.parent) return
     this.#finishEmitted = true
-    this.emit('finish')
-    this.emit('close')
+    const emit = () => {
+      this.emit('finish')
+      this.emit('close')
+    }
+    // Writable.toWeb's finished() listener is named onfinish. Emitting
+    // finish synchronously from end() leaves close() returning
+    // undefined.promise after the adapter clears its resolver.
+    if (
+      !this.parent &&
+      this.listeners('finish').some(fn => fn.name === 'onfinish')
+    ) {
+      process.nextTick(emit)
+    } else {
+      emit()
+    }
   }
 
   emitComplete(skipAll: boolean) {
