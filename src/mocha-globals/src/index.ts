@@ -11,6 +11,11 @@ import { plugin as BeforeEachPlugin } from '@tapjs/before-each'
 let currentSuite: TestBase | undefined = undefined
 // the t associated with the current it() block
 let currentTest: TestBase | undefined = undefined
+// True only while the user function passed to it() is running
+// synchronously. An async it() keeps currentTest set until done(),
+// but sibling it() calls from describe() are not nested.
+// See https://github.com/tapjs/tapjs/issues/1006
+let inItCallback = false
 // the root where BDD/TDD interface is mounted
 let rootSuite: TestBase | undefined = undefined
 
@@ -98,7 +103,7 @@ export function it(
     Error.captureStackTrace(er, it)
     throw er
   }
-  if (getCurrentTest()) {
+  if (inItCallback) {
     const er = new Error('it() calls may not be nested')
     Error.captureStackTrace(er, it)
     throw er
@@ -135,7 +140,15 @@ export function it(
       t.end()
     }
     currentTest = t
-    const ret = itBlock.call(t, done)
+    inItCallback = true
+    let ret: ReturnType<TestBlock>
+    try {
+      ret = itBlock.call(t, done)
+    } finally {
+      // Sibling it() calls from describe() happen after this returns.
+      // currentTest stays set until done() so currentTest()/tt() still work.
+      inItCallback = false
+    }
     if (isPromise(ret)) {
       returnedPromise = true
       return ret.then(() => {
