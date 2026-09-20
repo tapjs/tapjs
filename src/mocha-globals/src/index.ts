@@ -32,8 +32,13 @@ export type TestBlock =
   | ((done: Done) => void | any | Promise<void | any>)
 /**
  * The method passed to before(), after(), beforeEach(), or afterEach()
+ *
+ * Mocha-compatible: sync, promise-returning / async, or a `done` callback.
+ * Use one completion style at a time.
  */
-export type HookBlock = () => void | any | Promise<void | any>
+export type HookBlock =
+  | (() => void | any | Promise<void | any>)
+  | ((done: Done) => void | any | Promise<void | any>)
 
 /**
  * Create a test suite
@@ -176,9 +181,55 @@ const hookPre = (
     suite,
     () => {
       if (name) suite.comment(`${hook}: ${name}`)
-      return fn()
+      return runHookBlock(fn)
     },
-  ] as [Exclude<ReturnType<typeof getCurrentSuite>, undefined>, HookBlock]
+  ] as [
+    Exclude<ReturnType<typeof getCurrentSuite>, undefined>,
+    () => void | any | Promise<void | any>,
+  ]
+}
+
+/**
+ * Run a mocha hook with the same done/promise rules as it().
+ *
+ * If the function declares a parameter, wait for `done()`. If it
+ * returns a promise, wait for that instead. Calling `done(err)`
+ * fails the hook. Mixing both styles throws, matching it().
+ */
+const runHookBlock = (fn: HookBlock) => {
+  // No done param: same as before, including async/await hooks.
+  if (fn.length === 0) {
+    return fn(() => {})
+  }
+  let doneCalled = false
+  let returnedPromise = false
+  let inPromiseReturn = false
+  return new Promise<void>((resolve, reject) => {
+    const done: Done = (er?: unknown) => {
+      if (returnedPromise && !inPromiseReturn) {
+        const error = new Error('done() called when promise returned')
+        Error.captureStackTrace(error, done)
+        throw error
+      }
+      if (doneCalled) {
+        const error = new Error('done() called multiple times')
+        Error.captureStackTrace(error, done)
+        throw error
+      }
+      doneCalled = true
+      inPromiseReturn = false
+      if (er) reject(er)
+      else resolve()
+    }
+    const ret = fn(done)
+    if (isPromise(ret)) {
+      returnedPromise = true
+      ret.then(() => {
+        inPromiseReturn = true
+        done()
+      }, reject)
+    }
+  })
 }
 
 /**

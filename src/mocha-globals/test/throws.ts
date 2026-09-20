@@ -70,3 +70,19 @@ describe('done() call throws', () => {
     })
   })
 })
+
+describe('hook done() call throws', () => {
+  before(done => {
+    done()
+    tt().throws(() => done(), {
+      message: 'done() called multiple times',
+    })
+  })
+  before('promise + done', async done => {
+    await new Promise<void>(r => setTimeout(r))
+    tt().throws(() => done(), {
+      message: 'done() called when promise returned',
+    })
+  })
+  specify('ok', () => {})
+})

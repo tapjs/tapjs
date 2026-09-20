@@ -25,6 +25,10 @@ TDD/BDD methods provided:
 - `beforeEach(fn)` _(alias: `setup()`)_
 - `afterEach(fn)` _(alias: `teardown()`)_
 
+`it()` and the lifecycle hooks accept Mocha-style completion:
+a `done` callback, a returned promise, or an `async` function.
+Use one style at a time. `done(err)` fails the test or hook.
+
 Other useful things that are helpful with these:
 
 ### `tt() => Test`
