@@ -47,7 +47,7 @@ const rollbacks: (() => void)[] = []
 const rollback = (er: unknown) => {
   const doRollback = !noRollback && !!rollbacks.length
   if (doRollback) {
-    console.error(er)
+    console.error(er, (er as Error).stack)
     console.error('error encountered, attempting rollback')
     let r: (() => void) | undefined
     while ((r = rollbacks.pop())) {
@@ -62,7 +62,7 @@ const rollback = (er: unknown) => {
       } catch {}
     }
   }
-  console.error(chalk.red(er))
+  console.error(chalk.red((er as Error).stack))
   if (!doRollback) console.error('\n' + usage)
   process.exit(1)
 }
