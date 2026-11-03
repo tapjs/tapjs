@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "4.5.10",
+  "version": "4.5.11",
   "description": "Command-line interface for the node-tap runner",
   "tshy": {
     "dialects": [
@@ -43,14 +43,14 @@
   "license": "BlueOak-1.0.0",
   "dependencies": {
     "@isaacs/which": "^7.0.4",
-    "@tapjs/after": "3.3.12",
-    "@tapjs/before": "4.3.12",
-    "@tapjs/config": "5.6.6",
+    "@tapjs/after": "3.3.13",
+    "@tapjs/before": "4.3.13",
+    "@tapjs/config": "5.6.7",
     "@tapjs/processinfo": "^3.1.12",
-    "@tapjs/reporter": "4.5.0",
-    "@tapjs/spawn": "4.3.12",
-    "@tapjs/stdin": "4.3.12",
-    "@tapjs/test": "4.4.10",
+    "@tapjs/reporter": "4.5.1",
+    "@tapjs/spawn": "4.3.13",
+    "@tapjs/stdin": "4.3.13",
+    "@tapjs/test": "4.4.11",
     "c8": "^12.0.0",
     "chalk": "^5.6.2",
     "chokidar": "^4.0.2",
@@ -72,7 +72,7 @@
     "trivial-deferred": "^2.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "4.6.0"
+    "@tapjs/core": "4.6.1"
   },
   "tap": {
     "typecheck": false,
