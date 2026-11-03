@@ -1,6 +1,9 @@
 {
   "include": ["scripts/*"],
   "compilerOptions": {
+    "types": [
+      "node"
+    ],
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
