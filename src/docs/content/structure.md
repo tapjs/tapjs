@@ -33,6 +33,40 @@ you can use the
 [`--before`](./cli.11ty.js#--before%3D%3Cmodule%3E) and
 [`--after`](./cli.11ty.js#--after%3D%3Cmodule%3E) configs.
 
+### Scenario Side-Processes
+
+When a folder of tests needs a long-lived helper process (for
+example, a local HTTP server), place a file named
+`_tap-scenario.js` (or `.cjs`, `.mjs`, `.ts`, `.cts`, `.mts`) in
+that folder.
+
+- Scenario files are **not** run as tests.
+- Before any test in the folder runs, tap starts the scenario and
+  waits until it writes something to standard output.
+- That output is passed to each test as the
+  `_TAP_SCENARIO_OUTPUT` environment variable, and is also
+  available as `t.scenario`.
+- When every test in the folder has finished, tap stops the
+  scenario with `SIGHUP`, then `SIGTERM`, then `SIGKILL` if
+  needed.
+- If the scenario exits unexpectedly, the run fails.
+
+```js
+// test/api/_tap-scenario.js
+import { createServer } from 'node:http'
+const server = createServer((q, s) => s.end('ok'))
+server.listen(0, () => {
+  process.stdout.write(`http://127.0.0.1:${server.address().port}`)
+})
+
+// test/api/basic.js
+import t from 'tap'
+t.test('hits the scenario server', async t => {
+  const res = await fetch(t.scenario)
+  t.equal(await res.text(), 'ok')
+})
+```
+
 ### Unit-Focused: For Programs With Several Modular Units
 
 In programs with multiple files (for example, a library split out
@@ -227,10 +261,7 @@ t.throws(() => myThing.add('dog', 'cat'), 'cannot add dogs and cats')
 t.equal(myThing.times(2, 2), 4, '2 times 2 is 4')
 t.equal(myThing.add(2, -1), 1, '2 added to -1 is 1')
 t.equal(myThing.times(-1, 3), 3, '-1 times 3 is -3')
-t.throws(
-  () => myThing.times('best', 'worst'),
-  'can only times numbers'
-)
+t.throws(() => myThing.times('best', 'worst'), 'can only times numbers')
 ```
 
 You could do this instead, which is much neater and easier to read:
@@ -243,20 +274,14 @@ import { myThing } from './my-thing.js'
 t.test('add() can add two numbers', t => {
   t.equal(myThing.add(1, 2), 3, '1 added to 2 is 3')
   t.equal(myThing.add(2, -1), 1, '2 added to -1 is 1')
-  t.throws(
-    () => myThing.add('dog', 'cat'),
-    'cannot add dogs and cats'
-  )
+  t.throws(() => myThing.add('dog', 'cat'), 'cannot add dogs and cats')
   t.end()
 })
 
 t.test('times() can multiply two numbers', t => {
   t.equal(myThing.times(2, 2), 4, '2 times 2 is 4')
   t.equal(myThing.times(-1, 3), 3, '-1 times 3 is -3')
-  t.throws(
-    () => myThing.times('best', 'worst'),
-    'can only times numbers'
-  )
+  t.throws(() => myThing.times('best', 'worst'), 'can only times numbers')
   t.end()
 })
 ```
@@ -275,19 +300,13 @@ import { myThing } from './my-thing.js'
 t.test('add() can add two numbers', async t => {
   t.equal(myThing.add(1, 2), 3, '1 added to 2 is 3')
   t.equal(myThing.add(2, -1), 1, '2 added to -1 is 1')
-  t.throws(
-    () => myThing.add('dog', 'cat'),
-    'cannot add dogs and cats'
-  )
+  t.throws(() => myThing.add('dog', 'cat'), 'cannot add dogs and cats')
 })
 
 t.test('times() can multiply two numbers', async t => {
   t.equal(myThing.times(2, 2), 4, '2 times 2 is 4')
   t.equal(myThing.times(-1, 3), 3, '-1 times 3 is -3')
-  t.throws(
-    () => myThing.times('best', 'worst'),
-    'can only times numbers'
-  )
+  t.throws(() => myThing.times('best', 'worst'), 'can only times numbers')
 })
 ```
 

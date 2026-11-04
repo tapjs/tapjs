@@ -17,6 +17,7 @@ import { executeTestSuite } from './execute-test-suite.js'
 import { values } from './main-config.js'
 import { outputDir } from './output-dir.js'
 import { readSave } from './save-list.js'
+import { ScenarioCrashError, ScenarioRegistry } from './scenario.js'
 import { testArgv } from './test-argv.js'
 import { testIsSerial } from './test-is-serial.js'
 
@@ -50,6 +51,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const argv = testArgv(config)
 
   let env: NodeJS.ProcessEnv | undefined = undefined
+  const scenarios = new ScenarioRegistry(argv, config.projectRoot)
 
   const saveList = await readSave(config)
   const map = await getCoverageMap(config)
@@ -124,6 +126,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       // have to register before doing before/after because otherwise
       // that will trigger a pipe to stdout.
       t.register()
+      t.teardown(() => scenarios.dispose())
       const rb = runBefore(t, argv, config)
       if (rb) covExcludeFiles.push(rb)
       const ra = runAfter(t, argv, config)
@@ -139,13 +142,6 @@ export const run = async (args: string[], config: LoadedConfig) => {
     },
 
     async (t, file, files, hasReporter) => {
-      if (!_TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_) {
-        _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_ = [
-          ...covExcludeFiles,
-          ...files.map(f => resolve(config.projectRoot, f)),
-        ].join('\n')
-      }
-
       /* c8 ignore start */
       const stdio = hasReporter ? 'pipe' : 'inherit'
       /* c8 ignore end */
@@ -155,6 +151,42 @@ export const run = async (args: string[], config: LoadedConfig) => {
         else return t.stdin()
       }
       const name = relative(config.projectRoot, file).replace(/\\/g, '/')
+
+      let scenarioOutput: string | undefined
+      let scenarioDone: (() => Promise<void>) | undefined
+      let scenarioFile: string | undefined
+      try {
+        const scenario = await scenarios.ensure(file)
+        if (scenario) {
+          scenarioOutput = scenario.output
+          scenarioDone = scenario.done
+          scenarioFile = scenario.file
+          if (!covExcludeFiles.includes(scenario.file)) {
+            covExcludeFiles.push(scenario.file)
+          }
+        }
+      } catch (er) {
+        const message =
+          er instanceof ScenarioCrashError ? er.message
+          : er instanceof Error ? er.message
+          : String(er)
+        return t.test(name, async tt => {
+          tt.fail(message, {
+            tapError: 'scenario',
+            thrown: er,
+          })
+        })
+      }
+
+      if (!_TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_) {
+        _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_ = [
+          ...covExcludeFiles,
+          ...files.map(f => resolve(config.projectRoot, f)),
+        ].join('\n')
+      } else if (scenarioFile) {
+        _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_ += '\n' + scenarioFile
+      }
+
       const mapped = map(name)
       let coveredFiles: null | string[] =
         mapped === null ? null : (
@@ -180,7 +212,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
         st.isBlockDevice() ||
         st.isFIFO() ||
         file.toLowerCase().endsWith('.tap')
-      return raw ?
+      const sub =
+        raw ?
           t.sub<TapFile, TapFileOpts>(TapFile, {
             at: null,
             cwd: config.projectRoot,
@@ -195,6 +228,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
             stdio,
             env: {
               ...env,
+              ...(scenarioOutput !== undefined ?
+                { _TAP_SCENARIO_OUTPUT: scenarioOutput }
+              : {}),
               _TAPJS_PROCESSINFO_COVERAGE_,
               _TAPJS_PROCESSINFO_COV_FILES_,
               _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_,
@@ -204,6 +240,24 @@ export const run = async (args: string[], config: LoadedConfig) => {
             cwd: config.projectRoot,
             externalID: name,
           })
+      if (scenarioDone) {
+        // Do not t.fail() here: the runner root already has a plan equal to
+        // the file count, so a late assertion trips "count exceeds plan".
+        // Comment + exitCode still marks an unexpected scenario death.
+        sub.finally(async () => {
+          try {
+            await scenarioDone()
+          } catch (er) {
+            const message =
+              er instanceof ScenarioCrashError ? er.message
+              : er instanceof Error ? er.message
+              : String(er)
+            t.comment(message)
+            if (!process.exitCode) process.exitCode = 1
+          }
+        })
+      }
+      return sub
     },
   )
 }

@@ -32,8 +32,11 @@ t.test('list some test files', async t => {
       'foo.ts': '',
       'foo.mjs': '',
       'foo.cjs': '',
+      // scenario side-processes must never be listed as tests (#1067)
+      '_tap-scenario.js': '',
       sub: {
         'sub.mts': '',
+        '_tap-scenario.mjs': '',
       },
       // fixtures excluded by default
       fixture: {

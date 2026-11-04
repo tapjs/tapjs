@@ -175,6 +175,17 @@ class Base extends minipass_1.Minipass {
         this.#context = c;
     }
     /**
+     * Output written by a per-folder `_tap-scenario.*` side-process, if the
+     * runner started one for this test file's directory. Sourced from the
+     * `_TAP_SCENARIO_OUTPUT` environment variable.
+     *
+     * @see https://github.com/tapjs/tapjs/issues/1067
+     */
+    get scenario() {
+        const v = process.env._TAP_SCENARIO_OUTPUT;
+        return v === undefined || v === '' ? undefined : v;
+    }
+    /**
      * the TAP stream data for buffered tests
      *
      * @internal
