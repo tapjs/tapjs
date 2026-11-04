@@ -56,7 +56,7 @@ const rollback = (er: unknown) => {
           r
             .toString()
             .replace(/\(\) =>/, '')
-            .trim()
+            .trim(),
         )
         r()
       } catch {}
@@ -82,7 +82,7 @@ const isReleaseType = (v: string): v is ReleaseType =>
 const run = (
   cmd: string,
   args: string[] = [],
-  options: SpawnSyncOptions = {}
+  options: SpawnSyncOptions = {},
 ) => {
   const res = spawnSync(cmd, args, {
     ...options,
@@ -94,8 +94,8 @@ const run = (
       args,
       ...res,
     }
-    throw res.error
-      ? Object.assign(res.error, { cause })
+    throw res.error ?
+        Object.assign(res.error, { cause })
       : new Error('command failed', { cause })
   }
   return res
@@ -162,16 +162,16 @@ const manifests: Record<string, Manifest> = Object.fromEntries(
   ws.map(p => [
     p,
     JSON.parse(readFileSync(resolve(p, 'package.json'), 'utf8')),
-  ])
+  ]),
 )
 Object.assign(
   manifests,
-  Object.fromEntries(ws.map(p => [manifests[p].name, manifests[p]]))
+  Object.fromEntries(ws.map(p => [manifests[p].name, manifests[p]])),
 )
 
 // get a ws folder name from a pkg manifest
 const loc = new Map<Manifest, string>(
-  ws.map(folder => [manifests[folder], folder])
+  ws.map(folder => [manifests[folder], folder]),
 )
 
 const depTypes: (keyof Manifest)[] = [
@@ -183,7 +183,7 @@ const depTypes: (keyof Manifest)[] = [
 // reverse lookup of dependencies among workspace projects
 const dependents = new Map<string, string[]>()
 {
-  for (const p of new Set([...Object.values(manifests)])) {
+  for (const p of new Set(Object.values(manifests))) {
     for (const t of depTypes) {
       const deps = p[t]
       if (!deps) continue
@@ -221,23 +221,22 @@ const version = (pkgs: string[], level: string) => {
   // consistently refer to them by pkg name
   const names = new Set(
     [...pkgs].map(p => {
-      if (!manifests[p])
-        throw `1: invalid package name or ws folder: ${p}`
+      if (!manifests[p]) throw `1: invalid package name or ws folder: ${p}`
       return manifests[p].name
-    })
+    }),
   )
-  const changed = new Set([...names])
+  const changed = new Set(names)
   const oldVersion = new Map<string, string>()
   for (const p of changed) {
     const pkg = manifests[p]
     if (!pkg) throw `2: invalid package name or ws folder: ${p}`
     oldVersion.set(pkg.name, pkg.version)
 
-    const l = names.has(p)
-      ? level
-      : level.startsWith('pre')
-      ? parse(pkg.version)?.prerelease?.length
-        ? 'prerelease'
+    const l =
+      names.has(p) ? level
+      : level.startsWith('pre') ?
+        parse(pkg.version)?.prerelease?.length ?
+          'prerelease'
         : 'prepatch'
       : 'patch'
 
@@ -264,7 +263,7 @@ const version = (pkgs: string[], level: string) => {
     const n = name.padEnd(maxNameLen)
     const pn = req ? chalk.cyan(n) : n
     const p = `${pn} ${old.padStart(maxVerLen)} => ${chalk.bold(
-      manifests[name].version
+      manifests[name].version,
     )}`
     const msg = req ? p : chalk.dim(p)
     console.log(msg)
@@ -283,7 +282,7 @@ const version = (pkgs: string[], level: string) => {
       const ws = loc.get(manifests[name])
       if (!ws) throw `could not get ws folder for ${name}`
       return `${ws}/package.json`
-    })
+    }),
   )
   const pvs = wrote.map(name => `${name}@${manifests[name].version}`)
   rollbacks.push(() => git('reset', 'HEAD^'))
@@ -293,7 +292,7 @@ const version = (pkgs: string[], level: string) => {
     `update versions
 
 ${pvs.join('\n')}
-`
+`,
   )
   for (const pv of pvs) {
     rollbacks.push(() => git('tag', '-d', pv))
@@ -303,7 +302,7 @@ ${pvs.join('\n')}
 }
 
 const pinDeps = () => {
-  for (const pkg of new Set([...Object.values(manifests)])) {
+  for (const pkg of new Set(Object.values(manifests))) {
     for (const t of depTypes) {
       const deps = pkg[t] as DepSet | undefined
       if (!deps) continue
@@ -311,8 +310,7 @@ const pinDeps = () => {
         const dep = manifests[name]
         if (!dep) continue
         const old = deps[name]
-        if (String(parse(old)) === String(parse(dep.version)))
-          continue
+        if (String(parse(old)) === String(parse(dep.version))) continue
         deps[name] = dep.version
       }
     }
@@ -322,17 +320,13 @@ const pinDeps = () => {
 // write all manifests that differ from their json on disk
 const writeManifest = (pkg: Manifest) => {
   const ws = loc.get(pkg)
-  if (!ws)
-    throw `could not get ws folder from pkg manifest: ${pkg.name}`
+  if (!ws) throw `could not get ws folder from pkg manifest: ${pkg.name}`
   const newJson = JSON.stringify(pkg, null, 2) + '\n'
   const pj = resolve(ws, 'package.json')
   const oldJson = readFileSync(pj, 'utf8')
   const oldMani = JSON.parse(oldJson)
   const { match, diff } = strict(pkg, oldMani, { style: 'js' })
-  if (
-    oldMani.version === pkg.version &&
-    process.argv[2] !== 'pindeps'
-  ) {
+  if (oldMani.version === pkg.version && process.argv[2] !== 'pindeps') {
     if (!match) {
       console.error(pj)
       console.error(diff)
@@ -359,7 +353,7 @@ const publish = (names: string[], pre: boolean = false) => {
     'show',
     '--no-patch',
     '--pretty=%s\n\n%b',
-    'HEAD'
+    'HEAD',
   ).stdout.trim()
 
   // verify current commit is updating all and only these versions
@@ -376,9 +370,7 @@ const publish = (names: string[], pre: boolean = false) => {
     expect.delete(pv)
   }
   if (expect.size) {
-    throw `must publish all packages, missing:\n${[...expect].join(
-      '\n'
-    )}`
+    throw `must publish all packages, missing:\n${[...expect].join('\n')}`
   }
 
   // verify that we're on the right HEAD and all are tagged properly
@@ -393,7 +385,7 @@ const publish = (names: string[], pre: boolean = false) => {
     'show',
     '--no-patch',
     '--pretty=%H',
-    'HEAD'
+    'HEAD',
   ).stdout.trim()
   for (const [pv, sha] of shas) {
     if (sha !== head) {
@@ -419,7 +411,7 @@ const publish = (names: string[], pre: boolean = false) => {
       'publish',
       '--access=public',
       `--tag=${pre ? 'pre' : 'latest'}`,
-      ...noTap.map(n => `-w=${n}`)
+      ...noTap.map(n => `-w=${n}`),
     )
   }
   if (pn.includes('tap')) {
@@ -428,7 +420,7 @@ const publish = (names: string[], pre: boolean = false) => {
       'publish',
       '--access=public',
       `--tag=${pre ? 'pre' : 'latest'}`,
-      '-w=tap'
+      '-w=tap',
     )
     const tag = `tap@${manifests.tap.version}`
     const args = ['release', 'create', tag, '--verify-tag']
@@ -441,9 +433,8 @@ const publish = (names: string[], pre: boolean = false) => {
 const pubAll = () => {
   const pubs: Manifest[] = []
   const tags = new Map<string, string>()
-  for (const mani of new Set([...Object.values(manifests)])) {
+  for (const mani of new Set(Object.values(manifests))) {
     if (mani.private) continue
-
     const { versions: v, 'dist-tags': distTags } = JSON.parse(
       npm(
         { quiet: true },
@@ -451,15 +442,13 @@ const pubAll = () => {
         mani.name,
         'versions',
         'dist-tags',
-        '--json'
-      ).stdout
-    )
+        '--json',
+      ).stdout,
+    )[0]
     if (!(v === mani.version || v.includes(mani.version))) {
       pubs.push(mani)
     }
-    const t = parse(mani.version)?.prerelease?.length
-      ? 'pre'
-      : 'latest'
+    const t = parse(mani.version)?.prerelease?.length ? 'pre' : 'latest'
     if (distTags[t] !== mani.version) {
       tags.set(`${mani.name}@${mani.version}`, t)
     }
@@ -469,12 +458,10 @@ const pubAll = () => {
   }
   console.error(
     'PUBS',
-    pubs.map(p => [p.name, p.version])
+    pubs.map(p => [p.name, p.version]),
   )
   for (const p of pubs) {
-    const tag = parse(p.version)?.prerelease?.length
-      ? 'pre'
-      : 'latest'
+    const tag = parse(p.version)?.prerelease?.length ? 'pre' : 'latest'
     npm({ stdio: 'inherit' }, 'publish', '-w', p.name, '--tag', tag)
   }
   if (!tags.size) {
@@ -487,7 +474,7 @@ const pubAll = () => {
 
 const usage = `Usage: node ${relative(
   process.cwd(),
-  process.argv[1].replace(/\.mts$/, '.mjs')
+  process.argv[1].replace(/\.mts$/, '.mjs'),
 )} [ <bump> <pkg> [<pkg> ...] | pindeps ]`
 
 const fullHelp = `${usage}
