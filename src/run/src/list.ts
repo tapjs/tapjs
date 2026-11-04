@@ -157,7 +157,12 @@ const expandDirectories = async (
   config: LoadedConfig,
   scurry: PathScurry,
   entries: Set<Path | '-' | '/dev/stdin'>,
-  ignore: string | string[] | ReadonlyArray<string> | IgnoreLike | undefined,
+  ignore:
+    | string
+    | string[]
+    | ReadonlyArray<string>
+    | IgnoreLike
+    | undefined,
 ) => {
   // for each one that's a directory, expand it with the files it contains
   // then go back to the original dir when we're done expanding.

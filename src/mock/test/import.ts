@@ -5,10 +5,7 @@ const importer = resolveImportSync(
   '../dist/esm/import.mjs',
   import.meta.url,
 )
-const loader = resolveImportSync(
-  '../dist/esm/loader.mjs',
-  import.meta.url,
-)
+const loader = resolveImportSync('../dist/esm/loader.mjs', import.meta.url)
 let registered = false
 let serviceStarted = false
 await t.mockImport('../dist/esm/import.mjs', {

@@ -3,6 +3,7 @@
 /.github
 /src/*/dist
 /src/*/.tshy
+/src/*/tsconfig.json
 /src/test/test-built
 /src/*/docs
 /src/*/tap-snapshots

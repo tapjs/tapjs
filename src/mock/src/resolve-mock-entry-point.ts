@@ -11,7 +11,7 @@ export const resolveMockEntryPoint = async (
   if (module.startsWith('./') || module.startsWith('../')) {
     mockedModuleURL = new URL(module, url)
   } else {
-    const res = (resolveImportSync(module, url)) as URL
+    const res = resolveImportSync(module, url) as URL
     // caught at the exposed API, defense in depth only
     // but the experience if it throws here is unhelpful.
     /* c8 ignore start */

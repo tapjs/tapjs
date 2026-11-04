@@ -443,10 +443,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       const hasPkg = entries.includes('package.json')
       const pj = hasPkg ? resolve(p, 'package.json') : undefined
       const foundRoot =
-        hasDotTaprc ||
-        hasConfigTaprc ||
-        hasDotGit ||
-        hasPkg
+        hasDotTaprc || hasConfigTaprc || hasDotGit || hasPkg
 
       if (foundRoot) {
         // these all indicate the project root, even if they might not
@@ -581,7 +578,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   warnIgnoredConfigFiles(this: TapConfig<C> & { configFile: string }) {
     this.#configFilesIgnored.delete(this.configFile)
     if (this.#configFilesIgnored.size) {
-      console.error(chalk.yellow.bold('WARNING'), 'ignored tap config found')
+      console.error(
+        chalk.yellow.bold('WARNING'),
+        'ignored tap config found',
+      )
       console.error(`Using tap config:\n  ${chalk.bold(this.configFile)}`)
       console.error(chalk.yellow('Ignored config'))
       for (const f of this.#configFilesIgnored) {
