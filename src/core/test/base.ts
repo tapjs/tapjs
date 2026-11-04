@@ -410,3 +410,19 @@ t.test('context looks like an object when not yet set', t => {
   t.equal(tb.context, c)
   t.end()
 })
+
+t.test('scenario reads _TAP_SCENARIO_OUTPUT from the environment', t => {
+  const tb = new Minimal({ name: 'scenario tester' })
+  const prev = process.env._TAP_SCENARIO_OUTPUT
+  t.teardown(() => {
+    if (prev === undefined) delete process.env._TAP_SCENARIO_OUTPUT
+    else process.env._TAP_SCENARIO_OUTPUT = prev
+  })
+  delete process.env._TAP_SCENARIO_OUTPUT
+  t.equal(tb.scenario, undefined)
+  process.env._TAP_SCENARIO_OUTPUT = 'port=9'
+  t.equal(tb.scenario, 'port=9')
+  process.env._TAP_SCENARIO_OUTPUT = ''
+  t.equal(tb.scenario, undefined)
+  t.end()
+})

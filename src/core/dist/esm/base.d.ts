@@ -300,6 +300,14 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     get context(): any;
     set context(c: any);
     /**
+     * Output written by a per-folder `_tap-scenario.*` side-process, if the
+     * runner started one for this test file's directory. Sourced from the
+     * `_TAP_SCENARIO_OUTPUT` environment variable.
+     *
+     * @see https://github.com/tapjs/tapjs/issues/1067
+     */
+    get scenario(): string | undefined;
+    /**
      * the TAP stream data for buffered tests
      *
      * @internal
