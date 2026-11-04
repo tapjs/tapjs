@@ -4,6 +4,7 @@
     "types": [
       "node"
     ],
+    "rootDir": "./",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,

@@ -23,10 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Use Nodejs ${{ matrix.node-version }}
+      - name: Use Node
         uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 26.x
       - name: Install
         env:
           TS_NODE_TRANSPILE_ONLY: '1'
