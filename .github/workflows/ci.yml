@@ -2,14 +2,63 @@ name: ci
 
 on:
   push:
-    paths-ignore:
-      - '**/*.md'
   pull_request:
     paths-ignore:
       - '**/*.md'
+  workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      code: ${{ steps.changes.outputs.code }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      # tests skip pushes that change only markdown files
+      - name: Check for non-markdown changes
+        id: changes
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          code=true
+          if [ "$EVENT" = push ] &&
+            [ "$BEFORE" != 0000000000000000000000000000000000000000 ] &&
+            git fetch --depth=1 origin "$BEFORE" &&
+            ! git diff --name-only "$BEFORE" HEAD | grep -qv '\.md$'
+          then
+            code=false
+          fi
+          echo "code=$code" | tee -a "$GITHUB_OUTPUT"
+
+      - name: Use Nodejs 26.x
+        uses: actions/setup-node@v7
+        with:
+          node-version: 26.x
+
+      - name: Bootstrap
+        env:
+          TS_NODE_TRANSPILE_ONLY: '1'
+        run: |
+          npm run bootstrap
+
+      # tar keeps file modes, which upload-artifact drops
+      - name: Pack build output
+        run: |
+          tar cf dist.tar src/*/dist
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist.tar
+          retention-days: 1
+
   test:
+    needs: build
+    if: needs.build.outputs.code == 'true'
     strategy:
       matrix:
         node-version: [22.x, 24.x, 26.x]
@@ -22,19 +71,30 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Use Nodejs ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
 
-      - name: Install
-        env:
-          TS_NODE_TRANSPILE_ONLY: '1'
+      - name: Download build output
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+
+      # unpack before install, so npm can link bins into dist
+      - name: Unpack build output
         run: |
-          npm run bootstrap
+          tar xf dist.tar
 
+      # skip scripts, so workspace prepare does not rebuild
+      - name: Install
+        run: |
+          npm ci --ignore-scripts
+
+      # --ignore-scripts skips pretest, which would rebuild
       - name: Run tests
         env:
           TAP_TYPECHECK: '0'
@@ -42,4 +102,54 @@ jobs:
           TAP_COLOR: '1'
           TAP_REPORTER: 'dot'
         run: |
-          npm test -ws --color=always
+          npm test --workspaces --ignore-scripts --color=always
+
+  docs:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Use Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 26.x
+          cache: npm
+
+      - name: Download build output
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+
+      - name: Unpack build output
+        run: |
+          tar xf dist.tar
+
+      - name: Install
+        run: |
+          npm ci --ignore-scripts
+
+      - name: Generate typedocs
+        run: npm run typedoc
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: './docs'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
