@@ -7,7 +7,7 @@ import { TapPlugin, TestBase } from '@tapjs/core'
 // mode, which is necessary because ink et al are esm-only.
 // That's fine, though, because the tap runner runs in esm
 // mode, so the reporter will be applied where it matters.
-import '@tapjs/dummy-plugin/load-reporter'
+import './load-reporter.js'
 
 /**
  * Just an example plugin for use in tests and docs
