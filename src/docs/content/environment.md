@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 11
 ---
 For the most part, tap tests are run in a [normal node
-environment](/#test-files-are-%22normal%22-programs). If you just
+environment](/#test-files-are-%22normal%22-programs-(mostly)). If you just
 write your tests in JavaScript, and don't rely on any
 functionality provided by loaders, then you can always run `node
 test.js` and have it Just Work, albeit without the pretty
@@ -31,19 +31,22 @@ required to provide that functionality.
 
 When executed by the [runner](./cli.11ty.js), tap will add the
 appropriate loaders for you.  To run them manually, you can
-specify them with the `--loader` Node.js argument.
+specify them with the `--import` Node.js argument. (On Node.js
+versions without `module.register()`, use `--loader` and the
+`loader` paths in parentheses below.)
 
-* TypeScript support is provided by `--loader ts-node/esm`, which
-  is added by the [`@tapjs/typescript`
-  plugin](./plugins/typescript.md). (The optional
-  [`@tapjs/esbuild-kit` plugin](./plugins/esbuild-kit.md) can be
-  used in place of `@tapjs/typescript`, if you prefer that
-  one.)
-* Import mocking is provided by `--loader @tapjs/mock/loader`,
-  which is added by the [`@tapjs/mock`
+* TypeScript support is provided by `--import
+  @tapjs/typescript/import` (`@tapjs/typescript/esm`), which is
+  added by the [`@tapjs/typescript`
+  plugin](./plugins/typescript.md). (The optional `@tapjs/tsx`
+  plugin can be used in place of `@tapjs/typescript`, if you
+  prefer that one.)
+* Import mocking is provided by `--import @tapjs/mock/import`
+  (`@tapjs/mock/loader`), which is added by the [`@tapjs/mock`
   plugin](./plugins/mock.md).
-* Code coverage is provided by `--loader
-  @tapjs/processinfo/loader`, which is built into tap core.
+* Code coverage is provided by `--import
+  @tapjs/processinfo/import` (`@tapjs/processinfo/loader`),
+  which is built into tap core.
 
 Other plugins can provide whatever loaders they like, and the tap
 CLI will add them automatically.

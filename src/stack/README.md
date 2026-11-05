@@ -19,7 +19,7 @@ useful when tracking down the source of thrown errors.
 See
 [the typedocs](https://tapjs.github.io/tapjs/classes/_tapjs_stack.call_site_like.CallSiteLike.html) for more information.
 
-## Class `CallSiteLikeJSON`
+## Interface `CallSiteLikeJSON`
 
 This is the "plain old JavaScript object" form of a
 `CallSiteLike` object, for use when serializing a `CallSiteLike`

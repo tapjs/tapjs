@@ -190,7 +190,7 @@ Every `assert` object has these keys:
 and may also have
 
 - `assert.todo` - optional description of why the assertion failure is
-  not a problem. (Boolean `true` if no explaination provided)
+  not a problem. (Boolean `true` if no explanation provided)
 - `assert.skip` - optional description of why this assertion was
   skipped (boolean `true` if no explanation provided)
 - `assert.diag` - a diagnostic object with additional information
@@ -332,7 +332,7 @@ MIT
 
 # subtests
 
-5 flavors of Subtests are suppored by this parser.
+5 flavors of Subtests are supported by this parser.
 
 1. Unadorned.
    Indented TAP data with no comment, followed by a test

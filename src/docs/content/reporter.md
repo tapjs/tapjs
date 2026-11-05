@@ -25,7 +25,7 @@ Stream class, or a CLI program.
 The `base` reporter is the one that tap uses by default. It
 shows information about tests as they are running in parallel,
 and aims to be verbose enough to show you what's going on,
-without showing more information that is useful.
+without showing more information than is useful.
 
 If the `base` reporter is too noisy for your liking, you can use
 the `terse` reporter, which is similar, but prints much less
@@ -183,7 +183,7 @@ The included reporters are:
 - `junit` - JUnit style XML results.
 - `json` - Output the results of the test run as a single JSON
   object.
-- `jsonstream` - Line-delmited JSON, printing an array message
+- `jsonstream` - Line-delimited JSON, printing an array message
   for each suite and assertion.
 - `markdown` - Similar to `jsonstream`, but markdown instead of
   JSON.
@@ -217,7 +217,7 @@ $ tap -R junit --reporter-file rspec.xml || tap replay
 
 To use a custom reporter written in Ink, set the `--reporter`
 config option to the module which default-exports a React tag
-taking a [`TAP`](./api.md#class-tap) object as the `tap`
+taking a [`TAP`](./api.md#class-tap) object as the `test`
 attribute, and a
 [`LoadedConfig`](https://tapjs.github.io/tapjs/interfaces/_tapjs_config.index.LoadedConfig.html)
 object as the `config` attribute.

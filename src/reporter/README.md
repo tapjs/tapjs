@@ -7,8 +7,9 @@ The modern reincarnation of [treport](http://npm.im/treport).
 
 ## Reporters in Node-Tap
 
-The following reporters are built into this module, and always
-available in node-tap.
+The following reporters are always available in node-tap. The
+`silent` and `tap` reporters are part of `@tapjs/run`. The rest
+are built into this module.
 
 ### base
 
@@ -133,7 +134,7 @@ interface TapReportOpts {
 
 Alias for `React.FC<TapReportOpts>`
 
-### `types: Record<string, Reporter>`
+### `types: Record<string, Reporter | typeof Minipass<string>>`
 
 A record of all the known reporters, indexed by their config name.
 
@@ -378,19 +379,22 @@ import { listenCleanup } from '@tapjs/reporter/utils'
 const useMyHook = emitter => {
   const [firsts, updateFirsts] = useState([])
   const [seconds, updateSeconds] = useState([])
-  useCleanup((list, doCleanup) => {
-    // these event handlers will be cleaned up properly now
-    list.push(
-      listenCleanup(emitter, 'first', f =>
-        updateFirsts(firsts.concat([f])),
-      ),
-    )
-    list.push(
-      listenCleanup(emitter, 'second', f =>
-        updateSeconds(seconds.concat([f])),
-      ),
-    )
-  }, emitter)
+  useCleanup(
+    (list, doCleanup) => {
+      // these event handlers will be cleaned up properly now
+      list.push(
+        listenCleanup(emitter, 'first', f =>
+          updateFirsts(firsts.concat([f])),
+        ),
+      )
+      list.push(
+        listenCleanup(emitter, 'second', f =>
+          updateSeconds(seconds.concat([f])),
+        ),
+      )
+    },
+    [emitter],
+  )
 
   return [firsts, seconds]
 }

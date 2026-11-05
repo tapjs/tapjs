@@ -117,6 +117,7 @@ $ cat tap-snapshots/tagger.test.mjs.test.cjs
 'use strict'
 exports[`tagger.test.mjs TAP > output 1`] = `
 <tagName>content</tagName>
+`
 ```
 
 If the argument passed to `t.matchSnapshot()` isn't a string,
@@ -178,6 +179,7 @@ A test that uses this method:
 ```js
 // msgtime.test.mjs
 import t from 'tap'
+import { msgTime } from './msgtime.mjs'
 
 // This must be assigned *before* running tests
 // It is passed down to child tests when they are created
@@ -198,7 +200,7 @@ file:
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`msgtime.test.js TAP > add timestamp to message 1`] = `
+exports[`msgtime.test.mjs TAP > add timestamp to message 1`] = `
 this is a test time={time}
 `
 ```
@@ -214,7 +216,7 @@ to convert all non-string values into strings for saving and
 comparing.
 
 To override this and provide your own behavior, set a function to
-[`t.formatSnapshot`](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#cleanSnapshot).
+[`t.formatSnapshot`](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#formatSnapshot).
 Like `t.cleanSnapshot`, child tests will copy their parent test's
 value at their time of creation.
 
@@ -268,7 +270,7 @@ But, be advised, this is advanced usage and exposes you to some hazards!
   the same snapshot file, they will _not_ be merged. The last one will win.
   Make sure that every snapshot file you use is unique to the entire test
   run.
-- Snapshot files should always be in a folder called `tap-snapshot`, and
+- Snapshot files should always be in a folder called `tap-snapshots`, and
   should always end in `.test.cjs`. This pattern ensures that tap can load
   them properly, and that they will not be confused with normal test files.
 
@@ -282,7 +284,7 @@ import { resolve } from 'node:path'
 t.matchSnapshot('this writes to ./tap-snapshots/test/snappy.js.test.cjs')
 
 t.test('foo', async t => {
-  // this writes to ./test/tap-snapshots/foo.test.cjs'
+  // this writes to ./tap-snapshots/foo.test.cjs'
   // either path or file URL or file URL string is fine, but
   // it'll always store it as the actual path.
   t.snapshotFile = new URL(
@@ -293,7 +295,7 @@ t.test('foo', async t => {
 })
 
 t.test('bar', async t => {
-  // this writes to ./test/tap-snapshots/bar.test.cjs'
+  // this writes to ./tap-snapshots/bar.test.cjs'
   t.snapshotFile = new URL(
     '../tap-snapshots/bar.test.cjs',
     import.meta.url,

@@ -347,7 +347,7 @@ class](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html)
 If there's some test functionality you need, and it's not already
 present, you can check for an existing [plugin](./plugins/index.md)
 that might provide it, or [create one
-youself](./plugins/create.md).
+yourself](./plugins/create.md).
 
 ## Note about "Expected Failures" and "Run Until Good" Testing
 

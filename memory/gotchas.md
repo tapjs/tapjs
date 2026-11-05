@@ -13,5 +13,12 @@ when you hit one.
 - `npm test` and `npm run snap` delete
   `src/test/test-built/dist/node_modules` first (root `pretest` and
   `presnap`).
+- Package tests import from `dist`, not `src`. After you change a
+  package's source (for example option help text in
+  `src/config/src/jack.ts`), run `npm run prepare -w src/<name>`
+  before its tests see the change.
+- `src/docs` has no `format` script, so `npm run format` does not
+  touch `src/docs/content`. Running prettier on those pages by
+  hand rewraps many lines you did not change.
 - Bootstrap deletes any `npm-shrinkwrap.json` in `node_modules`
   (netlify/cli issue 6731), then restores `package-lock.json`.

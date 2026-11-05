@@ -90,7 +90,7 @@ to figure out where to go digging in the code when a test breaks.
 
 However, it is less self-documenting than a behavior-focused testing
 strategy, since it relies on the unit organization of the system itself to
-be somewhat intuitive. If your library's class heirarchy and unit
+be somewhat intuitive. If your library's class hierarchy and unit
 structure is difficult to understand, then your unit tests will be as well!
 
 A few examples of this pattern:
@@ -121,7 +121,7 @@ lib/util/bits.js
 lib/util/bits.test.js
 ```
 
-The `map.js` module for this program would look like this:
+The `map.mjs` module for this program would look like this:
 
 ```js
 // map.mjs
@@ -226,7 +226,7 @@ t.equal(myThing.add(1, 2), 3, '1 added to 2 is 3')
 t.throws(() => myThing.add('dog', 'cat'), 'cannot add dogs and cats')
 t.equal(myThing.times(2, 2), 4, '2 times 2 is 4')
 t.equal(myThing.add(2, -1), 1, '2 added to -1 is 1')
-t.equal(myThing.times(-1, 3), 3, '-1 times 3 is -3')
+t.equal(myThing.times(-1, 3), -3, '-1 times 3 is -3')
 t.throws(
   () => myThing.times('best', 'worst'),
   'can only times numbers'
@@ -252,7 +252,7 @@ t.test('add() can add two numbers', t => {
 
 t.test('times() can multiply two numbers', t => {
   t.equal(myThing.times(2, 2), 4, '2 times 2 is 4')
-  t.equal(myThing.times(-1, 3), 3, '-1 times 3 is -3')
+  t.equal(myThing.times(-1, 3), -3, '-1 times 3 is -3')
   t.throws(
     () => myThing.times('best', 'worst'),
     'can only times numbers'
@@ -283,7 +283,7 @@ t.test('add() can add two numbers', async t => {
 
 t.test('times() can multiply two numbers', async t => {
   t.equal(myThing.times(2, 2), 4, '2 times 2 is 4')
-  t.equal(myThing.times(-1, 3), 3, '-1 times 3 is -3')
+  t.equal(myThing.times(-1, 3), -3, '-1 times 3 is -3')
   t.throws(
     () => myThing.times('best', 'worst'),
     'can only times numbers'

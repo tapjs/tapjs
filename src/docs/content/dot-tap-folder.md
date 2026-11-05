@@ -114,7 +114,7 @@ There's little harm in exposing the `.tap` folder, as the only
 sensitive data it typically contains (other than your code
 itself) is file and folder paths.
 
-However, becuase it _does_ contain file and folder paths, it's
+However, because it _does_ contain file and folder paths, it's
 system specific, and generally not something you'd want to check
 into source control, so I recommend adding `/.tap` to your
 `.gitignore` file.

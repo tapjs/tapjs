@@ -18,7 +18,7 @@ thing. Useful for getting into those hard to trigger code paths.
 // test.mts
 import t from 'tap'
 
-t.test('handls stat failure by throwing', async t => {
+t.test('handles stat failure by throwing', async t => {
   const mockStatSync = (p: string) => {
     t.equal(p, 'filename.txt')
     throw Object.assign(new Error('expected error'), {
@@ -78,14 +78,15 @@ rest of it intact.
 This function makes it easy to do that.
 
 ```ts
-import * from 'tap'
+import t from 'tap'
 import * as FS from 'node:fs'
 
 t.test('situation where we get a bogus file descriptor', async t => {
-  const { thing } = await t.mockImport<typeof import('../dist/my-thing.js')>(
-    '../dist/my-thing.js',
-    { 'node:fs': t.createMock(FS, { openSync: () => true }) }
-  )
+  const { thing } = await t.mockImport<
+    typeof import('../dist/my-thing.js')
+  >('../dist/my-thing.js', {
+    'node:fs': t.createMock(FS, { openSync: () => true }),
+  })
   t.throws(() => thing(), {
     // imagine this is the error we get for some reason
     message: 'got non-numeric file descriptor: true',
@@ -95,10 +96,12 @@ t.test('situation where we get a bogus file descriptor', async t => {
 
 ## Loader
 
-The `t.mockImport()` function relies on the `@tapjs/mock/loader`
-loader being used, which this plugin adds to tap's set of
-loaders.
+The `t.mockImport()` function relies on the `@tapjs/mock/import`
+module (or the `@tapjs/mock/loader` loader on Node.js versions
+without `module.register()`) being used, which this plugin adds
+to tap's set of loaders.
 
 If you run tests directly with node, and they use `t.mockImport`
-then you'll have to include `--loader=@tapjs/mock/loader` to the
-command line arguments ahead of the main script filename.
+then you'll have to include `--import=@tapjs/mock/import` (or
+`--loader=@tapjs/mock/loader`) in the command line arguments
+ahead of the main script filename.

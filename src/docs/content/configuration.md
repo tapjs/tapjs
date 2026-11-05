@@ -29,9 +29,9 @@ locations:
 - The `TAP_RCFILE` environment variable, if this refers to a file
   on disk.
 - A `.taprc` file in the local directory. (That is, `./.taprc`.)
+- A `"tap": { ... }` section in `package.json`.
 - A `taprc` file (no dot) in the local `./config` directory.
   (That is, `./config/taprc`.)
-- A `"tap": { ... }` section in `package.json`.
 
 If a config file is found, but not used, then a warning will be
 printed, to prevent confusing situations where editing an

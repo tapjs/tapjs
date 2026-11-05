@@ -287,7 +287,7 @@ export default jack({
      package must contain either a .taprc file, or a package.json file
      with a "tap" object.
 
-     To see the format used in a .taprc file, run the \`tap dump-config\`
+     To see the format used in a .taprc file, run the \`tap config dump\`
      command with the desired options specified on the command line.
 
      Additionally, all config options that are modified from their defaults
@@ -353,7 +353,7 @@ export default jack({
 
                     Writable streams are instantiated and piped into.
 
-                    React components are rendered using Ink, with \`tap={tap}\`
+                    React components are rendered using Ink, with \`test={tap}\`
                     and \`config={loadedConfig}\` as their properties.
 
                     Built-in test reporters:

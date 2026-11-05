@@ -97,7 +97,7 @@ export interface ReactTestOpts {
   node?: ReactElement
 }
 export const plugin: TapPlugin<ReactTest, ReactTestOpts> = (t, opts) =>
-  new ReactTest(node)
+  new ReactTest(opts.node)
 ```
 
 When loaded, this plugin would make it so that every test may
@@ -242,7 +242,7 @@ import t from 'tap'
 console.log(t.myVal) // 4, not 5
 console.log(t.getFour()) // 4, not 'four'
 console.log(t.getFirstPluginVal()) // 4
-console.log(t.getSecondPluginVal()) // 5
+console.log(t.getSecondPluginValue()) // 5
 ```
 
 While collisions like this are usually not a big deal, this

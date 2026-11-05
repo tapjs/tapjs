@@ -19,7 +19,7 @@ All of the normal Base and Extra options are also allowed.
   stream or Node.js `ReadableStream`. If provided, this will be
   the source of TAP data. Defaults to `process.stdin`.
 
-### `t.stdin([name], [options]): PromiseWithSpawn`
+### `t.stdin([name], [options]): PromiseWithStdin`
 
 Arguments:
 

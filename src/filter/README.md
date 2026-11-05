@@ -59,12 +59,12 @@ series of child tests.
 // test.mts
 import t from 'tap'
 t.test('parent test', t => {
-  t.test('child one', () => {
+  t.test('child one', t => {
     t.test('subtest a', t => t.end())
     t.test('the b test', t => t.end())
     t.end()
   })
-  t.test('child two', () => {
+  t.test('child two', t => {
     t.test('subtest a', t => t.end())
     t.test('the b test', t => t.end())
     t.end()
@@ -92,7 +92,7 @@ t.test('bar', t => t.end())
 
 ### Grep Invert
 
-Specify the `--grep-invert` (or `-i`) flag to invert the matches.
+Specify the `--invert` (or `-i`) flag to invert the matches.
 That is, then the things matching the pattern will _not_ be run,
 and other tests will be.
 
@@ -169,7 +169,7 @@ t.test('so will this, even with --only', t => t.end())
 By default, when a test is skipped with `--grep` or `--only`, a
 skip message is applied, indicating why it was omitted.
 
-This is often desireable, but can be noisy. The
+This is often desirable, but can be noisy. The
 `--filter-quietly` config flag will disable this reporting,
 making filtered tests look like empty passing assertions.
 

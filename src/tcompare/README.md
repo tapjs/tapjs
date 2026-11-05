@@ -46,7 +46,7 @@ console.log(diff)
 */
 ```
 
-- `indent` - String to indent each nested level. Defaults to `'  '`.## METHODS
+## METHODS
 
 Each method corresponds to an exported class. Except for
 `format()` (which returns a string), they all return a `Result`
@@ -86,7 +86,7 @@ object. (That is, `{diff:string, match:boolean}`.)
     equivalent values.
   - If the pattern is a RegExp, cast object to a string, and
     test against the RegExp.
-  - If both are Strings, pass if pattern appears in object. (
+  - If both are Strings, pass if pattern appears in object.
   - If pattern is a function, and object is an instance of that
     function, then pass. (This also applies to Symbol, Number,
     String, etc.)
@@ -119,7 +119,7 @@ The exported classes should usually not be used directly, and
 their implementation details are subject to change as needed
 between versions.
 
-The class heirarchy is:
+The class hierarchy is:
 
 ```
 Format
@@ -134,7 +134,7 @@ Format
 ```
 
 In order to compare or print an object, instantiate one of the
-classes, and call then the `print()` method, which will return
+classes, and then call the `print()` method, which will return
 the diff or formatted value. The `match` boolean property will
 be set after calling `print()`. If the objects match, then the
 returned `diff` will also be an empty string.
@@ -193,7 +193,7 @@ Every method and class can take the following options.
   `['hello']`, these are considered identical, because they result in the same JSX).
 
   If they do not match, then they are still considered a
-  match if their plain object represenatations would be
+  match if their plain object representations would be
   considered a match. So for example, `<x a="b" />` would match
   `<x a={/b|c/} />` for functions where strings can match against
   regular expressions.

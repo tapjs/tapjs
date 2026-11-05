@@ -381,7 +381,7 @@ Object {
       
       Writable streams are instantiated and piped into.
       
-      React components are rendered using Ink, with \`tap={tap}\` and \`config={loadedConfig}\` as their properties.
+      React components are rendered using Ink, with \`test={tap}\` and \`config={loadedConfig}\` as their properties.
       
       Built-in test reporters:
       

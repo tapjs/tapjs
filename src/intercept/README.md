@@ -1,7 +1,7 @@
 # `@tapjs/intercept`
 
 A default tap plugin for doing object/global property/method
-interception and observing. These are sometimes refered to as
+interception and observing. These are sometimes referred to as
 "spy" or "mock" methods (though the term "mock" is extremely
 overloaded, and in tap is usually used to refer to [dependency
 injection mocking](https://node-tap.org/plugins/mock)).
@@ -44,7 +44,7 @@ t.test('capture with an implementation', t => {
     },
     { message: 'thrown from stub' }
   )
-  t.match(results(), { args: ['the number is', 3], threw: true })
+  t.match(results(), [{ args: ['the number is', 3], threw: true }])
   t.end()
 })
 
@@ -65,9 +65,13 @@ t.test('intercept a property set/get', t => {
   // it at the end of the test.
   // If a value is provided, then we still actually set to a
   // setter/getter so that we can track accesses.
-  const results = t.intercept(process, 'version', {
-    value: '1.2.3',
-  })
+  // strictMode is false, so the failed set does not throw.
+  const results = t.intercept(
+    process,
+    'version',
+    { value: '1.2.3' },
+    false,
+  )
   t.equal(process.version, '1.2.3')
   process.version = '2.4.6'
   // we didn't make it writable, so this didn't do anything.
@@ -82,6 +86,7 @@ t.test('intercept a property set/get', t => {
     },
     { receiver: process, type: 'get', value: '1.2.3', success: true },
   ])
+  t.end()
 })
 ```
 
@@ -92,7 +97,7 @@ t.test('intercept a property set/get', t => {
   `results.restore()` will restore the method to its original
   state.
 
-- `t.capture(obj, method, implementation = () => {}): CaptureResultFunction`
+- `t.capture(obj, method, implementation = () => {}): CaptureResultsMethod`
 
   Replaces `obj[method]` with the supplied implementation.
 
@@ -109,7 +114,7 @@ t.test('intercept a property set/get', t => {
   Returned method also has a `calls` array which contains the
   results.
 
-- `t.intercept(obj, property, desc?: PropertyDescriptor, strictMode: boolean = true): InterceptResultsFunction`
+- `t.intercept(obj, property, desc?: PropertyDescriptor, strictMode: boolean = true): InterceptResultsMethod`
 
   Similar to `t.capture()`, but can be used to track get/set
   operations for any arbitrary property. The results function
@@ -121,7 +126,7 @@ t.test('intercept a property set/get', t => {
     set.
   - `at` call site where the get/set occurred.
   - `threw` whether or not the call threw.
-  - `success` whether or not the call was sucessful.
+  - `success` whether or not the call was successful.
 
 - `t.captureFn(original: (...a:any[]) => any): WrappedFunction`
 

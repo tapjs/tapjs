@@ -10,7 +10,7 @@ down automatically, but you can also of course call
 
 Also adds a `sinon` property to the test config, which can be
 used to configure the sinon property. If no config is specified,
-then it uses `sinon.defaultConfig`, which enables everything.
+then it uses `sinon.defaultConfig` with `useFakeTimers: false`.
 
 ## Installation
 
@@ -84,7 +84,7 @@ By default, this library sets `{ useFakeTimers: false }` in the
 options to avoid this. You can enable fake timers in a given test
 by setting it in the `sinon` option as shown in the examples
 above, but note that it can only be used in a single place in a
-test heirarchy.
+test hierarchy.
 
 For example:
 

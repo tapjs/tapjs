@@ -28,7 +28,7 @@ All of the normal Base and Extra options are also allowed.
 - `exitCode` (internal) - Set on exit. The exit code of the
   process, or null if terminated with a signal.
 - `signal` (internal) - Set on exit. Terminating signal, or null
-  of not terminated with a signal.
+  if not terminated with a signal.
 
 ### `t.spawn(cmd, [args], [options], [name]): PromiseWithSpawn`
 

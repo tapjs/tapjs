@@ -49,7 +49,7 @@ export interface SpawnOpts extends BaseOpts {
    */
   exitCode?: number | null
   /**
-   * Set on exit. Terminating signal, or null of not terminated with a
+   * Set on exit. Terminating signal, or null if not terminated with a
    * signal.
    *
    * @internal

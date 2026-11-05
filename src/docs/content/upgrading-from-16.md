@@ -95,7 +95,7 @@ To replay the entire previous test run without actually running
 tests (ie, just report the results again), you can run `tap
 replay`.
 
-## `test-regexp`, `test-ignore` RegExp -> `include`, `exclude` globs
+## `test-regex`, `test-ignore` RegExp -> `include`, `exclude` globs
 
 Globs are usually a more ergonomic mechanism for specifying files
 and folders, compared with regular expressions. Tap v18 now
@@ -194,8 +194,9 @@ Options related to `nyc` are removed, as nyc is no longer
 used.
 
 The options `--expose-gc`, `--harmony`, `--debug`, and
-`--debug-brk` are remoed, as they are extraneous with
-`--node-arg`.
+`--debug-brk` are no longer passed to node, as they are
+extraneous with `--node-arg`. (`--debug` now turns on debug
+output from tap itself.)
 
 The `--libtap-settings` option is removed, as libtap is no longer
 used.

@@ -110,7 +110,7 @@ export default (testFile) => testFile.replace(/^test/, 'src')
 
 Then, if you put this in your `.taprc` file, it will ensure that
 _only_ the test for a given unit will provide coverage for that
-module, gauranteeing that you are not relying on accidental
+module, guaranteeing that you are not relying on accidental
 coverage:
 
 ```yaml
@@ -226,10 +226,9 @@ You can use the following options to facilitate this unusual
 situation:
 
 * `--disable-coverage` Prevent tap from generating code coverage.
-  This will make the test run fail unless
-  `--allow-missing-coverage` is set, because the coverage will
-  always be missing.
-* `--allow-missing-coverage` Do not fail if no coverage was
+  This also sets `--allow-empty-coverage` by default, because the
+  coverage will always be missing.
+* `--allow-empty-coverage` Do not fail if no coverage was
   generated. Note that it _will_ still fail if _incomplete_
   coverage is generated, unless `--allow-incomplete-coverage` is
   also set.

@@ -191,7 +191,7 @@ generate coverage reports.
 Missing coverage means that you are relying on untested code, so
 this is treated as a test failure. If you have some bit of code
 which is actually _impossible_ to test for some reason, wrap it
-in the appropriate `/* c8 ignore start */` / `/* c8 ignore end
+in the appropriate `/* c8 ignore start */` / `/* c8 ignore stop
 */` comments to exclude those lines from the analysis. But think
 carefully about whether that's really the case. Usually, if you
 have to coverage-ignore something, it's a sign that you need to

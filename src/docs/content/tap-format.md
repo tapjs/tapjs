@@ -83,7 +83,7 @@ the TAP format. A test point consists of 4 things:
 
 1. Either `ok` or `not ok`. This is required. It specifies
    whether the test point is a pass or a fail.
-2. A optional numeric identifier. This is a check to ensure that
+2. An optional numeric identifier. This is a check to ensure that
    test points are correctly ordered, and that the output is
    reasonable. `tap` does not let you set this number explicitly.
    It assigns test point IDs based on its own internal counter.
@@ -156,7 +156,7 @@ the callback function.
 Diagnostics can be used to provide additional details about a
 test point. They are a YAML object indented by 2 spaces, starting
 with `---` and ending with `...`. YAML diagnostics are associated
-with the preceeding test point.
+with the preceding test point.
 
 ```tap
 TAP version 13
@@ -239,7 +239,7 @@ ok 3 - because garbage data is allowed in non-strict mode
 1..3
 ```
 
-Set pragms in `tap` by doing `t.pragma({ keys: values, ... })`.
+Set pragmas in `tap` by doing `t.pragma({ keys: values, ... })`.
 The object can contain any number of keys, but only `strict` has
 any meaning to `tap` itself.
 

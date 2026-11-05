@@ -82,8 +82,14 @@ npm start
 - [`@tapjs/run`](https://github.com/tapjs/tapjs/tree/main/src/run)
   The command line runner
 - [tcompare](https://github.com/tapjs/tapjs/tree/main/src/tcompare)
-  The library that does comparison and object formatting (use
+  The library that does comparison and object formatting (used
   heavily by `@tapjs/asserts` methods).
+- [`@tapjs/reporter`](https://github.com/tapjs/tapjs/tree/main/src/reporter)
+  The [Ink](https://github.com/vadimdemedes/ink) based reporters
+  for tap's test output.
+- [`@tapjs/error-serdes`](https://github.com/tapjs/tapjs/tree/main/src/error-serdes)
+  Port of node's `error_serdes.js`, used to stream `node:test`
+  messages.
 - [`@tapjs/stack`](https://github.com/tapjs/tapjs/tree/main/src/stack)
   Library for capturing stack frames, the descendant of
   `stack-utils`.
@@ -123,9 +129,15 @@ npm start
   - [`@tapjs/filter`](https://github.com/tapjs/tapjs/tree/main/src/filter)
     Adds `t.only()` and support for the `--grep` and `--only` cli
     options.
+  - [`@tapjs/chdir`](https://github.com/tapjs/tapjs/tree/main/src/chdir)
+    Adds `t.chdir()`
+  - [`@tapjs/node-serialize`](https://github.com/tapjs/tapjs/tree/main/src/node-serialize)
+    Serializes test output for the `node --test` runner
+  - [`@tapjs/worker`](https://github.com/tapjs/tapjs/tree/main/src/worker)
+    Adds `t.worker()`
 - optional plugins:
   - [`@tapjs/nock`](https://github.com/tapjs/tapjs/tree/main/src/nock)
-    Optional plugin providing `t.nock()` method (descendent of
+    Optional plugin providing `t.nock()` method (descendant of
     `@npmjs/tap-nock`, and a significant inspiration for tap's
     plugin architecture)
   - [`@tapjs/clock`](https://github.com/tapjs/tapjs/tree/main/src/clock)
@@ -135,14 +147,28 @@ npm start
     Optional plugin providing a [Sinon](https://sinonjs.org)
     sandbox at `t.sinon` that automatically restores at the end
     of the test.
-  - [`@tapjs/esbuild-kit`](https://github.com/tapjs/tapjs/tree/main/src/esbuild-kit)
+  - [`@tapjs/tsx`](https://github.com/tapjs/tapjs/tree/main/src/tsx)
     Optional plugin that loads TypeScript using
+    [`tsx`](https://github.com/privatenumber/tsx) instead of
+    [`ts-node`](https://github.com/TypeStrong/ts-node).
+  - [`@tapjs/esbuild-kit`](https://github.com/tapjs/tapjs/tree/main/src/esbuild-kit)
+    Deprecated in favor of `@tapjs/tsx`. Optional plugin that loads TypeScript using
     [`@esbuild-kit/cjs-loader`](https://github.com/esbuild-kit/cjs-loader)
     and
     [`@esbuild-kit/esm-loader`](https://github.com/esbuild-kit/esm-loader)
     instead of
     [`ts-node`](https://github.com/TypeStrong/ts-node).
+  - [`@tapjs/synonyms`](https://github.com/tapjs/tapjs/tree/main/src/synonyms)
+    Optional plugin that adds aliases for the `@tapjs/asserts`
+    methods.
+  - [`@tapjs/mocha-globals`](https://github.com/tapjs/tapjs/tree/main/src/mocha-globals)
+    Optional plugin that adds Mocha-like BDD and TDD functions to
+    the global environment.
 - other stuff:
+  - [`@tapjs/docs`](https://github.com/tapjs/tapjs/tree/main/src/docs)
+    The content for [node-tap.org](https://node-tap.org)
+  - [`@tapjs/dummy-plugin`](https://github.com/tapjs/tapjs/tree/main/src/dummy-plugin)
+    An example plugin used to test tap itself.
   - [npm-init-template](https://github.com/tapjs/tapjs/tree/main/src/npm-init-template)
     A library for more easily creating `npm init` packages. This
     will move out as soon as this version of tap is published.

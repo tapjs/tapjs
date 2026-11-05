@@ -11,7 +11,7 @@ exporting special values on known named exports. It can do so in
 any or all of the following ways.
 
 All of the fields are optional, but at least one of `plugin`,
-`loader`, or `config` _must_ be exported.
+`loader`, `importLoader`, or `config` _must_ be exported.
 
 ## Managing Plugins
 
@@ -67,7 +67,7 @@ For example, a very simple "hello, world" plugin:
 ```ts
 import { TapPlugin, TestBase } from '@tapjs/core'
 export interface HelloSayer {
-  hello: (who?: string) => string
+  hello: (who?: string) => void
 }
 export const plugin: TapPlugin<HelloSayer> = (t: TestBase) => {
   return {
@@ -156,7 +156,7 @@ this will be added to the set of file types that tap loads by
 default.
 
 For example, the `@tapjs/typescript` plugin uses this to
-advertise that it makes tap able to load `ts` and `jsx` files.
+advertise that it makes tap able to load `ts`, `cts`, `mts`, `tsx`, and `jsx` files.
 
 Generally, you'd do this when also adding a loader, since adding
 file types that node doesn't already know how to run won't work.
@@ -165,8 +165,8 @@ file types that node doesn't already know how to run won't work.
 
 - Plugins must be able to be loaded both with `require()` and
   `import()`.
-- Plugins must export at least one of `loader`, `plugin`, or
-  `config`.
+- Plugins must export at least one of `loader`,
+  `importLoader`, `plugin`, or `config`.
 - Plugins _should_ be written in TypeScript, or failing that,
   provide complete type information so that users' tests can
   infer the types of added properties and methods appropriately.
@@ -225,6 +225,6 @@ import t from 'tap'
 console.log(t.myVal) // 4, not 5
 console.log(t.getFour()) // 4, not 'four'
 console.log(t.getFirstPluginVal()) // 4
-console.log(t.getSecondPluginVal()) // 5
+console.log(t.getSecondPluginValue()) // 5
 ```
 

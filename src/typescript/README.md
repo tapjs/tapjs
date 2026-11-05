@@ -12,7 +12,9 @@ When enabled, this plugin does the following things:
 
 - adds `ts`, `tsx`, `cts`, `mts`, and `jsx` to the file
   extensions that tap will load.
-- adds `ts-node/esm` to the loader set.
+- adds a ts-node based loader (`@tapjs/typescript/import`, or
+  `@tapjs/typescript/esm` on Node.js versions without
+  `module.register()`) to the loader set.
 - adds the `typecheck` config flag, which is `false` by default
 - adds the `tsconfig` config option, for specifying a project
   config for your tests to use.
@@ -50,3 +52,9 @@ or via the `tap config set <key>=<value>` command.
   loading TypeScript tests. Defaults to the first of these found,
   if present: `tsconfig.tap.json`, `tsconfig.test.json`,
   `tsconfig.spec.json`, `tsconfig.json`.
+
+- `type-strip-only` Do not compile or type check test files.
+  Use Node's built-in type stripping instead. This is faster, but
+  limits the TypeScript features you can use. It overrides
+  `typecheck` and `tsconfig`. Only supported on Node 22 and
+  higher.

@@ -11,10 +11,11 @@ that will be the initial location that tap looks for
 configuration values.
 
 If that's not set, then tap will look for configuration data
-first in a .taprc file in the project root, and then in the "tap"
-object in the project package.json file. ('Project root' means
-the nearest folder at or above the current working directory
-containing package.json, .taprc, or .git.)
+first in a .taprc file in the project root, then in the "tap"
+object in the project package.json file, and then in a
+config/taprc file. ('Project root' means the nearest folder at or
+above the current working directory containing package.json,
+.taprc, config/taprc, or .git.)
 
 The config object may set any of the following fields, as well as
 the special "extends" field, which may specify either a package
@@ -26,12 +27,12 @@ be read as the base configuration object. (It may also extend yet
 another config file, and so on.)
 
 If the "extends" field specifies a package name, then it must be
-resolveable in the `node_modules` folder of the file extending
+resolvable in the `node_modules` folder of the file extending
 it. That package must contain either a .taprc file, or a
 package.json file with a "tap" object.
 
 To see the format used in a .taprc file, run the `tap
-dump-config` command with the desired options specified on the
+config dump` command with the desired options specified on the
 command line.
 
 Additionally, all config options that are modified from their

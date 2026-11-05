@@ -70,7 +70,7 @@ generating test results.
 ### Handling Timeout Signals
 
 When a test subprocess or worker thread times out, the parent
-test runner sends a an IPC message indicating that it's timed
+test runner sends an IPC message indicating that it's timed
 out. If that fails to cause the test to exit, then the process is
 killed more forcibly. The root `TAP` object is what listens to
 this signal.
