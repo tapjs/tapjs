@@ -34,8 +34,9 @@ is the default export of the `tap` package. It is a
 the same assertions, methods, and so on, plus a few additional
 features.
 
-These process registrations are triggered when the root test
-pipes to `stdout`, or by calling
+Process registrations (the uncaughtException handler, timeouts,
+and so on) are triggered when the root test pipes to `stdout`, or
+by calling
 [`t.register()`](https://tapjs.github.io/tapjs/classes/_tapjs_core.tap.TAP.html#register)
 explicitly. If it never does that, then none of these hooks are
 applied.

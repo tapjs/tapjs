@@ -30,8 +30,9 @@ The source of truth is `scripts/default-plugins.txt`. As of
 The root `README.md` package list must match `src/`. Update it
 when you add or remove a package.
 
-Docs pages in `src/docs/content/plugins/` are missing for `chdir`,
-`stdin`, and `tsx` (as of 2026-11-04). The nav comes from the
+Each plugin needs a page in `src/docs/content/plugins/`. The page
+is a stub that pulls in the package README with
+`[[README-INCLUDE=@tapjs/<name>]]`. The nav order comes from the
 `eleventyNavigation` front matter on each page.
 
 ## Optional plugins
