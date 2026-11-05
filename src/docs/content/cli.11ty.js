@@ -31,7 +31,7 @@ module.exports = class {
         if (code || signal) {
           return rej(
             Object.assign(new Error(Buffer.concat(err).toString())),
-            { code, signal }
+            { code, signal },
           )
         }
         res(Buffer.concat(out).toString())

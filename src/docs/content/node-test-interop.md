@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 45
 ---
 
-> *tl;dr* - Use the `tap` runner to run tests written with
+> _tl;dr_ - Use the `tap` runner to run tests written with
 > `node:test` or run `tap` tests with `node --test` and it Just
 > Works with full interoperability. Mix and match how you see
 > fit.
@@ -28,13 +28,13 @@ npm install
 npm test # run both with tap, and both with node --test
 ```
 
-* `npm run test:node` Executes both test suite files with the
+- `npm run test:node` Executes both test suite files with the
   `node --test` runner.
-* `npm run test:tap` Execute both test suite files with the
+- `npm run test:tap` Execute both test suite files with the
   `tap` runner.
-* `npm run test:mix` Run the node test with node, the tap test
+- `npm run test:mix` Run the node test with node, the tap test
   with tap, sharing a coverage folder.
-* `npm run test:cross` Run the node test with tap, the tap test
+- `npm run test:cross` Run the node test with tap, the tap test
   with node, sharing a coverage folder.
 
 The `test:mix` and `test:cross` show using the `node --test` and
@@ -228,7 +228,6 @@ Running with `tap`:
 
 <span style="color:#b2b2b2;background:#222222"># { total: 22, pass: 17, fail: 5 }</span>
 <span style="color:#b2b2b2;background:#222222"># time=459.924ms</span></pre>
-
 
 Running with `node --test`:
 

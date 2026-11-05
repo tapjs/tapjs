@@ -8,7 +8,7 @@ eleventyNavigation:
 ## 21.8
 
 - Keep the `time` tag on stored test results, so that `tap
-  replay` can report the actual time a subtest took to run.
+replay` can report the actual time a subtest took to run.
 
 ## 21.7
 
@@ -34,7 +34,7 @@ eleventyNavigation:
   testing functions do not print differently. Especially, this
   means that the output for `undefined` and `null` will be
   meaningfully distinguishable from missing properties in these
-  cases. When objects differ *only* by object identity, a comment
+  cases. When objects differ _only_ by object identity, a comment
   is appended to the diff to indicate this.
 
 ## 21.4
@@ -126,7 +126,7 @@ eleventyNavigation:
 - Add `shell: true` when spawning npm, for windows' benefit
 - Fix bootstrap ci loader on node versions lacking `--import`
 - Always initialize `t.context`, so that `t.context.field =
-  value` works even if no initial context object was provided
+value` works even if no initial context object was provided
 - Late-bind `t.context`, so that it can be mutated in async
   `before` methods and still preserved. `t.context` is now set
   when the test actually runs, not when the Test object is

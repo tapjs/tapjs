@@ -5,8 +5,9 @@ eleventyNavigation:
   parent: Docs
   order: 11
 ---
+
 For the most part, tap tests are run in a [normal node
-environment](/#test-files-are-%22normal%22-programs-(mostly)). If you just
+environment](</#test-files-are-%22normal%22-programs-(mostly)>). If you just
 write your tests in JavaScript, and don't rely on any
 functionality provided by loaders, then you can always run `node
 test.js` and have it Just Work, albeit without the pretty
@@ -30,22 +31,22 @@ collect [test coverage](./coverage.md), then a loaders are
 required to provide that functionality.
 
 When executed by the [runner](./cli.11ty.js), tap will add the
-appropriate loaders for you.  To run them manually, you can
+appropriate loaders for you. To run them manually, you can
 specify them with the `--import` Node.js argument. (On Node.js
 versions without `module.register()`, use `--loader` and the
 `loader` paths in parentheses below.)
 
-* TypeScript support is provided by `--import
-  @tapjs/typescript/import` (`@tapjs/typescript/esm`), which is
+- TypeScript support is provided by `--import
+@tapjs/typescript/import` (`@tapjs/typescript/esm`), which is
   added by the [`@tapjs/typescript`
   plugin](./plugins/typescript.md). (The optional `@tapjs/tsx`
   plugin can be used in place of `@tapjs/typescript`, if you
   prefer that one.)
-* Import mocking is provided by `--import @tapjs/mock/import`
+- Import mocking is provided by `--import @tapjs/mock/import`
   (`@tapjs/mock/loader`), which is added by the [`@tapjs/mock`
   plugin](./plugins/mock.md).
-* Code coverage is provided by `--import
-  @tapjs/processinfo/import` (`@tapjs/processinfo/loader`),
+- Code coverage is provided by `--import
+@tapjs/processinfo/import` (`@tapjs/processinfo/loader`),
   which is built into tap core.
 
 Other plugins can provide whatever loaders they like, and the tap
@@ -71,7 +72,7 @@ to force raw uncolored TAP output for debugging.
 
 Every child process that the tap CLI spawns will be given a
 unique `TAP_CHILD_ID`. This is also visible on the root `TAP`
-object's `t.options.childId` property.  If the environment
+object's `t.options.childId` property. If the environment
 variable is not set, then `t.options.childId` will be `0`.
 
 This is provides a way for test processes to have a unique

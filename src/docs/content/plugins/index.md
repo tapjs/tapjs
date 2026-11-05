@@ -32,7 +32,7 @@ your `.taprc` file will be updated to:
 
 ```yaml
 plugin:
-  - "!@tapjs/typescript"
+  - '!@tapjs/typescript'
 ```
 
 ## Rebuilding the `Test` Class
@@ -73,7 +73,7 @@ export const plugin: TapPlugin<HelloSayer> = (t: TestBase) => {
   return {
     hello: (who: string = 'world') => {
       console.error(`${t.name} says "Hello, ${who}!"`)
-    }
+    },
   }
 }
 ```
@@ -227,4 +227,3 @@ console.log(t.getFour()) // 4, not 'four'
 console.log(t.getFirstPluginVal()) // 4
 console.log(t.getSecondPluginValue()) // 5
 ```
-

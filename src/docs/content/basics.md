@@ -37,9 +37,13 @@ t.test('this is a child test', t => {
   t.fail('this fails')
   t.ok(myThing, 'this passes if truthy')
   t.equal(myThing, 5, 'this passes if the values are equal')
-  t.match( myThing, {
-    property: String,
-  }, 'this passes if myThing.property is a string')
+  t.match(
+    myThing,
+    {
+      property: String,
+    },
+    'this passes if myThing.property is a string',
+  )
   // call this when you're done
   t.end()
 })
@@ -369,19 +373,27 @@ and focus on your code.
 import t from 'tap'
 
 // this is fine
-t.test('unixy thing', {
-  skip: process.platform === 'win32' ? 'unix only' : false,
-}, t => {
-  t.equal(doUnixyThing(), true)
-  t.end()
-})
+t.test(
+  'unixy thing',
+  {
+    skip: process.platform === 'win32' ? 'unix only' : false,
+  },
+  t => {
+    t.equal(doUnixyThing(), true)
+    t.end()
+  },
+)
 
 // this is also fine
-t.test('froblz is the blortsh', {
-  todo: 'froblz not yet implemented',
-}, t => {
-  t.equal(froblz(), 'the blortsh')
-})
+t.test(
+  'froblz is the blortsh',
+  {
+    todo: 'froblz not yet implemented',
+  },
+  t => {
+    t.equal(froblz(), 'the blortsh')
+  },
+)
 ```
 
 If you have a test that _sometimes_ passes, but is flaky, then

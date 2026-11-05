@@ -164,7 +164,6 @@ File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 # { total: 30, pass: 15, fail: 3, todo: 6, skip: 6 }
 # time=437.285ms</span></pre>
 
-
 The included reporters are:
 
 - `base` - Shown above. A moderate level of reporting, clear
@@ -198,7 +197,7 @@ Particularly for the JSON, XML, or Markdown reporters, it can be
 useful to pipe to a file.
 
 To do this, you can set the `--reporter-file` option (shorthand:
-`-f`) to a path on disk.  For example:
+`-f`) to a path on disk. For example:
 
 ```bash
 $ # write the xml to rspec.xml

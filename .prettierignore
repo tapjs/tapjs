@@ -12,3 +12,8 @@
 /src/*/test/**/fixtures
 /src/*/.tap
 /src/*/LICENSE*
+/src/docs/_site
+/src/docs/.netlify
+/src/docs/content/static/Fira_Code_v6
+/src/docs/content/static/opensans
+/src/docs/content/static/prismjs-tomorrow.css

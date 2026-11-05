@@ -35,8 +35,7 @@ strictly required by `tap`, but since some other TAP
 implementations _do_ require it, `tap` always outputs `TAP
 version 14` as the line.
 
-There's no way to set the version in this library. It's always
-14.
+There's no way to set the version in this library. It's always 14.
 
 `tap` will properly consume any TAP stream up to [version
 14](https://testanything.org/tap-version-14-specification.html).

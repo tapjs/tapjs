@@ -29,9 +29,8 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(EleventyRenderPlugin)
   eleventyConfig.addGlobalData(
     'tapVersion',
-    JSON.parse(
-      maybeReadFile(resolve(__dirname, '../tap/package.json'))
-    ).version
+    JSON.parse(maybeReadFile(resolve(__dirname, '../tap/package.json')))
+      .version,
   )
   eleventyConfig.setUseGitIgnore(false)
   eleventyConfig.addPlugin(pluginTOC)
@@ -41,9 +40,7 @@ module.exports = eleventyConfig => {
     'content/static': 'static',
   })
   eleventyConfig.addPassthroughCopy('content/*.{jpg,png,gif}')
-  eleventyConfig.addPassthroughCopy(
-    'content/!(static)/**/*.{jpg,png,gif}'
-  )
+  eleventyConfig.addPassthroughCopy('content/!(static)/**/*.{jpg,png,gif}')
 
   eleventyConfig.setDataDeepMerge(true)
   eleventyConfig.addFilter('json', function (obj) {
@@ -61,17 +58,14 @@ module.exports = eleventyConfig => {
       if (readmeReplacements.has(match[0])) continue
       const rm = md.render(
         maybeReadFile(
-          resolve(
-            require.resolve(`${pkg}/package.json`),
-            '../README.md'
-          )
+          resolve(require.resolve(`${pkg}/package.json`), '../README.md'),
         ).replace(
           /^# [^\n]+\n/,
           `[\`${pkg}\`](https://tapjs.github.io/tapjs/modules/${pkg.replace(
             /[@\/-]/g,
-            '_'
-          )}.html)\n`
-        )
+            '_',
+          )}.html)\n`,
+        ),
       )
       readmeReplacements.set(match[0], rm)
     }
@@ -85,9 +79,7 @@ module.exports = eleventyConfig => {
     if (!content) return content
     const $ = cheerio.load(content)
     // add a self-link on the TOC-ified headings
-    for (const hn of $(
-      'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]'
-    )) {
+    for (const hn of $('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')) {
       const { tabindex, id } = hn.attribs
       if (!tabindex || !id) {
         continue
@@ -95,8 +87,7 @@ module.exports = eleventyConfig => {
       const $hn = $(hn)
       const content = $hn.html()
       $hn.html(
-        content +
-          `<a tabindex="-1" class="selflink" href="#${id}">#</a>`
+        content + `<a tabindex="-1" class="selflink" href="#${id}">#</a>`,
       )
     }
     // return content
@@ -115,7 +106,7 @@ module.exports = eleventyConfig => {
       const m = $h2.html().match(/^From plugin: @tapjs\/([^ <]+)(.*$)/)
       if (!m) continue
       $h2.html(
-        `From plugin: <a href="/plugins/${m[1]}">@tapjs/${m[1]}</a>${m[2]}`
+        `From plugin: <a href="/plugins/${m[1]}">@tapjs/${m[1]}</a>${m[2]}`,
       )
     }
     const prod = /^https:\/\/(www\.)?node-tap(\.org|\.surge\.sh)\//
@@ -131,16 +122,17 @@ module.exports = eleventyConfig => {
       ) {
         continue
       }
-      const file = href.startsWith('/')
-        ? join(__dirname, href)
+      const file =
+        href.startsWith('/') ?
+          join(__dirname, href)
         : resolve(dirname(inputPath), href)
       const rel = relative(contentDir, file)
       const url = join(
         pathPrefix,
         join('/', rel).replace(
           /(?:\/index)?\.(?:md|11ty.js)(#.*)?$/,
-          '/$1'
-        )
+          '/$1',
+        ),
       )
       link.attribs.href = url
     }
@@ -155,8 +147,9 @@ module.exports = eleventyConfig => {
       if (/^https?:/.test(src) || src.startsWith('/')) {
         continue
       }
-      const file = src.startsWith('/')
-        ? join(__dirname, src)
+      const file =
+        src.startsWith('/') ?
+          join(__dirname, src)
         : resolve(dirname(inputPath), src)
       const rel = relative(contentDir, file)
       const url = join(pathPrefix, join('/', rel))

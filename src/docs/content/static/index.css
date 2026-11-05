@@ -9,7 +9,11 @@ a {
   box-sizing: border-box;
 }
 html {
-  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-family:
+    Open Sans,
+    Arial,
+    Helvetica,
+    sans-serif;
   line-height: 1.15;
   background-color: #f8f8f8;
   font-size: 16px;
@@ -38,7 +42,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Trebuchet MS, Arial, Helvetica, sans-serif!important;
+  font-family:
+    Trebuchet MS,
+    Arial,
+    Helvetica,
+    sans-serif !important;
 }
 h1 a.selflink,
 h2 a.selflink,
@@ -513,8 +521,16 @@ body.content main {
 pre,
 code,
 kbd {
-  font-family: Fira Code, Iosevka SS09 Web, Monoid, Jetbrains Mono,
-    DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace !important;
+  font-family:
+    Fira Code,
+    Iosevka SS09 Web,
+    Monoid,
+    Jetbrains Mono,
+    DejaVu Sans Code,
+    Cascadia Code,
+    Victor Mono,
+    Lilex,
+    monospace !important;
 }
 code {
   background: #fff;
@@ -579,18 +595,23 @@ body.not-found main h1 {
   }
 }
 .pagefind-ui__message {
-  color:#666;
+  color: #666;
 }
-.pagefind-ui__message, .pagefind-ui__result-title {
-  font-family: Trebuchet MS, Arial, Helvetica, sans-serif!important;
+.pagefind-ui__message,
+.pagefind-ui__result-title {
+  font-family:
+    Trebuchet MS,
+    Arial,
+    Helvetica,
+    sans-serif !important;
 }
 .pagefind-ui__search-input {
-  line-height: 1rem!important;
-  padding: 0 45px!important;
+  line-height: 1rem !important;
+  padding: 0 45px !important;
   width: 100%;
   border-top: 0 !important;
   border-right: 0 !important;
-  border-radius: 0 0 4px 4px!important;
+  border-radius: 0 0 4px 4px !important;
 }
 
 .pagefind-ui__drawer {
@@ -611,12 +632,12 @@ body.not-found main h1 {
 }
 .pagefind-ui__drawer .pagefind-ui__button:hover {
   background: #dff;
-  border-color: #aaa!important;
+  border-color: #aaa !important;
 }
 @media screen and (max-width: 650px) {
   .pagefind-ui__drawer {
     max-height: calc(100vh - 8rem);
-    padding-bottom: 1rem!important;
+    padding-bottom: 1rem !important;
   }
 }
 @media screen and (max-width: 460px) {
@@ -645,6 +666,7 @@ body.not-found main h1 {
   }
 }
 
-.pagefind-ui__results-area p, .pagefind-ui__results-area ul {
+.pagefind-ui__results-area p,
+.pagefind-ui__results-area ul {
   padding: 0 1rem 1rem !important;
 }

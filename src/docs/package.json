@@ -10,6 +10,7 @@
     "start": "eleventy --serve",
     "prebuild": "rm -rf _site",
     "build": "eleventy",
+    "format": "prettier --write . --log-level warn --ignore-path ../../.prettierignore --cache",
     "postbuild": "bash scripts/after-build.sh",
     "test": "npm run build",
     "predeploy": "npm run build",

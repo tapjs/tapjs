@@ -101,11 +101,11 @@ file, not the built artifact. Then, set that module path as the
 
 For example, you might have source in `src/foo.ts` and
 `src/bar.ts`, with corresponding tests in `test/foo.ts` and
-`test/bar.ts`.  A coverage map might look like this:
+`test/bar.ts`. A coverage map might look like this:
 
 ```js
 // map.mjs
-export default (testFile) => testFile.replace(/^test/, 'src')
+export default testFile => testFile.replace(/^test/, 'src')
 ```
 
 Then, if you put this in your `.taprc` file, it will ensure that
@@ -141,9 +141,10 @@ In that case, we could create a coverage map like this:
 
 ```js
 // map.mjs
-export default (testFile) =>
-  /^test\/integration/.test(testFile) ? null
-  : testFile.replace(/^test/, 'src')
+export default testFile =>
+  /^test\/integration/.test(testFile) ? null : (
+    testFile.replace(/^test/, 'src')
+  )
 ```
 
 ## Handling Impossible Cases
@@ -155,8 +156,10 @@ values, and a `switch` statement that handles all of them.
 
 ```js
 switch (enumValue) {
-  case firstValue: return handleFirstValue()
-  case secondValue: return handleSecondValue()
+  case firstValue:
+    return handleFirstValue()
+  case secondValue:
+    return handleSecondValue()
   // ... all other possible values ...
   default:
     throw new Error('invalid enumValue: ' + enumValue)
@@ -174,8 +177,10 @@ to exclude lines or blocks from coverage consideration.
 
 ```js
 switch (enumValue) {
-  case firstValue: return handleFirstValue()
-  case secondValue: return handleSecondValue()
+  case firstValue:
+    return handleFirstValue()
+  case secondValue:
+    return handleSecondValue()
   // ... all other possible values ...
   /* c8 ignore start */
   default:
@@ -225,14 +230,14 @@ parts of your program.
 You can use the following options to facilitate this unusual
 situation:
 
-* `--disable-coverage` Prevent tap from generating code coverage.
+- `--disable-coverage` Prevent tap from generating code coverage.
   This also sets `--allow-empty-coverage` by default, because the
   coverage will always be missing.
-* `--allow-empty-coverage` Do not fail if no coverage was
+- `--allow-empty-coverage` Do not fail if no coverage was
   generated. Note that it _will_ still fail if _incomplete_
   coverage is generated, unless `--allow-incomplete-coverage` is
   also set.
-* `--allow-incomplete-coverage` Do not fail if the generated
+- `--allow-incomplete-coverage` Do not fail if the generated
   coverage was incomplete. Note that it _will_ still fail if _no_
   coverage was generated, unless `--allow-empty-coverage` is also
   set.

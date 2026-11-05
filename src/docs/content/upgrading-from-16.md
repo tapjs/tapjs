@@ -115,7 +115,7 @@ Would be equivalent in tap v18 to:
 ```yaml
 # tap v18 .taprc file, regexp converted to glob
 include:
-  - "t/*.@([mc][jt]s|[jt]s?(x))"
+  - 't/*.@([mc][jt]s|[jt]s?(x))'
 ```
 
 Tap v18 also provides the special token `__EXTENSIONS__` that can
@@ -127,7 +127,7 @@ and future-proof:
 ```yaml
 # tap v18 .taprc file, using __EXTENSIONS__
 include:
-  - "t/**/*.__EXTENSIONS__"
+  - 't/**/*.__EXTENSIONS__'
 ```
 
 ## Using Alternative Config Files
