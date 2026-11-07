@@ -410,7 +410,8 @@ export class Format {
   }
 
   printDate(): void {
-    this.memo += this.object.toISOString()
+    this.memo +=
+      isNaN(this.object.getTime()) ? 'Invalid Date' : this.object.toISOString()
   }
 
   printRegExp(): void {

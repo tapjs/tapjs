@@ -489,6 +489,11 @@ t.test('format aggregate errors and causes', t => {
   t.end()
 })
 
+t.test('format invalid date', t => {
+  t.equal(format(new Date(NaN)), 'Invalid Date')
+  t.end()
+})
+
 t.test('format Infinity and -Infinity correctly', t => {
   const x = { pos: Infinity, neg: -Infinity }
   t.matchSnapshot(format(x), 'normal style')

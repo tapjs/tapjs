@@ -824,6 +824,26 @@ t.test('valueOf', t => {
   t.end()
 })
 
+t.test('invalid dates', t => {
+  t.equal(compare.same(new Date(NaN), new Date(NaN)).match, true, 'invalid dates match')
+  t.equal(
+    compare.same({ when: new Date(NaN) }, { when: new Date(0) }).match,
+    false,
+    'invalid and valid dates mismatch',
+  )
+  t.equal(
+    compare.strict({ when: new Date(0) }, { when: new Date('nope') }).match,
+    false,
+    'strict mismatch on invalid date',
+  )
+  t.equal(
+    compare.has({ when: new Date(NaN) }, { when: new Date(0) }).match,
+    false,
+    'has mismatch on invalid date',
+  )
+  t.end()
+})
+
 t.test('undefined, null, missing', t => {
   const cases: [obj: any, exp: any, ok: boolean][] = [
     [{ a: undefined }, {}, true],

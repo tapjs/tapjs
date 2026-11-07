@@ -114,7 +114,8 @@ export class Same extends Format {
       : typeof a !== 'object' && typeof b !== 'object' && a == b ? true
       : a === b ? true
       : a instanceof Date && b instanceof Date ?
-        a.getTime() === b.getTime()
+        a.getTime() === b.getTime() ||
+        (isNaN(a.getTime()) && isNaN(b.getTime()))
       : (
         typeof a?.valueOf === 'function' &&
         typeof b?.valueOf === 'function' &&
