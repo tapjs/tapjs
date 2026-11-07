@@ -37,7 +37,8 @@ export class Match extends Has {
       : typeof obj === 'string' && typeof pattern === 'string' && pattern ?
         obj.indexOf(pattern) !== -1
       : obj instanceof Date && typeof pattern === 'string' ?
-        obj.getTime() === new Date(pattern).getTime()
+        obj.getTime() === new Date(pattern).getTime() ||
+        (isNaN(obj.getTime()) && isNaN(new Date(pattern).getTime()))
       : pattern === BigInt ? typeof obj === 'bigint'
       : pattern === Buffer ? Buffer.isBuffer(obj)
       : pattern === Function ? typeof obj === 'function'
