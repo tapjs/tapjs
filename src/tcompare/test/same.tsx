@@ -842,3 +842,15 @@ t.test('undefined, null, missing', t => {
   }
   t.end()
 })
+
+t.test('plain object does not match collection', t => {
+  t.notOk(same(t, {}, new Set([1, 2])))
+  t.notOk(same(t, new Set([1, 2]), {}))
+  t.notOk(same(t, {}, new Map([[1, 2]])))
+  t.notOk(same(t, new Map([[1, 2]]), {}))
+  t.notOk(same(t, {}, []))
+  t.notOk(same(t, [], {}))
+  t.notOk(same(t, { 0: 1 }, [1]))
+  t.notOk(same(t, [1], { 0: 1 }))
+  t.end()
+})

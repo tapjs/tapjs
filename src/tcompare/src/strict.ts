@@ -21,7 +21,7 @@ export class Strict extends Same {
       : Buffer.isBuffer(a) && Buffer.isBuffer(b) ? st
       : a instanceof Date && b instanceof Date ? st
       : a instanceof RegExp && b instanceof RegExp ? st
-      : this.isArguments() && !new Format(b).isArguments() ? false
+      : this.isArguments() !== new Format(b).isArguments() ? false
       : (
         a.constructor !== b.constructor &&
         !(

@@ -64,8 +64,9 @@ export class Match extends Has {
       ) ?
         false
         // standard deep matching stuff, same as parent, but not simple.
-      : this.isSet() && !(pattern instanceof Set) ? false
-      : this.isMap() && !(pattern instanceof Map) ? false
+      : this.isSet() !== (pattern instanceof Set) ? false
+      : this.isMap() !== (pattern instanceof Map) ? false
+      : this.isArray() !== new Format(pattern).isArray() ? false
       : typeof pattern === 'function' && typeof obj === 'object' ?
         obj instanceof pattern
       : typeof obj !== 'object' || typeof pattern !== 'object' ? false

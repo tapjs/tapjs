@@ -417,3 +417,12 @@ t.test('undefined, null, missing', t => {
   }
   t.end()
 })
+
+t.test('plain object does not strictly match arguments', t => {
+  const args = (function () {
+    return arguments
+  })(1, 2)
+  t.notOk(strict(t, { 0: 1, 1: 2 }, args))
+  t.notOk(strict(t, args, { 0: 1, 1: 2 }))
+  t.end()
+})
