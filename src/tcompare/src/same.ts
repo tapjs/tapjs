@@ -133,9 +133,9 @@ export class Same extends Format {
           (b.name && b.name !== a.name))
       ) ?
         false
-      : this.isSet() && !new Format(b).isSet() ? false
-      : this.isMap() && !new Format(b).isMap() ? false
-      : this.isArray() && !new Format(b).isArray() ? false
+      : this.isSet() !== new Format(b).isSet() ? false
+      : this.isMap() !== new Format(b).isMap() ? false
+      : this.isArray() !== new Format(b).isArray() ? false
       : Buffer.isBuffer(a) && Buffer.isBuffer(b) ? a.equals(b)
       : a instanceof RegExp && b instanceof RegExp ? this.regexpSame(a, b)
       : 'COMPLEX'

@@ -471,3 +471,10 @@ t.test('diffs of errors with \\n in the message', t => {
   )
   t.end()
 })
+
+t.test('plain object does not match collection', t => {
+  t.notOk(match(t, {}, new Set([1])))
+  t.notOk(match(t, {}, new Map([[1, 2]])))
+  t.notOk(match(t, {}, []))
+  t.end()
+})
