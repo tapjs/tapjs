@@ -35,6 +35,21 @@ plugin:
   - '!@tapjs/typescript'
 ```
 
+### Plugins from a Private Registry
+
+A plugin that is named as a package is looked up and installed
+with the registry configuration that `npm` has for the project.
+If the project's `.npmrc` maps a scope to another registry, for
+example `@acme:registry=https://registry.example.com/`, then
+`@acme/tap-plugin-demo` is found there, just like any other
+dependency in that scope.
+
+The plugins are installed into `.tap/plugins`, which `npm` treats
+as a project of its own, so tap passes the registries of the
+project on to `npm install`. Credentials for the registry have to
+be in the user or global npm config (`~/.npmrc`), because the
+`.npmrc` of the project is not read there.
+
 ## Rebuilding the `Test` Class
 
 The [`Test`

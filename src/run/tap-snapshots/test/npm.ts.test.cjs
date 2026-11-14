@@ -10,6 +10,27 @@ Array [
   Array [
     "npm",
     Array [
+      "config",
+      "get",
+      "registry",
+    ],
+    Object {
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts",
+      "encoding": "utf8",
+      "env": Object {
+        "ok": true,
+      },
+      "shell": false,
+    },
+  ],
+]
+`
+
+exports[`test/npm.ts > TAP > failing commands > install > must match snapshot 2`] = `
+Array [
+  Array [
+    "npm",
+    Array [
       "install",
       "--silent",
       "--log-level=silent",
@@ -86,6 +107,27 @@ Array [
   Array [
     "npm",
     Array [
+      "config",
+      "get",
+      "registry",
+    ],
+    Object {
+      "cwd": "{CWD}/.tap/fixtures/test-npm.ts",
+      "encoding": "utf8",
+      "env": Object {
+        "ok": true,
+      },
+      "shell": false,
+    },
+  ],
+]
+`
+
+exports[`test/npm.ts > TAP > passing commands > install > must match snapshot 2`] = `
+Array [
+  Array [
+    "npm",
+    Array [
       "install",
       "--silent",
       "--log-level=silent",
@@ -93,6 +135,7 @@ Array [
       "--loglevel=error",
       "--no-progress",
       "--no-fund",
+      "--registry=stdout",
       "--save",
       "a",
       "b",
