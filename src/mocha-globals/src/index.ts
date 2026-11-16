@@ -1,6 +1,7 @@
 import { TapPlugin, TestBase, TestBaseOpts } from '@tapjs/core'
 import { at } from '@tapjs/stack'
 import { isPromise } from 'is-actual-promise'
+import { AsyncLocalStorage } from 'node:async_hooks'
 
 import { plugin as AfterPlugin } from '@tapjs/after'
 import { plugin as AfterEachPlugin } from '@tapjs/after-each'
@@ -9,8 +10,9 @@ import { plugin as BeforeEachPlugin } from '@tapjs/before-each'
 
 // the t associated with the current describe() block
 let currentSuite: TestBase | undefined = undefined
-// the t associated with the current it() block
-let currentTest: TestBase | undefined = undefined
+// Async tests may start while their describe() is still declaring siblings.
+// Only calls made from within an it() body belong to its test context.
+const testContext = new AsyncLocalStorage<{ test?: TestBase }>()
 // the root where BDD/TDD interface is mounted
 let rootSuite: TestBase | undefined = undefined
 
@@ -92,14 +94,14 @@ export function it(
     : /* c8 ignore start */ undefined
   /* c8 ignore stop */
   if (typeof nameOrBlock === 'function') block = nameOrBlock
-  const cs = getCurrentSuite()
-  if (!cs) {
-    const er = new Error('must call describe() before calling it()')
+  if (testContext.getStore()) {
+    const er = new Error('it() calls may not be nested')
     Error.captureStackTrace(er, it)
     throw er
   }
-  if (getCurrentTest()) {
-    const er = new Error('it() calls may not be nested')
+  const cs = getCurrentSuite()
+  if (!cs) {
+    const er = new Error('must call describe() before calling it()')
     Error.captureStackTrace(er, it)
     throw er
   }
@@ -114,38 +116,40 @@ export function it(
   const itBlock: TestBlock = block || (() => {})
   /* c8 ignore stop */
   cs.test(name || 'unnamed test', opts, t => {
-    let doneCalled = false
-    let returnedPromise = false
-    let inPromiseReturn = false
-    const done: Done = (er: unknown) => {
-      if (er) t.threw(er)
-      if (returnedPromise && !inPromiseReturn) {
-        const er = new Error('done() called when promise returned')
-        Error.captureStackTrace(er, done)
-        throw er
+    const context: { test?: TestBase } = { test: t }
+    return testContext.run(context, () => {
+      let doneCalled = false
+      let returnedPromise = false
+      let inPromiseReturn = false
+      const done: Done = (er: unknown) => {
+        if (er) t.threw(er)
+        if (returnedPromise && !inPromiseReturn) {
+          const er = new Error('done() called when promise returned')
+          Error.captureStackTrace(er, done)
+          throw er
+        }
+        if (doneCalled) {
+          const er = new Error('done() called multiple times')
+          Error.captureStackTrace(er, done)
+          throw er
+        }
+        doneCalled = true
+        inPromiseReturn = false
+        context.test = undefined
+        t.end()
       }
-      if (doneCalled) {
-        const er = new Error('done() called multiple times')
-        Error.captureStackTrace(er, done)
-        throw er
+      const ret = itBlock.call(t, done)
+      if (isPromise(ret)) {
+        returnedPromise = true
+        return ret.then(() => {
+          inPromiseReturn = true
+          done()
+        })
       }
-      doneCalled = true
-      inPromiseReturn = false
-      currentTest = undefined
-      t.end()
-    }
-    currentTest = t
-    const ret = itBlock.call(t, done)
-    if (isPromise(ret)) {
-      returnedPromise = true
-      return ret.then(() => {
-        inPromiseReturn = true
+      if (itBlock.length === 0 && !doneCalled && !returnedPromise) {
         done()
-      })
-    }
-    if (itBlock.length === 0 && !doneCalled && !returnedPromise) {
-      done()
-    }
+      }
+    })
   })
 }
 
@@ -304,7 +308,7 @@ const getCurrentSuite = () =>
  * Returns `undefined` if the interface is not mounted, or if not in a test
  * currently.
  */
-const getCurrentTest = () => currentTest?.t
+const getCurrentTest = () => testContext.getStore()?.test?.t
 
 /**
  * Return the tap test that the interface is mounted on (by default, the root
