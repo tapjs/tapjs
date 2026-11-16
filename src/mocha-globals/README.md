@@ -25,6 +25,21 @@ TDD/BDD methods provided:
 - `beforeEach(fn)` _(alias: `setup()`)_
 - `afterEach(fn)` _(alias: `teardown()`)_
 
+Lifecycle hooks (`before`, `after`, `beforeEach`, and `afterEach`)
+receive no `done` argument. They can return a promise, or be `async`
+functions, to delay the following test or suite until the hook finishes.
+If a dependency only provides a callback, wrap it in a promise:
+
+```js
+import { setImmediate } from 'node:timers'
+import { before } from '@tapjs/mocha-globals'
+
+before(() => new Promise(resolve => setImmediate(resolve)))
+```
+
+This restriction applies to hooks only; an `it` test body can still use a
+`done` callback instead of returning a promise.
+
 Other useful things that are helpful with these:
 
 ### `tt() => Test`
