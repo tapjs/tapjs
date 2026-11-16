@@ -381,7 +381,7 @@ t.test('captureFn', t => {
     t.strictSame(wrapped.args(), [[2]])
     const obj = { wrapped }
     t.equal(obj.wrapped(), 1)
-    t.equal(wrapped.calls[1]?.receiver, obj)
+    t.equal(wrapped.calls[0]?.receiver, obj)
     t.end()
   })
 
@@ -441,6 +441,18 @@ t.test('captureFn', t => {
     //@ts-expect-error
     c.receiver = { a: 1 }
     c.receiver = m
+    t.end()
+  })
+
+  t.test('resets captured arguments after each call', t => {
+    const fn = (msg: string): string => {
+      return msg.toUpperCase()
+    }
+    const wrapped = t.captureFn(fn)
+    wrapped('hello')
+    wrapped('world')
+    t.strictSame(wrapped.args(), [['hello'], ['world']])
+    t.strictSame(wrapped.args(), [])
     t.end()
   })
 
