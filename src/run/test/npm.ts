@@ -1,8 +1,20 @@
 import { LoadedConfig } from '@tapjs/config'
 import { Cleanup } from 'foreground-child'
-import { SpawnOptions, SpawnSyncOptions } from 'node:child_process'
+import {
+  SpawnOptions,
+  SpawnSyncOptions,
+  SpawnSyncReturns,
+} from 'node:child_process'
 import { resolve } from 'node:path'
 import t from 'tap'
+
+// whatever npm variables the machine running the tests has are not
+// part of what is being tested.
+t.intercept(process, 'env', {
+  value: Object.fromEntries(
+    Object.entries(process.env).filter(([k]) => !/^npm/i.test(k)),
+  ),
+})
 
 // strip off the env, but in the process, verify there's no npm junk
 const deEnv = <T extends any>(o: T): T => {
@@ -12,9 +24,9 @@ const deEnv = <T extends any>(o: T): T => {
   const { env, ...props } = o as Record<string, any>
   if (env) {
     const npmKeys = Object.keys(env).filter(k => /^npm/i.test(k))
-    t.strictSame(
-      npmKeys,
-      ['npm_config_prefix'],
+    t.ok(
+      npmKeys.length === 0 ||
+        (npmKeys.length === 1 && npmKeys[0] === 'npm_config_prefix'),
       'no extra npm keys in env',
     )
   }
@@ -118,7 +130,8 @@ t.test('passing commands', async t => {
     await npmFindCwd(mockConfig.projectRoot)
     t.match(passSpawn(), [])
     await install(['a', 'b'], mockConfig)
-    t.strictSame(passSpawn(), [])
+    // the registry for the project is looked up first
+    t.matchSnapshot(passSpawn())
     t.matchSnapshot(passFG())
   })
   t.test('uninstall', async t => {
@@ -145,7 +158,8 @@ t.test('failing commands', async t => {
     await npmFindCwd(mockConfig.projectRoot)
     t.match(failSpawn(), [])
     await t.rejects(install(['a', 'b'], mockConfig))
-    t.strictSame(failSpawn(), [])
+    // a failed lookup adds nothing to the install command
+    t.matchSnapshot(failSpawn())
     t.matchSnapshot(failFG())
   })
   t.test('uninstall', async t => {
@@ -237,6 +251,94 @@ t.test('npm installs go to workspace root', async t => {
     )
     t.match(failSpawn(), [])
   })
+})
+
+t.test('npm in the project root', async t => {
+  const { npmInProject } = await t.mockImport<
+    typeof import('../dist/esm/npm.js')
+  >('../dist/esm/npm.js', mockPass)
+  t.intercept(process, 'env', {
+    value: {
+      ...process.env,
+      NPM_TOKEN: 'secret',
+      npm_config_prefix: '/somewhere/else',
+      npm_lifecycle_event: 'test',
+    },
+  })
+  passSpawn()
+  const res = npmInProject(['config', 'get', 'registry'], '/the/project')
+  t.match(res, { status: 0 })
+  const [[cmd, args, options]] = passSpawn() as [
+    [string, string[], SpawnSyncOptions],
+  ]
+  t.equal(cmd, process.platform === 'win32' ? 'npm.cmd' : 'npm')
+  t.strictSame(args, ['config', 'get', 'registry'])
+  t.equal(options.cwd, '/the/project')
+  t.equal(options.env?.NPM_TOKEN, 'secret', 'keeps what .npmrc may use')
+  t.equal(options.env?.npm_config_prefix, undefined, 'drops npm junk')
+  t.equal(options.env?.npm_lifecycle_event, undefined, 'drops npm junk')
+})
+
+t.test('registries of the project', async t => {
+  const answers: Record<string, Partial<SpawnSyncReturns<string>>> = {
+    registry: { status: 0, stdout: 'https://npm.example/\n' },
+    '@acme:registry': { status: 0, stdout: 'https://acme.example/\n' },
+    '@unset:registry': { status: 0, stdout: 'undefined\n' },
+    '@null:registry': { status: 0, stdout: 'null\n' },
+    '@empty:registry': { status: 0, stdout: '\n' },
+    '@silent:registry': { status: 0 },
+    '@broken:registry': { status: 1, stdout: 'https://broken.example/' },
+  }
+  const asked: string[] = []
+  const { registryArgs } = await t.mockImport<
+    typeof import('../dist/esm/npm.js')
+  >('../dist/esm/npm.js', {
+    'node:child_process': {
+      spawnSync: (_: string, args: string[]) => {
+        asked.push(String(args[2]))
+        return answers[String(args[2])] ?? { status: 1, stdout: '' }
+      },
+    },
+    'foreground-child': mockPass['foreground-child'],
+  })
+  t.strictSame(registryArgs(['plugin', 'other@1.2.3'], '/project'), [
+    '--registry=https://npm.example/',
+  ])
+  t.strictSame(asked, ['registry'], 'only the default one for unscoped')
+
+  asked.length = 0
+  t.strictSame(
+    registryArgs(
+      [
+        '@acme/one@1.0.0',
+        '@acme/two@2.0.0',
+        '@unset/plugin',
+        '@null/plugin',
+        '@empty/plugin',
+        '@silent/plugin',
+        '@broken/plugin',
+        'plain',
+      ],
+      '/project',
+    ),
+    [
+      '--registry=https://npm.example/',
+      '--@acme:registry=https://acme.example/',
+    ],
+  )
+  t.strictSame(
+    asked,
+    [
+      'registry',
+      '@acme:registry',
+      '@unset:registry',
+      '@null:registry',
+      '@empty:registry',
+      '@silent:registry',
+      '@broken:registry',
+    ],
+    'each scope is asked once',
+  )
 })
 
 t.test('uses the correct npm exe for the platform', async t => {
