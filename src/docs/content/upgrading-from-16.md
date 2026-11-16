@@ -47,6 +47,9 @@ config:
 $ tap config set mocha-globals=true
 ```
 
+The plugin's lifecycle hooks no longer receive a `done` callback.
+[Return a promise from the hook instead](./plugins/mocha-globals.md).
+
 ## Assertion Synonyms
 
 Assertion synonyms (eg, `t.is_not_equal()` instead of `t.not()`)
