@@ -540,7 +540,11 @@ export class Interceptor {
     args: () => OverloadParams<F>[]
   } {
     const calls: CaptureResult<F>[] = []
-    const args = () => calls.map(({ args }) => args)
+    const args = () => {
+      const r = calls.slice()
+      calls.length = 0
+      return r.map(({ args }) => args)
+    }
     return Object.assign(
       function wrapped(this: Receiver<F>, ...args: OverloadParams<F>) {
         const res: CaptureResultBase<F> = {
